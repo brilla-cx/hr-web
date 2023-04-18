@@ -1,8 +1,11 @@
 // /schema/gists-schema.ts
 
+import { FaFeatherAlt } from 'react-icons/fa';
+
 const gists = {
   name: 'gist',
   title: 'Gists',
+  icon: FaFeatherAlt,
   type: 'document',
   fields: [{
     name: 'name',

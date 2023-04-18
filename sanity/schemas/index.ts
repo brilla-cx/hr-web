@@ -1,6 +1,12 @@
 // .schemas/index.ts
-import gists from "./gists-schema";
+import author from "./author-schema";
+import book from "./book-schema";
+import category from "./category-schema";
+import faq from "./faq-schema";
+import gists from "./gist-schema";
+import socialBlog from "./socialBlog-schema";
+import tool from "./tool-schema";
 
-const schemas = [gists];
+const schemas = [gists, author, category,book,faq,socialBlog,tool];
 
 export default schemas;

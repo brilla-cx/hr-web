@@ -3,7 +3,7 @@ import { createClient, groq } from "next-sanity";
 
 export async function getGists() {
     const client = createClient({
-        projectId: 'z3brn81h',
+        projectId: 'smx99abf',
         dataset: 'production',
         apiVersion: '2023-04-17',
     });
