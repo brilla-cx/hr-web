@@ -3,7 +3,7 @@ import { deskTool} from "sanity/desk";
 import schemas from "./sanity/schemas";
 
 const config = defineConfig({
-  projectId: 'z3brn81h',
+  projectId: 'smx99abf',
   dataset: 'production',
   title: 'Hey Rebekah',
   apiVersion: '2023-04-17',
