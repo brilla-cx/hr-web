@@ -1,5 +1,5 @@
 import { defineConfig } from "sanity";
-import { deskTool} from "sanity/desk";
+import { deskTool } from "sanity/desk";
 import schemas from "./sanity/schemas";
 import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import { media } from "sanity-plugin-media";
@@ -24,7 +24,7 @@ const config = defineConfig({
       apiKey: "4Gi7oe0bE9zeStPSMpaqb98SJybKbKTz"
     }),
     openaiImageAsset({
-      API_KEY:"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"
+      API_KEY: "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"
     }),
   ],
   schema: { types: schemas }
