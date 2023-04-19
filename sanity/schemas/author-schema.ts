@@ -2,18 +2,6 @@
 // /schema/author-schema.ts
 
 import { FaUserAstronaut } from "react-icons/fa";
-import minimalPortableText from "./objects/minimalPortableText";
-
-// To validate the beat field, we need to access the primary category
-interface ValidationContext {
-    document: {
-        category: {
-            _ref: string;
-        };
-    };
-}
-
-// ...
 
 const author = {
     name: 'author',
@@ -58,68 +46,56 @@ const author = {
         name: "bio",
         title: "Bio",
         description: "The author's bio, max 255 char. For EEAT.",
-        type: "minimalPortableText",
+        type: 'array',
+        of: [{ type: 'block' }],
+        options: { maxLength: 255, spellcheck: true },
         validation: (Rule: any) =>
-            Rule.required().max(255).warning("Keep it short and sweet there Tolstoy."),
+            Rule.required().warning("Keep it short and sweet there Tolstoy."),
     },
     {
         name: "expertise",
         title: "Expertise",
         description: "EEAT area of expertise. i.e. Rebekah Radice writes about digital marketing, the future of remote-work, and you know—stuff.",
         type: "string",
-        validation: (Rule: any) => Rule.required().max(100).warning('You got a lot of expertise, huh? Keep it short and sweet.'),
+        validation: (Rule: any) => Rule.required().warning('You got a lot of expertise, huh? Keep it short and sweet.'),
     },
     {
         name: "category",
-        title: "Category",
+        title: "Primary Topic",
         description: "The primary topic the author writes about. That means just one Ambreen.",
         type: "reference",
         to: [{ type: "category" }],
-        validation: (Rule: any) => Rule.required().max(1).warning('Limit this to one category, por favor.'),
+        validation: (Rule: any) => Rule.required().warning('Limit this to one category, por favor.'),
     },
     {
         name: "beat",
-        title: "Beat",
+        title: "Beat or Secondary Topics",
         description:
-            "Select one or more other categories the author writes about, other than the primary topic.",
+            "Select one or more other topics the author writes about, other than the primary topic.",
         type: "array",
         of: [
             {
                 type: "reference",
                 to: [{ type: "category" }],
-                _id: "category", // Add this line
+                _id: "category",
             },
         ],
-        validation: (Rule: any) =>
-            Rule.required()
-                .unique()
-                .custom(
-                    (beat: Array<{ _ref: string }>, context: ValidationContext) => {
-                        const primaryCategoryId = context.document.category._ref;
-
-                        // Check if primaryCategoryId exists in the beat array
-                        if (beat.some((category) => category._ref === primaryCategoryId)) {
-                            return "Primary category should not be included in the beat field.";
-                        }
-
-                        return true;
-                    }
-                ),
     },
     {
         name: "credentials",
         title: "Credentials",
         description: "Licenses, credentials etc. for EEAT.",
-        type: "minimalPortableText",
-        validation: (Rule: any) =>
-            Rule.required().max(255).warning('You got a lot of credentials, huh? Keep it short and sweet.'),
+        type: 'array',
+        of: [{ type: 'block' }],
+        options: { maxLength: 300, spellcheck: true },
     },
     {
         name: "appearances",
         title: "Appearances",
         description: "Enter a list of the author's appearances, events, etc. for EEAT.",
-        type: "array",
-        of: [{ type: "string" }],
+        type: 'array',
+        of: [{ type: 'block' }],
+        options: { spellcheck: true },
     },
     {
         name: "linkedin",
@@ -152,4 +128,3 @@ const author = {
 };
 
 export default author;
-export { minimalPortableText };
