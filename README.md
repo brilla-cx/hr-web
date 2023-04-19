@@ -1,6 +1,6 @@
-# Project Title
+# Hey Rebekah Composable Content Cloud
 
-One Paragraph of project description goes here
+Hey Rebekah's composable content cloud is a bespoke solution leveraging Sanity.io, Next.js, Tailwind CSS, and deployed on Vercel. This platform is geared to minimize the number of tools we need to draft, publish, and distribute content to all of the destinations. 
 
 ## Getting Started
 
