@@ -62,18 +62,12 @@ const blockContent = {
                     name: 'alt',
                     type: 'string',
                     title: 'Alternative text',
-                    options: {
-                        isHighlighted: true,
-                    },
                     validation: (Rule: any) => Rule.required(),
                 },
                 {
                     name: 'caption',
                     type: 'string',
                     title: 'Caption',
-                    options: {
-                        isHighlighted: true,
-                    },
                 },
             ],
         },
