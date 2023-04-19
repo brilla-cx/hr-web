@@ -1,6 +1,6 @@
 import Heading, { H1, H4 } from "@/components/ui/typography/heading";
 
-export default function styleGuide() {
+export default function StyleGuide() {
   //Placeholder to create route
   return (
     <div className="px-6 py-24 sm:py-32 lg:px-8">

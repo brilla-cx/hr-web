@@ -1,4 +1,4 @@
-export default function socialBlog() {
+export default function SocialBlog() {
     //Placeholder to create route
     return (
         <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
