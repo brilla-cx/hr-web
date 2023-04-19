@@ -1,4 +1,4 @@
-import Heading, { H1, H4 } from "@/components/ui/typography/heading";
+import { H1, H4 } from '@/components/ui/typography/heading';
 
 export default function StyleGuide() {
   //Placeholder to create route
@@ -15,9 +15,6 @@ export default function StyleGuide() {
         </p>
       </div>
       <div className="mt-10">
-        <Heading as="h1">Title here</Heading>
-        <Heading as="h4">Title here</Heading>
-
         <H1>Title here</H1>
         <H4>Title here</H4>
       </div>

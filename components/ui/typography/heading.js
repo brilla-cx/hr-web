@@ -1,8 +1,3 @@
-export default function Heading({ as = "h2", children }) {
-  const Tag = as;
-  return <Tag>{children}</Tag>;
-}
-
 export function H1({ children }) {
   return <h1>{children}</h1>;
 }
