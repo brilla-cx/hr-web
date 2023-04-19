@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/socialBlog-schema.ts
-
 import { FaArchive } from "react-icons/fa";
 
 const socialBlog = {

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/gists-schema.ts
-
 import { FaFeatherAlt } from 'react-icons/fa';
 
 const gists = {

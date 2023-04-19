@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/tool-schema.ts
-
 import { FaTools } from "react-icons/fa";
 
 const tool = {

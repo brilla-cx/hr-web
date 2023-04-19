@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/book-schema.ts
-
 import { FaBook } from "react-icons/fa";
 
 const book = {

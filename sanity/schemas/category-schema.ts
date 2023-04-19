@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/category-schema.ts
-
 import { FaThList } from "react-icons/fa";
 
 const category = {

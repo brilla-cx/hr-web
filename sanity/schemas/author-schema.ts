@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/author-schema.ts
-
 import { FaUserAstronaut } from "react-icons/fa";
 
 const author = {

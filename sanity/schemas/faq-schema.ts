@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/faq-schema.ts
-
 import { FaQuestion } from "react-icons/fa";
 
 const faq = {

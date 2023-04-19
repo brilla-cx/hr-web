@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/blockContent.ts
-
 import { FaEdit } from "react-icons/fa";
 
 const blockContent = {
