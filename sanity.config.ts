@@ -7,10 +7,9 @@ import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
 import { codeInput } from "@sanity/code-input";
 import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import { dashboardTool, projectUsersWidget } from "@sanity/dashboard";
-import schemas from "./sanity/schemas";
-import HrLogo from "./components/studio/logo/logo";
 import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list";
-
+import schemas from "./sanity/schemas";
+import hrLogo from "./components/studio/logo/logo";
 
 const config = defineConfig({
   projectId: 'smx99abf',
@@ -42,7 +41,7 @@ const config = defineConfig({
   ],
   studio: {
     components: {
-      logo: HrLogo, // Custom logo for Hey Rebekah Studio
+      logo: hrLogo, // Custom logo for Hey Rebekah Studio
     }
   },
   schema: { types: schemas }

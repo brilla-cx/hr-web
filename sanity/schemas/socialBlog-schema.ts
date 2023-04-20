@@ -47,7 +47,7 @@ const socialBlog = {
         to: { type: "author" },
     },
     {
-        name: "featuredImage",
+        name: "image",
         title: "Featured image",
         description: "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
         type: "image",
@@ -149,7 +149,14 @@ const socialBlog = {
         ],
         options: { spellcheck: true },
     },
-    ]
+    ],
+    preview: {
+        select: {
+            title: "name",
+            subtitle: "autor",
+            media: "image",
+        },
+    },
 };
 
 export default socialBlog;

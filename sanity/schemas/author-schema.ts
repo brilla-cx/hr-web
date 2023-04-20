@@ -3,10 +3,10 @@
 import { FaUserAstronaut } from "react-icons/fa";
 
 const author = {
-    name: 'author',
-    title: 'Authors',
+    name: "author",
+    title: "Authors",
     icon: FaUserAstronaut,
-    type: 'document',
+    type: "document",
     groups: [
         {
             name: 'basicInfo',
@@ -152,7 +152,13 @@ const author = {
             validation: (Rule: any) => Rule.uri(),
         },
     ],
+    preview: {
+        select: {
+            title: "name",
+            subtitle: "expertise",
+            media: "image",
+        },
+    },
 };
 
 export default author;
-
