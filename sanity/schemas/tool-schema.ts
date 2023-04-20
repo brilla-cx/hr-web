@@ -85,7 +85,7 @@ const tool = {
             validation: (Rule: any) => Rule.required(),
         },
         {
-            name: 'logo',
+            name: 'image',
             title: "Partner's Logo",
             description: "Upload the partner's logo in SVG format with a transparent background.",
             type: 'image',
@@ -128,6 +128,13 @@ const tool = {
             group: 'meta',
         },
     ],
+    preview: {
+        select: {
+            title: "name",
+            subtitle: "shortDescription",
+            media: "image",
+        },
+    },
 };
 
 export default tool;

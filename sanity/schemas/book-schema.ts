@@ -72,7 +72,7 @@ const book = {
             group: "theGist",
         },
         {
-            name: "featuredImage",
+            name: "image",
             title: "Featured Image",
             type: "image",
             options: {
@@ -107,6 +107,13 @@ const book = {
             group: "meta",
         },
     ],
+    preview: {
+        select: {
+            title: "name",
+            subtitle: "bookAuthor",
+            media: "image",
+        },
+    },
 };
 
 export default book;

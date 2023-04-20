@@ -92,7 +92,7 @@ const gists = {
       group: 'editorialWorkflow',
     },
     {
-      name: "featuredImage",
+      name: "image",
       title: "Featured image",
       description: "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
       type: "image",
@@ -100,15 +100,15 @@ const gists = {
       fields: [
         {
           name: "caption",
-          type: "string",
           title: "Image caption",
           description: "Use this to add your Stable Diffusion prompt or attribute a source.",
+          type: "string",
         },
         {
-          name: "alt",
+          name: "imageAltText",
+          title: "Image Alt Text",
+          description: "E.g. A grumpy looking bald man on a chair.",
           type: "string",
-          title: "Alternative text",
-          description: "E.g. A grumpy looking bald man on a chair."
         }
       ],
       options: {
@@ -197,7 +197,14 @@ const gists = {
       options: { spellcheck: true },
       group: 'writing',
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: "name",
+      subtitle: "author",
+      media: "image",
+    },
+  },
 };
 
 export default gists;
