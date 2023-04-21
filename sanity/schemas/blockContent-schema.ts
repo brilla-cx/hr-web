@@ -38,7 +38,7 @@ const blockContent = {
                                 title: 'URL',
                                 name: 'href',
                                 type: 'url',
-                                validation: (Rule: any) =>
+                                validation: Rule =>
                                     Rule.uri({
                                         allowRelative: true,
                                         scheme: ['https', 'http', 'mailto', 'tel'],
@@ -62,18 +62,12 @@ const blockContent = {
                     name: 'alt',
                     type: 'string',
                     title: 'Alternative text',
-                    options: {
-                        isHighlighted: true,
-                    },
-                    validation: (Rule: any) => Rule.required(),
+                    validation: Rule => Rule.required(),
                 },
                 {
                     name: 'caption',
                     type: 'string',
                     title: 'Caption',
-                    options: {
-                        isHighlighted: true,
-                    },
                 },
             ],
         },

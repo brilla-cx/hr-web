@@ -47,7 +47,7 @@ const socialBlog = {
         to: { type: "author" },
     },
     {
-        name: "featuredImage",
+        name: "image",
         title: "Featured image",
         description: "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
         type: "image",
@@ -113,7 +113,7 @@ const socialBlog = {
                                     title: 'URL',
                                     name: 'href',
                                     type: 'url',
-                                    validation: (Rule: any) =>
+                                    validation: Rule =>
                                         Rule.uri({
                                             allowRelative: true,
                                             scheme: ['https', 'http', 'mailto', 'tel'],
@@ -137,25 +137,26 @@ const socialBlog = {
                         name: 'alt',
                         type: 'string',
                         title: 'Alternative text',
-                        options: {
-                            isHighlighted: true,
-                        },
-                        validation: (Rule: any) => Rule.required(),
+                        validation: Rule => Rule.required(),
                     },
                     {
                         name: 'caption',
                         type: 'string',
                         title: 'Caption',
-                        options: {
-                            isHighlighted: true,
-                        },
                     },
                 ],
             },
         ],
         options: { spellcheck: true },
     },
-    ]
+    ],
+    preview: {
+        select: {
+            title: "name",
+            subtitle: "autor",
+            media: "image",
+        },
+    },
 };
 
 export default socialBlog;
