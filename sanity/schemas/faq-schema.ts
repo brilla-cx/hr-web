@@ -12,7 +12,7 @@ const faq = {
             name: 'question',
             title: 'Question',
             type: 'string',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'answer',
@@ -20,7 +20,7 @@ const faq = {
             type: 'array',
             of: [{ type: 'block' }],
             options: { spellcheck: true },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'faqType',
@@ -35,7 +35,7 @@ const faq = {
                     { title: 'Candidate', value: 'candidate' },
                 ],
             },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
     ],
 };

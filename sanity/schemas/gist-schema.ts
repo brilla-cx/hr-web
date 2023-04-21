@@ -44,7 +44,7 @@ const gists = {
         ],
         layout: "dropdown",
       },
-      validation: (Rule: any) => Rule.required()
+      validation: Rule => Rule.required()
     },
     {
       name: 'name',
@@ -160,7 +160,7 @@ const gists = {
                     title: 'URL',
                     name: 'href',
                     type: 'url',
-                    validation: (Rule: any) =>
+                    validation: Rule =>
                       Rule.uri({
                         allowRelative: true,
                         scheme: ['https', 'http', 'mailto', 'tel'],
@@ -184,7 +184,7 @@ const gists = {
               name: 'alt',
               type: 'string',
               title: 'Alternative text',
-              validation: (Rule: any) => Rule.required(),
+              validation: Rule => Rule.required(),
             },
             {
               name: 'caption',

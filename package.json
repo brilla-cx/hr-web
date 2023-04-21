@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "lint:next": "next lint -- --ignore-path .gitignore"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",

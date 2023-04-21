@@ -28,7 +28,7 @@ const book = {
             title: "Name",
             description: "The title of the book.",
             type: "string",
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "bookDetails",
         },
         {
@@ -43,7 +43,7 @@ const book = {
             title: "Book Author",
             description: "The name of the author of the book.",
             type: "string",
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "bookDetails",
         },
         {
@@ -51,7 +51,7 @@ const book = {
             title: "Book URL",
             description: "The AMZN url to buy the book or similar.",
             type: "string",
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "bookDetails",
         },
         {
@@ -59,7 +59,7 @@ const book = {
             title: "Category",
             type: "reference",
             to: [{ type: "category" }],
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "theGist",
         },
         {
@@ -68,7 +68,7 @@ const book = {
             type: "array",
             of: [{ type: "block" }],
             options: { spellcheck: true },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "theGist",
         },
         {
@@ -78,7 +78,7 @@ const book = {
             options: {
                 hotspot: true,
             },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "meta",
         },
         {
@@ -86,7 +86,7 @@ const book = {
             title: "Image Alt Text",
             type: "string",
             description: "Enter the alternative text for the Featured Image per A11y.",
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "meta",
         },
         {
@@ -97,7 +97,7 @@ const book = {
                 source: "name",
                 maxLength: 96,
             },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
             group: "meta",
         },
         {

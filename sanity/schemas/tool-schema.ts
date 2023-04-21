@@ -33,7 +33,7 @@ const tool = {
             description: "Is the company/maker of the tool a Hey Rebekah partner?",
             type: 'boolean',
             group: 'partnerInfo',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'companyName',
@@ -41,7 +41,7 @@ const tool = {
             description: 'The name of the company that makes the tool. i.e. BRIL.LA, LLC.',
             type: 'string',
             group: 'partnerInfo',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'partnerContactName',
@@ -63,7 +63,7 @@ const tool = {
             description: 'Title of the tool',
             type: 'string',
             group: 'toolInfo',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'slug',
@@ -74,7 +74,7 @@ const tool = {
                 source: 'name',
                 maxLength: 96,
             },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'category',
@@ -82,7 +82,7 @@ const tool = {
             type: 'reference',
             to: [{ type: 'category' }],
             group: 'meta',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'image',
@@ -93,7 +93,7 @@ const tool = {
             options: {
                 hotspot: true,
             },
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'imageAltText',
@@ -101,7 +101,7 @@ const tool = {
             description: "Enter the alternative text for the partner's logo Image per A11y.",
             type: 'string',
             group: 'toolInfo',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'shortDescription',
@@ -109,7 +109,7 @@ const tool = {
             description: 'Write a brief description of the tool. Like super brief.',
             type: 'string',
             group: 'toolInfo',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'hrUse',
@@ -119,7 +119,7 @@ const tool = {
             of: [{ type: 'block' }],
             options: { maxLength: 300, spellcheck: true },
             group: 'toolInfo',
-            validation: (Rule: any) => Rule.required(),
+            validation: Rule => Rule.required(),
         },
         {
             name: 'publishedAt',
