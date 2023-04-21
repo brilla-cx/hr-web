@@ -13,7 +13,7 @@ export default function Button({
   className = "",
   size = "md",
   variant = "primary",
-  href = null,
+  href = "",
   ...rest
 }) {
   const sizeClasses = {
@@ -26,10 +26,6 @@ export default function Button({
   const variantClasses = {
     primary: "bg-pink border-transparent text-black rounded",
     secondary: "bg-white border-black text-black rounded",
-    outline: "border border-red-500 hover:bg-red-100 text-red-500  rounded-md",
-    pill: "border border-red-500 hover:bg-red-100 text-red-500 rounded-full bg-red-50",
-    muted:
-      " border border-zinc-300 rounded-lg shadow hover:bg-zinc-100 focus:ring-zinc-200",
   };
 
   const Tag = href ? Link : "button";

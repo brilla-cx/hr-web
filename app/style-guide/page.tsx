@@ -1,15 +1,8 @@
 import { H1, H2, H3, H4, H5, H6 } from "@/components/ui";
-import {
-  Container,
-  Prose,
-  Button,
-  Badge,
-  Spacer,
-  Blockquote,
-} from "@/components/ui";
+import { Input, Select, Textarea, Button } from "@/components/ui";
+import { Container, Prose, Badge, Spacer, Blockquote } from "@/components/ui";
 
 export default function StyleGuide() {
-  //Placeholder to create route
   return (
     <div className="px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
@@ -207,8 +200,51 @@ export default function StyleGuide() {
                 <Button variant="secondary" size="sm">
                   Button
                 </Button>
+                <Spacer />
+              </div>
+              <div>
+                <Button size="xs">Button</Button>
+                <Spacer />
+                <Button variant="secondary" size="xs">
+                  Button
+                </Button>
+              </div>
+              <div>
+                <Button size="lg">Button</Button>
+                <Spacer />
+                <Button variant="secondary" size="lg">
+                  Button
+                </Button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <H4>Button Links</H4>
+          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+            <Button href="#">Link</Button>
+            <Button href="#" variant="secondary">
+              Link
+            </Button>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <H4>Forms</H4>
+          <div className="border-t pt-6 mt-4  gap-5 flex-wrap items-start">
+            <form action="">
+              <div className="grid gap-5 max-w-lg">
+                <Input name="name" placeholder="First Name" />
+                <Select>
+                  <option value="" disabled>
+                    Choose one..
+                  </option>
+                  <option value="usa">United States</option>
+                </Select>
+                <Textarea placeholder="Message" />
+              </div>
+            </form>
           </div>
         </div>
       </Container>
