@@ -11,6 +11,7 @@ import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list
 import schemas from "./sanity/schemas";
 import hrLogo from "./components/studio/logo/logo";
 import { theme } from 'https://themer.sanity.build/api/hues?preset=pixel-art'
+import { structure } from './src/deskStructure'
 
 const config = defineConfig({
   theme,
@@ -29,7 +30,9 @@ const config = defineConfig({
         projectUsersWidget(),
       ],
     }),
-    deskTool(), // Required for Sanity Studio to work
+    deskTool({
+      structure
+    }),
     scheduledPublishing(), // Required for scheduled publishing to work
     media(), // Required for media library to work
     unsplashImageAsset(), // Add Unsplash as an asset source
