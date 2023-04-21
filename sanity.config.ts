@@ -10,8 +10,10 @@ import { dashboardTool, projectUsersWidget } from "@sanity/dashboard";
 import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list";
 import schemas from "./sanity/schemas";
 import hrLogo from "./components/studio/logo/logo";
+import { theme } from 'https://themer.sanity.build/api/hues?preset=pixel-art'
 
 const config = defineConfig({
+  theme,
   projectId: 'smx99abf',
   dataset: 'production',
   title: 'Hey Rebekah',
