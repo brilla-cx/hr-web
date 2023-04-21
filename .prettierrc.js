@@ -1,9 +1,7 @@
-{
-  "printWidth", 80,
-  "useTabs", false,
-  "tabWidth", 2,
-  "semi", false,
-  "singleQuote", true,
-  "trailingComma", "es5",
-  "bracketSpacing", false
-}
+module.exports = {
+  printWidth: 80,
+  semi: true,
+  singleQuote: false,
+  tabWidth: 2,
+  useTabs: false,
+};

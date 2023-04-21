@@ -28,7 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(poppins.variable, apfelGrotezk.variable)}>
+    <html
+      lang="en"
+      className={cx(
+        "antialiased font-sans text-black",
+        poppins.variable,
+        apfelGrotezk.variable
+      )}
+    >
       <body>{children}</body>
     </html>
   );
