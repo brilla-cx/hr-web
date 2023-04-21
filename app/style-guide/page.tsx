@@ -1,5 +1,12 @@
 import { H1, H2, H3, H4, H5, H6 } from "@/components/ui";
-import { Container, Badge, Spacer } from "@/components/ui";
+import {
+  Container,
+  Prose,
+  Button,
+  Badge,
+  Spacer,
+  Blockquote,
+} from "@/components/ui";
 
 export default function StyleGuide() {
   //Placeholder to create route
@@ -88,6 +95,120 @@ export default function StyleGuide() {
             <Badge variant="secondary" size="sm">
               Secondary small
             </Badge>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <H4>Blockquote</H4>
+          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+            <Blockquote author="Blockquote">
+              This stylesheet is going to help so freaking much.
+            </Blockquote>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <H4>Prose</H4>
+          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+            <Prose>
+              <p>
+                Lorem ipsum dolor sit amet,{" "}
+                <a
+                  href="https://web3templates.com"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  test link
+                </a>{" "}
+                adipiscing elit. Nullam dignissim convallis est. Quisque
+                aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet
+                sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida
+                vehicula, nisl. Praesent mattis, massa quis luctus fermentum,
+                turpis mi volutpat justo, eu volutpat enim diam eget metus.
+                Maecenas ornare tortor. Donec sed tellus eget sapien fringilla
+                nonummy. Mauris a ante. Suspendisse quam sem, consequat at,
+                commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis
+                tellus.
+              </p>
+              <p>Here are the popular list types. </p>
+              <h3>Unordered List</h3>
+              <ol>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ol>
+              <h3>Ordered List</h3>
+              <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ul>
+              <h3>Tables</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Job</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Johnathan</td>
+                    <td>Sr. Developer</td>
+                    <td>Active</td>
+                  </tr>
+                  <tr>
+                    <td>Mary</td>
+                    <td>Designer</td>
+                    <td>Resigned</td>
+                  </tr>
+                  <tr>
+                    <td>Luca Manders</td>
+                    <td>Marketing Lead</td>
+                    <td>Hold</td>
+                  </tr>
+                  <tr>
+                    <td>Evan Spacer</td>
+                    <td>Intern</td>
+                    <td>Pending</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Misc Stuff.</h3>
+              <p>
+                Lorem superscript dolor <strong>subscript</strong> amet,
+                consectetuer <em>adipiscing</em> elit. Nullam dignissim
+                convallis est. Quisque aliquam. cite. Nunc iaculis suscipit dui.
+                Nam sit amet sem. Aliquam libero nisi, <code>&lt;code&gt;</code>{" "}
+                at, tincidunt nec, gravida vehicula, nisl. Praesent mattis,
+                massa quis luctus <u>fermentum</u>, turpis mi volutpat justo, eu
+                volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed
+                tellus eget sapien fringilla <del>nonummy</del>. NBA Mauris a
+                ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat
+                in, nunc. Morbi imperdiet augue quis tellus. AVE
+              </p>
+            </Prose>
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <H4>Buttons</H4>
+          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+            <div className="grid lg:grid-cols-4 gap-10 place-items-center">
+              <div>
+                <Button>Button</Button>
+                <Spacer />
+                <Button variant="secondary">Button</Button>
+              </div>
+              <div>
+                <Button size="sm">Button</Button>
+                <Spacer />
+                <Button variant="secondary" size="sm">
+                  Button
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </Container>
