@@ -25,7 +25,7 @@ const config = defineConfig({
       widgets: [
         documentListWidget({
           title: 'Recently published',
-          query: '*[_type == "gists" && published == true] | order(title asc) [0...10]'
+          query: '*[_type == "post" && published == true] | order(title asc) [0...10]'
         }),
         projectUsersWidget(),
       ],
