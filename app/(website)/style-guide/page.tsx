@@ -1,6 +1,7 @@
 import { H1, H2, H3, H4, H5, H6 } from "@/components/ui";
 import { Input, Select, Textarea, Button } from "@/components/ui";
-import { Container, Prose, Badge, Spacer, Blockquote } from "@/components/ui";
+import { Prose, Badge, Spacer, Blockquote } from "@/components/ui";
+import Container from "@/components/container";
 
 export default function StyleGuide() {
   return (
@@ -109,8 +110,7 @@ export default function StyleGuide() {
                 <a
                   href="https://web3templates.com"
                   rel="noopener"
-                  target="_blank"
-                >
+                  target="_blank">
                   test link
                 </a>{" "}
                 adipiscing elit. Nullam dignissim convallis est. Quisque
