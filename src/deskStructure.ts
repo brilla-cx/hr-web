@@ -1,4 +1,4 @@
-import { FaArchive, FaBook, FaFeatherAlt, FaQuestion, FaThList, FaTools, FaUserAstronaut } from "react-icons/fa";
+import { FaArchive, FaBook, FaFeatherAlt, FaQuestion, FaQuoteLeft, FaThList, FaTools, FaUserAstronaut } from "react-icons/fa";
 
 export const structure = (S) =>
     S.list()
@@ -7,7 +7,7 @@ export const structure = (S) =>
             S.listItem()
                 .title('Posts')
                 .icon(FaFeatherAlt)
-                .child(S.documentTypeList('gist')),
+                .child(S.documentTypeList('post')),
             S.listItem()
                 .title('Books')
                 .icon(FaBook)
@@ -30,6 +30,11 @@ export const structure = (S) =>
                 .title('FAQs')
                 .icon(FaQuestion)
                 .child(S.documentTypeList('faq')),
+            S.listItem()
+                .title('Quotes')
+                .icon(FaQuoteLeft)
+                .child(S.documentTypeList('quote')),
+            S.divider(),
             S.listItem()
                 .title('Rebekah\'s Old Blogs')
                 .icon(FaArchive)
