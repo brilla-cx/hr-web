@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cx } from "@/utils/all";
+import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 import { parseISO, format } from "date-fns";
 import { PhotoIcon } from "@heroicons/react/24/outline";
