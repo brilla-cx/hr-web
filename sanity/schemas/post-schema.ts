@@ -1,20 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// /schema/gists-schema.ts
+// /schema/post-schema.ts
 import { FaFeatherAlt } from 'react-icons/fa';
 
-const gists = {
-  name: 'gist',
-  title: 'Gists',
+const post = {
+  name: 'post',
+  title: 'Posts',
   icon: FaFeatherAlt,
   type: 'document',
+  initialValue: () => ({
+    publishedAt: new Date().toISOString()
+  }),
   groups: [
     {
       name: 'editorialWorkflow',
-      title: 'Edtorial Workflow',
+      title: 'Workflow',
     },
     {
-      name: 'writing',
-      title: 'Writing',
+      name: 'compose',
+      title: 'Compose',
       default: true,
     },
     {
@@ -51,7 +54,7 @@ const gists = {
       title: 'Name',
       description: 'The title of the post.',
       type: 'string',
-      group: 'writing',
+      group: 'compose',
     },
     {
       name: 'slug',
@@ -122,7 +125,7 @@ const gists = {
       type: 'array',
       of: [{ type: 'block' }],
       options: { maxLength: 300, spellcheck: true },
-      group: 'writing',
+      group: 'compose',
     },
     {
       name: 'content',
@@ -195,7 +198,13 @@ const gists = {
         },
       ],
       options: { spellcheck: true },
-      group: 'writing',
+      group: 'compose',
+    },
+    {
+      name: "publishedAt",
+      title: "Published at",
+      type: "datetime",
+      group: 'meta',
     },
   ],
   preview: {
@@ -207,4 +216,4 @@ const gists = {
   },
 };
 
-export default gists;
+export default post;
