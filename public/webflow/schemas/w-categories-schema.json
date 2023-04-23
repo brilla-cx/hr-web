@@ -1,0 +1,152 @@
+{
+  "_id": "63a2fb81bbec1bd2a4202c5f",
+  "lastUpdated": "2023-03-14T19:30:55.627Z",
+  "createdOn": "2022-12-21T12:26:41.251Z",
+  "name": "Categories",
+  "slug": "categories",
+  "singularName": "Category",
+  "fields": [
+    {
+      "name": "Emoji",
+      "slug": "emoji",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "d8b5521c14d0bb9dc723fd9d1f5523b9",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Color",
+      "slug": "color",
+      "type": "Color",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "bc21e075888077ed31a1844a6a77c56f",
+      "validations": {}
+    },
+    {
+      "name": "Sort Order",
+      "slug": "sort-order",
+      "type": "Number",
+      "required": false,
+      "editable": true,
+      "helpText": "",
+      "id": "dba57414677becf5bac0ba68b0a24f77",
+      "validations": {
+        "format": "integer",
+        "precision": 1,
+        "allowNegative": false
+      }
+    },
+    {
+      "name": "OG Image",
+      "slug": "og-image",
+      "type": "Set",
+      "innerType": "ImageRef",
+      "required": false,
+      "editable": true,
+      "helpText": "https://uploads-ssl.webflow.com/639407458bad1a668d048184/63e07a7711b873c84cbdd243_hey-rebekah-og-pink.webp",
+      "id": "2c4adc35089ea16694fb2dff665746cb"
+    },
+    {
+      "name": "Name",
+      "slug": "name",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "52b4b75716b92b1d5f2cd661bdf980c4",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "name": "Slug",
+      "slug": "slug",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "unique": true,
+      "helpText": "",
+      "id": "8f47dd42ee624e7b63ede777981659b0",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    },
+    {
+      "name": "Archived",
+      "slug": "_archived",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "00144eb09159e5e0de87c23a54253ecf",
+      "default": false
+    },
+    {
+      "name": "Draft",
+      "slug": "_draft",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "e6160e3121706814e1fc892e542d7338",
+      "default": false
+    },
+    {
+      "name": "Created On",
+      "slug": "created-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "9e065b21dbdf8910cddef61745ea9bb8"
+    },
+    {
+      "name": "Updated On",
+      "slug": "updated-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "757f17d8890eb616d7e57daefe06abe3"
+    },
+    {
+      "name": "Published On",
+      "slug": "published-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "1026732c4b99f48026fc7b6b38d59b41"
+    },
+    {
+      "name": "Created By",
+      "slug": "created-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "3d147d966a953cc687e252487be869d1"
+    },
+    {
+      "name": "Updated By",
+      "slug": "updated-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "975c431a4d1cfc3f0a4702d34d5b9ece"
+    },
+    {
+      "name": "Published By",
+      "slug": "published-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "5392a1b5894a59aa516061993ff3028e"
+    }
+  ]
+}

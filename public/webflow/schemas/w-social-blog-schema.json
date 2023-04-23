@@ -1,0 +1,227 @@
+{
+  "_id": "64282160bde7a70a6783bc04",
+  "lastUpdated": "2023-04-01T12:19:44.651Z",
+  "createdOn": "2023-04-01T12:19:44.594Z",
+  "name": "Social Blogs",
+  "slug": "social-blog",
+  "singularName": "Social Blog",
+  "fields": [
+    {
+      "name": "WP Content",
+      "slug": "wp-content",
+      "type": "RichText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the old site's body of the main post",
+      "id": "e2592c728ccd826f1b8cbec0f52bc065"
+    },
+    {
+      "name": "WP Excerpt",
+      "slug": "wp-excerpt",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the old site's excerpt text.",
+      "id": "7ed0ebc067ce3bbdbbf54dcde3553b2b",
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "name": "WP Published Date",
+      "slug": "wp-published-date",
+      "type": "Date",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the original published date from WP.",
+      "id": "adf56a1bdca46f3c3acf7abad8253951"
+    },
+    {
+      "name": "WP Image URL",
+      "slug": "wp-image-url",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the featured image from the top of old WP post. This is a text field in case need to grab it from WP.",
+      "id": "186da293936dfd11629b30bc49767b9c",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "WP Image Alt text",
+      "slug": "wp-image-alt-text",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the WP Image Alt Text",
+      "id": "45b6db9576e039c71d30969b72854c59",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "WP Image",
+      "slug": "wp-image",
+      "type": "ImageRef",
+      "required": false,
+      "editable": true,
+      "helpText": "This is a test field to see if the featured image will import from RebekahRadice.com's WP Uploads Folder",
+      "id": "bc9424b734cbfe52c3a1d854a4087a3b"
+    },
+    {
+      "name": "WP Category",
+      "slug": "wp-category",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This should be \"Social Media\" only.",
+      "id": "248e2a3f7ceb8831d5fdedb8990bbdd9",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "WP Yoast SEO Title",
+      "slug": "wp-yoast-seo-title",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the Yoast Plugin Title etc. if any.",
+      "id": "1a94e89a9f9b3e45fc6e35def38dfb6c",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Yoast SEO Meta Description",
+      "slug": "yoast-seo-meta-description",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the WP Yoast SEO Meta Description.",
+      "id": "6d72098f85c68f8c47af0e12c53d30cc",
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "name": "Yoast Reading Time",
+      "slug": "yoast-reading-time",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the Yoast Reading Time from WP.",
+      "id": "313071c98d0645a049eb7f9e924946ae",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Author",
+      "slug": "author",
+      "type": "ItemRef",
+      "required": false,
+      "editable": true,
+      "helpText": "This is only Rebekah Radice.",
+      "id": "bad4f34c3ef115ff6b66a643e674e9fb",
+      "validations": {
+        "collectionId": "640e92876aa303ed22a58952"
+      }
+    },
+    {
+      "name": "Name",
+      "slug": "name",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "id": "aa1dcb6af3f176153d64d7b62e89e66f",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "name": "Slug",
+      "slug": "slug",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "unique": true,
+      "id": "2f4deac47e1d17279a28c33e3dca377f",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    },
+    {
+      "name": "Archived",
+      "slug": "_archived",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "164b6f9e6fb5c395c91c507fe46515bb",
+      "default": false
+    },
+    {
+      "name": "Draft",
+      "slug": "_draft",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "e9f82a6d686cfe310a09377d8671b5c2",
+      "default": false
+    },
+    {
+      "name": "Created On",
+      "slug": "created-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "06fefce1fa68f54d9e5391bb01ada089"
+    },
+    {
+      "name": "Updated On",
+      "slug": "updated-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "3f13cf912f2270127b2f609e56e2f1b4"
+    },
+    {
+      "name": "Published On",
+      "slug": "published-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "23fc55fe6ea6b9875a287cb22300ba0d"
+    },
+    {
+      "name": "Created By",
+      "slug": "created-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "2962bb1ef5393e12cc11c73c1e17bbc6"
+    },
+    {
+      "name": "Updated By",
+      "slug": "updated-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "a1a52206ffcfa5b4a99136830166af90"
+    },
+    {
+      "name": "Published By",
+      "slug": "published-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "08df392aa0c995d4feecf1b156e99d16"
+    }
+  ]
+}

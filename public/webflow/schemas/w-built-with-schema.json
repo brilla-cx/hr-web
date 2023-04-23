@@ -1,0 +1,227 @@
+{
+  "_id": "63aabbad0fc27355d0460215",
+  "lastUpdated": "2023-03-23T05:31:58.793Z",
+  "createdOn": "2022-12-27T09:32:29.278Z",
+  "name": "Built With",
+  "slug": "tools",
+  "singularName": "Built With",
+  "fields": [
+    {
+      "name": "Is partner?",
+      "slug": "is-partner",
+      "type": "Bool",
+      "required": false,
+      "editable": true,
+      "helpText": "If they're a confirmed partner, switch this to yes.",
+      "id": "6fe57ef40f743c694114eca0a07f0532"
+    },
+    {
+      "name": "Category",
+      "slug": "category",
+      "type": "ItemRef",
+      "required": false,
+      "editable": true,
+      "helpText": "Choose the most appropriate category for this tool",
+      "id": "c6fb0f2868eb5066ce8f0c3336f887c9",
+      "validations": {
+        "collectionId": "63a2fb81bbec1bd2a4202c5f"
+      }
+    },
+    {
+      "name": "Tool Logo SVG 150 x 50 Displayed",
+      "slug": "tool-logo-svg",
+      "type": "ImageRef",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "7b35a7754170af08d2485bcb0e962f3a",
+      "validations": {}
+    },
+    {
+      "name": "Tool Logo ALT Text",
+      "slug": "tool-logo-alt-text",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "A black and white logo of [Tool Name]",
+      "id": "0b802954cfec0ecc35c28a58700a5d06",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Short description.",
+      "slug": "short-description",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "Password Manager or Task Management System. A very short description so they get the point.",
+      "id": "d4e2375dfc92a79a58c9f8c036f5b7e3",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Tool Description - In JTBD format",
+      "slug": "tool-description-in-jtbd-format",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "[Tool Name] helps you become [what they're aspiring to be].",
+      "id": "0ef7ff49c7b743231d2db878695d118f",
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "name": "Tool URL",
+      "slug": "tool-url",
+      "type": "Link",
+      "required": false,
+      "editable": true,
+      "helpText": "What's the URL for the tool's home page.  ** Be sure to add ?utm_source=heyrebekah&utm_medium=toolsdirectory",
+      "id": "fafca6ea44ed65a2e607026e6c17ea8a",
+      "validations": {}
+    },
+    {
+      "name": "Get Tool Button Text",
+      "slug": "get-tool-button-text",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "[Power Verb] + [Tool Name] + [Urgency] Get Canva Now",
+      "id": "a0deef4b380b7dc5f9df9dfd6f4c4a42",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "How Hey Rebekah uses it",
+      "slug": "how-hey-rebekah-uses-it-2",
+      "type": "RichText",
+      "required": false,
+      "editable": true,
+      "helpText": "We use [tool name] to do this, that, and this. Ideally in short bullet form. No fluff or BS.",
+      "id": "5d2631dfb429dbba117a721f8334ff72",
+      "validations": {}
+    },
+    {
+      "name": "Hey Rebekah's Discount Code",
+      "slug": "hey-rebekah-s-discount-code",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "If we have a unique discount code set up for this tool, include it here. Case sensitive.",
+      "id": "313d00eff5db4da8b38380d97ec40777",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Meta OG Image",
+      "slug": "meta-og-image",
+      "type": "ImageRef",
+      "required": false,
+      "editable": true,
+      "helpText": "",
+      "id": "9ad053dd41f3d87d716ce78d88bea036",
+      "validations": {}
+    },
+    {
+      "name": "Name",
+      "slug": "name",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "464b6305231382d91175b2b505aca85c",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "name": "Slug",
+      "slug": "slug",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "unique": true,
+      "helpText": "",
+      "id": "907711b7a0b1b6f2bd87c7da1b30de9c",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    },
+    {
+      "name": "Archived",
+      "slug": "_archived",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "6ab1e95d79f0757f7d7a46fa77d6c61a",
+      "default": false
+    },
+    {
+      "name": "Draft",
+      "slug": "_draft",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "f23e88b46f9ffb2ba023502dca61647c",
+      "default": false
+    },
+    {
+      "name": "Created On",
+      "slug": "created-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "a43845e481c96d7e828512f12c6d5dbe"
+    },
+    {
+      "name": "Updated On",
+      "slug": "updated-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "0e14c5f118889885b547bc450bdf9b0b"
+    },
+    {
+      "name": "Published On",
+      "slug": "published-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "930f788c48fcc891941023ab06023da3"
+    },
+    {
+      "name": "Created By",
+      "slug": "created-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "1ebfebda6b2f61a7c749d67eff8394d9"
+    },
+    {
+      "name": "Updated By",
+      "slug": "updated-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "2c0c69c5395dc9a2f8d62c9293b94ae4"
+    },
+    {
+      "name": "Published By",
+      "slug": "published-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "8149e411e5cacfacd531442185ee627e"
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "_id": "641988e6cfaad0434b55dea0",
+  "lastUpdated": "2023-03-21T12:11:42.346Z",
+  "createdOn": "2023-03-21T10:37:26.470Z",
+  "name": "Books",
+  "slug": "books",
+  "singularName": "Book",
+  "fields": [
+    {
+      "name": "Date published",
+      "slug": "date-published",
+      "type": "Date",
+      "required": false,
+      "editable": true,
+      "helpText": "This should match the Beehiiv post date for previous books. For future ones, please set the date to the expected publish date of the email which typically falls on a Monday.",
+      "id": "4bd4a03cfb6b346627888a635302c43d"
+    },
+    {
+      "name": "Book Title",
+      "slug": "book-title",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "The full title of the book as shown on Amazon",
+      "id": "7c9191062769bfb8f94eb52f3c222ba3",
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "name": "Subtitle or Extended Title.",
+      "slug": "subtitle-or-extended-title",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "For shortening really long titles. Like What Got You Here Won't Get You There: How successful people become even more successful. In which case \"How successful people become even more successful\" should be the subtitle added to this field.",
+      "id": "acdea81196439930c788c3e06d8e1ea4",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Book Author",
+      "slug": "book-author",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "The primary author's name",
+      "id": "2fd16c2f67d5e13484a308f06b92f268",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Book Featured Image",
+      "slug": "book-featured-image",
+      "type": "ImageRef",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the main image displayed on the book club page for the book.",
+      "id": "b1756e37292aa675cd2d31c94f57df33",
+      "validations": {}
+    },
+    {
+      "name": "Featured ALT Text",
+      "slug": "featured-alt-text",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "Enter the A11y compliant alternative text here for the Featured Image",
+      "id": "9828edc36c505f002efc8c13424d6a0f",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Book Thumbnail Image",
+      "slug": "book-thumbnail-image",
+      "type": "ImageRef",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the small 350x350px image for when/if the book shows up on lists elsewhere.",
+      "id": "00ea33591d8546f1daaea48119112a6b",
+      "validations": {}
+    },
+    {
+      "name": "Book Thumbnail ALT Text",
+      "slug": "enter-the-a11y-compliant-alternative-text-here-for-the-thumbnail-image",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "Enter the A11y compliant alternative text here for the Thumbnail Image.",
+      "id": "65c2df3bbd04b70cf8d47b8db59508a8",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Book OG Image",
+      "slug": "book-og-image",
+      "type": "ImageRef",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the default OG image for the website. You need to download it from here https://uploads-ssl.webflow.com/639407458bad1a668d048184/63e07a7711b873c84cbdd243_hey-rebekah-og-pink.webp and upload again. I know, Webflow Collections are lame.",
+      "id": "5026ffdd2fd141d0283cfc1dd96410f1",
+      "validations": {}
+    },
+    {
+      "name": "OG Meta Image ALT Text",
+      "slug": "enter-the-a11y-compliant-alternative-text-here-for-the-og-image-seo-meta-stuff",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "Enter the A11y compliant alternative text here for the OG Image (SEO Meta Stuff).",
+      "id": "bc300768c28ea97bbc8e5a75fe0f8c4e",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Buy the Book URL",
+      "slug": "buy-the-book-url",
+      "type": "Link",
+      "required": false,
+      "editable": true,
+      "helpText": "The link to the book on Amazon.com. To degree possible, stick to Amazon unless a niche source.",
+      "id": "dd03972de59c8a56f20a71fe90effe5e",
+      "validations": {}
+    },
+    {
+      "name": "Brief Book Summary",
+      "slug": "brief-book-summary",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "Very short summary of the book. For instance \"The definitive guide to productivity.\"",
+      "id": "135a146cc05e8c164bf031c6215a7088",
+      "validations": {
+        "singleLine": false
+      }
+    },
+    {
+      "name": "The Gist by ChatGPT",
+      "slug": "the-gist-by-chatgpt",
+      "type": "RichText",
+      "required": false,
+      "editable": true,
+      "helpText": "This should display the same as it has since we started, excluding The Gist by ChatGPT title.",
+      "id": "d85788c7f6105b8422d23eaacc4f4aad",
+      "validations": {}
+    },
+    {
+      "name": "Category",
+      "slug": "category",
+      "type": "ItemRef",
+      "required": false,
+      "editable": true,
+      "helpText": "Select the most appropriate category for the book.",
+      "id": "816ecee62b62e4f1872f4e6ed0e11644",
+      "validations": {
+        "collectionId": "63a2fb81bbec1bd2a4202c5f"
+      }
+    },
+    {
+      "name": "Name",
+      "slug": "name",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "c3553e8835ae861ec2e8c614702474b7",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "name": "Slug",
+      "slug": "slug",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "unique": true,
+      "helpText": "",
+      "id": "37817fa01fb196ea1e42c47857a8c56c",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    },
+    {
+      "name": "Archived",
+      "slug": "_archived",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "a7027cd6cce2bae8a21e5e0d39dee6e8",
+      "default": false
+    },
+    {
+      "name": "Draft",
+      "slug": "_draft",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "d1f5cc0aa6bb09a96b5fd67e69edaeb5",
+      "default": false
+    },
+    {
+      "name": "Created On",
+      "slug": "created-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "e876a43a70d96c2e9074c9e786c2a6c5"
+    },
+    {
+      "name": "Updated On",
+      "slug": "updated-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "b796e04e26d02e9959e46514a3038ddc"
+    },
+    {
+      "name": "Published On",
+      "slug": "published-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "1d27728a1c9c25da773d1fd9cc4d60ed"
+    },
+    {
+      "name": "Created By",
+      "slug": "created-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "bd30c72d167a0666349b0df90653f1a8"
+    },
+    {
+      "name": "Updated By",
+      "slug": "updated-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "5042862d62a4132b27b9762523666027"
+    },
+    {
+      "name": "Published By",
+      "slug": "published-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "d236980f7c342330a31acb8f8cce371f"
+    }
+  ]
+}
