@@ -210,7 +210,7 @@ const post = {
   preview: {
     select: {
       title: "name",
-      subtitle: "author",
+      subtitle: "author.name",
       media: "image",
     },
   },
