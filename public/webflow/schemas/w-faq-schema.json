@@ -1,0 +1,195 @@
+{
+  "_id": "641c418dd67bc408b6b204a7",
+  "lastUpdated": "2023-04-02T02:07:31.467Z",
+  "createdOn": "2023-03-23T12:09:49.198Z",
+  "name": "FAQs",
+  "slug": "faq",
+  "singularName": "FAQ",
+  "fields": [
+    {
+      "name": "QA Reviewed?",
+      "slug": "qa-reviewed",
+      "type": "Bool",
+      "required": false,
+      "editable": true,
+      "id": "f44fb363a02b539c063a0aad4168d310"
+    },
+    {
+      "name": "Question",
+      "slug": "question",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the bold text at top of FAQ question component.",
+      "id": "5b715111d3e0742ecbff7d24814a4aeb",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Answer",
+      "slug": "answer-2",
+      "type": "RichText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the answer for the frequently asked question.",
+      "id": "c0136a21ac6417e7159031ff8e596e40",
+      "validations": {}
+    },
+    {
+      "name": "The Gist",
+      "slug": "the-gist",
+      "type": "PlainText",
+      "required": false,
+      "editable": true,
+      "helpText": "This is the short ironic, satirical text adjacent 🤖 The Gist",
+      "id": "4e10dbec952a3fb99adcb7a57c648056",
+      "validations": {
+        "singleLine": true
+      }
+    },
+    {
+      "name": "Type",
+      "slug": "type",
+      "type": "Option",
+      "required": false,
+      "editable": true,
+      "helpText": "Select the most appropriate audience for this FAQ",
+      "id": "9bc237a1597de56d0f804d458ae2c391",
+      "validations": {
+        "options": [
+          {
+            "name": "Readers",
+            "id": "30002edccb3f236b742833e5fe50809f"
+          },
+          {
+            "name": "Sponsors",
+            "id": "e70a8e803f363609b60ee7c77146b5e8"
+          },
+          {
+            "name": "Partners",
+            "id": "6ba9a7093c88df5a0bf2bc2bf7608921"
+          },
+          {
+            "name": "Candidates",
+            "id": "4ab4f03ad517d6d1e0f8a5a45c9f6490"
+          },
+          {
+            "name": "Press",
+            "id": "d98a927440275da5bdccb43ba253b899"
+          },
+          {
+            "name": "Other",
+            "id": "819913f8418222715caad612892416a3"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Is Featured?",
+      "slug": "is-featured",
+      "type": "Bool",
+      "required": false,
+      "editable": true,
+      "helpText": "Turn this to on if you want this FAQ to display at top of list on page.",
+      "id": "aa9c6aeffe05cd48fd31b8c5d447787d",
+      "validations": {}
+    },
+    {
+      "name": "Name",
+      "slug": "name",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "helpText": "",
+      "id": "5ebbae29e031be7cda0e61e967f612b7",
+      "validations": {
+        "maxLength": 256
+      }
+    },
+    {
+      "name": "Slug",
+      "slug": "slug",
+      "type": "PlainText",
+      "required": true,
+      "editable": true,
+      "unique": true,
+      "helpText": "",
+      "id": "612baf1ceb8c065eff51f7dd9015fc12",
+      "validations": {
+        "maxLength": 256,
+        "pattern": {},
+        "messages": {
+          "pattern": "Must be alphanumerical and not contain any spaces or special characters",
+          "maxLength": "Must be less than 256 characters"
+        }
+      }
+    },
+    {
+      "name": "Archived",
+      "slug": "_archived",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "f3570294e6f19a9740e385eeb8a7bff9",
+      "default": false
+    },
+    {
+      "name": "Draft",
+      "slug": "_draft",
+      "type": "Bool",
+      "required": true,
+      "editable": true,
+      "id": "b8d6b1aefc276c4efac17dc789864962",
+      "default": false
+    },
+    {
+      "name": "Created On",
+      "slug": "created-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "a932922e41197965b88fe581caabbfbd"
+    },
+    {
+      "name": "Updated On",
+      "slug": "updated-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "3b637d3ed9c717a4107fe6c1e5e93e54"
+    },
+    {
+      "name": "Published On",
+      "slug": "published-on",
+      "type": "Date",
+      "required": false,
+      "editable": false,
+      "id": "aa760fc46a38d1a02fffb2e9fa6f1e34"
+    },
+    {
+      "name": "Created By",
+      "slug": "created-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "4b8bbf27096cef2ded3a1b3afc9affb2"
+    },
+    {
+      "name": "Updated By",
+      "slug": "updated-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "25ea30915f920a28a4c423500d60b00f"
+    },
+    {
+      "name": "Published By",
+      "slug": "published-by",
+      "type": "User",
+      "required": false,
+      "editable": false,
+      "id": "a4d658784004aa7891f00cd4efadcdcb"
+    }
+  ]
+}
