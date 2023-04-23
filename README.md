@@ -1,125 +1,146 @@
-# Hey Rebekah Composable Content Cloud
+# Hey Rebekah Composable Content Cloud ☁️
 
-Hey Rebekah's composable content cloud is a bespoke solution leveraging Sanity.io, Next.js, Tailwind CSS, and deployed on Vercel. This platform is geared to minimize the number of tools we need to draft, publish, and distribute content to all of the destinations. 
+## Intro 📚
 
-## Getting Started
+Hey Rebekah is a free daily newsletter for freelancers. It's like Morning Brew without all the readers. 
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Purpose
+Our mission is to centralize our publishing workflow, empowering writers to focus on their craft while technology handles the distribution to various platforms where readers want to consume content.
+
+## Technologies Used 🛠️
+
+### Development Stack
+
+- [PNPM](https://pnpm.io/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Sanity.io v3](https://www.sanity.io/)
+- [Next JS 13](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Tailwind UI](https://tailwindui.com/) as component library
+
+### Frameworks & Libraries
+
+- [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) required by TailwindUI
+- [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography) required by TailwindCSS
+- [Tailwind HeadlessUI](https://github.com/tailwindlabs/headlessui) required by TailwindUI
+- [Stablo Pro Blog by Web3Templates](https://web3templates.com/preview/stablo) as the Next JS 13 and Sanity Starter
+- [Web3 Forms](https://web3forms.com/) to handle the post submission processing of forms creating users in all systems
+
+### Deployment
+
+- [Vercel](https://vercel.com/)
+
+### Other Integrations & Tools
+
+- [Checkly](https://www.checklyhq.com/) - Monitoring and testing for web applications
+  - API Documentation: [Checkly API Docs](https://www.checklyhq.com/docs/api)
+- [Slack](https://slack.com/) integration
+  - API Documentation: [Slack API Docs](https://api.slack.com/)
+- [Height App](https://height.app/) is where we manage our work
+  - API Documentation: [Height API Docs](https://developer.height.app/docs)
+- [Iterable.com](https://iterable.com/) is the primary email platform we use
+  - API Documentation: [Iterable API Docs](https://developer.iterable.com/docs)
+- [Recombee](https://www.recombee.com/) for machine learning and content recommendations
+  - API Documentation: [Recombee API Docs](https://docs.recombee.com/)
+- [Ayrshare](https://www.ayrshare.com/) for social publishing
+  - API Documentation: [Ayrshare API Docs](https://docs.ayrshare.com/)
+
+## Getting Started 🚀
+
+These instructions will help you set up the project on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Before you get started with the project, make sure you have the following tools installed:
 
-```
-Give examples
-```
+- [Node.js](https://nodejs.org/)
+- [PNPM](https://pnpm.io/)
+- [Next.js](https://nextjs.org/)
+- [Sanity CLI](https://www.sanity.io/docs/getting-started-with-sanity-cli)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+1. Clone the repository:
 
 ```
-Give the example
+git clone https://github.com/yourusername/hr-web
 ```
 
-And repeat
+2. Change to the project directory:
 
 ```
-until finished
+cd hr-web
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+3. Install the dependencies using PNPM:
 
 ```
-Give an example
+pnpm install
 ```
 
-### And coding style tests
+### Testing
 
-Explain what these tests test and why
+To run the tests:
 
 ```
-Give an example
+pnpm test
 ```
 
-## Deployment
+### Deployment
 
-Add additional notes about how to deploy this on a live system
+To deploy the application, follow these steps:
 
-## Built With
+1. Sign up for a [Vercel account](https://vercel.com/signup) if you haven't already.
+2. Install the [Vercel CLI](https://vercel.com/cli) and log in with your account.
+3. Run the following command from the project directory:
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
-# HR Web
-A [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and Sanity Studio for the Hey Rebekah content team.
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+vercel
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Follow the prompts to deploy your application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Built With 🏗️
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+- [Sanity.io](https://www.sanity.io/) - Backend and content management
+- [Next.js](https://nextjs.org/) - Frontend framework
+- [TailwindCSS](https://tailwindcss.com/) - CSS framework
+- [Tailwind UI](https://tailwindui.com/) - UI component library
+- [Vercel](https://vercel.com/) - Deployment and hosting
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Contributing 🤝
 
-## Learn More
+We're always looking for contributors to help improve the project! If you're interested in contributing, please follow the steps below:
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/YourFeatureName`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push your branch to your fork (`git push origin feature/YourFeatureName`)
+5. Open a pull request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Versioning 📊
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+We use [SemVer](https://semver.org/) for versioning. For the available versions, see the [tags on this repository](https://github.com/yourusername/hr-web/tags).
+
+## Authors ✍️
+
+- **Surjith the Great** - *Web3 Template Creator* - [surjithctly](https://github.com/surjithctly)
+- **Sam the Grumpy** - *Cat herder* - [srizvi](https://github.com/srizi)
+
+See also the list of [contributors](https://github.com/brilla-cx/hr-web/graphs/contributors) who participated in this project.
+
+## License 📄
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements 🙏
+
+- Hat tip to anyone whose code was used
+- Inspiration for the project
+- Any other acknowledgements
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can easily deploy this project on Vercel by clicking the button below:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/brilla-cx/hr-web)
