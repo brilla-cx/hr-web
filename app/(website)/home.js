@@ -1,6 +1,7 @@
 import Container from "@/components/container";
 import PostList from "@/components/postlist";
 import Hero from "@/components/hero";
+import { H2, H3 } from "@/components/ui";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
@@ -17,9 +18,9 @@ export default function HomePage({ posts }) {
         {featuredPost.length > 4 && (
           <>
             <div className="flex items-center justify-center mt-10">
-              <h2 className="text-2xl">
-                <strong>Featured</strong> Posts
-              </h2>
+              <H2>
+                <span className="text-pink">Featured</span> Posts
+              </H2>
             </div>
             <div className="grid gap-10 mt-10 mb-20 lg:gap-10 md:grid-cols-3 lg:grid-cols-4 ">
               {featuredPost.slice(1, 2).map((post) => (
@@ -27,7 +28,6 @@ export default function HomePage({ posts }) {
                   <PostList
                     post={post}
                     preloadImage={true}
-                    pathPrefix="lifestyle"
                     fontSize="large"
                     aspect="custom"
                     fontWeight="normal"
@@ -39,7 +39,6 @@ export default function HomePage({ posts }) {
                   key={post._id}
                   post={post}
                   aspect="landscape"
-                  pathPrefix="lifestyle"
                   fontWeight="normal"
                   preloadImage={true}
                 />
@@ -49,9 +48,9 @@ export default function HomePage({ posts }) {
         )}
 
         <div className="flex items-center justify-center mt-4">
-          <h3 className="text-2xl">
-            <strong>Our</strong> Latest
-          </h3>
+          <H3>
+            Our <span className="text-pink">Latest</span>
+          </H3>
         </div>
         <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-4 ">
           {posts.map((post) => (

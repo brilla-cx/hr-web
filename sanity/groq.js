@@ -5,8 +5,14 @@ export const postquery = groq`*[_type == "post"]{
   _createdAt,
   name,
   "slug:": slug.current,
-  "image": image.asset->url,
+  image {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+  },
+  publishedAt,
+  featured,
   url,
+  author->
 }`;
 
 // // Get all posts

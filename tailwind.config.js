@@ -6,6 +6,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
@@ -15,6 +16,7 @@ module.exports = {
           "var(--font-poppins)",
           ...fontFamily.sans,
         ],
+        stock: [fontFamily.sans],
       },
       colors: {
         black: "#020512",
