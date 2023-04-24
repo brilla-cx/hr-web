@@ -58,10 +58,10 @@ const recentPosts = [
 
 export default function Menu() {
   return (
-    <Popover className="isolate z-50">
+    <Popover className="">
       <Popover.Button
         variant="secondary"
-        className="px-3 py-3 text-sm font-semibold leading-none inline-flex gap-1 items-center justify-center    border-2 relative   transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0_rgb(41,37,36)] hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:-bottom-2 hover:after:-right-2 hover:after:-z-10 bg-white border-black text-black rounded focus:outline-none focus:ring-0">
+        className="px-3 py-3 text-sm font-semibold leading-none inline-flex gap-1 items-center justify-center    border-2 relative   transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0_rgb(41,37,36)] hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:-bottom-2 hover:after:-right-2 hover:after:-z-10 bg-white border-black text-black rounded focus:outline-none focus:ring-0 z-30">
         Menu
         <ChevronDownIcon
           className="h-5 w-5 ui-open:rotate-180 transition-all"
@@ -77,7 +77,7 @@ export default function Menu() {
         leave="transition ease-in duration-150"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 -translate-y-1">
-        <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-16 border-b-2 border-black">
+        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-white pt-16 border-b-2 border-black">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2">
             <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
               <div>

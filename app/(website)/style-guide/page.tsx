@@ -1,4 +1,4 @@
-import { H1, H2, H3, H4, H5, H6 } from "@/components/ui";
+import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
 import { Input, Select, Textarea, Button } from "@/components/ui";
 import { Prose, Badge, Spacer, Blockquote } from "@/components/ui";
 import Container from "@/components/container";
@@ -53,9 +53,9 @@ export default function StyleGuide() {
             <Badge>h6</Badge>
             <H6>This is a Heading</H6>
             <Spacer />
-            <p className="text-xl">
+            <Lead>
               This is a lead paragraph. It stands out from regular paragraphs.
-            </p>
+            </Lead>
             <Spacer />
             <p>
               Sample text is being used as a placeholder for real text that is

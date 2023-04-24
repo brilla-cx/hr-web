@@ -5,6 +5,7 @@ import { urlForImage } from "@/sanity/image";
 import { parseISO, format } from "date-fns";
 import { PhotoIcon } from "@heroicons/react/24/outline";
 import CategoryLabel from "@/components/blog/category";
+import { Card, H4, H6 } from "@/components/ui";
 
 export default function PostList({
   post,
@@ -15,23 +16,21 @@ export default function PostList({
   fontSize,
   fontWeight,
 }) {
-  const imageProps = post?.mainImage ? urlForImage(post.mainImage) : null;
+  const imageProps = post?.image ? urlForImage(post.image) : null;
   const AuthorimageProps = post?.author?.image
     ? urlForImage(post.author.image)
     : null;
   return (
-    <>
+    <Card>
       <div
         className={cx(
           "group cursor-pointer",
           minimal && "grid gap-10 md:grid-cols-2"
-        )}
-      >
+        )}>
         <div
           className={cx(
-            " overflow-hidden rounded-md bg-gray-100 transition-all hover:scale-105   dark:bg-gray-800"
-          )}
-        >
+            " overflow-hidden   bg-gray-100 transition-all dark:bg-gray-800"
+          )}>
           <Link
             className={cx(
               "relative block",
@@ -43,16 +42,15 @@ export default function PostList({
             )}
             href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
               post.slug?.current
-            }`}
-          >
+            }`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
-                {...(post.mainImage.blurDataURL && {
+                {...(post.image.blurDataURL && {
                   placeholder: "blur",
-                  blurDataURL: post.mainImage.blurDataURL,
+                  blurDataURL: post.image.blurDataURL,
                 })}
-                alt={post.mainImage?.alt || "Thumbnail"}
+                alt={post.image?.alt || "Thumbnail"}
                 priority={preloadImage ? true : false}
                 className="object-cover transition-all"
                 fill
@@ -66,40 +64,36 @@ export default function PostList({
           </Link>
         </div>
 
-        <div className={cx(minimal && "flex items-center")}>
+        <div
+          className={cx(
+            fontSize === "large" ? "px-5 py-4" : "px-3 py-2",
+            minimal && "flex items-center"
+          )}>
           <div>
-            <CategoryLabel categories={post.categories} nomargin={minimal} />
-            <h2
-              className={cx(
-                fontSize === "large"
-                  ? "text-2xl"
-                  : minimal
-                  ? "text-3xl"
-                  : "text-lg",
-                fontWeight === "normal"
-                  ? "line-clamp-2 font-medium  tracking-normal text-black"
-                  : "font-semibold leading-snug tracking-tight",
-                "mt-2    dark:text-white"
+            {/* <CategoryLabel categories={post.categories} nomargin={minimal} /> */}
+            <time
+              className="truncate text-xs uppercase text-black font-bold"
+              dateTime={post?.publishedAt || post._createdAt}>
+              {format(
+                parseISO(post?.publishedAt || post._createdAt),
+                "MMMM dd, yyyy"
               )}
-            >
-              <Link
-                href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-                  post.slug?.current
-                }`}
-              >
-                <span
-                  className="bg-gradient-to-r from-green-200 to-green-100 bg-[length:0px_10px] bg-left-bottom
-      bg-no-repeat
-      transition-[background-size]
-      duration-500
-      hover:bg-[length:100%_3px]
-      group-hover:bg-[length:100%_10px]
-      dark:from-purple-800 dark:to-purple-900"
-                >
-                  {post.title}
-                </span>
-              </Link>
-            </h2>
+            </time>
+
+            <Link
+              href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
+                post.slug?.current
+              }`}>
+              {fontSize === "large" ? (
+                <H4 as="h2" className="mt-2 line-clamp-2">
+                  {post.title || post.name}
+                </H4>
+              ) : (
+                <H6 as="h2" className="mt-1 line-clamp-2">
+                  {post.title || post.name}
+                </H6>
+              )}
+            </Link>
 
             <div className="hidden">
               {post.excerpt && (
@@ -108,19 +102,17 @@ export default function PostList({
                     href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
                       post.slug?.current
                     }`}
-                    legacyBehavior
-                  >
+                    legacyBehavior>
                     {post.excerpt}
                   </Link>
                 </p>
               )}
             </div>
 
-            <div className="mt-3 flex items-center space-x-3 text-gray-500 dark:text-gray-400">
+            <div className="mt-3 flex items-center space-x-3 text-black dark:text-white">
               <Link
                 href={`/author/${post.author?.slug?.current}`}
-                legacyBehavior
-              >
+                legacyBehavior>
                 <div className="flex items-center gap-3">
                   <div className="relative h-5 w-5 flex-shrink-0">
                     {post.author?.image && (
@@ -137,22 +129,10 @@ export default function PostList({
                   <span className="truncate text-sm">{post.author?.name}</span>
                 </div>
               </Link>
-              <span className="text-xs text-gray-300 dark:text-gray-600">
-                &bull;
-              </span>
-              <time
-                className="truncate text-sm"
-                dateTime={post?.publishedAt || post._createdAt}
-              >
-                {format(
-                  parseISO(post?.publishedAt || post._createdAt),
-                  "MMMM dd, yyyy"
-                )}
-              </time>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </Card>
   );
 }

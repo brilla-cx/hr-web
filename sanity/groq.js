@@ -1,12 +1,18 @@
 import { groq } from "next-sanity";
 
-export const gistquery = groq`*[_type == "post"]{
+export const postquery = groq`*[_type == "post"]{
   _id,
   _createdAt,
   name,
   "slug:": slug.current,
-  "image": image.asset->url,
+  image {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+  },
+  publishedAt,
+  featured,
   url,
+  author->
 }`;
 
 // // Get all posts
