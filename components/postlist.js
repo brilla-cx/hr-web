@@ -40,9 +40,7 @@ export default function PostList({
                 ? "aspect-[5/4]"
                 : "aspect-square"
             )}
-            href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-              post.slug?.current
-            }`}>
+            href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -81,9 +79,7 @@ export default function PostList({
             </time>
 
             <Link
-              href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-                post.slug?.current
-              }`}>
+              href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
               {fontSize === "large" ? (
                 <H4 as="h2" className="mt-2 line-clamp-2">
                   {post.title || post.name}
@@ -100,7 +96,7 @@ export default function PostList({
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
                   <Link
                     href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
-                      post.slug?.current
+                      post.slug
                     }`}
                     legacyBehavior>
                     {post.excerpt}
@@ -110,9 +106,7 @@ export default function PostList({
             </div>
 
             <div className="mt-3 flex items-center space-x-3 text-black dark:text-white">
-              <Link
-                href={`/author/${post.author?.slug?.current}`}
-                legacyBehavior>
+              <Link href={`/author/${post.author?.slug?.current}`}>
                 <div className="flex items-center gap-3">
                   <div className="relative h-5 w-5 flex-shrink-0">
                     {post.author?.image && (
