@@ -1,5 +1,5 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
-import { gistquery } from "./groq";
+import { postquery } from "./groq";
 import { createClient } from "next-sanity";
 
 if (!projectId) {
@@ -19,9 +19,9 @@ export const fetcher = async ([query, params]) => {
   return client ? client.fetch(query, params) : [];
 };
 
-export async function getAllGists() {
+export async function getAllPosts() {
   if (client) {
-    return (await client.fetch(gistquery)) || [];
+    return (await client.fetch(postquery)) || [];
   }
   return [];
 }

@@ -1,12 +1,17 @@
 import Container from "@/components/container";
 import PostList from "@/components/postlist";
+import Hero from "@/components/hero";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
 
   return (
     <>
-      <div>Hero section</div>
+      <div className="bg-pink/10 border-b-2 border-black">
+        <Container large>
+          <Hero />
+        </Container>
+      </div>
 
       <Container large>
         {featuredPost.length > 4 && (

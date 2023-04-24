@@ -1,9 +1,9 @@
 import HomePage from "./home";
 
-import { getAllGists } from "@/sanity/client";
+import { getAllPosts } from "@/sanity/client";
 
 export default async function Home() {
-  const posts = await getAllGists();
+  const posts = await getAllPosts();
   return <HomePage posts={posts} />;
 }
 

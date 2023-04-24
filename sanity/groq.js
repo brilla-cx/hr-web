@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const gistquery = groq`*[_type == "post"]{
+export const postquery = groq`*[_type == "post"]{
   _id,
   _createdAt,
   name,
