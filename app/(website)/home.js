@@ -58,7 +58,6 @@ export default function HomePage({ posts }) {
               key={post._id}
               post={post}
               fontWeight="normal"
-              pathPrefix="lifestyle"
               aspect="square"
             />
           ))}
