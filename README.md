@@ -63,7 +63,7 @@ Before you get started with the project, make sure you have the following tools 
 1. Clone the repository:
 
 ```
-git clone https://github.com/yourusername/hr-web
+git clone https://github.com/brilla-cx/hr-web
 ```
 
 2. Change to the project directory:
@@ -120,7 +120,7 @@ We're always looking for contributors to help improve the project! If you're int
 
 ## Versioning 📊
 
-We use [SemVer](https://semver.org/) for versioning. For the available versions, see the [tags on this repository](https://github.com/yourusername/hr-web/tags).
+We use [SemVer](https://semver.org/) for versioning. For the available versions, see the [tags on this repository](https://github.com/brilla-cx/hr-web/tags).
 
 ## Authors ✍️
 
