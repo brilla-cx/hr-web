@@ -1,6 +1,6 @@
 import Container from "@/components/container";
 import Menu from "./menu";
-import LogoImage from "@/public/hey-rebekah-logo.svg"; // Update the path to your logo file
+import LogoImage from "@/public/hey-rebekah-logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 
