@@ -1,6 +1,6 @@
 // .schemas/index.ts
 import author from "./author-schema";
-import blockContent from "./blockContent-schema";
+import blockContent from "./objects/blockContent";
 import book from "./book-schema";
 import category from "./category-schema";
 import faq from "./faq-schema";
@@ -10,6 +10,17 @@ import quote from "./quote-schema";
 import socialBlog from "./socialBlog-schema";
 import tool from "./tool-schema";
 
-const schemas = [post, author, category, book, faq, socialBlog, tool, blockContent, quote, quiz];
+const schemas = [
+  post,
+  author,
+  category,
+  book,
+  faq,
+  socialBlog,
+  tool,
+  blockContent,
+  quote,
+  quiz,
+];
 
 export default schemas;

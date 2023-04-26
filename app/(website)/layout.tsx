@@ -1,6 +1,8 @@
 // import { getSettings } from "@/lib/sanity/client";
+import "./tailwind.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+
 // import { urlForImage } from "@/lib/sanity/image";
 
 // export async function sharedMetaData(params) {
