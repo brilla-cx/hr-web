@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./reset.css";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import { cx } from "@/lib/utils";
@@ -34,8 +34,7 @@ export default function RootLayout({
         "antialiased font-sans text-black",
         poppins.variable,
         apfelGrotezk.variable
-      )}
-    >
+      )}>
       <body>{children}</body>
     </html>
   );

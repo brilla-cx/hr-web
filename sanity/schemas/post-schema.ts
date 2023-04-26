@@ -1,32 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/post-schema.ts
-import { FaFeatherAlt } from 'react-icons/fa';
+import { FaFeatherAlt } from "react-icons/fa";
 
 const post = {
-  name: 'post',
-  title: 'Posts',
+  name: "post",
+  title: "Posts",
   icon: FaFeatherAlt,
-  type: 'document',
+  type: "document",
   initialValue: () => ({
-    publishedAt: new Date().toISOString()
+    publishedAt: new Date().toISOString(),
   }),
   groups: [
     {
-      name: 'editorialWorkflow',
-      title: 'Workflow',
+      name: "editorialWorkflow",
+      title: "Workflow",
     },
     {
-      name: 'compose',
-      title: 'Compose',
+      name: "compose",
+      title: "Compose",
       default: true,
     },
     {
-      name: 'meta',
-      title: 'Meta',
+      name: "meta",
+      title: "Meta",
     },
     {
-      name: 'seo',
-      title: 'SEO',
+      name: "seo",
+      title: "SEO",
     },
   ],
   fields: [
@@ -35,7 +35,7 @@ const post = {
       title: "Status",
       type: "string",
       description: "Select the status of the document.",
-      group: 'editorialWorkflow',
+      group: "editorialWorkflow",
       options: {
         list: [
           { title: "Ideation", value: "ideation" },
@@ -43,48 +43,48 @@ const post = {
           { title: "First draft", value: "first_draft" },
           { title: "Final draft", value: "final_draft" },
           { title: "Editing", value: "editing" },
-          { title: "Approved", value: "approved" }
+          { title: "Approved", value: "approved" },
         ],
         layout: "dropdown",
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'name',
-      title: 'Name',
-      description: 'The title of the post.',
-      type: 'string',
-      group: 'compose',
+      name: "name",
+      title: "Name",
+      description: "The title of the post.",
+      type: "string",
+      group: "compose",
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      description: 'The slug of the post.',
-      type: 'slug',
-      group: 'seo',
-      options: { source: 'name', maxLength: 96 },
+      name: "slug",
+      title: "Slug",
+      description: "The slug of the post.",
+      type: "slug",
+      group: "seo",
+      options: { source: "name", maxLength: 96 },
     },
     {
-      name: 'approved',
-      title: 'Approved',
-      description: 'Is this post approved?',
-      type: 'boolean',
-      group: 'editorialWorkflow',
+      name: "approved",
+      title: "Approved",
+      description: "Is this post approved?",
+      type: "boolean",
+      group: "editorialWorkflow",
     },
     {
       name: "featured",
       title: "Mark as featured",
-      description: 'Is this a featured post?.',
+      description: "Is this a featured post?.",
       type: "boolean",
-      group: 'editorialWorkflow',
+      group: "editorialWorkflow",
     },
     {
       name: "category",
       title: "Category",
-      description: 'Select the most relevant category for this post.',
+      description: "Select the most relevant category for this post.",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
-      group: 'editorialWorkflow',
+      group: "editorialWorkflow",
     },
     {
       name: "author",
@@ -92,19 +92,21 @@ const post = {
       description: "The author of the post.",
       type: "reference",
       to: { type: "author" },
-      group: 'editorialWorkflow',
+      group: "editorialWorkflow",
     },
     {
       name: "image",
       title: "Featured image",
-      description: "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
+      description:
+        "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
       type: "image",
-      group: 'meta',
+      group: "meta",
       fields: [
         {
           name: "caption",
           title: "Image caption",
-          description: "Use this to add your Stable Diffusion prompt or attribute a source.",
+          description:
+            "Use this to add your Stable Diffusion prompt or attribute a source.",
           type: "string",
         },
         {
@@ -112,99 +114,34 @@ const post = {
           title: "Image Alt Text",
           description: "E.g. A grumpy looking bald man on a chair.",
           type: "string",
-        }
+        },
       ],
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
-      name: 'tldr',
-      title: 'TLDR',
-      description: 'The TL;DR of the post. Not for SEO',
-      type: 'array',
-      of: [{ type: 'block' }],
+      name: "tldr",
+      title: "TLDR",
+      description: "The TL;DR of the post. Not for SEO",
+      type: "array",
+      of: [{ type: "block" }],
       options: { maxLength: 300, spellcheck: true },
-      group: 'compose',
+      group: "compose",
     },
     {
-      name: 'content',
-      title: 'Content',
-      description: 'This is the primary content of the post.',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'H2', value: 'h2' },
-            { title: 'H3', value: 'h3' },
-            { title: 'H4', value: 'h4' },
-            { title: 'Quote', value: 'blockquote' },
-          ],
-          lists: [
-            { title: 'Bullet', value: 'bullet' },
-            { title: 'Number', value: 'number' },
-          ],
-          marks: {
-            decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Code', value: 'code' },
-              { title: 'Strike', value: 'strike-through' },
-            ],
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'URL',
-                fields: [
-                  {
-                    title: 'URL',
-                    name: 'href',
-                    type: 'url',
-                    validation: Rule =>
-                      Rule.uri({
-                        allowRelative: true,
-                        scheme: ['https', 'http', 'mailto', 'tel'],
-                      }),
-                  },
-                  {
-                    title: 'Open in new tab',
-                    name: 'blank',
-                    type: 'boolean',
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        {
-          type: 'image',
-          options: { hotspot: true },
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative text',
-              validation: Rule => Rule.required(),
-            },
-            {
-              name: 'caption',
-              type: 'string',
-              title: 'Caption',
-            },
-          ],
-        },
-      ],
+      name: "content",
+      title: "Content",
+      description: "This is the primary content of the post.",
+      type: "blockContent",
       options: { spellcheck: true },
-      group: 'compose',
+      group: "compose",
     },
     {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
-      group: 'meta',
+      group: "meta",
     },
   ],
   preview: {
