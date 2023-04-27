@@ -34,6 +34,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-iframe": "^1.8.5",
+    "react-social-media-embed": "^2.3.5",
     "sanity": "^3.9.0",
     "sanity-plugin-asset-source-giphy": "^4.0.3",
     "sanity-plugin-asset-source-openai": "^1.1.2",

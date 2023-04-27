@@ -5,6 +5,11 @@ import { urlForImage } from "@/sanity/image";
 import Iframe from "react-iframe";
 import getVideoId from "get-video-id";
 import { cx } from "@/lib/utils";
+import {
+  TwitterEmbed,
+  InstagramEmbed,
+  TikTokEmbed,
+} from "react-social-media-embed";
 
 // Barebones lazy-loaded image component
 const ImageComponent = ({ value }) => {
@@ -25,6 +30,31 @@ const IframePreview = ({ value }) => {
   if (!url) {
     return <p>Missing Embed URL</p>;
   }
+
+  if (url.includes("twitter")) {
+    return (
+      <div className="flex justify-center">
+        <TwitterEmbed url={url} width={325} />
+      </div>
+    );
+  }
+
+  if (url.includes("instagram")) {
+    return (
+      <div className="flex justify-center">
+        <InstagramEmbed url={url} width={328} />
+      </div>
+    );
+  }
+
+  if (url.includes("tiktok")) {
+    return (
+      <div className="flex justify-center">
+        <TikTokEmbed url={url} width={328} />
+      </div>
+    );
+  }
+
   const { id, service } = getVideoId(url);
 
   const isYoutubeVideo = id && service === "youtube";
