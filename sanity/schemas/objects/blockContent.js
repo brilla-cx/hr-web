@@ -1,6 +1,6 @@
 import IframePreview from "../previews/iframe";
 // import TablePreview from "./previews/table";
-
+import { Stack, Text } from "@sanity/ui";
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be
@@ -116,18 +116,55 @@ export default {
       type: "object",
       name: "embed",
       title: "Embed",
+      description: "Embed Social Media Posts, Youtube & Tiktok Videos",
       fields: [
         {
           name: "url",
           type: "url",
+          title: "URL",
+          description: `Enter the URL to Embed. See examples below`,
+        },
+        {
+          name: "examples",
+          title: "URL Examples",
+          type: "string",
+          components: {
+            input: () => (
+              <Stack space={3}>
+                <Text size={1} muted>
+                  ・ https://www.youtube.com/watch?v=uYLk6AaSwDc
+                </Text>
+                <Text size={1} muted>
+                  ・ https://youtu.be/uYLk6AaSwDc
+                </Text>
+                <Text size={1} muted>
+                  ・ https://www.instagram.com/p/CrgC3Fat9pn/
+                </Text>
+                <Text size={1} muted>
+                  ・
+                  https://www.tiktok.com/@realcodiesanchez/video/7224611583027301678
+                </Text>
+                <Text size={1} muted>
+                  ・ https://twitter.com/SpaceX/status/1650165156729569280
+                </Text>
+                <Text size={1} muted>
+                  ・ https://open.spotify.com/embed/track/6zTbtySCRStJOv5xA4XvRE
+                </Text>
+              </Stack>
+            ),
+          },
+        },
+        {
+          name: "width",
+          type: "number",
           description:
-            "Enter the URL to Embed \r\n(eg: https://youtube.com/embed/xxx or https://open.spotify.com/embed/track/xxxx)",
+            "Optional. Enter custom width or leave it blank for auto.",
         },
         {
           name: "height",
           type: "number",
           description:
-            "Enter Required Height for this Embed. Leave it blank for 16:9 ratio.",
+            "Optional. Enter custom height or leave it blank for auto.",
         },
       ],
       components: {
