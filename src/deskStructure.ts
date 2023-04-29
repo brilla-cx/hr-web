@@ -1,4 +1,5 @@
 import { FaArchive, FaBook, FaFeatherAlt, FaListUl, FaQuestion, FaQuoteLeft, FaThList, FaTools, FaUserAstronaut } from "react-icons/fa";
+import { GoLaw } from "react-icons/go";
 
 export const structure = (S) =>
     S.list()
@@ -38,6 +39,11 @@ export const structure = (S) =>
                 .title('Quotes')
                 .icon(FaQuoteLeft)
                 .child(S.documentTypeList('quote')),
+            S.divider(),
+            S.listItem()
+                .title('Privacy & Terms')
+                .icon(GoLaw)
+                .child(S.documentTypeList('legal')),
             S.divider(),
             S.listItem()
                 .title('Rebekah\'s Old Blogs')

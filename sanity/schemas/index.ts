@@ -9,6 +9,7 @@ import quiz from "./quiz-schema";
 import quote from "./quote-schema";
 import socialBlog from "./socialBlog-schema";
 import tool from "./tool-schema";
+import legal from "./legal-schema";
 
 const schemas = [
   post,
@@ -21,6 +22,7 @@ const schemas = [
   blockContent,
   quote,
   quiz,
+  legal,
 ];
 
 export default schemas;
