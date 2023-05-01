@@ -40,7 +40,7 @@ export default function PostList({
                 ? "aspect-[5/4]"
                 : "aspect-square"
             )}
-            href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
+            href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -79,7 +79,7 @@ export default function PostList({
             </time>
 
             <Link
-              href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
+              href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
               {fontSize === "large" ? (
                 <H4 as="h2" className="mt-2 line-clamp-2">
                   {post.title || post.name}
@@ -95,7 +95,7 @@ export default function PostList({
               {post.excerpt && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
                   <Link
-                    href={`/post/${pathPrefix ? `${pathPrefix}/` : ""}${
+                    href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${
                       post.slug
                     }`}
                     legacyBehavior>
