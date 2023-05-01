@@ -19,6 +19,31 @@ export const postquery = groq`*[_type == "post"]{
   }
 }`;
 
+// Single Post
+export const singlepostquery = groq`
+*[_type == "post" && slug.current == $slug][0] {
+  ...,
+  image {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+    "ImageColor": asset->metadata.palette.dominant.background,
+  },
+  author->,
+  category[]->,
+  "estReadingTime": round(length(pt::text(content)) / 5 / 180 ),
+  "related": *[_type == "post" && count(category[@._ref in ^.^.category[]._ref]) > 0 ] | order(publishedAt desc, _createdAt desc) [0...5] {
+    name,
+    slug,
+    "date": coalesce(publishedAt,_createdAt),
+  },
+}
+`;
+
+// Paths for generateStaticParams
+export const postpathquery = groq`
+*[_type == "post" && defined(slug.current)][].slug.current
+`;
+
 // // Get all posts
 // export const postquery = groq`
 // *[_type == "post"] | order(publishedAt desc, _createdAt desc) {

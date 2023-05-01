@@ -1,5 +1,5 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
-import { postquery } from "./groq";
+import { postpathquery, postquery, singlepostquery } from "./groq";
 import { createClient } from "next-sanity";
 
 if (!projectId) {
@@ -26,6 +26,21 @@ export async function getAllPosts() {
   return [];
 }
 
+export async function getPostBySlug(slug) {
+  if (client) {
+    return (await client.fetch(singlepostquery, { slug })) || {};
+  }
+  return {};
+}
+
+export async function getAllPostsSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(postpathquery)) || [];
+    return slugs.map((slug) => ({ slug }));
+  }
+  return [];
+}
+
 // export async function getAllPosts() {
 //   if (client) {
 //     return (await client.fetch(postquery)) || [];
@@ -40,20 +55,6 @@ export async function getAllPosts() {
 //   return [];
 // }
 
-// export async function getPostBySlug(slug) {
-//   if (client) {
-//     return (await client.fetch(singlequery, { slug })) || {};
-//   }
-//   return {};
-// }
-
-// export async function getAllPostsSlugs() {
-//   if (client) {
-//     const slugs = (await client.fetch(pathquery)) || [];
-//     return slugs.map(slug => ({ slug }));
-//   }
-//   return [];
-// }
 // // Author
 // export async function getAllAuthorsSlugs() {
 //   if (client) {

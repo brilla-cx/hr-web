@@ -6,7 +6,8 @@ export default function Label(props) {
     blue: "text-blue-600",
     orange: "text-orange-700",
     purple: "text-purple-600",
-    pink: "text-pink-600",
+    pink: "text-pink",
+    white: "text-white",
   };
   const bgcolor = {
     green: "bg-emerald-50",
@@ -22,8 +23,7 @@ export default function Label(props) {
       <div
         className={
           "inline-flex items-center justify-center font-bold px-2 h-6 text-sm bg-blue-50 text-blue-500 rounded-full shrink-0 dark:bg-gray-800 dark:text-gray-300"
-        }
-      >
+        }>
         {props.children}
       </div>
     );
@@ -34,9 +34,9 @@ export default function Label(props) {
       className={cx(
         "inline-block text-xs font-medium tracking-wider uppercase ",
         !margin && " mt-5",
-        color[props.color] || color[pink]
-      )}
-    >
+        color[props.color] || color["pink"],
+        props.className
+      )}>
       {props.children}
     </span>
   );
