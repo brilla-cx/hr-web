@@ -1,5 +1,5 @@
 import { apiVersion, dataset, projectId, useCdn } from "./config";
-import { postpathquery, postquery, singlepostquery } from "./groq";
+import { postpathquery, postquery, singlepostquery, topcatquery } from "./groq";
 import { createClient } from "next-sanity";
 
 if (!projectId) {
@@ -37,6 +37,13 @@ export async function getAllPostsSlugs() {
   if (client) {
     const slugs = (await client.fetch(postpathquery)) || [];
     return slugs.map((slug) => ({ slug }));
+  }
+  return [];
+}
+
+export async function getTopCategories() {
+  if (client) {
+    return (await client.fetch(topcatquery)) || [];
   }
   return [];
 }

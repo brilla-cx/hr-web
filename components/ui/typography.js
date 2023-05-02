@@ -56,6 +56,15 @@ export function H6({ children, className = "", as = "h6" }) {
   );
 }
 
+export function Title({ children, className = "", as = "p" }) {
+  const Tag = as;
+  return (
+    <Tag className={cx(commonClasses, className, "text-lg lg:text-xl")}>
+      {children}
+    </Tag>
+  );
+}
+
 export function Lead({ children, className = "" }) {
   return <p className={cx(className, "text-lg lg:text-xl")}>{children}</p>;
 }

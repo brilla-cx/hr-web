@@ -22,7 +22,7 @@ const Hero = (props) => {
             required
             placeholder="Enter your email"
           />
-          <Button>Subscribe</Button>
+          <Button type="submit">Subscribe</Button>
         </div>
         <p className="mt-4 text-sm leading-6 text-gray-600">
           We care about your data. Read our{" "}

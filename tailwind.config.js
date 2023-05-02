@@ -21,10 +21,18 @@ module.exports = {
       colors: {
         black: "#020512",
         "dark-blue": "#040b29",
-        blue: "#041746",
-        pink: "#f34dc3",
-        yellow: "#ffcf33",
-        green: "#1aefc4",
+        blue: {
+          DEFAULT: "#041746",
+        },
+        pink: {
+          DEFAULT: "#f34dc3",
+        },
+        yellow: {
+          DEFAULT: "#ffcf33",
+        },
+        green: {
+          DEFAULT: "#1aefc4",
+        },
         aqua: "#08b2e3",
         "light-grey": "#e0e0e0",
       },

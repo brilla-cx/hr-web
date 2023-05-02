@@ -78,7 +78,9 @@ export default function Post(props) {
 
       <div className="mx-auto mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1">
-          <Prose>{post.content && <PortableText value={post.content} />}</Prose>
+          <Prose className="mx-auto">
+            {post.content && <PortableText value={post.content} />}
+          </Prose>
           <div className="mb-7 mt-7 flex justify-center">
             <Link
               href="/"
@@ -88,13 +90,11 @@ export default function Post(props) {
           </div>
           {post.author && <AuthorCard author={post.author} />}
         </article>
-        <aside className="sticky top-0 w-full self-start md:w-96">
-          Sidebar
-          {/* <Sidebar
+        <aside className="sticky top-5 w-full self-start md:w-96">
+          <Sidebar
             categories={categories}
-            pathPrefix="sidebar"
             related={post.related.filter((item) => item.slug.current !== slug)}
-          /> */}
+          />
         </aside>
       </div>
     </>

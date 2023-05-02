@@ -34,6 +34,7 @@ export const singlepostquery = groq`
   "related": *[_type == "post" && count(category[@._ref in ^.^.category[]._ref]) > 0 ] | order(publishedAt desc, _createdAt desc) [0...5] {
     name,
     slug,
+    image,
     "date": coalesce(publishedAt,_createdAt),
   },
 }
@@ -43,6 +44,14 @@ export const singlepostquery = groq`
 export const postpathquery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `;
+
+// Get top 5 categories
+export const topcatquery = groq`*[_type == "category"] {
+  name,
+  color,
+  slug,
+  "count": count(*[_type == "post" && references(^._id)])
+} | order(count desc) [0...5]`;
 
 // // Get all posts
 // export const postquery = groq`
