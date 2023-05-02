@@ -8,7 +8,7 @@ export default function HomePage({ posts }) {
 
   return (
     <>
-      <div className="bg-pink/10 border-b-2 border-black">
+      <div className="bg-blue">
         <Container large>
           <Hero />
         </Container>

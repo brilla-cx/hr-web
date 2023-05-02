@@ -26,6 +26,8 @@ export default function Button({
   const variantClasses = {
     primary: "bg-pink border-transparent text-black rounded",
     secondary: "bg-white border-black text-black rounded",
+    alternate:
+      "bg-pink border-transparent text-black rounded hover:shadow-yellow",
   };
 
   const Tag = href ? Link : "button";
@@ -33,7 +35,7 @@ export default function Button({
     <Tag
       {...(href && { href: href })}
       className={cx(
-        "isolate inline-flex gap-1 items-center justify-center leading-snug  border-2 relative text-lg font-semibold transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0_rgb(41,37,36)] hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:-bottom-2 hover:after:-right-2 hover:after:-z-10 z-10",
+        "isolate inline-flex gap-1 items-center justify-center leading-snug  border-2 relative text-lg font-semibold transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0_rgb(41,37,36)] hover:after:absolute hover:after:top-0 hover:after:left-0 hover:after:-bottom-2 hover:after:-right-2 hover:after:-z-10 z-10 uppercase whitespace-nowrap",
         sizeClasses[size],
         variantClasses[variant],
         className
