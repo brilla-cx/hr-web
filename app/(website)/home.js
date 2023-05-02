@@ -52,7 +52,7 @@ export default function HomePage({ posts }) {
               🫳🏼 Just <span className="text-pink">Dropped</span>
             </H2>
           </div>
-          <div className="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-4 ">
+          <div className="grid gap-10 mt-10 mb-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-4 ">
             {posts.slice(0, 12).map((post) => (
               <PostList
                 key={post._id}

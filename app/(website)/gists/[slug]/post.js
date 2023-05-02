@@ -76,7 +76,7 @@ export default function Post(props) {
         </Container>
       </div>
 
-      <div className="mx-auto mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
+      <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1">
           <Prose className="mx-auto">
             {post.content && <PortableText value={post.content} />}
