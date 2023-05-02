@@ -65,7 +65,8 @@ export default function PostList({
         <div
           className={cx(
             fontSize === "large" ? "px-5 py-4" : "px-3 py-2",
-            minimal && "flex items-center"
+            minimal && "flex items-center",
+            "bg-white"
           )}>
           <div>
             {/* <CategoryLabel categories={post.categories} nomargin={minimal} /> */}
@@ -81,11 +82,11 @@ export default function PostList({
             <Link
               href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
               {fontSize === "large" ? (
-                <H4 as="h2" className="mt-2 line-clamp-2">
+                <H4 as="h2" className="mt-2 line-clamp-2 h-16">
                   {post.title || post.name}
                 </H4>
               ) : (
-                <H6 as="h2" className="mt-1 line-clamp-2">
+                <H6 as="h2" className="mt-1 line-clamp-2 h-16">
                   {post.title || post.name}
                 </H6>
               )}
