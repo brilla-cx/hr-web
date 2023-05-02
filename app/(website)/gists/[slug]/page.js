@@ -16,7 +16,6 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const post = await getPostBySlug(params.slug);
-  const categories = [];
-  // const categories = await getTopCategories();
+  const categories = await getTopCategories();
   return <Post post={post} categories={categories} />;
 }

@@ -16,25 +16,14 @@ export default function Label(props) {
     purple: "bg-purple-50",
     pink: "bg-pink-50",
   };
-  const margin = props.nomargin;
-
-  if (props.pill) {
-    return (
-      <div
-        className={
-          "inline-flex items-center justify-center font-bold px-2 h-6 text-sm bg-blue-50 text-blue-500 rounded-full shrink-0 dark:bg-gray-800 dark:text-gray-300"
-        }>
-        {props.children}
-      </div>
-    );
-  }
 
   return (
     <span
       className={cx(
-        "inline-block text-xs font-medium tracking-wider uppercase ",
-        !margin && " mt-5",
+        "inline-block text-xs tracking-wider uppercase px-2 py-1 font-bold",
         color[props.color] || color["pink"],
+        props.pill ? bgcolor[props.color] || bgcolor["pink"] : "",
+        props.pill && "rounded-full",
         props.className
       )}>
       {props.children}
