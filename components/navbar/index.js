@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="relative border-b-2 border-black py-5">
+    <div className="relative border-b-2 border-black py-5 bg-dark-blue">
       <Container alt large>
         <div className="flex justify-between items-center gap-10">
           <div className="isolate z-50">
