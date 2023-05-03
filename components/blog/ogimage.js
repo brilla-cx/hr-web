@@ -13,7 +13,9 @@ export default function OgImage({ post }) {
       ? "http://localhost:3000"
       : `https://${process.env.VERCEL_URL}`;
   return (
-    <div tw="flex w-full h-full" style={{ backgroundColor: "#040b29" }}>
+    <div
+      tw="flex w-full h-full"
+      style={{ fontFamily: "Apfel", backgroundColor: "#040b29" }}>
       <div tw="flex flex-col items-start justify-around px-10 w-1/2">
         <img
           src={`${absoluteURL}/hey-rebekah-logo-web.png`}
