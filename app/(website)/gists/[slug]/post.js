@@ -5,6 +5,7 @@ import { urlForImage } from "@/sanity/image";
 import { PortableText } from "@/components/blog/portabletext";
 import AuthorCard from "@/components/blog/authorCard";
 import Sidebar from "@/components/blog/sidebar";
+import SocialShare from "@/components/blog/share";
 import Container from "@/components/container";
 import DateTime from "@/components/ui/time";
 import { Button, H2, Prose } from "@/components/ui";
@@ -69,6 +70,13 @@ export default function Post(props) {
                       </div>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-4">
+                  <SocialShare
+                    title={post?.name}
+                    url={`https://heyrebekah.com/gists${post?.slug?.current}`}
+                  />
                 </div>
               </div>
             </div>
