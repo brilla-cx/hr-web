@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore",
     "lint:fix": "npm run format && npm run lint -- --fix",
-    "lint:next": "next lint -- --ignore-path .gitignore"
+    "lint:next": "next lint -- --ignore-path .gitignore",
+    "release": "standard-version"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -58,6 +59,7 @@
     "eslint": "^8.38.0",
     "eslint-config-sanity": "^6.0.0",
     "husky": "^8.0.3",
+    "standard-version": "^9.5.0",
     "typescript": "5.0.4"
   },
   "config": {
