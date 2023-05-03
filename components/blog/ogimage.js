@@ -11,7 +11,7 @@ export default function OgImage({ post }) {
   const absoluteURL =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : process.env.VERCEL_URL;
+      : `https://${process.env.VERCEL_URL}`;
   return (
     <div tw="flex w-full h-full" style={{ backgroundColor: "#040b29" }}>
       <div tw="flex flex-col items-start justify-around px-10 w-1/2">
