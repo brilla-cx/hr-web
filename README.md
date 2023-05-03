@@ -86,7 +86,94 @@ To run the tests:
 pnpm test
 ```
 
-### Deployment
+## Linting & Committs 🙈
+We will be using the following tools to handle semantic versioning, conventional commits, linting, and changelogs:
+1. **Commitizen** - for conventional commits
+2. **Husky** with **@commitlint/cli** - to lint your commit messages
+3. **Standard Version** - to handle semantic versioning
+
+### 🎯 Getting Started with Commitizen
+Commitizen offers an easy-to-use interface to help you structure your conventional commits. No more writing by hand!
+
+1. Install Commitizen globally:
+   ```
+   npm install -g commitizen
+   ```
+2. Initialize your project with a Commitizen adapter:
+   ```
+   commitizen init cz-conventional-changelog --save-dev --save-exact
+   ```
+3. Start using the interface by running:
+   ```
+   git cz
+   ```
+4. (Optional) Install the [VS Code Commitizen extension](https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-commitizen) for an even smoother experience.
+
+### 🧹 Linting Your Commits with Husky and @commitlint/cli
+Linting helps catch mistakes before they throw off your semantic versioning. Set up Husky and @commitlint/cli to lint your messages before a commit is made:
+
+1. Install the necessary packages:
+   ```
+   npm install --save-dev husky @commitlint/{config-conventional,cli}
+   ```
+2. Initialize Husky's Git hooks:
+   ```
+   npx husky install
+   ```
+3. Add the Commitlint hook:
+   ```
+   npx husky add .husky/commit-msg 'npx --no --commitlint --edit "$1"'
+   ```
+4. Create a configuration file:
+   ```
+   echo "module.exports = {extends: ['@commitlint/config-conventional']};"
+   > commitlint.config.js
+   ```
+5. Add the following rules to your `commitlint.config.js` file:
+
+```
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'header-max-length': [2, 'always', 72],
+    'type-enum': [2, 'always', ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore', 'revert']],
+    'scope-enum': [2, 'always', ['app', 'server', 'client', 'database', 'docs', 'tests', 'lint']],
+    'subject-case': [2, 'always', 'sentence-case'],
+    'body-max-line-length': [2, 'always', 72],
+    'body-leading-blank': [2, 'always'],
+    'footer-leading-blank': [2, 'always'],
+    'signed-off-by': [2, 'always']
+  }
+};
+```
+
+### 🚀 Versioning and Changelogs with Standard Version
+Standard Version ties everything together, making versioning and changelogs a breeze:
+
+1. Install the `standard-version` dependency:
+   ```
+   npm install --save-dev standard-version
+   ```
+2. Add a script to your `package.json`:
+   ```json
+   {
+     "scripts": {
+       "release": "standard-version"
+     }
+   }
+   ```
+3. Run the script to bump the version number and generate a changelog:
+   ```
+   npm run release
+   ```
+4. (Optional) Preview changes without committing by using the dry-run mode:
+   ```
+   npm run release -- --dry-run
+   ```
+
+That's it! You've now incorporated conventional commits, linting, versioning, and changelogs into your project in a fun and easy way. Enjoy your streamlined workflow! 🎉
+
+## Deployment
 
 To deploy the application, follow these steps:
 

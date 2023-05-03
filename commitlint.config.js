@@ -16,6 +16,5 @@ module.exports = {
     "body-max-line-length": [2, "always", 72],
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [2, "always"],
-    "signed-off-by": [2, "always"],
   },
 };
