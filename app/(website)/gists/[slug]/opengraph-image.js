@@ -1,6 +1,7 @@
 import { ImageResponse } from "@vercel/og";
-import { getPostBySlug } from "@/sanity/client";
+
 import OgImage from "@/components/blog/ogimage";
+import { getPostBySlug } from "@/sanity/client";
 
 export const runtime = "edge";
 

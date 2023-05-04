@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
 import "./tailwind.css";
+
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
+
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { cx } from "@/lib/utils";

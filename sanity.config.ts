@@ -1,17 +1,18 @@
+import { codeInput } from "@sanity/code-input";
+import { dashboardTool, projectUsersWidget } from "@sanity/dashboard";
+import { scheduledPublishing } from "@sanity/scheduled-publishing";
+import { visionTool } from "@sanity/vision";
+import { theme } from "https://themer.sanity.build/api/hues?preset=pixel-art";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
-import { visionTool } from "@sanity/vision";
-import { media } from "sanity-plugin-media";
-import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { giphyAssetSourcePlugin } from "sanity-plugin-asset-source-giphy";
 import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
-import { codeInput } from "@sanity/code-input";
-import { scheduledPublishing } from "@sanity/scheduled-publishing";
-import { dashboardTool, projectUsersWidget } from "@sanity/dashboard";
+import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list";
-import schemas from "./sanity/schemas";
+import { media } from "sanity-plugin-media";
+
 import hrLogo from "./components/studio/logo/logo";
-import { theme } from "https://themer.sanity.build/api/hues?preset=pixel-art";
+import schemas from "./sanity/schemas";
 import { structure } from "./src/deskStructure";
 
 const config = defineConfig({

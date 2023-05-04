@@ -1,5 +1,6 @@
-import { cx } from "@/lib/utils";
 import { FaChevronDown } from "react-icons/fa";
+
+import { cx } from "@/lib/utils";
 
 const commonClasses =
   "border-2 border-black rounded w-full placeholder:text-zinc-400 focus:border-pink focus:ring-pink";

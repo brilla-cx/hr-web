@@ -1,6 +1,8 @@
-import IframePreview from "../previews/iframe";
+/* eslint-disable import/no-anonymous-default-export */
 // import TablePreview from "./previews/table";
 import { Stack, Text } from "@sanity/ui";
+
+import IframePreview from "../previews/iframe";
 /**
  * This is the schema definition for the rich text fields used for
  * for this blog studio. When you import it in schemas.js it can be

@@ -1,8 +1,10 @@
-import Container from "@/components/container";
-import Menu from "./menu";
-import LogoImage from "@/public/hey-rebekah-logo.svg";
 import Image from "next/image";
 import Link from "next/link";
+
+import Container from "@/components/container";
+import LogoImage from "@/public/hey-rebekah-logo.svg";
+
+import Menu from "./menu";
 
 export default function Navbar() {
   return (

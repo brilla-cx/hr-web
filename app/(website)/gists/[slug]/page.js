@@ -1,13 +1,22 @@
-import Post from "./post";
 import {
+  getAllPosts,
   getAllPostsSlugs,
   getPostBySlug,
   getTopCategories,
 } from "@/sanity/client";
 
+import Post from "./post";
+
 export async function generateStaticParams() {
-  return await getAllPostsSlugs();
+  const slugs = await getAllPostsSlugs();
+  const posts = await getAllPosts();
+  const featuredSlugs = posts
+    .filter((item) => item.featured)
+    .map((item) => item.slug);
+  const combinedSlugs = [...new Set(slugs.concat(featuredSlugs))];
+  return combinedSlugs;
 }
+export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);

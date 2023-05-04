@@ -1,7 +1,8 @@
 // components/studio/logo.tsx
-import React, { FC } from "react";
-import LogoImage from "@/public/hey-rebekah-logo.svg"; // Update the path to your logo file
 import Image from "next/image";
+import React, { FC } from "react";
+
+import LogoImage from "@/public/hey-rebekah-logo.svg"; // Update the path to your logo file
 
 const hrLogo: FC = () => (
   <Image

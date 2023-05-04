@@ -1,5 +1,6 @@
-import { Button, H1, Input, Lead } from "@/components/ui";
 import Link from "next/link";
+
+import { Button, H1, Input, Lead } from "@/components/ui";
 // T-10009 Update Home Hero styles
 const Hero = (props) => {
   return (

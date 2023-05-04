@@ -1,12 +1,13 @@
 "use client";
 
+import getVideoId from "get-video-id";
+import Iframe from "react-iframe";
 import {
-  TwitterEmbed,
   InstagramEmbed,
   TikTokEmbed,
+  TwitterEmbed,
 } from "react-social-media-embed";
-import Iframe from "react-iframe";
-import getVideoId from "get-video-id";
+
 import { cx } from "@/lib/utils";
 
 const SocialEmbed = ({ value }) => {

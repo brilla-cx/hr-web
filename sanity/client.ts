@@ -1,6 +1,7 @@
+import { createClient } from "next-sanity";
+
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import { postpathquery, postquery, singlepostquery, topcatquery } from "./groq";
-import { createClient } from "next-sanity";
 
 if (!projectId) {
   console.error(
@@ -15,6 +16,7 @@ const client = projectId
   ? createClient({ projectId, dataset, apiVersion, useCdn })
   : null;
 
+// eslint-disable-next-line require-await
 export const fetcher = async ([query, params]) => {
   return client ? client.fetch(query, params) : [];
 };

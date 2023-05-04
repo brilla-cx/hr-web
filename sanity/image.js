@@ -1,10 +1,11 @@
 import createImageUrlBuilder from "@sanity/image-url";
+
 import { dataset, projectId } from "@/sanity/config";
 
 const imageBuilder = createImageUrlBuilder({ projectId, dataset });
 
 export const urlForImage = (source) => {
-  if (!source || !source.asset) return;
+  if (!source || !source.asset) return null;
   const dimensions = source?.asset?._ref.split("-")[2];
 
   const [width, height] = dimensions
