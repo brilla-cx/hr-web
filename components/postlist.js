@@ -1,11 +1,11 @@
+import { PhotoIcon } from "@heroicons/react/24/outline";
+import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Card, H4, H6 } from "@/components/ui";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
-import { parseISO, format } from "date-fns";
-import { PhotoIcon } from "@heroicons/react/24/outline";
-import CategoryLabel from "@/components/blog/category";
-import { Card, H4, H6 } from "@/components/ui";
 
 export default function PostList({
   post,
@@ -34,11 +34,8 @@ export default function PostList({
           <Link
             className={cx(
               "relative block",
-              aspect === "landscape"
-                ? "aspect-video"
-                : aspect === "custom"
-                ? "aspect-[5/4]"
-                : "aspect-square"
+              aspect === "landscape" ? "aspect-video" : "aspect-square",
+              aspect === "custom" ? "aspect-[5/4]" : "aspect-square"
             )}
             href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
             {imageProps ? (
@@ -49,7 +46,7 @@ export default function PostList({
                   blurDataURL: post.image.blurDataURL,
                 })}
                 alt={post.image?.alt || "Thumbnail"}
-                priority={preloadImage ? true : false}
+                priority={!!preloadImage}
                 className="object-cover transition-all"
                 fill
                 sizes="(max-width: 768px) 30vw, 33vw"

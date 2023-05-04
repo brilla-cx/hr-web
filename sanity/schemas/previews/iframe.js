@@ -1,10 +1,10 @@
+import getVideoId from "get-video-id";
 import React from "react";
 import Iframe from "react-iframe";
-import getVideoId from "get-video-id";
 import {
-  TwitterEmbed,
   InstagramEmbed,
   TikTokEmbed,
+  TwitterEmbed,
 } from "react-social-media-embed";
 
 const IframePreview = ({ url, width, height }) => {

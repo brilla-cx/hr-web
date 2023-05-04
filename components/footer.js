@@ -1,5 +1,6 @@
-import { Button, H5, Input } from "@/components/ui";
 import Image from "next/image";
+
+import { Button, H5, Input } from "@/components/ui";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 
 export default function Footer() {

@@ -1,10 +1,10 @@
+import { PhotoIcon } from "@heroicons/react/24/outline";
+import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
-import { parseISO, format } from "date-fns";
-import { PhotoIcon } from "@heroicons/react/24/outline";
-import CategoryLabel from "@/components/blog/category";
 
 export default function PostAlt({
   post,
@@ -13,23 +13,19 @@ export default function PostAlt({
   featured = false,
 }) {
   const imageProps = post?.mainImage ? urlForImage(post.mainImage) : null;
-  const AuthorimageProps = post?.author?.image
-    ? urlForImage(post.author.image)
-    : null;
+
   return (
     <>
       <div
         className={cx(
           "grid gap-3 content-start cursor-pointer group",
           featured && " lg:grid-cols-2 lg:gap-10"
-        )}
-      >
+        )}>
         <div
           className={cx(
             "relative overflow-hidden transition-all bg-gray-100 rounded-md dark:bg-gray-800",
             aspect === "landscape" ? "aspect-video" : "aspect-square"
-          )}
-        >
+          )}>
           <Link href={`/post/minimal/${post.slug.current}`}>
             {imageProps ? (
               <Image
@@ -39,7 +35,7 @@ export default function PostAlt({
                   blurDataURL: post.mainImage.blurDataURL,
                 })}
                 alt={post.mainImage.alt || "Thumbnail"}
-                priority={preloadImage ? true : false}
+                priority={!!preloadImage}
                 className="object-cover transition-all"
                 fill
                 sizes="80vw"
@@ -53,17 +49,17 @@ export default function PostAlt({
         </div>
 
         <div
-          className={cx("flex flex-col justify-center", !featured && "lg:mt-5")}
-        >
+          className={cx(
+            "flex flex-col justify-center",
+            !featured && "lg:mt-5"
+          )}>
           <div
             className={cx(
               "flex items-center space-x-3 text-gray-500 dark:text-gray-400"
-            )}
-          >
+            )}>
             <time
               className="text-sm"
-              dateTime={post?.publishedAt || post._createdAt}
-            >
+              dateTime={post?.publishedAt || post._createdAt}>
               {format(
                 parseISO(post?.publishedAt || post._createdAt),
                 "MMMM dd, yyyy"
@@ -75,8 +71,7 @@ export default function PostAlt({
             className={cx(
               "mt-2 text-xl font-semibold tracking-normal line-clamp-2 text-brand-primary dark:text-white",
               featured ? "lg:text-3xl" : "lg:text-2xl"
-            )}
-          >
+            )}>
             <Link href={`/post/minimal/${post.slug.current}`}>
               <span
                 className="bg-gradient-to-r from-black to-black dark:from-white dark:to-white
@@ -85,8 +80,7 @@ export default function PostAlt({
         bg-no-repeat
         transition-[background-size]
         duration-500
-        hover:bg-[length:100%_2px] group-hover:bg-[length:100%_2px]"
-              >
+        hover:bg-[length:100%_2px] group-hover:bg-[length:100%_2px]">
                 {post.title}
               </span>
             </Link>

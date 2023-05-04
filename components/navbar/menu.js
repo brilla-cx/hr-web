@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import {
@@ -15,6 +14,8 @@ import {
   UserGroupIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import { Fragment } from "react";
 // T-9898 update Menu links
 const resources = [
   { name: "Archives", href: "/gists", icon: NewspaperIcon },
@@ -147,10 +148,12 @@ export default function Menu() {
                   key={post.id}
                   className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch">
                   <div className="relative flex-none">
-                    <img
+                    <Image
                       className="aspect-[2/1] w-full rounded-lg bg-gray-100 object-cover sm:aspect-[16/9] sm:h-32 lg:h-auto"
                       src={post.imageUrl}
                       alt={post.imageAltText}
+                      width={300}
+                      height={200}
                     />
                     <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-gray-900/10" />
                   </div>

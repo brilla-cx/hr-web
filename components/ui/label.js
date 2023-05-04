@@ -21,8 +21,8 @@ export default function Label(props) {
     <span
       className={cx(
         "inline-block text-xs tracking-wider uppercase px-2 py-1 font-bold",
-        color[props.color] || color["pink"],
-        props.pill ? bgcolor[props.color] || bgcolor["pink"] : "",
+        color[props.color] || color.pink,
+        props.pill ? bgcolor[props.color] || bgcolor.pink : "",
         props.pill && "rounded-full",
         props.className
       )}>

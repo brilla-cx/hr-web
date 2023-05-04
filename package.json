@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore",
-    "lint:fix": "npm run format && npm run lint -- --fix",
+    "lint:fix": "npm run lint -- --fix",
     "lint:next": "next lint -- --ignore-path .gitignore",
     "release": "standard-version"
   },

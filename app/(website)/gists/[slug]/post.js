@@ -1,15 +1,16 @@
-import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { urlForImage } from "@/sanity/image";
-import { PortableText } from "@/components/blog/portabletext";
+import { notFound } from "next/navigation";
+
 import AuthorCard from "@/components/blog/authorCard";
-import Sidebar from "@/components/blog/sidebar";
+import { PortableText } from "@/components/blog/portabletext";
 import SocialShare from "@/components/blog/share";
+import Sidebar from "@/components/blog/sidebar";
 import Container from "@/components/container";
-import DateTime from "@/components/ui/time";
-import { Button, H2, Prose } from "@/components/ui";
+import { H2, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
+import DateTime from "@/components/ui/time";
+import { urlForImage } from "@/sanity/image";
 
 export default function Post(props) {
   const { loading, post, categories } = props;
@@ -27,7 +28,8 @@ export default function Post(props) {
           className="absolute inset-0 opacity-80"
           style={{
             backgroundColor: post?.image?.ImageColor || "#f34dc3",
-          }}></div>
+          }}
+        />
         <Container className="relative z-10">
           <div className="grid md:grid-cols-2 gap-5 md:gap-10 place-items-center">
             {post.image && <MainImage image={post.image} />}

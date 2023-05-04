@@ -1,7 +1,7 @@
 import Container from "@/components/container";
-import PostList from "@/components/postlist";
 import Hero from "@/components/hero";
-import { H2, H3 } from "@/components/ui";
+import PostList from "@/components/postlist";
+import { H2 } from "@/components/ui";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
@@ -27,7 +27,7 @@ export default function HomePage({ posts }) {
                   <div className="md:col-span-2 md:row-span-2" key={post._id}>
                     <PostList
                       post={post}
-                      preloadImage={true}
+                      preloadImage
                       fontSize="large"
                       aspect="custom"
                       fontWeight="normal"
@@ -40,7 +40,7 @@ export default function HomePage({ posts }) {
                     post={post}
                     aspect="landscape"
                     fontWeight="normal"
-                    preloadImage={true}
+                    preloadImage
                   />
                 ))}
               </div>

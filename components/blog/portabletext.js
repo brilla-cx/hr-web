@@ -1,8 +1,9 @@
+import { PortableText as PortableTextComponent } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
-import { PortableText as PortableTextComponent } from "@portabletext/react";
-import { urlForImage } from "@/sanity/image";
+
 import SocialEmbed from "@/components/blog/embed";
+import { urlForImage } from "@/sanity/image";
 
 // Barebones lazy-loaded image component
 const ImageComponent = ({ value }) => {
@@ -33,8 +34,8 @@ const components = {
       <span className="font-bold text-blue-500">{props.children}</span>
     ),
     link: ({ children, value }) => {
-      const rel = !value.href.startsWith("/") ? "noopener" : undefined;
-      const target = !value.href.startsWith("/") ? "_blank" : undefined;
+      const rel = value.href.startsWith("/") ? undefined : "noopener";
+      const target = value.href.startsWith("/") ? undefined : "_blank";
       return (
         <a href={value.href} rel={rel} target={target}>
           {children}

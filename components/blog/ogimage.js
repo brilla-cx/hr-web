@@ -1,4 +1,7 @@
-import { parseISO, format } from "date-fns";
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unknown-property */
+import { format, parseISO } from "date-fns";
+
 import { urlForImage } from "@/sanity/image";
 
 export default function OgImage({ post }) {

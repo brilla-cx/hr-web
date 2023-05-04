@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const postquery = groq`*[_type == "post"]{
+export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _createdAt desc) {
   _id,
   _createdAt,
   name,
@@ -32,6 +32,7 @@ export const singlepostquery = groq`
   category[]->,
   "estReadingTime": round(length(pt::text(content)) / 5 / 180 ),
   "related": *[_type == "post" && count(category[@._ref in ^.^.category[]._ref]) > 0 ] | order(publishedAt desc, _createdAt desc) [0...5] {
+    _id,
     name,
     slug,
     image,
@@ -41,8 +42,9 @@ export const singlepostquery = groq`
 `;
 
 // Paths for generateStaticParams
+// order by published or createed, then get latest 12 then return slug.current
 export const postpathquery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
+*[_type == "post" && defined(slug.current)]|order(publishedAt desc, _createdAt desc)[0...12].slug.current
 `;
 
 // Get top 5 categories

@@ -1,10 +1,11 @@
-import { urlForImage } from "@/sanity/image";
 import Image from "next/image";
 import Link from "next/link";
+
+import { Button, H4, Input } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
-import { Button, H4, H6, Input, Lead } from "@/components/ui";
 import { Title } from "@/components/ui/typography";
+import { urlForImage } from "@/sanity/image";
 
 export default function Sidebar(props) {
   return (
@@ -45,10 +46,10 @@ function RelatedPosts({ related }) {
         Related Posts
       </H4>
       <div className="grid gap-6 mt-6">
-        {related.slice(0, 3).map((item, index) => {
+        {related.slice(0, 3).map((item) => {
           const imageProps = item?.image ? urlForImage(item?.image) : null;
           return (
-            <Link key={index} href={`/gists/${item.slug.current}`}>
+            <Link key={item._id} href={`/gists/${item.slug.current}`}>
               <div className="flex gap-5 group">
                 <div className="relative w-24 h-20 overflow-hidden rounded-md shrink-0">
                   <Image
@@ -92,7 +93,7 @@ function Categories({ categories }) {
               <Title as="h3" className="group-hover:underline">
                 {item.name}
               </Title>
-              <Label pill={true} color={item.color}>
+              <Label pill color={item.color}>
                 {item.count}
               </Label>
             </Link>

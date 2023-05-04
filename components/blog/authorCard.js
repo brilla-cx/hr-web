@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { PortableText } from "@/components/blog/portabletext";
-import { urlForImage } from "@/sanity/image";
 import Link from "next/link";
+
+import { PortableText } from "@/components/blog/portabletext";
 import { H6 } from "@/components/ui";
+import { urlForImage } from "@/sanity/image";
 
 export default function AuthorCard({ author }) {
   const imageProps = author?.image ? urlForImage(author.image) : null;
