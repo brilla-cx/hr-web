@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 import "../globals.css";
 
-import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 
 import Footer from "@/components/footer";
@@ -16,10 +15,20 @@ export const metadata = {
     "The new home of Hey Rebekah powered by Sanity.io, Next.js, and Tailwind CSS. Made with ❤️ in partnership with W3CTemplates.",
 };
 
-const poppins = Poppins({
-  subsets: ["latin"],
+const poppins = localFont({
+  src: [
+    {
+      path: "./assets/fonts/poppins-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./assets/fonts/poppins-latin-700-normal.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-poppins",
-  weight: ["400", "700"],
   display: "swap",
 });
 
