@@ -11,11 +11,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-poppins)", ...fontFamily.sans],
-        display: [
-          "var(--font-apfel-grotezk)",
-          "var(--font-poppins)",
-          ...fontFamily.sans,
-        ],
+        display: ["var(--font-apfel-grotezk)", ...fontFamily.sans],
         stock: [fontFamily.sans],
       },
       colors: {
