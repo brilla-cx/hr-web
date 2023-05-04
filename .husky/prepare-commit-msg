@@ -1,0 +1,54 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Define a function to map commit types to emojis
+get_emoji() {
+  # Using a case statement to check the commit type
+  case $1 in
+    feat)
+      echo "✨" # Return the emoji for 'feat'
+      ;;
+    fix)
+      echo "🐛" # Return the emoji for 'fix'
+      ;;
+    docs)
+      echo "📝" # Return the emoji for 'docs'
+      ;;
+    style)
+      echo "💄" # Return the emoji for 'style'
+      ;;
+    refactor)
+      echo "♻" # Return the emoji for 'refactor'
+      ;;
+    test)
+      echo "✅" # Return the emoji for 'test'
+      ;;
+    chore)
+      echo "🔧" # Return the emoji for 'chore'
+      ;;
+    revert)
+      echo "⏪" # Return the emoji for 'revert'
+      ;;
+    *)
+      echo "" # Return an empty string for any other commit types
+      ;;
+  esac
+}
+
+# Store the file path of the commit message file
+COMMIT_MSG_FILE="$1"
+# Read the content of the commit message file
+COMMIT_MSG_CONTENTS=$(cat "$COMMIT_MSG_FILE")
+# Extract the commit type from the commit message
+TYPE=$(echo "$COMMIT_MSG_CONTENTS" | awk -F ':' '{print $1}')
+
+# Get the corresponding emoji for the commit type
+EMOJI=$(get_emoji "$TYPE")
+
+# Check if an emoji was returned for the commit type
+if [ -n "$EMOJI" ]; then
+  # Update the commit message with the emoji
+  NEW_COMMIT_MSG_CONTENTS=$(echo "$COMMIT_MSG_CONTENTS" | sed "s/^$TYPE/$EMOJI $TYPE/")
+  # Overwrite the commit message file with the new content
+  echo "$NEW_COMMIT_MSG_CONTENTS" > "$COMMIT_MSG_FILE"
+fi
