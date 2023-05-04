@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import "./tailwind.css";
+import "./globals.css";
 
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
