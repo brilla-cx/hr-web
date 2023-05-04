@@ -32,12 +32,12 @@ export default function PostList({
             " overflow-hidden   bg-gray-100 transition-all dark:bg-gray-800"
           )}>
           <Link
-            className={cx(
-              "relative block",
-              aspect === "landscape" ? "aspect-video" : "aspect-square",
-              aspect === "custom" ? "aspect-[5/4]" : "aspect-square"
-            )}
-            href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
+            className={cx("relative block", {
+              "aspect-video": aspect === "landscape",
+              "aspect-[5/4]": aspect === "custom",
+              "aspect-square": aspect !== "landscape" && aspect !== "custom",
+            })}
+            href={`/gists/${post.slug}`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
