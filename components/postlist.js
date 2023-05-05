@@ -3,7 +3,7 @@ import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Card, H4, H6 } from "@/components/ui";
+import { Card, H3, H6 } from "@/components/ui";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
@@ -14,7 +14,6 @@ export default function PostList({
   pathPrefix,
   preloadImage,
   fontSize,
-  fontWeight,
 }) {
   const imageProps = post?.image ? urlForImage(post.image) : null;
   const AuthorimageProps = post?.author?.image
@@ -68,7 +67,7 @@ export default function PostList({
           <div>
             {/* <CategoryLabel categories={post.categories} nomargin={minimal} /> */}
             <time
-              className="truncate text-xs uppercase text-black font-bold"
+              className="truncate text-xs text-blue"
               dateTime={post?.publishedAt || post._createdAt}>
               {format(
                 parseISO(post?.publishedAt || post._createdAt),
@@ -79,9 +78,9 @@ export default function PostList({
             <Link
               href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
               {fontSize === "large" ? (
-                <H4 as="h2" className="mt-2 line-clamp-2 h-16">
+                <H3 as="h2" className="mt-2 line-clamp-2 h-20">
                   {post.title || post.name}
-                </H4>
+                </H3>
               ) : (
                 <H6 as="h2" className="mt-1 line-clamp-2 h-16">
                   {post.title || post.name}
@@ -103,7 +102,7 @@ export default function PostList({
               )}
             </div>
 
-            <div className="mt-3 flex items-center space-x-3 text-black dark:text-white">
+            <div className="mt-3 mb-1 flex items-center space-x-3 text-gray-600">
               <Link href={`/author/${post.author?.slug?.current}`}>
                 <div className="flex items-center gap-3">
                   <div className="relative h-5 w-5 flex-shrink-0">
@@ -114,11 +113,11 @@ export default function PostList({
                         alt={post?.author?.name}
                         className="rounded-full object-cover"
                         fill
-                        sizes="20px"
+                        sizes="16px"
                       />
                     )}
                   </div>
-                  <span className="truncate text-sm">{post.author?.name}</span>
+                  <span className="truncate text-xs">{post.author?.name}</span>
                 </div>
               </Link>
             </div>
