@@ -8,7 +8,7 @@ export default function HomePage({ posts }) {
 
   return (
     <>
-      <div className="bg-blue">
+      <div className="bg-dark-blue border-t border-b border-aqua border-opacity-40">
         <Container large>
           <Hero />
         </Container>
@@ -58,7 +58,7 @@ export default function HomePage({ posts }) {
                 key={post._id}
                 post={post}
                 fontWeight="normal"
-                aspect="square"
+                aspect="landscape"
               />
             ))}
           </div>
