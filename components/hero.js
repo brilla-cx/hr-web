@@ -4,7 +4,7 @@ import { Button, H1, Input, Lead } from "@/components/ui";
 // T-10009 Update Home Hero styles
 const Hero = (props) => {
   return (
-    <div className="py-12 sm:py-20 lg:py-26">
+    <div className="px-4 sm:px-8 lg:px-16 py-12 sm:py-20 lg:py-26">
       <div className="max-w-5xl">
         <H1 className="text-white">
           Like Morning Brew for freelancers, without all the readers
