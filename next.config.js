@@ -6,7 +6,10 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [{ hostname: "cdn.sanity.io" }],
+    remotePatterns: [
+      { hostname: "cdn.sanity.io" },
+      { hostname: "images.unsplash.com" }, // Remove this once header GROQ is completed
+    ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",

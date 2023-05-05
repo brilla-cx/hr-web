@@ -2,41 +2,29 @@
 
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import {
-  BeakerIcon,
-  BriefcaseIcon,
-  GlobeAltIcon,
-  InformationCircleIcon,
-  NewspaperIcon,
-  PhoneIcon,
-  QuestionMarkCircleIcon,
-  SparklesIcon,
-  UserGroupIcon,
-  WrenchScrewdriverIcon,
-} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Fragment } from "react";
-// T-9898 update Menu links
+
 const resources = [
-  { name: "Archives", href: "/gists", icon: NewspaperIcon },
+  { name: "Archives", href: "/gists" },
   {
     name: "Hey Rebekah AI",
     href: "https://app.heyrebekah.com",
-    icon: BeakerIcon,
     target: "_blank",
     rel: "noopener noreferrer",
   },
-  { name: "Community", href: "/community", icon: UserGroupIcon },
-  { name: "Discounts", href: "/built-with", icon: WrenchScrewdriverIcon },
-  { name: "Help", href: "/contact", icon: QuestionMarkCircleIcon },
+  { name: "Community", href: "/community" },
+  { name: "Discounts", href: "/built-with" },
+  { name: "Help", href: "/contact" },
 ];
 const company = [
-  { name: "Advertise", href: "/advertise", icon: BriefcaseIcon },
-  { name: "Partner", href: "/partner-program", icon: GlobeAltIcon },
-  { name: "About", href: "/about", icon: InformationCircleIcon },
-  { name: "Rebekah Radice", href: "/rebekah-radice", icon: SparklesIcon },
-  { name: "Contact", href: "/contact", icon: PhoneIcon },
+  { name: "Advertise", href: "/advertise" },
+  { name: "Partner", href: "/partner-program" },
+  { name: "About", href: "/about" },
+  { name: "Rebekah Radice", href: "/rebekah-radice" },
+  { name: "Contact", href: "/contact" },
 ];
+
 const recentPosts = [
   {
     id: 1,
@@ -61,7 +49,7 @@ const recentPosts = [
     imageAltText: "An image representing the concept of marketing",
   },
 ];
-// T-9899 Update Menu popover styles
+
 export default function Menu() {
   return (
     <Popover className="">
@@ -102,11 +90,7 @@ export default function Menu() {
                           fontFamily: "var(--font-apfel-grotezk)",
                           letterSpacing: "-0.02em",
                         }}
-                        className="flex gap-x-4 py-4 text-2xl leading-6 text-white hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
-                        <item.icon
-                          className="h-6 w-6 flex-none text-light-grey"
-                          aria-hidden="true"
-                        />
+                        className="flex gap-x-4 py-4 text-xl md:text-3xl leading-6 text-white hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                         {item.name}
                       </a>
                     ))}
@@ -129,11 +113,7 @@ export default function Menu() {
                           fontFamily: "var(--font-apfel-grotezk)",
                           letterSpacing: "-0.02em",
                         }}
-                        className="flex gap-x-4 py-4 text-2xl leading-6 text-white hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
-                        <item.icon
-                          className="h-6 w-6 flex-none text-light-grey"
-                          aria-hidden="true"
-                        />
+                        className="flex gap-x-4 py-4 text-xl md:text-3xl leading-6 text-white hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                         {item.name}
                       </a>
                     ))}
@@ -170,7 +150,7 @@ export default function Menu() {
                         {post.category.title}
                       </a>
                     </div>
-                    <h4 className="mt-2 h-16 text-lg font-semibold leading-6 text-white line-clamp-2  hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                    <h4 className="mt-2 h-16 text-xl font-semibold leading-6 text-white line-clamp-2  hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                       <a href={post.href}>
                         <span className="absolute inset-0" />
                         {post.title}
