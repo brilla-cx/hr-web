@@ -7,7 +7,7 @@ import { PortableText } from "@/components/blog/portabletext";
 import SocialShare from "@/components/blog/share";
 import Sidebar from "@/components/blog/sidebar";
 import Container from "@/components/container";
-import { H2, Prose } from "@/components/ui";
+import { H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
 import { urlForImage } from "@/sanity/image";
@@ -23,28 +23,35 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="relative isolate py-10 bg-black">
+      <div className="relative isolate py-10 bg-midnight-blue">
         <div
-          className="absolute inset-0 opacity-80"
+          className="absolute inset-0 opacity-50 "
           style={{
             backgroundColor: post?.image?.ImageColor || "#f34dc3",
           }}
         />
+        <Container
+          large
+          className="absolute inset-0 border-l border-r border-light-grey border-opacity-10 z-12"
+        />
         <Container className="relative z-10">
-          <div className="grid md:grid-cols-2 gap-5 md:gap-10 place-items-center">
-            {post.image && <MainImage image={post.image} />}
-
-            <div className="self-center px-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 place-items-center ">
+            <div className="order-2 md:order-none">
+              {post.image && <MainImage image={post.image} />}
+            </div>
+            <div className="order-1 md:order-none self-center px-5">
               <div>
                 {post.category && (
                   <Label color="white">{post.category[0]?.name}</Label>
                 )}
 
-                <H2 as="h1" className="text-white mt-2">
+                <H1
+                  as="h1"
+                  className="text-white underline decoration-2 decoration-white/30 underline-offset-8 mt-2">
                   {post.name}
-                </H2>
+                </H1>
                 {post.tldr && (
-                  <div className="prose mt-4 prose-xl prose-p:leading-snug prose-invert prose-p:text-white/80">
+                  <div className="prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90">
                     <PortableText value={post.tldr} />
                   </div>
                 )}
@@ -52,21 +59,21 @@ export default function Post(props) {
                 <div className="mt-4">
                   <div className="flex items-start gap-3">
                     <div>
-                      <p className="text-white/90 font-medium">
+                      <p className="text-white/90 font-semibold text-xs">
                         By{" "}
                         <Link
                           href="/"
-                          className="border-b border-pink text-white">
+                          className=" text-white font-semibold text-xs hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                           {post?.author?.name}
                         </Link>
                       </p>
                       <div className="flex space-x-2 mt-2 text-sm md:flex-row md:items-center">
                         <DateTime
-                          className="text-white/50"
+                          className="text-white/80 text-xs"
                           date={post?.publishedAt || post._createdAt}
                         />
-                        <span className="text-white/30">•</span>
-                        <span className="text-white/50">
+                        <span className="text-white/80 text-xs">•</span>
+                        <span className="text-white/80 text-xs">
                           {post.estReadingTime || "5"} min read
                         </span>
                       </div>
@@ -77,7 +84,7 @@ export default function Post(props) {
                 <div className="mt-4">
                   <SocialShare
                     title={post?.name}
-                    url={`https://heyrebekah.com/gists${post?.slug?.current}`}
+                    url={`https://heyrebekah.com/gists/${post?.slug?.current}`}
                   />
                 </div>
               </div>
@@ -87,8 +94,8 @@ export default function Post(props) {
       </div>
 
       <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
-        <article className="flex-1">
-          <Prose className="mx-auto">
+        <article className="flex-1 ">
+          <Prose className="mx-auto max-w-[60ch]">
             {post.content && <PortableText value={post.content} />}
           </Prose>
           <div className="mb-7 mt-7 flex justify-center">
@@ -100,7 +107,7 @@ export default function Post(props) {
           </div>
           {post.author && <AuthorCard author={post.author} />}
         </article>
-        <aside className="sticky top-5 w-full self-start md:w-96">
+        <aside className="sticky top-24 w-full self-start md:w-80 mr-5">
           <Sidebar
             categories={categories}
             related={post.related.filter((item) => item.slug.current !== slug)}

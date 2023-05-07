@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button, H4, Input } from "@/components/ui";
+import { Button, H4, H5, Input } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
-import { Title } from "@/components/ui/typography";
+import { H6, Title } from "@/components/ui/typography";
 import { urlForImage } from "@/sanity/image";
 
 export default function Sidebar(props) {
@@ -12,7 +12,7 @@ export default function Sidebar(props) {
     <div>
       <Subscribe />
       {props.related && <RelatedPosts related={props.related} />}
-      {props.categories && <Categories categories={props.categories} />}
+      {/*props.categories && <Categories categories={props.categories} />*/}
     </div>
   );
 }
@@ -20,7 +20,9 @@ export default function Sidebar(props) {
 function Subscribe() {
   return (
     <div>
-      <H4 className="border-b border-pink inline-block">Subscribe</H4>
+      <H6 as="h4" className="border-b border-pink inline-block">
+        Subscribe
+      </H6>
       <form action="/search" method="GET" className="mt-4">
         <div className="flex flex-col gap-4">
           <label htmlFor="email-address" className="sr-only">
@@ -42,9 +44,9 @@ function Subscribe() {
 function RelatedPosts({ related }) {
   return (
     <div className="mt-10">
-      <H4 as="h2" className="border-b border-pink inline-block">
+      <H6 as="h2" className="border-b border-pink inline-block">
         Related Posts
-      </H4>
+      </H6>
       <div className="grid gap-6 mt-6">
         {related.slice(0, 3).map((item) => {
           const imageProps = item?.image ? urlForImage(item?.image) : null;
@@ -62,7 +64,9 @@ function RelatedPosts({ related }) {
                 </div>
                 <div>
                   {/* h-14 */}
-                  <Title as="h3" className="group-hover:underline line-clamp-2">
+                  <Title
+                    as="h3"
+                    className="hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-dark-blue hover:decoration-2 transition-all duration-200 line-clamp-2">
                     {item.name}
                   </Title>
                   <p className="mt-1 text-sm text-gray-500">
@@ -77,13 +81,13 @@ function RelatedPosts({ related }) {
     </div>
   );
 }
-
+/*
 function Categories({ categories }) {
   return (
     <div className="mt-10">
-      <H4 as="h2" className="border-b border-pink inline-block">
+      <H6 as="h2" className="border-b border-pink inline-block">
         Categories
-      </H4>
+      </H6>
       <ul className="grid mt-4">
         {categories.map((item, index) => (
           <li key={item._id}>
@@ -103,3 +107,4 @@ function Categories({ categories }) {
     </div>
   );
 }
+*/
