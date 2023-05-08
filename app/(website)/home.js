@@ -3,6 +3,8 @@ import Hero from "@/components/hero";
 import PostList from "@/components/postlist";
 import { H2 } from "@/components/ui";
 
+import PostAlt from "../../components/postalt";
+
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
 
@@ -29,21 +31,23 @@ export default function HomePage({ posts }) {
               <div className="px-4 sm:px-8 lg:px-16 grid gap-10 mt-10 mb-20 lg:gap-10 md:grid-cols-3 lg:grid-cols-4 ">
                 {featuredPost.slice(1, 2).map((post) => (
                   <div className="md:col-span-2 md:row-span-2" key={post._id}>
-                    <PostList
+                    <PostAlt
                       post={post}
                       preloadImage
                       fontSize="large"
                       aspect="custom"
+                      noDate
                       fontWeight="normal"
                     />
                   </div>
                 ))}
                 {featuredPost.slice(2, 6).map((post) => (
-                  <PostList
+                  <PostAlt
                     key={post._id}
                     post={post}
                     aspect="landscape"
                     fontWeight="normal"
+                    noDate
                     preloadImage
                   />
                 ))}
@@ -58,7 +62,7 @@ export default function HomePage({ posts }) {
           </div>
           <div className="px-4 sm:px-8 lg:px-16 grid gap-10 mt-10 mb-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-4 ">
             {posts.slice(0, 12).map((post) => (
-              <PostList
+              <PostAlt
                 key={post._id}
                 post={post}
                 fontWeight="normal"

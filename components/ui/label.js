@@ -20,10 +20,11 @@ export default function Label(props) {
   return (
     <span
       className={cx(
-        "inline-block text-xs tracking-wider uppercase px-2 py-1 font-bold",
+        "inline-block text-xs tracking-wider uppercase font-bold",
         color[props.color] || color.pink,
         props.pill ? bgcolor[props.color] || bgcolor.pink : "",
         props.pill && "rounded-full",
+        !props.nomargin && "px-2 py-1",
         props.className
       )}>
       {props.children}
