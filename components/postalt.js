@@ -20,6 +20,15 @@ export default function PostAlt({
   const AuthorimageProps = post?.author?.image
     ? urlForImage(post.author.image)
     : null;
+
+  const hoverStyles = `bg-gradient-to-r
+                        bg-[length:0px_10px]
+                        bg-left-bottom bg-no-repeat
+                        transition-[background-size]
+                        duration-500
+                        hover:bg-[length:100%_3px]
+                        group-hover:bg-[length:100%_10px]
+                        from-purple-800 to-purple-900`;
   return (
     <>
       <div
@@ -68,13 +77,19 @@ export default function PostAlt({
               {fontSize === "large" ? (
                 <H3
                   as="h2"
-                  className="text-white mt-2 line-clamp-2 transition-all group-hover:border-b-2 border-purple-800  inline">
+                  className={cx(
+                    "text-white mt-2 line-clamp-2 inline",
+                    hoverStyles
+                  )}>
                   {post.name}
                 </H3>
               ) : (
                 <H6
                   as="h2"
-                  className="text-white mt-1 line-clamp-2 transition-all group-hover:border-b-2 border-purple-800 inline">
+                  className={cx(
+                    "text-white mt-1 line-clamp-2 inline",
+                    hoverStyles
+                  )}>
                   {post.name}
                 </H6>
               )}
