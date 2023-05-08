@@ -14,7 +14,6 @@ export async function generateStaticParams() {
     .filter((item) => item.featured)
     .map((item) => ({ slug: item.slug }));
   const combinedSlugs = [...new Set(slugs.concat(featuredSlugs))];
-  console.log(combinedSlugs);
   return combinedSlugs;
 }
 export const dynamicParams = true;
