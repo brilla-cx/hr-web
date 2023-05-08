@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   const posts = await getAllPosts();
   const featuredSlugs = posts
     .filter((item) => item.featured)
-    .map((item) => item.slug);
+    .map((item) => ({ slug: item.slug }));
   const combinedSlugs = [...new Set(slugs.concat(featuredSlugs))];
   return combinedSlugs;
 }

@@ -9,7 +9,8 @@
     "no-warning-comments": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "no-console": "warn"
   },
   "globals": {
     "JSX": true

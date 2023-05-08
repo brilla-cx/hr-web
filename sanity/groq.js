@@ -11,6 +11,7 @@ export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _cre
   },
   publishedAt,
   featured,
+  category[]->,
   url,
   author-> {
     name,
@@ -49,6 +50,7 @@ export const postpathquery = groq`
 
 // Get top 5 categories
 export const topcatquery = groq`*[_type == "category"] {
+  _id,
   name,
   color,
   slug,

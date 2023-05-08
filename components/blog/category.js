@@ -7,11 +7,9 @@ export default function CategoryLabel({ categories, nomargin = false }) {
     <div className="flex gap-3">
       {categories?.length &&
         categories.slice(0).map((category) => (
-          <Link
-            href={`/category/${category.slug.current}`}
-            key={category.slug.current}>
+          <Link href={`/category/${category.slug.current}`} key={category._id}>
             <Label nomargin={nomargin} color={category.color}>
-              {category.title}
+              {category.name}
             </Label>
           </Link>
         ))}
