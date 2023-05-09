@@ -46,7 +46,7 @@ export default function PostAlt({
               "aspect-[5/4]": aspect === "custom",
               "aspect-square": aspect !== "landscape" && aspect !== "custom",
             })}
-            href={`/gists/${post.slug}`}>
+            href={`/gists/${post.slug.current}`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -73,7 +73,9 @@ export default function PostAlt({
             <CategoryLabel categories={post.category} nomargin />
 
             <Link
-              href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
+              href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${
+                post.slug.current
+              }`}>
               {fontSize === "large" ? (
                 <H3
                   as="h2"
@@ -98,7 +100,9 @@ export default function PostAlt({
             <div className="hidden">
               {post.excerpt && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                  <Link href={`/gists/${post.slug}`}>{post.excerpt}</Link>
+                  <Link href={`/gists/${post.slug.current}`}>
+                    {post.excerpt}
+                  </Link>
                 </p>
               )}
             </div>

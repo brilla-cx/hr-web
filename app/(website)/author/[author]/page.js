@@ -1,9 +1,10 @@
+import { getAllAuthorsSlugs, getAuthorPostsBySlug } from "@/sanity/client";
+
 import Author from "./author";
 
-import { getAllAuthorsSlugs, getAuthorPostsBySlug } from "@/lib/sanity/client";
-
 export async function generateStaticParams() {
-  return await getAllAuthorsSlugs();
+  const slugs = await getAllAuthorsSlugs();
+  return slugs;
 }
 
 async function getAuthor(slug) {
@@ -21,5 +22,3 @@ export default async function AuthorPage({ params }) {
   const author = await getAuthor(params.author);
   return <Author posts={posts} author={author} />;
 }
-
-// export const revalidate = 60;

@@ -4,7 +4,7 @@ export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _cre
   _id,
   _createdAt,
   name,
-  "slug": slug.current,
+  slug,
   image {
     ...,
     "blurDataURL":asset->metadata.lqip,
@@ -56,6 +56,24 @@ export const topcatquery = groq`*[_type == "category"] {
   slug,
   "count": count(*[_type == "post" && references(^._id)])
 } | order(count desc) [0...5]`;
+
+// Get all Authors
+export const authorsquery = groq`
+*[_type == "author" && defined(slug.current)][].slug.current
+`;
+
+// Get All Posts by Author
+export const postsbyauthorquery = groq`
+*[_type == "post" && $slug match author->slug.current ] {
+  ...,
+  image {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+  },
+  author->,
+  categories[]->,
+}
+`;
 
 // // Get all posts
 // export const postquery = groq`

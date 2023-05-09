@@ -9,7 +9,9 @@ import { urlForImage } from "@/sanity/image";
 export default function Author(props) {
   const { loading, posts, author } = props;
 
-  const slug = author?.slug;
+  const slug = author?.slug.current;
+
+  console.log(author);
 
   if (!loading && !slug) {
     notFound();
@@ -39,7 +41,7 @@ export default function Author(props) {
         </div>
         <div className="mt-16 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
           {posts.map((post) => (
-            <PostList key={post._id} post={post} aspect="square" />
+            <PostList key={post._id} post={post} aspect="landscape" />
           ))}
         </div>
       </Container>

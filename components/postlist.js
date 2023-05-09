@@ -36,7 +36,7 @@ export default function PostList({
               "aspect-[5/4]": aspect === "custom",
               "aspect-square": aspect !== "landscape" && aspect !== "custom",
             })}
-            href={`/gists/${post.slug}`}>
+            href={`/gists/${post.slug.current}`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -76,7 +76,9 @@ export default function PostList({
             </time>
 
             <Link
-              href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${post.slug}`}>
+              href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${
+                post.slug.current
+              }`}>
               {fontSize === "large" ? (
                 <H3 as="h2" className="mt-2 line-clamp-2 h-20">
                   {post.title || post.name}
