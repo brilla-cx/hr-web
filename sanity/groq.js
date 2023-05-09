@@ -70,7 +70,11 @@ export const postsbyauthorquery = groq`
     ...,
     "blurDataURL":asset->metadata.lqip,
   },
-  author->,
+  author-> {
+    ...,
+    beat[]->,
+    category->,
+  },
   categories[]->,
 }
 `;
