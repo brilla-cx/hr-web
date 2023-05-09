@@ -3,8 +3,8 @@ import { getAllAuthorsSlugs, getAuthorPostsBySlug } from "@/sanity/client";
 import Author from "./author";
 
 export async function generateStaticParams() {
-  const slugs = await getAllAuthorsSlugs();
-  return slugs;
+  // eslint-disable-next-line no-return-await
+  return await getAllAuthorsSlugs();
 }
 
 async function getAuthor(slug) {
