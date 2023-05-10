@@ -10,9 +10,12 @@ import { cx } from "@/lib/utils";
 export const revalidate = 86400;
 
 export const metadata = {
-  title: "HR Web App",
+  title: {
+    default: "Hey Rebekah | Like Morning Brew for freelancers",
+    template: "%s | Hey Rebekah",
+  },
   description:
-    "The new home of Hey Rebekah powered by Sanity.io, Next.js, and Tailwind CSS. Made with ❤️ in partnership with W3CTemplates.",
+    "Hey Rebekah is a free daily newsletter. We write about things that help you become better at what you do in 6 minutes or less. Even our moms think it’s pretty awesome.",
 };
 
 const poppins = localFont({

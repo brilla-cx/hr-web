@@ -1,7 +1,14 @@
 import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId, useCdn } from "./config";
-import { postpathquery, postquery, singlepostquery, topcatquery } from "./groq";
+import {
+  authorsquery,
+  postpathquery,
+  postquery,
+  postsbyauthorquery,
+  singlepostquery,
+  topcatquery,
+} from "./groq";
 
 if (!projectId) {
   console.error(
@@ -48,6 +55,23 @@ export async function getTopCategories() {
     return (await client.fetch(topcatquery)) || [];
   }
   return [];
+}
+
+// Get all Authors
+export async function getAllAuthorsSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(authorsquery)) || [];
+    return slugs.map((slug) => ({ author: slug }));
+  }
+  return [];
+}
+
+// Get all posts by Authors
+export async function getAuthorPostsBySlug(slug) {
+  if (client) {
+    return (await client.fetch(postsbyauthorquery, { slug })) || {};
+  }
+  return {};
 }
 
 // export async function getAllPosts() {
