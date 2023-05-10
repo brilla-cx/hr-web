@@ -45,7 +45,7 @@ export default function Author(props) {
             {author.name}
           </H4>
           {author.expertise && (
-            <p className="text-white text-lg mt-2 text-center">
+            <p className="text-white text-lg mt-2 text-center mx-auto max-w-2xl">
               {author.expertise}
             </p>
           )}
@@ -69,7 +69,7 @@ export default function Author(props) {
             )}
           </div>
 
-          <div className="mx-auto mt-6 flex max-w-3xl flex-col px-5 text-center text-gray-400">
+          <div className="mx-auto mt-6 flex max-w-3xl flex-col px-5 prose text-center text-gray-400">
             {author.bio && <PortableText value={author.bio} />}
           </div>
           {/* <div className="grid md:grid-cols-2">
@@ -90,7 +90,7 @@ export default function Author(props) {
         <div className="text-center mt-16 text-white">
           <H6>Posts by {author.name}</H6>
         </div>
-        <div className="flex flex-wrap justify-center items-center mt-2 gap-3">
+        <div className="flex flex-wrap justify-center items-center mt-2 gap-3 mx-auto max-w-2xl">
           {categories.length &&
             categories.map((category) => (
               <Link
