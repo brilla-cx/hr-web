@@ -75,7 +75,7 @@ export const postsbyauthorquery = groq`
     beat[]->,
     category->,
   },
-  categories[]->,
+  category[]->,
 }
 `;
 
