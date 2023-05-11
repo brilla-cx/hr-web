@@ -3,6 +3,7 @@ import { createClient } from "next-sanity";
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   authorsquery,
+  paginatedpostsquery,
   postpathquery,
   postquery,
   postsbyauthorquery,
@@ -70,6 +71,18 @@ export async function getAllAuthorsSlugs() {
 export async function getAuthorPostsBySlug(slug) {
   if (client) {
     return (await client.fetch(postsbyauthorquery, { slug })) || {};
+  }
+  return {};
+}
+// Get Paginated Posts
+export async function getPaginatedPosts(limit) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedpostsquery, {
+        pageIndex: 0,
+        limit: limit,
+      })) || {}
+    );
   }
   return {};
 }

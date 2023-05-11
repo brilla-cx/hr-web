@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import PostList from "@/components/postlist";
-import { H2 } from "@/components/ui";
+import { Button, H2 } from "@/components/ui";
 
 import PostAlt from "../../components/postalt";
 
@@ -69,6 +69,11 @@ export default function HomePage({ posts }) {
                 aspect="landscape"
               />
             ))}
+          </div>
+          <div className="my-16 flex items-center justify-center">
+            <Button variant="alternate" href="/gists">
+              View all posts
+            </Button>
           </div>
         </Container>
       </div>
