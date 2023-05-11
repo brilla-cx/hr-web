@@ -79,6 +79,16 @@ export const postsbyauthorquery = groq`
 }
 `;
 
+// [(($pageIndex - 1) * 10)...$pageIndex * 10]{
+// Get subsequent paginated posts
+export const paginatedpostsquery = groq`
+*[_type == "post"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+  ...,
+  author->,
+  category[]->
+}
+`;
+
 // // Get all posts
 // export const postquery = groq`
 // *[_type == "post"] | order(publishedAt desc, _createdAt desc) {
@@ -113,7 +123,7 @@ export const postsbyauthorquery = groq`
 // `;
 // // [(($pageIndex - 1) * 10)...$pageIndex * 10]{
 // // Get subsequent paginated posts
-// export const paginatedquery = groq`
+// export const paginatedpostsquery = groq`
 // *[_type == "post"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
 //   ...,
 //   author->,
