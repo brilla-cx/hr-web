@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 
-import { H4, H6 } from "@/components/ui";
+import { H6 } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import { getPaginatedPosts } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
