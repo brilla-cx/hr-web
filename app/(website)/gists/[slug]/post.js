@@ -95,7 +95,7 @@ export default function Post(props) {
 
       <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="mx-auto max-w-[60ch]">
+          <Prose className="prose-post-body mx-auto max-w-[55ch]">
             {post.content && <PortableText value={post.content} />}
           </Prose>
           <div className="mb-7 mt-7 flex justify-center">
