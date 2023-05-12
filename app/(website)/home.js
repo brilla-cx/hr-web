@@ -1,9 +1,7 @@
 import Container from "@/components/container";
 import Hero from "@/components/hero";
-import PostList from "@/components/postlist";
+import PostAlt from "@/components/postalt";
 import { Button, H2 } from "@/components/ui";
-
-import PostAlt from "../../components/postalt";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
