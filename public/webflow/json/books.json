@@ -1,6 +1,7 @@
 {
-  "books": [
+  "items": [
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/gp/product/0385528752/?utm_source=heyrebekah.com",
       "name": "Switch",
       "theGist": "<p id=\"\">\"Switch: How to Change Things When Change Is Hard\" is a book written by Chip Heath and Dan Heath that explores the psychology of change and provides practical strategies for making lasting changes in personal and professional life. <br>The book examines the reasons why change can be difficult and offers a framework for understanding the different elements involved in successful change. It also provides a range of real-world examples and case studies that illustrate the principles in action, making it a valuable resource for anyone looking to create positive change in their life or organization.</p>",
@@ -18,6 +19,7 @@
       "_id": "643ea2065c26a546b239d827"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Invisible-Cities-Italo-Calvino/dp/0156453800?utm_source=heyrebekah.com",
       "name": "Invisible Cities",
       "theGist": "<p>Invisible Cities is a novel by Italo Calvino that explores the imaginary conversations between Marco Polo and the emperor Kublai Khan. </p><p>The book is divided into nine chapters, each describing a different city that Polo claims to have visited. The descriptions of the cities are poetic and surreal, and often blur the line between reality and fantasy. </p><p>Throughout the book, themes of memory, imagination, and perception are explored, as well as the relationship between the individual and the collective. Invisible Cities is a thought-provoking and imaginative work that encourages readers to question their understanding of the world around them.</p>",
@@ -34,6 +36,7 @@
       "_id": "643431a2a3d11b86968ac6e0"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Surrounded-Idiots-Behavior-Effectively-Communicate/dp/1250179939/?utm_source=heyrebekah.com",
       "name": "Surrounded by Idiots",
       "theGist": "<p>In Erikson's \"Surrounded by Idiots,\" readers can learn the secret to deciphering and talking to the four main types of human behavior - Red, Blue, Yellow, and Green. </p><p>Erikson dishes out advice on how to engage with each type in both personal and professional settings, whether it's buttering up a Red or sparking some creativity with a Yellow. </p><p>This book is chock full of tools to sharpen your communication skills and make stronger connections with those around you. So, if you're tired of feeling like you're surrounded by idiots, this book might just be the path to enlightenment.</p>",
@@ -51,6 +54,7 @@
       "_id": "642ab02270f5360ae753835b"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/gp/product/0671027034/?utm_source=heyrebekah.com",
       "name": "How to Win Friends & Influence People",
       "theGist": "<p id=\"\">Ah, Carnegie's \"How to Win Friends and Influence People,\" a classic guide for the smooth-talking socialite.</p><p id=\"\">It's simple, my friend. Just follow Carnegie's golden rules, and you'll be the life of the party. First, remember that everyone's favorite subject is themselves. So when you're schmoozing with the elite, make sure to listen attentively and ask plenty of questions about their oh-so-interesting lives.</p><p id=\"\">Next, show a genuine interest in others and their concerns. And for the love of God, always use their name when you're buttering them up. It's a small touch, but it goes a long way in making people feel special.</p><p id=\"\">And when it comes to criticism, well, sugarcoat that sh*t. No one wants to hear you whine about how much you hate your boss or how much you loathe traffic. Keep it positive, and you'll be well on your way to winning friends and influencing people left and right.</p><p id=\"\">So go forth, my fellow social climber, and use Carnegie's wisdom to charm your way to the top. Just don't forget to thank me when you make it big.</p><p>‍</p>",
@@ -68,6 +72,7 @@
       "_id": "64258b19a345b62dd99ba365"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Blink-Power-Thinking-Without/dp/0316010669?utm_source=heyrebekah.com",
       "name": "Blink",
       "theGist": "<p id=\"\">Blink is a book about the power of first impressions. Written by Malcolm Gladwell, it delves into the idea that our unconscious mind can make quick, accurate judgments about people and situations. He uses a variety of real-life examples to illustrate his points, making the book engaging and thought-provoking.</p><p id=\"\">The book explores the science of rapid cognition, and how our initial thoughts and reactions can be just as valuable as a long and considered decision. Gladwell challenges the reader to think about the way they make decisions and to question the assumptions they make about themselves and others. It's a book that will make you question the way you make decisions and to be more aware of the unconscious biases that we all carry.</p><p id=\"\">The book shows the reader how to trust their instincts, but also to be aware of the potential biases and pitfalls that can come with it. It's a book that is thought-provoking and will make you look at the world in a new way.</p><p>‍</p>",
@@ -85,6 +90,7 @@
       "_id": "642588984d7104535f236bae"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Steal-Like-Artist-Things-Creative/dp/0761169253?utm_source=heyrebekah.com",
       "name": "Steal Like An Artist",
       "theGist": "<p>\"Steal Like an Artist\" by Austin Kleon is a quirky little book that basically says it's totally cool to borrow ideas from others and make them your own. </p><p>In fact, it's pretty much the only way to come up with new and interesting stuff. Just don't get caught, or you might end up in \"art jail\" (which is just a regular jail, but with more paint brushes). </p><p>So go forth, fellow artists, and pilfer like crazy! Just don't forget to give credit where credit is due, otherwise you'll be labeled as a \"art thief\".</p>",
@@ -102,6 +108,7 @@
       "_id": "6425865b4756e0e5566d1ef9"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Mom-Test-customers-business-everyone-ebook/dp/B01H4G2J1U?utm_source=heyrebekah.com",
       "name": "The Mom Test",
       "theGist": "<p id=\"\">The Mom Test by Rob Fitzpatrick is a book about how to gather valuable insights from customers for your startup. The author argues that talking to customers about their problems, rather than your solutions, is a more effective way to learn about their needs and desires.</p><p id=\"\">He suggests using empathy and storytelling to uncover customers' real motivations and pain points, and provides practical tips for conducting customer interviews and avoiding common pitfalls.</p><p id=\"\">The goal of the book is to help entrepreneurs build successful businesses by focusing on the people they are trying to serve, rather than just metrics like users or revenue.</p><p>‍</p>",
@@ -119,6 +126,7 @@
       "_id": "64258442bcda3298e8233356"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity/dp/0143126563?utm_source=heyrebekah.com",
       "name": "Getting Things Done",
       "theGist": "<p id=\"\">Getting Things Done by David Allen is like a superhero manual for productivity enthusiasts! It's like having Iron Man's Jarvis in your pocket, except instead of a snarky AI, it's a book filled with ninja-like tips and tricks to help you conquer your to-do list and become the ultimate productivity master.</p><p id=\"\">With its witty and humorous tone, you'll learn how to turn your brain into a well-oiled machine, capable of taking on even the most daunting task with ease. From learning how to declutter your mind, to organizing your workspace, to creating the perfect to-do list, this book has got you covered.</p><p id=\"\">So, if you're tired of feeling overwhelmed and want to become the productive powerhouse you were always meant to be, then \"Getting Things Done\" is the book for you! Who needs caffeine when you have the power of David Allen's productivity techniques?</p><p>‍</p>",
@@ -136,6 +144,7 @@
       "_id": "642581f183f3451b66380cce"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/gp/product/0374533555/ref=as_li_qf_sp_asin_il_tl?utm_source=heyrebekah.com",
       "name": "Thinking, Fast and Slow",
       "theGist": "<p>\"Thinking, Fast and Slow\" by Daniel Kahneman is a book that explains how humans think and make decisions. Kahneman introduces two modes of thinking: intuitive, fast and automatic \"System 1\" thinking, and deliberate, slow and effortful \"System 2\" thinking. </p><p>He explores how these modes of thinking influence our judgments, decisions, and behavior, and provides insights into how we can improve our thinking processes. </p><p>The book emphasizes the importance of being aware of cognitive biases and errors, and of taking a deliberate, mindful approach to decision-making.</p>",
@@ -152,6 +161,7 @@
       "_id": "64257f928f7ba40755c817ea"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Shoe-Dog-Phil-Knight/dp/1508211809?utm_source=heyrebekah.com",
       "name": "Shoe Dog",
       "theGist": "<p>\"Shoe Dog\" is the memoir of Phil Knight, the creator of Nike, and recounts the story of how he founded and grew one of the most iconic brands in the world. </p><p>The book chronicles the challenges, risks, and triumphs Knight faced throughout his journey, providing valuable insights and inspiration for entrepreneurs and self-employed professionals. Key takeaways include the importance of perseverance, passion, and vision in pursuing one's goals; the need to take calculated risks and make difficult decisions; the value of building strong relationships with partners and employees; and the importance of continually innovating and adapting to stay competitive. </p><p>Overall, \"Shoe Dog\" is a must-read for anyone seeking to build a successful business or navigate the challenges of self-employment.</p>",
@@ -169,6 +179,7 @@
       "_id": "64257c022381924fba63c404"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Money-Book-Freelancers-Part-Timers-Self-Employed/dp/0307453669?utm_source=heyrebekah.com",
       "name": "The Money Book for Freelancers",
       "theGist": "<p>\"The Money Book for Freelancers, Part-Timers, and the Self-Employed\" is a book that offers a personal finance system tailored to people with irregular incomes, such as freelancers and part-timers.</p><p>The authors provide practical tips on budgeting, saving, investing, and managing taxes, as well as advice on managing debt and planning for retirement.</p><p>The book is designed to help readers take control of their finances and achieve long-term financial stability, even with unpredictable income streams.</p>",
@@ -186,6 +197,7 @@
       "_id": "6425778592045237e8a6e3ba"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/Draft-No-4-Writing-Process/dp/0374142742?utm_source=heyrebekah.com",
       "name": "Draft No. 4",
       "theGist": "<p>Draft No. 4: On the Writing Process is a book written by John McPhee that delves into the art of writing, drawing on his experience as a writer and a teacher of writing at Princeton University.</p><p>The book covers various aspects of the writing process, including the importance of structure, the role of research, and the value of revising and editing.</p><p>It also includes personal anecdotes and reflections on McPhee's own writing journey.</p>",
@@ -215,11 +227,13 @@
       "slug": "the-80-20-principle",
       "publishedAt": "2023-03-30T13:23:46.759Z",
       "summary": "Improve your productivity in life and business.",
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/gp/product/0385491743?utm_source=heyrebekah.com",
       "theGist": "<p>The book \"The 80/20 Principle: The Secret to Achieving More with Less\" by Richard Koch is about the 80/20 principle, which states that 80% of results come from 20% of efforts. </p><p>The book explains how to identify and leverage this principle to increase effectiveness and achieve more with less effort in various areas of life, including business and personal success.</p>",
       "_id": "642466a94e8fa344e02f8a7c"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/gp/product/1591396190/?utm_source=heyrebekah.com",
       "name": "Blue Ocean Strategy",
       "theGist": "<p id=\"\">Blue Ocean Strategy: How to Create Uncontested Market Space and Make Competition Irrelevant is a book that provides guidance on how to create new markets rather than compete in existing ones. <br>The authors argue that businesses should focus on creating \"blue oceans\" - uncontested market spaces - rather than fighting in \"red oceans\" where there is fierce competition. <br>The book outlines a framework for identifying and developing blue oceans, using real-life examples of companies that have successfully implemented the strategy. <br>Overall, the book aims to help businesses unlock new opportunities for growth and innovation by thinking outside of traditional market boundaries.</p>",
@@ -237,6 +251,7 @@
       "_id": "6422ae8774f59592ca17a615"
     },
     {
+      "_type": "book",
       "bookUrl": "https://www.amazon.com/dp/1846681375?utm_source=heyrebekah.com",
       "name": "What Got You Here Won't Get You There",
       "theGist": "<p id=\"\"><strong id=\"\"></strong>What Got You Here Won't Get You There” is a book by executive coach Marshall Goldsmith that explores how successful people can continue to improve and reach even greater levels of success. </p><p id=\"\">The book examines common behaviors and habits that may have been helpful in the past, but can hold individuals back from reaching their full potential. By identifying and addressing these limitations, individuals can develop new skills and mindsets that will help them continue to succeed and grow. </p><p id=\"\">The book offers practical tips and strategies for personal and professional development, making it a valuable resource for anyone looking to achieve more in their career and personal life.</p>",
