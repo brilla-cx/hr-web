@@ -215,6 +215,7 @@
       "_id": "64256ee8f5c3d9977bb9c346"
     },
     {
+      "_type": "book",
       "name": "The 80/20 Principle",
       "bookAuthor": "Richard Koch",
       "subtitle": "The Secret to Achieving More with Less",
@@ -227,7 +228,6 @@
       "slug": "the-80-20-principle",
       "publishedAt": "2023-03-30T13:23:46.759Z",
       "summary": "Improve your productivity in life and business.",
-      "_type": "book",
       "bookUrl": "https://www.amazon.com/gp/product/0385491743?utm_source=heyrebekah.com",
       "theGist": "<p>The book \"The 80/20 Principle: The Secret to Achieving More with Less\" by Richard Koch is about the 80/20 principle, which states that 80% of results come from 20% of efforts. </p><p>The book explains how to identify and leverage this principle to increase effectiveness and achieve more with less effort in various areas of life, including business and personal success.</p>",
       "_id": "642466a94e8fa344e02f8a7c"
