@@ -15,10 +15,9 @@ const faq = {
             validation: Rule => Rule.required(),
         },
         {
-            name: 'answer',
-            title: 'Answer',
-            type: 'array',
-            of: [{ type: 'block' }],
+            name: "answer",
+            title: "Answer",
+            type: "blockContent",
             options: { spellcheck: true },
             validation: Rule => Rule.required(),
         },
@@ -51,7 +50,6 @@ const faq = {
             name: "publishedAt",
             title: "Published at",
             type: "datetime",
-            group: "meta",
         },
     ],
     preview: {
