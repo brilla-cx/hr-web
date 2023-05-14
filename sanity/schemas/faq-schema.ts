@@ -23,6 +23,16 @@ const faq = {
             validation: Rule => Rule.required(),
         },
         {
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: {
+                source: "name",
+                maxLength: 96,
+            },
+            validation: Rule => Rule.required(),
+        },
+        {
             name: 'faqType',
             title: 'FAQ Type',
             type: 'array',
@@ -37,7 +47,20 @@ const faq = {
             },
             validation: Rule => Rule.required(),
         },
+        {
+            name: "publishedAt",
+            title: "Published at",
+            type: "datetime",
+            group: "meta",
+        },
     ],
+    preview: {
+        select: {
+            title: "question",
+            subtitle: "answer",
+            media: "faqType",
+        },
+    },
 };
 
 export default faq;
