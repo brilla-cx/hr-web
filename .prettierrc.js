@@ -5,4 +5,5 @@ module.exports = {
   bracketSameLine: true,
   tabWidth: 2,
   useTabs: false,
+  ignore: ["**/*.ndjson"],
 };
