@@ -1,3 +1,4 @@
+{
   "books": [
     {
       "bookUrl": "https://www.amazon.com/gp/product/0385528752/?utm_source=heyrebekah.com",
@@ -12,11 +13,11 @@
         "_type": "image",
         "_id": "643ea29fd9d09f193efddcc0",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/643ea29fd9d09f193efddcc0_switch-featured.jpg",
-        "imageAltText": "Featured image for Switch",
+        "imageAltText": "Featured image for Switch"
       },
       "_id": "643ea2065c26a546b239d827"
     },
-    {      
+    {
       "bookUrl": "https://www.amazon.com/Invisible-Cities-Italo-Calvino/dp/0156453800?utm_source=heyrebekah.com",
       "name": "Invisible Cities",
       "theGist": "<p>Invisible Cities is a novel by Italo Calvino that explores the imaginary conversations between Marco Polo and the emperor Kublai Khan. </p><p>The book is divided into nine chapters, each describing a different city that Polo claims to have visited. The descriptions of the cities are poetic and surreal, and often blur the line between reality and fantasy. </p><p>Throughout the book, themes of memory, imagination, and perception are explored, as well as the relationship between the individual and the collective. Invisible Cities is a thought-provoking and imaginative work that encourages readers to question their understanding of the world around them.</p>",
@@ -27,7 +28,7 @@
         "_type": "image",
         "_id": "6434303877086b749bd3fce7",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/6434303877086b749bd3fce7_invisible-cities-featured.jpg",
-        "imageAltText": "A Featured Image for Invisible Cities in the style of Monet",
+        "imageAltText": "A Featured Image for Invisible Cities in the style of Monet"
       },
       "publishedAt": "2023-04-10T17:12:13.300Z",
       "_id": "643431a2a3d11b86968ac6e0"
@@ -43,7 +44,7 @@
         "_type": "image",
         "_id": "642aafe5f00cb331afa9f249",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/642aafe5f00cb331afa9f249_surrounded-by-idiots-featured.jpg",
-        "imageAltText": "Featured Image for Surrounded by Idiots in the Style of Frida Kahlo",
+        "imageAltText": "Featured Image for Surrounded by Idiots in the Style of Frida Kahlo"
       },
       "slug": "surrounded-by-idiots",
       "publishedAt": "2023-04-03T14:10:40.034Z",
@@ -61,7 +62,7 @@
         "_type": "image",
         "_id": "64258ae5f2535da54e57eb31",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/64258ae5f2535da54e57eb31_how-to-win-friends-featured.jpg",
-        "imageAltText": "Featured Imaged for Dale Carnegie in the Style of Andy Warhol",
+        "imageAltText": "Featured Imaged for Dale Carnegie in the Style of Andy Warhol"
       },
       "publishedAt": "2023-03-30T13:15:24.177Z",
       "_id": "64258b19a345b62dd99ba365"
@@ -77,7 +78,7 @@
         "_type": "image",
         "_id": "64258836190cf26406248229",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/64258836190cf26406248229_blink-featured.jpg",
-        "imageAltText": "Featured Image for Blink in the Style of Picasso",
+        "imageAltText": "Featured Image for Blink in the Style of Picasso"
       },
       "slug": "blink",
       "publishedAt": "2023-03-30T13:18:24.860Z",
@@ -94,7 +95,7 @@
         "_type": "image",
         "_id": "6425863dafce61f6e82b2ce9",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/6425863dafce61f6e82b2ce9_steal-like-an-artist-featured.jpg",
-        "imageAltText": "Featured Image for Steal like an Artist in the Style of Banksy",
+        "imageAltText": "Featured Image for Steal like an Artist in the Style of Banksy"
       },
       "slug": "steal-like-an-artist",
       "publishedAt": "2023-03-30T13:08:47.860Z",
@@ -111,7 +112,7 @@
         "_type": "image",
         "_id": "6425840b05aa63ce9421162e",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/6425840b05aa63ce9421162e_mom-test-featured.jpg",
-        "imageAltText": "Featured Image for The Mom Test in the Style of Pixar",
+        "imageAltText": "Featured Image for The Mom Test in the Style of Pixar"
       },
       "slug": "the-mom-test",
       "publishedAt": "2023-03-30T13:23:46.759Z",
@@ -129,7 +130,7 @@
         "_type": "image",
         "_id": "642581c5f2535d063f4f4fde",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/642581c5f2535d063f4f4fde_getting-things-done-featured.jpg",
-        "imageAltText": "Featured Image for Getting Things Done in the Style of Matisse",
+        "imageAltText": "Featured Image for Getting Things Done in the Style of Matisse"
       },
       "publishedAt": "2023-03-30T13:08:47.860Z",
       "_id": "642581f183f3451b66380cce"
@@ -144,7 +145,7 @@
         "_type": "image",
         "_id": "64257f27572863c5cad8e416",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/64257f27572863c5cad8e416_thinking-fast-slow-featured.jpg",
-        "imageAltText": "Featured Image for Thinking Fast and Slow in the Style of Banksy",
+        "imageAltText": "Featured Image for Thinking Fast and Slow in the Style of Banksy"
       },
       "slug": "thinking-fast-and-slow",
       "publishedAt": "2023-03-30T13:08:47.860Z",
@@ -162,7 +163,7 @@
         "_type": "image",
         "_id": "64257bd2cc452d6b248553ce",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/64257bd2cc452d6b248553ce_shoe-dog-featured.jpg",
-        "imageAltText": "Featured Image for Shoe Dog in the Style of Banksy",
+        "imageAltText": "Featured Image for Shoe Dog in the Style of Banksy"
       },
       "publishedAt": "2023-03-30T13:08:47.860Z",
       "_id": "64257c022381924fba63c404"
@@ -179,7 +180,7 @@
         "_type": "image",
         "_id": "6425770d67199418bd2ce930",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/6425770d67199418bd2ce930_money-book-featured.jpg",
-        "imageAltText": "Featured Image for The Money Book for Freelancers ",
+        "imageAltText": "Featured Image for The Money Book for Freelancers "
       },
       "publishedAt": "2023-03-30T13:08:47.860Z",
       "_id": "6425778592045237e8a6e3ba"
@@ -195,7 +196,7 @@
         "_type": "image",
         "_id": "64256dc2f33d2e29914dd5e3",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/64256dc2f33d2e29914dd5e3_draft-no-4-featured.jpg",
-        "imageAltText": "Featured Image for Draft No. 4 in the Style of Banksy by Stable Diffusion 2.1",
+        "imageAltText": "Featured Image for Draft No. 4 in the Style of Banksy by Stable Diffusion 2.1"
       },
       "slug": "draft-no-4",
       "publishedAt": "2023-03-30T13:08:47.860Z",
@@ -209,7 +210,7 @@
         "_type": "image",
         "_id": "642465ffa4a50e8cff0ff944",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/642465ffa4a50e8cff0ff944_80-20-principle-featured.jpg",
-        "imageAltText": "Featured Image for 80/20 Principle",
+        "imageAltText": "Featured Image for 80/20 Principle"
       },
       "slug": "the-80-20-principle",
       "publishedAt": "2023-03-30T13:23:46.759Z",
@@ -231,7 +232,7 @@
         "_type": "image",
         "_id": "6422af57177244582b17d98d",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/6422af57177244582b17d98d_blue-ocean-strategy.jpg",
-        "imageAltText": "Blue Ocean Strategy Featured Image in the Style of Miro ",
+        "imageAltText": "Blue Ocean Strategy Featured Image in the Style of Miro "
       },
       "_id": "6422ae8774f59592ca17a615"
     },
@@ -248,8 +249,9 @@
         "_type": "image",
         "_id": "6422b17fa2692c03b05403b5",
         "_sanityAsset": "image@https://uploads-ssl.webflow.com/639f259a8defc0979cded246/6422b17fa2692c03b05403b5_what%20got%20you%20here-featured.jpg",
-        "imageAltText": "Featured Image for What got you here won't get you there in the Style of Star Wars",
+        "imageAltText": "Featured Image for What got you here won't get you there in the Style of Star Wars"
       },
       "_id": "64198ae29672c9f8ab9dd14c"
     }
-  ],
+  ]
+}
