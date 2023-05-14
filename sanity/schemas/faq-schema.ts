@@ -26,7 +26,7 @@ const faq = {
             title: "Slug",
             type: "slug",
             options: {
-                source: "name",
+                source: "question",
                 maxLength: 96,
             },
             validation: Rule => Rule.required(),
