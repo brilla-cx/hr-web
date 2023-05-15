@@ -1,4 +1,4 @@
-import { FaChevronDown } from "react-icons/fa";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { cx } from "@/lib/utils";
 
@@ -32,7 +32,7 @@ export function Input({
 export function Select({ children, size = "md", ...rest }) {
   return (
     <div className="relative">
-      <FaChevronDown className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <ChevronDownIcon className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
