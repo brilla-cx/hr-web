@@ -75,11 +75,11 @@ export async function getAuthorPostsBySlug(slug) {
   return {};
 }
 // Get Paginated Posts
-export async function getPaginatedPosts(limit) {
+export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
   if (client) {
     return (
       (await client.fetch(paginatedpostsquery, {
-        pageIndex: 0,
+        pageIndex: pageIndex,
         limit: limit,
       })) || {}
     );

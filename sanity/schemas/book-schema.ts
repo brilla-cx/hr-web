@@ -39,6 +39,13 @@ const book = {
             group: "bookDetails",
         },
         {
+            name: "summary",
+            title: "Summary",
+            description: "A brief summary of the book.",
+            type: "string",
+            group: "bookDetails",
+        },
+        {
             name: "bookAuthor",
             title: "Book Author",
             description: "The name of the author of the book.",
@@ -73,21 +80,29 @@ const book = {
         },
         {
             name: "image",
-            title: "Featured Image",
+            title: "Featured image",
+            description:
+                "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
             type: "image",
+            group: "meta",
+            fields: [
+                {
+                    name: "caption",
+                    title: "Image caption",
+                    description:
+                        "Use this to add your Stable Diffusion prompt or attribute a source.",
+                    type: "string",
+                },
+                {
+                    name: "imageAltText",
+                    title: "Image Alt Text",
+                    description: "E.g. A grumpy looking bald man on a chair.",
+                    type: "string",
+                },
+            ],
             options: {
                 hotspot: true,
             },
-            validation: Rule => Rule.required(),
-            group: "meta",
-        },
-        {
-            name: "imageAltText",
-            title: "Image Alt Text",
-            type: "string",
-            description: "Enter the alternative text for the Featured Image per A11y.",
-            validation: Rule => Rule.required(),
-            group: "meta",
         },
         {
             name: "slug",

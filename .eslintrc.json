@@ -14,5 +14,6 @@
   },
   "globals": {
     "JSX": true
-  }
+  },
+  "ignorePatterns": ["*.ndjson"]
 }

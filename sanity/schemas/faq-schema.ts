@@ -15,11 +15,20 @@ const faq = {
             validation: Rule => Rule.required(),
         },
         {
-            name: 'answer',
-            title: 'Answer',
-            type: 'array',
-            of: [{ type: 'block' }],
+            name: "answer",
+            title: "Answer",
+            type: "blockContent",
             options: { spellcheck: true },
+            validation: Rule => Rule.required(),
+        },
+        {
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: {
+                source: "question",
+                maxLength: 96,
+            },
             validation: Rule => Rule.required(),
         },
         {
@@ -37,7 +46,19 @@ const faq = {
             },
             validation: Rule => Rule.required(),
         },
+        {
+            name: "publishedAt",
+            title: "Published at",
+            type: "datetime",
+        },
     ],
+    preview: {
+        select: {
+            title: "question",
+            subtitle: "answer",
+            media: "faqType",
+        },
+    },
 };
 
 export default faq;
