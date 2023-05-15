@@ -1,4 +1,4 @@
-import { ImageResponse } from "@vercel/og";
+import { ImageResponse } from "next/server";
 
 import OgImage from "@/components/blog/ogimage";
 import { getPostBySlug } from "@/sanity/client";

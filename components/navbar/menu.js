@@ -32,7 +32,7 @@ const company = [
 ];
 
 export default async function Menu() {
-  const recentPosts = await getPaginatedPosts(2);
+  const recentPosts = await getPaginatedPosts({ limit: 2 });
 
   return (
     <Popover className="">
