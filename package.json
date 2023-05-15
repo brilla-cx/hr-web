@@ -25,6 +25,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@types/react-dom": "18.0.11",
+    "@vercel/og": "^0.5.4",
     "autoprefixer": "10.4.14",
     "classnames": "^2.3.2",
     "eslint-config-next": "13.3.0",
@@ -38,6 +39,7 @@
     "prettier": "^2.8.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "react-iframe": "^1.8.5",
     "react-share": "^4.4.1",
     "react-social-media-embed": "^2.3.5",
@@ -63,7 +65,6 @@
     "eslint-config-sanity": "^6.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
-    "react-icons": "^4.8.0",
     "standard-version": "^9.5.0",
     "typescript": "5.0.4"
   },
