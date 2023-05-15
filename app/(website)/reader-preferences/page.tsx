@@ -15,5 +15,3 @@ export default function ReaderPreferences() {
     </div>
   );
 }
-
-export const dynamic = true;

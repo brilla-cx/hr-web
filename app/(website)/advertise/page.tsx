@@ -15,4 +15,3 @@ export default function Advertise() {
     </div>
   );
 }
-export const dynamic = true;

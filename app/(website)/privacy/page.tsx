@@ -15,5 +15,3 @@ export default function Privacy() {
     </div>
   );
 }
-
-export const dynamic = true;

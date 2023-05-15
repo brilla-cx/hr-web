@@ -15,5 +15,3 @@ export default function BuiltWith() {
     </div>
   );
 }
-
-export const dynamic = true;

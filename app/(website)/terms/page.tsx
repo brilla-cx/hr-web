@@ -15,5 +15,3 @@ export default function Terms() {
     </div>
   );
 }
-
-export const dynamic = true;

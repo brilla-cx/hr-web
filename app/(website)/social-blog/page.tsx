@@ -15,5 +15,3 @@ export default function SocialBlog() {
     </div>
   );
 }
-
-export const dynamic = true;

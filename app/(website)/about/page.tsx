@@ -15,5 +15,3 @@ export default function About() {
     </div>
   );
 }
-
-export const dynamic = true;

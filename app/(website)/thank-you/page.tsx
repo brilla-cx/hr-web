@@ -15,5 +15,3 @@ export default function ThankYou() {
     </div>
   );
 }
-
-export const dynamic = true;

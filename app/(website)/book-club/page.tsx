@@ -15,5 +15,3 @@ export default function BookClub() {
     </div>
   );
 }
-
-export const dynamic = true;

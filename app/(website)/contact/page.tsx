@@ -15,5 +15,3 @@ export default function Contact() {
     </div>
   );
 }
-
-export const dynamic = true;

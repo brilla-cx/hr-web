@@ -15,5 +15,3 @@ export default function Partners() {
     </div>
   );
 }
-
-export const dynamic = true;

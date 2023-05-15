@@ -15,5 +15,3 @@ export default function EditorialPolicy() {
     </div>
   );
 }
-
-export const dynamic = true;

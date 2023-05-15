@@ -15,5 +15,3 @@ export default function RebekahRadice() {
     </div>
   );
 }
-
-export const dynamic = true;
