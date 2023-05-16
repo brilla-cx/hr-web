@@ -13,11 +13,9 @@ import DateTime from "@/components/ui/time";
 import { urlForImage } from "@/sanity/image";
 
 export default function Post(props) {
-  const { loading, post, categories } = props;
+  const { post, categories } = props;
 
-  const slug = post?.slug;
-
-  if (!loading && !slug) {
+  if (!post?.slug) {
     notFound();
   }
 
