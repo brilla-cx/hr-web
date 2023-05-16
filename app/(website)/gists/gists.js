@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 
+import Loading from "@/components/blog/loading";
 import Container from "@/components/container";
 
-import Loading from "./loading";
 import PaginatedPosts from "./posts";
 
 export default function Gists() {
