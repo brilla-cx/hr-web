@@ -29,3 +29,5 @@ export default function Gists() {
     </div>
   );
 }
+
+export const revalidate = 3600;

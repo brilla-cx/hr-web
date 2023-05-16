@@ -1,3 +1,5 @@
+import { draftMode } from "next/headers";
+
 import {
   getAllPosts,
   getAllPostsSlugs,
@@ -26,5 +28,9 @@ export async function generateMetadata({ params }) {
 export default async function PostPage({ params }) {
   const post = await getPostBySlug(params.slug);
   const categories = await getTopCategories();
+
+  const { isEnabled } = draftMode();
+  console.log("isEnabled", isEnabled);
+
   return <Post post={post} categories={categories} />;
 }
