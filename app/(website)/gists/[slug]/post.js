@@ -108,7 +108,9 @@ export default function Post(props) {
         <aside className="sticky top-24 w-full self-start md:w-80 mr-5">
           <Sidebar
             categories={categories}
-            related={post.related.filter((item) => item.slug.current !== slug)}
+            related={post.related.filter(
+              (item) => item.slug.current !== post.slug.current
+            )}
           />
         </aside>
       </div>
