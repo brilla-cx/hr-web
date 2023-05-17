@@ -13,7 +13,10 @@ import { media } from "sanity-plugin-media";
 
 import hrLogo from "./components/studio/logo/logo";
 import schemas from "./sanity/schemas";
-import { structure } from "./src/deskStructure";
+import {
+  defaultDocumentNode,
+  structure,
+} from "./sanity/settings/deskStructure";
 
 const config = defineConfig({
   theme,
@@ -35,6 +38,7 @@ const config = defineConfig({
     }),
     deskTool({
       structure,
+      defaultDocumentNode,
     }),
 
     scheduledPublishing(), // Required for scheduled publishing to work

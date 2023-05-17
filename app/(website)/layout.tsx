@@ -5,11 +5,13 @@ import localFont from "next/font/local";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
 
 export const revalidate = 86400;
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Hey Rebekah | Like Morning Brew for freelancers",
     template: "%s | Hey Rebekah",
