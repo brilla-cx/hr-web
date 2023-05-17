@@ -23,7 +23,7 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="relative isolate py-10 bg-midnight-blue">
+      <div className="relative isolate py-10 bg-slate-950">
         <div
           className="absolute inset-0 opacity-50 "
           style={{
@@ -32,7 +32,7 @@ export default function Post(props) {
         />
         <Container
           large
-          className="absolute inset-0 border-l border-r border-light-grey border-opacity-10 z-12"
+          className="absolute inset-0 border-l border-r border-neutral-200 border-opacity-10 z-12"
         />
         <Container className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 place-items-center ">

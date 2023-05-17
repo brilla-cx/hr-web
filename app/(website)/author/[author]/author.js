@@ -25,10 +25,10 @@ export default function Author(props) {
   ];
 
   return (
-    <div className="bg-dark-blue">
+    <div className="bg-slate-950">
       <Container
         large
-        className="border-l border-r border-light-grey border-opacity-10">
+        className="border-l border-r border-neutral-200 border-opacity-10">
         <div className="flex flex-col items-center justify-center">
           <div className="relative h-20 w-20 overflow-hidden rounded-full">
             {author?.image && (

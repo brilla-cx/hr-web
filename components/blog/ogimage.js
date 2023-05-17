@@ -38,7 +38,7 @@ export default function OgImage({ post }) {
             {post?.name}
           </div>
           <p tw="text-white/90 text-lg font-medium">
-            <span href="/" tw="border-b border-pink-500 text-white">
+            <span href="/" tw="border-b border-pink text-white">
               By {post?.author?.name}
             </span>
           </p>

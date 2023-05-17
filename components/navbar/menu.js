@@ -38,7 +38,7 @@ export default async function Menu() {
     <Popover className="">
       <Popover.Button
         variant="secondary"
-        className="px-3 py-3 text-lg uppercase font-semibold leading-none inline-flex gap-1 items-center justify-center relative bg-dark-blue text-white rounded focus:outline-none focus:ring-0 z-30">
+        className="px-3 py-3 text-lg uppercase font-semibold leading-none inline-flex gap-1 items-center justify-center relative bg-slate-950 text-white rounded focus:outline-none focus:ring-0 z-30">
         Menu
         <ChevronDownIcon
           className="h-5 w-5 ui-open:rotate-180 transition-all"
@@ -54,11 +54,11 @@ export default async function Menu() {
         leave="transition ease-in duration-150"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 -translate-y-1">
-        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-dark-blue pt-16 border-b-2 border-pink">
+        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-slate-950 pt-16 border-b-2 border-pink">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2">
             <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
               <div>
-                <h3 className="text-sm font-bold uppercase leading-6 text-aqua">
+                <h3 className="text-sm font-bold uppercase leading-6 text-sky-500">
                   Resources
                 </h3>
                 <div className="mt-6 flow-root">
@@ -77,7 +77,7 @@ export default async function Menu() {
                 </div>
               </div>
               <div>
-                <h3 className="text-sm font-bold uppercase leading-6 text-aqua">
+                <h3 className="text-sm font-bold uppercase leading-6 text-sky-500">
                   Company
                 </h3>
                 <div className="mt-6 flow-root">
@@ -117,7 +117,7 @@ export default async function Menu() {
                   <div>
                     <div className="flex items-center gap-x-4">
                       <DateTime
-                        className="text-aqua text-xs font-bold"
+                        className="text-sky-500 text-xs font-bold"
                         date={post?.publishedAt || post._createdAt}
                       />
                     </div>
