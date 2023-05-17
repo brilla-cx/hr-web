@@ -36,7 +36,7 @@ const biryani = localFont({
 });
 
 const chivo = localFont({
-  src: "./assets/fonts/chivo.woff2",
+  src: "./assets/fonts/chivo-variable.ttf",
   variable: "--font-chivo",
   display: "swap",
 });

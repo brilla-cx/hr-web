@@ -1,11 +1,12 @@
 import Image from "next/image";
 
 import { Button, H5, Input } from "@/components/ui";
+import hoverStyles from "@/lib/hoverStyles";
+import { cx } from "@/lib/utils";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 
 export default function Footer() {
   return (
-    // T-10084 Update Footer Styles
     <footer
       className="border-t-4 border-t-pink bg-gray-950"
       aria-labelledby="footer-heading">
@@ -30,7 +31,10 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className={cx(
+                          "text-med leading-6 text-neutral-200",
+                          hoverStyles
+                        )}>
                         {item.name}
                       </a>
                     </li>
@@ -46,7 +50,10 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className={cx(
+                          "text-med leading-6 text-neutral-200",
+                          hoverStyles
+                        )}>
                         {item.name}
                       </a>
                     </li>
@@ -64,7 +71,10 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className={cx(
+                          "text-med leading-6 text-neutral-200",
+                          hoverStyles
+                        )}>
                         {item.name}
                       </a>
                     </li>
@@ -80,7 +90,10 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className={cx(
+                          "text-med leading-6 text-neutral-200",
+                          hoverStyles
+                        )}>
                         {item.name}
                       </a>
                     </li>
@@ -120,7 +133,7 @@ export default function Footer() {
               href="https://bril.la"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+              className={cx(hoverStyles)}>
               {" "}
               BRIL.LA, LLC.
             </a>
@@ -133,7 +146,8 @@ export default function Footer() {
               href="https://web3creative.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+              className={cx(hoverStyles)}>
+              {" "}
               Web3Creative
             </a>
           </p>

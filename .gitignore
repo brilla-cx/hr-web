@@ -1,7 +1,6 @@
 # Ignore files generated during development and build process
 .tmp
 _docpress
-lib
 dist
 tsconfig.tsbuildinfo
 coverage

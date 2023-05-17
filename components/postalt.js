@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import CategoryLabel from "@/components/blog/category";
 import { H3, H6 } from "@/components/ui";
+import hoverStyles from "@/lib/hoverStyles";
 import { cx, timeAgo } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
@@ -21,14 +22,6 @@ export default function PostAlt({
     ? urlForImage(post.author.image)
     : null;
 
-  const hoverStyles = `bg-gradient-to-r
-                        bg-[length:0px_10px]
-                        bg-left-bottom bg-no-repeat
-                        transition-[background-size]
-                        duration-500
-                        hover:bg-[length:100%_3px]
-                        group-hover:bg-[length:100%_10px]
-                        from-purple-800 to-purple-900`;
   return (
     <>
       <div
