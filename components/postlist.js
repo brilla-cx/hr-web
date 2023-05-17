@@ -67,7 +67,7 @@ export default function PostList({
           <div>
             {/* <CategoryLabel categories={post.categories} nomargin={minimal} /> */}
             <time
-              className="truncate text-xs text-blue"
+              className="truncate text-xs text-indigo-950"
               dateTime={post?.publishedAt || post._createdAt}>
               {format(
                 parseISO(post?.publishedAt || post._createdAt),

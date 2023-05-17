@@ -9,11 +9,11 @@ const Hero = (props) => {
         <H1 className="text-white">
           Like Morning Brew for freelancers, without all the readers
         </H1>
-        <Lead className="mt-5 max-w-3xl text-light-grey">
+        <Lead className="mt-5 max-w-3xl text-neutral-200">
           Hey Rebekah is a free daily newsletter. We write about things that
           help you become better at what you do in 6 minutes or less.
         </Lead>
-        <Lead className="mt-5 max-w-3xl text-light-grey">
+        <Lead className="mt-5 max-w-3xl text-neutral-200">
           Even our moms think it's pretty awesome.
         </Lead>
       </div>
@@ -30,7 +30,7 @@ const Hero = (props) => {
           />
           <Button variant="alternate">Level Up</Button>
         </div>
-        <p className="mt-4 text-sm leading-6 text-light-grey">
+        <p className="mt-4 text-sm leading-6 text-neutral-200">
           We care about your{" "}
           <Link
             href="#"

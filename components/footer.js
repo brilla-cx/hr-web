@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     // T-10084 Update Footer Styles
     <footer
-      className="border-t-4 border-t-pink bg-black"
+      className="border-t-4 border-t-pink bg-gray-950"
       aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="font-display font-semibold leading-6 text-aqua uppercase">
+                <h3 className="font-display font-semibold leading-6 text-sky-500 uppercase">
                   Resources
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -30,7 +30,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-light-grey hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                         {item.name}
                       </a>
                     </li>
@@ -38,7 +38,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="font-display font-semibold leading-6 text-aqua uppercase">
+                <h3 className="font-display font-semibold leading-6 text-sky-500 uppercase">
                   Company
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -46,7 +46,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-light-grey hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                         {item.name}
                       </a>
                     </li>
@@ -56,7 +56,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="font-display font-semibold leading-6 text-aqua uppercase">
+                <h3 className="font-display font-semibold leading-6 text-sky-500 uppercase">
                   Follow Us
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -64,7 +64,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-light-grey hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                         {item.name}
                       </a>
                     </li>
@@ -72,7 +72,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="font-display font-semibold leading-6 text-aqua uppercase">
+                <h3 className="font-display font-semibold leading-6 text-sky-500 uppercase">
                   Legal
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
@@ -80,7 +80,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <a
                         href={item.href}
-                        className="text-med leading-6 text-light-grey hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className="text-med leading-6 text-neutral-200 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
                         {item.name}
                       </a>
                     </li>
@@ -93,7 +93,7 @@ export default function Footer() {
         <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
           <div>
             <H5 className="text-white"> Subscribe to our newsletter</H5>
-            <p className="mt-1 text-sm leading-6 text-light-grey">
+            <p className="mt-1 text-sm leading-6 text-neutral-200">
               The latest news, articles, and resources, sent to your inbox
               weekly.
             </p>
@@ -113,7 +113,7 @@ export default function Footer() {
             <Button variant="alternate">Join Us</Button>
           </form>
         </div>
-        <div className="mt-8 border-t border-light-grey pt-8 md:flex md:items-center md:justify-between">
+        <div className="mt-8 border-t border-neutral-200 pt-8 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-xs leading-5 text-gray-300 md:order-2 md:mt-0">
             &copy; {new Date().getFullYear()} Hey Rebekah is a product of
             <a

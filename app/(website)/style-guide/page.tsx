@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
-import { Button,Input, Select, Textarea } from "@/components/ui";
-import { Badge, Blockquote,Prose, Spacer } from "@/components/ui";
+import { Button, Input, Select, Textarea } from "@/components/ui";
+import { Badge, Blockquote, Prose, Spacer } from "@/components/ui";
 
 export default function StyleGuide() {
   return (
@@ -22,13 +22,13 @@ export default function StyleGuide() {
           <div className="flex flex-wrap gap-10 mt-6 border-t pt-6">
             <div className="w-16 h-16 bg-black rounded" />
             <div className="w-16 h-16 bg-white shadow rounded" />
-            <div className="w-16 h-16 bg-light-grey rounded" />
-            <div className="w-16 h-16 bg-blue rounded" />
-            <div className="w-16 h-16 bg-dark-blue rounded" />
+            <div className="w-16 h-16 bg-neutral-200 rounded" />
+            <div className="w-16 h-16 bg-indigo-950 rounded" />
+            <div className="w-16 h-16 bg-slate-950 rounded" />
             <div className="w-16 h-16 bg-pink rounded" />
-            <div className="w-16 h-16 bg-yellow rounded" />
+            <div className="w-16 h-16 bg-amber-400 rounded" />
             <div className="w-16 h-16 bg-green rounded" />
-            <div className="w-16 h-16 bg-aqua rounded" />
+            <div className="w-16 h-16 bg-sky-500 rounded" />
           </div>
         </div>
 

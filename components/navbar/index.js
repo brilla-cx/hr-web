@@ -10,12 +10,12 @@ import Menu from "./menu";
 export default async function Navbar() {
   const recentPosts = await getPaginatedPosts({ limit: 2 });
   return (
-    <div className="sticky top-0 z-50 bg-dark-blue">
+    <div className="sticky top-0 z-50 bg-slate-950">
       <div className="relative shadow">
         <Container
           alt
           large
-          className="h-20 py-5 border-l border-r border-light-grey border-opacity-10">
+          className="h-20 py-5 border-l border-r border-neutral-200 border-opacity-10">
           <div className="flex justify-between items-center gap-10">
             <div className="isolate" style={{ zIndex: 2 }}>
               <Link href="/">

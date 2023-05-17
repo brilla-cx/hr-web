@@ -18,7 +18,7 @@ export default function OgImage({ post }) {
   return (
     <div
       tw="flex w-full h-full"
-      style={{ fontFamily: "Apfel", backgroundColor: "#040b29" }}>
+      style={{ fontFamily: "Chivo", backgroundColor: "#040b29" }}>
       <div tw="flex flex-col items-start justify-around px-10 w-1/2">
         <img
           src={`${absoluteURL}/hey-rebekah-logo-web.png`}
@@ -31,14 +31,14 @@ export default function OgImage({ post }) {
           <div
             tw="flex mt-2 font-semibold tracking-tight leading-snug text-6xl text-white"
             style={{
-              fontFamily: "Apfel",
+              fontFamily: "Chivo",
               maxHeight: "230px",
               overflow: "hidden",
             }}>
             {post?.name}
           </div>
           <p tw="text-white/90 text-lg font-medium">
-            <span href="/" tw="border-b border-pink-500 text-white">
+            <span href="/" tw="border-b border-pink text-white">
               By {post?.author?.name}
             </span>
           </p>
@@ -61,7 +61,7 @@ export default function OgImage({ post }) {
 
 // <div
 // tw="w-full h-full flex flex-col items-start justify-center bg-white px-10"
-// style={{ fontFamily: "Apfel" }}>
+// style={{ fontFamily: "Chivo" }}>
 // <div tw="text-xs font-medium tracking-wider uppercase mt-5 text-blue-600">
 //   {post.categories[0].title}
 // </div>

@@ -8,17 +8,17 @@ export default function HomePage({ posts }) {
 
   return (
     <>
-      <div className="bg-dark-blue border-t border-b border-light-grey border-opacity-10">
+      <div className="bg-slate-950 border-t border-b border-neutral-200 border-opacity-10">
         <Container
           large
-          className="border-l border-r border-light-grey border-opacity-10">
+          className="border-l border-r border-neutral-200 border-opacity-10">
           <Hero />
         </Container>
       </div>
-      <div className="bg-dark-blue">
+      <div className="bg-slate-950">
         <Container
           large
-          className="border-l border-r border-light-grey border-opacity-10">
+          className="border-l border-r border-neutral-200 border-opacity-10">
           {featuredPost.length > 4 && (
             <>
               <div className="flex items-center justify-center mt-10">
