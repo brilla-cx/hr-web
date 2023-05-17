@@ -16,23 +16,12 @@ module.exports = {
         stock: [fontFamily.sans],
       },
       colors: {
-        black: "#020512",
-        "midnight-blue": "#000519",
-        "dark-blue": "#040b29",
-        blue: {
-          DEFAULT: "#041746",
-        },
         pink: {
-          DEFAULT: "#f34dc3",
-        },
-        yellow: {
-          DEFAULT: "#ffcf33",
+          DEFAULT: "#ff00fe",
         },
         green: {
-          DEFAULT: "#1aefc4",
+          DEFAULT: "#00fffe",
         },
-        aqua: "#08b2e3",
-        "light-grey": "#e0e0e0",
       },
       typography: (theme) => ({
         DEFAULT: {

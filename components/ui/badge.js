@@ -18,8 +18,7 @@ export default function Badge({ variant = "primary", size = "md", children }) {
         variantClass[variant],
         sizeClass[size],
         "inline-flex font-bold bg-pink "
-      )}
-    >
+      )}>
       {children}
     </span>
   );

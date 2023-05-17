@@ -66,7 +66,7 @@ function RelatedPosts({ related }) {
                   {/* h-14 */}
                   <Title
                     as="h3"
-                    className="hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-dark-blue hover:decoration-2 transition-all duration-200 line-clamp-2">
+                    className="hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-slate-950 hover:decoration-2 transition-all duration-200 line-clamp-2">
                     {item.name}
                   </Title>
                   <p className="mt-1 text-sm text-gray-500">

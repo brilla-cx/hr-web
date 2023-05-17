@@ -28,7 +28,7 @@ export default function Button({
     primary: "bg-pink border-transparent text-black rounded",
     secondary: "bg-white border-black text-black rounded",
     alternate:
-      "bg-pink border-transparent text-black rounded hover:shadow-yellow",
+      "bg-pink border-transparent text-black rounded hover:shadow-amber-400",
   };
 
   const Tag = href ? Link : "button";

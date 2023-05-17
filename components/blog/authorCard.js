@@ -35,7 +35,7 @@ export default function AuthorCard({ author }) {
           <div className="mt-3">
             <Link
               href={`/author/${author.slug.current}`}
-              className="text-sm text-blue underline decoration-pink decoration-2 underline-offset-4 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-blue hover:decoration-2 transition-all duration-200 ">
+              className="text-sm text-indigo-950 underline decoration-pink decoration-2 underline-offset-4 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-indigo-950 hover:decoration-2 transition-all duration-200 ">
               View Profile
             </Link>
           </div>
