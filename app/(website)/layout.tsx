@@ -18,26 +18,32 @@ export const metadata = {
     "Hey Rebekah is a free daily newsletter. We write about things that help you become better at what you do in 6 minutes or less. Even our moms think it’s pretty awesome.",
 };
 
-const poppins = localFont({
+const biryani = localFont({
   src: [
     {
-      path: "./assets/fonts/poppins-latin-400-normal.woff2",
+      path: "./assets/fonts/biryani-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./assets/fonts/poppins-latin-700-normal.woff2",
+      path: "./assets/fonts/biryani-bold.woff2",
       weight: "700",
       style: "normal",
     },
   ],
-  variable: "--font-poppins",
+  variable: "--font-biryani",
   display: "swap",
 });
 
-const apfelGrotezk = localFont({
-  src: "./assets/fonts/apfel-grotezk-fett.woff2",
-  variable: "--font-apfel-grotezk",
+const chivo = localFont({
+  src: "./assets/fonts/chivo.woff2",
+  variable: "--font-chivo",
+  display: "swap",
+});
+
+const ptserif = localFont({
+  src: "./assets/fonts/pt-serif.woff2",
+  variable: "--font-ptserif",
   display: "swap",
 });
 
@@ -51,8 +57,9 @@ export default function RootLayout({
       lang="en"
       className={cx(
         "antialiased font-sans text-black",
-        poppins.variable,
-        apfelGrotezk.variable
+        biryani.variable,
+        chivo.variable,
+        ptserif.variable
       )}>
       <body>
         <Navbar />

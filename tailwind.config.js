@@ -10,8 +10,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-poppins)", ...fontFamily.sans],
-        display: ["var(--font-apfel-grotezk)", ...fontFamily.sans],
+        sans: ["var(--font-biryani)", ...fontFamily.sans],
+        serif: ["var(--font-ptserif)", ...fontFamily.serif],
+        display: ["var(--font-chivo)", ...fontFamily.sans],
         stock: [fontFamily.sans],
       },
       colors: {
@@ -50,20 +51,16 @@ module.exports = {
               //paddingTop: theme("spacing.2"),
             },
             h2: {
-              fontSize: theme("fontSize.4xl"), // matches text-4xl in typography.js looks like crap with lg
-              fontWeight: theme("fontWeight.bold"), // matches font-bold in typography.js looks like crap with lg
-              fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
+              fontSize: theme("fontSize.4xl"), // matches text-4xl in typography.js looks like crap with lg              fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
               letterSpacing: "-0.025em",
             },
             h3: {
               fontSize: theme("fontSize.3xl"), // matches text-3xl in typography.js looks like crap with lg
-              fontWeight: theme("fontWeight.bold"), // matches font-bold in typography.js looks like crap with lg
               fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
               letterSpacing: "-0.025em",
             },
             h4: {
               fontSize: theme("fontSize.2xl"), // matches text-2xl in typography.js looks like crap with lg
-              fontWeight: theme("fontWeight.bold"), // matches font-bold in typography.js looks like crap with lg
               fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
               letterSpacing: "-0.025em",
             },
