@@ -20,7 +20,7 @@ module.exports = {
           DEFAULT: "#ff00fe",
         },
         green: {
-          DEFAULT: "#1aefc4",
+          DEFAULT: "#00fffe",
         },
       },
       typography: (theme) => ({
