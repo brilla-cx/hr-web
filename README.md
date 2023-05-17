@@ -240,7 +240,7 @@ We use [SemVer](https://semver.org/) for versioning. For the available versions,
 ## Authors ✍️
 
 - **Surjith the Great** - *Web3 Template Creator* - [surjithctly](https://github.com/surjithctly)
-- **Sam the Grumpy** - *Cat herder* - [srizvi](https://github.com/srizi)
+- **Sam the Reluctant** - *Cat herder* - [srizvi](https://github.com/srizi)
 
 See also the list of [contributors](https://github.com/brilla-cx/hr-web/graphs/contributors) who participated in this project.
 

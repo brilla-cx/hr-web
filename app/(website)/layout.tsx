@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { cx } from "@/lib/utils";
 
-export const revalidate = 86400;
+// export const revalidate = 86400;
 
 export const metadata = {
   title: {
@@ -36,7 +36,7 @@ const biryani = localFont({
 });
 
 const chivo = localFont({
-  src: "./assets/fonts/chivo.woff2",
+  src: "./assets/fonts/chivo-variable.ttf",
   variable: "--font-chivo",
   display: "swap",
 });
