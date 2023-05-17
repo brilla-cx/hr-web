@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { Button, H1, Input, Lead } from "@/components/ui";
+import hoverStyles from "@/lib/hover";
+import { cx } from "@/lib/utils";
 // T-10009 Update Home Hero styles
 const Hero = (props) => {
   return (
@@ -9,11 +11,11 @@ const Hero = (props) => {
         <H1 className="text-white">
           Like Morning Brew for freelancers, without all the readers
         </H1>
-        <Lead className="mt-5 max-w-3xl text-neutral-200">
+        <Lead className="mt-5 max-w-3xl text-neutral-300">
           Hey Rebekah is a free daily newsletter. We write about things that
           help you become better at what you do in 6 minutes or less.
         </Lead>
-        <Lead className="mt-5 max-w-3xl text-neutral-200">
+        <Lead className="mt-5 max-w-3xl text-neutral-300">
           Even our moms think it's pretty awesome.
         </Lead>
       </div>
@@ -30,11 +32,9 @@ const Hero = (props) => {
           />
           <Button variant="alternate">Level Up</Button>
         </div>
-        <p className="mt-4 text-sm leading-6 text-neutral-200">
+        <p className="mt-4 text-sm leading-6 text-neutral-300">
           We care about your{" "}
-          <Link
-            href="#"
-            className="font-semibold border-b-2 border-pink hover:text-pink hover:border-white">
+          <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
             privacy
           </Link>
           .

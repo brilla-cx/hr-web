@@ -8,6 +8,8 @@ import { Fragment } from "react";
 
 import { H6 } from "@/components/ui";
 import DateTime from "@/components/ui/time";
+import hoverStyles from "@/lib/hover";
+import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
 const resources = [
@@ -66,7 +68,10 @@ export default function Menu({ recentPosts }) {
                         href={item.href}
                         target={item.target}
                         rel={item.rel}
-                        className="flex font-display tracking-tight gap-x-4 py-3 text-xl md:text-2xl leading-6 text-white hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className={cx(
+                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white",
+                          hoverStyles
+                        )}>
                         {item.name}
                       </Link>
                     ))}
@@ -85,7 +90,10 @@ export default function Menu({ recentPosts }) {
                         href={item.href}
                         target={item.target}
                         rel={item.rel}
-                        className="flex font-display tracking-tight gap-x-4 py-3 text-xl md:text-2xl leading-6 text-white hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                        className={cx(
+                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white",
+                          hoverStyles
+                        )}>
                         {item.name}
                       </Link>
                     ))}
@@ -120,7 +128,10 @@ export default function Menu({ recentPosts }) {
                     </div>
                     <H6
                       as="h2"
-                      className="mt-2 h-16 text-white line-clamp-2 hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                      className={cx(
+                        "mt-2 text-white line-clamp-2 inline",
+                        hoverStyles
+                      )}>
                       <Link href={`/gists/${post.slug.current}`}>
                         <span className="absolute inset-0" />
                         {post.name}

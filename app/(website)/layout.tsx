@@ -8,7 +8,7 @@ import Navbar from "@/components/navbar";
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
 
-export const revalidate = 86400;
+// export const revalidate = 86400;
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,7 +38,7 @@ const biryani = localFont({
 });
 
 const chivo = localFont({
-  src: "./assets/fonts/chivo.woff2",
+  src: "./assets/fonts/chivo-variable.ttf",
   variable: "--font-chivo",
   display: "swap",
 });
