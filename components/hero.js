@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Button, H1, Input, Lead } from "@/components/ui";
-import hoverStyles from "@/lib/hoverStyles";
+import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 // T-10009 Update Home Hero styles
 const Hero = (props) => {

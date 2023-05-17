@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Button, H5, Input } from "@/components/ui";
-import hoverStyles from "@/lib/hoverStyles";
+import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 

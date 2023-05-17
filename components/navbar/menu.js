@@ -8,7 +8,7 @@ import { Fragment } from "react";
 
 import { H6 } from "@/components/ui";
 import DateTime from "@/components/ui/time";
-import hoverStyles from "@/lib/hoverStyles";
+import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import { getPaginatedPosts } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
@@ -72,7 +72,7 @@ export default async function Menu() {
                         target={item.target}
                         rel={item.rel}
                         className={cx(
-                          "font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white inline",
+                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white",
                           hoverStyles
                         )}>
                         {item.name}
@@ -94,7 +94,7 @@ export default async function Menu() {
                         target={item.target}
                         rel={item.rel}
                         className={cx(
-                          "font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white inline",
+                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white",
                           hoverStyles
                         )}>
                         {item.name}

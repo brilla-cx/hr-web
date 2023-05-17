@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import CategoryLabel from "@/components/blog/category";
 import { H3, H6 } from "@/components/ui";
-import hoverStyles from "@/lib/hoverStyles";
+import hoverStyles from "@/lib/hover";
 import { cx, timeAgo } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
