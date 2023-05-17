@@ -55,6 +55,7 @@ export default function RootLayout({
         apfelGrotezk.variable
       )}>
       <body>
+        {/* @ts-expect-error Server Component */}
         <Navbar />
         <div>{children}</div>
         <Footer />
