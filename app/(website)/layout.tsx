@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { cx } from "@/lib/utils";
 
-export const revalidate = 86400;
+// export const revalidate = 86400;
 
 export const metadata = {
   title: {
