@@ -61,7 +61,7 @@ const post = {
       title: "Slug",
       description: "The slug of the post.",
       type: "slug",
-      group: "seo",
+      group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
     },
     {
