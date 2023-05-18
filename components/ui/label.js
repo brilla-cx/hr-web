@@ -24,7 +24,7 @@ export default function Label(props) {
         color[props.color] || color.pink,
         props.pill ? bgcolor[props.color] || bgcolor.pink : "",
         props.pill && "rounded-full",
-        !props.nomargin && "px-2 py-1",
+        !props.nomargin && "px-1 py-1",
         props.className
       )}>
       {props.children}
