@@ -79,7 +79,7 @@ module.exports = {
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
               backgroundImage:
-                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff7da5), var(--tw-gradient-to, #ff9ac5)))",
+                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff00fe), var(--tw-gradient-to, #6b21a8)))",
               backgroundSize: "0px 10px",
               backgroundPosition: "left bottom",
               backgroundRepeat: "no-repeat",
@@ -94,7 +94,7 @@ module.exports = {
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
               backgroundImage:
-                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff7da5), var(--tw-gradient-to, #ff9ac5)))",
+                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff00fe), var(--tw-gradient-to, #6b21a8)))",
               backgroundSize: "0px 10px",
               backgroundPosition: "left bottom",
               backgroundRepeat: "no-repeat",
