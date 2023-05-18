@@ -51,6 +51,8 @@ module.exports = {
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
+              marginTop: theme("spacing.4"),
+              marginBottom: theme("spacing.8"),
             },
             ".prose-post-body h3, .prose h3": {
               fontSize: theme("fontSize.4xl"),
@@ -58,6 +60,8 @@ module.exports = {
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
+              marginTop: theme("spacing.6"),
+              marginBottom: theme("spacing.5"),
             },
             ".prose-post-body h4, .prose h4": {
               fontSize: theme("fontSize.2xl"),
@@ -65,6 +69,8 @@ module.exports = {
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
+              marginTop: theme("spacing.6"),
+              marginBottom: theme("spacing.5"),
             },
             ".prose :where(a):not(:where([class~='not-prose'] *))": {
               fontWeight: "900",
