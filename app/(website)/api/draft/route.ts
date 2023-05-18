@@ -3,11 +3,11 @@
 import { draftMode } from "next/headers";
 // import { redirect } from "next/navigation";
 
-export const STUDIO_URL_DEV = "http://localhost:3333";
-export const STUDIO_URL_PROD = "https://heyrebekah.sanity.studio";
+const STUDIO_URL_DEV = "http://localhost:3333";
+const STUDIO_URL_PROD = "https://heyrebekah.sanity.studio";
 
-export const WEBSITE_URL_DEV = "http://localhost:3000";
-export const WEBSITE_URL_PROD = "https://hr-web-beta.vercel.app";
+const WEBSITE_URL_DEV = "http://localhost:3000";
+const WEBSITE_URL_PROD = "https://hr-web-beta.vercel.app";
 
 export async function GET(request: Request) {
   // Parse query string parameters
