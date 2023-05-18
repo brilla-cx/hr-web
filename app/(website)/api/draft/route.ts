@@ -1,7 +1,7 @@
 /* eslint-disable require-await */
 // route handler with secret and slug
 import { draftMode } from "next/headers";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 export async function GET(request: Request) {
   // Parse query string parameters
@@ -9,8 +9,10 @@ export async function GET(request: Request) {
   const slug = searchParams.get("slug");
   const type = searchParams.get("type") || "gists";
 
-  if (!slug || !type) {
-    return new Response("Invalid type or slug", { status: 401 });
+  if (!slug) {
+    return new Response("Please generate the slug to start live preview", {
+      status: 401,
+    });
   }
 
   // Enable Draft Mode by setting the cookie

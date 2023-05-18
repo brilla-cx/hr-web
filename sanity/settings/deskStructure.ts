@@ -79,7 +79,7 @@ function getPreviewUrl(doc) {
     ? `${absoluteURL}/api/draft?slug=${doc.slug.current}&type=${
         doc?._type === "post" ? "gists" : doc?._type
       }`
-    : `${absoluteURL}`;
+    : `${absoluteURL}/api/draft`;
 }
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
