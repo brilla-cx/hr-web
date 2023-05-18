@@ -22,6 +22,16 @@ const nextConfig = {
     /// Set this to false if you want production builds to abort if there's lint errors
     ignoreDuringBuilds: process.env.VERCEL_ENV === "production",
   },
+  // eslint-disable-next-line require-await
+  async redirects() {
+    return [
+      {
+        source: "/studio",
+        destination: "https://heyrebekah.sanity.studio/",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

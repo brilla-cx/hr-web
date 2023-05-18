@@ -10,7 +10,6 @@ import { H6 } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import { getPaginatedPosts } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 
 const resources = [
@@ -33,9 +32,7 @@ const company = [
   { name: "Contact", href: "/contact" },
 ];
 
-export default async function Menu() {
-  const recentPosts = await getPaginatedPosts({ limit: 2 });
-
+export default function Menu({ recentPosts }) {
   return (
     <Popover className="">
       <Popover.Button

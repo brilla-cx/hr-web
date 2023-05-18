@@ -13,11 +13,9 @@ import DateTime from "@/components/ui/time";
 import { urlForImage } from "@/sanity/image";
 
 export default function Post(props) {
-  const { loading, post, categories } = props;
+  const { post, categories } = props;
 
-  const slug = post?.slug;
-
-  if (!loading && !slug) {
+  if (!post?.slug) {
     notFound();
   }
 
@@ -110,7 +108,9 @@ export default function Post(props) {
         <aside className="sticky top-24 w-full self-start md:w-80 mr-5">
           <Sidebar
             categories={categories}
-            related={post.related.filter((item) => item.slug.current !== slug)}
+            related={post.related.filter(
+              (item) => item.slug.current !== post.slug.current
+            )}
           />
         </aside>
       </div>
