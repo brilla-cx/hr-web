@@ -30,7 +30,16 @@ module.exports = {
     "scope-enum": [
       2,
       "always",
-      ["app", "server", "client", "database", "docs", "tests", "lint"],
+      [
+        "app",
+        "server",
+        "client",
+        "database",
+        "docs",
+        "tests",
+        "lint",
+        ["custom-scope", "*"],
+      ],
     ],
     "subject-case": [2, "always", "sentence-case"],
     "body-max-line-length": [2, "always", Infinity],
