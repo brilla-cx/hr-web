@@ -34,7 +34,7 @@ export default function Post(props) {
         />
         <Container className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 place-items-center">
-            <div className="order-2 md:order-none">
+            <div className="order-2 md:order-none w-full">
               {post.image && <MainImage image={post.image} />}
             </div>
             <div className="order-1 md:order-none self-center px-5">
@@ -49,7 +49,7 @@ export default function Post(props) {
                   {post.name}
                 </H1>
                 {post.tldr && (
-                  <div className="font-serif prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90">
+                  <div className="prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90 font-light">
                     <PortableText value={post.tldr} />
                   </div>
                 )}
@@ -122,7 +122,9 @@ const MainImage = ({ image }) => {
   if (!image) return null;
 
   return (
-    <div>
+    <div
+      className="relative rounded overflow-hidden"
+      style={{ paddingBottom: "100%" }}>
       <Image
         {...urlForImage(image)}
         {...(image.blurDataURL && {
@@ -131,8 +133,7 @@ const MainImage = ({ image }) => {
         })}
         alt={image?.alt || "Thumbnail"}
         priority
-        className="rounded"
-        sizes="100vw"
+        className="absolute top-0 left-0 w-full h-full object-cover"
       />
       {image.caption && (
         <figcaption className="text-center mt-2">

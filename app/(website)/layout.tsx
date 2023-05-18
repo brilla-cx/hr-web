@@ -20,32 +20,26 @@ export const metadata = {
     "Hey Rebekah is a free daily newsletter. We write about things that help you become better at what you do in 6 minutes or less. Even our moms think it’s pretty awesome.",
 };
 
-const biryani = localFont({
+const lexend = localFont({
   src: [
     {
-      path: "./assets/fonts/biryani-regular.woff2",
+      path: "./assets/fonts/lexend.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./assets/fonts/biryani-bold.woff2",
+      path: "./assets/fonts/lexend.ttf",
       weight: "700",
       style: "normal",
     },
   ],
-  variable: "--font-biryani",
+  variable: "--font-lexend",
   display: "swap",
 });
 
-const chivo = localFont({
-  src: "./assets/fonts/chivo-variable.ttf",
-  variable: "--font-chivo",
-  display: "swap",
-});
-
-const ptserif = localFont({
-  src: "./assets/fonts/pt-serif.woff2",
-  variable: "--font-ptserif",
+const lexendDeca = localFont({
+  src: "./assets/fonts/lexend-deca.ttf",
+  variable: "--font-lexend-deca",
   display: "swap",
 });
 
@@ -58,10 +52,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        "antialiased font-sans text-black",
-        biryani.variable,
-        chivo.variable,
-        ptserif.variable
+        "antialiased font-sans",
+        lexend.variable,
+        lexendDeca.variable,
       )}>
       <body>
         {/* @ts-expect-error Server Component */}

@@ -7,10 +7,10 @@ export const runtime = "edge";
 
 export default async function handler({ params }) {
   const post = await getPostBySlug(params.slug);
-  const chivo = fetch(
-    new URL("../../assets/fonts/chivo.otf", import.meta.url)
+  const lexendDeca = fetch(
+    new URL("../../assets/fonts/lexend-deca.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
-  const fontData = await chivo;
+  const fontData = await lexendDeca;
   // const [interRegularFont, interBoldFont] = await Promise.all([
   //   InterRegular,
   //   InterBold
@@ -21,7 +21,7 @@ export default async function handler({ params }) {
     height: 630,
     fonts: [
       {
-        name: "Chivo",
+        name: "Lexend Deca",
         data: fontData,
         style: "normal",
       },
