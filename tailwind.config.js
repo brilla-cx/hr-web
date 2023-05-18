@@ -51,6 +51,8 @@ module.exports = {
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
+              marginTop: theme("spacing.4"),
+              marginBottom: theme("spacing.8"),
             },
             ".prose-post-body h3, .prose h3": {
               fontSize: theme("fontSize.4xl"),
@@ -58,6 +60,8 @@ module.exports = {
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
+              marginTop: theme("spacing.6"),
+              marginBottom: theme("spacing.5"),
             },
             ".prose-post-body h4, .prose h4": {
               fontSize: theme("fontSize.2xl"),
@@ -65,6 +69,8 @@ module.exports = {
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
+              marginTop: theme("spacing.6"),
+              marginBottom: theme("spacing.5"),
             },
             ".prose :where(a):not(:where([class~='not-prose'] *))": {
               fontWeight: "900",
@@ -73,7 +79,7 @@ module.exports = {
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
               backgroundImage:
-                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff7da5), var(--tw-gradient-to, #ff9ac5)))",
+                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff00fe), var(--tw-gradient-to, #6b21a8)))",
               backgroundSize: "0px 10px",
               backgroundPosition: "left bottom",
               backgroundRepeat: "no-repeat",
@@ -88,7 +94,7 @@ module.exports = {
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
               backgroundImage:
-                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff7da5), var(--tw-gradient-to, #ff9ac5)))",
+                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff00fe), var(--tw-gradient-to, #6b21a8)))",
               backgroundSize: "0px 10px",
               backgroundPosition: "left bottom",
               backgroundRepeat: "no-repeat",
