@@ -51,7 +51,7 @@ export default function Post(props) {
                   {post.name}
                 </H1>
                 {post.tldr && (
-                  <div className="font-serif prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90">
+                  <div className="prose mt-2 prose-2xl prose-bold prose-p:leading-snug prose-invert prose-p:text-white/90">
                     <PortableText value={post.tldr} />
                   </div>
                 )}

@@ -11,9 +11,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-biryani)", ...fontFamily.sans],
-        serif: ["var(--font-ptserif)", ...fontFamily.serif],
-        display: ["var(--font-chivo)", ...fontFamily.sans],
+        sans: ["var(--font-lexend)", ...fontFamily.sans],
+        display: ["var(--font-lexend-deca)", ...fontFamily.sans],
         stock: [fontFamily.sans],
       },
       colors: {
