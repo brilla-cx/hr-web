@@ -3,10 +3,12 @@ import Link from "next/link";
 
 import Container from "@/components/container";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
+import { getPaginatedPosts } from "@/sanity/client";
 
 import Menu from "./menu";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const recentPosts = await getPaginatedPosts({ limit: 2 });
   return (
     <div className="sticky top-0 z-50 bg-slate-950">
       <div className="relative shadow">
@@ -27,7 +29,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div style={{ zIndex: 1 }}>
-              <Menu />
+              <Menu recentPosts={recentPosts} />
             </div>
           </div>
         </Container>

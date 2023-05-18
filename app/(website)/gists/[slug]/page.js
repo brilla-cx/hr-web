@@ -1,3 +1,7 @@
+import { draftMode } from "next/headers";
+import { lazy } from "react";
+
+import { PreviewSuspense } from "@/components/preview";
 import {
   getAllPosts,
   getAllPostsSlugs,
@@ -6,6 +10,8 @@ import {
 } from "@/sanity/client";
 
 import Post from "./post";
+
+const PostPreview = lazy(() => import("./preview"));
 
 export async function generateStaticParams() {
   const slugs = await getAllPostsSlugs();
@@ -26,5 +32,24 @@ export async function generateMetadata({ params }) {
 export default async function PostPage({ params }) {
   const post = await getPostBySlug(params.slug);
   const categories = await getTopCategories();
+
+  const { isEnabled: preview } = draftMode();
+
+  if (preview) {
+    return (
+      <PreviewSuspense fallback={<Loading />}>
+        <PostPreview slug={params.slug} categories={categories} />
+      </PreviewSuspense>
+    );
+  }
+
   return <Post post={post} categories={categories} />;
 }
+
+const Loading = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      Loading Live Preview...
+    </div>
+  );
+};
