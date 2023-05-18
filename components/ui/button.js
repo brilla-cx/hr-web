@@ -18,17 +18,17 @@ export default function Button({
   ...rest
 }) {
   const sizeClasses = {
-    xs: "px-6 py-1 text-xs",
-    sm: "px-8 py-2 text-sm",
-    md: "px-10 py-2 text-base",
-    lg: "px-12 py-4 text-lg",
+    xs: "px-6 py-1 text-s",
+    sm: "px-8 py-2 text-medium",
+    md: "px-10 py-2 text-lg",
+    lg: "px-12 py-4 text-xl",
   };
 
   const variantClasses = {
-    primary: "bg-pink border-transparent text-black rounded",
-    secondary: "bg-white border-black text-black rounded",
+    primary: "bg-pink border-transparent text-slate-950 rounded",
+    secondary: "bg-white border-black text-slate-950 rounded",
     alternate:
-      "bg-pink border-transparent text-black rounded hover:shadow-amber-400",
+      "bg-pink border-transparent text-slate-950 rounded hover:shadow-amber-400",
   };
 
   const Tag = href ? Link : "button";

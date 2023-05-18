@@ -41,7 +41,7 @@ module.exports = {
               textShadow: theme("textShadow.DEFAULT"),
               verticalAlign: "text-top",
               display: "block",
-              marginTop: `calc(-0.2em - ${theme("spacing.2")})`,
+              marginTop: `calc(-0.4em - ${theme("spacing.2")})`,
               marginBottom: `calc(-0.4em - ${theme("spacing.2")})`,
               //paddingTop: theme("spacing.2"),
             },
