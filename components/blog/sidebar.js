@@ -1,17 +1,20 @@
+import cx from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button, H4, H5, Input } from "@/components/ui";
-import Label from "@/components/ui/label";
+import { Button, Input } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import { H6, Title } from "@/components/ui/typography";
+import { lightHoverStyles } from "@/lib/hover";
 import { urlForImage } from "@/sanity/image";
 
 export default function Sidebar(props) {
   return (
     <div>
       <Subscribe />
-      {props.related && <RelatedPosts related={props.related} />}
+      <div className="hidden md:block">
+        {props.related && <RelatedPosts related={props.related} />}
+      </div>
       {/*props.categories && <Categories categories={props.categories} />*/}
     </div>
   );
@@ -20,7 +23,7 @@ export default function Sidebar(props) {
 function Subscribe() {
   return (
     <div>
-      <H6 as="h4" className="border-b border-pink inline-block">
+      <H6 as="h3" className="border-b-2 border-pink inline-block">
         Subscribe
       </H6>
       <form action="/search" method="GET" className="mt-4">
@@ -44,7 +47,7 @@ function Subscribe() {
 function RelatedPosts({ related }) {
   return (
     <div className="mt-10">
-      <H6 as="h2" className="border-b border-pink inline-block">
+      <H6 as="h3" className="border-b-2 border-pink inline-block">
         Related Posts
       </H6>
       <div className="grid gap-6 mt-6">
@@ -64,9 +67,7 @@ function RelatedPosts({ related }) {
                 </div>
                 <div>
                   {/* h-14 */}
-                  <Title
-                    as="h3"
-                    className="hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-slate-950 hover:decoration-2 transition-all duration-200 line-clamp-2">
+                  <Title as="h2" className={cx("inline", lightHoverStyles)}>
                     {item.name}
                   </Title>
                   <p className="mt-1 text-sm text-gray-500">

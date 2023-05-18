@@ -29,8 +29,8 @@ module.exports = {
     ],
     "scope-enum": [
       2,
-      "always",
-      ["app", "server", "client", "database", "docs", "tests", "lint"],
+      "never", // Provide optional scope so we can reference filenames using GPTCommit
+      ["custom-scope", "*"], // Allows 'custom-scope' and any other string as valid scopes
     ],
     "subject-case": [2, "always", "sentence-case"],
     "body-max-line-length": [2, "always", Infinity],
