@@ -25,7 +25,7 @@ export default function Post(props) {
     <>
       <div className="relative isolate py-10 bg-slate-950">
         <div
-          className="absolute inset-0 opacity-50 "
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundColor: post?.image?.ImageColor || "#f34dc3",
           }}
@@ -35,7 +35,7 @@ export default function Post(props) {
           className="absolute inset-0 border-l border-r border-neutral-200 border-opacity-10 z-12"
         />
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 place-items-center ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 place-items-center">
             <div className="order-2 md:order-none">
               {post.image && <MainImage image={post.image} />}
             </div>
@@ -51,7 +51,7 @@ export default function Post(props) {
                   {post.name}
                 </H1>
                 {post.tldr && (
-                  <div className="prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90">
+                  <div className="font-serif prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90">
                     <PortableText value={post.tldr} />
                   </div>
                 )}
@@ -95,7 +95,7 @@ export default function Post(props) {
 
       <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose-post-body mx-auto max-w-[55ch]">
+          <Prose className="prose-post-body mx-auto max-w-prose">
             {post.content && <PortableText value={post.content} />}
           </Prose>
           <div className="mb-7 mt-7 flex justify-center">

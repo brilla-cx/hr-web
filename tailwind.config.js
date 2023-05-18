@@ -24,6 +24,12 @@ module.exports = {
           DEFAULT: "#00fffe",
         },
       },
+      letterSpacing: {
+        tight: "-0.025em", // Customize the tight letter spacing value inside prose
+      },
+      lineHeight: {
+        tight: 1.2, // Customize the tight line height value inside prose
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -32,65 +38,63 @@ module.exports = {
               fontSize: "120px",
               paddingRight: theme("spacing.2"),
               fontWeight: theme("fontWeight.bold"),
-              color: theme("colors.midnight-blue"),
+              color: "#111827",
               textShadow: theme("textShadow.DEFAULT"),
               verticalAlign: "text-top",
               display: "block",
-              marginTop: `calc(-0.4em - ${theme("spacing.2")})`,
+              marginTop: `calc(-0.2em - ${theme("spacing.2")})`,
               marginBottom: `calc(-0.4em - ${theme("spacing.2")})`,
               //paddingTop: theme("spacing.2"),
             },
-            h2: {
-              fontSize: theme("fontSize.4xl"), // matches text-4xl in typography.js looks like crap with lg              fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
-              letterSpacing: "-0.025em",
+            ".prose-post-body h2, .prose h2": {
+              fontSize: theme("fontSize.4xl"),
+              fontWeight: theme("fontWeight.bold"),
+              fontFamily: theme("fontFamily.display"),
+              letterSpacing: theme("letterSpacing.tight"),
+              lineHeight: theme("lineHeight.tight"),
             },
-            h3: {
-              fontSize: theme("fontSize.3xl"), // matches text-3xl in typography.js looks like crap with lg
-              fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
-              letterSpacing: "-0.025em",
+            ".prose-post-body h3, .prose h3": {
+              fontSize: theme("fontSize.4xl"),
+              fontWeight: theme("fontWeight.bold"),
+              fontFamily: theme("fontFamily.display"),
+              letterSpacing: theme("letterSpacing.tight"),
+              lineHeight: theme("lineHeight.tight"),
             },
-            h4: {
-              fontSize: theme("fontSize.2xl"), // matches text-2xl in typography.js looks like crap with lg
-              fontFamily: theme("fontFamily.display"), // matches font-display in typography.js looks like crap with lg
-              letterSpacing: "-0.025em",
+            ".prose-post-body h4, .prose h4": {
+              fontSize: theme("fontSize.2xl"),
+              fontWeight: theme("fontWeight.bold"),
+              fontFamily: theme("fontFamily.display"),
+              letterSpacing: theme("letterSpacing.tight"),
+              lineHeight: theme("lineHeight.tight"),
             },
             ".prose :where(a):not(:where([class~='not-prose'] *))": {
-              color: "#374151",
-              textDecoration: "underline",
               fontWeight: "900",
-              textDecorationLine: "underline",
-              textDecorationColor: "#374151",
-              textDecorationThickness: "2.5px",
-              textUnderlineOffset: "4px",
-              transitionProperty:
-                "color, textDecorationColor, textDecorationThickness, textDecorationLine, textDecorationOffset",
+              textDecoration: "none",
+              transitionProperty: "background-size",
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
+              backgroundImage:
+                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff7da5), var(--tw-gradient-to, #ff9ac5)))",
+              backgroundSize: "0px 10px",
+              backgroundPosition: "left bottom",
+              backgroundRepeat: "no-repeat",
               "&:hover": {
-                textDecorationColor: theme("colors.pink.DEFAULT"),
-                textDecorationThickness: "2.5px",
-                textDecorationLine: "underline",
-                textDecorationOffset: "4px",
+                backgroundSize: "100% 3px",
               },
             },
             ".prose-post-body :where(a):not(:where([class~='not-prose'] *))": {
-              color: "#374151",
-              textDecoration: "underline",
               fontWeight: "900",
-              textDecorationLine: "underline",
-              textDecorationColor: theme("colors.pink.DEFAULT"),
-              textDecorationThickness: "2.5px",
-              textUnderlineOffset: "4px",
-              transitionProperty:
-                "color, textDecorationColor, textDecorationThickness, textDecorationLine, textDecorationOffset",
+              textDecoration: "none",
+              transitionProperty: "background-size",
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
+              backgroundImage:
+                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff7da5), var(--tw-gradient-to, #ff9ac5)))",
+              backgroundSize: "0px 10px",
+              backgroundPosition: "left bottom",
+              backgroundRepeat: "no-repeat",
               "&:hover": {
-                color: theme("colors.pink.DEFAULT"),
-                textDecorationColor: "#374151",
-                textDecorationThickness: "2.5px",
-                textDecorationLine: "underline",
-                textDecorationOffset: "4px",
+                backgroundSize: "100% 3px",
               },
             },
           },
