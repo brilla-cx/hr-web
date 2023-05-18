@@ -12,6 +12,7 @@ import {
 import { GoLaw } from "react-icons/go";
 import { DefaultDocumentNodeResolver } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
+import { SEOPane } from "sanity-plugin-seo-pane";
 
 import { SITE_URL } from "../../lib/constants";
 
@@ -96,6 +97,20 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
             url: (doc) => getPreviewUrl(doc),
           })
           .title("Preview"),
+        S.view
+          .component(SEOPane)
+          .options({
+            // Retrieve the keywords and synonyms at the given dot-notated strings
+            keywords: `seo.keywords`,
+            synonyms: `seo.synonyms`,
+            url: (doc) => getPreviewUrl(doc),
+
+            // Alternatively, specify functions (may be async) to extract values
+            // keywords: doc => doc.seo?.keywords,
+            // synonyms: async(doc) => client.fetch('some query to get synonyms', {id: doc._id}),
+            // url: async(doc) => client.fetch('some query to construct a url with refs', {id: doc._id})
+          })
+          .title("SEO"),
       ]);
     default:
       return S.document().views([S.view.form()]);

@@ -12,6 +12,9 @@ import { cx } from "@/lib/utils";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Hey Rebekah | Like Morning Brew for freelancers",
     template: "%s | Hey Rebekah",
@@ -54,7 +57,7 @@ export default function RootLayout({
       className={cx(
         "antialiased font-sans",
         lexend.variable,
-        lexendDeca.variable,
+        lexendDeca.variable
       )}>
       <body>
         {/* @ts-expect-error Server Component */}
