@@ -12,7 +12,9 @@ export default function Sidebar(props) {
   return (
     <div>
       <Subscribe />
-      {props.related && <RelatedPosts related={props.related} />}
+      <div className="hidden md:block">
+        {props.related && <RelatedPosts related={props.related} />}
+      </div>
       {/*props.categories && <Categories categories={props.categories} />*/}
     </div>
   );
