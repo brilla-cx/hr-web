@@ -47,10 +47,10 @@ const config = defineConfig({
     unsplashImageAsset(), // Add Unsplash as an asset source
     codeInput(), // Add code input for code blocks with the Content editor
     giphyAssetSourcePlugin({
-      apiKey: "4Gi7oe0bE9zeStPSMpaqb98SJybKbKTz",
+      apiKey: process.env.GIPHY_API_KEY,
     }), // Add Giphy as an asset source for images within the Content editor
     openaiImageAsset({
-      API_KEY: "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",
+      API_KEY: process.env.OPENAI_API_KEY,
     }), // Add OpenAI as an asset source for images within the Content editor
   ],
   studio: {
