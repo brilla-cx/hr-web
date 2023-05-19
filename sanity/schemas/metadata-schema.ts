@@ -7,7 +7,7 @@ import PinterestMeta from "./objects/pinterest-meta";
 import SiteMeta from "./objects/site-meta";
 import TwitterMeta from "./objects/twitter-meta";
 
-const Metadata = {
+const metadata = {
     name: 'metadata',
     title: 'Metadata',
     type: 'document',
@@ -21,4 +21,4 @@ const Metadata = {
     ],
 };
 
-export default Metadata;
+export default metadata;

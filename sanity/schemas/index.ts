@@ -4,7 +4,7 @@ import book from "./book-schema";
 import category from "./category-schema";
 import faq from "./faq-schema";
 import legal from "./legal-schema";
-import Metadata from "./metadata-schema";
+import metadata from "./metadata-schema";
 import blockContent from "./objects/blockContent";
 import post from "./post-schema";
 import quiz from "./quiz-schema";
@@ -25,7 +25,7 @@ const schemas = [
   quote,
   quiz,
   legal,
-  Metadata
+  metadata
 ];
 
 export default schemas;
