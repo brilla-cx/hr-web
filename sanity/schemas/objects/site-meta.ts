@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/objects/site-meta.ts
 
-const SiteMeta = {
+const siteMeta = {
     name: 'sitemeta',
     title: 'Site Metadata',
     type: 'object',
@@ -55,4 +55,4 @@ const SiteMeta = {
     ],
 }
 
-export default SiteMeta;
+export default siteMeta;

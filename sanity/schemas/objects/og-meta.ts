@@ -4,7 +4,7 @@
 
 import { FaFacebook } from "react-icons/fa"
 
-const OgMeta = {
+const ogMeta = {
     name: 'og-meta',
     title: 'OG Metadata',
     type: 'object',
@@ -71,4 +71,4 @@ const OgMeta = {
     },
 }
 
-export default OgMeta;
+export default ogMeta;

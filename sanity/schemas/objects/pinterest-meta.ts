@@ -4,7 +4,7 @@
 
 import { BsPinterest } from "react-icons/bs"
 
-const PinterestMeta = {
+const pinterestMeta = {
     name: 'pinterestMeta',
     title: 'Pinterest Metadata',
     type: 'object',
@@ -78,4 +78,4 @@ const PinterestMeta = {
     },
 }
 
-export default PinterestMeta;
+export default pinterestMeta;

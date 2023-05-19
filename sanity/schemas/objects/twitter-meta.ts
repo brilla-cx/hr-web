@@ -4,7 +4,7 @@
 
 import { BsTwitter } from "react-icons/bs"
 
-const TwitterMeta = {
+const twitterMeta = {
     name: 'twitterMeta',
     title: 'Twitter Metadata',
     type: 'object',
@@ -65,4 +65,4 @@ const TwitterMeta = {
     },
 }
 
-export default TwitterMeta;
+export default twitterMeta;
