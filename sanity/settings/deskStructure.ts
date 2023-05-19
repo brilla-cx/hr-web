@@ -64,10 +64,11 @@ export const structure = (S) =>
         .title("Rebekah's Old Blogs")
         .icon(FaArchive)
         .child(S.documentTypeList("socialBlog")),
+      S.divider(),
       S.listItem()
         .title("Site Meta")
         .icon(FaChartLine)
-        .child(S.documentTypeList("MetaData")),
+        .child(S.documentTypeList("metadata")),
     ]);
 
 // Customise this function to show the correct URL based on the current document
