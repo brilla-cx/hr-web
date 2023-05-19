@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/metadata-schema.ts
 
-import LdJsonMeta from "./objects/ldjson-meta";
-import OgMeta from "./objects/og-meta";
-import PinterestMeta from "./objects/pinterest-meta";
-import SiteMeta from "./objects/site-meta";
-import TwitterMeta from "./objects/twitter-meta";
+import ldJsonMeta from "./objects/ldjson-meta";
+import ogMeta from "./objects/og-meta";
+import pinterestMeta from "./objects/pinterest-meta";
+import siteMeta from "./objects/site-meta";
+import twitterMeta from "./objects/twitter-meta";
+
 
 const metadata = {
     name: 'metadata',
@@ -13,11 +14,11 @@ const metadata = {
     type: 'document',
     hidden: false,
     fields: [
-        ...SiteMeta.fields,
-        ...OgMeta.fields,
-        ...TwitterMeta.fields,
-        ...PinterestMeta.fields,
-        ...LdJsonMeta.fields,
+        ...siteMeta.fields,
+        ...ogMeta.fields,
+        ...twitterMeta.fields,
+        ...pinterestMeta.fields,
+        ...ldJsonMeta.fields,
     ],
 };
 

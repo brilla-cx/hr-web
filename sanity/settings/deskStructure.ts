@@ -66,7 +66,7 @@ export const structure = (S) =>
         .child(S.documentTypeList("socialBlog")),
       S.divider(),
       S.listItem()
-        .title("Site Meta")
+        .title("Website Metadata")
         .icon(FaChartLine)
         .child(S.documentTypeList("metadata")),
     ]);
