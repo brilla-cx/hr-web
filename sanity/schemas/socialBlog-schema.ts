@@ -47,6 +47,12 @@ const socialBlog = {
         to: { type: "author" },
     },
     {
+        name: 'yoastTitle',
+        title: 'Yoast Title',
+        description: 'The legacy Yoast Title from RebekahRadice.com.',
+        type: 'string',
+    },
+    {
         name: 'yoastDescription',
         title: 'Yoast Description',
         description: 'The legacy Yoast Description from RebekahRadice.com.',
