@@ -47,6 +47,12 @@ const socialBlog = {
         to: { type: "author" },
     },
     {
+        name: 'yoastDescription',
+        title: 'Yoast Description',
+        description: 'The legacy Yoast Description from RebekahRadice.com.',
+        type: 'string',
+    },
+    {
         name: "image",
         title: "Featured image",
         description: "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
