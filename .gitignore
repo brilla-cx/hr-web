@@ -58,7 +58,6 @@ next-env.d.ts
 /.next/
 /out/
 /.vercel
-/vercel.json
 
 # Ignore directories and files generated during production build
 /build
