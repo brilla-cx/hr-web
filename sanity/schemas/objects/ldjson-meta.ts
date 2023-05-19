@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/objects/ldjson-meta.ts
 
+import { BsFiletypeJson } from 'react-icons/bs';
+
 const jsonLdSchema = {
     name: 'jsonLd',
     title: 'JSON-LD Structured Data',
     type: 'object',
+    icon: BsFiletypeJson,
     hidden: false,
     fields: [
         {
@@ -71,6 +74,13 @@ const jsonLdSchema = {
             description: 'Other URLs that represent the same thing',
         },
     ],
+    preview: {
+        select: {
+            title: 'fields.name',
+            description: 'fields.url',
+        },
+    },
+
 };
 
 export default jsonLdSchema;

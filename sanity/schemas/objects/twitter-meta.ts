@@ -60,7 +60,6 @@ const twitterMeta = {
         select: {
             title: 'twitterTitle',
             description: 'twitterDescription',
-            icon: BsTwitter,
         },
     },
 }

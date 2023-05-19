@@ -18,6 +18,17 @@ import {
   structure,
 } from "./sanity/settings/deskStructure";
 
+const giphyApiKey = process.env.GIPHY_API_KEY;
+const openaiApiKey = process.env.OPENAI_API_KEY;
+
+if (!giphyApiKey) {
+  throw new Error("Oh snap, the GIPHY_API_KEY environment variable is missing.");
+}
+
+if (!openaiApiKey) {
+  throw new Error("Ruh roh, the OPENAI_API_KEY environment variable is missing.");
+}
+
 const config = defineConfig({
   theme,
   projectId: "smx99abf",
@@ -47,10 +58,10 @@ const config = defineConfig({
     unsplashImageAsset(), // Add Unsplash as an asset source
     codeInput(), // Add code input for code blocks with the Content editor
     giphyAssetSourcePlugin({
-      apiKey: "4Gi7oe0bE9zeStPSMpaqb98SJybKbKTz",
+      apiKey: giphyApiKey,
     }), // Add Giphy as an asset source for images within the Content editor
     openaiImageAsset({
-      API_KEY: "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",
+      API_KEY: openaiApiKey,
     }), // Add OpenAI as an asset source for images within the Content editor
   ],
   studio: {
