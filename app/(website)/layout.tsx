@@ -17,7 +17,7 @@ export const metadata = {
     template: "%s | Hey Rebekah",
   },
   description:
-    "Hey Rebekah is a free daily newsletter. We write about things that help you become better at what you do in 6 minutes or less. Even our moms think it’s pretty awesome.",
+    "Hey Rebekah is a free daily newsletter for freelancers. We'll help you upskill your work in 6 minutes or less. Build a thriving career, earn more, and find your joy. Our moms think it's awesome, you will too. 🔥",
 };
 
 const lexend = localFont({
