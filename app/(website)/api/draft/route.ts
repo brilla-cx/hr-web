@@ -2,6 +2,7 @@
 // route handler with secret and slug
 import { draftMode } from "next/headers";
 // import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 const STUDIO_URL_DEV = "http://localhost:3333";
 const STUDIO_URL_PROD = "https://heyrebekah.sanity.studio";
@@ -17,40 +18,43 @@ export async function GET(request: Request) {
 
   const fetchParam = searchParams.get("fetch");
 
-  // console.log(request);
+  // Enable Draft Mode by setting the cookie
+  draftMode().enable();
+
+  const corsOrigin = hostname.includes("localhost")
+    ? STUDIO_URL_DEV
+    : STUDIO_URL_PROD;
+
+  // Create preview URL
+  const baseOrigin = hostname.includes("localhost")
+    ? WEBSITE_URL_DEV
+    : WEBSITE_URL_PROD;
+
+  const cookieStore = cookies();
+  const cookie = cookieStore.get("__prerender_bypass");
+
+  const headers = new Headers();
+  headers.append("credentials", "include");
+  headers.append("Cookie", `${cookie?.name}=${cookie?.value}` || "");
+  headers.append("Access-Control-Allow-Origin", corsOrigin);
+  headers.append("Access-Control-Allow-Credentials", "true");
 
   if (!slug) {
     return new Response("Please generate the slug to start live preview", {
       status: 401,
+      headers: {
+        ...Object.fromEntries(headers),
+      },
     });
   }
 
-  // Enable Draft Mode by setting the cookie
-  draftMode().enable();
-
   if (fetchParam) {
-    const corsOrigin = hostname.includes("localhost")
-      ? STUDIO_URL_DEV
-      : STUDIO_URL_PROD;
-
-    // Create preview URL
-    const baseOrigin = hostname.includes("localhost")
-      ? WEBSITE_URL_DEV
-      : WEBSITE_URL_PROD;
     const absoluteUrl = new URL(`/${type}/${slug}`, baseOrigin).toString();
-
-    // Create preview headers from the setPreviewData above
-    const previewHeader = request.headers.get("Set-Cookie");
-    const previewHeaderString = previewHeader?.toString();
-    const headers = new Headers();
-    headers.set("credentials", "include");
-    headers.set("Cookie", previewHeaderString || "");
-    headers.set("Access-Control-Allow-Origin", corsOrigin);
-    headers.set("Access-Control-Allow-Credentials", "true");
 
     const previewHtml = await fetch(absoluteUrl, { headers })
       .then((previewRes) => previewRes.text())
       .catch((err) => console.error(err));
+    console.log(previewHtml);
 
     return new Response(previewHtml || null, {
       status: 200,
@@ -64,8 +68,7 @@ export async function GET(request: Request) {
   return new Response(null, {
     status: 307,
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Credentials": "true",
+      ...Object.fromEntries(headers),
       Location: `/${type}/${slug}`,
     },
   });
