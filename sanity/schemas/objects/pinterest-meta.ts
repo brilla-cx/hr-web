@@ -71,9 +71,8 @@ const pinterestMeta = {
     ],
     preview: {
         select: {
-            title: 'title',
-            description: 'description',
-            icon: BsPinterest,
+            title: 'fields.title',
+            description: 'fields.description',
         },
     },
 }

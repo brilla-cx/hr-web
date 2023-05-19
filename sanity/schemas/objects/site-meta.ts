@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /schema/objects/site-meta.ts
 
+import { CgWebsite } from 'react-icons/cg';
+
 const siteMeta = {
     name: 'sitemeta',
     title: 'Site Metadata',
     type: 'object',
+    icon: CgWebsite,
     hidden: false,
     fields: [
         {
@@ -53,6 +56,12 @@ const siteMeta = {
             ],
         },
     ],
+    preview: {
+        select: {
+            title: 'fields.title',
+            description: 'fields.description',
+        },
+    },
 }
 
 export default siteMeta;

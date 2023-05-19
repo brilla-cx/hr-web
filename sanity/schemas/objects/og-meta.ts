@@ -64,9 +64,8 @@ const ogMeta = {
     ],
     preview: {
         select: {
-            title: 'ogTitle',
-            description: 'ogDescription',
-            icon: FaFacebook,
+            title: 'fields.ogTitle',
+            description: 'fields.ogDescription',
         },
     },
 }
