@@ -73,13 +73,12 @@ function getPreviewUrl(doc) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : process.env.NODE_ENV === "production"
-      ? SITE_URL
-      : `https://${process.env.VERCEL_URL}`;
+        ? SITE_URL
+        : `https://${process.env.VERCEL_URL}`;
 
   return doc?.slug?.current
-    ? `${absoluteURL}/api/draft?slug=${doc.slug.current}&type=${
-        doc?._type === "post" ? "gists" : doc?._type
-      }`
+    ? `${absoluteURL}/api/draft?slug=${doc.slug.current}&type=${doc?._type === "post" ? "gists" : doc?._type
+    }`
     : `${absoluteURL}/api/draft`;
 }
 

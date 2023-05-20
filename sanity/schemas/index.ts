@@ -5,6 +5,7 @@ import category from "./category-schema";
 import faq from "./faq-schema";
 import legal from "./legal-schema";
 import blockContent from "./objects/blockContent";
+import seo from "./objects/seo-schema";
 import post from "./post-schema";
 import quiz from "./quiz-schema";
 import quote from "./quote-schema";
@@ -12,17 +13,18 @@ import socialBlog from "./socialBlog-schema";
 import tool from "./tool-schema";
 
 const schemas = [
-  post,
   author,
-  category,
+  blockContent,
   book,
+  category,
   faq,
+  legal,
+  post,
+  quiz,
+  quote,
+  seo,
   socialBlog,
   tool,
-  blockContent,
-  quote,
-  quiz,
-  legal,
 ];
 
 export default schemas;

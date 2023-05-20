@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 import "./reset.css";
 
 export default function RootLayout({
