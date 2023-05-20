@@ -54,7 +54,6 @@ export async function GET(request: Request) {
     const previewHtml = await fetch(absoluteUrl, { headers })
       .then((previewRes) => previewRes.text())
       .catch((err) => console.error(err));
-    console.log(previewHtml);
 
     return new Response(previewHtml || null, {
       status: 200,
