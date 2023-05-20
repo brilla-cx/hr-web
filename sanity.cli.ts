@@ -15,5 +15,11 @@ export default defineCliConfig({
       ...prev.define,
       "process.env": {},
     },
+    build: {
+      ...prev.build,
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
+    },
   }),
 });

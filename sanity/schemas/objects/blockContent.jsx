@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable import/no-anonymous-default-export */
 // import TablePreview from "./previews/table";
 import { Stack, Text } from "@sanity/ui";
