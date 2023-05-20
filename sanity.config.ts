@@ -12,6 +12,7 @@ import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list
 import { media } from "sanity-plugin-media";
 
 import hrLogo from "./components/studio/logo/logo";
+import { SITE_URL } from "./lib/constants";
 import schemas from "./sanity/schemas";
 import {
   defaultDocumentNode,
@@ -59,6 +60,33 @@ const config = defineConfig({
     },
   },
   schema: { types: schemas },
+  document: {
+    // prev is the result from previous plugins and can be composed
+    productionUrl: async (prev, context) => {
+      // context includes the client an other details
+      const { getClient, document } = context;
+      const doctype = document._type === "post" ? "gists" : document._type;
+
+      // console.log(getClient);
+      const client = getClient({ apiVersion: "2023-05-19" });
+
+      if (document._type === "post") {
+        // you can now use async/await 🎉
+        const slug = await client.fetch(
+          `*[_type == 'post' && (_id == $postId || _id == $draftId)][0].slug.current`,
+          { postId: document._id, draftId: `drafts.${document._id}` }
+        );
+
+        const params = new URLSearchParams();
+        params.set("slug", slug);
+        params.set("type", doctype);
+
+        return `${SITE_URL}/api/draft?${params}`;
+      }
+
+      return prev;
+    },
+  },
 });
 
 export default config;
