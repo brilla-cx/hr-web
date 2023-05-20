@@ -1,14 +1,12 @@
-import Head from 'next/head';
+import Script from "next/script";
 
 const Juno = () => {
     return (
         <>
-            <Head>
-                <script
-                    src="https://libraria-prod.s3.us-west-1.amazonaws.com/public/embed-inline-v0.0.02.js"
-                    defer
-                />
-            </Head>
+            <Script
+                src="https://libraria-prod.s3.us-west-1.amazonaws.com/public/embed-inline-v0.0.02.js"
+                defer
+            />
             <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
