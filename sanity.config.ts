@@ -23,11 +23,15 @@ const giphyApiKey = process.env.GIPHY_API_KEY;
 const openaiApiKey = process.env.OPENAI_API_KEY;
 
 if (!giphyApiKey) {
-  throw new Error("Oh snap, the GIPHY_API_KEY environment variable is missing.");
+  throw new Error(
+    "Oh snap, the GIPHY_API_KEY environment variable is missing."
+  );
 }
 
 if (!openaiApiKey) {
-  throw new Error("Ruh roh, the OPENAI_API_KEY environment variable is missing.");
+  throw new Error(
+    "Ruh roh, the OPENAI_API_KEY environment variable is missing."
+  );
 }
 
 const config = defineConfig({
