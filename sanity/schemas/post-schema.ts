@@ -143,6 +143,12 @@ const post = {
       type: "datetime",
       group: "meta",
     },
+    {
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo",
+    },
   ],
   preview: {
     select: {

@@ -1,7 +1,6 @@
 import {
   FaArchive,
   FaBook,
-  FaChartLine,
   FaFeatherAlt,
   FaListUl,
   FaQuestion,
@@ -64,11 +63,6 @@ export const structure = (S) =>
         .title("Rebekah's Old Blogs")
         .icon(FaArchive)
         .child(S.documentTypeList("socialBlog")),
-      S.divider(),
-      S.listItem()
-        .title("Website Metadata")
-        .icon(FaChartLine)
-        .child(S.documentTypeList("metadata")),
     ]);
 
 // Customise this function to show the correct URL based on the current document
