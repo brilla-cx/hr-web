@@ -1,7 +1,11 @@
+import Link from "next/link";
+
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import PostAlt from "@/components/postalt";
-import { Button, H2 } from "@/components/ui";
+import { H2 } from "@/components/ui";
+import { lightHoverStyles } from "@/lib/hover";
+import { cx } from "@/lib/utils";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
@@ -58,7 +62,7 @@ export default function HomePage({ posts }) {
               🫳🏼 Just <span className="text-pink">Dropped</span>
             </H2>
           </div>
-          <div className="px-4 sm:px-8 lg:px-16 grid gap-10 mt-10 mb-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-4 ">
+          <div className="px-4 sm:px-8 lg:px-16 grid gap-10 mt-10 mb-10 lg:gap-10 md:grid-cols-3 xl:grid-cols-4 ">
             {posts.slice(0, 12).map((post) => (
               <PostAlt
                 key={post._id}
@@ -68,10 +72,16 @@ export default function HomePage({ posts }) {
               />
             ))}
           </div>
-          <div className="my-16 flex items-center justify-center">
-            <Button variant="alternate" href="/gists">
-              View all posts
-            </Button>
+          <div className="mb-7 mt-8 flex justify-center">
+            <Link
+              href="/gists"
+              className={cx(
+                "mt-4 rounded-lg px-5 py-2 uppercase text-med font-display font-semibold text-gray-400 hover:text-pink hover:font-bold hover:bg-gray-900",
+                lightHoverStyles
+              )}
+              aria-label="View all posts">
+              ← View all posts
+            </Link>
           </div>
         </Container>
       </div>

@@ -7,7 +7,7 @@ export default function Label(props) {
     blue: "text-blue-600",
     indigo: "text-indigo-600",
     violet: "text-violet-600",
-    white: "text-white",
+    gray: "text-gray-300",
   };
   const bgcolor = {
     cyan: "bg-cyan-50",
@@ -20,7 +20,7 @@ export default function Label(props) {
   return (
     <span
       className={cx(
-        "inline-block text-xs tracking-wider uppercase font-bold",
+        "inline-block text-xs tracking-wider uppercase font-semibold",
         color[props.color] || color.violet,
         props.pill ? bgcolor[props.color] || bgcolor.violet : "",
         props.pill && "rounded-full",
