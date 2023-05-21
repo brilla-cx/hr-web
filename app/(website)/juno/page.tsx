@@ -23,7 +23,6 @@ const Juno = () => {
                 <div
                     id="libraria-widget"
                     data-librariaslug="brilla"
-                    data-compact="true"
                     className="w-full max-w-4xl p-8 bg-white shadow-md rounded-md"
                 />
             </div>
