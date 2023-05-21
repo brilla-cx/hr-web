@@ -1,16 +1,12 @@
 import { cx } from "@/lib/utils";
 
-const commonClasses = "antialiased font-display tracking-tight leading-tight";
+const commonClasses =
+  "antialiased font-display font-semibold tracking-tight leading-tight tracking-tight";
 
 export function H1({ children, className = "", as = "h1" }) {
   const Tag = as;
   return (
-    <Tag
-      className={cx(
-        commonClasses,
-        className,
-        "font-semibold text-5xl lg:text-6xl"
-      )}>
+    <Tag className={cx(commonClasses, className, "text-5xl lg:text-6xl")}>
       {children}
     </Tag>
   );
@@ -19,12 +15,7 @@ export function H1({ children, className = "", as = "h1" }) {
 export function H2({ children, className = "", as = "h2" }) {
   const Tag = as;
   return (
-    <Tag
-      className={cx(
-        commonClasses,
-        className,
-        "font-semibold text-4xl lg:text-5xl"
-      )}>
+    <Tag className={cx(commonClasses, className, "text-4xl lg:text-5xl")}>
       {children}
     </Tag>
   );
@@ -33,12 +24,7 @@ export function H2({ children, className = "", as = "h2" }) {
 export function H3({ children, className = "", as = "h3" }) {
   const Tag = as;
   return (
-    <Tag
-      className={cx(
-        commonClasses,
-        className,
-        "font-semibold text-3xl lg:text-4xl"
-      )}>
+    <Tag className={cx(commonClasses, className, "text-3xl lg:text-4xl")}>
       {children}
     </Tag>
   );
@@ -65,7 +51,7 @@ export function H5({ children, className = "", as = "h5" }) {
       className={cx(
         commonClasses,
         className,
-        "font-bold text-2xl lg:text-3xl"
+        "font-bold text-2xl lg:text-2xl"
       )}>
       {children}
     </Tag>
@@ -76,11 +62,7 @@ export function H6({ children, className = "", as = "h6" }) {
   const Tag = as;
   return (
     <Tag
-      className={cx(
-        commonClasses,
-        className,
-        "font-bold text-3xl lg:text-2xl"
-      )}>
+      className={cx(commonClasses, className, "font-bold text-2xl lg:text-xl")}>
       {children}
     </Tag>
   );
@@ -93,7 +75,7 @@ export function Title({ children, className = "", as = "p" }) {
       className={cx(
         commonClasses,
         className,
-        "font-bold line-clamp-2 text-lg lg:text-xl"
+        "line-clamp-2 text-lg lg:text-xl"
       )}>
       {children}
     </Tag>
@@ -102,8 +84,6 @@ export function Title({ children, className = "", as = "p" }) {
 
 export function Lead({ children, className = "" }) {
   return (
-    <p className={cx(className, " font-sans text-med lg:text-xl")}>
-      {children}
-    </p>
+    <p className={cx(className, "font-sans text-med lg:text-xl")}>{children}</p>
   );
 }

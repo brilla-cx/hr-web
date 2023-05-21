@@ -106,7 +106,7 @@ export const metadata = {
       type: "image/x-icon",
     },
   ],
-  manifest: "/public/manifest.json", // Update if different
+  manifest: "/site.webmanifest",
   categories: [
     "Freelancing",
     "AI for Freelancers",
@@ -122,23 +122,14 @@ const lexend = localFont({
   src: [
     {
       path: "./assets/fonts/lexend.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./assets/fonts/lexend.ttf",
-      weight: "700",
-      style: "normal",
     },
   ],
   variable: "--font-lexend",
-  display: "swap",
 });
 
 const lexendDeca = localFont({
   src: "./assets/fonts/lexend-deca.ttf",
   variable: "--font-lexend-deca",
-  display: "swap",
 });
 
 export default function RootLayout({
