@@ -10,6 +10,8 @@ import Container from "@/components/container";
 import { H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
+import lightHoverStyles from "@/lib/hover";
+import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
 export default function Post(props) {
@@ -45,11 +47,11 @@ export default function Post(props) {
 
                 <H1
                   as="h1"
-                  className="text-white underline decoration-2 decoration-white/30 underline-offset-8 mt-2">
+                  className="text-gray-100 underline decoration-2 decoration-white/30 underline-offset-8 mt-2">
                   {post.name}
                 </H1>
                 {post.tldr && (
-                  <div className="prose mt-2 prose-2xl prose-p:leading-snug prose-invert prose-p:text-white/90 font-light">
+                  <div className="not-prose mt-2 prose-2xl prose-p:leading-snug text-gray-300">
                     <PortableText value={post.tldr} />
                   </div>
                 )}
@@ -57,21 +59,24 @@ export default function Post(props) {
                 <div className="mt-4">
                   <div className="flex items-start gap-3">
                     <div>
-                      <p className="text-white/90 font-semibold text-xs">
+                      <p className="text-gray-300 font-semibold text-xs inline">
                         By{" "}
                         <Link
                           href="/"
-                          className=" text-white font-semibold text-xs hover:text-pink hover:underline hover:underline-offset-4 hover:decoration-white hover:decoration-2 transition-all duration-200">
+                          className={cx(
+                            " text-gray-300 font-semibold text-xs",
+                            lightHoverStyles
+                          )}>
                           {post?.author?.name}
                         </Link>
                       </p>
                       <div className="flex space-x-2 mt-2 text-sm md:flex-row md:items-center">
                         <DateTime
-                          className="text-white/80 text-xs"
+                          className="text-gray-200 text-xs"
                           date={post?.publishedAt || post._createdAt}
                         />
-                        <span className="text-white/80 text-xs">•</span>
-                        <span className="text-white/80 text-xs">
+                        <span className="text-gray-200 text-xs">•</span>
+                        <span className="text-gray-200 text-xs">
                           {post.estReadingTime || "5"} min read
                         </span>
                       </div>
@@ -93,13 +98,17 @@ export default function Post(props) {
 
       <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose-post-body mx-auto max-w-prose">
+          <Prose className="prose prose-slate mx-auto max-w-prose">
             {post.content && <PortableText value={post.content} />}
           </Prose>
-          <div className="mb-7 mt-7 flex justify-center">
+          <div className="mb-7 mt-8 flex justify-center">
             <Link
-              href="/"
-              className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500 ">
+              href="/gists"
+              className={cx(
+                "rounded-lg px-5 py-2 uppercase text-med font-bold text-pink hover:text-slate-950 hover:font-bold",
+                lightHoverStyles
+              )}
+              aria-label="View all posts">
               ← View all posts
             </Link>
           </div>
@@ -131,12 +140,15 @@ const MainImage = ({ image }) => {
           placeholder: "blur",
           blurDataURL: image.blurDataURL,
         })}
-        alt={image?.alt || "Thumbnail"}
-        priority
+        alt={
+          image?.alt ||
+          "Default thumbnail for blog post because it's missing. We're sorry about that."
+        }
+        aria-describedby={image.caption ? "figcaptionID" : undefined}
         className="absolute top-0 left-0 w-full h-full object-cover"
       />
       {image.caption && (
-        <figcaption className="text-center mt-2">
+        <figcaption id="figcaptionID" className="text-center mt-2">
           <p className="text-xs italic text-white/60 leading-tight">
             {image.caption}
           </p>
