@@ -47,11 +47,11 @@ export default function Post(props) {
 
                 <H1
                   as="h1"
-                  className="text-gray-100 underline decoration-2 decoration-white/30 underline-offset-8 mt-2">
+                  className="text-gray-100 leading-tight underline decoration-2 decoration-white/30 underline-offset-8 mt-2">
                   {post.name}
                 </H1>
                 {post.tldr && (
-                  <div className="not-prose mt-2 prose-2xl prose-p:leading-snug text-gray-300">
+                  <div className="not-prose mt-2 prose-2xl leading-snug text-gray-300">
                     <PortableText value={post.tldr} />
                   </div>
                 )}
@@ -98,14 +98,14 @@ export default function Post(props) {
 
       <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose prose-slate mx-auto max-w-prose">
+          <Prose className="prose mx-auto max-w-prose">
             {post.content && <PortableText value={post.content} />}
           </Prose>
           <div className="mb-7 mt-8 flex justify-center">
             <Link
               href="/gists"
               className={cx(
-                "rounded-lg px-5 py-2 uppercase text-med font-bold text-pink hover:text-slate-950 hover:font-bold",
+                "rounded-lg px-5 py-2 uppercase text-med font-bold text-gray-600 hover:text-gray-950 hover:font-bold",
                 lightHoverStyles
               )}
               aria-label="View all posts">
@@ -114,7 +114,7 @@ export default function Post(props) {
           </div>
           {post.author && <AuthorCard author={post.author} />}
         </article>
-        <aside className="sticky top-24 w-full self-start md:w-80 mr-5">
+        <aside className="sticky top-24 w-full self-start md:w-64 mr-5">
           <Sidebar
             categories={categories}
             related={post.related.filter(
