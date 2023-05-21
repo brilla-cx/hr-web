@@ -2,27 +2,27 @@ import { cx } from "@/lib/utils";
 
 export default function Label(props) {
   const color = {
-    green: "text-emerald-700",
+    cyan: "text-cyan-600",
+    sky: "text-sky-600",
     blue: "text-blue-600",
-    orange: "text-orange-700",
-    purple: "text-purple-600",
-    pink: "text-pink",
+    indigo: "text-indigo-600",
+    violet: "text-violet-600",
     white: "text-white",
   };
   const bgcolor = {
-    green: "bg-emerald-50",
+    cyan: "bg-cyan-50",
+    sky: "bg-sky-50",
     blue: "bg-blue-50",
-    orange: "bg-orange-50",
-    purple: "bg-purple-50",
-    pink: "bg-pink-50",
+    indigo: "bg-indigo-50",
+    violet: "bg-violet-50",
   };
 
   return (
     <span
       className={cx(
         "inline-block text-xs tracking-wider uppercase font-bold",
-        color[props.color] || color.pink,
-        props.pill ? bgcolor[props.color] || bgcolor.pink : "",
+        color[props.color] || color.violet,
+        props.pill ? bgcolor[props.color] || bgcolor.violet : "",
         props.pill && "rounded-full",
         !props.nomargin && "px-1 py-1",
         props.className

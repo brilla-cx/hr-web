@@ -54,7 +54,7 @@ export default function PostAlt({
                 sizes="(max-width: 768px) 30vw, 33vw"
               />
             ) : (
-              <span className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-gray-600">
+              <span className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 text-gray-500">
                 <PhotoIcon />
               </span>
             )}
@@ -73,7 +73,7 @@ export default function PostAlt({
                 <H3
                   as="h2"
                   className={cx(
-                    "text-white mt-2 line-clamp-2 inline",
+                    "text-gray-200 mt-2 line-clamp-2 inline",
                     hoverStyles
                   )}>
                   {post.name}
@@ -82,7 +82,7 @@ export default function PostAlt({
                 <H6
                   as="h2"
                   className={cx(
-                    "text-white mt-1 line-clamp-2 inline",
+                    "text-gray-200 mt-1 line-clamp-2 inline",
                     hoverStyles
                   )}>
                   {post.name}

@@ -14,12 +14,7 @@ import { urlForImage } from "@/sanity/image";
 
 const resources = [
   { name: "Archives", href: "/gists" },
-  {
-    name: "Hey Rebekah AI",
-    href: "https://app.heyrebekah.com",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
+  { name: "Hey Rebekah AI", href: "/juno" },
   { name: "Community", href: "/community" },
   { name: "Discounts", href: "/built-with" },
   { name: "Help", href: "/contact" },
@@ -37,7 +32,7 @@ export default function Menu({ recentPosts }) {
     <Popover className="">
       <Popover.Button
         variant="secondary"
-        className="px-3 py-3 text-lg uppercase font-semibold leading-none inline-flex gap-1 items-center justify-center relative bg-slate-950 text-white rounded focus:outline-none focus:ring-0 z-30">
+        className="px-3 py-3 text-med uppercase font-semibold leading-none inline-flex gap-1 items-center justify-center relative bg-midnight text-gray-200 rounded focus:outline-none focus:ring-0 z-30">
         Menu
         <ChevronDownIcon
           className="h-5 w-5 ui-open:rotate-180 transition-all"
@@ -53,11 +48,11 @@ export default function Menu({ recentPosts }) {
         leave="transition ease-in duration-150"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 -translate-y-1">
-        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-slate-950 pt-16 border-b-2 border-pink">
+        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-midnight pt-16 border-b-2 border-pink">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2">
             <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
               <div>
-                <h3 className="text-sm font-bold uppercase leading-6 text-sky-500">
+                <h3 className="text-sm font-bold uppercase leading-6 text-gray-400">
                   Resources
                 </h3>
                 <div className="mt-6 flow-root">
@@ -69,7 +64,7 @@ export default function Menu({ recentPosts }) {
                         target={item.target}
                         rel={item.rel}
                         className={cx(
-                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white",
+                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-gray-200",
                           hoverStyles
                         )}>
                         {item.name}
@@ -79,7 +74,7 @@ export default function Menu({ recentPosts }) {
                 </div>
               </div>
               <div>
-                <h3 className="text-sm font-bold uppercase leading-6 text-sky-500">
+                <h3 className="text-sm font-bold uppercase leading-6 text-gray-400">
                   Company
                 </h3>
                 <div className="mt-6 flow-root">
@@ -91,7 +86,7 @@ export default function Menu({ recentPosts }) {
                         target={item.target}
                         rel={item.rel}
                         className={cx(
-                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-white",
+                          "flex font-display font-semibold tracking-tight gap-x-4 mb-3 text-xl md:text-2xl leading-6 text-gray-200",
                           hoverStyles
                         )}>
                         {item.name}
@@ -122,14 +117,14 @@ export default function Menu({ recentPosts }) {
                   <div>
                     <div className="flex items-center gap-x-4">
                       <DateTime
-                        className="text-sky-500 text-xs font-bold"
+                        className="text-gray-500 text-sm"
                         date={post?.publishedAt || post._createdAt}
                       />
                     </div>
                     <H6
                       as="h2"
                       className={cx(
-                        "mt-2 text-white line-clamp-2 inline",
+                        "mt-2 text-gray-200 line-clamp-2 inline",
                         hoverStyles
                       )}>
                       <Link href={`/gists/${post.slug.current}`}>

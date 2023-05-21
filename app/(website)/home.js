@@ -8,21 +8,21 @@ export default function HomePage({ posts }) {
 
   return (
     <>
-      <div className="bg-slate-950 border-t border-b border-neutral-200 border-opacity-10">
+      <div className="bg-midnight border-t border-b border-neutral-200 border-opacity-10">
         <Container
           large
           className="border-l border-r border-neutral-200 border-opacity-10">
           <Hero />
         </Container>
       </div>
-      <div className="bg-slate-950">
+      <div className="bg-midnight">
         <Container
           large
           className="border-l border-r border-neutral-200 border-opacity-10">
           {featuredPost.length > 4 && (
             <>
               <div className="flex items-center justify-center mt-10">
-                <H2 className="text-white">
+                <H2 className="text-gray-200">
                   <span className="text-pink">🔥 Most</span> Popular
                 </H2>
               </div>
@@ -54,7 +54,7 @@ export default function HomePage({ posts }) {
           )}
 
           <div className="flex items-center justify-center mt-4">
-            <H2 className="text-white">
+            <H2 className="text-gray-200">
               🫳🏼 Just <span className="text-pink">Dropped</span>
             </H2>
           </div>

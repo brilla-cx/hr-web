@@ -8,14 +8,14 @@ const Hero = (props) => {
   return (
     <div className="px-4 sm:px-8 lg:px-16 py-12 sm:py-20 lg:py-26">
       <div className="max-w-5xl">
-        <H1 className="text-white">
+        <H1 className="text-gray-200">
           Like Morning Brew for freelancers, without all the readers
         </H1>
-        <Lead className="mt-5 max-w-3xl text-neutral-300">
+        <Lead className="mt-5 max-w-3xl text-gray-400">
           Hey Rebekah is a free daily newsletter. We write about things that
           help you become better at what you do in 6 minutes or less.
         </Lead>
-        <Lead className="mt-5 max-w-3xl text-neutral-300">
+        <Lead className="mt-5 max-w-3xl text-gray-400">
           Even our moms think it's pretty awesome.
         </Lead>
       </div>
@@ -32,7 +32,7 @@ const Hero = (props) => {
           />
           <Button variant="alternate">Level Up</Button>
         </div>
-        <p className="mt-4 text-sm leading-6 text-neutral-300">
+        <p className="mt-4 text-sm leading-6 text-gray-400">
           We care about your{" "}
           <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
             privacy

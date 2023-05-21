@@ -16,6 +16,7 @@ module.exports = {
         stock: [fontFamily.sans],
       },
       colors: {
+        midnight: "hsl(224, 71%, 4%)",
         pink: {
           DEFAULT: "#ff00fe",
         },
@@ -32,7 +33,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            ".prose-post-body p:first-of-type::first-letter": {
+            ".prose p:first-of-type::first-letter": {
               float: "left",
               fontSize: "120px",
               paddingRight: theme("spacing.2"),
@@ -45,27 +46,27 @@ module.exports = {
               marginBottom: `calc(-0.4em - ${theme("spacing.2")})`,
               //paddingTop: theme("spacing.2"),
             },
-            ".prose-post-body h2, .prose h2": {
-              fontSize: theme("fontSize.4xl"),
-              fontWeight: theme("fontWeight.bold"),
+            ".prose h2": {
+              fontSize: theme("fontSize.5xl"),
+              fontWeight: theme("fontWeight.semibold"),
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
               marginTop: theme("spacing.4"),
               marginBottom: theme("spacing.8"),
             },
-            ".prose-post-body h3, .prose h3": {
+            ".prose h3": {
               fontSize: theme("fontSize.4xl"),
-              fontWeight: theme("fontWeight.bold"),
+              fontWeight: theme("fontWeight.semibold"),
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
               marginTop: theme("spacing.6"),
               marginBottom: theme("spacing.5"),
             },
-            ".prose-post-body h4, .prose h4": {
-              fontSize: theme("fontSize.2xl"),
-              fontWeight: theme("fontWeight.bold"),
+            ".prose h4": {
+              fontSize: theme("fontSize.3xl"),
+              fontWeight: theme("fontWeight.semibold"),
               fontFamily: theme("fontFamily.display"),
               letterSpacing: theme("letterSpacing.tight"),
               lineHeight: theme("lineHeight.tight"),
@@ -73,21 +74,6 @@ module.exports = {
               marginBottom: theme("spacing.5"),
             },
             ".prose :where(a):not(:where([class~='not-prose'] *))": {
-              fontWeight: "900",
-              textDecoration: "none",
-              transitionProperty: "background-size",
-              transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-              transitionDuration: "200ms",
-              backgroundImage:
-                "linear-gradient(to right, var(--tw-gradient-stops, var(--tw-gradient-from, #ff00fe), var(--tw-gradient-to, #6b21a8)))",
-              backgroundSize: "0px 10px",
-              backgroundPosition: "left bottom",
-              backgroundRepeat: "no-repeat",
-              "&:hover": {
-                backgroundSize: "100% 3px",
-              },
-            },
-            ".prose-post-body :where(a):not(:where([class~='not-prose'] *))": {
               fontWeight: "900",
               textDecoration: "none",
               transitionProperty: "background-size",
