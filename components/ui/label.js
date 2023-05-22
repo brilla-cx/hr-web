@@ -7,6 +7,9 @@ export default function Label(props) {
     blue: "text-blue-600",
     indigo: "text-indigo-600",
     violet: "text-violet-600",
+    purple: "text-purple-600",
+    fuchsia: "text-fuchsia-600",
+    pink: "text-pink-600",
     gray: "text-gray-300",
   };
   const bgcolor = {

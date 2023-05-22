@@ -62,7 +62,7 @@ export default function HomePage({ posts }) {
               🫳🏼 Just <span className="text-pink">Dropped</span>
             </H2>
           </div>
-          <div className="px-4 sm:px-8 lg:px-16 grid gap-10 mt-10 mb-10 lg:gap-10 md:grid-cols-3 xl:grid-cols-4 ">
+          <div className="px-4 sm:px-8 lg:px-16 grid gap-10 mt-10 mb-10 lg:gap-10 md:grid-cols-3 xl:grid-cols-3 ">
             {posts.slice(0, 12).map((post) => (
               <PostAlt
                 key={post._id}
