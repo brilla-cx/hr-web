@@ -32,15 +32,6 @@ export const metadata = {
     description:
       "Hey Rebekah is a free daily newsletter for freelancers. We'll help you upskill your work in 6 minutes or less. Build a thriving career, earn more, and find your joy. Our moms think it's awesome, you will too. 🔥",
     siteName: "Hey Rebekah",
-    // Surjith to update this if needed otherwise delete
-    /*images: [
-      {
-        url: 'public/og.png', // Surjith to update this
-        width: 1200,
-        height: 630,
-        alt: 'An open graph image for Hey Rebekah',
-      },
-    ],*/
   },
   robots: {
     index: "noindex",
@@ -53,24 +44,13 @@ export const metadata = {
       url: "https://heyrebekah.com",
     },
   ],
-  generator: {
-    name: "Hey Rebekah by BRIL.LA, LLC.",
-    url: "https://bril.la",
-  },
   keywords: [
     "Like Morning Brew",
     "freelance newsletter",
     "freelancer training",
   ],
-  creator: {
-    name: "Hey Rebekah Team",
-    url: "https://heyrebekah.com",
-  },
-  publisher: {
-    name: "BRIL.LA, LLC.",
-    url: "https://bril.la",
-    logo: "https://uploads-ssl.webflow.com/63fd8f254924322ec4c9c439/64681f49489e82e99a23db6a_brilla-black-logo-web.png",
-  },
+  creator: "Hey Rebekah Team",
+  publisher: "BRIL.LA, LLC.",
   twitter: {
     card: "summary_large_image", // type of card you want to use. It could be "summary", "summary_large_image", "app", or "player"
     site: "rebekahradice", // your Twitter handle
