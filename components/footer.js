@@ -1,19 +1,22 @@
+import GlowingButton from "components/ui/glowingButton";
 import Image from "next/image";
 
-import { Button, H5, Input } from "@/components/ui";
+import { H5, Input } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 
+// T-10892 Refactor Tailwind Footer
 export default function Footer() {
   return (
     <footer
-      className="border-t-2 border-t-pink bg-midnight"
-      aria-labelledby="footer-heading">
+      className="border-t border-neutral-200 border-opacity-10 bg-midnight"
+      aria-labelledby="footer-heading"
+      role="contentinfo">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-16">
+      <div className="border-l border-r border-neutral-200 border-opacity-10 mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <Image
             src={LogoImage}
@@ -26,7 +29,10 @@ export default function Footer() {
                 <h3 className="font-display font-semibold leading-6 text-gray-400 uppercase">
                   Resources
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
+                <ul
+                  role="list"
+                  aria-label="Resources"
+                  className="mt-6 space-y-4">
                   {navigation.resources.map((item) => (
                     <li key={item.name}>
                       <a
@@ -34,7 +40,8 @@ export default function Footer() {
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}>
+                        )}
+                        aria-label={item.name}>
                         {item.name}
                       </a>
                     </li>
@@ -45,7 +52,7 @@ export default function Footer() {
                 <h3 className="font-display font-semibold leading-6 text-gray-400 uppercase">
                   Company
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
+                <ul role="list" aria-label="Company" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
                       <a
@@ -53,7 +60,8 @@ export default function Footer() {
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}>
+                        )}
+                        aria-label={item.name}>
                         {item.name}
                       </a>
                     </li>
@@ -66,7 +74,10 @@ export default function Footer() {
                 <h3 className="font-display font-semibold leading-6 text-gray-400 uppercase">
                   Follow Us
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
+                <ul
+                  role="list"
+                  aria-label="Follow Us"
+                  className="mt-6 space-y-4">
                   {navigation.follow.map((item) => (
                     <li key={item.name}>
                       <a
@@ -74,7 +85,8 @@ export default function Footer() {
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}>
+                        )}
+                        aria-label={item.name}>
                         {item.name}
                       </a>
                     </li>
@@ -85,7 +97,7 @@ export default function Footer() {
                 <h3 className="font-display font-semibold leading-6 text-gray-400 uppercase">
                   Legal
                 </h3>
-                <ul role="list" className="mt-6 space-y-4">
+                <ul role="list" aria-label="Legal" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
                       <a
@@ -93,7 +105,8 @@ export default function Footer() {
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}>
+                        )}
+                        aria-label={item.name}>
                         {item.name}
                       </a>
                     </li>
@@ -113,17 +126,19 @@ export default function Footer() {
           </div>
           <form className="mt-6 gap-3 flex flex-col sm:flex-row sm:max-w-md lg:mt-0">
             <label htmlFor="email-address" className="sr-only">
-              Email address
+              email
             </label>
             <Input
               size="sm"
-              className="px-4 w-full md:w-60 text-sm"
+              className="px-4 w-full md:w-60 text-sm bg-slate-900 border-neutral-200/10 text-gray-200"
               autoComplete="email"
               placeholder="Enter your email"
               required
               type="email"
             />
-            <Button variant="alternate">Join Us</Button>
+            <GlowingButton type="submit" variant="subscribe">
+              Level Up
+            </GlowingButton>
           </form>
         </div>
         <div className="mt-8 border-t border-neutral-200 pt-8 md:flex md:items-center md:justify-between">

@@ -1,9 +1,10 @@
+import GlowingButton from "components/ui/glowingButton";
 import Link from "next/link";
 
-import { Button, H1, Input, Lead } from "@/components/ui";
+import { H1, Input, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-// T-10009 Update Home Hero styles
+
 const Hero = (props) => {
   return (
     <div className="px-4 sm:px-8 lg:px-16 py-12 sm:py-20 lg:py-26">
@@ -22,15 +23,16 @@ const Hero = (props) => {
       <form className=" w-full max-w-xl mt-8">
         <div className="flex flex-col md:flex-row gap-4">
           <label htmlFor="email-address" className="sr-only">
-            Email address
+            email
           </label>
           <Input
+            className="bg-slate-900 border-neutral-200/10 text-gray-200"
             name="email"
             type="email"
             required
             placeholder="Enter your email"
           />
-          <Button variant="alternate">Level Up</Button>
+          <GlowingButton variant="subscribe">Level Up</GlowingButton>
         </div>
         <p className="mt-4 text-sm leading-6 text-gray-400">
           We care about your{" "}

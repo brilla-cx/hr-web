@@ -1,12 +1,15 @@
 import cx from "classnames";
+import GlowingButton from "components/ui/glowingButton";
 import Link from "next/link";
 
-import { Button, Input } from "@/components/ui";
+import { Input } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import { Lead, Title } from "@/components/ui/typography";
 import { lightHoverStyles } from "@/lib/hover";
 
+// Main Sidebar component
 export default function Sidebar(props) {
+  // As per Ambreen, sidebar has a border, rounded corners, padding and a shadow for a distinct look
   return (
     <div className="border-2 border-gray-100 rounded p-4 shadow-sm">
       <Subscribe />
@@ -17,13 +20,14 @@ export default function Sidebar(props) {
   );
 }
 
+// Component for the newsletetr subscription section. Disco glowing button as per Ambreen.
 function Subscribe() {
   return (
     <div>
       <Lead
         as="h3"
         className="font-semibold border-b-2 border-gray-300 inline-block">
-        Subscribe
+        You belong here
       </Lead>
       <p className="text-gray-500 text-sm mt-3 ">
         Join +320,000 professionals in our community. Delivery is free.
@@ -39,13 +43,14 @@ function Subscribe() {
             required
             placeholder="Enter your email"
           />
-          <Button type="submit">LEVEL UP</Button>
+          <GlowingButton variant="subscribe">LEVEL UP</GlowingButton>
         </div>
       </form>
     </div>
   );
 }
 
+// Component for displaying related posts
 function RelatedPosts({ related }) {
   return (
     <div className="mt-10">
