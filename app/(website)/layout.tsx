@@ -15,6 +15,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
+    // T-10895 Update canonical URL before production go-live
     // canonical: "https://heyrebekah.com",
   },
   title: {
@@ -50,6 +51,14 @@ export const metadata = {
   ],
   creator: "Hey Rebekah Team",
   publisher: "BRIL.LA, LLC.",
+  twitter: {
+    card: "summary_large_image", // type of card you want to use. It could be "summary", "summary_large_image", "app", or "player"
+    site: "rebekahradice", // your Twitter handle
+    title: "Hey Rebekah | Like Morning Brew for freelancers", // the title of the content
+    description: "Hey Rebekah is a free daily newsletter for freelancers...", // a description of the content
+    creator: "rebekahradice",
+    image: "public/og.png",
+  },
   icons: [
     {
       src: "/apple-touch-icon.png",
