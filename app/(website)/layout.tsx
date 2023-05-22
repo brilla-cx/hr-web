@@ -31,15 +31,6 @@ export const metadata = {
     description:
       "Hey Rebekah is a free daily newsletter for freelancers. We'll help you upskill your work in 6 minutes or less. Build a thriving career, earn more, and find your joy. Our moms think it's awesome, you will too. 🔥",
     siteName: "Hey Rebekah",
-    // Surjith to update this if needed otherwise delete
-    /*images: [
-      {
-        url: 'public/og.png', // Surjith to update this
-        width: 1200,
-        height: 630,
-        alt: 'An open graph image for Hey Rebekah',
-      },
-    ],*/
   },
   robots: {
     index: "noindex",

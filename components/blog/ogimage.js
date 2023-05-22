@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unknown-property */
 import { format, parseISO } from "date-fns";
 
+import { SITE_URL } from "@/lib/constants";
 import { urlForImage } from "@/sanity/image";
 
 export default function OgImage({ post }) {
@@ -12,9 +13,7 @@ export default function OgImage({ post }) {
     "MMMM dd, yyyy"
   );
   const absoluteURL =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : `https://${process.env.VERCEL_URL}`;
+    process.env.NODE_ENV === "development" ? "http://localhost:3000" : SITE_URL;
   return (
     <div
       tw="flex w-full h-full"

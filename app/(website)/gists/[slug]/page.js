@@ -26,7 +26,16 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);
-  return { title: post.name };
+  const tldr = post?.tldr?.[0]?.children?.[0]?.text;
+
+  return {
+    title: post.seo?.title || post.name,
+    description: post.seo?.description || tldr,
+    openGraph: {
+      title: post.seo?.title || post.name,
+      description: post.seo?.description || tldr,
+    },
+  };
 }
 
 export default async function PostPage({ params }) {
