@@ -10,7 +10,7 @@ import Menu from "./menu";
 export default async function Navbar() {
   const recentPosts = await getPaginatedPosts({ limit: 2 });
   return (
-    <div className="sticky top-0 z-50 bg-midnight">
+    <div className="sticky top-0 z-50 bg-midnight" aria-label="Main navigation">
       <div className="relative shadow">
         <Container
           alt
@@ -18,7 +18,7 @@ export default async function Navbar() {
           className="h-20 py-5 border-l border-r border-neutral-200 border-opacity-10">
           <div className="flex justify-between items-center gap-10">
             <div className="isolate" style={{ zIndex: 2 }}>
-              <Link href="/">
+              <Link href="/" aria-label="Go to home page">
                 <div style={{ zIndex: 100 }}>
                   <Image
                     src={LogoImage}
@@ -29,7 +29,7 @@ export default async function Navbar() {
               </Link>
             </div>
             <div style={{ zIndex: 1 }}>
-              <Menu recentPosts={recentPosts} />
+              <Menu recentPosts={recentPosts} aria-label="Menu" />
             </div>
           </div>
         </Container>

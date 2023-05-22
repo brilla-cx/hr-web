@@ -2,12 +2,12 @@ import Link from "next/link";
 
 import { cx } from "@/lib/utils";
 
-// interface ButtonProps {
-//   children: any;
-//   className?: string;
-//   size?: "sm" | "md" | "lg";
-//   variant?: "primary" | "secondary" | "outline";
-// }
+export const sizeClasses = {
+  xs: "px-6 py-1 text-s",
+  sm: "px-8 py-2 text-medium",
+  md: "px-10 py-2 text-lg",
+  lg: "px-12 py-4 text-xl",
+};
 
 export default function Button({
   children,
@@ -17,18 +17,11 @@ export default function Button({
   href = "",
   ...rest
 }) {
-  const sizeClasses = {
-    xs: "px-6 py-1 text-s",
-    sm: "px-8 py-2 text-medium",
-    md: "px-10 py-2 text-lg",
-    lg: "px-12 py-4 text-xl",
-  };
-
   const variantClasses = {
-    primary: "bg-pink border-transparent text-slate-950 rounded",
-    secondary: "bg-white border-black text-slate-950 rounded",
+    primary: "bg-pink border-transparent text-gray-950 rounded",
+    secondary: "bg-white border-black text-gray-950 rounded",
     alternate:
-      "bg-pink border-transparent text-slate-950 rounded hover:shadow-amber-400",
+      "bg-pink border-transparent text-gray-950 rounded hover:shadow-amber-400",
   };
 
   const Tag = href ? Link : "button";

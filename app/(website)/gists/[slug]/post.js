@@ -42,7 +42,7 @@ export default function Post(props) {
             <div className="order-1 md:order-none self-center px-5">
               <div>
                 {post.category && (
-                  <Label color="white">{post.category[0]?.name}</Label>
+                  <Label color="gray">{post.category[0]?.name}</Label>
                 )}
 
                 <H1
@@ -59,12 +59,12 @@ export default function Post(props) {
                 <div className="mt-4">
                   <div className="flex items-start gap-3">
                     <div>
-                      <p className="text-gray-300 font-semibold text-xs inline">
+                      <p className="text-gray-200 font-semibold text-xs inline">
                         By{" "}
                         <Link
                           href="/"
                           className={cx(
-                            " text-gray-300 font-semibold text-xs",
+                            "text-gray-200 font-semibold text-xs",
                             lightHoverStyles
                           )}>
                           {post?.author?.name}

@@ -5,21 +5,27 @@ const commonClasses = "antialiased font-display font-semibold tracking-tight";
 export function H1({ children, className = "", as = "h1" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-6xl")}>{children}</Tag>
+    <Tag className={cx(commonClasses, className, "text-4xl lg:text-6xl")}>
+      {children}
+    </Tag>
   );
 }
 
 export function H2({ children, className = "", as = "h2" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-5xl")}>{children}</Tag>
+    <Tag className={cx(commonClasses, className, "text-3xl lg:text-5xl")}>
+      {children}
+    </Tag>
   );
 }
 
 export function H3({ children, className = "", as = "h3" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-4xl")}>{children}</Tag>
+    <Tag className={cx(commonClasses, className, "text-3xl lg:text-4xl")}>
+      {children}
+    </Tag>
   );
 }
 
