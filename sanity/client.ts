@@ -7,6 +7,7 @@ import {
   postpathquery,
   postquery,
   postsbyauthorquery,
+  postsbycatquery,
   singlepostquery,
   topcatquery,
 } from "./groq";
@@ -86,6 +87,14 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
   }
   return {};
 }
+//  Category Page
+
+export async function getPostsByCategory(slug) {
+  if (client) {
+    return (await client.fetch(postsbycatquery, { slug })) || {};
+  }
+  return {};
+}
 
 // export async function getAllPosts() {
 //   if (client) {
@@ -132,13 +141,6 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
 //     return slugs.map(slug => ({ category: slug }));
 //   }
 //   return [];
-// }
-
-// export async function getPostsByCategory(slug) {
-//   if (client) {
-//     return (await client.fetch(postsbycatquery, { slug })) || {};
-//   }
-//   return {};
 // }
 
 // export async function getTopCategories() {
