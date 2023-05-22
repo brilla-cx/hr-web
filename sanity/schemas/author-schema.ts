@@ -36,19 +36,20 @@ const author = {
             title: "Image",
             description: "Upload a 400px x 400px web-optimized image for the author.",
             type: "image",
+            group: 'basicInfo',
+            validation: Rule => Rule.required().warning("Don't you want the world to see their pretty face?"),
+            fields: [
+                {
+                    name: "imageAltText",
+                    title: "Image Alt Text",
+                    description: "Enter the alternative text for the author's image per A11y.",
+                    type: "string",
+                    validation: Rule => Rule.required().warning("Don't you want the author profile to be accessible?"),
+                },
+            ],
             options: {
                 hotspot: true,
             },
-            group: 'basicInfo',
-            validation: Rule => Rule.required().warning("Don't you want the world to see their pretty face?"),
-        },
-        {
-            name: "imageAltText",
-            title: "Image Alt Text",
-            description: "Enter the alternative text for the author's image per A11y.",
-            type: "string",
-            group: 'basicInfo',
-            validation: Rule => Rule.required().warning("Don't you want the author profile to be accessible?"),
         },
         {
             name: "bio",

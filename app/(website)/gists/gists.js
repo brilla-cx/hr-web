@@ -7,7 +7,7 @@ import PaginatedPosts from "./posts";
 
 export default function Gists() {
   return (
-    <div className="bg-slate-950">
+    <div className="bg-midnight">
       <Container
         large
         className="border-l border-r border-neutral-200 border-opacity-10">

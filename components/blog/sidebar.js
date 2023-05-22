@@ -32,7 +32,7 @@ function Subscribe() {
       <p className="text-gray-500 text-sm mt-3 ">
         Join +320,000 professionals in our community. Delivery is free.
       </p>
-      <form action="/search" method="GET" className="mt-4">
+      <form id="sidebar-subscribe" className="mt-4">
         <div className="flex flex-col gap-4">
           <label htmlFor="email-address" className="sr-only">
             Email address
@@ -42,8 +42,14 @@ function Subscribe() {
             type="email"
             required
             placeholder="Enter your email"
+            aria-label="Enter your email address to subscribe"
           />
-          <GlowingButton variant="subscribe">LEVEL UP</GlowingButton>
+          <GlowingButton
+            form="sidebar-subscribe"
+            type="submit"
+            variant="subscribe">
+            LEVEL UP
+          </GlowingButton>
         </div>
       </form>
     </div>

@@ -20,7 +20,7 @@ const Hero = (props) => {
           Even our moms think it's pretty awesome.
         </Lead>
       </div>
-      <form className=" w-full max-w-xl mt-8">
+      <form id="hero-subscribe" className=" w-full max-w-xl mt-8">
         <div className="flex flex-col md:flex-row gap-4">
           <label htmlFor="email-address" className="sr-only">
             email
@@ -31,8 +31,14 @@ const Hero = (props) => {
             type="email"
             required
             placeholder="Enter your email"
+            aria-label="Enter your email address to subscribe"
           />
-          <GlowingButton variant="subscribe">Level Up</GlowingButton>
+          <GlowingButton
+            form="hero-subscribe"
+            type="submit"
+            variant="subscribe">
+            Level Up
+          </GlowingButton>
         </div>
         <p className="mt-4 text-sm leading-6 text-gray-400">
           We care about your{" "}
