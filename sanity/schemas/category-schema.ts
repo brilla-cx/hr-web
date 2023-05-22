@@ -20,6 +20,7 @@ const category = {
             title: "Name",
             description: "The category/topic from the content development workflow.",
             type: "string",
+            validation: Rule => Rule.required(),
         },
         {
             name: "slug",
@@ -38,6 +39,7 @@ const category = {
             title: "Color",
             description: "The color for the category/topic.",
             type: "string",
+            validation: Rule => Rule.required(),
             options: {
                 list: [
                     { title: "Select a color", value: "gray" },

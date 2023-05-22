@@ -23,7 +23,7 @@ export default function Post(props) {
 
   return (
     <>
-      <div className="relative isolate py-10 bg-slate-950">
+      <div className="relative isolate py-10 bg-midnight">
         <div
           className="absolute inset-0 opacity-30"
           style={{

@@ -13,16 +13,19 @@ const quiz = {
             title: 'Category',
             type: 'reference',
             to: [{ type: 'category' }],
+            validation: Rule => Rule.required(),
         },
         {
             name: 'question',
             title: 'Question',
             type: 'string',
+            validation: Rule => Rule.required(),
         },
         {
             name: 'answer',
             title: 'Answer',
             type: 'string',
+            validation: Rule => Rule.required(),
         },
         {
             name: 'sourceUrl',

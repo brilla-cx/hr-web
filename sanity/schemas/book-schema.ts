@@ -28,7 +28,7 @@ const book = {
             title: "Name",
             description: "The title of the book.",
             type: "string",
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("A book without a title is like..."),
             group: "bookDetails",
         },
         {
@@ -41,9 +41,10 @@ const book = {
         {
             name: "summary",
             title: "Summary",
-            description: "A brief summary of the book.",
+            description: "A brief summary of the book. This is human generated.",
             type: "string",
             group: "bookDetails",
+            validation: Rule => Rule.required().warning("We needs a brief human generated summary please."),
         },
         {
             name: "bookAuthor",
@@ -98,6 +99,7 @@ const book = {
                     title: "Image Alt Text",
                     description: "E.g. A grumpy looking bald man on a chair.",
                     type: "string",
+                    validation: Rule => Rule.required().warning("Please add some alt text for the image."),
                 },
             ],
             options: {

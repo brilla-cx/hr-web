@@ -55,6 +55,7 @@ const post = {
       description: "The title of the post.",
       type: "string",
       group: "compose",
+      validation: Rule => Rule.required().warning("Every post needs a name, right?"),
     },
     {
       name: "slug",
@@ -63,6 +64,7 @@ const post = {
       type: "slug",
       group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
+      validation: Rule => Rule.required().uri().warning("A post needs a slug as a slug needs a post."),
     },
     {
       name: "approved",
@@ -85,6 +87,7 @@ const post = {
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
       group: "editorialWorkflow",
+      validation: Rule => Rule.required().warning("Please select a category/topic for the post.?"),
     },
     {
       name: "author",
@@ -93,14 +96,16 @@ const post = {
       type: "reference",
       to: { type: "author" },
       group: "editorialWorkflow",
+      validation: Rule => Rule.required().warning("This post didn't just write itself, did it?"),
     },
     {
       name: "image",
       title: "Featured image",
       description:
-        "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
+        "The really big image at the top of every post.",
       type: "image",
       group: "meta",
+      validation: Rule => Rule.required().warning("Use the built-in OpenAI image generation thingamajig to create one"),
       fields: [
         {
           name: "caption",
@@ -114,6 +119,7 @@ const post = {
           title: "Image Alt Text",
           description: "E.g. A grumpy looking bald man on a chair.",
           type: "string",
+          validation: Rule => Rule.required().warning("Use your OpenAI image generation prompt for the imageAltText."),
         },
       ],
       options: {
@@ -128,6 +134,7 @@ const post = {
       of: [{ type: "block" }],
       options: { maxLength: 300, spellcheck: true },
       group: "compose",
+      validation: Rule => Rule.required().warning("Too long, didn't read. Please ensure to include a TLDR."),
     },
     {
       name: "content",
@@ -136,6 +143,7 @@ const post = {
       type: "blockContent",
       options: { spellcheck: true },
       group: "compose",
+      validation: Rule => Rule.required().warning("A post without content is like a host without the most."),
     },
     {
       name: "publishedAt",

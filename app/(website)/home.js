@@ -4,8 +4,6 @@ import Container from "@/components/container";
 import Hero from "@/components/hero";
 import PostAlt from "@/components/postalt";
 import { H2 } from "@/components/ui";
-import { lightHoverStyles } from "@/lib/hover";
-import { cx } from "@/lib/utils";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
@@ -75,10 +73,7 @@ export default function HomePage({ posts }) {
           <div className="mb-7 mt-8 flex justify-center">
             <Link
               href="/gists"
-              className={cx(
-                "mt-4 rounded-lg px-5 py-2 uppercase text-med font-display font-semibold text-gray-400 hover:text-pink hover:font-bold hover:bg-gray-900",
-                lightHoverStyles
-              )}
+              className="mt-4 rounded-lg px-5 py-2 uppercase text-med font-display font-semibold text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-900"
               aria-label="View all posts">
               ← View all posts
             </Link>
