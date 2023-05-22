@@ -108,7 +108,7 @@ export default function Author(props) {
               </Link>
             ))}
         </div>
-        <div className="px-4 sm:px-8 lg:px-16 mt-6 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-4 ">
+        <div className="px-4 sm:px-8 lg:px-16 my-8 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-4 ">
           {posts.map((post) => (
             <PostAlt key={post._id} post={post} aspect="landscape" />
           ))}

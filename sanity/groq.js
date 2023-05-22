@@ -89,6 +89,15 @@ export const paginatedpostsquery = groq`
 }
 `;
 
+// Get Posts by Category
+export const postsbycatquery = groq`
+*[_type == "post" && $slug in category[]->slug.current ] {
+  ...,
+  author->,
+  category[]->
+}
+`;
+
 // // Get all posts
 // export const postquery = groq`
 // *[_type == "post"] | order(publishedAt desc, _createdAt desc) {

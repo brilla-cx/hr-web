@@ -42,7 +42,11 @@ export default function Post(props) {
             <div className="order-1 md:order-none self-center px-5">
               <div>
                 {post.category && (
-                  <Label color="gray">{post.category[0]?.name}</Label>
+                  <Link
+                    href={`/category/${post.category?.[0]?.slug.current}`}
+                    className="transition hover:opacity-75">
+                    <Label color="gray">{post.category?.[0]?.name}</Label>
+                  </Link>
                 )}
 
                 <H1

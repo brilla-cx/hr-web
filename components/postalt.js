@@ -16,6 +16,7 @@ export default function PostAlt({
   preloadImage,
   fontSize,
   noDate,
+  hideCategory,
 }) {
   const imageProps = post?.image ? urlForImage(post.image) : null;
   const AuthorimageProps = post?.author?.image
@@ -63,8 +64,9 @@ export default function PostAlt({
 
         <div className={cx(minimal && "flex items-center")}>
           <div className="mt-3">
-            <CategoryLabel categories={post.category} nomargin />
-
+            {!hideCategory && (
+              <CategoryLabel categories={post.category} nomargin />
+            )}
             <Link
               href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${
                 post.slug.current
@@ -73,19 +75,14 @@ export default function PostAlt({
                 <H3
                   as="h2"
                   className={cx(
-                    "text-gray-200 mt-2 line-clamp-2 inline",
+                    "text-gray-200 mt-2 line-clamp-2",
                     hoverStyles
                   )}>
-                  {post.name}
+                  <span className="inline">{post.name}</span>
                 </H3>
               ) : (
-                <H6
-                  as="h2"
-                  className={cx(
-                    "text-gray-200 mt-1 line-clamp-2 inline",
-                    hoverStyles
-                  )}>
-                  {post.name}
+                <H6 as="h2" className={cx("text-gray-200 mt-1 line-clamp-2 ")}>
+                  <span className={cx(hoverStyles)}>{post.name}</span>
                 </H6>
               )}
             </Link>
