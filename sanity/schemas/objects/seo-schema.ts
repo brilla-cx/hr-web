@@ -3,7 +3,7 @@ const seo = {
     name: 'seo',
     title: 'SEO',
     type: 'object',
-    options: { collapsible: true, collapsed: true },
+    options: { collapsible: true, collapsed: false },
     fields: [
         {
             name: 'title',
