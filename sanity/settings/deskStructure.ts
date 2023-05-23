@@ -161,7 +161,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
 ) => {
-  const previewTypes = ["author", "book", "legal", "post", "socialBlog", "tool"];
+  const previewTypes = ["post"];
 
   if (previewTypes.includes(schemaType)) {
     return S.document().views([
