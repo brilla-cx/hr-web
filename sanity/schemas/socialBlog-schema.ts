@@ -7,95 +7,71 @@ const socialBlog = {
   title: "Social Blog",
   icon: FaArchive,
   type: "document",
+  groups: [
+    {
+      name: "compose",
+      title: "Compose",
+      default: true,
+    },
+    {
+      name: "seo",
+      title: "SEO",
+    },
+  ],
   fields: [
+    {
+      name: "approved",
+      title: "Approved",
+      description: "Has this post been formatted for the web?",
+      type: "boolean",
+      group: "compose",
+      validation: (Rule) => Rule.required(),
+    },
     {
       name: "name",
       title: "Name",
-      description: "The title of the post.",
+      description: "The title of the post. Don't change this, but ensure there's no &nbsp; in the title etc.",
       type: "string",
+      options: { spellcheck: true },
+      group: ["compose", "seo"],
     },
     {
       name: "slug",
       title: "Slug",
-      description: "The slug of the post.",
+      description: "The slug of the post If you notice the slug is wonly, be sure to copy and paste into a sheet where you're tracking old and new slugs.",
       type: "slug",
+      group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
-    },
-    {
-      name: "approved",
-      title: "Approved",
-      description: "Is this post approved?",
-      type: "boolean",
-    },
-    {
-      name: "featured",
-      title: "Mark as featured",
-      description: "Is this a featured post?.",
-      type: "boolean",
-    },
-    {
-      name: "category",
-      title: "Category",
-      description: "Select the most relevant category for this post.",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
     },
     {
       name: "author",
       title: "Author",
-      description: "The author of the post.",
+      description: "This will always be theeee Rebekah.",
       type: "reference",
       to: { type: "author" },
+      group: "compose",
     },
     {
       name: "yoastTitle",
       title: "Yoast Title",
       description: "The legacy Yoast Title from RebekahRadice.com.",
       type: "string",
+      options: { spellcheck: true },
+      group: "seo",
     },
     {
       name: "yoastDescription",
       title: "Yoast Description",
       description: "The legacy Yoast Description from RebekahRadice.com.",
       type: "string",
-    },
-    {
-      name: "image",
-      title: "Featured image",
-      description:
-        "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
-      type: "image",
-      fields: [
-        {
-          name: "caption",
-          type: "string",
-          title: "Image caption",
-          description:
-            "Use this to add your Stable Diffusion prompt or attribute a source.",
-        },
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative text",
-          description: "E.g. A grumpy looking bald man on a chair.",
-        },
-      ],
-      options: {
-        hotspot: true,
-      },
-    },
-    {
-      name: "tldr",
-      title: "TLDR",
-      description: "The TL;DR of the post. Not for SEO",
-      type: "array",
-      of: [{ type: "block" }],
-      options: { maxLength: 300, spellcheck: true },
+      options: { spellcheck: true },
+      group: "seo",
     },
     {
       name: "content",
       title: "Content",
-      description: "This is the primary content of the post.",
+      description: "This is the primary content of the post. This is what you gotta look at closely.",
+      group: "compose",
       type: "array",
       of: [
         {
@@ -168,6 +144,14 @@ const socialBlog = {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
+      description: "This should be the original published on date from WordPress, not the date you updated it.",
+      group: "compose",
+    },
+    {
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo",
     },
   ],
   preview: {
