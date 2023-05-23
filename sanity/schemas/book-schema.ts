@@ -51,7 +51,7 @@ const book = {
             title: "Book Author",
             description: "The name of the author of the book.",
             type: "string",
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Uh, let's give the creator some mad props here and include their name."),
             group: "bookDetails",
         },
         {
@@ -59,7 +59,7 @@ const book = {
             title: "Book URL",
             description: "The AMZN url to buy the book or similar.",
             type: "string",
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().uri().warning("Please add a valid URL to the book, so readers can get it."),
             group: "bookDetails",
         },
         {
@@ -67,7 +67,7 @@ const book = {
             title: "Category",
             type: "reference",
             to: [{ type: "category" }],
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("We need a category for the book."),
             group: "theGist",
         },
         {
@@ -76,7 +76,7 @@ const book = {
             type: "array",
             of: [{ type: "block" }],
             options: { spellcheck: true },
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Where's The Gist by ChatGPT?"),
             group: "theGist",
         },
         {
@@ -114,7 +114,7 @@ const book = {
                 source: "name",
                 maxLength: 96,
             },
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("A post without a slug is like a slug without a post."),
             group: "meta",
         },
         {

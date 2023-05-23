@@ -64,7 +64,7 @@ const post = {
       type: "slug",
       group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
-      validation: Rule => Rule.required().uri().warning("A post needs a slug as a slug needs a post."),
+      validation: Rule => Rule.required().warning("A post needs a slug as a slug needs a post."),
     },
     {
       name: "approved",

@@ -33,7 +33,7 @@ const tool = {
             description: "Is the company/maker of the tool a Hey Rebekah partner?",
             type: 'boolean',
             group: 'partnerInfo',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Please indicate if the company is a partner or not?"),
         },
         {
             name: 'companyName',
@@ -41,7 +41,7 @@ const tool = {
             description: 'The name of the company that makes the tool. i.e. BRIL.LA, LLC.',
             type: 'string',
             group: 'partnerInfo',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("What's the company/creator's name?"),
         },
         {
             name: 'partnerContactName',
@@ -82,7 +82,7 @@ const tool = {
             type: 'reference',
             to: [{ type: 'category' }],
             group: 'meta',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Please indicate the most appropriate category for the tool?"),
         },
         {
             name: 'image',
@@ -90,18 +90,20 @@ const tool = {
             description: "Upload the partner's logo in SVG format with a transparent background.",
             type: 'image',
             group: 'toolInfo',
+            validation: Rule => Rule.required().warning("We need a logo for the partner in SVG format please."),
+            fields: [
+                {
+                    name: 'imageAltText',
+                    title: 'Image Alt Text',
+                    description: "Enter the alternative text for the partner's logo Image per A11y.",
+                    type: 'string',
+                    group: 'toolInfo',
+                    validation: Rule => Rule.required().warning("Please enter the alternative text for the partner's logo image."),
+                },
+            ],
             options: {
                 hotspot: true,
             },
-            validation: Rule => Rule.required(),
-        },
-        {
-            name: 'imageAltText',
-            title: 'Image Alt Text',
-            description: "Enter the alternative text for the partner's logo Image per A11y.",
-            type: 'string',
-            group: 'toolInfo',
-            validation: Rule => Rule.required(),
         },
         {
             name: 'shortDescription',
@@ -109,7 +111,7 @@ const tool = {
             description: 'Write a brief description of the tool. Like super brief.',
             type: 'string',
             group: 'toolInfo',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Please write a brief description of the tool."),
         },
         {
             name: 'hrUse',
@@ -119,7 +121,7 @@ const tool = {
             of: [{ type: 'block' }],
             options: { maxLength: 300, spellcheck: true },
             group: 'toolInfo',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Please describe how we use the tool in bullet format."),
         },
         {
             name: 'publishedAt',
