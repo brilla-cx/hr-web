@@ -35,13 +35,14 @@ export default function Gists() {
       <Container
         large
         className="border-l border-r border-neutral-200 border-opacity-10">
-        {/* PageHeader component with title, lead text, and formId */}
+        {/* PageHeader component with title, lead text, includeForm, and formId */}
         <PageHeader
           title="Hey Rebekah gists"
           leadText="Our chronicles await. Who knew your brain could grow while popping
               a cold one? Settle in, pick a post and get better at what you do.
               Best yet, subscribe today and we'll throw in free delivery to your
               inbox."
+          includeForm // Prop to include subscription form
           formId="gist-subscribe" // formId prop for PageHeader
         />
         {/* Div for centering content and setting max width */}

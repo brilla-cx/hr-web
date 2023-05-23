@@ -37,10 +37,11 @@ export default function Category(props) {
       <Container
         large
         className="border-l border-r border-neutral-200 border-opacity-10">
-        {/* PageHeader component with dynamic title, lead text, and formId */}
+        {/* PageHeader component with title, lead text, includeForm, and formId */}
         <PageHeader
           title={`${category.name}`} // Dynamic title including category name
-          leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +320,000 pros in our community for insights on the daily. Better yet, sign up to our newsletter. We'll deliver fresh truth right to your inbox, gratis.`}
+          leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +320,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name.trim()} right to your inbox, gratis.`}
+          includeForm // Prop to include subscription form
           formId={`${category.name}-subscribe`} // Dynamic form ID including category name
         />
         {/* Grid layout div for holding PostAlt components */}

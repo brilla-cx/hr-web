@@ -10,7 +10,9 @@ import Menu from "./menu";
 export default async function Navbar() {
   const recentPosts = await getPaginatedPosts({ limit: 2 });
   return (
-    <div className="sticky top-0 z-50 bg-midnight" aria-label="Main navigation">
+    <div
+      className="sticky top-0 z-50 bg-midnight border-b border-neutral-200 border-opacity-10"
+      aria-label="Main navigation">
       <div className="relative shadow">
         <Container
           alt
