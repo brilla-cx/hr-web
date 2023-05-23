@@ -1,17 +1,21 @@
+import Container from "@/components/container"; // Import Container component
+import PageHeader from "@/components/ui/sections/pageheader"; // Import PageHeader component
 export default function About() {
   //Placeholder to create route
   return (
-    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          About
-        </h2>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
-        </p>
-      </div>
+    <div className="bg-midnight">
+      {/* Container for the content, with border styles */}
+      <Container
+        large
+        className="border-l border-r border-neutral-200 border-opacity-10">
+        {/* PageHeader component with title, lead text, includeForm, and formId */}
+        <PageHeader
+          title="About Hey Rebekah"
+          leadText="Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus. Hey Rebekah is a free daily newsletter for freelancers. Everything we create is available for free to our readers and always will be. Not on the list? 👇🏼"
+          includeForm
+          formId="about-subscribe"
+        />
+      </Container>
     </div>
   );
 }
