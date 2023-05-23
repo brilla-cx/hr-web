@@ -166,8 +166,9 @@ const socialBlog = {
     },
     {
       name: "publishedAt",
-      title: "Published at",
-      type: "datetime",
+      title: "Published At",
+      type: "date",
+      group: "meta",
     },
   ],
   preview: {
