@@ -98,8 +98,23 @@ export const postsbycatquery = groq`
 }
 `;
 
+export const gettoolsquery = groq`*[_type == "tool"]  | order(publishedAt desc, _createdAt desc) {
+  ...,
+  category->,
+}`;
+
+// Get category based on defined in tools atleast once
+
+export const getcatoftoolsquery = groq`*[_type == "category" && count(*[_type == "tool" && references(^._id)]) > 0] {
+  _id,
+  slug,
+  name,
+  color,
+    "count": count(*[_type == "tool" && references(^._id)])
+}`;
+
 // // Get all posts
-// export const postquery = groq`
+// export const postquery = groq`;
 // *[_type == "post"] | order(publishedAt desc, _createdAt desc) {
 //   _id,
 //   _createdAt,
