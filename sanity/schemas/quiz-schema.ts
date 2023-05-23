@@ -1,6 +1,6 @@
 // /schemas/quiz-schema.ts
 // This is a placeholder and needs to be updated later.
-import { FaListUl as icon } from 'react-icons/fa';
+import { FaListUl as icon } from "react-icons/fa";
 
 const quiz = {
     name: 'quiz',
@@ -13,19 +13,19 @@ const quiz = {
             title: 'Category',
             type: 'reference',
             to: [{ type: 'category' }],
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("We need a category for the quiz."),
         },
         {
             name: 'question',
             title: 'Question',
             type: 'string',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("We need a question for the quiz too."),
         },
         {
             name: 'answer',
             title: 'Answer',
             type: 'string',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Yeah, a quiz without an answer is like..."),
         },
         {
             name: 'sourceUrl',

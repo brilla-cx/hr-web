@@ -97,8 +97,7 @@ const legal = {
   preview: {
     select: {
       title: "name",
-      subtitle: "author.name",
-      media: "image",
+      subtitle: "slug",
     },
   },
 };

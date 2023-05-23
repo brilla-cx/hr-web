@@ -12,14 +12,14 @@ const faq = {
             name: 'question',
             title: 'Question',
             type: 'string',
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("It's FAQ, not FA."),
         },
         {
             name: "answer",
             title: "Answer",
             type: "blockContent",
             options: { spellcheck: true },
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("It's FAQ, not FQ."),
         },
         {
             name: "slug",
@@ -29,7 +29,7 @@ const faq = {
                 source: "question",
                 maxLength: 96,
             },
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("A post without a slug is like a slug without a post."),
         },
         {
             name: 'faqType',
@@ -44,7 +44,7 @@ const faq = {
                     { title: 'Candidate', value: 'candidate' },
                 ],
             },
-            validation: Rule => Rule.required(),
+            validation: Rule => Rule.required().warning("Please select the FAQ type to organize them on the website."),
         },
         {
             name: "publishedAt",

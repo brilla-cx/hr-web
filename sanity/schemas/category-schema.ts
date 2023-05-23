@@ -69,7 +69,18 @@ const category = {
             ],
             group: "relatedCategories",
         },
+        {
+            name: 'publishedAt',
+            title: 'Published At',
+            type: 'datetime',
+        },
     ],
+    preview: {
+        select: {
+            title: "name",
+            subtitle: "publishedAt",
+        },
+    },
 };
 
 export default category;
