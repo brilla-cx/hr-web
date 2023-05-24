@@ -24,12 +24,6 @@ module.exports = {
           DEFAULT: "#00fffe",
         },
       },
-      letterSpacing: {
-        tight: "-0.025em", // Customize the tight letter spacing value inside prose
-      },
-      lineHeight: {
-        tight: 1.2, // Customize the tight line height value inside prose
-      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

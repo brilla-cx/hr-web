@@ -51,7 +51,7 @@ export default function Post(props) {
 
                 <H1
                   as="h1"
-                  className="text-gray-100 leading-tight underline decoration-2 decoration-white/30 underline-offset-8 mt-2">
+                  className="text-gray-100 underline decoration-2 decoration-white/30 underline-offset-8 mt-2 ">
                   {post.name}
                 </H1>
                 {post.tldr && (
