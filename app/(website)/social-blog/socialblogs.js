@@ -34,6 +34,7 @@
  * - revalidate: Controls the data fetching behavior. Set the revalidation time in seconds.
  *   The page data will be re-fetched at most once every specified duration.
  */
+"use client";
 
 import { Suspense } from "react";
 
