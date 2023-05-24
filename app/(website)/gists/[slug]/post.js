@@ -66,7 +66,7 @@ export default function Post(props) {
                       <p className="text-gray-200 font-semibold text-xs inline">
                         By{" "}
                         <Link
-                          href="/"
+                          href={`/author/${post?.author?.slug?.current}`}
                           className={cx(
                             "text-gray-200 font-semibold text-xs",
                             lightHoverStyles

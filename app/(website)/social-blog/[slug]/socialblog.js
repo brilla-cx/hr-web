@@ -72,7 +72,7 @@ export default function SocialBlog(props) {
                 <p className="text-gray-400 inline">
                   By{" "}
                   <Link
-                    href="/"
+                    href={`/author/${socialBlog?.author?.slug?.current}`}
                     className={cx("text-gray-400", lightHoverStyles)}>
                     {socialBlog?.author?.name}
                   </Link>
