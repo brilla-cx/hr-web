@@ -26,14 +26,15 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);
-  const tldr = post?.tldr?.[0]?.children?.[0]?.text;
+  const seoTitle = post?.tldr?.[0]?.children?.[0]?.text;
+  const seoMetaDescription = post?.tldr?.[0]?.children?.[0]?.text;
 
   return {
-    title: post.seo?.title || post.name,
-    description: post.seo?.description || tldr,
+    title: post.seo?.title || seoTitle,
+    description: post.seo?.description || seoMetaDescription,
     openGraph: {
-      title: post.seo?.title || post.name,
-      description: post.seo?.description || tldr,
+      title: post.seo?.title || seoTitle,
+      description: post.seo?.description || seoMetaDescription,
     },
   };
 }

@@ -32,7 +32,7 @@ const socialBlog = {
       title: "Mark as featured",
       description: "Is this a featured post?.",
       type: "boolean",
-      group: "editorialWorkflow",
+      group: "compose",
     },
     {
       name: "name",
