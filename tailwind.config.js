@@ -20,7 +20,7 @@ module.exports = {
         pink: {
           DEFAULT: "#ff00fe",
         },
-        green: {
+        aqua: {
           DEFAULT: "#00fffe",
         },
       },
