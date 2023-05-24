@@ -28,9 +28,17 @@ const socialBlog = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "featured",
+      title: "Mark as featured",
+      description: "Is this a featured post?.",
+      type: "boolean",
+      group: "editorialWorkflow",
+    },
+    {
       name: "name",
       title: "Name",
-      description: "The title of the post. Don't change this, but ensure there's no &nbsp; in the title etc.",
+      description:
+        "The title of the post. Don't change this, but ensure there's no &nbsp; in the title etc.",
       type: "string",
       options: { spellcheck: true },
       group: ["compose", "seo"],
@@ -38,7 +46,8 @@ const socialBlog = {
     {
       name: "slug",
       title: "Slug",
-      description: "The slug of the post If you notice the slug is wonly, be sure to copy and paste into a sheet where you're tracking old and new slugs.",
+      description:
+        "The slug of the post If you notice the slug is wonly, be sure to copy and paste into a sheet where you're tracking old and new slugs.",
       type: "slug",
       group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
@@ -70,7 +79,8 @@ const socialBlog = {
     {
       name: "content",
       title: "Content",
-      description: "This is the primary content of the post. This is what you gotta look at closely.",
+      description:
+        "This is the primary content of the post. This is what you gotta look at closely.",
       group: "compose",
       type: "array",
       of: [
@@ -144,7 +154,8 @@ const socialBlog = {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
-      description: "This should be the original published on date from WordPress, not the date you updated it.",
+      description:
+        "This should be the original published on date from WordPress, not the date you updated it.",
       group: "compose",
     },
     {
