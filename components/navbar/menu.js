@@ -48,7 +48,7 @@ export default function Menu({ recentPosts }) {
         leave="transition ease-in duration-150"
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 -translate-y-1">
-        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-midnight pt-16 border-b-2 border-pink">
+        <Popover.Panel className="absolute inset-x-0 top-0 z-20 bg-midnight pt-16 border-b border-pink">
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2">
             <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
               <div>
