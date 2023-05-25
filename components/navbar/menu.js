@@ -16,12 +16,12 @@ const resources = [
   { name: "Archives", href: "/gists" },
   { name: "Hey Rebekah AI", href: "/juno" },
   { name: "Community", href: "/community" },
-  { name: "Discounts", href: "/built-with" },
+  { name: "Tools", href: "/built-with" },
   { name: "Help", href: "/contact" },
 ];
 const company = [
   { name: "Advertise", href: "/advertise" },
-  { name: "Partner", href: "/partner-program" },
+  { name: "Partner", href: "/partners" },
   { name: "About", href: "/about" },
   { name: "Rebekah Radice", href: "/rebekah-radice" },
   { name: "Contact", href: "/contact" },
