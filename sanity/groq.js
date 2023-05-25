@@ -158,7 +158,6 @@ export const socialblogquery = groq`*[_type == "socialBlog"] | order(featured de
   slug,
   publishedAt,
   featured,
-  category[]->,
   url,
   author-> {
     name,
@@ -179,7 +178,6 @@ export const singlesocialblogquery = groq`
 *[_type == "socialBlog" && slug.current == $slug][0] {
   ...,
   author->,
-  category[]->,
   "estReadingTime": round(length(pt::text(content)) / 5 / 180 ),
 }
 `;
@@ -203,8 +201,7 @@ export const socialblogpathquery = groq`
 export const paginatedsocialblogsquery = groq`
 *[_type == "socialBlog"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
   ...,
-  author->,
-  category[]->
+  author->
 }
 `;
 

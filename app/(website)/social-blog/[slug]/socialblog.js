@@ -112,8 +112,8 @@ export default function SocialBlog(props) {
                 "rounded-lg px-5 py-2 uppercase text-med font-bold text-gray-600 hover:text-gray-950 hover:font-bold",
                 lightHoverStyles
               )}
-              aria-label="View all socialBlogs">
-              ← View all socialBlogs
+              aria-label="View all Posts">
+              ← View all Postss
             </Link>
           </div>
           {socialBlog.author && <AuthorCard author={socialBlog.author} />}

@@ -127,9 +127,17 @@ function getPreviewUrl(doc) {
         ? SITE_URL
         : `https://${process.env.VERCEL_URL}`;
 
-  return doc?.slug?.current
-    ? `${absoluteURL}/api/draft?slug=${doc.slug.current}&type=${doc?._type === "post" ? "gists" : doc?._type
-    }`
+  const TYPE_LOOKUP = {
+    post: "gists",
+    socialBlog: "social-blog",
+    default: "gists"
+  };
+
+  const type = TYPE_LOOKUP[doc._type] || TYPE_LOOKUP.default;
+  const slug = doc?.slug?.current;
+
+  return slug
+    ? `${absoluteURL}/api/draft?slug=${slug}&type=${type}`
     : `${absoluteURL}/api/draft`;
 }
 

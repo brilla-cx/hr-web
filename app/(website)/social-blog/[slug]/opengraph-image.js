@@ -13,10 +13,7 @@ export default async function handler({ params }) {
   ).then((res) => res.arrayBuffer());
 
   const fontData = await lexendDeca;
-  // const [interRegularFont, interBoldFont] = await Promise.all([
-  //   InterRegular,
-  //   InterBold
-  // ]);
+
   return new ImageResponse(<OgImage post={post} />, {
     width: 1200,
     height: 630,
@@ -27,12 +24,6 @@ export default async function handler({ params }) {
         weight: "600",
         style: "normal",
       },
-      // {
-      //   name: "Inter",
-      //   data: interBoldFont,
-      //   style: "normal",
-      //   weight: 700
-      // }
     ],
   });
 }
