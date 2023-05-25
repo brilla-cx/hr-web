@@ -15,7 +15,6 @@ import {
   getAllSocialBlogs,
   getAllSocialBlogSlugs,
   getSocialBlogBySlug,
-  getTopCategories,
 } from "@/sanity/client";
 
 import SocialBlog from "./socialblog";
@@ -23,15 +22,6 @@ import SocialBlog from "./socialblog";
 // Lazy load the SocialBlogPreview component
 const SocialBlogPreview = lazy(() => import("./preview"));
 
-/**
- * Generate static parameters for the dynamic route
- *
- * This async function fetches all social blog slugs and social blogs. It filters
- * featured social blogs and combines the slugs into a unique set of combined slugs.
- * The combined slugs are returned as static parameters for the dynamic route.
- *
- * @returns {Array} Combined slugs as static parameters
- */
 export async function generateStaticParams() {
   const slugs = await getAllSocialBlogSlugs();
   const socialBlogs = await getAllSocialBlogs();
@@ -86,7 +76,6 @@ export async function generateMetadata({ params }) {
  */
 export default async function SocialBlogPage({ params }) {
   const socialBlog = await getSocialBlogBySlug(params.slug);
-  const categories = await getTopCategories();
 
   const { isEnabled: preview } = draftMode();
 
@@ -94,10 +83,17 @@ export default async function SocialBlogPage({ params }) {
     return (
       // eslint-disable-next-line react/jsx-no-undef, no-undef
       <PreviewSuspense fallback={<Loading />}>
-        <SocialBlogPreview slug={params.slug} categories={categories} />
+        <SocialBlogPreview slug={params.slug} />
       </PreviewSuspense>
     );
   }
 
-  return <SocialBlog socialBlog={socialBlog} categories={categories} />;
+  return <SocialBlog socialBlog={socialBlog} />;
 }
+const Loading = () => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center">
+      🐌 this'll just take a minute.
+    </div>
+  );
+};

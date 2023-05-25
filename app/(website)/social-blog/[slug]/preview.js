@@ -33,10 +33,10 @@ import { usePreview } from "@/sanity/preview";
 
 import SocialBlog from "./socialblog";
 
-export default function SocialBlogPreview({ categories, slug }) {
+export default function SocialBlogPreview({ slug }) {
   const socialBlog = usePreview(null, singleSocialBlogQuery, {
     slug: slug,
   });
 
-  return <SocialBlog socialBlog={socialBlog} categories={categories} />;
+  return <SocialBlog socialBlog={socialBlog} />;
 }
