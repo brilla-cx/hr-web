@@ -1,5 +1,4 @@
-import Link from "next/link";
-
+import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import PostAlt from "@/components/postalt";
@@ -70,14 +69,12 @@ export default function HomePage({ posts }) {
               />
             ))}
           </div>
-          <div className="mb-7 mt-8 flex justify-center">
-            <Link
-              href="/gists"
-              className="mt-4 rounded-lg px-5 py-2 uppercase text-med font-display font-semibold text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-900"
-              aria-label="View all posts">
-              ← View all posts
-            </Link>
-          </div>
+          <ViewAllPosts
+            href="/gists"
+            buttonText="View all posts"
+            direction="right"
+            variant="dark"
+          />
         </Container>
       </div>
     </>

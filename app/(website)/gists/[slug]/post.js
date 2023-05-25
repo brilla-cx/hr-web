@@ -6,6 +6,7 @@ import AuthorCard from "@/components/blog/authorCard";
 import { PortableText } from "@/components/blog/portabletext";
 import SocialShare from "@/components/blog/share";
 import Sidebar from "@/components/blog/sidebar";
+import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
 import { H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
@@ -25,7 +26,7 @@ export default function Post(props) {
     <>
       <div className="relative isolate py-10 bg-midnight">
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-25"
           style={{
             backgroundColor: post?.image?.ImageColor || "#f34dc3",
           }}
@@ -105,17 +106,13 @@ export default function Post(props) {
           <Prose className="prose mx-auto max-w-prose">
             {post.content && <PortableText value={post.content} />}
           </Prose>
-          <div className="mb-7 mt-8 flex justify-center">
-            <Link
-              href="/gists"
-              className={cx(
-                "rounded-lg px-5 py-2 uppercase text-med font-bold text-gray-600 hover:text-gray-950 hover:font-bold",
-                lightHoverStyles
-              )}
-              aria-label="View all posts">
-              ← View all posts
-            </Link>
-          </div>
+          <ViewAllPosts
+            href="/gists"
+            buttonText="View all posts"
+            direction="left"
+            variant="light"
+          />
+
           {post.author && <AuthorCard author={post.author} />}
         </article>
         <aside className="sticky top-24 w-full self-start md:w-64 mr-5">

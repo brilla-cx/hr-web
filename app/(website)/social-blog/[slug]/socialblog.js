@@ -35,6 +35,7 @@ import { notFound } from "next/navigation";
 import AuthorCard from "@/components/blog/authorCard";
 import { PortableText } from "@/components/blog/portabletext";
 import SocialShare from "@/components/blog/share";
+import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
 import { H1, Prose } from "@/components/ui";
 import DateTime from "@/components/ui/time";
@@ -105,17 +106,12 @@ export default function SocialBlog(props) {
           <Prose className="prose mx-auto max-w-prose">
             {socialBlog.content && <PortableText value={socialBlog.content} />}
           </Prose>
-          <div className="mb-7 mt-8 flex justify-center">
-            <Link
-              href="/social-blog"
-              className={cx(
-                "rounded-lg px-5 py-2 uppercase text-med font-bold text-gray-600 hover:text-gray-950 hover:font-bold",
-                lightHoverStyles
-              )}
-              aria-label="View all Posts">
-              ← View all Postss
-            </Link>
-          </div>
+          <ViewAllPosts
+            href="/social-blog"
+            buttonText="View all posts"
+            direction="left"
+            variant="light"
+          />
           {socialBlog.author && <AuthorCard author={socialBlog.author} />}
         </article>
       </div>
