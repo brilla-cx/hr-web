@@ -27,6 +27,11 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            "@global": {
+              html: {
+                "@apply antialiased": {},
+              },
+            },
             ".prose p:first-of-type::first-letter": {
               float: "left",
               fontSize: "120px",

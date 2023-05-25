@@ -26,6 +26,7 @@ export default async function Navbar() {
                     src={LogoImage}
                     alt="Hey Rebekah Logo"
                     className="h-8 w-auto"
+                    priority
                   />
                 </div>
               </Link>
