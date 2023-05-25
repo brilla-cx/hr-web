@@ -25,7 +25,6 @@ const socialBlog = {
       description: "Has this post been formatted for the web?",
       type: "boolean",
       group: "compose",
-      validation: (Rule) => Rule.required(),
     },
     {
       name: "featured",
@@ -47,7 +46,7 @@ const socialBlog = {
       name: "slug",
       title: "Slug",
       description:
-        "The slug of the post If you notice the slug is wonly, be sure to copy and paste into a sheet where you're tracking old and new slugs.",
+        "If you notice the slug is wonky, be sure to copy and paste into a sheet where you're tracking old and new slugs before you update it.",
       type: "slug",
       group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
@@ -59,6 +58,15 @@ const socialBlog = {
       type: "reference",
       to: { type: "author" },
       group: "compose",
+    },
+    {
+      name: "category",
+      title: "Category",
+      description: "Select the most relevant category for this post.",
+      type: "array",
+      of: [{ type: "reference", to: { type: "category" } }],
+      group: "compose",
+      hidden: true,
     },
     {
       name: "yoastTitle",
@@ -138,7 +146,6 @@ const socialBlog = {
               name: "alt",
               type: "string",
               title: "Alternative text",
-              validation: (Rule) => Rule.required(),
             },
             {
               name: "caption",
