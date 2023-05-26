@@ -29,7 +29,7 @@ export default function Pill({ color = "pink", active, count, ...props }) {
       type="button"
       {...props}
       className={cx(
-        "inline-flex gap-1 items-center border px-3 py-1 rounded-full",
+        "inline-flex gap-1 items-center border px-3 py-1 rounded",
         colors[color],
         active && bgcolor[color]
       )}>
