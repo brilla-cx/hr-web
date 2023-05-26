@@ -8,30 +8,37 @@ import { Lead, Title } from "@/components/ui/typography";
 import { lightHoverStyles } from "@/lib/hover";
 
 // Main Sidebar component
-export default function Sidebar(props) {
+export default function Sidebar({
+  subscribeTitle,
+  subscribeText,
+  buttonText,
+  related,
+}) {
   // As per Ambreen, sidebar has a border, rounded corners, padding and a shadow for a distinct look
   return (
-    <div className="border-2 border-gray-100 rounded p-4 shadow-sm">
-      <Subscribe />
+    <div className="rounded border-2 border-gray-100 p-4 shadow-sm">
+      <Subscribe
+        title={subscribeTitle}
+        text={subscribeText}
+        buttonText={buttonText}
+      />
       <div className="hidden md:block">
-        {props.related && <RelatedPosts related={props.related} />}
+        {related && <RelatedPosts related={related} />}
       </div>
     </div>
   );
 }
 
-// Component for the newsletetr subscription section. Disco glowing button as per Ambreen.
-function Subscribe() {
+// Component for the newsletter subscription section. Disco glowing button as per Ambreen.
+function Subscribe({ title, text, buttonText }) {
   return (
     <div>
       <Lead
         as="h3"
-        className="font-semibold border-b-2 border-gray-300 inline-block">
-        You belong here
+        className="inline-block border-b-2 border-gray-300 font-semibold">
+        {title}
       </Lead>
-      <p className="text-gray-500 text-sm mt-3 ">
-        Join +320,000 professionals in our community. Delivery is free.
-      </p>
+      <p className="mt-3 text-sm text-gray-500 ">{text}</p>
       <form id="sidebar-subscribe" className="mt-4">
         <div className="flex flex-col gap-4">
           <label htmlFor="email-address" className="sr-only">
@@ -48,7 +55,7 @@ function Subscribe() {
             form="sidebar-subscribe"
             type="submit"
             variant="subscribe">
-            LEVEL UP
+            {buttonText}
           </GlowingButton>
         </div>
       </form>
@@ -62,14 +69,14 @@ function RelatedPosts({ related }) {
     <div className="mt-10">
       <Lead
         as="h3"
-        className="font-semibold border-b-2 border-gray-300 inline-block">
+        className="inline-block border-b-2 border-gray-300 font-semibold">
         Related Posts
       </Lead>
-      <div className="grid gap-6 mt-3">
+      <div className="mt-3 grid gap-6">
         {related.slice(0, 3).map((item) => {
           return (
             <Link key={item._id} href={`/gists/${item.slug.current}`}>
-              <div className="flex gap-5 group">
+              <div className="group flex gap-5">
                 <div>
                   {/* h-14 */}
                   <Title

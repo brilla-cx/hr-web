@@ -35,6 +35,7 @@ import { notFound } from "next/navigation";
 import AuthorCard from "@/components/blog/authorCard";
 import { PortableText } from "@/components/blog/portabletext";
 import SocialShare from "@/components/blog/share";
+import Sidebar from "@/components/blog/sidebar";
 import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
 import { H1, Prose } from "@/components/ui";
@@ -51,26 +52,26 @@ export default function SocialBlog(props) {
 
   return (
     <>
-      <div className="relative isolate py-10 bg-gradient-to-r from-midnight via-slate-950 to-indigo-950">
+      <div className="relative isolate bg-gradient-to-r from-midnight via-indigo-950 to-pink-950 py-10">
         <Container
           large
-          className="absolute inset-0 border-l border-r border-neutral-200 border-opacity-10 z-12"
+          className="z-12 absolute inset-0 border-l border-r border-neutral-200 border-opacity-10"
         />
-        <Container className="relative z-10 flex flex-col items-center mt-6">
-          <p className="inline-block text-xs tracking-wider uppercase font-semibold text-gray-400">
+        <Container className="relative z-10 mt-6 flex flex-col items-center">
+          <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-400">
             Rebekah Radice's Blog
           </p>
 
           <H1
             as="h1"
-            className="text-gray-200 leading-tight underline decoration-2 decoration-white/30 underline-offset-8 mt-4 text-center lg:text-7xl">
+            className="mt-4 text-center leading-tight text-gray-200 underline decoration-white/30 decoration-2 underline-offset-8 lg:text-7xl">
             {socialBlog.name}
           </H1>
 
           <div className="mt-4">
             <div className="flex items-start gap-3 text-center">
               <div>
-                <p className="text-gray-400 inline">
+                <p className="inline text-gray-400">
                   By{" "}
                   <Link
                     href={`/author/${socialBlog?.author?.slug?.current}`}
@@ -78,13 +79,13 @@ export default function SocialBlog(props) {
                     {socialBlog?.author?.name}
                   </Link>
                 </p>
-                <div className="flex space-x-2 mt-4 text-sm md:flex-row md:items-center">
+                <div className="mt-4 flex space-x-2 text-sm md:flex-row md:items-center">
                   <DateTime
-                    className="text-gray-200 text-xs"
+                    className="text-xs text-gray-200"
                     date={socialBlog?.publishedAt || socialBlog._createdAt}
                   />
-                  <span className="text-gray-200 text-xs">•</span>
-                  <span className="text-gray-200 text-xs">
+                  <span className="text-xs text-gray-200">•</span>
+                  <span className="text-xs text-gray-200">
                     {socialBlog.estReadingTime || "5"} min read
                   </span>
                 </div>
@@ -101,7 +102,7 @@ export default function SocialBlog(props) {
         </Container>
       </div>
 
-      <div className="mx-auto mt-14 mb-20 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
+      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
           <Prose className="prose mx-auto max-w-prose">
             {socialBlog.content && <PortableText value={socialBlog.content} />}
@@ -114,6 +115,13 @@ export default function SocialBlog(props) {
           />
           {socialBlog.author && <AuthorCard author={socialBlog.author} />}
         </article>
+        <aside className="sticky top-24 mr-5 w-full self-start md:w-64">
+          <Sidebar
+            subscribeTitle="Are you a freelancer?"
+            subscribeText="Hey Rebekah is a free daily newsletter for freelancers. Join +320,000 professionals in my community. Delivery is free."
+            buttonText="JOIN ME"
+          />
+        </aside>
       </div>
     </>
   );
