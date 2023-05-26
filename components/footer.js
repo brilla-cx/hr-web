@@ -17,7 +17,7 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="border-l border-r border-neutral-200/10 mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-16">
+      <div className="border-l border-r border-neutral-200/10 mx-auto max-w-7xl px-6 py-16 sm:pt-24 lg:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <Image
             src={LogoImage}
@@ -117,64 +117,68 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
-          <div>
-            <H5 className="text-gray-200"> Subscribe to our newsletter</H5>
-            <p className="mt-1 text-sm leading-6 text-gray-400">
-              The latest news, articles, and resources, sent to your inbox
-              weekly.
+      </div>
+      <div className="max-w-full border-t border-neutral-200/10 pb-4">
+        <div className="border-l border-r border-neutral-200/10 max-w-7xl mx-auto p-8">
+          <div className="lg:flex lg:items-center lg:justify-between pb-10">
+            <div>
+              <H5 className="text-gray-200"> Subscribe to our newsletter</H5>
+              <p className="mt-1 text-sm leading-6 text-gray-400">
+                The latest news, articles, and resources, sent to your inbox
+                weekly.
+              </p>
+            </div>
+            <form
+              id="footer-subscribe"
+              className="mt-6 gap-3 flex flex-col sm:flex-row sm:max-w-md lg:mt-0">
+              <label htmlFor="email-address" className="sr-only">
+                email
+              </label>
+              <Input
+                size="sm"
+                className="px-4 w-full md:w-60 text-sm bg-slate-900 border-neutral-200/10 text-gray-200 "
+                autoComplete="email"
+                placeholder="Enter your email"
+                required
+                type="email"
+                aria-label="Enter your email address to subscribe"
+              />
+              <GlowingButton
+                form="subscribe-form"
+                type="submit"
+                variant="subscribe">
+                Level Up
+              </GlowingButton>
+            </form>
+          </div>
+          <div className="pb-4 md:flex md:items-center md:justify-between mx-auto">
+            <p className="mt-8 text-xs leading-5 text-gray-500 md:order-2 md:mt-0">
+              &copy; {new Date().getFullYear()} Hey Rebekah is a product of
+              <Link
+                href="https://bril.la"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="BRIL.LA - this link opens in a new tab"
+                className={cx(hoverStyles)}>
+                {" "}
+                BRIL.LA, LLC.
+              </Link>
+              &nbsp;All rights reserved.
+            </p>
+
+            <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
+              In Partnership with{" "}
+              <Link
+                href="https://web3creative.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Web3Creative - this link opens in a new tab"
+                className={cx(hoverStyles)}>
+                {" "}
+                Web3Creative
+              </Link>
             </p>
           </div>
-          <form
-            id="footer-subscribe"
-            className="mt-6 gap-3 flex flex-col sm:flex-row sm:max-w-md lg:mt-0">
-            <label htmlFor="email-address" className="sr-only">
-              email
-            </label>
-            <Input
-              size="sm"
-              className="px-4 w-full md:w-60 text-sm bg-slate-900 border-neutral-200/10 text-gray-200"
-              autoComplete="email"
-              placeholder="Enter your email"
-              required
-              type="email"
-              aria-label="Enter your email address to subscribe"
-            />
-            <GlowingButton
-              form="subscribe-form"
-              type="submit"
-              variant="subscribe">
-              Level Up
-            </GlowingButton>
-          </form>
-        </div>
-        <div className="mt-10 pt-8 md:flex md:items-center md:justify-between">
-          <p className="mt-8 text-xs leading-5 text-gray-500 md:order-2 md:mt-0">
-            &copy; {new Date().getFullYear()} Hey Rebekah is a product of
-            <Link
-              href="https://bril.la"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="BRIL.LA - this link opens in a new tab"
-              className={cx(hoverStyles)}>
-              {" "}
-              BRIL.LA, LLC.
-            </Link>
-            &nbsp;All rights reserved.
-          </p>
-
-          <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
-            In Partnership with{" "}
-            <Link
-              href="https://web3creative.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Web3Creative - this link opens in a new tab"
-              className={cx(hoverStyles)}>
-              {" "}
-              Web3Creative
-            </Link>
-          </p>
         </div>
       </div>
     </footer>
@@ -186,14 +190,15 @@ const navigation = {
     { name: "Archives", href: "/gists" },
     { name: "Hey Rebekah AI", href: "/juno" },
     { name: "Community", href: "/community" },
-    { name: "Discounts", href: "/built-with" },
+    { name: "Tools", href: "/built-with" },
     { name: "Help", href: "/contact" },
   ],
   company: [
     { name: "Advertise", href: "/advertise" },
-    { name: "Partner", href: "/partner-program" },
+    { name: "Partner", href: "/partners" },
     { name: "About", href: "/about" },
     { name: "Rebekah Radice", href: "/rebekah-radice" },
+    { name: "Social Blog", href: "/social-blog" },
     { name: "Contact", href: "/contact" },
   ],
   follow: [

@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 const GradientBackground = () => {
   // Dynamic class names for gradient background
   const gradientBackgroundClasses = cx(
-    "absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#ff00fe] to-purple-800 blur-sm rounded group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200"
+    "absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#ff00fe] to-amber-600 blur-sm rounded group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200"
   );
 
   // Render a div with the gradient background

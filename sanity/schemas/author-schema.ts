@@ -32,6 +32,14 @@ const author = {
             validation: Rule => Rule.required().warning("Does't the author have a name?"),
         },
         {
+            name: "firstName",
+            title: "First Name",
+            description: "The author's first name only. This is used on the website and to troll them on the web.",
+            type: "string",
+            group: 'basicInfo',
+            validation: Rule => Rule.required().warning("We need their first name because our developers are too lazy to write fancy scripts."),
+        },
+        {
             name: "image",
             title: "Image",
             description: "Upload a 400px x 400px web-optimized image for the author.",

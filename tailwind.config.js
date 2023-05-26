@@ -20,19 +20,18 @@ module.exports = {
         pink: {
           DEFAULT: "#ff00fe",
         },
-        green: {
+        aqua: {
           DEFAULT: "#00fffe",
         },
-      },
-      letterSpacing: {
-        tight: "-0.025em", // Customize the tight letter spacing value inside prose
-      },
-      lineHeight: {
-        tight: 1.2, // Customize the tight line height value inside prose
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            "@global": {
+              html: {
+                "@apply antialiased": {},
+              },
+            },
             ".prose p:first-of-type::first-letter": {
               float: "left",
               fontSize: "120px",
@@ -44,34 +43,6 @@ module.exports = {
               display: "block",
               marginTop: `calc(-0.4em - ${theme("spacing.2")})`,
               marginBottom: `calc(-0.4em - ${theme("spacing.2")})`,
-              //paddingTop: theme("spacing.2"),
-            },
-            ".prose h2": {
-              fontSize: theme("fontSize.5xl"),
-              fontWeight: theme("fontWeight.semibold"),
-              fontFamily: theme("fontFamily.display"),
-              letterSpacing: theme("letterSpacing.tight"),
-              lineHeight: theme("lineHeight.tight"),
-              marginTop: theme("spacing.4"),
-              marginBottom: theme("spacing.8"),
-            },
-            ".prose h3": {
-              fontSize: theme("fontSize.4xl"),
-              fontWeight: theme("fontWeight.semibold"),
-              fontFamily: theme("fontFamily.display"),
-              letterSpacing: theme("letterSpacing.tight"),
-              lineHeight: theme("lineHeight.tight"),
-              marginTop: theme("spacing.6"),
-              marginBottom: theme("spacing.5"),
-            },
-            ".prose h4": {
-              fontSize: theme("fontSize.3xl"),
-              fontWeight: theme("fontWeight.semibold"),
-              fontFamily: theme("fontFamily.display"),
-              letterSpacing: theme("letterSpacing.tight"),
-              lineHeight: theme("lineHeight.tight"),
-              marginTop: theme("spacing.6"),
-              marginBottom: theme("spacing.5"),
             },
             ".prose :where(a):not(:where([class~='not-prose'] *))": {
               fontWeight: "900",

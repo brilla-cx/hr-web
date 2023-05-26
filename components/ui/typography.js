@@ -1,6 +1,6 @@
 import { cx } from "@/lib/utils";
 
-const commonClasses = "antialiased font-display font-semibold tracking-tight";
+const commonClasses = "font-semibold font-display tracking-tight";
 
 export function H1({ children, className = "", as = "h1" }) {
   const Tag = as;
@@ -60,5 +60,5 @@ export function Title({ children, className = "", as = "p" }) {
 }
 
 export function Lead({ children, className = "" }) {
-  return <p className={cx(className, "font-sans text-xl")}>{children}</p>;
+  return <p className={cx(className, "font-sans text-lg")}>{children}</p>;
 }

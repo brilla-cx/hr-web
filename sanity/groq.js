@@ -1,5 +1,15 @@
+// Importing the groq function from the next-sanity package
+// GROQ (Graph-Relational Object Queries) is a query language from Sanity.io that allows us to describe exactly what information our application needs
 import { groq } from "next-sanity";
 
+/*
+ * Post Query
+ *
+ * In Hey Rebekah's Web App, this query is responsible for fetching the details of all the posts from Sanity's backend.
+ * The posts are ordered based on their published date and created date.
+ * For each post, we fetch the id, created date, name, slug, image, published date, feature status, categories, url, and author details.
+ * We also fetch a lower quality image placeholder (LQIP) for the blur-up effect when loading images.
+ */
 export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _createdAt desc) {
   _id,
   _createdAt,
@@ -20,7 +30,14 @@ export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _cre
   }
 }`;
 
-// Single Post
+/*
+ * Single Post Query
+ *
+ * This query is used to fetch the details of a single post based on its slug.
+ * In addition to the basic post details, we also fetch the dominant background color of the post image, estimated reading time, and related posts.
+ * The estimated reading time is calculated based on the length of the content.
+ * The related posts are determined by the category of the current post and are limited to the top 5 recent posts.
+ */
 export const singlepostquery = groq`
 *[_type == "post" && slug.current == $slug][0] {
   ...,
@@ -42,13 +59,22 @@ export const singlepostquery = groq`
 }
 `;
 
-// Paths for generateStaticParams
-// order by published or createed, then get latest 12 then return slug.current
+/*
+ * Post Path Query
+ *
+ * This query is responsible for fetching the slugs of the latest 12 posts.
+ * The slugs are used to generate the static paths for each post page during the static site generation process in Next.js.
+ */
 export const postpathquery = groq`
 *[_type == "post" && defined(slug.current)]|order(publishedAt desc, _createdAt desc)[0...12].slug.current
 `;
 
-// Get top 5 categories
+/*
+ * Top Category Query
+ *
+ * This query is used to fetch the top 5 categories based on the number of posts in each category.
+ * For each category, we fetch the id, name, color, slug, and the count of posts.
+ */
 export const topcatquery = groq`*[_type == "category"] {
   _id,
   name,
@@ -57,12 +83,21 @@ export const topcatquery = groq`*[_type == "category"] {
   "count": count(*[_type == "post" && references(^._id)])
 } | order(count desc) [0...5]`;
 
-// Get all Authors
+/*
+ * Authors Query
+ *
+ * This query fetches the slugs of all the authors. The slug is a URL-friendly identifier for the authors.
+*/
 export const authorsquery = groq`
 *[_type == "author" && defined(slug.current)][].slug.current
 `;
 
-// Get All Posts by Author
+/*
+ * Posts By Author Query
+ *
+ * This query fetches all the posts written by a specific author. The author is identified by their slug.
+ * For each post, we fetch the post details, image details including the LQIP, and author details.
+ */
 export const postsbyauthorquery = groq`
 *[_type == "post" && $slug match author->slug.current ] {
   ...,
@@ -79,8 +114,13 @@ export const postsbyauthorquery = groq`
 }
 `;
 
-// [(($pageIndex - 1) * 10)...$pageIndex * 10]{
-// Get subsequent paginated posts
+/*
+ * Paginated Posts Query
+ *
+ * This query fetches a specific set of posts for pagination.
+ * The posts are ordered by their published date and created date.
+ * The $pageIndex and $limit parameters define the slice of posts to be fetched.
+ */
 export const paginatedpostsquery = groq`
 *[_type == "post"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
   ...,
@@ -89,7 +129,12 @@ export const paginatedpostsquery = groq`
 }
 `;
 
-// Get Posts by Category
+/*
+ * Posts By Category Query
+ *
+ * This query fetches all the posts in a specific category. The category is identified by its slug.
+ * For each post, we fetch the post details, author details, and categories.
+ */
 export const postsbycatquery = groq`
 *[_type == "post" && $slug in category[]->slug.current ] {
   ...,
@@ -113,124 +158,64 @@ export const getcatoftoolsquery = groq`*[_type == "category" && count(*[_type ==
     "count": count(*[_type == "tool" && references(^._id)])
 }`;
 
-// // Get all posts
-// export const postquery = groq`;
-// *[_type == "post"] | order(publishedAt desc, _createdAt desc) {
-//   _id,
-//   _createdAt,
-//   publishedAt,
-//   mainImage {
-//     ...,
-//     "blurDataURL":asset->metadata.lqip,
-//     "ImageColor": asset->metadata.palette.dominant.background,
-//   },
-//   featured,
-//   excerpt,
-//   slug,
-//   title,
-//   author-> {
-//     _id,
-//     image,
-//     slug,
-//     name
-//   },
-//   categories[]->,
-// }
-// `;
-// // Get all posts with 0..limit
-// export const limitquery = groq`
-// *[_type == "post"] | order(publishedAt desc, _createdAt desc) [0..$limit] {
-//   ...,
-//   author->,
-//   categories[]->
-// }
-// `;
-// // [(($pageIndex - 1) * 10)...$pageIndex * 10]{
-// // Get subsequent paginated posts
-// export const paginatedpostsquery = groq`
-// *[_type == "post"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
-//   ...,
-//   author->,
-//   categories[]->
-// }
-// `;
+/*
+ * Social Blog Query
+ *
+ * This query is used in Rebekah's Web App for fetching the details of all the social blog posts from the Sanity's backend.
+ * These social blog posts were originally located at https://rebekahradice.com/post-name.
+ * The posts are ordered first by whether they are featured (with featured posts appearing first), and then by their publishing date in descending order (most recent first).
+ * For each social blog post, we fetch the id, created date, name, slug, published date, featured status, categories, url, and author details.
+ */
+export const socialblogquery = groq`*[_type == "socialBlog"] | order(featured desc, publishedAt desc) {
+  _id,
+  _createdAt,
+  name,
+  slug,
+  publishedAt,
+  featured,
+  url,
+  author-> {
+    name,
+    slug,
+    image
+  }
+}
+`;
 
-// // Get Site Config
-// export const configQuery = groq`
-// *[_type == "settings"][0] {
-//   ...,
-// }
-// `;
+/*
+ * Single Social Blog Query
+ *
+ * This query is used to fetch the details of a single social blog post based on its slug.
+ * In addition to the basic social blog post details, we also fetch the author details, categories, and estimated reading time.
+ * The estimated reading time is calculated based on the length of the content.
+ */
+export const singlesocialblogquery = groq`
+*[_type == "socialBlog" && slug.current == $slug][0] {
+  ...,
+  author->,
+  "estReadingTime": round(length(pt::text(content)) / 5 / 180 ),
+}
+`;
 
-// // Single Post
-// export const singlequery = groq`
-// *[_type == "post" && slug.current == $slug][0] {
-//   ...,
-//   author->,
-//   categories[]->,
-//   "estReadingTime": round(length(pt::text(body)) / 5 / 180 ),
-//   "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(publishedAt desc, _createdAt desc) [0...5] {
-//     title,
-//     slug,
-//     "date": coalesce(publishedAt,_createdAt),
-//     "image": mainImage
-//   },
-// }
-// `;
-
-// // Paths for generateStaticParams
-// export const pathquery = groq`
-// *[_type == "post" && defined(slug.current)][].slug.current
-// `;
-// export const catpathquery = groq`
-// *[_type == "category" && defined(slug.current)][].slug.current
-// `;
-// export const authorsquery = groq`
-// *[_type == "author" && defined(slug.current)][].slug.current
-// `;
-
-// // Get Posts by Authors
-// export const postsbyauthorquery = groq`
-// *[_type == "post" && $slug match author->slug.current ] {
-//   ...,
-//   author->,
-//   categories[]->,
-// }
-// `;
-
-// // Get Posts by Category
-// export const postsbycatquery = groq`
-// *[_type == "post" && $slug in categories[]->slug.current ] {
-//   ...,
-//   author->,
-//   categories[]->,
-// }
-// `;
-
-// // Get top 5 categories
-// export const catquery = groq`*[_type == "category"] {
-//   ...,
-//   "count": count(*[_type == "post" && references(^._id)])
-// } | order(count desc) [0...5]`;
-
-// export const searchquery = groq`*[_type == "post" && _score > 0]
-// | score(title match $query || excerpt match $query || pt::text(body) match $query)
-// | order(_score desc)
-// {
-//   _score,
-//   _id,
-//   _createdAt,
-//   mainImage,
-//   author->,
-//   categories[]->,
-//    title,
-//    slug
-// }`;
-
-// // Get all Authors
-// export const allauthorsquery = groq`
-// *[_type == "author"] {
-//  ...,
-//  'slug': slug.current,
-// }
-// `;
+/*
+ * Social Blog Path Query
+ *
+ * This query is responsible for fetching the slugs of the latest 12 social blog posts.
+ * The slugs are used to generate the static paths for each social blog post page during the static site generation process in Next.js.
+ */
+export const socialblogpathquery = groq`
+*[_type == "socialBlog" && defined(slug.current)]|order(publishedAt desc, _createdAt desc)[0...12].slug.current
+`;
+/*
+ * Paginated Social Blog Posts Query
+ *
+ * This query fetches a specific set of social blog posts for pagination.
+ * The posts are ordered by their published date and created date.
+ * The $pageIndex and $limit parameters define the slice of posts to be fetched.
+ */
+export const paginatedsocialblogsquery = groq`
+*[_type == "socialBlog"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+  ...,
+  author->
+}
+`;

@@ -2,14 +2,14 @@
 /**
  * PaginatedPosts Component
  * This component is responsible for rendering a paginated list of Gist posts on Hey Rebekah's Web App.
- * Path: app/(website)/gists/posts.js
+ * Path: app/(website)/social-blog/posts.js
  *
- * The PaginatedPosts component serves as an integral part of the Gists page that fetches and displays a list of "gists" or posts.
- * These posts are fetched from the Sanity CMS using a function named 'getPaginatedPosts' from "@/sanity/client".
+ * The PaginatedPosts component serves as an integral part of the Gists page that fetches and displays a list of "Social Blogs" or posts.
+ * These posts are fetched from the Sanity CMS using a function named 'getPaginatedSocialBlogs' from "@/sanity/client".
  *
  * To achieve the pagination, we make use of useRouter and useSearchParams hooks from "next/navigation" to access the current page index from the URL's query string.
  * The range of posts to fetch is calculated based on the current page index and a constant POSTS_PER_PAGE which is set to 12.
- * These posts are then fetched asynchronously using the getPaginatedPosts function.
+ * These posts are then fetched asynchronously using the getPaginatedSocialBlogs function.
  *
  * The component also handles navigation to the next and previous pages of posts. This is accomplished by pushing new URLs to the router with the updated page index.
  * Each post is rendered using the PostAlt component, which is imported from "@/components/postalt".
@@ -24,10 +24,10 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
-import PostAlt from "@/components/postalt";
-import { getPaginatedPosts } from "@/sanity/client";
+import SocialBlogAlt from "@/components/socialblogalt";
+import { getPaginatedSocialBlogs } from "@/sanity/client";
 
-export default async function PaginatedPosts() {
+export default async function PaginatedSocialBlogs() {
   // We access the Next.js router and search parameters
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -46,7 +46,7 @@ export default async function PaginatedPosts() {
   };
 
   // Fetch the posts for the current page
-  const posts = await getPaginatedPosts(params);
+  const posts = await getPaginatedSocialBlogs(params);
 
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
@@ -55,11 +55,11 @@ export default async function PaginatedPosts() {
   // Define functions for navigating to the next and previous pages
   // These functions update the page query parameter in the URL
   const handleNextPage = () => {
-    router.push(`/gists?page=${pageIndex + 1}`);
+    router.push(`/social-blog?page=${pageIndex + 1}`);
   };
 
   const handlePrevPage = () => {
-    router.push(`/gists?page=${pageIndex - 1}`);
+    router.push(`/social-blog?page=${pageIndex - 1}`);
   };
 
   return (
@@ -75,13 +75,13 @@ export default async function PaginatedPosts() {
       {/* This div serves as the container for the posts and utilizes CSS Grid layout through Tailwind CSS for varying column count depending on viewport size. */}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
         {posts.map((post) => (
-          <PostAlt key={post._id} post={post} aspect="landscape" />
+          <SocialBlogAlt key={post._id} post={post} aspect="landscape" />
         ))}
       </div>
 
       {/* The pagination buttons are contained in a navigation component.
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
-      <div className="my-16 flex items-center justify-center">
+      <div className="my-16 flex items-center justify-center md:my-24">
         <nav
           className="isolate inline-flex -space-x-px rounded-md shadow-sm"
           aria-label="Pagination">

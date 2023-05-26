@@ -1,5 +1,11 @@
 {
-  "extends": ["next", "sanity/react", "sanity/typescript", "prettier"],
+  "extends": [
+    "next",
+    "sanity/react",
+    "sanity/typescript",
+    "prettier",
+    "plugin:import/typescript"
+  ],
   "plugins": ["simple-import-sort"],
   "rules": {
     "simple-import-sort/imports": "warn",

@@ -26,14 +26,15 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);
-  const tldr = post?.tldr?.[0]?.children?.[0]?.text;
+  const seoTitle = post?.tldr?.[0]?.children?.[0]?.text;
+  const seoMetaDescription = post?.tldr?.[0]?.children?.[0]?.text;
 
   return {
-    title: post.seo?.title || post.name,
-    description: post.seo?.description || tldr,
+    title: post.seo?.title || seoTitle,
+    description: post.seo?.description || seoMetaDescription,
     openGraph: {
-      title: post.seo?.title || post.name,
-      description: post.seo?.description || tldr,
+      title: post.seo?.title || seoTitle,
+      description: post.seo?.description || seoMetaDescription,
     },
   };
 }
@@ -57,8 +58,8 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      Loading Live Preview...
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      Just a sec, getting Rebekah's attention...
     </div>
   );
 };
