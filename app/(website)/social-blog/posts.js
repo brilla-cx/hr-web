@@ -21,8 +21,8 @@
 
 "use client";
 
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { useRouter, useSearchParams } from "next/navigation";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
 import SocialBlogAlt from "@/components/socialblogalt";
 import { getPaginatedSocialBlogs } from "@/sanity/client";
@@ -81,7 +81,7 @@ export default async function PaginatedSocialBlogs() {
 
       {/* The pagination buttons are contained in a navigation component.
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
-      <div className="my-16 md:my-24 flex items-center justify-center">
+      <div className="my-16 flex items-center justify-center md:my-24">
         <nav
           className="isolate inline-flex -space-x-px rounded-md shadow-sm"
           aria-label="Pagination">
@@ -89,17 +89,23 @@ export default async function PaginatedSocialBlogs() {
             type="button"
             disabled={isFirstPage}
             onClick={handlePrevPage}
-            className="relative inline-flex items-center gap-1 rounded-l-md border border-black px-3 py-2 pr-4 text-sm focus:z-20 disabled:pointer-events-none disabled:opacity-40 bg-pink text-black font-bold">
-            <ChevronLeftIcon className="h-3 w-3" aria-hidden="true" />
+            className={`text-med relative inline-flex items-center gap-1 rounded-l-md border border-black px-3 py-2 pr-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
+            <FaCaretLeft
+              className="mr-2 h-3 w-3 text-gray-400 hover:text-gray-200"
+              aria-hidden="true"
+            />
             <span>Previous</span>
           </button>
           <button
             type="button"
             onClick={handleNextPage}
             disabled={isLastPage}
-            className="relative inline-flex items-center gap-1 rounded-r-md border border-black px-3 py-2 pl-4 text-sm font-bold focus:z-20 disabled:pointer-events-none disabled:opacity-40 bg-pink text-black ">
+            className={`text-med relative inline-flex items-center gap-1 rounded-r-md border border-black px-3 py-2 pl-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
             <span>Next</span>
-            <ChevronRightIcon className="h-3 w-3" aria-hidden="true" />
+            <FaCaretRight
+              className="ml-2 h-3 w-3 text-gray-400 hover:text-gray-200"
+              aria-hidden="true"
+            />
           </button>
         </nav>
       </div>
