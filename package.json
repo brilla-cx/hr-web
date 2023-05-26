@@ -67,7 +67,6 @@
     "eslint-config-sanity": "^6.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "husky": "^8.0.3",
-    "node-sass": "^9.0.0",
     "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "standard-version": "^9.5.0",
