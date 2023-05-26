@@ -92,8 +92,8 @@ export default async function SocialBlogPage({ params }) {
 }
 const Loading = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      🐌 this'll just take a minute.
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      Just a minute, convincing Ambreen....
     </div>
   );
 };
