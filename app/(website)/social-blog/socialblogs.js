@@ -38,7 +38,6 @@
 
 import { Suspense } from "react";
 
-import Loading from "@/components/blog/loading";
 import Container from "@/components/container";
 import PageHeader from "@/components/ui/sections/pageheader";
 
@@ -56,8 +55,8 @@ export default function SocialBlogs() {
           includeForm
           formId="socialblog-subscribe"
         />
-        <div className="mx-auto px-4 max-w-6xl">
-          <Suspense fallback={<Loading />}>
+        <div className="mx-auto max-w-6xl px-4">
+          <Suspense fallback={<p>Polishing the moon rocks...</p>}>
             <PaginatedPosts />
           </Suspense>
         </div>

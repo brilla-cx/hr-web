@@ -1,5 +1,6 @@
 // Import the necessary dependencies
 import { notFound } from "next/navigation"; // Navigation control from Next.js
+import { Suspense } from "react";
 
 import Container from "@/components/container"; // Custom container component for page layout
 import PostAlt from "@/components/postalt"; // Component to display individual posts
@@ -45,17 +46,19 @@ export default function Category(props) {
           formId={`${category.name}-subscribe`} // Dynamic form ID including category name
         />
         {/* Grid layout div for holding PostAlt components */}
-        <div className="px-4 sm:px-8 lg:px-16 mt-16 mb-8 grid gap-10 md:grid-cols-3 lg:gap-10 xl:grid-cols-4 ">
-          {/* Map through posts array, and for each post, render a PostAlt component */}
-          {posts.map((post) => (
-            <PostAlt
-              key={post._id} // Unique key prop for React list rendering
-              post={post} // Pass entire post object as a prop
-              aspect="landscape" // Aspect ratio prop
-              hideCategory // Prop to hide category
-            />
-          ))}
-        </div>
+        <Suspense fallback={<p>Loading feed...</p>}>
+          <div className="mb-8 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
+            {/* Map through posts array, and for each post, render a PostAlt component */}
+            {posts.map((post) => (
+              <PostAlt
+                key={post._id} // Unique key prop for React list rendering
+                post={post} // Pass entire post object as a prop
+                aspect="landscape" // Aspect ratio prop
+                hideCategory // Prop to hide category
+              />
+            ))}
+          </div>
+        </Suspense>
       </Container>
     </div>
   );

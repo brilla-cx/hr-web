@@ -1,7 +1,6 @@
 // Import necessary modules and components
 import { Suspense } from "react";
 
-import Loading from "@/components/blog/loading"; // Import Loading component
 import Container from "@/components/container"; // Import Container component
 import PageHeader from "@/components/ui/sections/pageheader"; // Import PageHeader component
 
@@ -46,9 +45,9 @@ export default function Gists() {
           formId="gist-subscribe" // formId prop for PageHeader
         />
         {/* Div for centering content and setting max width */}
-        <div className="mx-auto px-4 max-w-6xl">
+        <div className="mx-auto max-w-6xl px-4">
           {/* Suspense wrapper for loading state of paginated posts */}
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<p>Summoning unicorns...</p>}>
             {/* PaginatedPosts component for displaying posts */}
             <PaginatedPosts />
           </Suspense>
