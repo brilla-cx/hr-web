@@ -1,8 +1,5 @@
 import {
-  getAllPosts,
-  getAllPostsSlugs,
-  getPostBySlug,
-  getTopCategories,
+  getToolbySlug,
 } from "@/sanity/client";
 
 import Tool from "./tool";
@@ -24,7 +21,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  // const post = await getPostBySlug(params.slug);
-  return "Tools";
-  // return <Post post={post} categories={categories} />;
+  const data = await getToolbySlug(params.slug);
+  console.log(data);
+ return <Tool data={data} />;
 }

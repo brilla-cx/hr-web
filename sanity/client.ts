@@ -63,10 +63,10 @@ import {
   postsbycatquery,
   singlepostquery,
   singlesocialblogquery,
+  singletoolsquery,
   socialblogpathquery,
   socialblogquery,
-  topcatquery,
-} from "./groq";
+  topcatquery} from "./groq";
 
 
 if (!projectId) {
@@ -202,6 +202,13 @@ export async function getToolsCategories() {
     return (await client.fetch(getcatoftoolsquery)) || [];
   }
   return [];
+}
+
+export async function getToolbySlug(slug) {
+  if (client) {
+    return (await client.fetch(singletoolsquery, { slug })) || {};
+  }
+  return {};
 }
 
 // export async function getAllPosts() {
