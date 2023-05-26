@@ -47,10 +47,9 @@ export default function Gists() {
         {/* Div for centering content and setting max width */}
         <div className="mx-auto max-w-6xl px-4">
           {/* Suspense wrapper for loading state of paginated posts */}
-          <Suspense fallback={<p>Summoning unicorns...</p>}>
-            {/* PaginatedPosts component for displaying posts */}
-            <PaginatedPosts />
-          </Suspense>
+
+          {/* PaginatedPosts component for displaying posts */}
+          <PaginatedPosts />
         </div>
       </Container>
     </div>
