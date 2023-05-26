@@ -1,5 +1,11 @@
 {
-  "extends": ["next", "sanity/react", "sanity/typescript", "prettier"],
+  "extends": [
+    "next",
+    "sanity/react",
+    "sanity/typescript",
+    "prettier",
+    "plugin:import/typescript"
+  ],
   "plugins": ["simple-import-sort"],
   "rules": {
     "simple-import-sort/imports": "warn",
@@ -15,5 +21,22 @@
   "globals": {
     "JSX": true
   },
-  "ignorePatterns": ["*.ndjson"]
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": ["next.config.js"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  }
 }
