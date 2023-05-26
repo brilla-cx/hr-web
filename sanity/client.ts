@@ -204,6 +204,16 @@ export async function getToolsCategories() {
   return [];
 }
 
+// Static Pages by Slug
+export async function getLegalPageBySlug(slug) {
+  if (client) {
+    const query = `*[_type == "legal" && slug.current == $slug][0]`;
+    return (await client.fetch(query, { slug })) || {};
+  }
+  return {};
+}
+
+
 // export async function getAllPosts() {
 //   if (client) {
 //     return (await client.fetch(postquery)) || [];

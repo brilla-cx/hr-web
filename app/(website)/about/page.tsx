@@ -13,7 +13,7 @@ export default function About() {
           title="About Hey Rebekah"
           leadText="Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus. Hey Rebekah is a free daily newsletter for freelancers. Everything we create is available for free to our readers and always will be. Not on the list? 👇🏼"
           includeForm
-          formId="about-subscribe"
+          formId="about-sub"
         />
       </Container>
     </div>

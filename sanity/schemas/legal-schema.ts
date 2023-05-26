@@ -12,17 +12,9 @@ const legal = {
   }),
   groups: [
     {
-      name: "editorialWorkflow",
-      title: "Workflow",
-    },
-    {
       name: "compose",
       title: "Compose",
       default: true,
-    },
-    {
-      name: "meta",
-      title: "Meta",
     },
     {
       name: "seo",
@@ -31,25 +23,6 @@ const legal = {
   ],
   fields: [
     {
-      name: "status",
-      title: "Status",
-      type: "string",
-      description: "Select the status of the document.",
-      group: "editorialWorkflow",
-      options: {
-        list: [
-          { title: "Ideation", value: "ideation" },
-          { title: "Rough draft", value: "rough_draft" },
-          { title: "First draft", value: "first_draft" },
-          { title: "Final draft", value: "final_draft" },
-          { title: "Editing", value: "editing" },
-          { title: "Approved", value: "approved" },
-        ],
-        layout: "dropdown",
-      },
-      validation: (Rule) => Rule.required(),
-    },
-    {
       name: "name",
       title: "Name",
       description: "The name of the legal page.",
@@ -57,47 +30,111 @@ const legal = {
       group: "compose",
     },
     {
+      name: "tldr",
+      title: "TLDR",
+      description: "The TL;DR of the legal that displays in cards on the website or emails. It's not for SEO",
+      type: "string",
+      options: { maxLength: 300, spellcheck: true },
+      group: "compose",
+      validation: Rule => Rule.required().warning("Too long, didn't read. Please ensure to include a TLDR."),
+    },
+    {
       name: "slug",
       title: "Slug",
       description: "The slug of the page.",
       type: "slug",
-      group: "seo",
+      group: "compose",
       options: { source: "name", maxLength: 96 },
-    },
-    {
-      name: "approved",
-      title: "Approved",
-      description: "Is this page approved?",
-      type: "boolean",
-      group: "editorialWorkflow",
-    },
-    {
-      name: "author",
-      title: "Author",
-      description: "The author of the post.",
-      type: "reference",
-      to: { type: "author" },
-      group: "editorialWorkflow",
     },
     {
       name: "content",
       title: "Content",
-      description: "This is the primary content of the post.",
-      type: "blockContent",
-      options: { spellcheck: true },
+      description:
+        "This is the primary content of the post. This is what you gotta look at closely.",
       group: "compose",
+      type: "array",
+      of: [
+        {
+          title: "Block",
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "H2", value: "h2" },
+            { title: "H3", value: "h3" },
+            { title: "H4", value: "h4" },
+            { title: "Quote", value: "blockquote" },
+          ],
+          lists: [
+            { title: "Bullet", value: "bullet" },
+            { title: "Number", value: "number" },
+          ],
+          marks: {
+            decorators: [
+              { title: "Strong", value: "strong" },
+              { title: "Code", value: "code" },
+              { title: "Strike", value: "strike-through" },
+            ],
+            annotations: [
+              {
+                name: "link",
+                type: "object",
+                title: "URL",
+                fields: [
+                  {
+                    title: "URL",
+                    name: "href",
+                    type: "url",
+                    validation: (Rule) =>
+                      Rule.uri({
+                        allowRelative: true,
+                        scheme: ["https", "http", "mailto", "tel"],
+                      }),
+                  },
+                  {
+                    title: "Open in new tab",
+                    name: "blank",
+                    type: "boolean",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alternative text",
+            },
+            {
+              name: "caption",
+              type: "string",
+              title: "Caption",
+            },
+          ],
+        },
+      ],
+      options: { spellcheck: true },
+    },
+    {
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo",
     },
     {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
-      group: "meta",
+      group: "compose",
     },
   ],
   preview: {
     select: {
       title: "name",
-      subtitle: "slug",
     },
   },
 };
