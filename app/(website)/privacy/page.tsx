@@ -1,16 +1,38 @@
-export default function Privacy() {
-  //Placeholder to create route
+import { PortableText } from "@portabletext/react";
+
+import Container from "@/components/container";
+import { Prose } from "@/components/ui";
+import PageHeader from "@/components/ui/sections/pageheader";
+import { getLegalPageBySlug } from "@/sanity/client";
+
+export default async function Privacy() {
+  const post = await getLegalPageBySlug('privacy');
+
+  // Fetch the post data and insert it into the component
+  const title = post?.name ?? "Default Title";
+  const leadText = post?.tldr ?? "Default Lead Text";
+  const content = post?.content ?? "Default Content";
+
   return (
-    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          Privacy
-        </h2>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
-        </p>
+    <div className="bg-white">
+      <div className="bg-midnight">
+        <Container
+          large
+          className="border-l border-r border-neutral-200 border-opacity-10">
+          <PageHeader
+            title={title}
+            leadText={leadText}
+            includeForm
+            formId="privacy-sub"
+          />
+        </Container>
+      </div>
+      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
+        <article className="flex-1 ">
+          <Prose className="prose mx-auto max-w-prose">
+            <PortableText value={content} />
+          </Prose>
+        </article>
       </div>
     </div>
   );

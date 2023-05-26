@@ -17,7 +17,7 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="border-l border-r border-neutral-200/10 mx-auto max-w-7xl px-6 py-16 sm:pt-24 lg:px-8 lg:pt-16">
+      <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 px-6 py-16 sm:pt-24 lg:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <Image
             src={LogoImage}
@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-display font-semibold leading-6 text-gray-400 uppercase">
+                <h3 className="font-display text-sm font-semibold uppercase leading-6 text-gray-400">
                   Resources
                 </h3>
                 <ul
@@ -50,7 +50,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-display font-semibold leading-6 text-gray-400 uppercase">
+                <h3 className="font-display text-sm font-semibold uppercase leading-6 text-gray-400">
                   Company
                 </h3>
                 <ul role="list" aria-label="Company" className="mt-6 space-y-4">
@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-display font-semibold leading-6 text-gray-400 uppercase">
+                <h3 className="font-display text-sm font-semibold uppercase leading-6 text-gray-400">
                   Follow Us
                 </h3>
                 <ul
@@ -95,7 +95,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-display font-semibold leading-6 text-gray-400 uppercase">
+                <h3 className="font-display text-sm font-semibold uppercase leading-6 text-gray-400">
                   Legal
                 </h3>
                 <ul role="list" aria-label="Legal" className="mt-6 space-y-4">
@@ -119,8 +119,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-full border-t border-neutral-200/10 pb-4">
-        <div className="border-l border-r border-neutral-200/10 max-w-7xl mx-auto p-8">
-          <div className="lg:flex lg:items-center lg:justify-between pb-10">
+        <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 p-8">
+          <div className="pb-10 lg:flex lg:items-center lg:justify-between">
             <div>
               <H5 className="text-gray-200"> Subscribe to our newsletter</H5>
               <p className="mt-1 text-sm leading-6 text-gray-400">
@@ -129,14 +129,14 @@ export default function Footer() {
               </p>
             </div>
             <form
-              id="footer-subscribe"
-              className="mt-6 gap-3 flex flex-col sm:flex-row sm:max-w-md lg:mt-0">
+              id="footer-sub"
+              className="mt-6 flex flex-col gap-3 sm:max-w-md sm:flex-row lg:mt-0">
               <label htmlFor="email-address" className="sr-only">
                 email
               </label>
               <Input
                 size="sm"
-                className="px-4 w-full md:w-60 text-sm bg-slate-900 border-neutral-200/10 text-gray-200 "
+                className="w-full border-neutral-200/10 bg-slate-900 px-4 text-sm text-gray-200 md:w-60 "
                 autoComplete="email"
                 placeholder="Enter your email"
                 required
@@ -151,7 +151,7 @@ export default function Footer() {
               </GlowingButton>
             </form>
           </div>
-          <div className="pb-4 md:flex md:items-center md:justify-between mx-auto">
+          <div className="mx-auto pb-4 md:flex md:items-center md:justify-between">
             <p className="mt-8 text-xs leading-5 text-gray-500 md:order-2 md:mt-0">
               &copy; {new Date().getFullYear()} Hey Rebekah is a product of
               <Link
@@ -253,6 +253,7 @@ const navigation = {
     },
   ],
   legal: [
+    { name: "Accessibility", href: "/accessibility" },
     { name: "Editorial Policy", href: "/editorial-policy" },
     { name: "Privacy", href: "/privacy" },
     { name: "Terms", href: "/terms" },

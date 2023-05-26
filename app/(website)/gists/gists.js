@@ -42,7 +42,7 @@ export default function Gists() {
               Best yet, subscribe today and we'll throw in free delivery to your
               inbox."
           includeForm // Prop to include subscription form
-          formId="gist-subscribe" // formId prop for PageHeader
+          formId="gist-sub" // formId prop for PageHeader
         />
         {/* Div for centering content and setting max width */}
         <div className="mx-auto max-w-6xl px-4">

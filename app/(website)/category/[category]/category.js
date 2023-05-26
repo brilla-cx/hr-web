@@ -43,7 +43,7 @@ export default function Category(props) {
           title={`${category.name}`} // Dynamic title including category name
           leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +320,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name.trim()} right to your inbox, gratis.`}
           includeForm // Prop to include subscription form
-          formId={`${category.name}-subscribe`} // Dynamic form ID including category name
+          formId={`${category.name}-sub`} // Dynamic form ID including category name
         />
         {/* Grid layout div for holding PostAlt components */}
         <Suspense fallback={<p>Loading feed...</p>}>
