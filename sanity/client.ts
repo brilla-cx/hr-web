@@ -57,6 +57,7 @@ import {
   gettoolsquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
+  postById,
   postpathquery,
   postquery,
   postsbyauthorquery,
@@ -98,6 +99,14 @@ export async function getPostBySlug(slug) {
   if (client) {
     return (await client.fetch(singlepostquery, { slug })) || {};
   }
+  return {};
+}
+
+export async function postByIdQuery(id) {
+  if (client) {
+    return (await client.fetch(postById, { id })) || {};
+  }
+
   return {};
 }
 

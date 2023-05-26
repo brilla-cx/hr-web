@@ -10,6 +10,7 @@ import { media } from "sanity-plugin-media";
 
 import hrLogo from "./components/studio/logo/logo";
 import { SITE_URL } from "./lib/constants";
+import { SendToIterable } from "./sanity/actions";
 import schemas from "./sanity/schemas";
 import {
   defaultDocumentNode,
@@ -60,6 +61,10 @@ const config = defineConfig({
   },
   schema: { types: schemas },
   document: {
+    actions: (prev, context) => {
+      return context.schemaType === "post" ? [...prev, SendToIterable] : prev;
+    },
+    // prev is the result from previous plugins and can be composed
     productionUrl: async (prev, context) => {
       const { getClient, document } = context;
       const doctype = document._type === "post" ? "gists" : document._type;
