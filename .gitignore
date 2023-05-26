@@ -82,3 +82,6 @@ purgecss.config.js
 
 # Ignore Sam's tasks file
 sam-tasks.js
+
+# Ignore GPTCommit
+gptcommit.toml
