@@ -87,7 +87,7 @@ export const topcatquery = groq`*[_type == "category"] {
  * Authors Query
  *
  * This query fetches the slugs of all the authors. The slug is a URL-friendly identifier for the authors.
-```jsx
+*/
 export const authorsquery = groq`
 *[_type == "author" && defined(slug.current)][].slug.current
 `;
@@ -142,6 +142,21 @@ export const postsbycatquery = groq`
   category[]->
 }
 `;
+
+export const gettoolsquery = groq`*[_type == "tool"]  | order(publishedAt desc, _createdAt desc) {
+  ...,
+  category->,
+}`;
+
+// Get category based on defined in tools atleast once
+
+export const getcatoftoolsquery = groq`*[_type == "category" && count(*[_type == "tool" && references(^._id)]) > 0] {
+  _id,
+  slug,
+  name,
+  color,
+    "count": count(*[_type == "tool" && references(^._id)])
+}`;
 
 /*
  * Social Blog Query
@@ -203,9 +218,4 @@ export const paginatedsocialblogsquery = groq`
   ...,
   author->
 }
-`;
-
-// Added this query to resolve the "Attempted import error: 'authorsquery' is not exported from './groq' (imported as 'authorsquery')." error
-export const authorsquery = groq`
-*[_type == "author" && defined(slug.current)][].slug.current
 `;

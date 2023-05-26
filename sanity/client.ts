@@ -53,6 +53,8 @@ import { createClient } from "next-sanity";
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   authorsquery,
+  getcatoftoolsquery,
+  gettoolsquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
   postpathquery,
@@ -184,6 +186,22 @@ export async function getPaginatedSocialBlogs({ limit, pageIndex = 0 }) {
     );
   }
   return {};
+}
+
+// Built With
+export async function getAllTools() {
+  if (client) {
+    return (await client.fetch(gettoolsquery)) || [];
+  }
+  return [];
+}
+
+// Category of Tools
+export async function getToolsCategories() {
+  if (client) {
+    return (await client.fetch(getcatoftoolsquery)) || [];
+  }
+  return [];
 }
 
 // export async function getAllPosts() {

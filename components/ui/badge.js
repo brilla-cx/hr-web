@@ -10,6 +10,7 @@ export default function Badge({ variant = "primary", size = "md", children }) {
   const variantClass = {
     primary: "bg-pink text-white",
     secondary: "bg-pink/20 text-black",
+    inverted: "bg-fuchsia-900 text-white rounded-full",
   };
 
   return (
@@ -17,7 +18,7 @@ export default function Badge({ variant = "primary", size = "md", children }) {
       className={cx(
         variantClass[variant],
         sizeClass[size],
-        "inline-flex font-bold bg-pink "
+        "inline-flex font-bold "
       )}>
       {children}
     </span>
