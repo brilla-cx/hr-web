@@ -30,6 +30,13 @@ export default function Tools({ tools, categories }) {
           </div>
 
           <div className="flex flex-wrap justify-center items-center mt-10 gap-5">
+             <Pill
+                  color="gray"
+                  active={selectedCategory === null}
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onClick={() => setSelectedCategory(null)}>
+                 View All
+                </Pill>
             {categories.length &&
               categories.map((category) => (
                 <Pill

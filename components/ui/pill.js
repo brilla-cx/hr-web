@@ -10,7 +10,7 @@ export default function Pill({ color = "pink", active, count, ...props }) {
     purple: "text-purple-600 border-purple-600",
     fuchsia: "text-fuchsia-600 border-fuchsia-600",
     pink: "text-pink border-pink",
-    gray: "text-gray-300 border-gray-600",
+    gray: "text-gray-600 border-gray-600",
   };
   const bgcolor = {
     cyan: "bg-cyan-50",
@@ -18,6 +18,10 @@ export default function Pill({ color = "pink", active, count, ...props }) {
     blue: "bg-blue-50",
     indigo: "bg-indigo-50",
     violet: "bg-violet-50",
+    purple: "bg-purple-50",
+    fuchsia: "bg-fuchsia-600",
+    pink: "bg-pink-50",
+    gray: "bg-gray-50",
   };
 
   return (
