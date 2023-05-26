@@ -5,5 +5,7 @@ module.exports = {
   bracketSameLine: true,
   tabWidth: 2,
   useTabs: false,
-  ignore: ["**/*.ndjson"],
+  tailwindFunctions: ["cx"],
+  tailwindConfig: "./tailwind.config.js",
+  plugins: [require("prettier-plugin-tailwindcss")],
 };

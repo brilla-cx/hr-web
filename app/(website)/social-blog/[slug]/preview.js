@@ -28,13 +28,13 @@
 
 "use client";
 
-import { singleSocialBlogQuery } from "@/sanity/groq";
+import { singlesocialblogquery } from "@/sanity/groq";
 import { usePreview } from "@/sanity/preview";
 
 import SocialBlog from "./socialblog";
 
 export default function SocialBlogPreview({ slug }) {
-  const socialBlog = usePreview(null, singleSocialBlogQuery, {
+  const socialBlog = usePreview(null, singlesocialblogquery, {
     slug: slug,
   });
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { SiLinkedin, SiTwitter } from "react-icons/si";
 
 import { PortableText } from "@/components/blog/portabletext";
@@ -44,17 +45,17 @@ export default function Author(props) {
             {author.name}
           </H2>
           {author.expertise && (
-            <Lead className="text-gray-400 mt-2 text-center mx-auto max-w-2xl">
+            <Lead className="mx-auto mt-2 max-w-2xl text-center text-gray-300">
               {author.expertise}
             </Lead>
           )}
 
-          <div className="flex gap-4 mt-4 items-center text-gray-300">
+          <div className="mt-4 flex items-center gap-4 text-gray-300">
             {author?.linkedin && (
               <Link
                 href={author.linkedin}
                 target="_blank"
-                className="transition duration-500 ease-in-out hover:shadow-lg hover:text-pink">
+                className="transition duration-500 ease-in-out hover:text-pink hover:shadow-lg">
                 <SiLinkedin /> <span className="sr-only">Linkedin</span>
               </Link>
             )}
@@ -62,7 +63,7 @@ export default function Author(props) {
               <Link
                 href={author.twitter}
                 target="_blank"
-                className="transition duration-500 ease-in-out hover:shadow-lg hover:text-pink">
+                className="transition duration-500 ease-in-out hover:text-pink hover:shadow-lg">
                 <SiTwitter /> <span className="sr-only">Twitter</span>
               </Link>
             )}
@@ -77,7 +78,7 @@ export default function Author(props) {
             )}*/}
           </div>
 
-          <div className="mx-auto mt-6 flex max-w-3xl flex-col px-5 not-prose text-center text-gray-400">
+          <div className="not-prose mx-auto mt-6 flex max-w-3xl flex-col px-5 text-center text-gray-400">
             {author.bio && <PortableText value={author.bio} />}
           </div>
           {/* <div className="grid md:grid-cols-2">
@@ -95,10 +96,10 @@ export default function Author(props) {
             </div>
           </div> */}
         </div>
-        <div className="text-center mt-16 text-gray-200">
-          <H6>{author.name} writes about</H6>
+        <div className="mt-16 text-center text-gray-200">
+          <H6>{author.firstName} writes about</H6>
         </div>
-        <div className="flex flex-wrap justify-center items-center mt-2 gap-3 mx-auto max-w-2xl">
+        <div className="mx-auto mt-2 flex max-w-2xl flex-wrap items-center justify-center gap-3">
           {categories.length &&
             categories.map((category) => (
               <Link
@@ -108,11 +109,13 @@ export default function Author(props) {
               </Link>
             ))}
         </div>
-        <div className="px-4 sm:px-8 lg:px-16 my-8 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-4 ">
-          {posts.map((post) => (
-            <PostAlt key={post._id} post={post} aspect="landscape" />
-          ))}
-        </div>
+        <Suspense fallback={<p>Revving up the flux capacitor....</p>}>
+          <div className="my-8 grid gap-10 px-4 sm:px-8 md:grid-cols-2 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
+            {posts.map((post) => (
+              <PostAlt key={post._id} post={post} aspect="landscape" />
+            ))}
+          </div>
+        </Suspense>
       </Container>
     </div>
   );
