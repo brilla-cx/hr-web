@@ -122,7 +122,10 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 p-8">
           <div className="pb-10 lg:flex lg:items-center lg:justify-between">
             <div>
-              <H5 className="text-gray-200"> Subscribe to our newsletter</H5>
+              <H5 as="H2" className="text-gray-200">
+                {" "}
+                Subscribe to our newsletter
+              </H5>
               <p className="mt-1 text-sm leading-6 text-gray-400">
                 The latest news, articles, and resources, sent to your inbox
                 weekly.
@@ -135,6 +138,7 @@ export default function Footer() {
                 email
               </label>
               <Input
+                id="email-address"
                 size="sm"
                 className="w-full border-neutral-200/10 bg-slate-900 px-4 text-sm text-gray-200 md:w-60 "
                 autoComplete="email"
@@ -152,7 +156,7 @@ export default function Footer() {
             </form>
           </div>
           <div className="mx-auto pb-4 md:flex md:items-center md:justify-between">
-            <p className="mt-8 text-xs leading-5 text-gray-500 md:order-2 md:mt-0">
+            <p className="mt-8 text-xs leading-5 text-gray-400 md:order-2 md:mt-0">
               &copy; {new Date().getFullYear()} Hey Rebekah is a product of
               <Link
                 href="https://bril.la"
@@ -166,7 +170,7 @@ export default function Footer() {
               &nbsp;All rights reserved.
             </p>
 
-            <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
+            <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
               In Partnership with{" "}
               <Link
                 href="https://web3creative.com"

@@ -55,8 +55,8 @@ export default function SocialBlogs() {
           includeForm
           formId="socialblog-sub"
         />
-        <div className="mx-auto max-w-6xl px-4">
-          <Suspense fallback={<p>Polishing the moon rocks...</p>}>
+        <div className="mx-auto max-w-6xl px-4 text-gray-200">
+          <Suspense fallback={<p>Walking the dead...</p>}>
             <PaginatedPosts />
           </Suspense>
         </div>

@@ -18,7 +18,7 @@ export default function HomePage({ posts }) {
           <Hero />
         </Container>
       </div>
-      <div className="bg-midnight">
+      <div className="bg-midnight text-gray-200">
         <Suspense fallback={<p>Herding cats...</p>}>
           <Container
             large

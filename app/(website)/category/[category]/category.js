@@ -33,7 +33,7 @@ export default function Category(props) {
   // Return the main component JSX
   return (
     // Div with midnight background color
-    <div className="bg-midnight">
+    <div className="bg-midnight text-gray-200">
       {/* Container component for holding the content */}
       <Container
         large
@@ -46,7 +46,7 @@ export default function Category(props) {
           formId={`${category.name}-sub`} // Dynamic form ID including category name
         />
         {/* Grid layout div for holding PostAlt components */}
-        <Suspense fallback={<p>Loading feed...</p>}>
+        <Suspense fallback={<p>Stargazing with Raquel...</p>}>
           <div className="mb-8 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
             {/* Map through posts array, and for each post, render a PostAlt component */}
             {posts.map((post) => (
