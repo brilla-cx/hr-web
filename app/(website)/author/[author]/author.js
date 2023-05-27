@@ -25,7 +25,7 @@ export default function Author(props) {
   ];
 
   return (
-    <div className="bg-midnight">
+    <div className="bg-midnight text-gray-200">
       <Container
         large
         className="border-l border-r border-neutral-200 border-opacity-10">

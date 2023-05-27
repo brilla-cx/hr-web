@@ -6,7 +6,7 @@ const Juno = () => {
         <>
             <Script
                 src="https://libraria-prod.s3.us-west-1.amazonaws.com/public/embed-inline-v0.0.02.js"
-                async
+                defer
             />
             <div className="bg-midnight px-6 py-24 sm:py-32 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">

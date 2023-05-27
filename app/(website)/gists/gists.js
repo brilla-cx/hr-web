@@ -45,11 +45,14 @@ export default function Gists() {
           formId="gist-sub" // formId prop for PageHeader
         />
         {/* Div for centering content and setting max width */}
-        <div className="mx-auto max-w-6xl px-4">
+        <div className="mx-auto max-w-6xl px-4 text-gray-200">
           {/* Suspense wrapper for loading state of paginated posts */}
 
           {/* PaginatedPosts component for displaying posts */}
-          <PaginatedPosts />
+          <Suspense
+            fallback={<p>Susan went where?! Searching the premises...</p>}>
+            <PaginatedPosts />
+          </Suspense>
         </div>
       </Container>
     </div>

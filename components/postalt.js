@@ -32,7 +32,7 @@ export default function PostAlt({
         )}>
         <div
           className={cx(
-            " overflow-hidden rounded-md bg-gray-800 transition-all group"
+            " group overflow-hidden rounded-md bg-gray-800 transition-all"
           )}>
           <Link
             className={cx("relative block", {
@@ -75,13 +75,13 @@ export default function PostAlt({
                 <H3
                   as="h2"
                   className={cx(
-                    "text-gray-200 mt-2 line-clamp-2",
+                    "mt-2 line-clamp-2 text-gray-200",
                     hoverStyles
                   )}>
                   <span className="inline">{post.name}</span>
                 </H3>
               ) : (
-                <H6 as="h2" className={cx("text-gray-200 mt-1 line-clamp-2 ")}>
+                <H6 as="h2" className={cx("mt-1 line-clamp-2 text-gray-200 ")}>
                   <span className={cx(hoverStyles)}>{post.name}</span>
                 </H6>
               )}
@@ -97,7 +97,7 @@ export default function PostAlt({
               )}
             </div>
 
-            <div className="mt-3 flex items-center justify-between text-gray-500 dark:text-gray-400">
+            <div className="mt-3 flex items-center justify-between text-gray-300 dark:text-gray-400">
               <Link href={`/author/${post.author?.slug.current}`}>
                 <div className="flex items-center gap-3">
                   <div className="relative h-5 w-5 flex-shrink-0">
