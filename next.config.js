@@ -2,7 +2,6 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    urlImports: ["https://themer.sanity.build/"],
   },
   images: {
     formats: ["image/avif", "image/webp"],

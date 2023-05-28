@@ -141,7 +141,6 @@ export default function Footer() {
                 id="email-address"
                 size="sm"
                 className="w-full border-neutral-200/10 bg-slate-900 px-4 text-sm text-gray-200 md:w-60 "
-                autoComplete="email"
                 placeholder="Enter your email"
                 required
                 type="email"
