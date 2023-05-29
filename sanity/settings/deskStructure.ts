@@ -130,7 +130,7 @@ function getPreviewUrl(doc) {
   const TYPE_LOOKUP = {
     post: "gists",
     socialBlog: "social-blog",
-    default: "gists"
+    default: ""
   };
 
   const type = TYPE_LOOKUP[doc._type] || TYPE_LOOKUP.default;
@@ -169,7 +169,7 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
 ) => {
-  const previewTypes = ["post", "socialBlog"];
+  const previewTypes = ["post", "socialBlog", "legal"];
 
   if (previewTypes.includes(schemaType)) {
     return S.document().views([
