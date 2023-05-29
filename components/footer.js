@@ -122,7 +122,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 p-8">
           <div className="pb-10 lg:flex lg:items-center lg:justify-between">
             <div>
-              <H5 as="H2" className="text-gray-200">
+              <H5 as="h2" className="text-gray-200">
                 {" "}
                 Subscribe to our newsletter
               </H5>
