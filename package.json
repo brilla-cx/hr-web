@@ -42,6 +42,7 @@
     "react-iframe": "^1.8.5",
     "react-share": "^4.4.1",
     "react-social-media-embed": "^2.3.5",
+    "rxjs": "^7.8.1",
     "sanity": "^3.11.1",
     "sanity-plugin-asset-source-giphy": "^4.0.3",
     "sanity-plugin-asset-source-openai": "^1.1.2",
