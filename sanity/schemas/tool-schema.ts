@@ -44,6 +44,12 @@ const tool = {
             validation: Rule => Rule.required().warning("What's the company/creator's name?"),
         },
         {
+            name: 'toolUrl',
+            title: "Tool Url",
+            descriptions: "the company website link like bril.la ....",
+            type: 'string',
+        },
+        {
             name: 'partnerContactName',
             title: 'Partner Contact',
             description: 'What\'s the name of the contact person at the Partner Company?',

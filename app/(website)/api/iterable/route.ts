@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+import { ValueType } from "@/types/IterableValue";
+
 export async function PUT(req: Request, res: NextResponse) {
   try {
     const value = (await req.json()) as ValueType;
@@ -43,7 +45,6 @@ export async function PUT(req: Request, res: NextResponse) {
       },
     };
 
-    console.log(payload);
 
     const response = await fetch(
       `https://api.iterable.com/api/catalogs/posts/items/${value._id}`,
@@ -80,50 +81,3 @@ export async function PUT(req: Request, res: NextResponse) {
     );
   }
 }
-
-type ValueType = {
-  _id: string;
-  name: string;
-  category: {
-    _id: string;
-    name: string;
-  }[];
-  featured: null;
-  image: {
-    imageAltText: string;
-    asset: {
-      url: string;
-    };
-    caption: null;
-  };
-  slug: {
-    current: string;
-    _type: string;
-  };
-  tldr: {
-    children: {
-      text: string;
-    }[];
-  }[];
-  author: {
-    name: string;
-    image: {
-      asset: {
-        url: string;
-      };
-      imageAltText: string;
-    };
-    slug: {
-      current: string;
-      _type: string;
-    };
-    linkedin: string;
-  };
-  publishedAt: string;
-  content: {
-    children: {
-      text: string;
-    }[];
-  }[];
-  URL: string;
-};
