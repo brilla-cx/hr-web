@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/constants";
 import { urlForImage } from "@/sanity/image";
 
 export default function OgImage({ post }) {
-  const category = post?.category[0]?.name || "";
+  const category = post?.category?.[0]?.name || post?.category || "";
   const sanitizedCategory = category.replace(/[\r\n\t]/g, "");
   const pubDate = format(
     parseISO(post?.publishedAt || post._createdAt),
@@ -18,7 +18,10 @@ export default function OgImage({ post }) {
     <div
       tw="flex w-full h-full"
       style={{ fontFamily: "Lexend Deca", backgroundColor: "#040b29" }}>
-      <div tw="flex flex-col items-start justify-around px-10 w-1/2">
+      <div
+        tw={`flex flex-col items-start justify-around px-10 ${
+          post.image ? "w-1/2" : "w-full"
+        }`}>
         <img
           src={`${absoluteURL}/hey-rebekah-logo-web.png`}
           alt="Hey Rebekah Logo"
@@ -30,7 +33,7 @@ export default function OgImage({ post }) {
             {sanitizedCategory}
           </span>
           <div
-            tw="flex mt-2 font-semibold tracking-tight leading-snug text-6xl text-white"
+            tw="flex mt-2 font-semibold tracking-tight leading-tight text-6xl text-white"
             style={{
               fontFamily: "Lexend Deca",
               maxHeight: "230px",
@@ -47,15 +50,16 @@ export default function OgImage({ post }) {
 
         <div tw="text-white opacity-70">{pubDate}</div>
       </div>
-
-      <div tw="flex w-1/2 relative items-center">
-        <img
-          src={urlForImage(post?.image).src}
-          alt="Cover"
-          tw="w-full h-full"
-          style={{ objectFit: "cover" }}
-        />
-      </div>
+      {post.image && (
+        <div tw="flex w-1/2 relative items-center">
+          <img
+            src={urlForImage(post.image).src}
+            alt="Cover"
+            tw="w-full h-full"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+      )}
     </div>
   );
 }
