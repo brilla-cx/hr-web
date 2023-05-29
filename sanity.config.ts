@@ -66,15 +66,17 @@ const config = defineConfig({
     },
     // prev is the result from previous plugins and can be composed
     productionUrl: async (prev, context) => {
+      // context includes the client an other details
       const { getClient, document } = context;
       const doctype = document._type === "post" ? "gists" : document._type;
 
       // console.log(getClient);
       const client = getClient({ apiVersion: "2023-05-19" });
 
-      if (document._type === "post" || document._type === "socialBlog") {
+      if (document._type === "post") {
+
         const slug = await client.fetch(
-          `*[_type == '${document._type}' && (_id == $postId || _id == $draftId)][0].slug.current`,
+          `*[_type == 'post' && (_id == $postId || _id == $draftId)][0].slug.current`,
           { postId: document._id, draftId: `drafts.${document._id}` }
         );
 

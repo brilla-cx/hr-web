@@ -6,7 +6,7 @@ import PageHeader from "@/components/ui/sections/pageheader";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export default async function AccessibilityStatement() {
-    const post = await getLegalPageBySlug('accessibility-statement');
+    const post = await getLegalPageBySlug('accessibility');
 
     // Fetch the post data and insert it into the component
     const title = post?.name ?? "Default Title";
