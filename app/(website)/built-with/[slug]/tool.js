@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { PortableText } from "@/components/blog/portabletext";
 import Container from "@/components/container";
-import { H1, H3, Prose } from "@/components/ui";
+import { Button, GlowingButton, H1, H3, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
@@ -24,8 +24,8 @@ export default function Tool(props) {
         className="absolute inset-0 -z-10 border-l border-r border-neutral-200 border-opacity-10"
       />
 
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-        <div className="lg:max-w-lg lg:self-center">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-14 lg:px-8">
+        <div className="lg:self-center">
           <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-400">
             {data?.category?.name}
           </p>
@@ -45,17 +45,23 @@ export default function Tool(props) {
               <h6 className="text-xl font-bold tracking-tight text-white ">
                 What we use it for:
               </h6>
-              <div className="prose prose-invert mt-2 leading-snug text-gray-300">
+              <div className="no-effects prose prose-invert mt-2 leading-snug text-gray-300">
                 <PortableText value={data.hrUse} />
               </div>
             </div>
           )}
 
           <div className="mt-6">
-            <Link
-              href={"#"}
-              className="text-whitefont-medium flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+            <GlowingButton href={data.toolUrl || "#"} target="_blank">
               Visit {data.name}
+            </GlowingButton>
+          </div>
+
+          <div className="mt-4 text-center">
+            <Link
+              href="/built-with"
+              className="text-sm text-white/40 hover:text-white">
+              ← View all tools
             </Link>
           </div>
         </div>

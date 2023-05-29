@@ -1,6 +1,4 @@
-import {
-  getToolbySlug,
-} from "@/sanity/client";
+import { getToolbySlug } from "@/sanity/client";
 
 import Tool from "./tool";
 
@@ -22,6 +20,5 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const data = await getToolbySlug(params.slug);
-  console.log(data);
- return <Tool data={data} />;
+  return <Tool data={data} />;
 }
