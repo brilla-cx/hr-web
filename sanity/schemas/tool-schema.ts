@@ -44,6 +44,14 @@ const tool = {
             validation: Rule => Rule.required().warning("What's the company/creator's name?"),
         },
         {
+            name: "toolUrl",
+            title: "Tool URL",
+            description: "Enter the full url to the tool's web page. i.e. https://height.app",
+            type: "string",
+            group: 'toolInfo',
+            validation: Rule => Rule.required().uri().warning("Every tool needs a link to clickity click"),
+        },
+        {
             name: 'partnerContactName',
             title: 'Partner Contact',
             description: 'What\'s the name of the contact person at the Partner Company?',

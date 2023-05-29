@@ -10,6 +10,51 @@ import { groq } from "next-sanity";
  * For each post, we fetch the id, created date, name, slug, image, published date, feature status, categories, url, and author details.
  * We also fetch a lower quality image placeholder (LQIP) for the blur-up effect when loading images.
  */
+export const postById = groq`*[_id == $id][0] {
+  _id,
+  name,
+  publishedAt,
+  category[]->{
+    _id,
+    name
+  },
+  author->{
+    name,
+    image{
+      imageAltText,
+      asset->{url}
+    },
+    slug,
+    linkedin
+  },
+  featured,
+  image{
+    imageAltText,
+    asset->{url},
+    caption
+  },
+  slug,
+  tldr[] {
+    _type == "block" => {
+      children[]{
+        _type == "span" => {
+          text
+        }
+      }
+    }
+  }[0...5][],
+  content[] {
+    _type == "block" => {
+      children[]{
+        _type == "span" => {
+          text
+        }
+      }
+    }
+  }[0...5][]
+}
+`;
+
 export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _createdAt desc) {
   _id,
   _createdAt,
