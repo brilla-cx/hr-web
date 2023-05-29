@@ -11,14 +11,14 @@ export default async function Navbar() {
   const recentPosts = await getPaginatedPosts({ limit: 2 });
   return (
     <div
-      className="sticky top-0 z-50 bg-midnight border-b border-neutral-200 border-opacity-10"
+      className="sticky top-0 z-50 border-b border-neutral-200 border-opacity-10 bg-midnight"
       aria-label="Main navigation">
       <div className="relative shadow">
         <Container
           alt
           large
-          className="h-20 py-5 border-l border-r border-neutral-200 border-opacity-10">
-          <div className="flex justify-between items-center gap-10">
+          className="h-20 border-l border-r border-neutral-200 border-opacity-10 py-5">
+          <div className="flex items-center justify-between gap-10">
             <div className="isolate" style={{ zIndex: 2 }}>
               <Link href="/" aria-label="Go to home page">
                 <div style={{ zIndex: 100 }}>
@@ -26,7 +26,6 @@ export default async function Navbar() {
                     src={LogoImage}
                     alt="Hey Rebekah Logo"
                     className="h-8 w-auto"
-                    priority
                   />
                 </div>
               </Link>

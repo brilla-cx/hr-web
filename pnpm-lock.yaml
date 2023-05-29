@@ -19,9 +19,6 @@ dependencies:
   '@sanity/code-input':
     specifier: ^4.1.0
     version: 4.1.0(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
-  '@sanity/dashboard':
-    specifier: ^3.1.3
-    version: 3.1.3(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
   '@sanity/scheduled-publishing':
     specifier: ^1.1.1
     version: 1.1.1(@types/react@18.0.35)(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
@@ -103,9 +100,6 @@ dependencies:
   sanity-plugin-asset-source-unsplash:
     specifier: ^1.0.6
     version: 1.0.6(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
-  sanity-plugin-dashboard-widget-document-list:
-    specifier: ^1.0.1
-    version: 1.0.1(@sanity/dashboard@3.1.3)(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
   sanity-plugin-iframe-pane:
     specifier: ^2.3.0
     version: 2.3.0(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
@@ -3514,28 +3508,6 @@ packages:
 
   /@sanity/color@2.2.5:
     resolution: {integrity: sha512-tTi22KoKuER3sldXYl4c1Dq2zU7tMLDkljFiaUKVkBbu4PBvRGCFw75kXZnD2b4Bsp6vin+7sI+AKdCKRhfRuw==}
-    dev: false
-
-  /@sanity/dashboard@3.1.3(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10):
-    resolution: {integrity: sha512-0lHClZCkTiTsBpJs8LQTQuJwdtr2YHdu+SQy/1X+a1GxLUaGphB9W3aMVSw6WBczcgw1hGGKmAI9pMi9V6Sj/g==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      react: ^18
-      sanity: ^3
-      styled-components: ^5.2
-    dependencies:
-      '@sanity/icons': 2.3.1(react@18.2.0)
-      '@sanity/image-url': 1.0.2
-      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
-      '@sanity/ui': 1.3.3(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)
-      lodash: 4.17.21
-      react: 18.2.0
-      rxjs: 6.6.7
-      sanity: 3.11.1(@types/node@18.15.11)(@types/react@18.0.35)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)
-      styled-components: 5.3.10(react-dom@18.2.0)(react@18.2.0)
-    transitivePeerDependencies:
-      - react-dom
-      - react-is
     dev: false
 
   /@sanity/diff@3.11.1:
@@ -12850,13 +12822,6 @@ packages:
       rxjs: 7.8.1
     dev: false
 
-  /rxjs@6.6.7:
-    resolution: {integrity: sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==}
-    engines: {npm: '>=2.0.0'}
-    dependencies:
-      tslib: 1.14.1
-    dev: false
-
   /rxjs@7.8.0:
     resolution: {integrity: sha512-F2+gxDshqmIub1KdvZkaEfGDwLNpPvk9Fs6LD/MyQxNgMds/WH9OdDDXOmxUZpME+iSK3rQCctkL0DYyytUqMg==}
     dependencies:
@@ -12968,27 +12933,6 @@ packages:
       styled-components: 5.3.10(react-dom@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - react-is
-    dev: false
-
-  /sanity-plugin-dashboard-widget-document-list@1.0.1(@sanity/dashboard@3.1.3)(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10):
-    resolution: {integrity: sha512-/ZGewhsNG51PV+a2YfhYYmZE1ALCnFrsHf8ZjbixuBQyDH1cruOSxoyy6gEbURz4p8pcs8AfZsAvxlkGMvXdVQ==}
-    engines: {node: '>=14'}
-    peerDependencies:
-      '@sanity/dashboard': ^3.0.0-v3-studio.8
-      react: ^18
-      sanity: ^3.0.0
-    dependencies:
-      '@sanity/dashboard': 3.1.3(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10)
-      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
-      '@sanity/ui': 1.3.3(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)
-      lodash: 4.17.21
-      react: 18.2.0
-      rxjs: 6.6.7
-      sanity: 3.11.1(@types/node@18.15.11)(@types/react@18.0.35)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.10)
-    transitivePeerDependencies:
-      - react-dom
-      - react-is
-      - styled-components
     dev: false
 
   /sanity-plugin-iframe-pane@2.3.0(react-dom@18.2.0)(react@18.2.0)(sanity@3.11.1)(styled-components@5.3.10):

@@ -1,66 +1,70 @@
 import { codeInput } from "@sanity/code-input";
-import { dashboardTool, projectUsersWidget } from "@sanity/dashboard";
 import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import { visionTool } from "@sanity/vision";
-import { theme } from "https://themer.sanity.build/api/hues?preset=pixel-art";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { giphyAssetSourcePlugin } from "sanity-plugin-asset-source-giphy";
 import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
-import { documentListWidget } from "sanity-plugin-dashboard-widget-document-list";
 import { media } from "sanity-plugin-media";
 
 import hrLogo from "./components/studio/logo/logo";
 import { SITE_URL } from "./lib/constants";
+import { SendToIterable } from "./sanity/actions";
 import schemas from "./sanity/schemas";
 import {
   defaultDocumentNode,
   structure,
 } from "./sanity/settings/deskStructure";
 
+
+function getEnvVar(key: string): string {
+  const value = import.meta.env[key];
+  if (!value) {
+    throw new Error(`Environment variable ${key} missing!`);
+  }
+  return value;
+}
+
+const giphyApiKey = getEnvVar('SANITY_STUDIO_GIPHY_API_KEY');
+const openaiApiKey = getEnvVar('SANITY_STUDIO_OPENAI_API_KEY');
+
+
 const config = defineConfig({
-  theme,
   projectId: "smx99abf",
   dataset: "production",
   title: "Hey Rebekah",
   apiVersion: "2023-04-17",
   basePath: "/studio",
   plugins: [
-    dashboardTool({
-      widgets: [
-        documentListWidget({
-          title: "Recently published",
-          query:
-            '*[_type == "post" && published == true] | order(title asc) [0...10]',
-        }),
-        projectUsersWidget(),
-      ],
-    }),
     deskTool({
       structure,
       defaultDocumentNode,
     }),
 
-    scheduledPublishing(), // Required for scheduled publishing to work
-    media(), // Required for media library to work
-    visionTool(), // For Development Purposes
-    unsplashImageAsset(), // Add Unsplash as an asset source
-    codeInput(), // Add code input for code blocks with the Content editor
+    scheduledPublishing(),
+    media(),
+    visionTool(),
+    unsplashImageAsset(),
+    codeInput(),
     giphyAssetSourcePlugin({
-      apiKey: "4Gi7oe0bE9zeStPSMpaqb98SJybKbKTz",
-    }), //
+      apiKey: giphyApiKey,
+    }),
     openaiImageAsset({
-      API_KEY: "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",
-    }), // Add OpenAI as an asset source for images within the Content editor
+      API_KEY: openaiApiKey,
+    }),
   ],
   studio: {
     components: {
-      logo: hrLogo, // Custom logo for Hey Rebekah Studio
+      logo: hrLogo,
     },
   },
   schema: { types: schemas },
   document: {
+    actions: (prev, context) => {
+      return context.schemaType === "post" ? [...prev, SendToIterable] : prev;
+    },
+    // prev is the result from previous plugins and can be composed
     productionUrl: async (prev, context) => {
       const { getClient, document } = context;
       const doctype = document._type === "post" ? "gists" : document._type;

@@ -33,7 +33,7 @@ export default function Category(props) {
   // Return the main component JSX
   return (
     // Div with midnight background color
-    <div className="bg-midnight">
+    <div className="bg-midnight text-gray-200">
       {/* Container component for holding the content */}
       <Container
         large
@@ -43,10 +43,10 @@ export default function Category(props) {
           title={`${category.name}`} // Dynamic title including category name
           leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +320,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name.trim()} right to your inbox, gratis.`}
           includeForm // Prop to include subscription form
-          formId={`${category.name}-subscribe`} // Dynamic form ID including category name
+          formId={`${category.name}-sub`} // Dynamic form ID including category name
         />
         {/* Grid layout div for holding PostAlt components */}
-        <Suspense fallback={<p>Loading feed...</p>}>
+        <Suspense fallback={<p>Stargazing with Raquel...</p>}>
           <div className="mb-8 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
             {/* Map through posts array, and for each post, render a PostAlt component */}
             {posts.map((post) => (

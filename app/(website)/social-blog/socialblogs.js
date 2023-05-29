@@ -53,10 +53,10 @@ export default function SocialBlogs() {
           title="Social Media Blog"
           leadText="Since launching in 2004, over 24 million unique visitors have read my posts, and no, it's not just my mom on a refresh marathon."
           includeForm
-          formId="socialblog-subscribe"
+          formId="socialblog-sub"
         />
-        <div className="mx-auto max-w-6xl px-4">
-          <Suspense fallback={<p>Polishing the moon rocks...</p>}>
+        <div className="mx-auto max-w-6xl px-4 text-gray-200">
+          <Suspense fallback={<p>Walking the dead...</p>}>
             <PaginatedPosts />
           </Suspense>
         </div>
