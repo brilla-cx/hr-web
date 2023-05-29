@@ -1,52 +1,52 @@
 /*
-* Sanity API Functions
-* Path: ./sanity.js
-*
-* In this file, we define several functions related to interacting with the Sanity API
-* using the Next.js framework and the `next-sanity` library. These functions are responsible
-* for fetching data from the Sanity CMS.
-*
-* First, we import the necessary libraries and configuration from the "config" module.
-* The "next-sanity" library provides the `createClient` function for creating a Sanity
-* client instance. We also import various query objects from the "groq" module, which contain
-* the GROQ (Graph-Relational Object Queries) queries used to fetch data from Sanity.
-*
-* We perform a check to ensure that the Sanity Project ID is set. If it is not set,
-* an error message is logged to the console.
-*
-* Next, we create a Sanity client instance by calling `createClient` with the provided
-* configuration values. The client instance is stored in the `client` variable. If `projectId`
-* is falsey, indicating that the project ID is not set, the `client` variable is set to `null`.
-*
-* The `fetcher` function is defined as an async function that takes an array `[query, params]`
-* as input. It checks if the `client` variable is truthy and then calls the `fetch` method on
-* the client instance with the provided query and params. If `client` is falsy, an empty array
-* is returned.
-*
-* We define several async functions for fetching data from Sanity:
-*
-* - `getAllPosts`: Fetches all posts using the `postquery` query.
-* - `getPostBySlug`: Fetches a post by its slug using the `singlepostquery` query and the provided
-*   slug as a parameter.
-* - `getAllPostsSlugs`: Fetches all post slugs using the `postpathquery` query and maps them to an
-*   array of objects with a "slug" property.
-* - `getTopCategories`: Fetches the top categories using the `topcatquery` query.
-* - `getAllAuthorsSlugs`: Fetches all author slugs using the `authorsquery` query and maps them to
-*   an array of objects with an "author" property.
-* - `getAuthorPostsBySlug`: Fetches posts by author using the `postsbyauthorquery` query and the
-*   provided slug as a parameter.
-* - `getPaginatedPosts`: Fetches paginated posts using the `paginatedpostsquery` query and the
-*   provided limit and pageIndex as parameters.
-* - `getPostsByCategory`: Fetches posts by category using the `postsbycatquery` query and the
-*   provided slug as a parameter.
-*
-* Each function checks if the `client` variable is truthy and then calls the `fetch` method on
-* the client instance with the respective query and parameters. If `client` is falsy, an empty
-* object or array is returned depending on the function.
-*
-* These functions serve as the API layer for retrieving data from Sanity and can be used in the
-* Next.js app to populate the pages with dynamic content.
-*/
+ * Sanity API Functions
+ * Path: ./sanity.js
+ *
+ * In this file, we define several functions related to interacting with the Sanity API
+ * using the Next.js framework and the `next-sanity` library. These functions are responsible
+ * for fetching data from the Sanity CMS.
+ *
+ * First, we import the necessary libraries and configuration from the "config" module.
+ * The "next-sanity" library provides the `createClient` function for creating a Sanity
+ * client instance. We also import various query objects from the "groq" module, which contain
+ * the GROQ (Graph-Relational Object Queries) queries used to fetch data from Sanity.
+ *
+ * We perform a check to ensure that the Sanity Project ID is set. If it is not set,
+ * an error message is logged to the console.
+ *
+ * Next, we create a Sanity client instance by calling `createClient` with the provided
+ * configuration values. The client instance is stored in the `client` variable. If `projectId`
+ * is falsey, indicating that the project ID is not set, the `client` variable is set to `null`.
+ *
+ * The `fetcher` function is defined as an async function that takes an array `[query, params]`
+ * as input. It checks if the `client` variable is truthy and then calls the `fetch` method on
+ * the client instance with the provided query and params. If `client` is falsy, an empty array
+ * is returned.
+ *
+ * We define several async functions for fetching data from Sanity:
+ *
+ * - `getAllPosts`: Fetches all posts using the `postquery` query.
+ * - `getPostBySlug`: Fetches a post by its slug using the `singlepostquery` query and the provided
+ *   slug as a parameter.
+ * - `getAllPostsSlugs`: Fetches all post slugs using the `postpathquery` query and maps them to an
+ *   array of objects with a "slug" property.
+ * - `getTopCategories`: Fetches the top categories using the `topcatquery` query.
+ * - `getAllAuthorsSlugs`: Fetches all author slugs using the `authorsquery` query and maps them to
+ *   an array of objects with an "author" property.
+ * - `getAuthorPostsBySlug`: Fetches posts by author using the `postsbyauthorquery` query and the
+ *   provided slug as a parameter.
+ * - `getPaginatedPosts`: Fetches paginated posts using the `paginatedpostsquery` query and the
+ *   provided limit and pageIndex as parameters.
+ * - `getPostsByCategory`: Fetches posts by category using the `postsbycatquery` query and the
+ *   provided slug as a parameter.
+ *
+ * Each function checks if the `client` variable is truthy and then calls the `fetch` method on
+ * the client instance with the respective query and parameters. If `client` is falsy, an empty
+ * object or array is returned depending on the function.
+ *
+ * These functions serve as the API layer for retrieving data from Sanity and can be used in the
+ * Next.js app to populate the pages with dynamic content.
+ */
 
 import { createClient } from "next-sanity";
 
@@ -64,11 +64,11 @@ import {
   postsbycatquery,
   singlepostquery,
   singlesocialblogquery,
+  singletoolsquery,
   socialblogpathquery,
   socialblogquery,
   topcatquery,
 } from "./groq";
-
 
 if (!projectId) {
   console.error(
@@ -222,6 +222,12 @@ export async function getLegalPageBySlug(slug) {
   return {};
 }
 
+export async function getToolbySlug(slug) {
+  if (client) {
+    return (await client.fetch(singletoolsquery, { slug })) || {};
+  }
+  return {};
+}
 
 // export async function getAllPosts() {
 //   if (client) {
