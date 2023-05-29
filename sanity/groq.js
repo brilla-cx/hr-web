@@ -132,7 +132,7 @@ export const topcatquery = groq`*[_type == "category"] {
  * Authors Query
  *
  * This query fetches the slugs of all the authors. The slug is a URL-friendly identifier for the authors.
-*/
+ */
 export const authorsquery = groq`
 *[_type == "author" && defined(slug.current)][].slug.current
 `;
@@ -262,5 +262,14 @@ export const paginatedsocialblogsquery = groq`
 *[_type == "socialBlog"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
   ...,
   author->
+}
+`;
+
+export const getlegalpagebyslugquery = groq`
+*[_type == "legal" && slug.current == $slug][0] {
+  name,
+  tldr, 
+  content,
+  slug 
 }
 `;
