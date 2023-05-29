@@ -15,11 +15,11 @@ import {
   postsbycatquery,
   singlepostquery,
   singlesocialblogquery,
+  singletoolsquery,
   socialblogpathquery,
   socialblogquery,
   topcatquery,
 } from "./groq";
-
 
 if (!projectId) {
   console.error(
@@ -168,6 +168,13 @@ export async function getToolsCategories() {
 export async function getLegalPageBySlug(slug) {
   if (client) {
     return (await client.fetch(getlegalpagebyslugquery, { slug })) || {};
+  }
+  return {};
+}
+
+export async function getToolbySlug(slug) {
+  if (client) {
+    return (await client.fetch(singletoolsquery, { slug })) || {};
   }
   return {};
 }

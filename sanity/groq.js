@@ -203,6 +203,14 @@ export const getcatoftoolsquery = groq`*[_type == "category" && count(*[_type ==
     "count": count(*[_type == "tool" && references(^._id)])
 }`;
 
+// Get Tools by Slug
+export const singletoolsquery = groq`
+*[_type == "tool" && slug.current == $slug][0] {
+  ...,
+  category->
+}
+`;
+
 /*
  * Social Blog Query
  *

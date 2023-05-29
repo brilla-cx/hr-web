@@ -7,5 +7,5 @@ module.exports = {
   useTabs: false,
   tailwindFunctions: ["cx"],
   tailwindConfig: "./tailwind.config.js",
-  plugins: [require("prettier-plugin-tailwindcss")],
+  plugins: ["prettier-plugin-tailwindcss"],
 };

@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 const GradientBackground = () => {
   // Dynamic class names for gradient background
   const gradientBackgroundClasses = cx(
-    "absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#ff00fe] to-amber-600 blur-sm rounded group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200"
+    "absolute -inset-px rounded bg-gradient-to-r from-[#ff00fe] to-amber-600 opacity-70 blur-sm transition-all duration-1000 group-hover:-inset-1 group-hover:opacity-100 group-hover:duration-200"
   );
 
   // Render a div with the gradient background
@@ -20,7 +20,7 @@ const GradientBackground = () => {
 const ButtonContent = ({ size, children }) => {
   // Dynamic class names for button content
   const buttonContentClasses = cx(
-    `relative flex items-center justify-center leading-snug uppercase font-display font-semibold ${sizeClasses[size]} text-gray-200 transition-all duration-200 bg-slate-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 whitespace-nowrap`
+    `relative flex items-center justify-center font-display font-semibold uppercase leading-snug ${sizeClasses[size]} whitespace-nowrap rounded bg-slate-900 text-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2`
   );
 
   // Render the button content wrapped in a div
@@ -40,7 +40,7 @@ ButtonContent.propTypes = {
 };
 
 // Main component for the glowing button
-const GlowingButton = ({ variant, href, size = "md", children }) => {
+const GlowingButton = ({ variant, href, size = "md", children, ...props }) => {
   // Wrapper is a button or a link based on the variant prop
   const Wrapper = variant === "subscribe" ? "button" : Link;
   // Props for the Wrapper component
@@ -48,10 +48,10 @@ const GlowingButton = ({ variant, href, size = "md", children }) => {
 
   // Render the button. The w-full in the Wrapper is what makes the button full width here, which may be counterintuitive but it works.
   return (
-    <div className="bg-black flex justify-center items-center">
-      <div className="relative inline-flex w-full group">
+    <div className="flex items-center justify-center bg-black">
+      <div className="group relative inline-flex w-full">
         <GradientBackground />
-        <Wrapper className="w-full" {...wrapperProps}>
+        <Wrapper className="w-full" {...wrapperProps} {...props}>
           <ButtonContent size={size}>{children}</ButtonContent>
         </Wrapper>
       </div>
