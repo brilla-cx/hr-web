@@ -28,20 +28,20 @@ export default function ToolBox({ tool }) {
       <div className="group relative">
         <div
           className={cx(
-            "aspect-video flex items-center justify-center p-5   rounded-md",
+            "flex aspect-video items-center justify-center rounded-md p-5",
             categoryColor
           )}>
           <Image {...imageProps} alt={`${tool.name} Logo`} />
         </div>
         <Link href={`/built-with/${tool.slug.current}`}>
           <span className="absolute inset-0" />
-          <H6 as="h2" className={cx("text-gray-200 mt-3 line-clamp-2 ")}>
+          <H6 as="h2" className={cx("mt-3 line-clamp-2 text-gray-200 ")}>
             <span className={cx(hoverStyles)}>{tool.name}</span>
           </H6>
         </Link>
 
         {tool.shortDescription && (
-          <p className="mt-1 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
+          <p className="mt-1 line-clamp-3 text-sm text-gray-400 dark:text-gray-400">
             {tool.shortDescription}
           </p>
         )}
