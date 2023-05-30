@@ -188,14 +188,14 @@ export const postsbycatquery = groq`
 }
 `;
 
-export const gettoolsquery = groq`*[_type == "tool"]  | order(publishedAt desc, _createdAt desc) {
+export const gettoolsquery = groq`*[_type == "tool"]  | order(name asc) {
   ...,
   category->,
 }`;
 
 // Get category based on defined in tools atleast once
 
-export const getcatoftoolsquery = groq`*[_type == "category" && count(*[_type == "tool" && references(^._id)]) > 0] {
+export const getcatoftoolsquery = groq`*[_type == "category" && count(*[_type == "tool" && references(^._id)]) > 0] | order(name asc) {
   _id,
   slug,
   name,
