@@ -2,7 +2,6 @@ import {
   FaArchive,
   FaBook,
   FaFeatherAlt,
-  FaFileAlt,
   FaListUl,
   FaQuestion,
   FaQuoteLeft,
@@ -10,165 +9,75 @@ import {
   FaTools,
   FaUserAstronaut,
 } from "react-icons/fa";
-import { map } from 'rxjs/operators';
+import { GoLaw } from "react-icons/go";
 import { DefaultDocumentNodeResolver } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
 import { SEOPane } from "sanity-plugin-seo-pane";
 
 import { SITE_URL } from "../../lib/constants";
 
-export const structure = (S, context) => {
-  const { documentStore } = context;
+/*
+The "structure" function defines the structure of the Sanity Studio. It is an exported
+constant that takes the built-in Sanity "S" object as a parameter. The "S" object
+contains functions for defining the studio structure.
 
-  return S.list()
+The structure is a list with a title "Let's make some magic". This function takes an
+array of items that will be displayed in the list. Each "listItem" represents a
+different document type in the Sanity schema.
+
+The "title" function sets the title of the list item, and the "icon" function sets
+its icon. The "child" function is used to create the list of documents for that
+document type. "divider" creates a visual separation between groups of list items.
+*/
+export const structure = (S) =>
+  S.list()
     .title("Let's make some magic")
     .items([
       S.listItem()
         .title("Posts")
         .icon(FaFeatherAlt)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'post'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('post')
-                  .title(`Posts (${count})`)
-                  .filter('_type == "post"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("post")),
       S.listItem()
         .title("Books")
         .icon(FaBook)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'book'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('book')
-                  .title(`Books (${count})`)
-                  .filter('_type == "book"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("book")),
       S.listItem()
         .title("Tools")
         .icon(FaTools)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'tool'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('tool')
-                  .title(`Built With Tools (${count})`)
-                  .filter('_type == "tool"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("tool")),
       S.divider(),
       S.listItem()
-        .title("Categories")
+        .title("Topics")
         .icon(FaThList)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'category'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('category')
-                  .title(`Categories (${count})`)
-                  .filter('_type == "category"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("category")),
       S.listItem()
         .title("Authors")
         .icon(FaUserAstronaut)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'author'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('author')
-                  .title(`Authors (${count})`)
-                  .filter('_type == "author"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("author")),
       S.divider(),
       S.listItem()
         .title("FAQs")
         .icon(FaQuestion)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'faq'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('faq')
-                  .title(`FAQ (${count})`)
-                  .filter('_type == "faq"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("faq")),
       S.listItem()
-        .title("Quizesseses")
+        .title("Quiz Questions")
         .icon(FaListUl)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'quiz'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('quiz')
-                  .title(`Quiz (${count})`)
-                  .filter('_type == "quiz"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("quiz")),
       S.listItem()
         .title("Quotes")
         .icon(FaQuoteLeft)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'quote'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('quote')
-                  .title(`Quotes (${count})`)
-                  .filter('_type == "quote"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("quote")),
       S.divider(),
       S.listItem()
-        .title("Legal Pages")
-        .icon(FaFileAlt)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'legal'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('legal')
-                  .title(`Legal Pages (${count})`)
-                  .filter('_type == "legal"')
-              )
-            )
-        ),
+        .title("Privacy & Terms")
+        .icon(GoLaw)
+        .child(S.documentTypeList("legal")),
       S.divider(),
       S.listItem()
         .title("Rebekah's Old Blogs")
         .icon(FaArchive)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'socialBlog'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('socialBlog')
-                  .title(`Social Blogs (${count})`)
-                  .filter('_type == "socialBlog"')
-              )
-            )
-        ),
+        .child(S.documentTypeList("socialBlog")),
     ]);
-};
 
 /*
 The getPreviewUrl function is responsible for generating the preview URL based on the current
