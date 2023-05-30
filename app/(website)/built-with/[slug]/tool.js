@@ -4,11 +4,9 @@ import { notFound } from "next/navigation";
 
 import { PortableText } from "@/components/blog/portabletext";
 import Container from "@/components/container";
-import { Button, GlowingButton, H1, H3, Prose } from "@/components/ui";
-import Label from "@/components/ui/label";
+import { GlowingButton, H3 } from "@/components/ui";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
-import category from "@/sanity/schemas/category-schema";
 
 export default function Tool(props) {
   const { data } = props;
