@@ -1,27 +1,8 @@
-/*
-In this section of the deskStructure.js file, we are importing the necessary libraries
-and components for the studio's structure and its appearance.
-
-- The "react-icons/fa" and "react-icons/go" libraries provide Font Awesome icons and
-  GitHub Octicons icons respectively to use in the Sanity Studio interface.
-- The "DefaultDocumentNodeResolver" from "sanity/desk" is a built-in Sanity function
-  that is used to define the different views for each document type in the Sanity Studio.
-- "sanity-plugin-iframe-pane" is a Sanity plugin that allows you to embed an iframe
-  as a pane in the Sanity Studio.
-- "sanity-plugin-seo-pane" is a Sanity plugin that provides a pane for managing SEO data
-  for a document.
-- "SITE_URL" is a constant that contains the base URL for the website. It is imported
-  from the "lib/constants" module.
-
-We define the main list's title and the items within it. Each item represents a document
-type in our Sanity schema, with a title and an icon. The child() function is used to
-create a list of documents for each type. A divider() is used for visual separation
-between different groups of items.
-*/
 import {
   FaArchive,
   FaBook,
   FaFeatherAlt,
+  FaFileAlt,
   FaListUl,
   FaQuestion,
   FaQuoteLeft,
@@ -29,75 +10,165 @@ import {
   FaTools,
   FaUserAstronaut,
 } from "react-icons/fa";
-import { GoLaw } from "react-icons/go";
+import { map } from 'rxjs/operators';
 import { DefaultDocumentNodeResolver } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
 import { SEOPane } from "sanity-plugin-seo-pane";
 
 import { SITE_URL } from "../../lib/constants";
 
-/*
-The "structure" function defines the structure of the Sanity Studio. It is an exported
-constant that takes the built-in Sanity "S" object as a parameter. The "S" object
-contains functions for defining the studio structure.
+export const structure = (S, context) => {
+  const { documentStore } = context;
 
-The structure is a list with a title "Let's make some magic". This function takes an
-array of items that will be displayed in the list. Each "listItem" represents a
-different document type in the Sanity schema.
-
-The "title" function sets the title of the list item, and the "icon" function sets
-its icon. The "child" function is used to create the list of documents for that
-document type. "divider" creates a visual separation between groups of list items.
-*/
-export const structure = (S) =>
-  S.list()
+  return S.list()
     .title("Let's make some magic")
     .items([
       S.listItem()
         .title("Posts")
         .icon(FaFeatherAlt)
-        .child(S.documentTypeList("post")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'post'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('post')
+                  .title(`Posts (${count})`)
+                  .filter('_type == "post"')
+              )
+            )
+        ),
       S.listItem()
         .title("Books")
         .icon(FaBook)
-        .child(S.documentTypeList("book")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'book'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('book')
+                  .title(`Books (${count})`)
+                  .filter('_type == "book"')
+              )
+            )
+        ),
       S.listItem()
         .title("Tools")
         .icon(FaTools)
-        .child(S.documentTypeList("tool")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'tool'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('tool')
+                  .title(`Built With Tools (${count})`)
+                  .filter('_type == "tool"')
+              )
+            )
+        ),
       S.divider(),
       S.listItem()
-        .title("Topics")
+        .title("Categories")
         .icon(FaThList)
-        .child(S.documentTypeList("category")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'category'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('category')
+                  .title(`Categories (${count})`)
+                  .filter('_type == "category"')
+              )
+            )
+        ),
       S.listItem()
         .title("Authors")
         .icon(FaUserAstronaut)
-        .child(S.documentTypeList("author")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'author'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('author')
+                  .title(`Authors (${count})`)
+                  .filter('_type == "author"')
+              )
+            )
+        ),
       S.divider(),
       S.listItem()
         .title("FAQs")
         .icon(FaQuestion)
-        .child(S.documentTypeList("faq")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'faq'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('faq')
+                  .title(`FAQ (${count})`)
+                  .filter('_type == "faq"')
+              )
+            )
+        ),
       S.listItem()
-        .title("Quiz Questions")
+        .title("Quizesseses")
         .icon(FaListUl)
-        .child(S.documentTypeList("quiz")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'quiz'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('quiz')
+                  .title(`Quiz (${count})`)
+                  .filter('_type == "quiz"')
+              )
+            )
+        ),
       S.listItem()
         .title("Quotes")
         .icon(FaQuoteLeft)
-        .child(S.documentTypeList("quote")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'quote'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('quote')
+                  .title(`Quotes (${count})`)
+                  .filter('_type == "quote"')
+              )
+            )
+        ),
       S.divider(),
       S.listItem()
-        .title("Privacy & Terms")
-        .icon(GoLaw)
-        .child(S.documentTypeList("legal")),
+        .title("Legal Pages")
+        .icon(FaFileAlt)
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'legal'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('legal')
+                  .title(`Legal Pages (${count})`)
+                  .filter('_type == "legal"')
+              )
+            )
+        ),
       S.divider(),
       S.listItem()
         .title("Rebekah's Old Blogs")
         .icon(FaArchive)
-        .child(S.documentTypeList("socialBlog")),
+        .child(
+          documentStore
+            .listenQuery(`count(*[_type == 'socialBlog'])`)
+            .pipe(
+              map(count =>
+                S.documentTypeList('socialBlog')
+                  .title(`Social Blogs (${count})`)
+                  .filter('_type == "socialBlog"')
+              )
+            )
+        ),
     ]);
+};
 
 /*
 The getPreviewUrl function is responsible for generating the preview URL based on the current
@@ -124,8 +195,8 @@ function getPreviewUrl(doc) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : process.env.NODE_ENV === "production"
-      ? SITE_URL
-      : `https://${process.env.VERCEL_URL}`;
+        ? SITE_URL
+        : `https://${process.env.VERCEL_URL}`;
 
   const TYPE_LOOKUP = {
     post: "gists",
