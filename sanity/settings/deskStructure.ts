@@ -1,23 +1,3 @@
-/*
-In this section of the deskStructure.js file, we are importing the necessary libraries
-and components for the studio's structure and its appearance.
-
-- The "react-icons/fa" and "react-icons/go" libraries provide Font Awesome icons and
-  GitHub Octicons icons respectively to use in the Sanity Studio interface.
-- The "DefaultDocumentNodeResolver" from "sanity/desk" is a built-in Sanity function
-  that is used to define the different views for each document type in the Sanity Studio.
-- "sanity-plugin-iframe-pane" is a Sanity plugin that allows you to embed an iframe
-  as a pane in the Sanity Studio.
-- "sanity-plugin-seo-pane" is a Sanity plugin that provides a pane for managing SEO data
-  for a document.
-- "SITE_URL" is a constant that contains the base URL for the website. It is imported
-  from the "lib/constants" module.
-
-We define the main list's title and the items within it. Each item represents a document
-type in our Sanity schema, with a title and an icon. The child() function is used to
-create a list of documents for each type. A divider() is used for visual separation
-between different groups of items.
-*/
 import {
   FaArchive,
   FaBook,
@@ -124,8 +104,8 @@ function getPreviewUrl(doc) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : process.env.NODE_ENV === "production"
-      ? SITE_URL
-      : `https://${process.env.VERCEL_URL}`;
+        ? SITE_URL
+        : `https://${process.env.VERCEL_URL}`;
 
   const TYPE_LOOKUP = {
     post: "gists",
