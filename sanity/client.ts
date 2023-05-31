@@ -6,6 +6,7 @@ import {
   getcatoftoolsquery,
   getlegalpagebyslugquery,
   gettoolsquery,
+  paginatedbooksquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
   postById,
@@ -99,10 +100,10 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
       (await client.fetch(paginatedpostsquery, {
         pageIndex: pageIndex,
         limit: limit,
-      })) || {}
+      })) || []
     );
   }
-  return {};
+  return [];
 }
 //  Category Page
 
@@ -177,4 +178,17 @@ export async function getToolbySlug(slug) {
     return (await client.fetch(singletoolsquery, { slug })) || {};
   }
   return {};
+}
+
+// Get Paginated Books
+export async function getPaginatedBooks({ limit, pageIndex = 0 }) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedbooksquery, {
+        pageIndex: pageIndex,
+        limit: limit,
+      })) || []
+    );
+  }
+  return [];
 }
