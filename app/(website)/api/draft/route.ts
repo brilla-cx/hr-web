@@ -50,8 +50,9 @@ export async function GET(request: Request) {
 
   if (fetchParam) {
     const absoluteUrl = new URL(`/${type}/${slug}`, baseOrigin).toString();
-
-    const previewHtml = await fetch(absoluteUrl, { headers })
+    const previewHtml = await fetch(absoluteUrl, {
+      headers: { "Access-Control-Allow-Origin": corsOrigin },
+    })
       .then((previewRes) => previewRes.text())
       .catch((err) => console.error(err));
 
