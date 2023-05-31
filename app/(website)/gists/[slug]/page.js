@@ -26,8 +26,8 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const post = await getPostBySlug(params.slug);
-  const seoTitle = post?.tldr?.[0]?.children?.[0]?.text;
-  const seoMetaDescription = post?.tldr?.[0]?.children?.[0]?.text;
+  const seoTitle = post?.name;
+  const seoMetaDescription = post?.seoMetaDescription?.[0]?.children?.[0]?.text;
 
   return {
     title: post.seo?.title || seoTitle,

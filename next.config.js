@@ -1,4 +1,36 @@
 /** @type {import('next').NextConfig} */
+const commonHeaders = [
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
+  },
+  {
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
+  },
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+];
+
+const fontHeaders = [
+  {
+    key: "Cache-Control",
+    value: "public, max-age=31536000, immutable",
+  },
+];
+
+const fonts = ["lexend-deca", "lexend-semibold", "lexend"];
+const fontRoutes = fonts.map((font) => ({
+  source: `/assets/fonts/${font}.ttf`,
+  headers: fontHeaders,
+}));
+
 const nextConfig = {
   experimental: {
     appDir: true,
@@ -32,34 +64,32 @@ const nextConfig = {
     ];
   },
   async headers() {
+    const ContentSecurityPolicy = `
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://youtu.be/ https://www.youtube-nocookie.com/ https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://www.reddit.com https://www.snapchat.com https://cdn.segment.com https://www.googletagmanager.com https://*.sanity.io https://*.sanity.studio https://*.vercel.com https://libraria-prod.s3.us-west-1.amazonaws.com http://localhost:3000/;
+      style-src 'self' 'unsafe-inline' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/ https://*.sanity.studio; 
+      img-src 'self' data: https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/ https://*.sanity.studio;  
+      frame-src https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://*.sanity.io https://*.sanity.studio https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/; 
+      connect-src 'self' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://cdn.segment.com https://www.googletagmanager.com https://*.sanity.io https://*.sanity.studio https://*.vercel.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/;
+      font-src 'self';
+      object-src 'none';
+      media-src 'self' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://*.sanity.io https://*.sanity.studio https://*.tiktok.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/;
+      child-src 'self' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://*.sanity.io https://*.sanity.studio https://*.tiktok.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/;
+      frame-ancestors 'self' http://localhost:3000 http://localhost:3333;
+    `;
+
     return [
       {
-        source: "/assets/fonts/lexend-deca.ttf",
+        source: "/(.*)",
         headers: [
           {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            key: "Content-Security-Policy",
+            value: ContentSecurityPolicy.replace(/\n/g, ""),
           },
+          ...commonHeaders,
         ],
       },
-      {
-        source: "/assets/fonts/lexend-semibold.ttf",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/assets/fonts/lexend.ttf",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
+      ...fontRoutes,
     ];
   },
 };
