@@ -3,6 +3,7 @@
 import { useToast } from "@sanity/ui";
 import React from "react";
 import { BsSend } from "react-icons/bs";
+import { DocumentActionComponent, useDocumentOperation } from "sanity";
 
 import { ValueType } from "@/types/IterableValue";
 
@@ -18,9 +19,11 @@ function getEnvVar(key: string): string {
 
 const iterableKey = getEnvVar("SANITY_STUDIO_ITERABLE_TOKEN");
 
-export function SendToIterable({ id }) {
+export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
   const toast = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
+
+  const { publish } = useDocumentOperation(id, type);
 
   const handleSend = React.useCallback(async () => {
     setIsLoading(true);
@@ -97,9 +100,13 @@ export function SendToIterable({ id }) {
     }
   }, [id, toast]);
 
+  const isDocumentPublished = publish.disabled === false;
+
   return {
     label: "Send To Iterable",
     icon: BsSend,
     onHandle: handleSend,
+    title: isDocumentPublished ? "This post is not published" : "",
+    disabled: isDocumentPublished,
   };
-}
+};
