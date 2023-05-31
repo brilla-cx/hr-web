@@ -78,7 +78,7 @@ const post = {
       type: "string",
       group: "iterable",
       options: { maxLength: 60, spellcheck: true },
-      validation: Rule => Rule.required().warning("Every Itable post needs a name, right?"),
+      validation: Rule => Rule.required().warning("Every Iterable post needs a name, right?"),
     },
     {
       name: "tldr",
