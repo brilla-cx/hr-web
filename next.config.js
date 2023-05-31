@@ -43,7 +43,7 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Commented out for now by Sam contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
@@ -65,7 +65,9 @@ const nextConfig = {
   },
   // eslint-disable-next-line require-await
   async headers() {
-    const ContentSecurityPolicy = `
+    // eslint-disable-next-line no-lone-blocks
+    {
+      /*const ContentSecurityPolicy = `
       default-src 'self';
       script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:3000/ https://hr-web-beta.vercel.app/ https://hr-web-beta.vercel.app/api/draft https://*.cloudflare.com https://*.facebook.com https://*.google.com https://*.instagram.com https://*.linkedin.com https://*.pinterest.com https://*.reddit.com https://*.sanity.io/ https://*.sanity.studio/ https://*.snapchat.com https://*.tiktok.com https://*.twitter.com https://*.vercel.app/ https://*.vimeo.com https://*.youtube.com https://cdn.segment.com https://www.googletagmanager.com https://libraria-prod.s3.us-west-1.amazonaws.com/ https://youtu.be/ https://www.youtube-nocookie.com/;
       style-src 'self' 'unsafe-inline' http://localhost:3000/ https://hr-web-beta.vercel.app/ https://hr-web-beta.vercel.app/api/draft https://*.cloudflare.com https://*.facebook.com https://*.google.com https://*.instagram.com https://*.linkedin.com https://*.pinterest.com https://*.tiktok.com https://*.twitter.com https://*.vercel.app/ https://*.vimeo.com https://*.youtube.com https://youtu.be/ https://www.youtube-nocookie.com/;
@@ -77,16 +79,17 @@ const nextConfig = {
       media-src 'self' http://localhost:3000/ https://hr-web-beta.vercel.app/ https://hr-web-beta.vercel.app/api/draft https://*.cloudflare.com https://*.facebook.com https://*.google.com https://*.instagram.com https://*.linkedin.com https://*.pinterest.com https://*.sanity.io/ https://*.sanity.studio/ https://*.tiktok.com https://*.twitter.com https://*.youtube.com https://cdn.segment.com https://www.googletagmanager.com https://*.vercel.com https://youtu.be/ https://www.youtube-nocookie.com/;
       workers-src 'self' http://localhost:3000/ https://hr-web-beta.vercel.app/ https://hr-web-beta.vercel.app/api/draft https://*.cloudflare.com https://*.facebook.com https://*.google.com https://*.instagram.com https://*.linkedin.com https://*.pinterest.com https://*.sanity.io/ https://*.sanity.studio/ https://*.tiktok.com https://*.twitter.com https://*.youtube.com https://cdn.segment.com https://www.googletagmanager.com https://*.vercel.com https://youtu.be/ https://www.youtube-nocookie.com/;
       frame-ancestors 'self' http://localhost:3000/ http://localhost:3333/ https://hr-web-beta.vercel.app/ https://*.vercel.app/ https://hr-web-beta.vercel.app/api/draft;
-    `;
+  `;*/
+    }
 
     return [
       {
         source: "/(.*)",
         headers: [
-          {
-            key: "Content-Security-Policy",
-            value: ContentSecurityPolicy.replace(/\n/g, ""),
-          },
+          // {
+          //   key: "Content-Security-Policy",
+          //   value: ContentSecurityPolicy.replace(/\n/g, ""),
+          // },
           ...commonHeaders,
         ],
       },
