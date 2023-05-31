@@ -59,7 +59,7 @@ export async function GET(request: Request) {
       status: 200,
       headers: {
         "Content-Type": "text/html",
-        ...Object.fromEntries(headers),
+        "Access-Control-Allow-Origin": corsOrigin,
       },
     });
   }
