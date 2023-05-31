@@ -36,12 +36,22 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
       const sanityRes = await postByIdQuery(id);
       const value = sanityRes as ValueType;
 
-      const content = value.content
-        .map((item) => item.children.map((child) => child.text).join(""))
-        .join("");
-      const tldr = value.tldr
-        .map((item) => item.children.map((child) => child.text).join(""))
-        .join("");
+      // todo right better typing for blocksContent
+      const getTextFromBlocks = (blocks: { children: any[] }[]) => {
+        if (!blocks || blocks.length === 0) {
+          return "";
+        }
+
+        return blocks
+          .map((item: { children: any[] }) =>
+            item.children.map((child) => child.text).join("")
+          )
+          .join("");
+      };
+
+      const contentText = getTextFromBlocks(value.content);
+      const tldrText = getTextFromBlocks(value.tldr);
+
       const payload = {
         itemId: value._id,
         catalogName: "sanity-posts",
@@ -57,7 +67,7 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
             sanity_caption: value.image.caption,
           },
           sanity_slug: value.slug.current,
-          sanity_tldr: tldr,
+          sanity_tldr: tldrText,
           sanity_author: {
             sanity_name: value.author.name,
             sanity_image: value.author.image.asset.url,
@@ -65,7 +75,7 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
             sanity_slug: value.author.slug.current,
             sanity_linkedIn: value.author.linkedin,
           },
-          sanity_content: content,
+          sanity_content: contentText,
           sanity_url: `https://heyrebekah.com/${value.category[0].name}/${value.slug.current}`,
         },
       };
