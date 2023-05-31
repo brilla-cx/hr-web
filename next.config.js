@@ -10,7 +10,7 @@ const commonHeaders = [
   },
   {
     key: "X-Frame-Options",
-    value: "SAMEORIGIN",
+    value: "SAMEORIGIN https://*.sanity.studio/",
   },
   {
     key: "X-Content-Type-Options",
