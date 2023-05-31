@@ -48,18 +48,16 @@ export const dynamicParams = true;
  * @returns {Object} Generated metadata
  */
 export async function generateMetadata({ params }) {
-  const socialBlog = await getSocialBlogBySlug(params.slug);
-
-  const yoastTitle = socialBlog?.yoastTitle?.[0]?.children?.[0]?.text;
-  const yoastDescription =
-    socialBlog?.yoastDescription?.[0]?.children?.[0]?.text;
+  const post = await getSocialBlogBySlug(params.slug);
+  const seoTitle = post?.yoastTitle;
+  const seoMetaDescription = post?.yoastDescription;
 
   return {
-    title: socialBlog.seo?.title || yoastTitle,
-    description: socialBlog.seo?.description || yoastDescription,
+    title: post.seo?.title || seoTitle,
+    description: post.seo?.description || seoMetaDescription,
     openGraph: {
-      title: socialBlog.seo?.title || yoastTitle,
-      description: socialBlog.seo?.description || yoastDescription,
+      title: post.seo?.title || seoTitle,
+      description: post.seo?.description || seoMetaDescription,
     },
   };
 }

@@ -12,21 +12,22 @@ import { Input } from "../forms"; // Import Input component from forms
 export default function SubscribeForm({ formId }) {
   return (
     // Form component with id passed from props, and appropriate styling
-    <form id={formId} className="w-full max-w-xl mt-8 mx-auto">
+    <form id={formId} className="mx-auto mt-8 w-full max-w-xl">
       {/* Layout div for form elements */}
-      <div className="flex flex-col md:flex-row gap-4 justify-center">
+      <div className="flex flex-col justify-center gap-4 md:flex-row">
         {/* Label for email input field, hidden for visual users but accessible to screen readers */}
         <label htmlFor="email-address" className="sr-only">
           email
         </label>
         {/* Input component for email input with necessary styling and attributes */}
         <Input
-          className="bg-slate-900 border-neutral-200/10 text-gray-200"
+          className="border-neutral-200/10 bg-slate-900 text-gray-200"
           name="email"
           type="email"
           required
           placeholder="Enter your email"
           aria-label="Enter your email address to subscribe"
+          autoComplete="email"
         />
         {/* GlowingButton component for form submission */}
         <GlowingButton form={formId} type="submit" variant="subscribe">
@@ -34,7 +35,7 @@ export default function SubscribeForm({ formId }) {
         </GlowingButton>
       </div>
       {/* Privacy policy link */}
-      <p className="mt-4 text-xs leading-6 text-gray-400 text-left">
+      <p className="mt-4 text-left text-xs leading-6 text-gray-400">
         We care about your{" "}
         <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
           privacy
