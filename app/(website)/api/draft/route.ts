@@ -18,9 +18,6 @@ export async function GET(request: Request) {
 
   const fetchParam = searchParams.get("fetch");
 
-  // Enable Draft Mode by setting the cookie
-  draftMode().enable();
-
   const corsOrigin = hostname.includes("localhost")
     ? STUDIO_URL_DEV
     : STUDIO_URL_PROD;
@@ -30,28 +27,20 @@ export async function GET(request: Request) {
     ? WEBSITE_URL_DEV
     : WEBSITE_URL_PROD;
 
-  const cookieStore = cookies();
-  const cookie = cookieStore.get("__prerender_bypass");
-
-  const headers = new Headers();
-  headers.append("credentials", "include");
-  headers.append("Cookie", `${cookie?.name}=${cookie?.value}` || "");
-  headers.append("Access-Control-Allow-Origin", corsOrigin);
-  headers.append("Access-Control-Allow-Credentials", "true");
-
   if (!slug) {
     return new Response("Please generate the slug to start live preview", {
       status: 401,
       headers: {
-        ...Object.fromEntries(headers),
+        "Access-Control-Allow-Origin": corsOrigin,
       },
     });
   }
 
   if (fetchParam) {
     const absoluteUrl = new URL(`/${type}/${slug}`, baseOrigin).toString();
-
-    const previewHtml = await fetch(absoluteUrl, { headers })
+    const previewHtml = await fetch(absoluteUrl, {
+      headers: { "Access-Control-Allow-Origin": corsOrigin },
+    })
       .then((previewRes) => previewRes.text())
       .catch((err) => console.error(err));
 
@@ -63,6 +52,18 @@ export async function GET(request: Request) {
       },
     });
   }
+
+  // Enable Draft Mode by setting the cookie
+  draftMode().enable();
+
+  const cookieStore = cookies();
+  const cookie = cookieStore.get("__prerender_bypass");
+
+  const headers = new Headers();
+  headers.append("credentials", "include");
+  headers.append("Cookie", `${cookie?.name}=${cookie?.value}` || "");
+  headers.append("Access-Control-Allow-Origin", corsOrigin);
+  headers.append("Access-Control-Allow-Credentials", "true");
 
   return new Response(null, {
     status: 307,
