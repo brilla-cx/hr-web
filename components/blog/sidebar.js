@@ -50,6 +50,7 @@ function Subscribe({ title, text, buttonText }) {
             required
             placeholder="Enter your email"
             aria-label="Enter your email address to subscribe"
+            autoComplete="email"
           />
           <GlowingButton
             form="sidebar-subscribe"

@@ -1,5 +1,4 @@
 import Script from "next/script";
-import { Suspense } from "react";
 
 const Juno = () => {
     return (
@@ -20,15 +19,13 @@ const Juno = () => {
                         She's not fully prompty trained yet Rebekah, so give her a break.                    </p>
                 </div>
             </div>
-            <Suspense fallback={<p>Juno, come! Juno!? Juno!!!</p>}>
-                <div className="min-h-screen bg-gray-100 flex items-start justify-center">
-                    <div
-                        id="libraria-widget"
-                        data-librariaslug="brilla"
-                        className="w-full max-w-4xl p-8 bg-white shadow-md rounded-md"
-                    />
-                </div>
-            </Suspense>
+            <div className="min-h-screen bg-gray-100 flex items-start justify-center">
+                <div
+                    id="libraria-widget"
+                    data-librariaslug="brilla"
+                    className="w-full max-w-4xl p-8 bg-white shadow-md rounded-md"
+                />
+            </div>
         </>
     );
 };

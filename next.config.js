@@ -1,5 +1,45 @@
 /* eslint-disable require-await */
 /** @type {import('next').NextConfig} */
+const commonHeaders = [
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
+  },
+  {
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
+  },
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  {
+    key: "Referrer-Policy",
+    value: "origin-when-cross-origin",
+  },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+  },
+];
+
+const fontHeaders = [
+  {
+    key: "Cache-Control",
+    value: "public, max-age=31536000, immutable",
+  },
+];
+
+const fonts = ["lexend-deca", "lexend-semibold", "lexend"];
+const fontRoutes = fonts.map((font) => ({
+  source: `/assets/fonts/${font}.ttf`,
+  headers: fontHeaders,
+}));
+
 const nextConfig = {
   experimental: {
     appDir: true,
@@ -12,7 +52,6 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
@@ -37,35 +76,14 @@ const nextConfig = {
       },
     ];
   },
+  // eslint-disable-next-line require-await
   async headers() {
     return [
       {
-        source: "/assets/fonts/lexend-deca.ttf",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
+        source: "/(.*)",
+        headers: [...commonHeaders],
       },
-      {
-        source: "/assets/fonts/lexend-semibold.ttf",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/assets/fonts/lexend.ttf",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
+      ...fontRoutes,
     ];
   },
 };

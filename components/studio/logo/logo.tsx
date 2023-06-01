@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { FC } from "react";
 
-import LogoImage from "./hey-rebekah-logo.svg"; // Update the path to your logo file
+import LogoImage from "./hey-rebekah-logo.svg";
 
 const hrLogo: FC = () => (
   <Image

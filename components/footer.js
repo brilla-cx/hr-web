@@ -5,7 +5,7 @@ import Link from "next/link";
 import { H5, Input } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import LogoImage from "@/public/hey-rebekah-logo.svg";
+import LogoImage from "@/public/hey-rebekah-logo-web.png";
 
 // T-10892 Refactor Tailwind Footer
 export default function Footer() {
@@ -145,6 +145,7 @@ export default function Footer() {
                 required
                 type="email"
                 aria-label="Enter your email address to subscribe"
+                autoComplete="email"
               />
               <GlowingButton
                 form="subscribe-form"

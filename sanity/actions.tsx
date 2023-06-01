@@ -3,6 +3,7 @@
 import { useToast } from "@sanity/ui";
 import React from "react";
 import { BsSend } from "react-icons/bs";
+import { DocumentActionComponent, useDocumentOperation } from "sanity";
 
 import { ValueType } from "@/types/IterableValue";
 
@@ -18,9 +19,11 @@ function getEnvVar(key: string): string {
 
 const iterableKey = getEnvVar("SANITY_STUDIO_ITERABLE_TOKEN");
 
-export function SendToIterable({ id }) {
+export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
   const toast = useToast();
   const [isLoading, setIsLoading] = React.useState(false);
+
+  const { publish } = useDocumentOperation(id, type);
 
   const handleSend = React.useCallback(async () => {
     setIsLoading(true);
@@ -33,12 +36,22 @@ export function SendToIterable({ id }) {
       const sanityRes = await postByIdQuery(id);
       const value = sanityRes as ValueType;
 
-      const content = value.content
-        .map((item) => item.children.map((child) => child.text).join(""))
-        .join("");
-      const tldr = value.tldr
-        .map((item) => item.children.map((child) => child.text).join(""))
-        .join("");
+      // todo right better typing for blocksContent
+      const getTextFromBlocks = (blocks: { children: any[] }[]) => {
+        if (!blocks || blocks.length === 0) {
+          return "";
+        }
+
+        return blocks
+          .map((item: { children: any[] }) =>
+            item.children.map((child) => child.text).join("")
+          )
+          .join("");
+      };
+
+      const contentText = getTextFromBlocks(value.content);
+      const tldrText = getTextFromBlocks(value.tldr);
+
       const payload = {
         itemId: value._id,
         catalogName: "sanity-posts",
@@ -54,7 +67,7 @@ export function SendToIterable({ id }) {
             sanity_caption: value.image.caption,
           },
           sanity_slug: value.slug.current,
-          sanity_tldr: tldr,
+          sanity_tldr: tldrText,
           sanity_author: {
             sanity_name: value.author.name,
             sanity_image: value.author.image.asset.url,
@@ -62,7 +75,7 @@ export function SendToIterable({ id }) {
             sanity_slug: value.author.slug.current,
             sanity_linkedIn: value.author.linkedin,
           },
-          sanity_content: content,
+          sanity_content: contentText,
           sanity_url: `https://heyrebekah.com/${value.category[0].name}/${value.slug.current}`,
         },
       };
@@ -97,9 +110,13 @@ export function SendToIterable({ id }) {
     }
   }, [id, toast]);
 
+  const isDocumentPublished = publish.disabled === false;
+
   return {
     label: "Send To Iterable",
     icon: BsSend,
     onHandle: handleSend,
+    title: isDocumentPublished ? "This post is not published" : "",
+    disabled: isDocumentPublished,
   };
-}
+};

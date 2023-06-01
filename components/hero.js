@@ -7,7 +7,7 @@ import { cx } from "@/lib/utils";
 
 const Hero = (props) => {
   return (
-    <div className="px-4 sm:px-8 lg:px-16 py-12 sm:py-20 lg:py-26">
+    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20 lg:px-16">
       <div className="max-w-5xl">
         <H1 className="text-gray-200">
           Like Morning Brew for freelancers, without all the readers
@@ -20,18 +20,19 @@ const Hero = (props) => {
           Even our moms think it's pretty awesome.
         </Lead>
       </div>
-      <form id="hero-subscribe" className=" w-full max-w-xl mt-8">
-        <div className="flex flex-col md:flex-row gap-4">
+      <form id="hero-subscribe" className=" mt-8 w-full max-w-xl">
+        <div className="flex flex-col gap-4 md:flex-row">
           <label htmlFor="email-address" className="sr-only">
             email
           </label>
           <Input
-            className="bg-slate-900 border-neutral-200/10 text-gray-200"
+            className="border-neutral-200/10 bg-slate-900 text-gray-200"
             name="email"
             type="email"
             required
             placeholder="Enter your email"
             aria-label="Enter your email address to subscribe"
+            autoComplete="email"
           />
           <GlowingButton
             form="hero-subscribe"

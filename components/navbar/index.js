@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/container";
-import LogoImage from "@/public/hey-rebekah-logo.svg";
+import LogoImage from "@/public/hey-rebekah-logo-web.png";
 import { getPaginatedPosts } from "@/sanity/client";
 
 import Menu from "./menu";
