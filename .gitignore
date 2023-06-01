@@ -84,8 +84,8 @@ purgecss.*
 # Sentry Auth Token
 .sentryclirc
 
-# Ignore Sam's tasks file
-sam-tasks.js
+# Ignore Sam's files
+.nvmrc
 
 # Ignore Jest and TypeScript coverage files
 /coverage/
