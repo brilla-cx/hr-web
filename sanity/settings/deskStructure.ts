@@ -12,9 +12,9 @@ import {
 import { GoLaw } from "react-icons/go";
 import { DefaultDocumentNodeResolver } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
-import { SEOPane } from "sanity-plugin-seo-pane";
 
 import { SITE_URL } from "../../lib/constants";
+// import { SEOPane } from "sanity-plugin-seo-pane";
 
 /*
 The "structure" function defines the structure of the Sanity Studio. It is an exported
@@ -147,6 +147,7 @@ If the current document's type is in the previewTypes array, it creates a docume
 
 If the current document's type is not in the previewTypes array, it creates a document with only a form view.
 */
+
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
@@ -162,14 +163,14 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
           url: (doc) => getPreviewUrl(doc),
         })
         .title("Preview"),
-      S.view
+      {/*S.view
         .component(SEOPane)
         .options({
           keywords: `seo.keywords`,
           synonyms: `seo.synonyms`,
           url: (doc) => getPreviewUrl(doc),
         })
-        .title("SEO"),
+      .title("SEO"),*/}
     ]);
   }
 
