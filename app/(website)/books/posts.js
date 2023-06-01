@@ -36,11 +36,11 @@ export default async function PaginatedPosts() {
   // Define functions for navigating to the next and previous pages
   // These functions update the page query parameter in the URL
   const handleNextPage = () => {
-    router.push(`/gists?page=${pageIndex + 1}`);
+    router.push(`/books?page=${pageIndex + 1}`);
   };
 
   const handlePrevPage = () => {
-    router.push(`/gists?page=${pageIndex - 1}`);
+    router.push(`/books?page=${pageIndex - 1}`);
   };
 
   return (
@@ -56,7 +56,12 @@ export default async function PaginatedPosts() {
       {/* This div serves as the container for the posts and utilizes CSS Grid layout through Tailwind CSS for varying column count depending on viewport size. */}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
         {posts.map((post) => (
-          <PostAlt key={post._id} post={post} aspect="landscape" />
+          <PostAlt
+            key={post._id}
+            post={post}
+            aspect="landscape"
+            pathPrefix="books"
+          />
         ))}
       </div>
 
