@@ -16,6 +16,14 @@ const commonHeaders = [
     key: "X-Content-Type-Options",
     value: "nosniff",
   },
+  {
+    key: "Referrer-Policy",
+    value: "origin-when-cross-origin",
+  },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+  },
 ];
 
 const fontHeaders = [
@@ -43,7 +51,6 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
@@ -63,31 +70,12 @@ const nextConfig = {
       },
     ];
   },
+  // eslint-disable-next-line require-await
   async headers() {
-    const ContentSecurityPolicy = `
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://youtu.be/ https://www.youtube-nocookie.com/ https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://www.reddit.com https://www.snapchat.com https://cdn.segment.com https://www.googletagmanager.com https://*.sanity.io https://*.sanity.studio https://*.vercel.com https://libraria-prod.s3.us-west-1.amazonaws.com http://localhost:3000/;
-      style-src 'self' 'unsafe-inline' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/ https://*.sanity.studio; 
-      img-src 'self' data: https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/ https://*.sanity.studio;  
-      frame-src https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://*.sanity.io https://*.sanity.studio https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/; 
-      connect-src 'self' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://cdn.segment.com https://www.googletagmanager.com https://*.sanity.io https://*.sanity.studio https://*.vercel.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/;
-      font-src 'self';
-      object-src 'none';
-      media-src 'self' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://*.sanity.io https://*.sanity.studio https://*.tiktok.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/;
-      child-src 'self' https://*.twitter.com https://*.facebook.com https://*.instagram.com https://*.youtube.com https://*.vimeo.com https://*.tiktok.com https://*.linkedin.com https://*.google.com https://*.cloudflare.com https://*.pinterest.com https://*.sanity.io https://*.sanity.studio https://*.tiktok.com https://youtu.be/ https://www.youtube-nocookie.com/ http://localhost:3000/;
-      frame-ancestors 'self' http://localhost:3000 http://localhost:3333;
-    `;
-
     return [
       {
         source: "/(.*)",
-        headers: [
-          {
-            key: "Content-Security-Policy",
-            value: ContentSecurityPolicy.replace(/\n/g, ""),
-          },
-          ...commonHeaders,
-        ],
+        headers: [...commonHeaders],
       },
       ...fontRoutes,
     ];
