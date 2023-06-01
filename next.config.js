@@ -47,7 +47,8 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { hostname: "cdn.sanity.io" },
-      { hostname: "images.unsplash.com" }, // Remove this once header GROQ is completed
+      { hostname: "images.unsplash.com" },
+      { hostname: "i.giphy.com" },
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
