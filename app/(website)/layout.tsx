@@ -3,7 +3,6 @@
 import "../globals.css";
 
 import { ClerkProvider } from '@clerk/nextjs'
-import { dark } from '@clerk/themes';
 import localFont from "next/font/local";
 
 import Footer from "@/components/footer";
@@ -129,11 +128,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark
-      }}
-    >
+    <ClerkProvider>
       <html
         lang="en"
         className={cx(
