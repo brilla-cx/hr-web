@@ -6,7 +6,9 @@ import { SITE_URL } from "@/lib/constants";
 import { urlForImage } from "@/sanity/image";
 
 export default function OgImage({ post }) {
-  const category = post?.category?.[0]?.name || post?.category || "";
+  const category = Array.isArray(post?.category)
+    ? post?.category?.[0]?.name
+    : post?.category?.name || post?.category || "";
   const sanitizedCategory = category.replace(/[\r\n\t]/g, "");
   const pubDate = format(
     parseISO(post?.publishedAt || post._createdAt),
@@ -42,8 +44,8 @@ export default function OgImage({ post }) {
             {post?.name}
           </div>
           <p tw="text-white/90 text-lg font-medium">
-            <span href="/" tw="border-b border-pink-500 text-white">
-              By {post?.author?.name}
+            <span tw="border-b border-pink-500 text-white">
+              By {post?.author?.name || post?.bookAuthor}
             </span>
           </p>
         </div>
