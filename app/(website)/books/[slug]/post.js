@@ -2,22 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import AuthorCard from "@/components/blog/authorCard";
 import { PortableText } from "@/components/blog/portabletext";
 import SocialShare from "@/components/blog/share";
 import Sidebar from "@/components/blog/sidebar";
 import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
-import { H1, Prose } from "@/components/ui";
+import { GlowingButton, H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
-import lightHoverStyles from "@/lib/hover";
-import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
-export default function Post(props) {
-  const { post } = props;
-
+export default function Post({ post }) {
   if (!post?.slug) {
     notFound();
   }
@@ -44,9 +39,9 @@ export default function Post(props) {
               <div>
                 {post.category && (
                   <Link
-                    href={`/category/${post.category?.[0]?.slug.current}`}
+                    href={`/category/${post.category?.slug?.current}`}
                     className="transition hover:opacity-75">
-                    <Label color="gray">{post.category?.[0]?.name}</Label>
+                    <Label color="gray">{post.category?.name}</Label>
                   </Link>
                 )}
 
@@ -55,25 +50,17 @@ export default function Post(props) {
                   className="mt-2 text-gray-100 underline decoration-white/30 decoration-2 underline-offset-8 ">
                   {post.name}
                 </H1>
-                {post.tldr && (
-                  <div className="not-prose prose-2xl mt-2 leading-snug text-gray-300">
-                    <PortableText value={post.tldr} />
-                  </div>
+                {post.summary && (
+                  <p className="not-prose prose-2xl mt-2 leading-snug text-gray-300">
+                    {post.summary}
+                  </p>
                 )}
 
                 <div className="mt-4">
                   <div className="flex items-start gap-3">
                     <div>
                       <p className="inline text-xs font-semibold text-gray-200">
-                        By{" "}
-                        <Link
-                          href={`/author/${post?.author?.slug?.current}`}
-                          className={cx(
-                            "text-xs font-semibold text-gray-200",
-                            lightHoverStyles
-                          )}>
-                          {post?.author?.name}
-                        </Link>
+                        By {post?.bookAuthor}
                       </p>
                       <div className="mt-2 flex space-x-2 text-sm md:flex-row md:items-center">
                         <DateTime
@@ -95,6 +82,12 @@ export default function Post(props) {
                     url={`https://heyrebekah.com/gists/${post?.slug?.current}`}
                   />
                 </div>
+
+                <div className="mt-6">
+                  <GlowingButton href={post.bookUrl || "#"} target="_blank">
+                    Purchase this Book
+                  </GlowingButton>
+                </div>
               </div>
             </div>
           </div>
@@ -104,25 +97,20 @@ export default function Post(props) {
       <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
           <Prose className="prose mx-auto max-w-prose">
-            {post.content && <PortableText value={post.content} />}
+            {post?.theGist && <PortableText value={post.theGist} />}
           </Prose>
           <ViewAllPosts
-            href="/gists"
-            buttonText="View all posts"
+            href="/books"
+            buttonText="View all books"
             direction="left"
             variant="light"
           />
-
-          {post.author && <AuthorCard author={post.author} />}
         </article>
         <aside className="sticky top-24 mr-5 w-full self-start md:w-64">
           <Sidebar
             subscribeTitle="You belong here"
             subscribeText="Join +320,000 professionals in our community. Delivery is free."
             buttonText="LEVEL UP"
-            related={post.related.filter(
-              (item) => item.slug.current !== post.slug.current
-            )}
           />
         </aside>
       </div>

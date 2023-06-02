@@ -3,57 +3,45 @@ import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
 import {
-  getAllPosts,
-  getAllPostsSlugs,
-  getPostBySlug,
-  getTopCategories,
+  getBookbySlug,
 } from "@/sanity/client";
 
 import Post from "./post";
 
 const PostPreview = lazy(() => import("./preview"));
 
-export async function generateStaticParams() {
-  const slugs = await getAllPostsSlugs();
-  const posts = await getAllPosts();
-  const featuredSlugs = posts
-    .filter((item) => item.featured)
-    .map((item) => ({ slug: item.slug.current }));
-  const combinedSlugs = [...new Set(slugs.concat(featuredSlugs))];
-  return combinedSlugs;
+export function generateStaticParams() {
+  return [];
 }
+
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
-  const post = await getPostBySlug(params.slug);
-  const seoTitle = post?.tldr?.[0]?.children?.[0]?.text;
-  const seoMetaDescription = post?.tldr?.[0]?.children?.[0]?.text;
-
+  const post = await getBookbySlug(params.slug);
   return {
-    title: post.seo?.title || seoTitle,
-    description: post.seo?.description || seoMetaDescription,
+    title: post?.name,
+    description: post?.summary,
     openGraph: {
-      title: post.seo?.title || seoTitle,
-      description: post.seo?.description || seoMetaDescription,
+     title: post?.name,
+    description: post?.summary,
     },
   };
 }
 
 export default async function PostPage({ params }) {
-  const post = await getPostBySlug(params.slug);
-  const categories = await getTopCategories();
+  const post = await getBookbySlug(params.slug);
 
   const { isEnabled: preview } = draftMode();
 
   if (preview) {
     return (
       <PreviewSuspense fallback={<Loading />}>
-        <PostPreview slug={params.slug} categories={categories} />
+        <PostPreview slug={params.slug}  />
       </PreviewSuspense>
     );
   }
 
-  return <Post post={post} categories={categories} />;
+  return <Post post={post}  />;
 }
 
 const Loading = () => {

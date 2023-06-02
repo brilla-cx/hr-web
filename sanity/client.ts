@@ -20,6 +20,7 @@ import {
   socialblogpathquery,
   socialblogquery,
   topcatquery,
+  singlebookquery
 } from "./groq";
 
 if (!projectId) {
@@ -191,4 +192,11 @@ export async function getPaginatedBooks({ limit, pageIndex = 0 }) {
     );
   }
   return [];
+}
+
+export async function getBookbySlug(slug) {
+  if (client) {
+    return (await client.fetch(singlebookquery, { slug })) || {};
+  }
+  return {};
 }
