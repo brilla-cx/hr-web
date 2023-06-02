@@ -276,8 +276,19 @@ export const paginatedsocialblogsquery = groq`
 export const getlegalpagebyslugquery = groq`
 *[_type == "legal" && slug.current == $slug][0] {
   name,
-  tldr, 
+  tldr,
   content,
-  slug 
+  slug
+}
+`;
+
+/*
+ * Paginated Books Query
+ *
+ */
+export const paginatedbooksquery = groq`
+*[_type == "book"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+  ...,
+  category->
 }
 `;

@@ -40,7 +40,9 @@ export default function PostAlt({
               "aspect-[5/4]": aspect === "custom",
               "aspect-square": aspect !== "landscape" && aspect !== "custom",
             })}
-            href={`/gists/${post.slug.current}`}>
+            href={`/${pathPrefix ? `${pathPrefix}` : "gists"}/${
+              post.slug.current
+            }`}>
             {imageProps ? (
               <Image
                 src={imageProps.src}
@@ -68,7 +70,7 @@ export default function PostAlt({
               <CategoryLabel categories={post.category} nomargin />
             )}
             <Link
-              href={`/gists/${pathPrefix ? `${pathPrefix}/` : ""}${
+              href={`/${pathPrefix ? `${pathPrefix}` : "gists"}/${
                 post.slug.current
               }`}>
               {fontSize === "large" ? (
@@ -90,7 +92,10 @@ export default function PostAlt({
             <div className="hidden">
               {post.excerpt && (
                 <p className="mt-2 line-clamp-3 text-sm text-gray-500 dark:text-gray-400">
-                  <Link href={`/gists/${post.slug.current}`}>
+                  <Link
+                    href={`/${pathPrefix ? `${pathPrefix}` : "gists"}/${
+                      post.slug.current
+                    }`}>
                     {post.excerpt}
                   </Link>
                 </p>
@@ -98,23 +103,26 @@ export default function PostAlt({
             </div>
 
             <div className="mt-3 flex items-center justify-between text-gray-300 dark:text-gray-400">
-              <Link href={`/author/${post.author?.slug.current}`}>
-                <div className="flex items-center gap-3">
-                  <div className="relative h-5 w-5 flex-shrink-0">
-                    {post.author?.image && (
-                      <Image
-                        src={AuthorimageProps.src}
-                        alt={post?.author?.name}
-                        className="rounded-full object-cover"
-                        fill
-                        sizes="20px"
-                      />
-                    )}
+              {post.author && (
+                <Link href={`/author/${post.author?.slug?.current}`}>
+                  <div className="flex items-center gap-3">
+                    <div className="relative h-5 w-5 flex-shrink-0">
+                      {post.author?.image && (
+                        <Image
+                          src={AuthorimageProps.src}
+                          alt={post?.author?.name}
+                          className="rounded-full object-cover"
+                          fill
+                          sizes="20px"
+                        />
+                      )}
+                    </div>
+                    <span className="truncate text-sm">
+                      {post.author?.name}
+                    </span>
                   </div>
-                  <span className="truncate text-sm">{post.author?.name}</span>
-                </div>
-              </Link>
-
+                </Link>
+              )}
               <time
                 className={cx(noDate && "sr-only", "truncate text-sm ")}
                 dateTime={post?.publishedAt || post._createdAt}>
