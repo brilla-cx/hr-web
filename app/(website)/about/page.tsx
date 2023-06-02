@@ -10,7 +10,7 @@ export default function About() {
         className="border-l border-r border-neutral-200 border-opacity-10">
         <PageHeader
           title="Knowledge should be free"
-          leadText="Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus. Hey Rebekah is a free daily newsletter for freelancers. Everything we create is available for free to our readers and always will be. Not on the list? 👇🏼 "
+          leadText="We start from that basic principle. We believe paid courses should be obsolete. For our part, we're starting by helping the world's +2,900,000,000 knowledge workers upskill their work with AI. Not on the list? 👇🏼 "
           includeForm
           formId="about-sub"
         />

@@ -117,9 +117,9 @@ export default function SocialBlog(props) {
         </article>
         <aside className="sticky top-24 mr-5 w-full self-start md:w-64">
           <Sidebar
-            subscribeTitle="Are you a freelancer?"
-            subscribeText="Hey Rebekah is a free daily newsletter for freelancers. Join +320,000 professionals in my community. Delivery is free."
-            buttonText="JOIN ME"
+            subscribeTitle="Worried about AI?"
+            subscribeText="Hey Rebekah will help you level up with AI. Join +320,000 professionals. Delivery is free."
+            buttonText="LEVEL UP"
           />
         </aside>
       </div>

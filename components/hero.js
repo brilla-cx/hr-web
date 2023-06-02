@@ -8,16 +8,17 @@ import { cx } from "@/lib/utils";
 const Hero = (props) => {
   return (
     <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20 lg:px-16">
-      <div className="max-w-5xl">
+      <div className="max-w-3xl">
         <H1 className="text-gray-200">
-          Like Morning Brew for freelancers, without all the readers
+          AI won’t take your job. Someone using it will.
         </H1>
         <Lead className="mt-5 max-w-3xl text-gray-400">
-          Hey Rebekah is a free daily newsletter. We write about things that
-          help you become better at what you do in 6 minutes or less.
+          Hey Rebekah is a free daily newsletter for knowledge workers. We'll
+          help you level up your skills with AI. No bull $#!t, just the good
+          stuff. Everything we produce is free and always will be.
         </Lead>
         <Lead className="mt-5 max-w-3xl text-gray-400">
-          Even our moms think it's pretty awesome.
+          Join our community of over 320,000 professionals.
         </Lead>
       </div>
       <form id="hero-subscribe" className=" mt-8 w-full max-w-xl">
