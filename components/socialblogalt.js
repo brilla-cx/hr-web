@@ -43,7 +43,7 @@ function AuthorDetails({ author }) {
   const authorImageProps = author?.image ? urlForImage(author.image) : null;
 
   return (
-    <Link href={`/author/${author?.slug.current}`}>
+    <Link href={`/author/${author?.slug?.current}`}>
       <div className="flex items-center gap-3">
         <div className="relative h-5 w-5 flex-shrink-0">
           {authorImageProps && (
@@ -117,7 +117,7 @@ export default function SocialBlogAlt({ post, minimal, fontSize, noDate }) {
       className={cx(
         "group cursor-pointer",
         minimal && "grid gap-10 md:grid-cols-2",
-        "bg-slate-900 rounded px-6 py-6 border border-neutral-200/10 hover:transform hover:scale-105 transition-all duration-300"
+        "rounded border border-neutral-200/10 bg-slate-900 px-6 py-6 transition-all duration-300 hover:scale-105 hover:transform"
       )}>
       <div className={cx(minimal && "flex items-center")}>
         {renderPostTitle()}

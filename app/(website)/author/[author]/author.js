@@ -14,7 +14,7 @@ import { urlForImage } from "@/sanity/image";
 export default function Author(props) {
   const { loading, posts, author } = props;
 
-  const slug = author?.slug.current;
+  const slug = author?.slug?.current;
 
   if (!loading && !slug) {
     notFound();

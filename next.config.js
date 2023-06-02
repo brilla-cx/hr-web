@@ -1,3 +1,4 @@
+/* eslint-disable require-await */
 /** @type {import('next').NextConfig} */
 const commonHeaders = [
   {
@@ -68,6 +69,11 @@ const nextConfig = {
         source: "/studio",
         destination: "https://heyrebekah.sanity.studio/",
         permanent: false,
+      },
+      {
+        source: "/book-club",
+        destination: "/books",
+        permanent: true,
       },
     ];
   },

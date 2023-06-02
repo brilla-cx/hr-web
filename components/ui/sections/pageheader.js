@@ -12,7 +12,7 @@ export default function PageHeader({
 }) {
   return (
     <div className="bg-midnight px-6 py-16 sm:py-24 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-3xl text-center">
         <H1 className="text-gray-200">{title}</H1>
         <Lead className="mt-6 text-gray-400">{leadText}</Lead>
         {/* Conditionally render SubscribeForm component based on includeForm prop */}
