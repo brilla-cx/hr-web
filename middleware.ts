@@ -1,34 +1,10 @@
 import { authMiddleware } from "@clerk/nextjs";
 
-const publicRoutes = [
-    "/",
-    "/about",
-    "/accessibility",
-    "/advertise",
-    /^\/api\//,
-    /^\/assets\//,
-    /^\/author(\/|$)/,
-    /^\/books(\/|$)/,
-    /^\/book-club(\/|$)/,
-    /^\/built-with(\/|$)/,
-    /^\/category(\/|$)/,
-    "/community",
-    "/contact",
-    "/editorial-policy",
-    /^\/gists(\/|$)/,
-    "/juno",
-    "/partners",
-    "/privacy",
-    "/rebekah-radice",
-    /^\/social-blog(\/|$)/,
-    /^\/studio(\/|$)/,
-    "/style-guide",
-    "/terms",
-    "/thank-you",
-];
-
-export default authMiddleware({ publicRoutes });
-
+export default authMiddleware({
+    publicRoutes: (req) => {
+        return !req.nextUrl.pathname.startsWith('/dashboard');
+    },
+});
 
 export const config = {
     matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
