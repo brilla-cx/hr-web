@@ -1,8 +1,9 @@
-import DashboardLayout from './layout';
+// import DashboardLayout from './layout';
 
 function DashboardPage() {
     return (
-        <DashboardLayout />
+        // <DashboardLayout />
+        <div>This is the Dashboard Page</div>
     );
 }
 
