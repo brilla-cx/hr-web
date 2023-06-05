@@ -126,5 +126,3 @@ export default function SocialBlog(props) {
     </>
   );
 }
-
-export const dynamic = "force-static";
