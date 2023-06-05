@@ -51,6 +51,7 @@ export default async function PaginatedPosts({ searchParams }) {
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
       <div className="my-16 flex items-center justify-center">
         <Pagination
+          path="books"
           pageIndex={pageIndex}
           isFirstPage={isFirstPage}
           isLastPage={isLastPage}

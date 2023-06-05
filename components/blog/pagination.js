@@ -5,17 +5,22 @@
 import { useRouter } from "next/navigation";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
-export default function Pagination({ pageIndex, isFirstPage, isLastPage }) {
+export default function Pagination({
+  pageIndex,
+  isFirstPage,
+  isLastPage,
+  path,
+}) {
   const router = useRouter();
 
   // Define functions for navigating to the next and previous pages
   // These functions update the page query parameter in the URL
   const handleNextPage = () => {
-    router.push(`/books?page=${pageIndex + 1}`);
+    router.push(`/${path}?page=${pageIndex + 1}`);
   };
 
   const handlePrevPage = () => {
-    router.push(`/books?page=${pageIndex - 1}`);
+    router.push(`/${path}?page=${pageIndex - 1}`);
   };
 
   return (
