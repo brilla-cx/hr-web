@@ -3,7 +3,7 @@ import PageHeader from "@/components/ui/sections/pageheader";
 
 import PaginatedPosts from "./posts";
 
-export default function Books() {
+export default function Books({ searchParams }) {
   return (
     <div className="bg-midnight">
       <Container
@@ -17,7 +17,7 @@ export default function Books() {
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <PaginatedPosts />
+          <PaginatedPosts searchParams={searchParams} />
         </div>
       </Container>
     </div>
