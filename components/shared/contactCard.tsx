@@ -21,7 +21,7 @@ function ContactCard(props: Props) {
   const { icon, title, desc, link, address } = props;
 
   return (
-    <div className="flex px-4 py-4 border rounded gap-x-6 border-gray-200/10 bg-slate-900">
+    <div className="flex px-4 py-4 transition-all duration-300 border rounded gap-x-6 border-gray-200/10 bg-slate-900 hover:scale-105 hover:transform">
       <div className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-pink text-midnight">
         {icon}
       </div>
@@ -29,11 +29,7 @@ function ContactCard(props: Props) {
         <H6 as="h3" className="-mt-1 text-gray-200 line-clamp-2">
           {title}
         </H6>
-        <p
-          className={cx(
-            "mt-1 line-clamp-3 text-gray-400 dark:text-gray-400",
-            hoverStyles
-          )}>
+        <p className="mt-1 text-gray-400 line-clamp-3 dark:text-gray-400">
           {desc}
         </p>
         {link && (
