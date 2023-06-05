@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import PageHeader from "@/components/ui/sections/pageheader";
 
-function Contact({ children }) {
+function ContactLayout({ children }) {
   return (
     <div className="bg-midnight">
       <Container
@@ -22,4 +22,4 @@ function Contact({ children }) {
   );
 }
 
-export default Contact;
+export default ContactLayout;
