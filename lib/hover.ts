@@ -1,4 +1,4 @@
-const hoverStyles = [
+const hoverStyles: string[] = [
   "bg-gradient-to-r",
   "bg-[length:0px_10px]",
   "bg-left-bottom bg-no-repeat",
@@ -9,7 +9,7 @@ const hoverStyles = [
   "from-fuchsia-600 to-purple-950",
 ];
 
-const lightHoverStyles = [
+const lightHoverStyles: string[] = [
   "bg-gradient-to-r",
   "bg-[length:0px_10px]",
   "bg-left-bottom bg-no-repeat",
