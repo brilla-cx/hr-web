@@ -1,17 +1,23 @@
+import PartnerHero from "@/components/partners/partnerhero";
+import PageHeader from "@/components/ui/sections/pageheader";
+
 export default function Partners() {
-  //Placeholder to create route
+  //Just placing imports here for now for rapid iteration
   return (
-    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          Partners
-        </h2>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
-        </p>
-      </div>
+    <div>
+      <PartnerHero
+        title={"Partner with Hey Rebekah"}
+        description={"Improve your good karma and do a solid for the 420 million freelancers around the world. Instead of paying us a fat affiliate commission, we ask that you provide an exclusive discount to our readers. No brainer, right?"}
+        imageUrl={"https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"}
+        imageWidth={1920}
+        imageHeight={1080}
+        alt="The team hanging around the board room in a meeting." />
+      <PageHeader
+        title="Knowledge should be free"
+        leadText="We imagine a world where all freelance professionals can build thriving careers so they can experience the joy of financial freedom and success."
+        includeForm={false}
+      />
     </div>
+
   );
 }

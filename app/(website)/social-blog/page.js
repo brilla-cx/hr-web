@@ -1,4 +1,4 @@
-import SocialBlogs from "./layout";
+import SocialBlogs from "./socialblogs";
 
 export default function SocialBlogsPage() {
   return <SocialBlogs />;
