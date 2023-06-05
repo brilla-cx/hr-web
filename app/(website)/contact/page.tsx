@@ -1,5 +1,5 @@
-import Contact from "./contact";
+import ContactLayout from "./layout";
 
 export default function ContactPage() {
-  return <Contact />;
+  return <ContactLayout />;
 }
