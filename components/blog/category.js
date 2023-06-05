@@ -4,7 +4,7 @@ import Label from "@/components/ui/label";
 
 export default function CategoryLabel({ categories, nomargin = false }) {
   const categoryArray = Array.isArray(categories) ? categories : [categories];
-  console.log(categoryArray);
+
   return (
     <div className="flex gap-3">
       {categoryArray?.length &&
