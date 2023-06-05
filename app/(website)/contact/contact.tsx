@@ -20,8 +20,7 @@ function Contact() {
           leadText="Need to reach out to the Hey Rebekah team? No problem. We're excited
           to hear from you. While you're here, subscribe and see what the buzz
           is about. 👇🏽"
-          includeForm
-          formId="built-sub"
+          includeForm={false}
         />
         <div className="max-w-lg pb-16 mx-auto space-y-10 sm:pb-24 lg:px-8">
           <ContactCard
