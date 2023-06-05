@@ -292,3 +292,16 @@ export const paginatedbooksquery = groq`
   category->
 }
 `;
+
+// Get Book by Slug
+export const singlebookquery = groq`
+*[_type == "book" && slug.current == $slug][0] {
+  ...,
+  image {
+    ...,
+    "blurDataURL": asset->metadata.lqip,
+    "ImageColor": asset->metadata.palette.dominant.background,
+  },
+  category->
+}
+`;

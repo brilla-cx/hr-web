@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-
 import Container from "@/components/container";
 import PageHeader from "@/components/ui/sections/pageheader";
 
@@ -19,10 +17,7 @@ export default function Books() {
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <Suspense
-            fallback={<p>Susan went where?! Searching the premises...</p>}>
-            <PaginatedPosts />
-          </Suspense>
+          <PaginatedPosts />
         </div>
       </Container>
     </div>
