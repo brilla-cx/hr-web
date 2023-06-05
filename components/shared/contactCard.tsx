@@ -12,7 +12,7 @@ interface Props {
   desc: string;
   link?: {
     title: string;
-    href: URL;
+    href: string;
   };
   address?: string;
 }
