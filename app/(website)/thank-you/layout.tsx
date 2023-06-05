@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import Container from "@/components/container";
 
-function TahnkYouLayout({ children }) {
+function ThankYouLayout({ children }) {
   return (
     <>
       <Head>
@@ -20,4 +20,4 @@ function TahnkYouLayout({ children }) {
   );
 }
 
-export default TahnkYouLayout;
+export default ThankYouLayout;
