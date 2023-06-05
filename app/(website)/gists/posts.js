@@ -1,24 +1,4 @@
 /* eslint-disable react/jsx-no-bind */
-/**
- * PaginatedPosts Component
- * This component is responsible for rendering a paginated list of Gist posts on Hey Rebekah's Web App.
- * Path: app/(website)/gists/posts.js
- *
- * The PaginatedPosts component serves as an integral part of the Gists page that fetches and displays a list of "gists" or posts.
- * These posts are fetched from the Sanity CMS using a function named 'getPaginatedPosts' from "@/sanity/client".
- *
- * To achieve the pagination, we make use of useRouter and useSearchParams hooks from "next/navigation" to access the current page index from the URL's query string.
- * The range of posts to fetch is calculated based on the current page index and a constant POSTS_PER_PAGE which is set to 12.
- * These posts are then fetched asynchronously using the getPaginatedPosts function.
- *
- * The component also handles navigation to the next and previous pages of posts. This is accomplished by pushing new URLs to the router with the updated page index.
- * Each post is rendered using the PostAlt component, which is imported from "@/components/postalt".
- * The component also displays a set of navigation buttons which allow the user to navigate to the previous and next page of posts. These buttons are disabled when the user is on the first or last page respectively.
- *
- * The layout and style of the page are controlled with a div element and Tailwind CSS classes.
- * This component is particularly vital in maintaining a seamless user experience by providing easy navigation and an orderly display of posts.
- */
-
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";

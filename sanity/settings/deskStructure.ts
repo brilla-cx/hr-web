@@ -17,156 +17,43 @@ import Iframe from 'sanity-plugin-iframe-pane'
 import { SITE_URL } from "../../lib/constants";
 // import { SEOPane } from "sanity-plugin-seo-pane";
 
+const createListItem = (S, documentStore, title, icon, type) => {
+  return S.listItem()
+    .title(title)
+    .icon(icon)
+    .child(
+      documentStore
+        .listenQuery(`count(*[_type == '${type}'])`)
+        .pipe(
+          map(count =>
+            S.documentTypeList(type)
+              .title(`${title} (${count})`)
+              .filter(`_type == "${type}"`)
+          )
+        )
+    );
+}
+
 export const structure = (S, context) => {
   const { documentStore } = context;
 
   return S.list()
     .title("Let's make some magic")
     .items([
-      S.listItem()
-        .title("Posts")
-        .icon(FaFeatherAlt)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'post'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('post')
-                  .title(`Posts (${count})`)
-                  .filter('_type == "post"')
-              )
-            )
-        ),
-      S.listItem()
-        .title("Books")
-        .icon(FaBook)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'book'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('book')
-                  .title(`Books (${count})`)
-                  .filter('_type == "book"')
-              )
-            )
-        ),
-      S.listItem()
-        .title("Tools")
-        .icon(FaTools)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'tool'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('tool')
-                  .title(`Built With Tools (${count})`)
-                  .filter('_type == "tool"')
-              )
-            )
-        ),
+      createListItem(S, documentStore, "Posts", FaFeatherAlt, 'post'),
+      createListItem(S, documentStore, "Books", FaBook, 'book'),
+      createListItem(S, documentStore, "Tools", FaTools, 'tool'),
       S.divider(),
-      S.listItem()
-        .title("Categories")
-        .icon(FaThList)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'category'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('category')
-                  .title(`Categories (${count})`)
-                  .filter('_type == "category"')
-              )
-            )
-        ),
-      S.listItem()
-        .title("Authors")
-        .icon(FaUserAstronaut)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'author'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('author')
-                  .title(`Authors (${count})`)
-                  .filter('_type == "author"')
-              )
-            )
-        ),
+      createListItem(S, documentStore, "Categories", FaThList, 'category'),
+      createListItem(S, documentStore, "Authors", FaUserAstronaut, 'author'),
       S.divider(),
-      S.listItem()
-        .title("FAQs")
-        .icon(FaQuestion)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'faq'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('faq')
-                  .title(`FAQ (${count})`)
-                  .filter('_type == "faq"')
-              )
-            )
-        ),
-      S.listItem()
-        .title("Quizesseses")
-        .icon(FaListUl)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'quiz'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('quiz')
-                  .title(`Quiz (${count})`)
-                  .filter('_type == "quiz"')
-              )
-            )
-        ),
-      S.listItem()
-        .title("Quotes")
-        .icon(FaQuoteLeft)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'quote'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('quote')
-                  .title(`Quotes (${count})`)
-                  .filter('_type == "quote"')
-              )
-            )
-        ),
+      createListItem(S, documentStore, "FAQs", FaQuestion, 'faq'),
+      createListItem(S, documentStore, "Quizesseses", FaListUl, 'quiz'),
+      createListItem(S, documentStore, "Quotes", FaQuoteLeft, 'quote'),
       S.divider(),
-      S.listItem()
-        .title("Legal Pages")
-        .icon(FaFileAlt)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'legal'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('legal')
-                  .title(`Legal Pages (${count})`)
-                  .filter('_type == "legal"')
-              )
-            )
-        ),
+      createListItem(S, documentStore, "Legal Pages", FaFileAlt, 'legal'),
       S.divider(),
-      S.listItem()
-        .title("Rebekah's Old Blogs")
-        .icon(FaArchive)
-        .child(
-          documentStore
-            .listenQuery(`count(*[_type == 'socialBlog'])`)
-            .pipe(
-              map(count =>
-                S.documentTypeList('socialBlog')
-                  .title(`Social Blogs (${count})`)
-                  .filter('_type == "socialBlog"')
-              )
-            )
-        ),
+      createListItem(S, documentStore, "Rebekah's Old Blogs", FaArchive, 'socialBlog'),
     ]);
 };
 

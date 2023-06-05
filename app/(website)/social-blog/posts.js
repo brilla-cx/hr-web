@@ -1,24 +1,4 @@
 /* eslint-disable react/jsx-no-bind */
-/**
- * PaginatedPosts Component
- * This component is responsible for rendering a paginated list of Gist posts on Hey Rebekah's Web App.
- * Path: app/(website)/social-blog/posts.js
- *
- * The PaginatedPosts component serves as an integral part of the Gists page that fetches and displays a list of "Social Blogs" or posts.
- * These posts are fetched from the Sanity CMS using a function named 'getPaginatedSocialBlogs' from "@/sanity/client".
- *
- * To achieve the pagination, we make use of useRouter and useSearchParams hooks from "next/navigation" to access the current page index from the URL's query string.
- * The range of posts to fetch is calculated based on the current page index and a constant POSTS_PER_PAGE which is set to 12.
- * These posts are then fetched asynchronously using the getPaginatedSocialBlogs function.
- *
- * The component also handles navigation to the next and previous pages of posts. This is accomplished by pushing new URLs to the router with the updated page index.
- * Each post is rendered using the PostAlt component, which is imported from "@/components/postalt".
- * The component also displays a set of navigation buttons which allow the user to navigate to the previous and next page of posts. These buttons are disabled when the user is on the first or last page respectively.
- *
- * The layout and style of the page are controlled with a div element and Tailwind CSS classes.
- * This component is particularly vital in maintaining a seamless user experience by providing easy navigation and an orderly display of posts.
- */
-
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
@@ -89,7 +69,7 @@ export default async function PaginatedSocialBlogs() {
             type="button"
             disabled={isFirstPage}
             onClick={handlePrevPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-l-md border px-3 py-2 pr-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
+            className={`text-med relative inline-flex items-center gap-1 rounded-l-md px-3 py-2 pr-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
             <FaCaretLeft
               className="mr-2 h-3 w-3 text-gray-400 hover:text-gray-200"
               aria-hidden="true"
@@ -100,7 +80,7 @@ export default async function PaginatedSocialBlogs() {
             type="button"
             onClick={handleNextPage}
             disabled={isLastPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-r-md border px-3 py-2 pl-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
+            className={`text-med relative inline-flex items-center gap-1 rounded-r-md px-3 py-2 pl-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
             <span>Next</span>
             <FaCaretRight
               className="ml-2 h-3 w-3 text-gray-400 hover:text-gray-200"
