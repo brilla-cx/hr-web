@@ -1,20 +1,12 @@
 /* eslint-disable react/jsx-no-bind */
 
-"use client";
-
-import { useRouter, useSearchParams } from "next/navigation";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
-
+import Pagination from "@/components/blog/pagination";
 import PostAlt from "@/components/postalt";
 import { getPaginatedBooks } from "@/sanity/client";
 
-export default async function PaginatedPosts() {
-  // We access the Next.js router and search parameters
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
+export default async function PaginatedPosts({ searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
-  const page = searchParams.get("page");
+  const page = searchParams.page;
   const pageIndex = parseInt(page, 10) || 1;
 
   // Set the number of posts to be displayed per page
@@ -32,16 +24,6 @@ export default async function PaginatedPosts() {
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
   const isLastPage = posts.length < POSTS_PER_PAGE;
-
-  // Define functions for navigating to the next and previous pages
-  // These functions update the page query parameter in the URL
-  const handleNextPage = () => {
-    router.push(`/books?page=${pageIndex + 1}`);
-  };
-
-  const handlePrevPage = () => {
-    router.push(`/books?page=${pageIndex - 1}`);
-  };
 
   return (
     <div>
@@ -68,32 +50,11 @@ export default async function PaginatedPosts() {
       {/* The pagination buttons are contained in a navigation component.
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
       <div className="my-16 flex items-center justify-center">
-        <nav
-          className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-          aria-label="Pagination">
-          <button
-            type="button"
-            disabled={isFirstPage}
-            onClick={handlePrevPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-l-md px-3 py-2 pr-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
-            <FaCaretLeft
-              className="mr-2 h-3 w-3 text-gray-400 hover:text-gray-200"
-              aria-hidden="true"
-            />
-            <span>Previous</span>
-          </button>
-          <button
-            type="button"
-            onClick={handleNextPage}
-            disabled={isLastPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-r-md px-3 py-2 pl-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-900 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
-            <span>Next</span>
-            <FaCaretRight
-              className="ml-2 h-3 w-3 text-gray-400 hover:text-gray-200"
-              aria-hidden="true"
-            />
-          </button>
-        </nav>
+        <Pagination
+          pageIndex={pageIndex}
+          isFirstPage={isFirstPage}
+          isLastPage={isLastPage}
+        />
       </div>
     </div>
   );
