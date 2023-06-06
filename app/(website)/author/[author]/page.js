@@ -1,4 +1,8 @@
-import { getAllAuthorsSlugs, getAuthorPostsBySlug } from "@/sanity/client";
+import {
+  getAllAuthorsSlugs,
+  getAuthorMeta,
+  getAuthorPostsBySlug,
+} from "@/sanity/client";
 
 import Author from "./author";
 
@@ -13,8 +17,19 @@ async function getAuthor(slug) {
 }
 
 export async function generateMetadata({ params }) {
-  const author = await getAuthor(params.author);
-  return { title: author.name };
+  const authorSeoMeta = await getAuthorMeta(params.author);
+  const seoTitle = authorSeoMeta?.seoTitle || authorSeoMeta?.name;
+  const seoMetaDescription =
+    authorSeoMeta?.seoMetaDescription || authorSeoMeta?.expertise;
+
+  return {
+    title: seoTitle,
+    description: seoMetaDescription,
+    openGraph: {
+      title: seoTitle,
+      description: seoMetaDescription,
+    },
+  };
 }
 
 export default async function AuthorPage({ params }) {

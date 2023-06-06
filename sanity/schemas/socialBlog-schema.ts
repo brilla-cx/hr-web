@@ -91,7 +91,7 @@ const socialBlog = {
     },
     {
       name: "yoastTitle",
-      title: "Yoast Title",
+      title: "SEO Title",
       description: "The legacy Yoast Title from RebekahRadice.com. If empty, copy and paste the Title from above.",
       type: "string",
       options: { spellcheck: true },
@@ -100,7 +100,7 @@ const socialBlog = {
     },
     {
       name: "yoastDescription",
-      title: "Yoast Description",
+      title: "SEO Meta Description",
       description: "The legacy Yoast Description from RebekahRadice.com.",
       type: "string",
       options: { spellcheck: true },
@@ -224,12 +224,6 @@ const socialBlog = {
       description:
         "This should be the original published on date from WordPress, not the date you updated it.",
       group: "compose",
-    },
-    {
-      name: "seo",
-      title: "SEO",
-      type: "seo",
-      group: "seo",
     },
   ],
   preview: {

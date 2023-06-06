@@ -18,8 +18,8 @@ const book = {
             title: "The Gist",
         },
         {
-            name: "meta",
-            title: "Meta",
+            name: "seo",
+            title: "SEO",
         },
     ],
     fields: [
@@ -85,7 +85,7 @@ const book = {
             description:
                 "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
             type: "image",
-            group: "meta",
+            group: "bookDetails",
             fields: [
                 {
                     name: "caption",
@@ -115,13 +115,32 @@ const book = {
                 maxLength: 96,
             },
             validation: Rule => Rule.required().error("A post without a slug is like a slug without a post."),
-            group: "meta",
+            group: ["bookDetails", "seo"],
+        },
+        {
+            name: "seoTitle",
+            title: "SEO Title",
+            description: "The SEO Title of the post. This is probably not going to be the same as the title.",
+            type: "string",
+            group: ["bookDetails", "seo"],
+            options: { source: "name", maxLength: 60, spellcheck: true },
+            validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
+        },
+        {
+            name: "seoMetaDescription",
+            title: "SEO Meta Description",
+            description: "The SEO Meta Description of the post.",
+            type: "array",
+            of: [{ type: "block" }],
+            options: { maxLength: 158, spellcheck: true },
+            group: ["bookDetails", "seo"],
+            validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
         },
         {
             name: "publishedAt",
             title: "Published At",
             type: "date",
-            group: "meta",
+            group: ["bookDetails", "seo"],
         },
     ],
     preview: {
