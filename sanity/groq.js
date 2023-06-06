@@ -161,6 +161,15 @@ export const postsbyauthorquery = groq`
 }
 `;
 
+export const authorMeta = groq`
+*[_type == "author" && slug.current == $slug]{
+  seoTitle,
+  seoMetaDescription,
+  name,
+  expertise
+}
+`;
+
 /*
  * Paginated Posts Query
  *
