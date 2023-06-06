@@ -4,6 +4,7 @@ import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   authorMeta,
   authorsquery,
+  getAllFaqsquery,
   getcatoftoolsquery,
   getlegalpagebyslugquery,
   gettoolsquery,
@@ -21,7 +22,7 @@ import {
   singletoolsquery,
   socialblogpathquery,
   socialblogquery,
-  topcatquery
+  topcatquery,
 } from "./groq";
 
 if (!projectId) {
@@ -208,4 +209,12 @@ export async function getBookbySlug(slug) {
     return (await client.fetch(singlebookquery, { slug })) || {};
   }
   return {};
+}
+
+// fetch all gaqs
+export async function getAllFaqs() {
+  if (client) {
+    return (await client.fetch(getAllFaqsquery)) || [];
+  }
+  return [];
 }
