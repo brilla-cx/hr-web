@@ -12,7 +12,7 @@ import { Input } from "../forms"; // Import Input component from forms
 export default function SubscribeForm({ formId }) {
   return (
     // Form component with id passed from props, and appropriate styling
-    <form id={formId} className="mx-auto mt-8 w-full max-w-xl">
+    <form id={formId} className={cx("mx-auto mt-8 w-full max-w-xl")}>
       {/* Layout div for form elements */}
       <div className="flex flex-col justify-center gap-4 md:flex-row">
         {/* Label for email input field, hidden for visual users but accessible to screen readers */}
@@ -21,7 +21,7 @@ export default function SubscribeForm({ formId }) {
         </label>
         {/* Input component for email input with necessary styling and attributes */}
         <Input
-          className="border-neutral-200/10 bg-slate-900 text-gray-200"
+          className="text-gray-200 border-neutral-200/10 bg-slate-900"
           name="email"
           type="email"
           required
@@ -35,7 +35,7 @@ export default function SubscribeForm({ formId }) {
         </GlowingButton>
       </div>
       {/* Privacy policy link */}
-      <p className="mt-4 text-left text-xs leading-6 text-gray-400">
+      <p className="mt-4 text-xs leading-6 text-left text-gray-400">
         We care about your{" "}
         <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
           privacy
