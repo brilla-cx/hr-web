@@ -1,9 +1,3 @@
-"use client";
-import { Disclosure } from "@headlessui/react";
-import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
-import { PortableText } from "@portabletext/react";
-import Link from "next/link";
-
 import BrandsMarquee from "@/components/about/brands-marquee";
 import CheckReplay from "@/components/about/check-replay";
 import EmailCta from "@/components/about/email-cta";
@@ -11,9 +5,21 @@ import Faqs from "@/components/about/faqs";
 import WhatIsImportant from "@/components/about/what-is-important";
 import WtfIsHeyRebekah from "@/components/about/wtf-is-rebekah";
 import Container from "@/components/container";
-import { H1, H6, Lead } from "@/components/ui";
 import { HeroWithImage } from "@/components/ui/sections/hero";
 import { getAllFaqs } from "@/sanity/client";
+
+export function generateMetadata({ params }) {
+  return {
+    title: "About | Knowledge should be free. Experience, priceless.",
+    description:
+      "Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus.",
+    openGraph: {
+      title: "About | Knowledge should be free. Experience, priceless.",
+      description:
+        "Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus.",
+    },
+  };
+}
 
 export default async function About() {
   const faqs = await getAllFaqs();
