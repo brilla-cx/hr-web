@@ -65,7 +65,7 @@ const post = {
     {
       name: "seoTitle",
       title: "SEO Title",
-      description: "The SEO Title of the post. Believe it or not, it could be different than the title of the post.",
+      description: "The SEO Title of the post. This is probably not going to be the same as the title.",
       type: "string",
       group: "seo",
       options: { source: "name", maxLength: 60, spellcheck: true },
@@ -135,6 +135,14 @@ const post = {
       group: ["compose", "iterable"],
     },
     {
+      name: "isShort",
+      title: "Short?",
+      description: "Is this a short post?",
+      type: "boolean",
+      group: "compose",
+      validation: Rule => Rule.required().error("Please indicate if this post is a Short one. i.e. < 200 words."),
+    },
+    {
       name: "category",
       title: "Category",
       description: "Select the most relevant category for this post.",
@@ -191,6 +199,7 @@ const post = {
       title: "SEO",
       type: "seo",
       group: "seo",
+      hidden: true,
     },
   ],
   preview: {

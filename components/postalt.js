@@ -32,7 +32,7 @@ export default function PostAlt({
         )}>
         <div
           className={cx(
-            " group overflow-hidden rounded-md bg-gray-800 transition-all"
+            "group relative overflow-hidden rounded-md bg-gray-800 transition-all"
           )}>
           <Link
             className={cx("relative block", {
@@ -120,11 +120,16 @@ export default function PostAlt({
                     <span className="truncate text-sm">
                       {post.author?.name}
                     </span>
+                    {post.isShort ? (
+                      <div className="rounded bg-slate-900 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-200">
+                        Shorts
+                      </div>
+                    ) : null}
                   </div>
                 </Link>
               )}
               <time
-                className={cx(noDate && "sr-only", "truncate text-sm ")}
+                className={cx(noDate && "sr-only", "truncate text-sm")}
                 dateTime={post?.publishedAt || post._createdAt}>
                 {timeAgo(post?.publishedAt || post._createdAt)}
               </time>
