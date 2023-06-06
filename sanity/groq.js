@@ -28,6 +28,7 @@ export const postById = groq`*[_id == $id][0] {
     linkedin
   },
   featured,
+  isShort,
   image{
     imageAltText,
     asset->{url},
@@ -66,6 +67,7 @@ export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _cre
   },
   publishedAt,
   featured,
+  isShort,
   category[]->,
   url,
   author-> {

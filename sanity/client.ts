@@ -14,13 +14,13 @@ import {
   postquery,
   postsbyauthorquery,
   postsbycatquery,
+  singlebookquery,
   singlepostquery,
   singlesocialblogquery,
   singletoolsquery,
   socialblogpathquery,
   socialblogquery,
-  topcatquery,
-  singlebookquery
+  topcatquery
 } from "./groq";
 
 if (!projectId) {
