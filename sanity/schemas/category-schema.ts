@@ -32,7 +32,7 @@ const category = {
                 maxLength: 96,
             },
             validation: Rule =>
-                Rule.required().warning("This should be the same as the category/topic name."),
+                Rule.required().error("This should be the same as the category/topic name."),
         },
         {
             name: "color",

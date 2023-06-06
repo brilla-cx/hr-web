@@ -13,19 +13,19 @@ const quiz = {
             title: 'Category',
             type: 'reference',
             to: [{ type: 'category' }],
-            validation: Rule => Rule.required().warning("We need a category for the quiz."),
+            validation: Rule => Rule.required().error("We need a category for the quiz."),
         },
         {
             name: 'question',
             title: 'Question',
             type: 'string',
-            validation: Rule => Rule.required().warning("We need a question for the quiz too."),
+            validation: Rule => Rule.required().error("We need a question for the quiz too."),
         },
         {
             name: 'answer',
             title: 'Answer',
             type: 'string',
-            validation: Rule => Rule.required().warning("Yeah, a quiz without an answer is like..."),
+            validation: Rule => Rule.required().error("Yeah, a quiz without an answer is like..."),
         },
         {
             name: 'sourceUrl',

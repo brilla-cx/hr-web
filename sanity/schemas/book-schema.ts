@@ -28,7 +28,7 @@ const book = {
             title: "Name",
             description: "The title of the book.",
             type: "string",
-            validation: Rule => Rule.required().warning("A book without a title is like..."),
+            validation: Rule => Rule.required().error("A book without a title is like..."),
             group: "bookDetails",
         },
         {
@@ -44,14 +44,14 @@ const book = {
             description: "A brief summary of the book. This is human generated.",
             type: "string",
             group: "bookDetails",
-            validation: Rule => Rule.required().warning("We needs a brief human generated summary please."),
+            validation: Rule => Rule.required().error("We needs a brief human generated summary please."),
         },
         {
             name: "bookAuthor",
             title: "Book Author",
             description: "The name of the author of the book.",
             type: "string",
-            validation: Rule => Rule.required().warning("Uh, let's give the creator some mad props here and include their name."),
+            validation: Rule => Rule.required().error("Uh, let's give the creator some mad props here and include their name."),
             group: "bookDetails",
         },
         {
@@ -59,7 +59,7 @@ const book = {
             title: "Book URL",
             description: "The AMZN url to buy the book or similar.",
             type: "string",
-            validation: Rule => Rule.required().uri().warning("Please add a valid URL to the book, so readers can get it."),
+            validation: Rule => Rule.required().uri().error("Please add a valid URL to the book, so readers can get it."),
             group: "bookDetails",
         },
         {
@@ -67,7 +67,7 @@ const book = {
             title: "Category",
             type: "reference",
             to: [{ type: "category" }],
-            validation: Rule => Rule.required().warning("We need a category for the book."),
+            validation: Rule => Rule.required().error("We need a category for the book."),
             group: "theGist",
         },
         {
@@ -76,7 +76,7 @@ const book = {
             type: "array",
             of: [{ type: "block" }],
             options: { spellcheck: true },
-            validation: Rule => Rule.required().warning("Where's The Gist by ChatGPT?"),
+            validation: Rule => Rule.required().error("Where's The Gist by ChatGPT?"),
             group: "theGist",
         },
         {
@@ -99,7 +99,7 @@ const book = {
                     title: "Image Alt Text",
                     description: "E.g. A grumpy looking bald man on a chair.",
                     type: "string",
-                    validation: Rule => Rule.required().warning("Please add some alt text for the image."),
+                    validation: Rule => Rule.required().error("Please add some alt text for the image."),
                 },
             ],
             options: {
@@ -114,7 +114,7 @@ const book = {
                 source: "name",
                 maxLength: 96,
             },
-            validation: Rule => Rule.required().warning("A post without a slug is like a slug without a post."),
+            validation: Rule => Rule.required().error("A post without a slug is like a slug without a post."),
             group: "meta",
         },
         {

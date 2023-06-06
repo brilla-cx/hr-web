@@ -29,7 +29,7 @@ const author = {
             description: "The author's full name. E.g. Rebekah Radice",
             type: "string",
             group: 'basicInfo',
-            validation: Rule => Rule.required().warning("Does't the author have a name?"),
+            validation: Rule => Rule.required().error("Does't the author have a name?"),
         },
         {
             name: "firstName",
@@ -37,7 +37,7 @@ const author = {
             description: "The author's first name only. This is used on the website and to troll them on the web.",
             type: "string",
             group: 'basicInfo',
-            validation: Rule => Rule.required().warning("We need their first name because our developers are too lazy to write fancy scripts."),
+            validation: Rule => Rule.required().error("We need their first name because our developers are too lazy to write fancy scripts."),
         },
         {
             name: "image",
@@ -45,14 +45,14 @@ const author = {
             description: "Upload a 400px x 400px web-optimized image for the author.",
             type: "image",
             group: 'basicInfo',
-            validation: Rule => Rule.required().warning("Don't you want the world to see their pretty face?"),
+            validation: Rule => Rule.required().error("Don't you want the world to see their pretty face?"),
             fields: [
                 {
                     name: "imageAltText",
                     title: "Image Alt Text",
                     description: "Enter the alternative text for the author's image per A11y.",
                     type: "string",
-                    validation: Rule => Rule.required().warning("Don't you want the author profile to be accessible?"),
+                    validation: Rule => Rule.required().error("Don't you want the author profile to be accessible?"),
                 },
             ],
             options: {
@@ -67,7 +67,7 @@ const author = {
             of: [{ type: 'block' }],
             options: { maxLength: 255, spellcheck: true },
             group: 'basicInfo',
-            validation: Rule => Rule.required().warning("Keep it short and sweet there Tolstoy."),
+            validation: Rule => Rule.required().error("Keep it short and sweet there Tolstoy."),
         },
         {
             name: "publishedAt",
@@ -82,7 +82,7 @@ const author = {
             description: "EEAT area of expertise. i.e. Rebekah Radice writes about digital marketing, the future of remote-work, and you know—stuff.",
             type: "string",
             group: 'eeatInfo',
-            validation: Rule => Rule.required().warning("You got a lot of expertise, huh? Keep it short and sweet."),
+            validation: Rule => Rule.required().error("You got a lot of expertise, huh? Keep it short and sweet."),
         },
         {
             name: "category",
@@ -91,7 +91,7 @@ const author = {
             type: "reference",
             to: [{ type: "category" }],
             group: 'eeatInfo',
-            validation: Rule => Rule.required().warning("Limit this to one category, por favor."),
+            validation: Rule => Rule.required().error("Limit this to one category, por favor."),
         },
         {
             name: "beat",
@@ -142,7 +142,7 @@ const author = {
             description: "Enter the full url to the author's LinkedIn profile. i.e. https://linkedin.com/in/rebekah-radice",
             type: "string",
             group: 'meta',
-            validation: Rule => Rule.required().uri().warning("Gotta have a LinkedIn profile, right?"),
+            validation: Rule => Rule.required().uri().error("Gotta have a LinkedIn profile, right?"),
         },
         {
             name: "twitter",
