@@ -36,7 +36,7 @@ const legal = {
       type: "string",
       options: { maxLength: 300, spellcheck: true },
       group: "compose",
-      validation: Rule => Rule.required().warning("Too long, didn't read. Please ensure to include a TLDR."),
+      validation: Rule => Rule.required().error("Too long, didn't read. Please ensure to include a TLDR."),
     },
     {
       name: "slug",
@@ -52,6 +52,7 @@ const legal = {
       description:
         "This is the primary content of the post. This is what you gotta look at closely.",
       group: "compose",
+      validation: Rule => Rule.required().error("Hmm...this legal page needs some legalese."),
       type: "array",
       of: [
         {

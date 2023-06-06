@@ -34,7 +34,7 @@ const tool = {
       type: "boolean",
       group: "partnerInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please indicate if the company is a partner or not?"
         ),
     },
@@ -46,7 +46,7 @@ const tool = {
       type: "string",
       group: "partnerInfo",
       validation: (Rule) =>
-        Rule.required().warning("What's the company/creator's name?"),
+        Rule.required().error("What's the company/creator's name?"),
     },
     {
       name: "toolUrl",
@@ -58,7 +58,7 @@ const tool = {
       validation: (Rule) =>
         Rule.required()
           .uri()
-          .warning("Every tool needs a link to clickity click"),
+          .error("Every tool needs a link to clickity click"),
     },
     {
       name: "partnerContactName",
@@ -102,7 +102,7 @@ const tool = {
       to: [{ type: "category" }],
       group: "meta",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please indicate the most appropriate category for the tool?"
         ),
     },
@@ -114,7 +114,7 @@ const tool = {
       type: "image",
       group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "We need a logo for the partner in SVG format please."
         ),
       fields: [
@@ -126,7 +126,7 @@ const tool = {
           type: "string",
           group: "toolInfo",
           validation: (Rule) =>
-            Rule.required().warning(
+            Rule.required().error(
               "Please enter the alternative text for the partner's logo image."
             ),
         },
@@ -142,7 +142,7 @@ const tool = {
       type: "string",
       group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please write a brief description of the tool."
         ),
     },
@@ -155,7 +155,7 @@ const tool = {
       options: { maxLength: 300, spellcheck: true },
       group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please describe how we use the tool in bullet format."
         ),
     },
