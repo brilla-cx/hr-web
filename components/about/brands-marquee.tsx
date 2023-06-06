@@ -64,7 +64,7 @@ const brandsData: BrandItemProps[] = [
 
 function BrandItem(props: BrandItemProps) {
   return (
-    <div className={cx(props.bgColor, "rounded border border-gray-200/10 p-2")}>
+    <div className={cx(props.bgColor, "rounded border border-gray-200/10 p-4")}>
       <Image
         className="object-contain w-full max-h-12"
         src={props.imageUrl}
@@ -78,7 +78,7 @@ function BrandItem(props: BrandItemProps) {
 
 function BrandsMarquee() {
   return (
-    <div className="py-4 mt-10 text-center md:py-20 lg:mt-32 lg:py-28">
+    <div className="py-20 text-center md:py-20 lg:py-28">
       <H6 className="pb-6 text-gray-200">G.O.A.T. brands we've worked with</H6>
       <Marquee className="mt-10">
         <div className="flex mx-4 gap-x-8">

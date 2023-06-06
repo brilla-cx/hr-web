@@ -305,3 +305,10 @@ export const singlebookquery = groq`
   category->
 }
 `;
+
+// get faqs
+export const getAllFaqsquery = groq`
+*[_type == 'faq'] {
+  ...,
+}
+`;

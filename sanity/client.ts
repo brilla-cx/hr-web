@@ -3,6 +3,7 @@ import { createClient } from "next-sanity";
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   authorsquery,
+  getAllFaqsquery,
   getcatoftoolsquery,
   getlegalpagebyslugquery,
   gettoolsquery,
@@ -14,13 +15,13 @@ import {
   postquery,
   postsbyauthorquery,
   postsbycatquery,
+  singlebookquery,
   singlepostquery,
   singlesocialblogquery,
   singletoolsquery,
   socialblogpathquery,
   socialblogquery,
   topcatquery,
-  singlebookquery
 } from "./groq";
 
 if (!projectId) {
@@ -199,4 +200,12 @@ export async function getBookbySlug(slug) {
     return (await client.fetch(singlebookquery, { slug })) || {};
   }
   return {};
+}
+
+// fetch all gaqs
+export async function getAllFaqs() {
+  if (client) {
+    return (await client.fetch(getAllFaqsquery)) || [];
+  }
+  return [];
 }

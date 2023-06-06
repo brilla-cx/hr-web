@@ -51,6 +51,7 @@ const nextConfig = {
       { hostname: "images.unsplash.com" },
       { hostname: "i.giphy.com" },
       { hostname: "uploads-ssl.webflow.com" },
+      { hostname: "global-uploads.webflow.com" },
     ],
     dangerouslyAllowSVG: true,
     contentDispositionType: "attachment",
