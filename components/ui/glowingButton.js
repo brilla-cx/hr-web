@@ -1,8 +1,9 @@
 // Import necessary libraries and components
-import cx from "classnames";
 import { sizeClasses } from "components/ui/button";
 import Link from "next/link";
 import PropTypes from "prop-types";
+
+import { cx } from "@/lib/utils";
 
 // Component for creating the gradient background of the button
 // As per Ambreen, we're using a vibrant gradient for an attractive button appearance. Sam thinks this is disco but, it looks ok.
@@ -40,18 +41,28 @@ ButtonContent.propTypes = {
 };
 
 // Main component for the glowing button
-const GlowingButton = ({ variant, href, size = "md", children, ...props }) => {
+const GlowingButton = ({
+  variant = null,
+  href = "",
+  size = "md",
+  children,
+  autoWidth,
+  ...props
+}) => {
   // Wrapper is a button or a link based on the variant prop
-  const Wrapper = variant === "subscribe" ? "button" : Link;
+  const Wrapper = href ? Link : "button";
   // Props for the Wrapper component
-  const wrapperProps = variant === "subscribe" ? { type: "submit" } : { href };
+  const wrapperProps = href ? { href } : { type: "submit" };
 
   // Render the button. The w-full in the Wrapper is what makes the button full width here, which may be counterintuitive but it works.
   return (
     <div className="flex items-center justify-center bg-black">
-      <div className="group relative inline-flex w-full">
+      <div className={cx("group relative inline-flex", !autoWidth && "w-full")}>
         <GradientBackground />
-        <Wrapper className="w-full" {...wrapperProps} {...props}>
+        <Wrapper
+          className={cx(!autoWidth && "w-full")}
+          {...wrapperProps}
+          {...props}>
           <ButtonContent size={size}>{children}</ButtonContent>
         </Wrapper>
       </div>

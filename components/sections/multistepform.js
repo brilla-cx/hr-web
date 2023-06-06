@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-no-bind */
 "use client";
 
@@ -5,41 +6,67 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import FormProvider, { useFormData } from "@/components/providers/form-context";
-import { Input } from "@/components/ui";
+import { GlowingButton, Input } from "@/components/ui";
+import { Checkbox, Radio } from "@/components/ui/forms";
+
+const TopicsArray = [
+  "Accounting/Finance",
+  "Artificial Intelligence",
+  "Business Consulting",
+  "Copywriting",
+  "Creative",
+  "Design",
+  "Customer Service",
+  "Digital Marketing",
+  "Project Management",
+  "Running Your Business",
+  "SEO",
+  "Social Media Management",
+  "Web/Mobile/Software",
+];
 
 export default function MultiStepForm() {
   const [formStep, setFormStep] = useState(1);
 
-  const nextFormStep = () => setFormStep((formStep) => formStep + 1);
+  const nextFormStep = () => setFormStep((currentStep) => currentStep + 1);
 
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
 
   return (
     <div>
       <FormProvider>
-        <StepOne
-          formStep={formStep}
-          prevFormStep={prevFormStep}
-          nextFormStep={nextFormStep}
-        />
-        <StepTwo
-          formStep={formStep}
-          prevFormStep={prevFormStep}
-          nextFormStep={nextFormStep}
-        />
-
-        <FormSubmit
-          formStep={formStep}
-          prevFormStep={prevFormStep}
-          nextFormStep={nextFormStep}
-        />
-
-        <FormSuccess formStep={formStep} />
+        <div className="mx-auto mb-16 max-w-xl">
+          <StepOne
+            formStep={formStep}
+            prevFormStep={prevFormStep}
+            nextFormStep={nextFormStep}
+          />
+          <StepTwo
+            formStep={formStep}
+            prevFormStep={prevFormStep}
+            nextFormStep={nextFormStep}
+          />
+          <StepThree
+            formStep={formStep}
+            prevFormStep={prevFormStep}
+            nextFormStep={nextFormStep}
+          />
+          <StepFour
+            formStep={formStep}
+            prevFormStep={prevFormStep}
+            nextFormStep={nextFormStep}
+          />
+          <FormSubmit
+            formStep={formStep}
+            prevFormStep={prevFormStep}
+            nextFormStep={nextFormStep}
+          />
+        </div>
       </FormProvider>
     </div>
   );
 }
-
+// Enter Email
 function StepOne({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   //   console.log(formStep);
@@ -56,40 +83,40 @@ function StepOne({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 1 ? "block" : "hidden"}>
-      <div className="border-b border-gray-200 pb-5 ">
-        <h2 className="font-heading text-lg font-bold">Personal Information</h2>
-        <p className="text-sm text-gray-600">
-          Please add your Personal Information
-        </p>
+      <div className="">
+        <h2 className="font-heading text-center text-lg font-bold text-white">
+          What’s your email address?
+        </h2>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid gap-x-10 gap-y-7 md:grid-cols-2">
-            <label>Email Address</label>
-            <Input
-              type="email"
-              name="email"
-              register={register}
-              errors={errors}
-              validations={{
-                required: "Email Address is required",
-                maxLength: 80,
-              }}
-            />
-          </div>
-          <div className="mt-10 flex justify-end">
-            <button
-              type="submit"
-              className="bg-primary rounded-lg px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-800 focus:outline-none focus:ring-4 focus:ring-violet-300">
-              Save & Continue
-            </button>
+          <label className="sr-only">Email Address</label>
+          <Input
+            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200"
+            name="email"
+            type="email"
+            required
+            placeholder="Enter your email"
+            aria-label="Enter your email address to subscribe"
+            register={register}
+            errors={errors}
+            validations={{
+              required: "Email Address is required",
+              maxLength: 80,
+            }}
+          />
+
+          <div className="mt-10 flex justify-center">
+            <GlowingButton type="submit" autoWidth>
+              Continue
+            </GlowingButton>
           </div>
         </form>
       </div>
     </div>
   );
 }
-
+// Enter Name
 function StepTwo({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
   //   console.log(formStep);
@@ -106,32 +133,152 @@ function StepTwo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? "block" : "hidden"}>
-      <div className="border-b border-gray-200 pb-5 ">
-        <h2 className="font-heading text-lg font-bold">Personal Information</h2>
-        <p className="text-sm text-gray-600">
-          Please add your Personal Information
-        </p>
+      <div className="">
+        <h2 className="font-heading text-center text-lg font-bold text-white">
+          What should we call you?
+        </h2>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid gap-x-10 gap-y-7 md:grid-cols-2">
-            <Input
-              label="First Name"
-              name="first_name"
-              register={register}
-              errors={errors}
-              validations={{
-                required: "First name is required",
-                maxLength: 80,
-              }}
-            />
+          <label className="sr-only">First Name</label>
+          <Input
+            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200"
+            name="firstName"
+            type="text"
+            required
+            placeholder="Johnas"
+            aria-label="Enter your name friends call you."
+            register={register}
+            errors={errors}
+            validations={{
+              required: "We need your name, Captain!",
+              maxLength: 80,
+            }}
+          />
+
+          <div className="mt-10 flex justify-center">
+            <GlowingButton type="submit" autoWidth>
+              Continue
+            </GlowingButton>
           </div>
-          <div className="mt-10 flex justify-end">
-            <button
-              type="submit"
-              className="bg-primary rounded-lg px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-800 focus:outline-none focus:ring-4 focus:ring-violet-300">
-              Save & Continue
-            </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+// Primary Topic
+function StepThree({ formStep, nextFormStep }) {
+  const { setFormValues } = useFormData();
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm({ mode: "all" });
+
+  const onSubmit = (values) => {
+    console.log("values", values);
+    setFormValues(values);
+    nextFormStep();
+  };
+
+  return (
+    <div className={formStep === 3 ? "block" : "hidden"}>
+      <div className="">
+        <h2 className="font-heading text-center text-lg font-bold text-white">
+          What should we call you?
+        </h2>
+      </div>
+      <div className="mt-5">
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <label className="sr-only">First Name</label>
+
+          {TopicsArray.map((item, index) => (
+            <div key={index}>
+              <Radio
+                required
+                label={item}
+                value={item}
+                name="topic1"
+                register={register}
+                errors={errors}
+                validations={{
+                  required: "Please choose your Primary Topic",
+                }}
+              />
+            </div>
+          ))}
+
+          <div className="mt-10 flex justify-center">
+            <GlowingButton type="submit" autoWidth>
+              Continue
+            </GlowingButton>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+// Secondary Topics
+function StepFour({ formStep, nextFormStep }) {
+  const { setFormValues, data } = useFormData();
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm({ mode: "all" });
+
+  const onSubmit = (values) => {
+    const formattedValues = values.topics.reduce((result, topic, index) => {
+      result[`topic${index + 2}`] = topic;
+      return result;
+    }, {});
+
+    setFormValues(formattedValues);
+    nextFormStep();
+  };
+
+  const validateCheckboxGroup = (value) => {
+    if (value && value.length > 3) {
+      return "Please select maximum of three topics";
+    }
+    return true;
+  };
+
+  const filteredTopics = TopicsArray.filter((topic) => topic !== data.topic1);
+
+  return (
+    <div className={formStep === 4 ? "block" : "hidden"}>
+      <div className="">
+        <h2 className="font-heading text-center text-lg font-bold text-white">
+          What should we call you?
+        </h2>
+      </div>
+      <div className="mt-5">
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+          <label className="sr-only">First Name</label>
+
+          {filteredTopics.map((item, index) => (
+            <div key={index}>
+              <Checkbox
+                required
+                label={item}
+                value={item}
+                name="topics"
+                register={register}
+                errors={errors}
+                validations={{
+                  required: "We need your name, Captain!",
+                  validate: validateCheckboxGroup,
+                }}
+              />
+            </div>
+          ))}
+
+          <div className="mt-10 flex justify-center">
+            <GlowingButton type="submit" autoWidth>
+              Continue
+            </GlowingButton>
           </div>
         </form>
       </div>
@@ -139,40 +286,8 @@ function StepTwo({ formStep, nextFormStep }) {
   );
 }
 
-function FormSuccess({ formStep }) {
-  return (
-    <div className={formStep === 4 ? "block" : "hidden"}>
-      <div className=" flex flex-col items-center gap-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-16 w-16 text-emerald-500">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-
-        <h2 className="font-heading mt-2 text-xl">
-          {" "}
-          Success. Your form has been submitted!
-        </h2>
-        <p className="mx-auto  max-w-lg text-center text-gray-600">
-          Thank you for submitting this form. Your information will be reviewed
-          and processed with in few days.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   const { data } = useFormData();
-  // console.log(formStep);
 
   const submitForm = () => {
     console.log(data);
@@ -181,7 +296,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   };
 
   return (
-    <div className={formStep === 3 ? "block" : "hidden"}>
+    <div className={formStep === 5 ? "block" : "hidden"}>
       <h2 className="font-heading text-start text-xl">
         Please confirm the details below!
       </h2>

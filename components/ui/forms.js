@@ -52,3 +52,51 @@ export function Textarea({ placeholder, size = "md" }) {
     />
   );
 }
+
+export function Checkbox({
+  name,
+  errors = {},
+  validations,
+  register,
+  size = "md",
+  className = "",
+  label,
+  ...rest
+}) {
+  return (
+    <label className="inline-flex">
+      <input
+        type="checkbox"
+        name={name}
+        {...(register && register(name, validations))}
+        className={cx("h-4 w-4 focus:border-pink focus:ring-pink", className)}
+        {...rest}
+      />
+      <span className="text-white"> {label}</span>
+    </label>
+  );
+}
+
+export function Radio({
+  name,
+  errors = {},
+  validations,
+  register,
+  size = "md",
+  className = "",
+  label,
+  ...rest
+}) {
+  return (
+    <label className="inline-flex">
+      <input
+        type="radio"
+        name={name}
+        {...(register && register(name, validations))}
+        className={cx("h-4 w-4 focus:border-pink focus:ring-pink", className)}
+        {...rest}
+      />
+      <span className="text-white"> {label}</span>
+    </label>
+  );
+}
