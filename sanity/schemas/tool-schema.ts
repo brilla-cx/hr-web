@@ -9,17 +9,13 @@ const tool = {
   type: "document",
   groups: [
     {
-      name: "partnerInfo",
-      title: "Partner Info",
+      name: "toolInfo",
+      title: "Tool Info",
       default: true,
     },
     {
-      name: "toolInfo",
-      title: "Tool Info",
-    },
-    {
-      name: "meta",
-      title: "Meta",
+      name: "partnerInfo",
+      title: "Partner Info",
     },
     {
       name: "seo",
@@ -34,7 +30,7 @@ const tool = {
       type: "boolean",
       group: "partnerInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please indicate if the company is a partner or not?"
         ),
     },
@@ -46,7 +42,7 @@ const tool = {
       type: "string",
       group: "partnerInfo",
       validation: (Rule) =>
-        Rule.required().warning("What's the company/creator's name?"),
+        Rule.required().error("What's the company/creator's name?"),
     },
     {
       name: "toolUrl",
@@ -58,7 +54,7 @@ const tool = {
       validation: (Rule) =>
         Rule.required()
           .uri()
-          .warning("Every tool needs a link to clickity click"),
+          .error("Every tool needs a link to clickity click"),
     },
     {
       name: "partnerContactName",
@@ -85,10 +81,19 @@ const tool = {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "seoTitle",
+      title: "SEO Title",
+      description: "The SEO Title of the post. This is probably not going to be the same as the title.",
+      type: "string",
+      group: "seo",
+      options: { source: "name", maxLength: 60, spellcheck: true },
+      validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
+    },
+    {
       name: "slug",
       title: "Slug",
       type: "slug",
-      group: "meta",
+      group: ["toolInfo", "seo"],
       options: {
         source: "name",
         maxLength: 96,
@@ -100,9 +105,9 @@ const tool = {
       title: "Category",
       type: "reference",
       to: [{ type: "category" }],
-      group: "meta",
+      group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please indicate the most appropriate category for the tool?"
         ),
     },
@@ -114,7 +119,7 @@ const tool = {
       type: "image",
       group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "We need a logo for the partner in SVG format please."
         ),
       fields: [
@@ -126,7 +131,7 @@ const tool = {
           type: "string",
           group: "toolInfo",
           validation: (Rule) =>
-            Rule.required().warning(
+            Rule.required().error(
               "Please enter the alternative text for the partner's logo image."
             ),
         },
@@ -142,9 +147,19 @@ const tool = {
       type: "string",
       group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please write a brief description of the tool."
         ),
+    },
+    {
+      name: "seoMetaDescription",
+      title: "SEO Meta Description",
+      description: "The SEO Meta Description of the post.",
+      type: "array",
+      of: [{ type: "block" }],
+      options: { maxLength: 158, spellcheck: true },
+      group: "seo",
+      validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
     },
     {
       name: "hrUse",
@@ -155,7 +170,7 @@ const tool = {
       options: { maxLength: 300, spellcheck: true },
       group: "toolInfo",
       validation: (Rule) =>
-        Rule.required().warning(
+        Rule.required().error(
           "Please describe how we use the tool in bullet format."
         ),
     },
@@ -163,7 +178,7 @@ const tool = {
       name: "publishedAt",
       title: "Published At",
       type: "date",
-      group: "meta",
+      group: ["toolInfo", "seo"],
     },
   ],
   preview: {

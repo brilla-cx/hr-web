@@ -60,16 +60,16 @@ const post = {
       description: "The title of the post.",
       type: "string",
       group: ["compose", "iterable"],
-      validation: Rule => Rule.required().warning("Every post needs a name, right?"),
+      validation: Rule => Rule.required().error("Every post needs a name, right?"),
     },
     {
       name: "seoTitle",
       title: "SEO Title",
-      description: "The SEO Title of the post. Believe it or not, it could be different than the title of the post.",
+      description: "The SEO Title of the post. This is probably not going to be the same as the title.",
       type: "string",
       group: "seo",
       options: { source: "name", maxLength: 60, spellcheck: true },
-      validation: Rule => Rule.required().warning("What's Kristen going to say if you don't have an SEO Title??"),
+      validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
     },
     {
       name: "nameIterable",
@@ -88,7 +88,7 @@ const post = {
       of: [{ type: "block" }],
       options: { maxLength: 100, spellcheck: true },
       group: ["compose", "iterable"],
-      validation: Rule => Rule.required().warning("Too long, didn't read. Please ensure to include a TLDR."),
+      validation: Rule => Rule.required().error("Too long, didn't read. Please ensure to include a TLDR."),
     },
     {
       name: "seoMetaDescription",
@@ -98,7 +98,7 @@ const post = {
       of: [{ type: "block" }],
       options: { maxLength: 158, spellcheck: true },
       group: "seo",
-      validation: Rule => Rule.required().warning("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
+      validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
     },
     {
       name: "content",
@@ -107,7 +107,7 @@ const post = {
       type: "blockContent",
       options: { spellcheck: true },
       group: ["compose", "iterable"],
-      validation: Rule => Rule.required().warning("A post without content is like a host without the most."),
+      validation: Rule => Rule.required().error("A post without content is like a host without the most."),
     },
     {
       name: "iterableContent",
@@ -125,7 +125,7 @@ const post = {
       type: "slug",
       group: ["compose", "seo"],
       options: { source: "name", maxLength: 96 },
-      validation: Rule => Rule.required().warning("A post needs a slug as a slug needs a post."),
+      validation: Rule => Rule.required().error("A post needs a slug as a slug needs a post."),
     },
     {
       name: "featured",
@@ -135,13 +135,21 @@ const post = {
       group: ["compose", "iterable"],
     },
     {
+      name: "isShort",
+      title: "Short?",
+      description: "Is this a short post?",
+      type: "boolean",
+      group: "compose",
+      validation: Rule => Rule.required().error("Please indicate if this post is a Short one. i.e. < 200 words."),
+    },
+    {
       name: "category",
       title: "Category",
       description: "Select the most relevant category for this post.",
       type: "array",
       of: [{ type: "reference", to: { type: "category" } }],
       group: ["compose", "iterable"],
-      validation: Rule => Rule.required().warning("Please select a category/topic for the post.?"),
+      validation: Rule => Rule.required().error("Please select a category/topic for the post.?"),
     },
     {
       name: "author",
@@ -150,7 +158,7 @@ const post = {
       type: "reference",
       to: { type: "author" },
       group: ["compose", "iterable"],
-      validation: Rule => Rule.required().warning("This post didn't just write itself, did it?"),
+      validation: Rule => Rule.required().error("This post didn't just write itself, did it?"),
     },
     {
       name: "image",
@@ -159,7 +167,7 @@ const post = {
         "The really big image at the top of every post.",
       type: "image",
       group: ["compose", "iterable"],
-      validation: Rule => Rule.required().warning("Use the built-in OpenAI image generation thingamajig to create one"),
+      validation: Rule => Rule.required().error("Use the built-in OpenAI image generation thingamajig to create one"),
       fields: [
         {
           name: "caption",
@@ -173,7 +181,7 @@ const post = {
           title: "Image Alt Text",
           description: "E.g. A grumpy looking bald man on a chair.",
           type: "string",
-          validation: Rule => Rule.required().warning("Use your OpenAI image generation prompt for the imageAltText."),
+          validation: Rule => Rule.required().error("Use your OpenAI image generation prompt for the imageAltText."),
         },
       ],
       options: {
@@ -191,6 +199,7 @@ const post = {
       title: "SEO",
       type: "seo",
       group: "seo",
+      hidden: true,
     },
   ],
   preview: {

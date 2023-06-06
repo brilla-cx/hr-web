@@ -87,25 +87,25 @@ const socialBlog = {
       type: "string",
       options: { spellcheck: true },
       group: ["compose", "seo"],
-      validation: Rule => Rule.required().warning("Every post needs a name, right?"),
+      validation: Rule => Rule.required().error("Every post needs a name, right?"),
     },
     {
       name: "yoastTitle",
-      title: "Yoast Title",
+      title: "SEO Title",
       description: "The legacy Yoast Title from RebekahRadice.com. If empty, copy and paste the Title from above.",
       type: "string",
       options: { spellcheck: true },
       group: ["compose", "seo"],
-      validation: Rule => Rule.required().warning("What's Kristen going to say if you don't have an SEO Title??"),
+      validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
     },
     {
       name: "yoastDescription",
-      title: "Yoast Description",
+      title: "SEO Meta Description",
       description: "The legacy Yoast Description from RebekahRadice.com.",
       type: "string",
       options: { spellcheck: true },
       group: ["compose", "seo"],
-      validation: Rule => Rule.required().warning("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
+      validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
     },
     {
       name: "content",
@@ -113,6 +113,7 @@ const socialBlog = {
       description:
         "This is the primary content of the post. This is what you gotta look at closely.",
       group: "compose",
+      validation: Rule => Rule.required().error("Every Social Blog needs some content don't ya think?."),
       type: "array",
       of: [
         {
@@ -169,7 +170,7 @@ const socialBlog = {
               name: "alt",
               type: "string",
               title: "Alternative text",
-              validation: Rule => Rule.required().warning("Please add an appropriate A11y compliant Alt Text for the image."),
+              validation: Rule => Rule.required().error("Please add an appropriate A11y compliant Alt Text for the image."),
             },
             {
               name: "caption",
@@ -223,12 +224,6 @@ const socialBlog = {
       description:
         "This should be the original published on date from WordPress, not the date you updated it.",
       group: "compose",
-    },
-    {
-      name: "seo",
-      title: "SEO",
-      type: "seo",
-      group: "seo",
     },
   ],
   preview: {

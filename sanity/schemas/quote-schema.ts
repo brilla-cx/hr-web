@@ -15,21 +15,21 @@ const quote = {
       type: "array",
       of: [{ type: "block" }],
       options: { spellcheck: true },
-      validation: (Rule) => Rule.required().warning("A quote without words is like an answer without a response."),
+      validation: (Rule) => Rule.required().error("A quote without words is like an answer without a response."),
     },
     {
       name: "quoteAuthor",
       title: "Quote Author",
       description: "Who is the quote originally attributed to?",
       type: "string",
-      validation: (Rule) => Rule.required().warning("Who spoke these words of wisdom?"),
+      validation: (Rule) => Rule.required().error("Who spoke these words of wisdom?"),
     },
     {
       name: "sourceURL",
       title: "Source URL",
       description: "The URL to the page where you found the quote.",
       type: "string",
-      validation: (Rule) => Rule.required().uri().warning("Please provide a valid URL for the source, ensure it's a credible site."),
+      validation: (Rule) => Rule.required().uri().error("Please provide a valid URL for the source, ensure it's a credible site."),
     },
     {
       name: "category",
@@ -37,7 +37,7 @@ const quote = {
       type: "reference",
       description: "Select the most appropriate category for the quote.",
       to: [{ type: "category" }],
-      validation: (Rule) => Rule.required().warning("Select the most appropriate category for the quote"),
+      validation: (Rule) => Rule.required().error("Select the most appropriate category for the quote"),
     },
     {
       name: "slug",
@@ -47,7 +47,7 @@ const quote = {
         source: "name",
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required().warning("This should be the same as the quote name."),
+      validation: (Rule) => Rule.required().error("This should be the same as the quote name."),
     },
     {
       name: "publishedAt",

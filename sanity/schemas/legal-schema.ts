@@ -30,13 +30,32 @@ const legal = {
       group: "compose",
     },
     {
+      name: "seoTitle",
+      title: "SEO Title",
+      description: "The SEO Title of the post. This is probably not going to be the same as the title.",
+      type: "string",
+      group: ["compose", "seo"],
+      options: { source: "name", maxLength: 60, spellcheck: true },
+      validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
+    },
+    {
       name: "tldr",
       title: "TLDR",
       description: "The TL;DR of the legal that displays in cards on the website or emails. It's not for SEO",
       type: "string",
       options: { maxLength: 300, spellcheck: true },
       group: "compose",
-      validation: Rule => Rule.required().warning("Too long, didn't read. Please ensure to include a TLDR."),
+      validation: Rule => Rule.required().error("Too long, didn't read. Please ensure to include a TLDR."),
+    },
+    {
+      name: "seoMetaDescription",
+      title: "SEO Meta Description",
+      description: "The SEO Meta Description of the post.",
+      type: "array",
+      of: [{ type: "block" }],
+      options: { maxLength: 158, spellcheck: true },
+      group: ["compose", "seo"],
+      validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
     },
     {
       name: "slug",
@@ -52,6 +71,7 @@ const legal = {
       description:
         "This is the primary content of the post. This is what you gotta look at closely.",
       group: "compose",
+      validation: Rule => Rule.required().error("Hmm...this legal page needs some legalese."),
       type: "array",
       of: [
         {
@@ -118,12 +138,6 @@ const legal = {
         },
       ],
       options: { spellcheck: true },
-    },
-    {
-      name: "seo",
-      title: "SEO",
-      type: "seo",
-      group: "seo",
     },
     {
       name: "publishedAt",

@@ -35,6 +35,7 @@ export default function HomePage({ posts }) {
                     <div className="md:col-span-2 md:row-span-2" key={post._id}>
                       <PostAlt
                         post={post}
+                        isShort={post.isShort}
                         preloadImage
                         fontSize="large"
                         aspect="custom"
@@ -47,6 +48,7 @@ export default function HomePage({ posts }) {
                     <PostAlt
                       key={post._id}
                       post={post}
+                      isShort={post.isShort}
                       aspect="landscape"
                       fontWeight="normal"
                       noDate
@@ -67,6 +69,7 @@ export default function HomePage({ posts }) {
                 <PostAlt
                   key={post._id}
                   post={post}
+                  isShort={post.isShort}
                   fontWeight="normal"
                   aspect="landscape"
                 />

@@ -2,6 +2,7 @@ import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
+  authorMeta,
   authorsquery,
   getAllFaqsquery,
   getcatoftoolsquery,
@@ -95,6 +96,14 @@ export async function getAuthorPostsBySlug(slug) {
   }
   return {};
 }
+
+export async function getAuthorMeta(slug) {
+  if (client) {
+    return (await client.fetch(authorMeta, { slug })) || {};
+  }
+  return {};
+}
+
 // Get Paginated Posts
 export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
   if (client) {
