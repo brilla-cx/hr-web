@@ -18,7 +18,7 @@ function EmailCta(props: Props) {
         </H3>
         <p className="mt-3 text-sm leading-6 text-gray-400">{props.subtitle}</p>
       </div>
-      <form id="subscribe form" className={cx("w-full max-w-xl")}>
+      <form id="subscribe-form" className="w-full">
         {/* Layout div for form elements */}
         <div className="flex flex-col justify-center gap-4 md:flex-row">
           {/* Label for email input field, hidden for visual users but accessible to screen readers */}
@@ -37,7 +37,7 @@ function EmailCta(props: Props) {
           />
           {/* GlowingButton component for form submission */}
           <GlowingButton href="" form="email" type="submit" variant="subscribe">
-            Level Up
+            Level U
           </GlowingButton>
         </div>
         {/* Privacy policy link */}

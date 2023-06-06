@@ -69,8 +69,12 @@ function BrandItem(props: BrandItemProps) {
         className="object-contain w-full max-h-12"
         src={props.imageUrl}
         alt={props.alt}
-        width={158}
-        height={48}
+        width={100}
+        height={100}
+        placeholder="blur"
+        blurDataURL={props.imageUrl}
+        priority
+        unoptimized
       />
     </div>
   );

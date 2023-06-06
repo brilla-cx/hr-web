@@ -9,10 +9,12 @@ import { Input } from "../forms"; // Import Input component from forms
 
 // Define SubscribeForm component
 // This component receives a formId prop that is used for form and button IDs
-export default function SubscribeForm({ formId }) {
+export default function SubscribeForm({ formId, classNames }) {
   return (
     // Form component with id passed from props, and appropriate styling
-    <form id={formId} className={cx("mx-auto mt-8 w-full max-w-xl")}>
+    <form
+      id={formId}
+      className={cx(classNames, "mx-auto mt-8 w-full max-w-xl")}>
       {/* Layout div for form elements */}
       <div className="flex flex-col justify-center gap-4 md:flex-row">
         {/* Label for email input field, hidden for visual users but accessible to screen readers */}
