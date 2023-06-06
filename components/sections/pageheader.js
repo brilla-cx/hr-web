@@ -1,6 +1,6 @@
 // Importing necessary components
-import SubscribeForm from "components/ui/sections/subscribeform"; // Importing SubscribeForm component
-import { H1, Lead } from "components/ui/typography"; // Importing H1 and Lead components from typography
+import SubscribeForm from "@/components/sections/subscribeform"; // Importing SubscribeForm component
+import { H1, Lead } from "@/components/ui/typography"; // Importing H1 and Lead components from typography
 
 // Define the PageHeader component
 // This component receives a title, a leadText, includeForm, and a formId as props

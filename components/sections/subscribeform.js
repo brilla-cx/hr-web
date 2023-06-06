@@ -2,10 +2,9 @@
 import GlowingButton from "components/ui/glowingButton"; // Import GlowingButton component
 import Link from "next/link"; // Import Link from Next.js
 
+import { Input } from "@/components/ui/forms"; // Import Input component from forms
 import hoverStyles from "@/lib/hover"; // Import hover styles
 import { cx } from "@/lib/utils"; // Import classnames utility
-
-import { Input } from "../forms"; // Import Input component from forms
 
 // Define SubscribeForm component
 // This component receives a formId prop that is used for form and button IDs

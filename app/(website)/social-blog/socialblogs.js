@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
 import Container from "@/components/container";
-import PageHeader from "@/components/ui/sections/pageheader";
+import PageHeader from "@/components/sections/pageheader";
 
 import PaginatedPosts from "./posts";
 

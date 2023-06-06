@@ -13,6 +13,9 @@ const sizeClasses = {
 export function Input({
   placeholder,
   name,
+  errors = {},
+  validations,
+  register,
   type = "text",
   size = "md",
   className = "",
@@ -23,6 +26,7 @@ export function Input({
       type={type}
       placeholder={placeholder}
       name={name}
+      {...(register && register(name, validations))}
       className={cx(className, sizeClasses[size], commonClasses, "")}
       {...rest}
     />
@@ -32,7 +36,7 @@ export function Input({
 export function Select({ children, size = "md", ...rest }) {
   return (
     <div className="relative">
-      <FaChevronDown className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <FaChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2" />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>

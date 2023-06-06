@@ -36,6 +36,7 @@
     "postcss": "8.4.22",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
     "react-iframe": "^1.8.5",
     "react-share": "^4.4.1",
