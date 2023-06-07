@@ -17,14 +17,17 @@ const post = {
       default: true,
     },
     {
+      name: "iterable",
+      title: "Iterable",
+    },
+    {
       name: "seo",
       title: "SEO",
     },
     {
-      name: "iterable",
-      title: "Iterable",
+      name: "qa",
+      title: "QA",
     },
-
   ],
   fields: [
     {
@@ -32,7 +35,7 @@ const post = {
       title: "Status",
       type: "string",
       description: "Select the status of the document.",
-      group: "compose",
+      group: "qa",
       options: {
         list: [
           { title: "Ideation", value: "ideation" },
@@ -63,15 +66,6 @@ const post = {
       validation: Rule => Rule.required().error("Every post needs a name, right?"),
     },
     {
-      name: "seoTitle",
-      title: "SEO Title",
-      description: "The SEO Title of the post. This is probably not going to be the same as the title.",
-      type: "string",
-      group: "seo",
-      options: { source: "name", maxLength: 60, spellcheck: true },
-      validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
-    },
-    {
       name: "nameIterable",
       title: "Iterable Title",
       description: "The title of the post on Iterable, it will probably be different than the website.",
@@ -89,16 +83,6 @@ const post = {
       options: { maxLength: 100, spellcheck: true },
       group: ["compose", "iterable"],
       validation: Rule => Rule.required().error("Too long, didn't read. Please ensure to include a TLDR."),
-    },
-    {
-      name: "seoMetaDescription",
-      title: "SEO Meta Description",
-      description: "The SEO Meta Description of the post.",
-      type: "array",
-      of: [{ type: "block" }],
-      options: { maxLength: 158, spellcheck: true },
-      group: "seo",
-      validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
     },
     {
       name: "content",
@@ -199,7 +183,6 @@ const post = {
       title: "SEO",
       type: "seo",
       group: "seo",
-      hidden: true,
     },
   ],
   preview: {

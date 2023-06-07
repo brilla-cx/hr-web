@@ -51,6 +51,11 @@ const faq = {
             title: "Published at",
             type: "datetime",
         },
+        {
+            name: "seo",
+            title: "SEO",
+            type: "seo",
+        },
     ],
     preview: {
         select: {
