@@ -73,16 +73,22 @@ export function Select({ children, size = "md", ...rest }: SelectProps) {
 interface TextareaProps {
   placeholder: string;
   size?: "sm" | "md";
-  className: "";
+  className?: string;
+  required?: boolean;
+  name?: string;
 }
 
 export function Textarea({
   placeholder,
   size = "md",
   className,
+  required,
+  name,
 }: TextareaProps) {
   return (
     <textarea
+      name={name ?? ""}
+      required
       placeholder={placeholder}
       className={cx(commonClasses, sizeClasses[size], "", className)}
     />

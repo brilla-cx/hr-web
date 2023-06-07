@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 import { GlowingButton } from "../ui";
@@ -40,7 +39,9 @@ const PartnerHero: React.FC<PartnerHeroProps> = ({
               {description}
             </p>
             <div className="flex items-center justify-center mt-10 gap-x-6">
-              <GlowingButton variant="link" href={"#"} target="_blank">
+              <GlowingButton
+                variant="link"
+                href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">
                 Become a Partner
               </GlowingButton>
             </div>

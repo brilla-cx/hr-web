@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { ReactNode } from "react";
+
+import SubscribeForm from "@/components/sections/subscribeform";
 
 import { H1, Lead } from "../typography";
-import SubscribeForm from "./subscribeform";
 
 interface Props {
   title: string;
