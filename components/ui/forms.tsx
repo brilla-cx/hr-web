@@ -62,7 +62,7 @@ interface SelectProps {
 export function Select({ children, size = "md", ...rest }: SelectProps) {
   return (
     <div className="relative">
-      <FaChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2" />
+      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2" />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
@@ -73,13 +73,24 @@ export function Select({ children, size = "md", ...rest }: SelectProps) {
 interface TextareaProps {
   placeholder: string;
   size?: "sm" | "md";
+  className?: string;
+  required?: boolean;
+  name?: string;
 }
 
-export function Textarea({ placeholder, size = "md" }: TextareaProps) {
+export function Textarea({
+  placeholder,
+  size = "md",
+  className,
+  required,
+  name,
+}: TextareaProps) {
   return (
     <textarea
+      name={name ?? ""}
+      required
       placeholder={placeholder}
-      className={cx(commonClasses, sizeClasses[size], "")}
+      className={cx(commonClasses, sizeClasses[size], "", className)}
     />
   );
 }
@@ -105,7 +116,7 @@ export function Checkbox({
   ...rest
 }: CheckboxProps) {
   return (
-    <label className="inline-flex w-full items-center gap-2 rounded border border-gray-600 px-2 py-1 hover:bg-gray-800">
+    <label className="inline-flex items-center w-full gap-2 px-2 py-1 border border-gray-600 rounded hover:bg-gray-800">
       <input
         type="checkbox"
         name={name}
@@ -143,7 +154,7 @@ export function Radio({
   ...rest
 }: RadioProps) {
   return (
-    <label className="inline-flex w-full items-center gap-2 rounded border border-gray-600 px-2 py-1 hover:bg-gray-800">
+    <label className="inline-flex items-center w-full gap-2 px-2 py-1 border border-gray-600 rounded hover:bg-gray-800">
       <input
         type="radio"
         name={name}

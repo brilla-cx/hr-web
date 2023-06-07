@@ -1,27 +1,61 @@
+import BrandsMarquee from "@/components/about/brands-marquee";
+import Faqs from "@/components/about/faqs";
+import Container from "@/components/container";
+import ExpectFromUs from "@/components/partners/expect-from-us";
+import LookingFor from "@/components/partners/looking-for";
+import OurPartners from "@/components/partners/our-partners";
+import PartnerCommunityData from "@/components/partners/partner-community-stats";
 import PartnerHero from "@/components/partners/partnerhero";
 import PageHeader from "@/components/sections/pageheader";
+import EmailForm from "@/components/ui/email-form";
+import { getAllFaqs, getAllTools } from "@/sanity/client";
+import { FaqType } from "@/types/types";
 
-export default function Partners() {
-  //Just placing imports here for now for rapid iteration
+export default async function Partners() {
+  const faqs = (await getAllFaqs()) as FaqType[];
+  const tools = await getAllTools();
+
+  const partnersFaqs = faqs.filter((faq) => faq.faqType.includes("partner"));
+
   return (
-    <div>
-      <PartnerHero
-        title={"Partner with Hey Rebekah"}
-        description={
-          "Improve your good karma and do a solid for the 420 million freelancers around the world. Instead of paying us a fat affiliate commission, we ask that you provide an exclusive discount to our readers. No brainer, right?"
-        }
-        imageUrl={
-          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-        }
-        imageWidth={1920}
-        imageHeight={1080}
-        alt="The team hanging around the board room in a meeting."
-      />
-      <PageHeader
-        title="Knowledge should be free"
-        leadText="We imagine a world where all freelance professionals can build thriving careers so they can experience the joy of financial freedom and success."
-        includeForm={false}
-      />
+    <div className=" bg-midnight">
+      <Container
+        large
+        className="space-y-16 border-l border-r border-neutral-200 border-opacity-10">
+        <PartnerHero
+          title={"Partner with Hey Rebekah"}
+          description={
+            "Improve your good karma and do a solid for the 420 million freelancers around the world. Instead of paying us a fat affiliate commission, we ask that you provide an exclusive discount to our readers. No brainer, right?"
+          }
+          imageUrl={
+            "https://cdn.sanity.io/images/smx99abf/production/962448a739e0be023c1703997502c5bdd009688e-1280x920.webp"
+          }
+          imageWidth={1920}
+          imageHeight={1080}
+          alt="The team hanging around the board room in a meeting."
+        />
+        <div className="px-2 mx-auto max-w-7xl lg:px-8">
+          <PageHeader
+            title="Knowledge should be free"
+            leadText="We imagine a world where all freelance professionals can build thriving careers so they can experience the joy of financial freedom and success."
+            includeForm={false}
+          />
+          {/* stats */}
+          <PartnerCommunityData />
+          {/* brands */}
+          <BrandsMarquee />
+          {/* What we're looking for */}
+          <LookingFor />
+          {/* What to expect from us */}
+          <ExpectFromUs />
+          {/* partners You're in great company */}
+          <OurPartners tools={tools} />
+          {/* form */}
+          <EmailForm />
+          {/* faqs */}
+          <Faqs faqs={partnersFaqs} />
+        </div>
+      </Container>
     </div>
   );
 }

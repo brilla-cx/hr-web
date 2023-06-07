@@ -11,12 +11,12 @@ export default function PageHeader({
   formId = "",
 }) {
   return (
-    <div className="bg-midnight px-6 py-16 sm:py-24 lg:px-8">
-      <div className="mx-auto max-w-3xl text-center">
+    <div className="px-6 py-16 bg-midnight sm:py-24 lg:px-8">
+      <div className="max-w-3xl mx-auto text-center">
         <H1 className="text-gray-200">{title}</H1>
         <Lead className="mt-6 text-gray-400">{leadText}</Lead>
         {/* Conditionally render SubscribeForm component based on includeForm prop */}
-        {includeForm && <SubscribeForm formId={formId} />}
+        {includeForm && <SubscribeForm formId={formId} className="" />}
       </div>
     </div>
   );
