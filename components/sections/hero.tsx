@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-import { H1, Lead } from "../typography";
+import { H1, Lead } from "@/components/ui";
+
 import SubscribeForm from "./subscribeform";
 
 interface Props {
