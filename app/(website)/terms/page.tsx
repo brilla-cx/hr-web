@@ -1,8 +1,8 @@
 import { PortableText } from "@portabletext/react";
 
 import Container from "@/components/container";
-import { Prose } from "@/components/ui";
 import PageHeader from "@/components/sections/pageheader";
+import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export default async function Terms() {

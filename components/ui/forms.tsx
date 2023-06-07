@@ -1,6 +1,19 @@
+import React from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 import { cx } from "@/lib/utils";
+
+interface InputProps {
+  placeholder: string;
+  name: string;
+  errors?: Record<string, any>;
+  validations?: any;
+  register?: any;
+  type?: string;
+  size?: "sm" | "md";
+  className?: string;
+  [key: string]: any;
+}
 
 const commonClasses =
   "border-2 border-black rounded w-full placeholder:text-zinc-400 focus:border-pink focus:ring-pink";
@@ -20,7 +33,7 @@ export function Input({
   size = "md",
   className = "",
   ...rest
-}) {
+}: InputProps) {
   return (
     <div>
       <input
@@ -40,7 +53,13 @@ export function Input({
   );
 }
 
-export function Select({ children, size = "md", ...rest }) {
+interface SelectProps {
+  children: React.ReactNode;
+  size?: "sm" | "md";
+  [key: string]: any;
+}
+
+export function Select({ children, size = "md", ...rest }: SelectProps) {
   return (
     <div className="relative">
       <FaChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2" />
@@ -51,13 +70,28 @@ export function Select({ children, size = "md", ...rest }) {
   );
 }
 
-export function Textarea({ placeholder, size = "md" }) {
+interface TextareaProps {
+  placeholder: string;
+  size?: "sm" | "md";
+}
+
+export function Textarea({ placeholder, size = "md" }: TextareaProps) {
   return (
     <textarea
       placeholder={placeholder}
       className={cx(commonClasses, sizeClasses[size], "")}
     />
   );
+}
+interface CheckboxProps {
+  name: string;
+  errors?: Record<string, any>;
+  validations?: any;
+  register?: any;
+  size?: "sm" | "md";
+  className?: string;
+  label: string;
+  [key: string]: any;
 }
 
 export function Checkbox({
@@ -69,7 +103,7 @@ export function Checkbox({
   className = "",
   label,
   ...rest
-}) {
+}: CheckboxProps) {
   return (
     <label className="inline-flex w-full items-center gap-2 rounded border border-gray-600 px-2 py-1 hover:bg-gray-800">
       <input
@@ -87,6 +121,17 @@ export function Checkbox({
   );
 }
 
+interface RadioProps {
+  name: string;
+  errors?: Record<string, any>;
+  validations?: any;
+  register?: any;
+  size?: "sm" | "md";
+  className?: string;
+  label: string;
+  [key: string]: any;
+}
+
 export function Radio({
   name,
   errors = {},
@@ -96,7 +141,7 @@ export function Radio({
   className = "",
   label,
   ...rest
-}) {
+}: RadioProps) {
   return (
     <label className="inline-flex w-full items-center gap-2 rounded border border-gray-600 px-2 py-1 hover:bg-gray-800">
       <input

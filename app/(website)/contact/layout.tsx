@@ -6,8 +6,8 @@ import {
 import { FaPizzaSlice } from "react-icons/fa";
 
 import Container from "@/components/container";
-import ContactCard from "@/components/shared/contactCard";
 import PageHeader from "@/components/sections/pageheader";
+import ContactCard from "@/components/shared/contactCard";
 
 function ContactLayout() {
   return (

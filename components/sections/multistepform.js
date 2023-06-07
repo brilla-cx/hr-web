@@ -3,7 +3,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import FormProvider, { useFormData } from "@/components/providers/form-context";
@@ -313,8 +313,6 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   const router = useRouter();
 
   const submitForm = async () => {
-    console.log(data);
-
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
@@ -329,7 +327,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
       }
       const result = await response.json();
       if (result.success) {
-        console.log("Response:", result);
+        router.push("/signup/confirm");
       }
     } catch (error) {
       console.error("Error:", error);
