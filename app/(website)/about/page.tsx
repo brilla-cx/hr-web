@@ -5,7 +5,7 @@ import Faqs from "@/components/about/faqs";
 import WhatIsImportant from "@/components/about/what-is-important";
 import WtfIsHeyRebekah from "@/components/about/wtf-is-rebekah";
 import Container from "@/components/container";
-import { HeroWithImage } from "@/components/ui/sections/hero";
+import { HeroWithImage } from "@/components/sections/hero";
 import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 

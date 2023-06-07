@@ -1,5 +1,5 @@
 import Container from "@/components/container"; // Import Container component
-import PageHeader from "@/components/ui/sections/pageheader";
+import PageHeader from "@/components/sections/pageheader";
 
 export default function Advertise() {
   //Placeholder to create route

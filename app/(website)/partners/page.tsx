@@ -6,8 +6,8 @@ import LookingFor from "@/components/partners/looking-for";
 import OurPartners from "@/components/partners/our-partners";
 import PartnerCommunityData from "@/components/partners/partner-community-stats";
 import PartnerHero from "@/components/partners/partnerhero";
+import PageHeader from "@/components/sections/pageheader";
 import EmailForm from "@/components/ui/email-form";
-import PageHeader from "@/components/ui/sections/pageheader";
 import { getAllFaqs, getAllTools } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
