@@ -9,10 +9,6 @@ const socialBlog = {
   type: "document",
   groups: [
     {
-      name: "qa",
-      title: "Checklist",
-    },
-    {
       name: "compose",
       title: "Compose",
       default: true,
@@ -20,6 +16,10 @@ const socialBlog = {
     {
       name: "seo",
       title: "SEO",
+    },
+    {
+      name: "qa",
+      title: "Checklist",
     },
   ],
   fields: [
@@ -95,8 +95,8 @@ const socialBlog = {
       description: "The legacy Yoast Title from RebekahRadice.com. If empty, copy and paste the Title from above.",
       type: "string",
       options: { spellcheck: true },
+      readOnly: true,
       group: ["compose", "seo"],
-      validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
     },
     {
       name: "yoastDescription",
@@ -104,8 +104,8 @@ const socialBlog = {
       description: "The legacy Yoast Description from RebekahRadice.com.",
       type: "string",
       options: { spellcheck: true },
+      readOnly: true,
       group: ["compose", "seo"],
-      validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
     },
     {
       name: "content",
@@ -216,6 +216,12 @@ const socialBlog = {
       of: [{ type: "reference", to: { type: "category" } }],
       group: "compose",
       hidden: true,
+    },
+    {
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo",
     },
     {
       name: "publishedAt",

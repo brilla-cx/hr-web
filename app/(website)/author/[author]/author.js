@@ -87,7 +87,7 @@ export default function Author(props) {
             ))}
         </div>
         <Suspense fallback={<p>Revving up the flux capacitor....</p>}>
-          <div className="my-8 grid gap-10 px-4 sm:px-8 md:grid-cols-2 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
+          <div className="my-8 grid gap-10 px-4 sm:px-8 md:grid-cols-2 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
             {posts.map((post) => (
               <PostAlt key={post._id} post={post} aspect="landscape" />
             ))}

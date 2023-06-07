@@ -52,7 +52,27 @@ const author = {
                     title: "Image Alt Text",
                     description: "Enter the alternative text for the author's image per A11y.",
                     type: "string",
-                    validation: Rule => Rule.required().error("Don't you want the author profile to be accessible?"),
+                    validation: (Rule) =>
+                        Rule.custom((value, context) => {
+                            const { parent } = context as any
+
+                            // Alt text only required if an image is set in the parent
+                            if (!parent?.asset) {
+                                return true
+                            }
+
+                            return value
+                                ? true
+                                : 'Alternative text is helpful for accessibility and SEO'
+                        }),
+                    hidden: ({ parent }) => !parent?.asset,
+                },
+                {
+                    name: "caption",
+                    title: "Image caption",
+                    description:
+                        "Use this to add your AI prompt or attribute a source.",
+                    type: "string",
                 },
             ],
             options: {
@@ -91,7 +111,7 @@ const author = {
             type: "reference",
             to: [{ type: "category" }],
             group: 'eeatInfo',
-            validation: Rule => Rule.required().error("Limit this to one category, por favor."),
+            validation: Rule => Rule.required().max(1).error("Limit this to one category, por favor."),
         },
         {
             name: "beat",
@@ -106,6 +126,7 @@ const author = {
                 },
             ],
             group: 'eeatInfo',
+            validation: Rule => Rule.required().max(3).error("Keep it to 3 secondary topics aside from the primary."),
         },
         {
             name: "credentials",
@@ -161,23 +182,10 @@ const author = {
             validation: (Rule: any) => Rule.uri(),
         },
         {
-            name: "seoTitle",
-            title: "SEO Title",
-            description: "The SEO Title of the post. This is probably not going to be the same as the title.",
-            type: "string",
+            name: "seo",
+            title: "SEO",
+            type: "seo",
             group: "seo",
-            options: { source: "name", maxLength: 60, spellcheck: true },
-            validation: Rule => Rule.required().error("What's Kristen going to say if you don't have an SEO Title??"),
-        },
-        {
-            name: "seoMetaDescription",
-            title: "SEO Meta Description",
-            description: "The SEO Meta Description of the post.",
-            type: "array",
-            of: [{ type: "block" }],
-            options: { maxLength: 158, spellcheck: true },
-            group: "seo",
-            validation: Rule => Rule.required().error("Keep it short and sweet otherwise from Kristen you'll feel the heat."),
         },
     ],
     preview: {
