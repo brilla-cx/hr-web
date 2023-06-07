@@ -30,7 +30,7 @@ export default async function Partners() {
           imageHeight={1080}
           alt="The team hanging around the board room in a meeting."
         />
-        <div className="px-6 mx-auto max-w-7xl lg:px-8">
+        <div className="px-2 mx-auto max-w-7xl lg:px-8">
           <PageHeader
             title="Knowledge should be free"
             leadText="We imagine a world where all freelance professionals can build thriving careers so they can experience the joy of financial freedom and success."
@@ -46,7 +46,7 @@ export default async function Partners() {
           <ExpectFromUs />
           {/* partners You're in great company */}
           <OurPartners tools={tools} />
-          {/* TODO: form */}
+          {/* form */}
           <EmailForm />
           {/* faqs */}
           <Faqs faqs={faqs} />

@@ -22,42 +22,30 @@ const PartnerHero: React.FC<PartnerHeroProps> = ({
   imageHeight,
 }) => {
   return (
-    <div className="relative overflow-hidden">
-      <div className="pt-10 pb-24 mx-auto max-w-7xl sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-40">
-        <div className="px-6 lg:px-0 lg:pt-4">
-          <div className="max-w-2xl mx-auto">
-            <div className="max-w-lg">
-              <H1 className="text-gray-200">{title}</H1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                {description}
-              </p>
-              <div className="mt-10">
-                <GlowingButton
-                  variant="link"
-                  href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">
-                  Become a Partner
-                </GlowingButton>
-              </div>
+    <div className="h-[90vh] bg-midnight">
+      <div className="relative h-full overflow-hidden isolate">
+        <div
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            opacity: 0.2,
+            backgroundPosition: "center",
+          }}
+          className="absolute inset-0 bg-black"
+        />
+        <div className="items-center justify-center max-w-3xl py-32 mx-auto sm:py-48 lg:py-56">
+          <div className="text-center">
+            <H1 className="text-gray-200 animate-glow">{title}</H1>
+            <p className="mt-6 text-lg leading-8 text-gray-400">
+              {description}
+            </p>
+            <div className="flex items-center justify-center mt-10 gap-x-6">
+              <GlowingButton variant="link" href={"#"} target="_blank">
+                Become a Partner
+              </GlowingButton>
             </div>
           </div>
         </div>
-        <div className="mt-20 rounded-md sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0">
-          <div className="hidden md:block lg:col-span-1">
-            <Image
-              className="h-full w-full !rounded object-cover"
-              src={imageUrl}
-              alt=""
-              width={100}
-              height={100}
-              placeholder="blur"
-              blurDataURL={imageUrl}
-              priority
-              unoptimized
-            />
-          </div>
-        </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-24 -z-10 bg-gradient-to-t from-white sm:h-32" />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { H3, Lead } from "./typography";
 
 function EmailForm() {
   return (
-    <div className="grid grid-cols-1 gap-6 px-6 pb-36 md:grid-cols-2 md:px-24 lg:grid-cols-2 lg:px-28">
+    <div className="grid grid-cols-1 gap-6 px-0 pb-36 md:grid-cols-2 md:px-24 lg:grid-cols-2 lg:px-28">
       <H3 className="col-span-2 font-bold text-center text-gray-200">
         Together with Hey Rebekah
       </H3>
@@ -76,7 +76,7 @@ function EmailForm() {
         placeholder="Enter your message"
         aria-label="Enter your message"
       />
-      <div className="col-span-2 mx-auto">
+      <div className="max-w-xs col-span-2 mx-auto">
         <GlowingButton
           variant="link"
           href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">
