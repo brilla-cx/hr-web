@@ -2,7 +2,8 @@
 /* eslint-disable react/jsx-no-bind */
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import FormProvider, { useFormData } from "@/components/providers/form-context";
@@ -74,7 +75,7 @@ function StepOne({ formStep, nextFormStep }) {
     handleSubmit,
     formState: { errors },
     register,
-  } = useForm({ mode: "all" });
+  } = useForm({ mode: "onTouched" });
 
   const onSubmit = (values) => {
     setFormValues(values);
@@ -92,7 +93,7 @@ function StepOne({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200"
+            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-gray-600"
             name="email"
             type="email"
             required
@@ -103,6 +104,10 @@ function StepOne({ formStep, nextFormStep }) {
             validations={{
               required: "Email Address is required",
               maxLength: 80,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Invalid email address",
+              },
             }}
           />
 
@@ -142,11 +147,11 @@ function StepTwo({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200"
+            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-gray-600"
             name="firstName"
             type="text"
             required
-            placeholder="Johnas"
+            placeholder="eg: Rebekah"
             aria-label="Enter your name friends call you."
             register={register}
             errors={errors}
@@ -176,7 +181,6 @@ function StepThree({ formStep, nextFormStep }) {
   } = useForm({ mode: "all" });
 
   const onSubmit = (values) => {
-    console.log("values", values);
     setFormValues(values);
     nextFormStep();
   };
@@ -185,28 +189,35 @@ function StepThree({ formStep, nextFormStep }) {
     <div className={formStep === 3 ? "block" : "hidden"}>
       <div className="">
         <h2 className="font-heading text-center text-lg font-bold text-white">
-          What should we call you?
+          Choose a Primary Topic
         </h2>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {TopicsArray.map((item, index) => (
+              <div key={index}>
+                <Radio
+                  required
+                  label={item}
+                  value={item}
+                  name="topic1"
+                  register={register}
+                  errors={errors}
+                  validations={{
+                    required: "Please choose your Primary Topic",
+                  }}
+                />
+              </div>
+            ))}{" "}
+          </div>
 
-          {TopicsArray.map((item, index) => (
-            <div key={index}>
-              <Radio
-                required
-                label={item}
-                value={item}
-                name="topic1"
-                register={register}
-                errors={errors}
-                validations={{
-                  required: "Please choose your Primary Topic",
-                }}
-              />
+          {errors.topic1 && (
+            <div className="mt-3 text-center text-red-600">
+              <small>{errors.topic1.message}</small>
             </div>
-          ))}
+          )}
 
           <div className="mt-10 flex justify-center">
             <GlowingButton type="submit" autoWidth>
@@ -226,7 +237,10 @@ function StepFour({ formStep, nextFormStep }) {
     handleSubmit,
     formState: { errors },
     register,
+    watch,
   } = useForm({ mode: "all" });
+
+  const topicsSelected = watch("topics");
 
   const onSubmit = (values) => {
     const formattedValues = values.topics.reduce((result, topic, index) => {
@@ -251,33 +265,40 @@ function StepFour({ formStep, nextFormStep }) {
     <div className={formStep === 4 ? "block" : "hidden"}>
       <div className="">
         <h2 className="font-heading text-center text-lg font-bold text-white">
-          What should we call you?
+          Awesome. Select three more topics you love (optional).
         </h2>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
 
-          {filteredTopics.map((item, index) => (
-            <div key={index}>
-              <Checkbox
-                required
-                label={item}
-                value={item}
-                name="topics"
-                register={register}
-                errors={errors}
-                validations={{
-                  required: "We need your name, Captain!",
-                  validate: validateCheckboxGroup,
-                }}
-              />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {filteredTopics.map((item, index) => (
+              <div key={index}>
+                <Checkbox
+                  required
+                  label={item}
+                  value={item}
+                  name="topics"
+                  register={register}
+                  errors={errors}
+                  validations={{
+                    validate: validateCheckboxGroup,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          {errors.topics && (
+            <div className="mt-3 text-center text-red-600">
+              <small>{errors.topics.message}</small>
             </div>
-          ))}
+          )}
 
           <div className="mt-10 flex justify-center">
             <GlowingButton type="submit" autoWidth>
-              Continue
+              {topicsSelected ? "Continue" : "Skip"}
             </GlowingButton>
           </div>
         </form>
@@ -285,48 +306,52 @@ function StepFour({ formStep, nextFormStep }) {
     </div>
   );
 }
-
+// Submit (iterable)
 function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   const { data } = useFormData();
 
-  const submitForm = () => {
+  const router = useRouter();
+
+  const submitForm = async () => {
     console.log(data);
-    // alert("Form Submitted Successfully! ");
-    nextFormStep();
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit the form");
+      }
+      const result = await response.json();
+      if (result.success) {
+        console.log("Response:", result);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
     <div className={formStep === 5 ? "block" : "hidden"}>
-      <h2 className="font-heading text-start text-xl">
-        Please confirm the details below!
-      </h2>
-      <p className="text-sm text-gray-600">
-        Before submitting, please confirm the data. If you need any changes,
-        click on the "Go Back" button.
-      </p>
-
-      <div className="mt-8 grid gap-6 sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4">
-        {Object.entries(data).map(([key, value]) => (
-          <div className="flex flex-col gap-1 capitalize" key={key}>
-            <span className="text-sm text-gray-500">{key}</span>
-            <p className="">{value || "-"}</p>
-          </div>
-        ))}
+      <div className="">
+        <h2 className="font-heading text-center text-lg font-bold text-white">
+          This is your moment of Truth,{" "}
+          {data.firstName ? data.firstName : "Captain!"}
+        </h2>
+        <p className="mt-3 text-center text-gray-500">
+          We are ready to cheer for you!
+        </p>
       </div>
 
-      <div className="mt-10 flex justify-between">
-        <button
-          type="button"
-          className="rounded-lg bg-gray-200 px-5  py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-300 focus:outline-none focus:ring-4 focus:ring-gray-100"
-          onClick={prevFormStep}>
-          Go Back
-        </button>
-        <button
-          type="submit"
-          onClick={submitForm}
-          className="bg-primary rounded-lg px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-800 focus:outline-none focus:ring-4 focus:ring-violet-300">
-          Confirm & Submit
-        </button>
+      <div className="mt-10 flex justify-center">
+        <GlowingButton type="submit" autoWidth onClick={submitForm}>
+          Confirm & Signup
+        </GlowingButton>
       </div>
     </div>
   );

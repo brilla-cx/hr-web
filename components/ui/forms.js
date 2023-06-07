@@ -22,14 +22,21 @@ export function Input({
   ...rest
 }) {
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      {...(register && register(name, validations))}
-      className={cx(className, sizeClasses[size], commonClasses, "")}
-      {...rest}
-    />
+    <div>
+      <input
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        {...(register && register(name, validations))}
+        className={cx(className, sizeClasses[size], commonClasses, "")}
+        {...rest}
+      />
+      {errors[name] && (
+        <div className="mt-1 text-red-600">
+          <small>{errors[name].message}</small>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -64,12 +71,15 @@ export function Checkbox({
   ...rest
 }) {
   return (
-    <label className="inline-flex">
+    <label className="inline-flex w-full items-center gap-2 rounded border border-gray-600 px-2 py-1 hover:bg-gray-800">
       <input
         type="checkbox"
         name={name}
         {...(register && register(name, validations))}
-        className={cx("h-4 w-4 focus:border-pink focus:ring-pink", className)}
+        className={cx(
+          "h-4 w-4 text-pink focus:border-pink focus:ring-pink",
+          className
+        )}
         {...rest}
       />
       <span className="text-white"> {label}</span>
@@ -88,12 +98,15 @@ export function Radio({
   ...rest
 }) {
   return (
-    <label className="inline-flex">
+    <label className="inline-flex w-full items-center gap-2 rounded border border-gray-600 px-2 py-1 hover:bg-gray-800">
       <input
         type="radio"
         name={name}
         {...(register && register(name, validations))}
-        className={cx("h-4 w-4 focus:border-pink focus:ring-pink", className)}
+        className={cx(
+          "h-4 w-4 text-pink focus:border-pink focus:ring-pink",
+          className
+        )}
         {...rest}
       />
       <span className="text-white"> {label}</span>
