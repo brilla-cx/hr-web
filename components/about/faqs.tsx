@@ -5,9 +5,7 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
 import { PortableText } from "@portabletext/react";
 import React from "react";
 
-import { Faqs as FaqType } from "@/types/sanity.types";
-
-function Faqs({ faqs }: { faqs: FaqType[] }) {
+function Faqs({ faqs }: { faqs: any[] }) {
   return (
     <div className="px-6 pb-24 mx-auto max-w-7xl sm:pb-32 lg:px-8 lg:pb-40">
       <div className="max-w-4xl mx-auto divide-y divide-slate-900">
