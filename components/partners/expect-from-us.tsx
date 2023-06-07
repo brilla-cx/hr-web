@@ -53,7 +53,9 @@ export default function ExpectFromUs() {
             </div>
           ))}
           <div className="pt-16">
-            <GlowingButton variant="link" href={"#"} target="_blank">
+            <GlowingButton
+              variant="link"
+              href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">
               Become a partner
             </GlowingButton>
           </div>

@@ -6,18 +6,9 @@ import LookingFor from "@/components/partners/looking-for";
 import OurPartners from "@/components/partners/our-partners";
 import PartnerCommunityData from "@/components/partners/partner-community-stats";
 import PartnerHero from "@/components/partners/partnerhero";
-import { GlowingButton, H1, Lead } from "@/components/ui";
-import { HeroWithImage } from "@/components/ui/sections/hero";
+import EmailForm from "@/components/ui/email-form";
 import PageHeader from "@/components/ui/sections/pageheader";
 import { getAllFaqs, getAllTools } from "@/sanity/client";
-
-function GlowingButtonHero() {
-  return (
-    <GlowingButton variant="link" href={"#"} target="_blank">
-      Join Partner Program
-    </GlowingButton>
-  );
-}
 
 export default async function Partners() {
   const faqs = await getAllFaqs();
@@ -56,6 +47,7 @@ export default async function Partners() {
           {/* partners You're in great company */}
           <OurPartners tools={tools} />
           {/* TODO: form */}
+          <EmailForm />
           {/* faqs */}
           <Faqs faqs={faqs} />
         </div>

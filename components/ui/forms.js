@@ -32,7 +32,7 @@ export function Input({
 export function Select({ children, size = "md", ...rest }) {
   return (
     <div className="relative">
-      <FaChevronDown className="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2" />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
@@ -40,11 +40,18 @@ export function Select({ children, size = "md", ...rest }) {
   );
 }
 
-export function Textarea({ placeholder, size = "md" }) {
+export function Textarea({
+  placeholder,
+  required,
+  size = "md",
+  className = "",
+  name,
+}) {
   return (
     <textarea
+      required={required}
       placeholder={placeholder}
-      className={cx(commonClasses, sizeClasses[size], "")}
+      className={cx(className, commonClasses, sizeClasses[size], "")}
     />
   );
 }
