@@ -309,10 +309,11 @@ function StepFour({ formStep, nextFormStep }) {
 // Submit (iterable)
 function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   const { data } = useFormData();
-
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const submitForm = async () => {
+    setLoading(true);
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
@@ -332,6 +333,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
     } catch (error) {
       console.error("Error:", error);
     }
+    setLoading(false);
   };
 
   return (
@@ -347,8 +349,12 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
       </div>
 
       <div className="mt-10 flex justify-center">
-        <GlowingButton type="submit" autoWidth onClick={submitForm}>
-          Confirm & Signup
+        <GlowingButton
+          type="submit"
+          autoWidth
+          onClick={submitForm}
+          disabled={loading}>
+          {(loading && "Hang tight...") || "Confirm & Signup"}
         </GlowingButton>
       </div>
     </div>
