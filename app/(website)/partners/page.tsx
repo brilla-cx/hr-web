@@ -9,10 +9,14 @@ import PartnerHero from "@/components/partners/partnerhero";
 import EmailForm from "@/components/ui/email-form";
 import PageHeader from "@/components/ui/sections/pageheader";
 import { getAllFaqs, getAllTools } from "@/sanity/client";
+import { FaqType } from "@/types/types";
 
 export default async function Partners() {
-  const faqs = await getAllFaqs();
+  const faqs = (await getAllFaqs()) as FaqType[];
   const tools = await getAllTools();
+
+  const partnersFaqs = faqs.filter((faq) => faq.faqType.includes("partner"));
+
   return (
     <div className=" bg-midnight">
       <Container
@@ -49,7 +53,7 @@ export default async function Partners() {
           {/* form */}
           <EmailForm />
           {/* faqs */}
-          <Faqs faqs={faqs} />
+          <Faqs faqs={partnersFaqs} />
         </div>
       </Container>
     </div>

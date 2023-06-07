@@ -12,9 +12,9 @@ function Faqs({ faqs }: { faqs: any[] }) {
         <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-200">
           Frequently asked questions
         </h2>
-        <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+        <dl className="grid grid-cols-1 gap-6 pt-10 mt-10 divide-y divide-gray-900/10 md:grid-cols-2 ">
           {faqs.map((faq) => (
-            <Disclosure as="div" key={faq.question} className="pt-6">
+            <Disclosure as="div" key={faq.question} className="col-span-1">
               {({ open }) => (
                 <>
                   <dt>

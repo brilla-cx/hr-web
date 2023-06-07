@@ -78,3 +78,19 @@ export interface ValueType {
   }[];
   URL: string;
 }
+
+export interface FaqType {
+  _type: string;
+  _id: string;
+  _updatedAt: string;
+  slug: {
+    _type: string;
+    current: string;
+  };
+  answer: any[];
+  question: string;
+  _createdAt: string;
+  _rev: string;
+  faqType: string[];
+  publishedAt: string;
+}

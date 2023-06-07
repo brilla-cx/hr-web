@@ -29,6 +29,7 @@ const PartnerHero: React.FC<PartnerHeroProps> = ({
             backgroundImage: `url(${imageUrl})`,
             opacity: 0.2,
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
           className="absolute inset-0 bg-black"
         />

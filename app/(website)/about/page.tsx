@@ -7,6 +7,7 @@ import WtfIsHeyRebekah from "@/components/about/wtf-is-rebekah";
 import Container from "@/components/container";
 import { HeroWithImage } from "@/components/ui/sections/hero";
 import { getAllFaqs } from "@/sanity/client";
+import { FaqType } from "@/types/types";
 
 export function generateMetadata() {
   return {
@@ -22,7 +23,8 @@ export function generateMetadata() {
 }
 
 export default async function About() {
-  const faqs = await getAllFaqs();
+  const faqs = (await getAllFaqs()) as FaqType[];
+  const readerFaqs = faqs.filter((faq) => faq.faqType.includes("reader"));
 
   return (
     <div className="bg-midnight">
@@ -56,7 +58,7 @@ export default async function About() {
         <WhatIsImportant />
 
         {/* faq */}
-        <Faqs faqs={faqs} />
+        <Faqs faqs={readerFaqs} />
       </Container>
     </div>
   );
