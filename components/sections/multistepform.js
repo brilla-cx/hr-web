@@ -331,7 +331,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
         router.push("/signup/confirm");
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error:-", error);
     }
     setLoading(false);
   };
