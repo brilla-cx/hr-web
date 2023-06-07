@@ -8,7 +8,7 @@ import { getPaginatedPosts } from "@/sanity/client";
 import Menu from "./menu";
 
 export default async function Navbar() {
-  const recentPosts = await getPaginatedPosts({ limit: 2 });
+  const recentPosts = await getPaginatedPosts({ limit: 3 });
   return (
     <div
       className="sticky top-0 z-50 border-b border-neutral-200 border-opacity-10 bg-midnight"
