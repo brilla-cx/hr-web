@@ -6,8 +6,8 @@ import { Badge, Blockquote, Prose, Spacer } from "@/components/ui";
 export default function StyleGuide() {
   return (
     <div className="px-6 py-24 sm:py-32 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-display font-bold tracking-tight text-gray-900 sm:text-6xl">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900 font-display sm:text-6xl">
           Style Guide
         </h2>
         <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -19,22 +19,22 @@ export default function StyleGuide() {
       <Container>
         <div className="mt-10">
           <H4>Colors</H4>
-          <div className="flex flex-wrap gap-10 mt-6 border-t pt-6">
+          <div className="flex flex-wrap gap-10 pt-6 mt-6 border-t">
             <div className="w-16 h-16 bg-black rounded" />
-            <div className="w-16 h-16 bg-white shadow rounded" />
-            <div className="w-16 h-16 bg-neutral-200 rounded" />
-            <div className="w-16 h-16 bg-indigo-950 rounded" />
-            <div className="w-16 h-16 bg-slate-950 rounded" />
-            <div className="w-16 h-16 bg-pink rounded" />
-            <div className="w-16 h-16 bg-amber-400 rounded" />
-            <div className="w-16 h-16 bg-green rounded" />
-            <div className="w-16 h-16 bg-sky-500 rounded" />
+            <div className="w-16 h-16 bg-white rounded shadow" />
+            <div className="w-16 h-16 rounded bg-neutral-200" />
+            <div className="w-16 h-16 rounded bg-indigo-950" />
+            <div className="w-16 h-16 rounded bg-slate-950" />
+            <div className="w-16 h-16 rounded bg-pink" />
+            <div className="w-16 h-16 rounded bg-amber-400" />
+            <div className="w-16 h-16 rounded bg-green" />
+            <div className="w-16 h-16 rounded bg-sky-500" />
           </div>
         </div>
 
         <div className="mt-16">
           <H4>Typography</H4>
-          <div className="mt-6 border-t pt-6">
+          <div className="pt-6 mt-6 border-t">
             <Badge>h1</Badge>
             <H1>This is a Heading</H1>
             <Spacer />
@@ -67,7 +67,7 @@ export default function StyleGuide() {
         </div>
         <div className="mt-10">
           <H4>Badges</H4>
-          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
             <Badge>Default Badge</Badge>
             <Badge variant="primary">Primary</Badge>
             <Badge variant="secondary">Secondary</Badge>
@@ -94,7 +94,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Blockquote</H4>
-          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
             <Blockquote author="Blockquote">
               This stylesheet is going to help so freaking much.
             </Blockquote>
@@ -103,7 +103,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Prose</H4>
-          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
             <Prose>
               <p>
                 Lorem ipsum dolor sit amet,{" "}
@@ -187,8 +187,8 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Buttons</H4>
-          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
-            <div className="grid lg:grid-cols-4 gap-10 place-items-center">
+          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
+            <div className="grid gap-10 place-items-center lg:grid-cols-4">
               <div>
                 <Button>Button</Button>
                 <Spacer />
@@ -222,7 +222,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Button Links</H4>
-          <div className="border-t pt-6 mt-4 flex flex-col gap-5 flex-wrap items-start">
+          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
             <Button href="#">Link</Button>
             <Button href="#" variant="secondary">
               Link
@@ -232,9 +232,9 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Forms</H4>
-          <div className="border-t pt-6 mt-4  gap-5 flex-wrap items-start">
+          <div className="flex-wrap items-start gap-5 pt-6 mt-4 border-t">
             <form action="">
-              <div className="grid gap-5 max-w-lg">
+              <div className="grid max-w-lg gap-5">
                 <Input name="name" placeholder="First Name" />
                 <Select>
                   <option value="" disabled>
@@ -242,7 +242,7 @@ export default function StyleGuide() {
                   </option>
                   <option value="usa">United States</option>
                 </Select>
-                <Textarea placeholder="Message" />
+                <Textarea placeholder="Message" required name="text-area" />
               </div>
             </form>
           </div>
