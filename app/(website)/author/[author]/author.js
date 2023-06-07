@@ -67,34 +67,11 @@ export default function Author(props) {
                 <SiTwitter /> <span className="sr-only">Twitter</span>
               </Link>
             )}
-            {/*{author?.teamUrl && (
-              <Link
-                href={author.teamUrl}
-                target="_blank"
-                className="transition duration-500 ease-in-out hover:shadow-lg hover:text-pink">
-                <GlobeAltIcon className="w-5 h-5 " />
-                <span className="sr-only">Brilla</span>
-              </Link>
-            )}*/}
           </div>
 
           <div className="not-prose mx-auto mt-6 flex max-w-3xl flex-col px-5 text-center text-gray-400">
             {author.bio && <PortableText value={author.bio} />}
           </div>
-          {/* <div className="grid md:grid-cols-2">
-            <div className="prose">
-              Credentials
-              {author.credentials && (
-                <PortableText value={author.credentials} />
-              )}
-            </div>
-            <div className="prose">
-              Appearances
-              {author.appearances && (
-                <PortableText value={author.appearances} />
-              )}
-            </div>
-          </div> */}
         </div>
         <div className="mt-16 text-center text-gray-200">
           <H6>{author.firstName} writes about</H6>
@@ -110,7 +87,7 @@ export default function Author(props) {
             ))}
         </div>
         <Suspense fallback={<p>Revving up the flux capacitor....</p>}>
-          <div className="my-8 grid gap-10 px-4 sm:px-8 md:grid-cols-2 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
+          <div className="my-8 grid gap-10 px-4 sm:px-8 md:grid-cols-2 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
             {posts.map((post) => (
               <PostAlt key={post._id} post={post} aspect="landscape" />
             ))}

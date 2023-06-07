@@ -18,8 +18,8 @@ const book = {
             title: "The Gist",
         },
         {
-            name: "meta",
-            title: "Meta",
+            name: "seo",
+            title: "SEO",
         },
     ],
     fields: [
@@ -85,7 +85,7 @@ const book = {
             description:
                 "The really big image at the top of every post. You can add your own from Stable Diffusion or use the built-in Unsplash integration.",
             type: "image",
-            group: "meta",
+            group: "bookDetails",
             fields: [
                 {
                     name: "caption",
@@ -115,13 +115,19 @@ const book = {
                 maxLength: 96,
             },
             validation: Rule => Rule.required().error("A post without a slug is like a slug without a post."),
-            group: "meta",
+            group: ["bookDetails", "seo"],
+        },
+        {
+            name: "seo",
+            title: "SEO",
+            type: "seo",
+            group: "seo",
         },
         {
             name: "publishedAt",
             title: "Published At",
             type: "date",
-            group: "meta",
+            group: ["bookDetails", "seo"],
         },
     ],
     preview: {

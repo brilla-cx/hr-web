@@ -161,6 +161,15 @@ export const postsbyauthorquery = groq`
 }
 `;
 
+export const authorMeta = groq`
+*[_type == "author" && slug.current == $slug][0] {
+  seoTitle,
+  seoMetaDescription,
+  name,
+  expertise
+}
+`;
+
 /*
  * Paginated Posts Query
  *
@@ -305,5 +314,12 @@ export const singlebookquery = groq`
     "ImageColor": asset->metadata.palette.dominant.background,
   },
   category->
+}
+`;
+
+// get faqs
+export const getAllFaqsquery = groq`
+*[_type == 'faq'] {
+  ...,
 }
 `;

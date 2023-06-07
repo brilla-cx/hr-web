@@ -9,17 +9,13 @@ const tool = {
   type: "document",
   groups: [
     {
-      name: "partnerInfo",
-      title: "Partner Info",
+      name: "toolInfo",
+      title: "Tool Info",
       default: true,
     },
     {
-      name: "toolInfo",
-      title: "Tool Info",
-    },
-    {
-      name: "meta",
-      title: "Meta",
+      name: "partnerInfo",
+      title: "Partner Info",
     },
     {
       name: "seo",
@@ -88,7 +84,7 @@ const tool = {
       name: "slug",
       title: "Slug",
       type: "slug",
-      group: "meta",
+      group: ["toolInfo", "seo"],
       options: {
         source: "name",
         maxLength: 96,
@@ -100,7 +96,7 @@ const tool = {
       title: "Category",
       type: "reference",
       to: [{ type: "category" }],
-      group: "meta",
+      group: "toolInfo",
       validation: (Rule) =>
         Rule.required().error(
           "Please indicate the most appropriate category for the tool?"
@@ -160,10 +156,16 @@ const tool = {
         ),
     },
     {
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo",
+    },
+    {
       name: "publishedAt",
       title: "Published At",
       type: "date",
-      group: "meta",
+      group: ["toolInfo", "seo"],
     },
   ],
   preview: {
