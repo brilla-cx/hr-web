@@ -1,12 +1,12 @@
 import { PortableText } from "@portabletext/react";
 
 import Container from "@/components/container";
+import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
-import PageHeader from "@/components/ui/sections/pageheader";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export default async function Terms() {
-  const post = await getLegalPageBySlug('terms');
+  const post = await getLegalPageBySlug("terms");
 
   // Fetch the post data and insert it into the component
   const title = post?.name ?? "Default Title";

@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 import Container from "@/components/container"; // Custom container component for page layout
 import PostAlt from "@/components/postalt"; // Component to display individual posts
-import PageHeader from "@/components/ui/sections/pageheader"; // Component for page header section
+import PageHeader from "@/components/sections/pageheader"; // Component for page header section
 
 /**
  * Category Page Component

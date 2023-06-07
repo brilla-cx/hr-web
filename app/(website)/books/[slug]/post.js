@@ -19,7 +19,7 @@ export default function Post({ post }) {
 
   return (
     <>
-      <div className="relative isolate bg-midnight py-10">
+      <div className="relative py-10 isolate bg-midnight">
         <div
           className="absolute inset-0 opacity-25"
           style={{
@@ -28,14 +28,14 @@ export default function Post({ post }) {
         />
         <Container
           large
-          className="z-12 absolute inset-0 border-l border-r border-neutral-200 border-opacity-10"
+          className="absolute inset-0 border-l border-r z-12 border-neutral-200 border-opacity-10"
         />
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 place-items-center gap-5 md:grid-cols-2 md:gap-10">
+          <div className="grid grid-cols-1 gap-5 place-items-center md:grid-cols-2 md:gap-10">
             <div className="order-2 w-full md:order-none">
               {post.image && <MainImage image={post.image} />}
             </div>
-            <div className="order-1 self-center px-5 md:order-none">
+            <div className="self-center order-1 px-5 md:order-none">
               <div>
                 {post.category && (
                   <Link
@@ -51,7 +51,7 @@ export default function Post({ post }) {
                   {post.name}
                 </H1>
                 {post.summary && (
-                  <p className="not-prose prose-2xl mt-2 leading-snug text-gray-300">
+                  <p className="mt-2 leading-snug prose-2xl text-gray-300 not-prose">
                     {post.summary}
                   </p>
                 )}
@@ -62,7 +62,7 @@ export default function Post({ post }) {
                       <p className="inline text-xs font-semibold text-gray-200">
                         By {post?.bookAuthor}
                       </p>
-                      <div className="mt-2 flex space-x-2 text-sm md:flex-row md:items-center">
+                      <div className="flex mt-2 space-x-2 text-sm md:flex-row md:items-center">
                         <DateTime
                           className="text-xs text-gray-200"
                           date={post?.publishedAt || post._createdAt}
@@ -94,9 +94,9 @@ export default function Post({ post }) {
         </Container>
       </div>
 
-      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
+      <div className="flex flex-col max-w-screen-xl gap-5 px-5 mx-auto mb-20 mt-14 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose mx-auto max-w-prose">
+          <Prose className="mx-auto prose max-w-prose">
             {post?.theGist && <PortableText value={post.theGist} />}
           </Prose>
           <ViewAllPosts
@@ -106,7 +106,7 @@ export default function Post({ post }) {
             variant="light"
           />
         </article>
-        <aside className="sticky top-24 mr-5 w-full self-start md:w-64">
+        <aside className="sticky self-start w-full mr-5 top-24 md:w-64">
           <Sidebar
             subscribeTitle="You belong here"
             subscribeText="Join +320,000 professionals in our community. Delivery is free."
@@ -136,7 +136,7 @@ const MainImage = ({ image }) => {
           "Default thumbnail for blog post because it's missing. We're sorry about that."
         }
         aria-describedby={image.caption ? "figcaptionID" : undefined}
-        className="absolute left-0 top-0 h-full w-full object-cover"
+        className="absolute top-0 left-0 object-cover w-full h-full"
       />
       {image.caption && (
         <figcaption id="figcaptionID" className="mt-2 text-center">

@@ -85,19 +85,19 @@ export default WhatIsImportant;
 const listItems: ListItem[] = [
   {
     image:
-      "https://global-uploads.webflow.com/639407458bad1a668d048184/63ee5b550bd75949daa5cfd3_women-owned.svg",
+      "https://cdn.sanity.io/images/smx99abf/production/6832188f7d96c7e760b678275891d3297c35e292-526x384.svg",
     title: "We understand",
     desc: "As a women-owned and minority woman-owned business, we understand the importance of diversity, equity, and inclusion.",
   },
   {
     image:
-      "https://global-uploads.webflow.com/639407458bad1a668d048184/640c27caa86b836a770fb70c_team-owned.svg",
+      "https://cdn.sanity.io/images/smx99abf/production/2d6620d0e72a0ff6bf46864b60c7a7950f589cc5-672x480.svg",
     title: "More than just us",
     desc: "We're in the process of overhauling our corporate structure and by-laws to embed the principles of the change we seek into our corporate DNA.",
   },
   {
     image:
-      "https://global-uploads.webflow.com/639407458bad1a668d048184/6396c229c92e137076a65b9c_Stripe%20Climate%20Badge.svg",
+      "https://cdn.sanity.io/images/smx99abf/production/c77a0269d1bfcf7d1820a61d0cbf2bb26ee08bab-32x32.svg",
     title: "We love our planet",
     desc: (
       <p>

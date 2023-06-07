@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 
 import Container from "@/components/container"; // Import Container component
+import PageHeader from "@/components/sections/pageheader";
 import ToolBox from "@/components/shared/toolbox";
 import { Pill } from "@/components/ui";
-import PageHeader from "@/components/ui/sections/pageheader";
 
 export default function Tools({ tools, categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);

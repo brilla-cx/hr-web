@@ -5,10 +5,11 @@ import Faqs from "@/components/about/faqs";
 import WhatIsImportant from "@/components/about/what-is-important";
 import WtfIsHeyRebekah from "@/components/about/wtf-is-rebekah";
 import Container from "@/components/container";
-import { HeroWithImage } from "@/components/ui/sections/hero";
+import { HeroWithImage } from "@/components/sections/hero";
 import { getAllFaqs } from "@/sanity/client";
+import { FaqType } from "@/types/types";
 
-export function generateMetadata({ params }) {
+export function generateMetadata() {
   return {
     title: "About | Knowledge should be free. Experience, priceless.",
     description:
@@ -22,7 +23,8 @@ export function generateMetadata({ params }) {
 }
 
 export default async function About() {
-  const faqs = await getAllFaqs();
+  const faqs = (await getAllFaqs()) as FaqType[];
+  const readerFaqs = faqs.filter((faq) => faq.faqType.includes("reader"));
 
   return (
     <div className="bg-midnight">
@@ -34,7 +36,7 @@ export default async function About() {
           title="Knowledge should be free. Experience, priceless."
           subtitle="Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus."
           subtitle2="Hey Rebekah is a free daily newsletter for freelancers. Everything we create is available for free to our readers and always will be. Not on the list? 👇🏼"
-          image="https://global-uploads.webflow.com/639407458bad1a668d048184/63d5df12ac199185dea4ec84_about-hero-p-1080.webp"
+          image="https://cdn.sanity.io/images/smx99abf/production/8bc88423bf816a59253fefe69e8c59973b51b23a-1080x1080.webp"
         />
 
         {/* wtf is rebekah */}
@@ -56,7 +58,7 @@ export default async function About() {
         <WhatIsImportant />
 
         {/* faq */}
-        <Faqs faqs={faqs} />
+        <Faqs faqs={readerFaqs} />
       </Container>
     </div>
   );
