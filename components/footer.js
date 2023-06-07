@@ -2,12 +2,11 @@ import GlowingButton from "components/ui/glowingButton";
 import Image from "next/image";
 import Link from "next/link";
 
-import { H5, Input } from "@/components/ui";
+import { H5 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import LogoImage from "@/public/hey-rebekah-logo-web.png";
+import LogoImage from "@/public/hey-rebekah-logo.svg";
 
-// T-10892 Refactor Tailwind Footer
 export default function Footer() {
   return (
     <footer
@@ -120,40 +119,20 @@ export default function Footer() {
       </div>
       <div className="max-w-full border-t border-neutral-200/10 pb-4">
         <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 p-8">
-          <div className="pb-10 lg:flex lg:items-center lg:justify-between">
+          <div className="mx-auto mb-10 lg:flex lg:items-center lg:justify-between">
             <div>
               <H5 as="h2" className="text-gray-200">
                 {" "}
                 Subscribe to our newsletter
               </H5>
-              <p className="mt-1 text-sm leading-6 text-gray-400">
-                The latest news, articles, and resources, sent to your inbox
-                weekly.
+              <p className="mb-4 mt-1 text-sm leading-6 text-gray-400">
+                The latest news and resources sent to your inbox. Hot and fresh
+                everyday.
               </p>
             </div>
-            <form
-              id="footer-sub"
-              className="mt-6 flex flex-col gap-3 sm:max-w-md sm:flex-row lg:mt-0">
-              <label htmlFor="email-address" className="sr-only">
-                email
-              </label>
-              <Input
-                id="email-address"
-                size="sm"
-                className="w-full border-neutral-200/10 bg-slate-900 px-4 text-sm text-gray-200 md:w-60 "
-                placeholder="Enter your email"
-                required
-                type="email"
-                aria-label="Enter your email address to subscribe"
-                autoComplete="email"
-              />
-              <GlowingButton
-                form="subscribe-form"
-                type="submit"
-                variant="subscribe">
-                Level Up
-              </GlowingButton>
-            </form>
+            <GlowingButton variant="link" href="/signup" id="footer">
+              Level Up
+            </GlowingButton>
           </div>
           <div className="mx-auto pb-4 md:flex md:items-center md:justify-between">
             <p className="mt-8 text-xs leading-5 text-gray-400 md:order-2 md:mt-0">
@@ -192,9 +171,10 @@ export default function Footer() {
 const navigation = {
   resources: [
     { name: "Archives", href: "/gists" },
-    { name: "Hey Rebekah AI", href: "/juno" },
+    { name: "Juno AI", href: "/juno" },
     { name: "Community", href: "/community" },
     { name: "Tools", href: "/built-with" },
+    { name: "Book Club", href: "/books" },
     { name: "Help", href: "/contact" },
   ],
   company: [
