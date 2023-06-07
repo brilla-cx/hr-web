@@ -5,7 +5,7 @@ import React from "react";
 import { BsSend } from "react-icons/bs";
 import { DocumentActionComponent, useDocumentOperation } from "sanity";
 
-import { ValueType } from "@/types/IterableValue";
+import { ValueType } from "@/types/types";
 
 import { postByIdQuery } from "./client";
 

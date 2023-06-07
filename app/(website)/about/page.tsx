@@ -8,7 +8,7 @@ import Container from "@/components/container";
 import { HeroWithImage } from "@/components/ui/sections/hero";
 import { getAllFaqs } from "@/sanity/client";
 
-export function generateMetadata({ params }) {
+export function generateMetadata() {
   return {
     title: "About | Knowledge should be free. Experience, priceless.",
     description:
@@ -34,7 +34,7 @@ export default async function About() {
           title="Knowledge should be free. Experience, priceless."
           subtitle="Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus."
           subtitle2="Hey Rebekah is a free daily newsletter for freelancers. Everything we create is available for free to our readers and always will be. Not on the list? 👇🏼"
-          image="https://global-uploads.webflow.com/639407458bad1a668d048184/63d5df12ac199185dea4ec84_about-hero-p-1080.webp"
+          image="https://cdn.sanity.io/images/smx99abf/production/8bc88423bf816a59253fefe69e8c59973b51b23a-1080x1080.webp"
         />
 
         {/* wtf is rebekah */}
