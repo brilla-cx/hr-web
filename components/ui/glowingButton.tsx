@@ -1,13 +1,13 @@
 // Import necessary libraries and components
-import { sizeClasses } from "components/ui/button";
 import Link from "next/link";
-import PropTypes from "prop-types";
+import React from "react";
 
+import { sizeClasses } from "@/components/ui/button";
 import { cx } from "@/lib/utils";
 
 // Component for creating the gradient background of the button
 // As per Ambreen, we're using a vibrant gradient for an attractive button appearance. Sam thinks this is disco but, it looks ok.
-const GradientBackground = () => {
+const GradientBackground: React.FC = () => {
   // Dynamic class names for gradient background
   const gradientBackgroundClasses = cx(
     "absolute -inset-px rounded bg-gradient-to-r from-[#ff00fe] to-amber-600 opacity-70 blur-sm transition-all duration-1000 group-hover:-inset-1 group-hover:opacity-100 group-hover:duration-200"
@@ -17,8 +17,12 @@ const GradientBackground = () => {
   return <div className={gradientBackgroundClasses} aria-hidden="true" />;
 };
 
+interface ButtonContentProps {
+  size: "xs" | "sm" | "md" | "lg";
+  children: React.ReactNode;
+}
 // Component for the content of the button
-const ButtonContent = ({ size, children }) => {
+const ButtonContent: React.FC<ButtonContentProps> = ({ size, children }) => {
   // Dynamic class names for button content
   const buttonContentClasses = cx(
     `relative flex items-center justify-center font-display font-semibold uppercase leading-snug ${sizeClasses[size]} whitespace-nowrap rounded bg-slate-900 text-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2`
@@ -34,14 +38,19 @@ const ButtonContent = ({ size, children }) => {
   );
 };
 
-// PropTypes for ButtonContent
-ButtonContent.propTypes = {
-  size: PropTypes.oneOf(["xs", "sm", "md", "lg"]),
-  children: PropTypes.node.isRequired,
-};
+// Main component for the glowing button
+interface GlowingButtonProps {
+  variant?: "link" | "subscribe" | null;
+  href?: string;
+  form?: string;
+  type?: string;
+  size?: "xs" | "sm" | "md" | "lg";
+  children: React.ReactNode;
+  autoWidth?: boolean;
+}
 
 // Main component for the glowing button
-const GlowingButton = ({
+const GlowingButton: React.FC<GlowingButtonProps> = ({
   variant = null,
   href = "",
   size = "md",
@@ -50,7 +59,7 @@ const GlowingButton = ({
   ...props
 }) => {
   // Wrapper is a button or a link based on the variant prop
-  const Wrapper = href ? Link : "button";
+  const Wrapper: any = href ? Link : "button";
   // Props for the Wrapper component
   const wrapperProps = href ? { href } : { type: "submit" };
 
@@ -68,14 +77,6 @@ const GlowingButton = ({
       </div>
     </div>
   );
-};
-
-// PropTypes for GlowingButton
-GlowingButton.propTypes = {
-  variant: PropTypes.oneOf(["link", "subscribe"]),
-  href: PropTypes.string,
-  size: PropTypes.oneOf(["xs", "sm", "md", "lg"]),
-  children: PropTypes.node.isRequired,
 };
 
 export default GlowingButton;

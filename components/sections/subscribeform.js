@@ -1,8 +1,8 @@
 // Import necessary components and utilities
-import GlowingButton from "components/ui/glowingButton"; // Import GlowingButton component
 import Link from "next/link"; // Import Link from Next.js
 
 import { Input } from "@/components/ui/forms"; // Import Input component from forms
+import GlowingButton from "@/components/ui/glowingButton"; // Import GlowingButton component
 import hoverStyles from "@/lib/hover"; // Import hover styles
 import { cx } from "@/lib/utils"; // Import classnames utility
 
@@ -22,7 +22,7 @@ export default function SubscribeForm({ formId, classNames }) {
         </label>
         {/* Input component for email input with necessary styling and attributes */}
         <Input
-          className="text-gray-200 border-neutral-200/10 bg-slate-900"
+          className="border-neutral-200/10 bg-slate-900 text-gray-200"
           name="email"
           type="email"
           required
@@ -36,7 +36,7 @@ export default function SubscribeForm({ formId, classNames }) {
         </GlowingButton>
       </div>
       {/* Privacy policy link */}
-      <p className="mt-4 text-xs leading-6 text-left text-gray-400">
+      <p className="mt-4 text-left text-xs leading-6 text-gray-400">
         We care about your{" "}
         <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
           privacy
