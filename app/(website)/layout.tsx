@@ -3,6 +3,7 @@
 import "../globals.css";
 
 import localFont from "next/font/local";
+import React, { Fragment } from "react";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -121,6 +122,16 @@ const lexendDeca = localFont({
   variable: "--font-lexend-deca",
 });
 
+function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <Fragment>
+      <Navbar />
+      {children}
+      <Footer />
+    </Fragment>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -130,15 +141,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        "antialiased font-sans",
+        "font-sans antialiased",
         lexend.variable,
         lexendDeca.variable
       )}>
       <body>
-        {/* @ts-expect-error Server Component */}
-        <Navbar />
-        <div>{children}</div>
-        <Footer />
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
