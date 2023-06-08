@@ -43,7 +43,7 @@ export default async function About() {
         <WtfIsHeyRebekah />
 
         {/*  brands animated logo cloud */}
-        <BrandsMarquee />
+        <BrandsMarquee title="G.O.A.T. brands we've worked with" />
 
         {/* let's check the replay */}
         <CheckReplay />

@@ -1,7 +1,9 @@
+import BrandsMarquee from "@/components/about/brands-marquee";
 import Container from "@/components/container";
 import MarqueeImages from "@/components/rebekah-radice/marquee-images";
 import RebekahTimeline from "@/components/rebekah-radice/rebekah-timeline";
-import { GlowingButton, H1, H2, Lead } from "@/components/ui";
+import SocialStats from "@/components/rebekah-radice/social-stats";
+import { GlowingButton, H1, H2, H3, Lead } from "@/components/ui";
 
 export default function RebekahRadice() {
   return (
@@ -35,6 +37,19 @@ export default function RebekahRadice() {
             magic.
           </Lead>
           <RebekahTimeline />
+        </div>
+        <BrandsMarquee title="G.O.A.T. brands i've worked with" />
+        <div className="px-10 py-10 mx-auto text-center">
+          <H3 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+            My community of over 300,000
+          </H3>
+          <Lead className="max-w-4xl mx-auto mt-6 text-lg leading-8 text-gray-400">
+            I adore my community like peanut butter loves jelly. They've been
+            with me since the days when social media was only a baby. Remember
+            when we had to walk uphill both ways to post a tweet? Sigh... the
+            good 'ol days.
+          </Lead>
+          <SocialStats />
         </div>
       </Container>
     </div>

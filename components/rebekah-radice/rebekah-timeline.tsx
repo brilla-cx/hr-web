@@ -144,7 +144,7 @@ function RebekahTimeline() {
     <Fragment>
       <TimelineObserver
         initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"
-        fillColor="#fff"
+        fillColor="rgb(219 39 119 / var(--tw-bg-opacity))"
         // eslint-disable-next-line react/jsx-no-bind
         handleObserve={(setObserver) => (
           <Timeline className="timeline" setObserver={setObserver} />

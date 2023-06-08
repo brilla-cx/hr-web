@@ -80,10 +80,15 @@ function BrandItem(props: BrandItemProps) {
   );
 }
 
-function BrandsMarquee() {
+interface Props {
+  title: string;
+}
+
+function BrandsMarquee(props: Props) {
+  const { title } = props;
   return (
     <div className="py-20 text-center md:py-20 lg:py-28">
-      <H6 className="pb-6 text-gray-200">G.O.A.T. brands we've worked with</H6>
+      <H6 className="pb-6 text-gray-200">{title}</H6>
       <Marquee className="mt-10">
         <div className="flex mx-4 gap-x-8">
           {brandsData.map((brand, i) => {
