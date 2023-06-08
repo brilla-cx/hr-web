@@ -17,11 +17,11 @@ function ContactLayout() {
         className="border-l border-r border-neutral-200 border-opacity-10">
         <PageHeader
           title="Contact Hey Rebekah"
-          leadText="Need to reach out to the Hey Rebekah team? No problem. We make it easy and are excited to hear from you. We usually respond within a few hours."
+          leadText="Need to reach out to the Hey Rebekah team? No problem. We make it easy and are excited to hear from you. We usually respond within a few hours. While you're here, click the button to get our free daily newsletter delivered hot and fresh."
           id="contact"
           includeForm
         />
-        <div className="mx-auto max-w-5xl space-y-10 pb-16 sm:pb-24 lg:px-8">
+        <div className="mx-auto max-w-5xl my-12 lg:my-20 space-y-8 pb-16 sm:pb-24 lg:px-8">
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-10">
             <ContactCard
               title="Want to advertise?"
@@ -29,7 +29,7 @@ function ContactLayout() {
               icon={<ChatBubbleBottomCenterIcon className="h-6 w-6" />}
               link={{
                 title: "Contact sales",
-                href: "mailto:sponsor@heyrebekah.com?subject=I%27d%20like%20to%20sponsor%20The%20Gist",
+                href: "mailto:np@heyrebekah.com?subject=I%27d%20like%20to%20sponsor%20The%20Gist",
               }}
             />
             <ContactCard
@@ -38,7 +38,7 @@ function ContactLayout() {
               icon={<QuestionMarkCircleIcon className="h-6 w-6" />}
               link={{
                 title: "Get support",
-                href: "mailto:support@heyrebekah.com?subject=I%20have%20a%20question",
+                href: "mailto:np@heyrebekah.com?subject=I%20have%20a%20question",
               }}
             />
             <ContactCard
