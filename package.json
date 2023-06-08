@@ -42,7 +42,6 @@
     "react-iframe": "^1.8.5",
     "react-share": "^4.4.1",
     "react-social-media-embed": "^2.3.5",
-    "react-timeline-animation": "^1.2.3",
     "rxjs": "^7.8.1",
     "sanity": "^3.11.5",
     "sanity-plugin-asset-source-giphy": "^4.0.3",

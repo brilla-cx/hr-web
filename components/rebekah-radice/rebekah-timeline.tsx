@@ -1,10 +1,10 @@
 "use client";
 
 import React, { Fragment, useEffect, useRef } from "react";
-import TimelineObserver from "react-timeline-animation";
 
 import { cx } from "@/lib/utils";
 
+import TimelineObserver from "../TimelineObserver";
 import { H5, Lead } from "../ui";
 
 interface TimelineProps {
@@ -17,14 +17,15 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
   const circleRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    if (!window.IntersectionObserver) return;
     timelineRefs.current.forEach((timelineRef) => {
-      if (timelineRef) {
+      if (timelineRef && setObserver) {
         setObserver(timelineRef);
       }
     });
 
     circleRefs.current.forEach((circleRef) => {
-      if (circleRef) {
+      if (circleRef && setObserver) {
         setObserver(circleRef);
       }
     });
@@ -50,47 +51,51 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
       title: "Still Early",
     },
     {
-      id: 3,
+      id: 4,
+      description:
+        "My days in the studio made an impact. I dove head first into a radio career, chasing work-life balance as a single mom. Spoiler alert: balance is a f***ing myth.",
+      title: "1994",
+    },
+    {
+      id: 5,
+      description:
+        "I climbed the radio charts, making it to the top 4 years in a row. Itching for a new challenge, mortgage called. Before I knew it, I'd traded radio for business owner.",
+      title: "1998",
+    },
+    {
+      id: 6,
+      description:
+        "RebekahRadice.com was only a glimmer in my eye, and yet, became my passport to the world. I traveled far and wide, spreading digital smarts like confetti.",
+      title: "2004",
+    },
+    {
+      id: 7,
+      description:
+        "RebekahRadice.com was only a glimmer in my eye, and yet, became my passport to the world. I traveled far and wide, spreading digital smarts like confetti.",
+      title: "",
+    },
+    {
+      id: 8,
       description: "",
       title: "",
     },
     {
-      id: 3,
+      id: 9,
       description: "",
       title: "",
     },
     {
-      id: 3,
+      id: 10,
       description: "",
       title: "",
     },
     {
-      id: 3,
+      id: 11,
       description: "",
       title: "",
     },
     {
-      id: 3,
-      description: "",
-      title: "",
-    },
-    {
-      id: 3,
-      description: "",
-      title: "",
-    },
-    {
-      id: 3,
-      description: "",
-      title: "",
-    },
-    {
-      id: 3,
-      description: "",
-      title: "",
-    },
-    {
-      id: 3,
+      id: 12,
       description: "",
       title: "",
     },
@@ -137,15 +142,17 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
 
 function RebekahTimeline() {
   return (
-    <TimelineObserver
-      initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"
-      fillColor="#fff"
-      // eslint-disable-next-line react/jsx-no-bind
-      handleObserve={(setObserver) => (
-        <Timeline className="timeline" setObserver={setObserver} />
-      )}
-      hasReverse
-    />
+    <Fragment>
+      <TimelineObserver
+        initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"
+        fillColor="#fff"
+        // eslint-disable-next-line react/jsx-no-bind
+        handleObserve={(setObserver) => (
+          <Timeline className="timeline" setObserver={setObserver} />
+        )}
+        hasReverse
+      />
+    </Fragment>
   );
 }
 
