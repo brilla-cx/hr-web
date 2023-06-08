@@ -121,7 +121,7 @@ export default function PostAlt({
                       {post.author?.name}
                     </span>
                     {post.isShort ? (
-                      <div className="rounded bg-slate-900 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-200">
+                      <div className="rounded bg-slate-800 px-2 py-1 text-xs font-semibold uppercase tracking-wide text-white">
                         Shorts
                       </div>
                     ) : null}

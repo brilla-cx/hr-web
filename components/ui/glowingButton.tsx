@@ -25,7 +25,7 @@ interface ButtonContentProps {
 const ButtonContent: React.FC<ButtonContentProps> = ({ size, children }) => {
   // Dynamic class names for button content
   const buttonContentClasses = cx(
-    `relative flex items-center justify-center font-display font-semibold uppercase leading-snug ${sizeClasses[size]} whitespace-nowrap rounded bg-slate-900 text-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2`
+    `relative flex items-center justify-center font-display font-semibold uppercase leading-snug ${sizeClasses[size]} whitespace-nowrap rounded animate-shimmer bg-gradient-to-r from-slate-900 via-gray-800 to-slate-900 bg-[length:400%_100%] text-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:ring-offset-2`
   );
 
   // Render the button content wrapped in a div
@@ -47,6 +47,7 @@ interface GlowingButtonProps {
   size?: "xs" | "sm" | "md" | "lg";
   children: React.ReactNode;
   autoWidth?: boolean;
+  id?: string;
 }
 
 // Main component for the glowing button

@@ -87,3 +87,5 @@ export default function HomePage({ posts }) {
     </>
   );
 }
+
+export const revalidate = 3600;
