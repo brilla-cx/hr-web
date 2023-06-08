@@ -63,6 +63,15 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        shimmer: {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 8s ease-in-out infinite",
+      },
     },
   },
   plugins: [
