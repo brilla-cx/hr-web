@@ -43,7 +43,6 @@ const fontRoutes = fonts.map((font) => ({
 const nextConfig = {
   experimental: {
     appDir: true,
-    typedRoutes: true,
   },
   images: {
     formats: ["image/avif", "image/webp"],
