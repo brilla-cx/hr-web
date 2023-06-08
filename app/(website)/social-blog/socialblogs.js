@@ -13,8 +13,8 @@ export default function SocialBlogs() {
         className="border-l border-r border-neutral-200 border-opacity-10">
         <PageHeader
           title="Social Media Blog"
-          leadText="Since launching in 2004, over 24 million unique visitors have read my posts, and no, it's not just my mom on a refresh marathon."
-          id="social-blog"
+          leadText="Over 24M readers and counting since 2004. Accidentally actionable, always authentic. Proud member of the unemployables and working hard to make knowledge free for professionals everywhere. Join me and 320,000 members of my community as we learn to harness AI to make our careers more human. 👇🏾"
+          id="sblogs"
           includeForm
         />
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
@@ -26,6 +26,3 @@ export default function SocialBlogs() {
     </div>
   );
 }
-
-// Export revalidate for controlling data fetching behavior
-export const revalidate = 3600;
