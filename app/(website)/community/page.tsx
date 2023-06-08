@@ -10,8 +10,8 @@ export default function Community() {
         <PageHeader
           title="Community"
           leadText="Knowledge should be free and accessible to all. We built this community to connect knowledge workers and share resources that help you thrive in your work using AI."
+          id="community"
           includeForm
-          formId="community-sub"
         />
       </Container>
     </div>

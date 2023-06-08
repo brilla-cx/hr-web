@@ -13,6 +13,8 @@ export default function Advertise() {
         <PageHeader
           title="Transparent and real-time reporting"
           leadText="Our performance data is transparent, accessible, and up-to-date. You'll get direct access to anonymized performance data when you sponsor us."
+          id="advertise"
+          includeForm
         />
       </Container>
     </div>

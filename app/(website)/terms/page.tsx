@@ -22,8 +22,8 @@ export default async function Terms() {
           <PageHeader
             title={title}
             leadText={leadText}
+            id="terms"
             includeForm
-            formId="terms-sub"
           />
         </Container>
       </div>
