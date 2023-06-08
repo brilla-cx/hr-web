@@ -5,7 +5,7 @@ const commonClasses = "font-semibold font-display tracking-tight";
 export function H1({ children, className = "", as = "h1" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-4xl lg:text-6xl")}>
+    <Tag className={cx(commonClasses, className, "text-4xl lg:text-7xl")}>
       {children}
     </Tag>
   );
@@ -14,7 +14,7 @@ export function H1({ children, className = "", as = "h1" }) {
 export function H2({ children, className = "", as = "h2" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-3xl lg:text-5xl")}>
+    <Tag className={cx(commonClasses, className, "text-3xl lg:text-6xl")}>
       {children}
     </Tag>
   );
@@ -23,7 +23,7 @@ export function H2({ children, className = "", as = "h2" }) {
 export function H3({ children, className = "", as = "h3" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-3xl lg:text-4xl")}>
+    <Tag className={cx(commonClasses, className, "text-3xl lg:text-5xl")}>
       {children}
     </Tag>
   );
@@ -32,14 +32,14 @@ export function H3({ children, className = "", as = "h3" }) {
 export function H4({ children, className = "", as = "h4" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-3xl")}>{children}</Tag>
+    <Tag className={cx(commonClasses, className, "text-4xl")}>{children}</Tag>
   );
 }
 
 export function H5({ children, className = "", as = "h5" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-2xl")}>{children}</Tag>
+    <Tag className={cx(commonClasses, className, "text-3xl")}>{children}</Tag>
   );
 }
 
