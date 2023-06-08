@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.holder__head {
+  padding: 0.4em 2em;
+  position: sticky;
+  z-index: 1;
+  bottom: calc(var(--b) * 2em -200px);
+  top: calc(var(--t) * 2em + 200px);
+  margin-bottom: 200px;
+}

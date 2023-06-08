@@ -2,6 +2,7 @@ import BrandsMarquee from "@/components/about/brands-marquee";
 import Container from "@/components/container";
 import MarqueeImages from "@/components/rebekah-radice/marquee-images";
 import RebekahTimeline from "@/components/rebekah-radice/rebekah-timeline";
+import RememberFor from "@/components/rebekah-radice/remeber-for";
 import SocialStats from "@/components/rebekah-radice/social-stats";
 import { GlowingButton, H1, H2, H3, Lead } from "@/components/ui";
 
@@ -51,6 +52,7 @@ export default function RebekahRadice() {
           </Lead>
           <SocialStats />
         </div>
+        <RememberFor />
       </Container>
     </div>
   );
