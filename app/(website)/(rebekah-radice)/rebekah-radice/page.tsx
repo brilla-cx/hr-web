@@ -1,10 +1,8 @@
-import Marquee from "react-fast-marquee";
-
 import Container from "@/components/container";
+import MarqueeImages from "@/components/rebekah-radice/marquee-images";
 import { GlowingButton, H1, Lead } from "@/components/ui";
 
 export default function RebekahRadice() {
-  //Placeholder to create route
   return (
     <div className="bg-midnight">
       <Container
@@ -21,13 +19,10 @@ export default function RebekahRadice() {
             magic.
           </Lead>
           <div className="max-w-sm mx-auto mt-12">
-            <GlowingButton>Still Intersted</GlowingButton>
+            <GlowingButton>Still in Intersted</GlowingButton>
           </div>
         </div>
-        <div>
-          <Marquee direction="left">{/* left image goes here */}</Marquee>
-          <Marquee direction="right">{/* right image goes here */}</Marquee>
-        </div>
+        <MarqueeImages />
       </Container>
     </div>
   );
