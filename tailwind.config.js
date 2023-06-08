@@ -38,7 +38,7 @@ module.exports = {
                 fontSize: "120px",
                 paddingRight: theme("spacing.2"),
                 fontWeight: theme("fontWeight.bold"),
-                color: "var(--tw-prose-body)",
+                color: theme("colors.midnight"),
                 textShadow: theme("textShadow.DEFAULT"),
                 verticalAlign: "text-top",
                 display: "block",
