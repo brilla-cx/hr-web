@@ -16,56 +16,53 @@ export default function Tool(props) {
   }
 
   return (
-    <div className="relative isolate bg-gradient-to-r from-midnight via-indigo-950 to-pink-950 py-10">
+    <div className="relative isolate bg-gradient-to-r from-midnight via-indigo-950 to-pink-950 py-10 ">
       <Container
         large
         className="absolute inset-0 -z-10 border-l border-r border-neutral-200 border-opacity-10"
       />
 
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-14 lg:px-8">
-        <div className="lg:self-center">
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-14 lg:px-24">
+        <div className="lg:col-span-2 lg:self-center">
           <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <Link
+              href="/built-with"
+              className="text-gray-400 hover:text-gray-200">
+              Built With
+            </Link>
+            {" > "}
             {data?.category?.name}
           </p>
 
-          <div className="mt-3">
-            <H3
-              as="h1"
-              className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <div className="mt-6">
+            <H3 as="h1" className="text-white">
               {" "}
-              Hey Rebekah x {data.name}
+              Hey Rebekah ❤️ <br /> {data.name}
             </H3>
             <p className="mt-3 text-white">{data.shortDescription}</p>
           </div>
 
           {data?.hrUse && (
-            <div className="mt-6">
+            <div className="mt-10">
               <h6 className="text-xl font-bold tracking-tight text-white ">
                 What we use it for:
               </h6>
-              <div className="no-effects prose prose-invert mt-2 leading-snug text-gray-300">
+              <div className="no-effects prose prose-invert mt-4 leading-snug text-gray-300">
                 <PortableText value={data.hrUse} />
               </div>
             </div>
           )}
-
-          <div className="mt-6">
-            <GlowingButton href={data.toolUrl || "#"} target="_blank">
-              Visit {data.name}
-            </GlowingButton>
-          </div>
-
-          <div className="mt-4 text-center">
-            <Link
-              href="/built-with"
-              className="text-sm text-white/40 hover:text-white">
-              ← View all tools
-            </Link>
+          <div className="mt-12 lg:max-w-xs">
+            <div className="mt-6">
+              <GlowingButton href={data.toolUrl || "#"} target="_blank">
+                Visit {data.name}
+              </GlowingButton>
+            </div>{" "}
           </div>
         </div>
 
         {/* Product image */}
-        <div className="mt-10 lg:mt-0 lg:self-center">
+        <div className="mt-12 lg:self-center">
           <MainImage image={data.image} color={data.category.color} />
         </div>
       </div>
@@ -76,25 +73,13 @@ export default function Tool(props) {
 const MainImage = ({ image, color }) => {
   if (!image) return null;
 
-  const colors = {
-    cyan: "bg-cyan-200",
-    sky: "bg-sky-200",
-    blue: "bg-blue-200",
-    indigo: "bg-indigo-200",
-    violet: "bg-violet-200",
-    purple: "bg-purple-200",
-    fuchsia: "bg-fuchsia-200",
-    pink: "bg-pink-200",
-    gray: "bg-gray-200",
-  };
-
   // const bgColor = colors[color] || "bg-white";
   const bgColor = "bg-white";
 
   return (
     <div
       className={cx(
-        "flex  aspect-video items-center justify-center rounded-lg p-5",
+        "flex  aspect-video items-center justify-center rounded p-5",
         bgColor
       )}>
       <Image
