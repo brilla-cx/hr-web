@@ -17,8 +17,8 @@ export default function Gists() {
               a cold one? Settle in, pick a post and get better at what you do.
               Best yet, subscribe today and we'll throw in free delivery to your
               inbox."
+          id="gists"
           includeForm
-          formId="gist-sub"
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">

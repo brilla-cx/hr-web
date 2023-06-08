@@ -12,8 +12,8 @@ export default function Books({ searchParams }) {
         <PageHeader
           title="Hey Rebekah Book Club"
           leadText="A collection of our favorite books and recommended reading."
+          id="books"
           includeForm
-          formId="books-sub"
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">

@@ -18,7 +18,8 @@ function ContactLayout() {
         <PageHeader
           title="Contact Hey Rebekah"
           leadText="Need to reach out to the Hey Rebekah team? No problem. We make it easy and are excited to hear from you. We usually respond within a few hours."
-          includeForm={false}
+          id="contact"
+          includeForm
         />
         <div className="mx-auto max-w-5xl space-y-10 pb-16 sm:pb-24 lg:px-8">
           <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-10">

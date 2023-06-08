@@ -22,8 +22,8 @@ export default async function Privacy() {
           <PageHeader
             title={title}
             leadText={leadText}
+            id="privacy"
             includeForm
-            formId="privacy-sub"
           />
         </Container>
       </div>

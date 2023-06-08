@@ -23,8 +23,8 @@ export default function Tools({ tools, categories }) {
         <PageHeader
           title="Hey Rebekah Built with"
           leadText="Wondering what tools we use to run our business? No problem. Hey Rebekah Built With shares every tool in our arsenal. Join our community of over 320,000 professionals and score some hot savings on the tools you use everyday. We don't make a dime from affiliate links."
+          id="built-with"
           includeForm
-          formId="built-sub"
         />
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-5">

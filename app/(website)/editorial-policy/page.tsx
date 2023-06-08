@@ -22,8 +22,8 @@ export default async function EditorialPolicy() {
           <PageHeader
             title={title}
             leadText={leadText}
+            id="editorial"
             includeForm
-            formId="editorial-sub"
           />
         </Container>
       </div>

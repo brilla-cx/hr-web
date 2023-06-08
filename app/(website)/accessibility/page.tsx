@@ -22,8 +22,8 @@ export default async function AccessibilityStatement() {
           <PageHeader
             title={title}
             leadText={leadText}
+            id="accessibility"
             includeForm
-            formId="editorial-sub"
           />
         </Container>
       </div>

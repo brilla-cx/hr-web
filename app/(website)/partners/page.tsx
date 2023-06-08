@@ -38,7 +38,8 @@ export default async function Partners() {
           <PageHeader
             title="Knowledge should be free"
             leadText="We imagine a world where all freelance professionals can build thriving careers so they can experience the joy of financial freedom and success."
-            includeForm={false}
+            id="partners"
+            includeForm
           />
           {/* stats */}
           <PartnerCommunityData />
