@@ -2,26 +2,16 @@ import cx from "classnames";
 import GlowingButton from "components/ui/glowingButton";
 import Link from "next/link";
 
-import { Input } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import { Lead, Title } from "@/components/ui/typography";
 import { lightHoverStyles } from "@/lib/hover";
 
 // Main Sidebar component
-export default function Sidebar({
-  subscribeTitle,
-  subscribeText,
-  buttonText,
-  related,
-}) {
+export default function Sidebar({ subscribeTitle, subscribeText, related }) {
   // As per Ambreen, sidebar has a border, rounded corners, padding and a shadow for a distinct look
   return (
     <div className="rounded border-2 border-gray-100 p-4 shadow-sm">
-      <Subscribe
-        title={subscribeTitle}
-        text={subscribeText}
-        buttonText={buttonText}
-      />
+      <Subscribe title={subscribeTitle} text={subscribeText} />
       <div className="hidden md:block">
         {related && <RelatedPosts related={related} />}
       </div>
@@ -30,7 +20,7 @@ export default function Sidebar({
 }
 
 // Component for the newsletter subscription section. Disco glowing button as per Ambreen.
-function Subscribe({ title, text, buttonText }) {
+function Subscribe({ title, text }) {
   return (
     <div>
       <Lead
@@ -39,27 +29,16 @@ function Subscribe({ title, text, buttonText }) {
         {title}
       </Lead>
       <p className="mt-3 text-sm text-gray-500 ">{text}</p>
-      <form id="sidebar-subscribe" className="mt-4">
-        <div className="flex flex-col gap-4">
-          <label htmlFor="email-address" className="sr-only">
-            Email address
-          </label>
-          <Input
-            name="email"
-            type="email"
-            required
-            placeholder="Enter your email"
-            aria-label="Enter your email address to subscribe"
-            autoComplete="email"
-          />
-          <GlowingButton
-            form="sidebar-subscribe"
-            type="submit"
-            variant="subscribe">
-            {buttonText}
-          </GlowingButton>
-        </div>
-      </form>
+      <div className="mt-8">
+        <GlowingButton
+          variant="subscribe"
+          href="/signup"
+          size="md"
+          autoWidth={false}
+          id="subscribe-button">
+          Level Up
+        </GlowingButton>
+      </div>
     </div>
   );
 }

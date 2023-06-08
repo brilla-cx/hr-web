@@ -18,7 +18,7 @@ const NotFound: React.FC = () => {
           crew are clearly slacking off again.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Link href="/" className="rounded border border-gray-200/10 px-3.5 py-2.5 text-sm font-semibold text-gray-200 transition-all duration-200 ease-in-out hover:bg-slate-900 hover:text-white">
+          <Link href="/" className="rounded border border-gray-200/10 px-3.5 py-2.5 text-sm font-semibold text-gray-200 transition-all duration-200 ease-in-out hover:bg-slate-800 hover:text-white">
             Go to Home page
           </Link>
           <Link href="/contact" className={cx(

@@ -21,7 +21,7 @@ function ContactCard(props: Props) {
   const { icon, title, desc, link, address } = props;
 
   return (
-    <div className="flex px-4 py-4 transition-all duration-300 border rounded gap-x-6 border-gray-200/10 bg-slate-900 hover:scale-105 hover:transform">
+    <div className="flex px-4 py-4 transition-all duration-300 border rounded gap-x-6 border-gray-200/10 bg-slate-900 hover:bg-gray-800 hover:scale-105 hover:transform">
       <div className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-pink text-midnight">
         {icon}
       </div>
