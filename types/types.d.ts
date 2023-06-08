@@ -5,6 +5,7 @@ export interface Tools {
     asset: {
       _type: string;
       _ref: string;
+      url: string;
     };
   };
   _rev: string;
@@ -27,6 +28,7 @@ export interface Tools {
     _ref: string;
     _type: string;
     _key: string;
+    color?: string;
   };
   partnerContactName: string;
   hrUse: never[];
