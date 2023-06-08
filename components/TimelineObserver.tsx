@@ -10,7 +10,7 @@ interface TimelineObserverProps {
   hasReverse?: boolean;
 }
 
-let halfScreenHeight;
+let halfScreenHeight: number;
 if (typeof window !== "undefined") {
   halfScreenHeight = window?.innerHeight / 2;
 }
@@ -102,8 +102,9 @@ const TimelineObserver = ({
 }: TimelineObserverProps) => {
   const observablesStore = useRef(new Map<string, ObservablesProps>());
   const callbacks = useRef<{ [key: string]: () => void }>({});
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const callback = (entries) => {
+  const callback = useCallback((entries: IntersectionObserverEntry[]) => {
     entries?.forEach((entry) => {
       if (entry.isIntersecting) {
         setObservable({
@@ -113,7 +114,7 @@ const TimelineObserver = ({
         });
       }
     });
-  };
+  }, []);
 
   const animation = useCallback(() => {
     window.requestAnimationFrame(() => {
@@ -126,32 +127,39 @@ const TimelineObserver = ({
     });
   }, [fillColor, hasReverse, initialColor]);
 
-  const observer = useRef(new IntersectionObserver(callback, options));
+  const setObserver = useCallback(
+    (target: Element, callbackFn?: () => void) => {
+      const elemId = target?.id;
+
+      if (initialColor) {
+        (target as HTMLElement).style.background = initialColor;
+      }
+
+      if (!observerRef.current) {
+        observerRef.current = new IntersectionObserver(callback, options);
+      }
+
+      if (observerRef.current) {
+        observerRef.current.observe(target);
+      }
+
+      if (elemId && callbackFn) {
+        callbacks.current[elemId] = callbackFn;
+      }
+    },
+    [initialColor, callback]
+  );
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(callback, options);
-
     document.addEventListener("scroll", animation);
+
     return () => {
       document.removeEventListener("scroll", animation);
-      if (observer.current) {
-        observer.current.disconnect();
+      if (observerRef.current) {
+        observerRef.current.disconnect();
       }
     };
   }, [animation]);
-
-  const setObserver = (target: Element, callbackFn?: () => void) => {
-    const elemId = target?.id;
-
-    if (initialColor) {
-      (target as HTMLElement).style.background = initialColor;
-    }
-    if (observer.current) observer.current.observe(target);
-
-    if (elemId && callbackFn) {
-      callbacks.current[elemId] = callbackFn;
-    }
-  };
 
   return <div>{handleObserve ? handleObserve(setObserver) : null}</div>;
 };

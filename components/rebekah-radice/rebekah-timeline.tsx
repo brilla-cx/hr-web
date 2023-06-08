@@ -71,33 +71,32 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
     {
       id: 7,
       description:
-        "RebekahRadice.com was only a glimmer in my eye, and yet, became my passport to the world. I traveled far and wide, spreading digital smarts like confetti.",
-      title: "",
+        "10 years in and the housing crash left me wiped out. That's when I realized important vs. urgent and found a way to prioritize. Family and fun came first.",
+      title: "2008",
     },
     {
       id: 8,
-      description: "",
-      title: "",
+      description:
+        "Shifted into brand mode and greener Better Homes and Gardens pastures. Building a legacy brand from scratch on social is a wild ride and I was 100% up for it.",
+      title: "2012",
     },
     {
       id: 9,
-      description: "",
-      title: "",
+      description:
+        "Met my BRIL.LA co-founder Ambreen, and Sam, her now grumpy hubby. Our dynamic trio weathered many SaaS storms but always came back fighting.",
+      title: "2014",
     },
     {
       id: 10,
-      description: "",
-      title: "",
+      description:
+        "Breathed life into BRIL.LA, giving UX design a cause-based focus. Pouring our hearts into higher-ed, our tech-enabled approach spread its wings.",
+      title: "2019",
     },
     {
       id: 11,
-      description: "",
-      title: "",
-    },
-    {
-      id: 12,
-      description: "",
-      title: "",
+      description:
+        "Infusing digital superpowers into Hey Rebekah, we soft launched to family and friends. Now we're in Beta. Come get better at what you do in 6 minutes or less.",
+      title: "2023",
     },
   ];
 
