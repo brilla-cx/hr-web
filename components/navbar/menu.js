@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 
-import { H4 } from "@/components/ui";
+import { H5 } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
@@ -58,7 +58,7 @@ export default function Menu({ recentPosts }) {
             leave="transition ease-in duration-150"
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 -translate-y-1">
-            <Popover.Panel className="fixed inset-0 top-0 z-20 border-b border-pink bg-midnight pt-16">
+            <Popover.Panel className="fixed inset-0 top-0 z-20 max-h-screen overflow-y-auto border-b-8 border-pink bg-midnight pt-16">
               <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 px-6 py-10 lg:grid-cols-[3fr,1fr]">
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:gap-x-8 md:grid-cols-2">
                   <div>
@@ -72,7 +72,7 @@ export default function Menu({ recentPosts }) {
                             as={Link}
                             key={item.name}
                             href={item.href}
-                            className="mb-10 flex gap-x-4 font-display text-5xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16">
+                            className="mb-10 flex gap-x-4 font-display text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
                             <span className={cx("hover:pb-4", ...hoverStyles)}>
                               {item.name}
                             </span>
@@ -92,7 +92,7 @@ export default function Menu({ recentPosts }) {
                             as={Link}
                             key={item.name}
                             href={item.href}
-                            className="mb-10 flex gap-x-4 font-display text-5xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16">
+                            className="mb-10 flex gap-x-4 font-display text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
                             <span className={cx("hover:pb-4", ...hoverStyles)}>
                               {item.name}
                             </span>
@@ -102,7 +102,7 @@ export default function Menu({ recentPosts }) {
                     </div>
                   </div>
                 </div>
-                <div className="hidden gap-8 sm:grid lg:grid-cols-1 xl:grid-cols-1 xl:grid-rows-3">
+                <div className="hidden gap-8 lg:grid lg:grid-cols-1 xl:grid-cols-1 xl:grid-rows-3">
                   <h3 className="sr-only">Recent posts</h3>
                   {recentPosts.slice(0, 3).map((post) => (
                     <article
@@ -130,7 +130,7 @@ export default function Menu({ recentPosts }) {
                               date={post?.publishedAt || post._createdAt}
                             />
                           </div>
-                          <H4
+                          <H5
                             as="h2"
                             className={cx(
                               "mt-2 line-clamp-2 inline text-gray-200",
@@ -138,7 +138,7 @@ export default function Menu({ recentPosts }) {
                             )}>
                             <span className="absolute inset-0" />
                             {post.name}
-                          </H4>
+                          </H5>
                         </div>
                       </Popover.Button>
                     </article>

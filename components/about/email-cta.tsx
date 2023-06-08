@@ -37,7 +37,7 @@ function EmailCta(props: Props) {
           />
           {/* GlowingButton component for form submission */}
           <GlowingButton href="" form="email" type="submit" variant="subscribe">
-            Level U
+            Level Up
           </GlowingButton>
         </div>
         {/* Privacy policy link */}

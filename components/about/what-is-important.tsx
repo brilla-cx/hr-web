@@ -34,7 +34,7 @@ function ListCard(props: ListItem) {
           {typeof props.desc === "string" ? (
             <p
               className="flex-auto"
-              // eslint-disable-next-line react/no-danger
+            // eslint-disable-next-line react/no-danger
             >
               {props.desc}
             </p>
@@ -104,8 +104,11 @@ const listItems: ListItem[] = [
         "1% of our{" "}
         <Link
           href="https://climate.stripe.com/Dr0vIi"
-          className={cx(hoverStyles, "pr-1 font-bold text-gray-200")}
-          target={"__blank"}>
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Stripe Climate - this link opens in a new tab"
+          className={cx(hoverStyles, "pr-1 font-bold text-gray-200")}>
+          {" "}
           gross revenue
         </Link>
         processed via Stripe is committed to carbon removal."
