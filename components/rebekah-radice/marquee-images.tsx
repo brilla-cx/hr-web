@@ -10,7 +10,7 @@ function MarqueeItem({
   direction: "left" | "right";
 }) {
   return (
-    <Marquee direction={direction}>
+    <Marquee direction={direction} pauseOnHover>
       {images.map((rrimg) => (
         <div key={rrimg} className="w-64 h-64 m-3 rounded bg-slate-900">
           <Image
