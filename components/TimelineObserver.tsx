@@ -102,7 +102,6 @@ const TimelineObserver = ({
 }: TimelineObserverProps) => {
   const observablesStore = useRef(new Map<string, ObservablesProps>());
   const callbacks = useRef<{ [key: string]: () => void }>({});
-  const observer = useRef<IntersectionObserver | null>(null);
 
   const callback = (entries) => {
     entries?.forEach((entry) => {
@@ -126,6 +125,8 @@ const TimelineObserver = ({
       });
     });
   }, [fillColor, hasReverse, initialColor]);
+
+  const observer = useRef(new IntersectionObserver(callback, options));
 
   useEffect(() => {
     observer.current = new IntersectionObserver(callback, options);
