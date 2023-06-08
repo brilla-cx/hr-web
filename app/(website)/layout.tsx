@@ -3,10 +3,9 @@
 import "../globals.css";
 
 import localFont from "next/font/local";
-import React, { Fragment } from "react";
+import React from "react";
 
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import MainLayout from "@/components/main-layout";
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
 
@@ -122,16 +121,6 @@ const lexendDeca = localFont({
   variable: "--font-lexend-deca",
 });
 
-function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <Fragment>
-      <Navbar />
-      {children}
-      <Footer />
-    </Fragment>
-  );
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -146,7 +135,7 @@ export default function RootLayout({
         lexendDeca.variable
       )}>
       <body>
-        <Layout>{children}</Layout>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );
