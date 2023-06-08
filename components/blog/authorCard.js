@@ -10,9 +10,9 @@ import { urlForImage } from "@/sanity/image";
 export default function AuthorCard({ author }) {
   const imageProps = author?.image ? urlForImage(author.image) : null;
   return (
-    <div className="px-8 py-8 mt-3 text-gray-600 rounded-2xl bg-gray-100 max-w-2xl mx-auto">
-      <div className="flex flex-wrap items-start sm:space-x-6 sm:flex-nowrap">
-        <div className="relative flex-shrink-0 w-24 h-24 mt-1 ">
+    <div className="mx-auto mt-3 max-w-2xl rounded bg-gray-100 px-8 py-8 text-gray-600">
+      <div className="flex flex-wrap items-start sm:flex-nowrap sm:space-x-6">
+        <div className="relative mt-1 h-20 w-20 flex-shrink-0 ">
           {imageProps && (
             <Link href={`/author/${author.slug.current}`}>
               <Image
@@ -31,14 +31,14 @@ export default function AuthorCard({ author }) {
               About {author.name}
             </H6>
           </div>
-          <div className="line-clamp-3 text-gray-600 mb-2">
+          <div className="mb-2 line-clamp-3 text-gray-600">
             {author.bio && <PortableText value={author.bio} />}
           </div>
           <div className="mt-3 inline">
             <Link
               href={`/author/${author.slug.current}`}
               className={cx(
-                "text-sm text-gray-900 font-bold decoration-none",
+                "decoration-none text-sm font-bold text-gray-900",
                 hoverStyles
               )}
               aria-label="View author profile">

@@ -60,5 +60,5 @@ export function Title({ children, className = "", as = "p" }) {
 }
 
 export function Lead({ children, className = "" }) {
-  return <p className={cx(className, "font-sans text-lg")}>{children}</p>;
+  return <p className={cx(className, "text-lg")}>{children}</p>;
 }
