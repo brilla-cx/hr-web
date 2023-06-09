@@ -5,7 +5,16 @@ const commonClasses = "font-semibold font-display tracking-tight";
 export function H1({ children, className = "", as = "h1" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-4xl lg:text-7xl")}>
+    <Tag className={cx(commonClasses, className, "text-4xl lg:text-6xl")}>
+      {children}
+    </Tag>
+  );
+}
+
+export function HeroH1({ children, className = "", as = "h1" }) {
+  const Tag = as;
+  return (
+    <Tag className={cx(commonClasses, className, "text-3xl lg:text-7xl")}>
       {children}
     </Tag>
   );

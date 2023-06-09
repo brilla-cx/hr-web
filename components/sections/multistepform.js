@@ -2,13 +2,16 @@
 /* eslint-disable react/jsx-no-bind */
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import FormProvider, { useFormData } from "@/components/providers/form-context";
-import { GlowingButton, Input } from "@/components/ui";
-import { Checkbox, Radio } from "@/components/ui/forms";
+import { GlowingButton, Input, Lead } from "@/components/ui";
+import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
+import hoverStyles from "@/lib/hover";
+import { cx } from "@/lib/utils";
 
 const TopicsArray = [
   "Accounting/Finance",
@@ -24,6 +27,7 @@ const TopicsArray = [
   "SEO",
   "Social Media Management",
   "Web/Mobile/Software",
+  "Other",
 ];
 
 export default function MultiStepForm() {
@@ -36,7 +40,7 @@ export default function MultiStepForm() {
   return (
     <div>
       <FormProvider>
-        <div className="mx-auto mb-16 max-w-xl">
+        <div className="mx-auto mb-48 mt-12 max-w-xl">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}
@@ -84,16 +88,19 @@ function StepOne({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 1 ? "block" : "hidden"}>
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+        Step 1 of 4 | Required
+      </p>
       <div className="">
-        <h2 className="font-heading text-center text-lg font-bold text-white">
-          What’s your email address?
-        </h2>
+        <Lead className="text-center text-gray-200">
+          What{"\u2018"}s your email address?
+        </Lead>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             name="email"
             type="email"
             required
@@ -102,7 +109,7 @@ function StepOne({ formStep, nextFormStep }) {
             register={register}
             errors={errors}
             validations={{
-              required: "Email Address is required",
+              required: "Oops, we need your email address please.",
               maxLength: 80,
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -113,9 +120,16 @@ function StepOne({ formStep, nextFormStep }) {
 
           <div className="mt-10 flex justify-center">
             <GlowingButton type="submit" autoWidth>
-              Continue
+              Next
             </GlowingButton>
           </div>
+          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
+            We care about your{" "}
+            <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
+              privacy
+            </Link>
+            .
+          </p>
         </form>
       </div>
     </div>
@@ -138,32 +152,36 @@ function StepTwo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? "block" : "hidden"}>
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+        Step 2 of 4 | Required
+      </p>
       <div className="">
-        <h2 className="font-heading text-center text-lg font-bold text-white">
-          What should we call you?
-        </h2>
+        <Lead className="text-center text-gray-200">
+          👋🏾 What should we call you?
+        </Lead>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             name="firstName"
             type="text"
             required
-            placeholder="eg: Rebekah"
-            aria-label="Enter your name friends call you."
+            placeholder="Enter your first name"
+            aria-label="What's your first name?."
             register={register}
             errors={errors}
             validations={{
-              required: "We need your name, Captain!",
-              maxLength: 80,
+              required:
+                "We gotta call you something firstName is kind of weird.",
+              maxLength: 30,
             }}
           />
 
           <div className="mt-10 flex justify-center">
             <GlowingButton type="submit" autoWidth>
-              Continue
+              Next
             </GlowingButton>
           </div>
         </form>
@@ -187,15 +205,18 @@ function StepThree({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 3 ? "block" : "hidden"}>
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+        Step 3 of 4 | Required
+      </p>
       <div className="">
-        <h2 className="font-heading text-center text-lg font-bold text-white">
-          Choose a Primary Topic
-        </h2>
+        <Lead className="text-center text-gray-200">
+          Tell us your primay topic of inteest, we{"\u2018"}ll filter the rest.
+        </Lead>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {TopicsArray.map((item, index) => (
               <div key={index}>
                 <Radio
@@ -206,7 +227,8 @@ function StepThree({ formStep, nextFormStep }) {
                   register={register}
                   errors={errors}
                   validations={{
-                    required: "Please choose your Primary Topic",
+                    required:
+                      "Please choose a primary topic of interest, or Other.",
                   }}
                 />
               </div>
@@ -221,7 +243,7 @@ function StepThree({ formStep, nextFormStep }) {
 
           <div className="mt-10 flex justify-center">
             <GlowingButton type="submit" autoWidth>
-              Continue
+              Next
             </GlowingButton>
           </div>
         </form>
@@ -230,7 +252,7 @@ function StepThree({ formStep, nextFormStep }) {
   );
 }
 // Secondary Topics
-function StepFour({ formStep, nextFormStep }) {
+function StepFour({ formStep, prevFormStep, nextFormStep }) {
   const { setFormValues, data } = useFormData();
 
   const {
@@ -243,18 +265,21 @@ function StepFour({ formStep, nextFormStep }) {
   const topicsSelected = watch("topics");
 
   const onSubmit = (values) => {
-    const formattedValues = values.topics.reduce((result, topic, index) => {
-      result[`topic${index + 2}`] = topic;
-      return result;
-    }, {});
+    if (Array.isArray(values.topics)) {
+      const formattedValues = values.topics.reduce((result, topic, index) => {
+        result[`topic${index + 2}`] = topic;
+        return result;
+      }, {});
 
-    setFormValues(formattedValues);
+      setFormValues(formattedValues);
+    }
+
     nextFormStep();
   };
 
   const validateCheckboxGroup = (value) => {
     if (value && value.length > 3) {
-      return "Please select maximum of three topics";
+      return "Please select up to 3 topics.";
     }
     return true;
   };
@@ -263,10 +288,13 @@ function StepFour({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 4 ? "block" : "hidden"}>
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+        Step 4 of 4 | Optional
+      </p>
       <div className="">
-        <h2 className="font-heading text-center text-lg font-bold text-white">
-          Awesome. Select three more topics you love (optional).
-        </h2>
+        <Lead className="text-center text-gray-200">
+          Awesome. Select three more topics you{"\u2018"}d like to keep tabs on.
+        </Lead>
       </div>
       <div className="mt-5">
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -295,10 +323,10 @@ function StepFour({ formStep, nextFormStep }) {
               <small>{errors.topics.message}</small>
             </div>
           )}
-
           <div className="mt-10 flex justify-center">
+            <BackButton onClick={prevFormStep} />
             <GlowingButton type="submit" autoWidth>
-              {topicsSelected ? "Continue" : "Skip"}
+              {topicsSelected ? "Next" : "Skip"}
             </GlowingButton>
           </div>
         </form>
@@ -306,6 +334,7 @@ function StepFour({ formStep, nextFormStep }) {
     </div>
   );
 }
+
 // Submit (iterable)
 function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   const { data } = useFormData();
@@ -339,12 +368,12 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
   return (
     <div className={formStep === 5 ? "block" : "hidden"}>
       <div className="">
-        <h2 className="font-heading text-center text-lg font-bold text-white">
-          This is your moment of Truth,{" "}
-          {data.firstName ? data.firstName : "Captain!"}
-        </h2>
-        <p className="mt-3 text-center text-gray-500">
-          We are ready to cheer for you!
+        <Lead className="text-center text-gray-200">
+          19 seconds, a new record {data.firstName ? data.firstName : ", w00t"}!
+        </Lead>
+        <p className="mt-3 text-center text-gray-400">
+          Click submit, then please check your inbox to verify your email
+          address.
         </p>
       </div>
 
@@ -354,7 +383,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
           autoWidth
           onClick={submitForm}
           disabled={loading}>
-          {(loading && "Hang tight...") || "Confirm & Signup"}
+          {(loading && "Just a sec...") || "Submit"}
         </GlowingButton>
       </div>
     </div>

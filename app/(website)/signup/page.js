@@ -11,10 +11,9 @@ export default function Page() {
           className="border-l border-r border-neutral-200 border-opacity-10">
           <PageHeader
             title="Signup for Hey Rebekah"
-            leadText="Join our community of over 320,000 professionals. "
+            leadText="This is just the best thing I've ever read! ~ Nancy (Rebekah's mom) "
             includeForm={false}
           />
-
           <div>
             <MultiStepForm />
           </div>
