@@ -21,7 +21,7 @@ export default async function Partners() {
     <div className=" bg-midnight">
       <Container
         large
-        className="space-y-16 border-l border-r border-neutral-200 border-opacity-10">
+        className="space-y-16 border-l border-r border-neutral-200/10">
         <PartnerHero
           title={"Partner with Hey Rebekah"}
           description={

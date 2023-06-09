@@ -35,9 +35,7 @@ export default function Category(props) {
     // Div with midnight background color
     <div className="bg-midnight text-gray-200">
       {/* Container component for holding the content */}
-      <Container
-        large
-        className="border-l border-r border-neutral-200 border-opacity-10">
+      <Container large className="border-l border-r border-neutral-200/10">
         {/* PageHeader component with title, lead text, includeForm, and formId */}
         <PageHeader
           title={`${category.name}`} // Dynamic title including category name

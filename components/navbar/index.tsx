@@ -18,13 +18,13 @@ export default function Navbar(): JSX.Element {
   const recentPosts = use(getPosts());
   return (
     <div
-      className="sticky top-0 z-50 border-b border-neutral-200 border-opacity-10 bg-midnight"
+      className="sticky top-0 z-50 border-b border-neutral-200/10 bg-midnight"
       aria-label="Main navigation">
       <div className="relative shadow">
         <Container
           alt
           large
-          className="h-20 py-5 border-l border-r border-neutral-200 border-opacity-10">
+          className="h-20 py-5 border-l border-r border-neutral-200/10">
           <div className="flex items-center justify-between gap-10">
             <div className="isolate" style={{ zIndex: 2 }}>
               <Link href="/" aria-label="Go to home page">

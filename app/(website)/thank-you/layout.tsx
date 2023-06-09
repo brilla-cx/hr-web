@@ -12,7 +12,7 @@ function ThankYouLayout({ children }) {
       <div className="bg-midnight">
         <Container
           large
-          className="border-l border-r border-neutral-200 border-opacity-10">
+          className="border-l border-r border-neutral-200/10">
           {children}
         </Container>
       </div>
