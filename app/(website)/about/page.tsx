@@ -21,15 +21,16 @@ export function generateMetadata() {
     },
   };
 }
-const withContainer = (Component, props) => {
+const withContainer = (Component, props, bgColor) => {
   return (
-    <div className="bg-midnight border-b border-neutral-200/10">
+    <div className={bgColor}>
       <Container large className="border-l border-r border-t border-neutral-200/10">
         <Component {...props} />
       </Container>
     </div>
   );
 };
+
 
 export default async function About() {
   const faqs = (await getAllFaqs()) as FaqType[];
@@ -42,16 +43,16 @@ export default async function About() {
         subtitle: "We believe curiosity is the driving force of progress. While others scramble to capitalize on buzzwords we see the future through a wider lens. We know technology is simply a tool and humans are the builders that wield it.",
         subtitle2: "Hey Rebekah is a free daily newsletter for knowledge workers. We help you incorporate tools like AI into your work. Kind of like we have. If you do it right, it's magical. Want to know what we do with all our spare time? Join us and find out.",
         image: "https://cdn.sanity.io/images/smx99abf/production/8bc88423bf816a59253fefe69e8c59973b51b23a-1080x1080.webp"
-      })}
-      {withContainer(WtfIsHeyRebekah, {})}
-      {withContainer(BrandsMarquee, { title: "Some our fave clients" })}
-      {withContainer(CheckReplay, {})}
+      }, "bg-midnight")}
+      {withContainer(WtfIsHeyRebekah, {}, "bg-midnight")}
+      {withContainer(BrandsMarquee, { title: "Some our fave clients" }, "bg-midnight")}
+      {withContainer(CheckReplay, {}, "bg-midnight")}
       {withContainer(EmailCta, {
-        title: "If you've read this far, just subscribe already",
+        title: "Wow, you've read this far? OK for real this time, just subscribe already.",
         subtitle: "What's the worst that will happen? You'll get better at what you do, enjoy a few laughs? It ain't hard...click the button below and give us a shot."
-      })}
-      {withContainer(WhatIsImportant, {})}
-      {withContainer(Faqs, { faqs: readerFaqs })}
+      }, "bg-aqua")}
+      {withContainer(WhatIsImportant, {}, "bg-midnight")}
+      {withContainer(Faqs, { faqs: readerFaqs }, "bg-midnight")}
     </>
   );
 }

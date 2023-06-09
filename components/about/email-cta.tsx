@@ -1,8 +1,11 @@
+
 import Link from "next/link";
 
-import { GlowingButton, H3, Input } from "@/components/ui";
+import { H3, H4 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
+
+import GlowingButtonLight from "../ui/glowingButtonLight";
 
 interface Props {
   title: string;
@@ -11,44 +14,25 @@ interface Props {
 
 function EmailCta(props: Props) {
   return (
-    <div className="gap-4 p-6 mb-24 border rounded border-gray-200/10 md:p-14 lg:flex lg:justify-between">
+    <div className="gap-4 rounded lg:flex lg:justify-between sm:px-8 sm:py-20 lg:px-16 lg:py-26 mx-auto justify-center max-w-5xl">
       <div>
-        <H3 as="h2" className="text-gray-200">
+        <H4 as="h2" className="text-midnight">
           {props.title}
-        </H3>
-        <p className="mt-3 text-sm leading-6 text-gray-400">{props.subtitle}</p>
+        </H4>
+        <p className="mt-3 text-lg leading-6 text-gray-800">{props.subtitle}</p>
       </div>
-      <form id="subscribe-form" className="w-full">
-        {/* Layout div for form elements */}
-        <div className="flex flex-col justify-center gap-4 md:flex-row">
-          {/* Label for email input field, hidden for visual users but accessible to screen readers */}
-          <label htmlFor="email-address" className="sr-only">
-            email
-          </label>
-          {/* Input component for email input with necessary styling and attributes */}
-          <Input
-            className="text-gray-200 border-neutral-200/10 bg-slate-900"
-            name="email"
-            type="email"
-            required
-            placeholder="Enter your email"
-            aria-label="Enter your email address to subscribe"
-            autoComplete="email"
-          />
-          {/* GlowingButton component for form submission */}
-          <GlowingButton href="" form="email" type="submit" variant="subscribe">
-            Level Up
-          </GlowingButton>
-        </div>
-        {/* Privacy policy link */}
-        <p className="mt-4 text-xs leading-6 text-left text-gray-400">
+      <div className="mt-4 md:mt-5 md:max-w-xs">
+        <GlowingButtonLight variant="link" href="/signup" id="hero">
+          Level Up
+        </GlowingButtonLight>
+        <p className="mt-4 text-xs leading-6 text-left text-gray-800">
           We care about your{" "}
           <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
             privacy
           </Link>
           .
         </p>
-      </form>
+      </div>
     </div>
   );
 }

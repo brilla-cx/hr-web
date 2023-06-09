@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H6, Lead } from "../ui";
+import { H3, Lead } from "../ui";
 
 interface AboutFact {
   factNumber: string;
@@ -11,14 +11,14 @@ interface AboutFact {
 function CheckReplayCard(props: AboutFact) {
   const { factDesc, factNumber, factTitle } = props;
   return (
-    <div className="flex flex-col p-6 transition-all duration-300 border rounded border-gray-200/10 bg-slate-900 hover:scale-105 hover:transform">
-      <dt className="flex items-center mb-4 text-4xl font-semibold leading-7 text-gray-200 gap-x-3">
+    <div className="flex flex-col p-6 border rounded border-gray-200/10 bg-slate-900">
+      <dt className="flex items-center mb-4 text-5xl font-semibold leading-7 text-gray-200 gap-x-3">
         {factNumber}
       </dt>
       <dt className="flex items-center text-base font-semibold leading-7 text-gray-200 gap-x-3">
         {factTitle}
       </dt>
-      <dd className="flex flex-col flex-auto mt-4 text-base leading-7 text-gray-400">
+      <dd className="flex flex-col flex-auto mt-4 text-base leading-7 text-gray-300">
         <p className="flex-auto">{factDesc}</p>
       </dd>
     </div>
@@ -27,14 +27,11 @@ function CheckReplayCard(props: AboutFact) {
 
 function CheckReplay() {
   return (
-    <div className="pb-24 sm:pb-32">
+    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20 lg:px-162">
       <div className="max-w-2xl mx-auto lg:text-center">
-        <H6 className="text-base font-bold text-gray-200">
-          Wondering if we're any good at what we do?
-        </H6>
-        <Lead className="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+        <H3 as="h2" className="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
           Let's check the replay
-        </Lead>
+        </H3>
         <p className="mt-6 text-lg leading-8 text-gray-400">
           The Hey Rebekah fam has been hustling together since 2013. Our
           combined experience is off the charts high, reaching almost
@@ -68,13 +65,13 @@ const aboutFactsData: AboutFact[] = [
       "Since 2001, we've helped businesses acquire over 317,000,000 users. Holy crap, that's a lot more than we thought.",
   },
   {
-    factNumber: "16 MILLION",
+    factNumber: "16 Million",
     factTitle: "Customers converted",
     factDesc:
       "We've implemented strategies to convert a shit ton of prospects to customers for our clients. Hmm, we should've started a business earlier.",
   },
   {
-    factNumber: "$10 MILLION",
+    factNumber: "$10 Million",
     factTitle: "Lifetime earnings",
     factDesc:
       "Yeah, we've done well. But there's a lot more to fulfillment too. We're open sourcing our playbooks to help you make more money than we ever could.",

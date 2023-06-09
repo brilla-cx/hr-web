@@ -14,7 +14,7 @@ interface Props {
 export function HeroWithImage(props: Props) {
   const { image, subtitle, subtitle2, title } = props;
   return (
-    <div className="grid items-center grid-cols-2 gap-4 lg:py-26 px-4 py-12 sm:px-8 sm:py-20 lg:px-16">
+    <div className="grid items-center grid-cols-2 gap-4 sm:px-8 sm:py-20 lg:px-16 lg:py-26">
       <div className="hidden md:block lg:col-span-1">
         <Image
           className="object-cover w-full h-full"
@@ -33,7 +33,7 @@ export function HeroWithImage(props: Props) {
         <Lead className="mt-6 text-gray-400">{subtitle}</Lead>
         <Lead className="mt-6 text-gray-400 ">{subtitle2}</Lead>
 
-        <div className="pt-6 max-w-xs">{props.button && props.button}
+        <div className="mt-8 md:max-w-xs">{props.button && props.button}
           button={
             <GlowingButton
               variant="link"
