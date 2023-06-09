@@ -1,5 +1,6 @@
 import BrandsMarquee from "@/components/about/brands-marquee";
 import Container from "@/components/container";
+import ContactRebekah from "@/components/rebekah-radice/contact-rebekah";
 import MarqueeImages from "@/components/rebekah-radice/marquee-images";
 import RebekahServices from "@/components/rebekah-radice/rebekah-services";
 import RebekahTimeline from "@/components/rebekah-radice/rebekah-timeline";
@@ -55,6 +56,7 @@ export default function RebekahRadice() {
         </div>
         <RememberFor />
         <RebekahServices />
+        <ContactRebekah />
       </Container>
     </div>
   );
