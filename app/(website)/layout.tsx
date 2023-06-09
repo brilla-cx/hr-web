@@ -3,9 +3,9 @@
 import "../globals.css";
 
 import localFont from "next/font/local";
+import React from "react";
 
-import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import MainLayout from "@/components/main-layout";
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
 
@@ -130,15 +130,12 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        "antialiased font-sans",
+        "font-sans antialiased",
         lexend.variable,
         lexendDeca.variable
       )}>
       <body>
-        {/* @ts-expect-error Server Component */}
-        <Navbar />
-        <div>{children}</div>
-        <Footer />
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   );

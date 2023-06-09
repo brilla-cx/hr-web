@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ReactNode } from "react";
 
 import { H1, Lead } from "@/components/ui";
 

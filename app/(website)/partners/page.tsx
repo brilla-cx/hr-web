@@ -44,7 +44,7 @@ export default async function Partners() {
           {/* stats */}
           <PartnerCommunityData />
           {/* brands */}
-          <BrandsMarquee />
+          <BrandsMarquee title="G.O.A.T. brands we've worked with" />
           {/* What we're looking for */}
           <LookingFor />
           {/* What to expect from us */}

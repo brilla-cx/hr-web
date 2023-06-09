@@ -1,17 +1,63 @@
+import BrandsMarquee from "@/components/about/brands-marquee";
+import Container from "@/components/container";
+import ContactRebekah from "@/components/rebekah-radice/contact-rebekah";
+import MarqueeImages from "@/components/rebekah-radice/marquee-images";
+import RebekahServices from "@/components/rebekah-radice/rebekah-services";
+import RebekahTimeline from "@/components/rebekah-radice/rebekah-timeline";
+import RememberFor from "@/components/rebekah-radice/remeber-for";
+import SocialStats from "@/components/rebekah-radice/social-stats";
+import { GlowingButton, H1, H2, H3, Lead } from "@/components/ui";
+
 export default function RebekahRadice() {
-  //Placeholder to create route
   return (
-    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          Rebekah Radice
-        </h2>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
-        </p>
-      </div>
+    <div className="bg-midnight">
+      <Container
+        large
+        className="border-l border-r border-neutral-200 border-opacity-10">
+        <div className="max-w-4xl py-10 mx-auto text-center">
+          <H1 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+            Social media speaker, consultant, and trainer
+          </H1>
+          <Lead className="mt-6 text-lg leading-8 text-gray-400">
+            The interwebs crowned me a top digital marketing expert in the known
+            universe. (cue eye rolls from my hubby and colleagues) I'm all about
+            helping people get, keep, and grow their client base via digital
+            magic.
+          </Lead>
+          <div className="max-w-sm mx-auto mt-12">
+            <GlowingButton>Still in Intersted</GlowingButton>
+          </div>
+        </div>
+        <MarqueeImages />
+        <div className="max-w-4xl py-40 mx-auto text-center">
+          <H2 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+            About Rebekah Radice's Career
+          </H2>
+          <Lead className="mt-6 text-lg leading-8 text-gray-400">
+            The interwebs crowned me a top digital marketing expert in the known
+            universe. (cue eye rolls from my hubby and colleagues) I'm all about
+            helping people get, keep, and grow their client base via digital
+            magic.
+          </Lead>
+          <RebekahTimeline />
+        </div>
+        <BrandsMarquee title="G.O.A.T. brands i've worked with" />
+        <div className="px-0 py-10 mx-auto text-center md:px-10">
+          <H3 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+            My community of over 300,000
+          </H3>
+          <Lead className="max-w-4xl mx-auto mt-6 text-lg leading-8 text-gray-400">
+            I adore my community like peanut butter loves jelly. They've been
+            with me since the days when social media was only a baby. Remember
+            when we had to walk uphill both ways to post a tweet? Sigh... the
+            good 'ol days.
+          </Lead>
+          <SocialStats />
+        </div>
+        <RememberFor />
+        <RebekahServices />
+        <ContactRebekah />
+      </Container>
     </div>
   );
 }
