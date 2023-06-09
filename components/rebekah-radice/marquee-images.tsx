@@ -12,14 +12,16 @@ function MarqueeItem({
   return (
     <Marquee direction={direction} pauseOnHover>
       {images.map((rrimg) => (
-        <div key={rrimg} className="w-64 h-64 m-3 rounded bg-slate-900">
-          <Image
-            src={rrimg}
-            alt="Ambreen Dar and Rebekah Radice holding up their glasses welcoming you to the Hey Rebekah newsletter"
-            className="object-cover w-full h-full"
-            width={460}
-            height={640}
-          />
+        <div key={rrimg} className="p-4">
+          <div className="block w-full overflow-hidden bg-gray-100 rounded-lg aspect-h-7 aspect-w-10 group focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+            <Image
+              src={rrimg}
+              alt=""
+              className="object-cover pointer-events-none group-hover:opacity-75"
+              width={300}
+              height={300}
+            />
+          </div>
         </div>
       ))}
     </Marquee>

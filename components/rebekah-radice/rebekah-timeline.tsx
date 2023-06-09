@@ -103,7 +103,7 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
   return (
     <div>
       <div
-        className={`mx-auto flex flex-col items-center justify-center text-white ${className}`}>
+        className={`mx-auto flex flex-col text-white md:items-center md:justify-center ${className}`}>
         {timelineData.map(({ id, description, title }, index) => {
           const isEven = index % 2;
           return (
@@ -119,13 +119,14 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
                   id={`circle${index + 1}`}
                   // eslint-disable-next-line react/jsx-no-bind
                   ref={(ref) => (circleRefs.current[index] = ref)}
-                  className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-slate-900"
+                  className="justify-center w-8 h-8 -ml-3 rounded-full bg-slate-900 md:ml-0 md:inline-flex md:items-center"
                 />
                 <div
                   className={cx(
+                    "absolute min-w-[300px] flex-wrap",
                     isEven
-                      ? "absolute right-[50%] top-[20%] -mt-5 mr-10 min-w-[400px] text-right"
-                      : "absolute left-[50%] top-[20%] -mt-5 ml-10 min-w-[400px] text-left"
+                      ? "left-auto -mt-10 ml-10  text-left md:right-[50%] md:mr-10 md:text-right"
+                      : "left-auto top-[20%] -mt-5 ml-10 text-left"
                   )}>
                   <H5 className="text-2xl text-gray-200">{title}</H5>
                   <Lead className="text-gray-400">{description}</Lead>

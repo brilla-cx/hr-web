@@ -19,7 +19,7 @@ import { GlowingButton, H3, Input, Lead, Textarea } from "../ui";
 function ContactRebekah() {
   return (
     <div className="grid grid-cols-2 gap-12">
-      <div className="space-y-10">
+      <div className="col-span-2 space-y-10 md:col-span-1">
         <div>
           <H3 className="pb-4 text-gray-200">Contact Rebekah Radice</H3>
           <Lead className="text-gray-400">
@@ -94,34 +94,60 @@ function ContactRebekah() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-6">
-        <Input
-          className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-          name="firstName"
-          placeholder="rebekah"
-        />
-        <Input
-          className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-          name="firstName"
-          placeholder="rebekah"
-        />
-        <Input
-          className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-          name="firstName"
-          placeholder="rebekah"
-        />
-        <Input
-          className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-          name="firstName"
-          placeholder="rebekah"
-        />
-        <Textarea
-          name="message"
-          placeholder="message"
-          className="w-full col-span-2 text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-        />
-        <GlowingButton>Contact Renekah</GlowingButton>
-      </div>
+      <form id="#contact" className="col-span-2 md:col-span-1">
+        <div className="grid grid-cols-2 gap-6 ">
+          <Input
+            className="text-white  border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            name="firstName"
+            type="text"
+            required
+            placeholder="Rebekah"
+            aria-label="Enter your first name"
+            autoComplete="firstName"
+          />
+          <Input
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            name="lastName"
+            type="text"
+            required
+            placeholder="Radice"
+            aria-label="Enter your last name"
+            autoComplete="lastName"
+          />
+          <Input
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            name="email"
+            type="email"
+            required
+            placeholder="Enter your email"
+            aria-label="Enter your email address to subscribe"
+            autoComplete="email"
+          />
+          <Input
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            name="phoneNumber"
+            type="number"
+            required
+            placeholder="555-555-1212"
+            aria-label="Enter your phone number"
+            autoComplete="email"
+          />
+          <Textarea
+            name="message"
+            required
+            placeholder="Enter your message"
+            aria-label="Enter your message"
+            className="w-full col-span-2 text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+          />
+          <div className="col-span-2 md:col-span-1">
+            <GlowingButton
+              variant="link"
+              href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry">
+              Contact Renekah
+            </GlowingButton>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

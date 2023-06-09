@@ -27,7 +27,7 @@ const RememberFor: React.FC = () => {
 
   return (
     <div className="grid grid-cols-4 gap-5 py-40 top-40">
-      <div className="col-span-2 holder">
+      <div className="col-span-4 holder md:col-span-2">
         <div className="sticky text-white holder__head">
           <H3>Hey Rebekah is what I'll be remembered for</H3>
           <Lead className="mt-5">
@@ -39,41 +39,52 @@ const RememberFor: React.FC = () => {
             accessible.
           </Lead>
           <div className="max-w-sm mt-12">
-            <GlowingButton>Join hey Rebekah</GlowingButton>
+            <GlowingButton type="link" href="/">
+              Join hey Rebekah
+            </GlowingButton>
           </div>
         </div>
       </div>
 
-      <section className="col-span-2 gap-20 text-white holder">
-        <div className="holder__head sticky h-96 space-y-5 rounded bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+      <section className="col-span-4 gap-20 text-white holder md:col-span-2">
+        <div className="holder__head sticky space-y-5 rounded bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
           <H4>Best newsletter for freelancers</H4>
           <H6>Like Morning Brew for freelancers</H6>
-          <Lead>
+          <Lead className="pb-4 text-gray-400">
             A free daily newsletter. We write about things that help you become
             better at what you do in 6 minutes or less.
           </Lead>
         </div>
-        <div className="holder__head h-96 space-y-5 rounded bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+        <div className="holder__head space-y-5 rounded bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+          <Lead className="w-48 px-4 py-2 text-center rounded bg-slate-800">
+            COMING SOON
+          </Lead>
           <H4>Generative AI for freelancers</H4>
           <H6>OpenAI x Anthropic fine-tuned for freelancers</H6>
-          <Lead>
+          <Lead className="pb-4 text-gray-400">
             We've fine-tuned our generative AI for freelancers. Make work
             easier, boost creativity, get more done, and improve your skills.
           </Lead>
         </div>
-        <div className="holder__head h-96 space-y-5 bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+        <div className="holder__head space-y-5 bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+          <Lead className="w-48 px-4 py-2 text-center rounded bg-slate-800">
+            COMING SOON
+          </Lead>
           <H4>Free jobs with vetted clients</H4>
           <H6>Like Upwork without the crazy fees</H6>
-          <Lead>
+          <Lead className="pb-4 text-gray-400">
             Get access to no-fee gigs and vetted clients for top-notch job
             opportunities. But without the hefty fees. Think Upwork if it was
             free forever.
           </Lead>
         </div>
-        <div className="holder__head h-96 space-y-5 bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+        <div className="holder__head space-y-5 bg-slate-900 !p-10 shadow-inner shadow-pink-500/50">
+          <Lead className="w-48 px-4 py-2 text-center rounded bg-slate-800">
+            COMING SOON
+          </Lead>
           <H4>Exclusive discounts</H4>
           <H6>Save tons of money on the tools you already use</H6>
-          <Lead>
+          <Lead className="pb-4 text-gray-400">
             No more overpaying for the tools you rely on. Enjoy exclusive
             discounts on the tools you already use. Now you can run your
             business without breaking the bank.

@@ -42,7 +42,7 @@ export default function RebekahRadice() {
           <RebekahTimeline />
         </div>
         <BrandsMarquee title="G.O.A.T. brands i've worked with" />
-        <div className="px-10 py-10 mx-auto text-center">
+        <div className="px-0 py-10 mx-auto text-center md:px-10">
           <H3 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
             My community of over 300,000
           </H3>

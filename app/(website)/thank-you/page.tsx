@@ -11,7 +11,7 @@ export default function ThankYou() {
             <div className="relative px-6 pt-64 overflow-hidden bg-gray-900 rounded shadow-2xl pb-9 sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
               <Image
                 src="https://cdn.sanity.io/images/smx99abf/production/98a2502e7f2adb9661c2742e269b9ae9011dc220-1600x1600.webp"
-                alt="Ambreen Dar and Rebekah Radice holding up their glasses welcoming you to the Hey Rebekah newsletter"
+                alt=""
                 className="absolute inset-0 object-cover w-full h-full"
                 fill
                 sizes="(max-width: 768px) 30vw, 33vw"

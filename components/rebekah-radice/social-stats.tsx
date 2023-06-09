@@ -56,11 +56,11 @@ const socialData = [
 
 function SocialStats() {
   return (
-    <div className="grid grid-cols-3 gap-8 pt-20">
+    <div className="grid grid-cols-3 gap-8 pt-20 md-gap-8">
       {socialData.map((sd) => (
         <div
           key={sd.socialName}
-          className="p-4 py-4 space-y-6 text-center rounded bg-slate-900">
+          className="col-span-3 p-4 py-4 space-y-6 text-center rounded bg-slate-900 md:col-span-1">
           <H4 className="text-gray-200">{sd.socialData}</H4>
           <H6 className="text-gray-200">{sd.socialName}</H6>
           <Lead className="text-gray-400">{sd.socialDesc}</Lead>
