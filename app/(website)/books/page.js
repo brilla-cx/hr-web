@@ -6,4 +6,4 @@ export default function BooksPage({ searchParams }) {
 
 export const dynamic = "force-dynamic";
 
-// export const revalidate = 60;
+export const revalidate = 86400;
