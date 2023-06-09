@@ -149,13 +149,8 @@ function StepTwo({ formStep, nextFormStep }) {
     handleSubmit,
     formState: { errors },
     register,
-    trigger,
     setValue,
   } = useForm({ mode: "all" });
-
-  // const handleChange = async () => {
-  //   await trigger("lastName");
-  // };
 
   useEffect(() => {
     setValue("firstName", data.firstName);
