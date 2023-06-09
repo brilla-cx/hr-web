@@ -1,5 +1,5 @@
 import React from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { FaCaretLeft, FaChevronDown } from "react-icons/fa";
 
 import { cx } from "@/lib/utils";
 
@@ -21,6 +21,8 @@ const commonClasses =
 const sizeClasses = {
   sm: "px-2 py-2",
   md: "px-3 py-3",
+  lg: "px-4 py-4",
+  xl: "px-5 py-5",
 };
 
 export function Input({
@@ -62,7 +64,7 @@ interface SelectProps {
 export function Select({ children, size = "md", ...rest }: SelectProps) {
   return (
     <div className="relative">
-      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2" />
+      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2 " />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
@@ -99,7 +101,7 @@ interface CheckboxProps {
   errors?: Record<string, any>;
   validations?: any;
   register?: any;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   label: string;
   [key: string]: any;
@@ -116,13 +118,13 @@ export function Checkbox({
   ...rest
 }: CheckboxProps) {
   return (
-    <label className="inline-flex items-center w-full gap-2 px-2 py-1 border border-gray-600 rounded hover:bg-gray-800">
+    <label className="inline-flex items-center w-full gap-4 px-4 py-2 border border-gray-600 rounded bg-slate-900 hover:bg-gray-800 focus-within:border-pink focus-within:ring-pink">
       <input
         type="checkbox"
         name={name}
         {...(register && register(name, validations))}
         className={cx(
-          "h-4 w-4 text-pink focus:border-pink focus:ring-pink",
+          "h-4 w-4 text-pink focus:border-pink focus:ring-pink focus-within:border-2",
           className
         )}
         {...rest}
@@ -137,7 +139,7 @@ interface RadioProps {
   errors?: Record<string, any>;
   validations?: any;
   register?: any;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   label: string;
   [key: string]: any;
@@ -148,19 +150,19 @@ export function Radio({
   errors = {},
   validations,
   register,
-  size = "md",
+  size = "lg",
   className = "",
   label,
   ...rest
 }: RadioProps) {
   return (
-    <label className="inline-flex items-center w-full gap-2 px-2 py-1 border border-gray-600 rounded hover:bg-gray-800">
+    <label className="inline-flex items-center w-full gap-4 px-4 py-2 border border-gray-600 rounded bg-slate-900 hover:bg-gray-800 focus-within:border-pink focus-within:ring-pink focus-within:border-2">
       <input
         type="radio"
         name={name}
         {...(register && register(name, validations))}
         className={cx(
-          "h-4 w-4 text-pink focus:border-pink focus:ring-pink",
+          "appearance-none h-4 w-4 border-2 rounded text-pink focus:border-pink focus:ring-pink",
           className
         )}
         {...rest}
@@ -169,3 +171,26 @@ export function Radio({
     </label>
   );
 }
+
+const BackButton = ({ onClick }) => {
+  const darkStyles =
+    "uppercase text-med font-display text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-800";
+  const caretStyles = "text-gray-400 hover:text-gray-200";
+
+  return (
+    <button
+      type="button"
+      className={cx(
+        "text-med rounded-lg px-5 py-2 font-bold uppercase",
+        darkStyles,
+        "flex items-center justify-center focus:outline-none mr-4"
+      )}
+      onClick={onClick}
+    >
+      <FaCaretLeft className={`mr-2 ${caretStyles}`} />
+      Back
+    </button>
+  );
+};
+
+export default BackButton;

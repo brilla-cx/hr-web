@@ -10,8 +10,8 @@ export default function Books({ searchParams }) {
         large
         className="border-l border-r border-neutral-200 border-opacity-10">
         <PageHeader
-          title="Hey Rebekah Book Club"
-          leadText="A collection of our favorite books and recommended reading."
+          title="Hey Rebekah's Book Club"
+          leadText="Must-reads for knowledge workers climbing the ladder or blazing a new trail. These books were chosen for ideas worth a fortune but costing only what's in your library. Recent discoveries include gems to spark creativity, dodge dunderheads, master communication, or pen that memoir—without quitting your day job. One new mind-bending, career-mending page-turner delivered weekly, gratis. Join us?"
           id="books"
           includeForm
         />
@@ -25,4 +25,4 @@ export default function Books({ searchParams }) {
 }
 
 // Export revalidate for controlling data fetching behavior
-export const revalidate = 3600;
+export const revalidate = 86400;
