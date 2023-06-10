@@ -12,8 +12,8 @@ function MarqueeItem({
   return (
     <Marquee direction={direction} pauseOnHover>
       {images.map((rrimg) => (
-        <div key={rrimg} className="p-4">
-          <div className="block w-full overflow-hidden bg-gray-100 rounded-lg aspect-h-7 aspect-w-10 group focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+        <div key={rrimg} className="pl-6">
+          <div className="block w-full overflow-hidden bg-gray-100 rounded-lg group focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
             <Image
               src={rrimg}
               alt=""

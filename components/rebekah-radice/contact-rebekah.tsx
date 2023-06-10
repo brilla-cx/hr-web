@@ -38,7 +38,9 @@ function ContactRebekah() {
           </div>
           <div className="flex items-center gap-2 text-white">
             <AiFillPhone className="text-white" />
-            <Link href="" className={cx(hoverStyles)}>
+            <Link
+              href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+              className={cx(hoverStyles)}>
               (415) 727-4552 x13
             </Link>
           </div>
@@ -97,7 +99,7 @@ function ContactRebekah() {
       <form id="#contact" className="col-span-2 md:col-span-1">
         <div className="grid grid-cols-2 gap-6 ">
           <Input
-            className="text-white  border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            className="text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
             name="firstName"
             type="text"
             required

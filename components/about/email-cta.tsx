@@ -36,7 +36,11 @@ function EmailCta(props: Props) {
             autoComplete="email"
           />
           {/* GlowingButton component for form submission */}
-          <GlowingButton href="" form="email" type="submit" variant="subscribe">
+          <GlowingButton
+            href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+            form="email"
+            type="submit"
+            variant="subscribe">
             Level Up
           </GlowingButton>
         </div>

@@ -32,7 +32,7 @@ function Navbar() {
                 Blog
               </Link>
               <Link
-                href="/social-blog"
+                href="#contact"
                 className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
                 Contact
               </Link>
@@ -58,12 +58,12 @@ function Footer() {
         <div className="pb-4 mx-auto md:flex md:items-center md:justify-between">
           <div className="order-2 space-x-4">
             <Link
-              href="/social-blog"
+              href="/privacy"
               className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
               Privacy Policy
             </Link>
             <Link
-              href="/social-blog"
+              href="/terms"
               className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
               Terms of Service
             </Link>
