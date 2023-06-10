@@ -1,45 +1,41 @@
 import Link from "next/link";
-import React from "react";
+import React, { FC, ReactNode } from "react";
 
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import { H1, Lead } from "../ui";
+import { H3, Lead } from "../ui";
 
-function WtfIsHeyRebekah() {
+const content: ReactNode[] = [
+  "Rebekah Radice helps ambitious professionals thrive in today's world of work. For 45+ years, she's shown career-driven visionaries how to navigate constant change.",
+  <>
+    Now the co-founder of{" "}
+    <Link href="https://bril.la/" className={cx(hoverStyles, "pr-1 font-bold text-white")}>
+      BRIL.LA
+    </Link>
+    , a woman-owned agency, she launched Hey Rebekah with her longtime colleague, Ambreen Dar. The newsletter offers simple tips to help readers adapt to new technology and build careers with purpose.
+  </>,
+  "With Hey Rebekah, Rebekah and Ambreen aim to inspire that longing in knowledge professionals. They stoke dreams as bold as horizons. And fuel readers daily with wisdom and tools to turn visions into reality—and find success, joy, and lifelong purpose along the journey.",
+  "In a world of unknowns, Rebekah and Ambreen light the way. Their newsletter opens minds to new horizons of what's possible, achievable, and meaningful in our careers. For those with ambition, passion and an appetite for growth, the voyage awaits.",
+  "Together, they help ambitious professionals thrive in today's world of work. After years empowering people with purpose, they believe this:",
+];
+
+const WtfIsHeyRebekah: FC = () => {
   return (
-    <div className="p-4 mt-10 text-center border rounded border-gray-200/10 bg-slate-900 md:p-20 lg:mt-0 lg:p-28">
-      <H1 as="h3" className="pb-6 text-gray-200">
+    <div className="bg-midnight sm:px-8 sm:py-20 lg:px-16 lg:py-26">
+      <H3 as="h2" className="pb-6 text-gray-200 text-center">
         Who TF is Rebekah Radice?
-      </H1>
-      <div className="px-2 space-y-6 text-lg text-gray-400 md:px-20 lg:px-28">
-        <Lead className="gap-7">
-          According to the interwebs, Rebekah Radice is one of the top digital
-          marketing experts in the world. She's an OG influencer and a
-          self-employed professional since 1998.
-        </Lead>
-        <Lead>
-          In 2019, she started{" "}
-          <Link
-            href="https://bril.la/"
-            className={cx(hoverStyles, "pr-1 font-bold text-gray-200")}>
-            BRIL.LA
-          </Link>
-          , a woman-owned CX agency with her longtime colleague Ambreen Dar—who
-          prefers protegé, not sidekick.
-        </Lead>
-        <Lead>
-          Hey Rebekah came about after receiving thousands of questions from the
-          community. We realized we could do a lot more to help self-employed
-          professionals everywhere.
-        </Lead>
-
-        <Lead>
-          We're starting with a free daily newsletter to do just that. Together,
-          we're on a mission to help freelance professionals build thriving
-          careers, so they can experience the joy of financial freedom and
-          success.
-        </Lead>
+      </H3>
+      <div className="mx-auto space-y-6 text-xl text-gray-400 max-w-2xl justify-center">
+        {content.map((text, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Lead key={idx} className="gap-7">
+            {text}
+          </Lead>
+        ))}
+        <div className="mt-8 mx-4 my-7 p-6 pl-4 border-l-2 border-pink text-gray-300 text-2xl leading-relaxed">
+          We all long to push past limits into uncharted territory. Technology may change how we work, but it can't replace our thirst for creativity, meaning, and impact.
+        </div>
       </div>
     </div>
   );

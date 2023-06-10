@@ -8,7 +8,7 @@ export default function Advertise() {
       {/* Container for the content, with border styles */}
       <Container
         large
-        className="border-l border-r border-neutral-200 border-opacity-10">
+        className="border-l border-r border-neutral-200/10">
         {/* PageHeader component with title, lead text, includeForm, and formId */}
         <PageHeader
           title="Transparent and real-time reporting"

@@ -55,7 +55,7 @@ export default function SocialBlog(props) {
       <div className="relative isolate bg-gradient-to-r from-midnight via-indigo-950 to-pink-950 py-10">
         <Container
           large
-          className="z-12 absolute inset-0 border-l border-r border-neutral-200 border-opacity-10"
+          className="z-12 absolute inset-0 border-l border-r border-neutral-200/10"
         />
         <Container className="relative z-10 mt-6 flex flex-col items-center">
           <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-400">

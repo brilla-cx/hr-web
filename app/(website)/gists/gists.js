@@ -8,9 +8,7 @@ import PaginatedPosts from "./posts";
 export default function Gists() {
   return (
     <div className="bg-midnight">
-      <Container
-        large
-        className="border-l border-r border-neutral-200 border-opacity-10">
+      <Container large className="border-l border-r border-neutral-200/10">
         <PageHeader
           title="Hey Rebekah gists"
           leadText="Our chronicles await. Who knew your brain could grow while popping

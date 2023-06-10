@@ -33,7 +33,7 @@ export default function Post(props) {
         />
         <Container
           large
-          className="z-12 absolute inset-0 border-l border-r border-neutral-200 border-opacity-10"
+          className="z-12 absolute inset-0 border-l border-r border-neutral-200/10"
         />
         <Container className="relative z-10">
           <div className="grid grid-cols-1 place-items-center gap-5 md:grid-cols-2 md:gap-10">

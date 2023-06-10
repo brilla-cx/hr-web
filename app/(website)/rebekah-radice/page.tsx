@@ -11,9 +11,7 @@ import { GlowingButton, H1, H2, H3, Lead } from "@/components/ui";
 export default function RebekahRadice() {
   return (
     <div className="bg-midnight">
-      <Container
-        large
-        className="border-l border-r border-neutral-200 border-opacity-10">
+      <Container large className="border-l border-r border-neutral-200/10">
         <div className="max-w-4xl py-10 mx-auto text-center">
           <H1 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
             Social media speaker, consultant, and trainer
