@@ -2,13 +2,13 @@ import React, { Fragment } from "react";
 
 import BrandsMarquee from "@/components/about/brands-marquee";
 import Faqs from "@/components/about/faqs";
-import Container from "@/components/container";
 import ExpectFromUs from "@/components/partners/expect-from-us";
 import LookingFor from "@/components/partners/looking-for";
 import OurPartners from "@/components/partners/our-partners";
 import PartnerCommunityData from "@/components/partners/partner-community-stats";
 import PartnerHero from "@/components/partners/partnerhero";
 import PageHeader from "@/components/sections/pageheader";
+import { withContainer } from "@/components/shared/withContainer";
 import EmailForm from "@/components/ui/email-form";
 import { getAllFaqs, getAllTools } from "@/sanity/client";
 import { FaqType } from "@/types/types";
@@ -26,31 +26,6 @@ export function generateMetadata() {
   };
 }
 
-interface WithContainerProps<T extends Record<string, any>> {
-  Component: React.ComponentType<T>;
-  containerNoPadding?: boolean;
-  componentProps?: T;
-}
-
-const withContainer = <T extends Record<string, any>>(
-  props: WithContainerProps<T>
-) => {
-  const { Component, componentProps = {} as T } = props;
-  return (
-    <div className="bg-midnight">
-      <div className="border-t border-neutral-200/10">
-        <Container
-          noPadding={props.containerNoPadding}
-          alt={props.containerNoPadding}
-          large
-          className="border-l border-r border-neutral-200/10">
-          <Component {...componentProps} />
-        </Container>
-      </div>
-    </div>
-  );
-};
-
 export default async function Partners() {
   const faqs = (await getAllFaqs()) as FaqType[];
   const tools = await getAllTools();
@@ -59,7 +34,6 @@ export default async function Partners() {
 
   return (
     <Fragment>
-      {/* hero */}
       {withContainer({
         Component: PartnerHero,
         containerNoPadding: true,
@@ -74,8 +48,6 @@ export default async function Partners() {
           alt: "The team hanging around the board room in a meeting.",
         },
       })}
-
-      {/* knowledge should be free */}
       {withContainer({
         Component: PageHeader,
         componentProps: {
@@ -86,40 +58,26 @@ export default async function Partners() {
           includeForm: true,
         },
       })}
-
-      {/* community data */}
       {withContainer({
         Component: PartnerCommunityData,
       })}
-
-      {/* brand we have worked with */}
       {withContainer({
         Component: BrandsMarquee,
         componentProps: { title: "G.O.A.T. brands we've worked with" },
       })}
-
-      {/* What we're looking for */}
       {withContainer({
         Component: LookingFor,
       })}
-
-      {/* What to expect from us */}
       {withContainer({
         Component: ExpectFromUs,
       })}
-
-      {/* partners You're in great company */}
       {withContainer({
         Component: OurPartners,
         componentProps: { tools: tools },
       })}
-
-      {/* form */}
       {withContainer({
         Component: EmailForm,
       })}
-
-      {/* faqs */}
       {withContainer({
         Component: Faqs,
         componentProps: { faqs: partnersFaqs },
