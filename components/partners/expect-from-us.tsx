@@ -25,13 +25,13 @@ const features = [
 
 export default function ExpectFromUs() {
   return (
-    <div className="py-24 sm:py-32">
-      <div className="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        <div>
+    <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
+      <div className="grid grid-cols-1 gap-16 mx-auto sm:gap-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+        <div className="col-span-5 md:col-span-2">
           <H2 className="!text-base font-bold leading-7 text-gray-200">
             What to expect from us
           </H2>
-          <H3 className="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">
+          <H3 as="h2" className="mt-2 text-gray-200">
             Good karma, consistent channel, and a solid partner
           </H3>
           <Lead className="mt-6 text-base leading-7 text-gray-400">
@@ -40,19 +40,21 @@ export default function ExpectFromUs() {
             social, email, and live events.
           </Lead>
         </div>
-        <dl className="grid grid-cols-1 col-span-2 text-base leading-7 text-gray-400 gap-x-8 gap-y-10 sm:grid-cols-2 lg:gap-y-6">
+        <dl className="grid grid-cols-2 col-span-5 gap-8 md:col-span-3">
           {features.map((feature) => (
-            <div key={feature.name} className="relative pl-9">
+            <div
+              key={feature.name}
+              className="relative col-span-2 pl-9 md:col-span-1">
               <dt className="font-semibold text-gray-400">
                 <CheckIcon
-                  className="absolute left-0 w-5 h-5 top-1 text-slate-400"
+                  className="absolute left-0 w-5 h-5 font-bold text-gray-200 top-1"
                   aria-hidden="true"
                 />
                 {feature.name}
               </dt>
             </div>
           ))}
-          <div className="pt-16">
+          <div className="col-span-2 pt-16 mx-auto">
             <GlowingButton
               variant="link"
               href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">

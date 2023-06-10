@@ -1,4 +1,4 @@
-import { H2, Lead } from "../ui";
+import { H2, H3, Lead } from "../ui";
 
 const features = [
   {
@@ -20,15 +20,15 @@ const features = [
 
 export default function LookingFor() {
   return (
-    <div className="py-24 sm:py-28">
+    <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
       <div className="mx-auto">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <Lead className="mb-3 font-bold text-gray-200">
             What we're looking for
           </Lead>
-          <H2 className="text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">
+          <H3 as="h2" className="mt-2 text-gray-200">
             Invest in the potential of freelancers
-          </H2>
+          </H3>
           <p className="mt-6 text-lg leading-8 text-gray-400">
             Treat our readers to exclusive discounts, rather than lining our
             pockets with fat affiliate commissions. It's a win-win that's sure
@@ -53,7 +53,7 @@ export default function LookingFor() {
           </dl>
         </div>
         <Lead className="mt-16 text-sm text-center text-gray-200">
-          1Discounts are not public. They're reserved for qualified and
+          Discounts are not public. They're reserved for qualified and
           subscribed readers upon request.
         </Lead>
       </div>
