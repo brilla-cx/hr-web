@@ -24,9 +24,11 @@ export function generateMetadata() {
 const withContainer = (Component, props, bgColor) => {
   return (
     <div className={bgColor}>
-      <Container large className="border-l border-r border-t border-neutral-200/10">
-        <Component {...props} />
-      </Container>
+      <div className="border-t border-neutral-200/10">
+        <Container large className="border-l border-r border-neutral-200/10">
+          <Component {...props} />
+        </Container>
+      </div>
     </div>
   );
 };
@@ -48,9 +50,9 @@ export default async function About() {
       {withContainer(BrandsMarquee, { title: "Some our fave clients" }, "bg-midnight")}
       {withContainer(CheckReplay, {}, "bg-midnight")}
       {withContainer(EmailCta, {
-        title: "Wow, you've read this far? OK for real this time, just subscribe already.",
+        title: "You've read this far, just subscribe already",
         subtitle: "What's the worst that will happen? You'll get better at what you do, enjoy a few laughs? It ain't hard...click the button below and give us a shot."
-      }, "bg-aqua")}
+      }, "bg-midnight")}
       {withContainer(WhatIsImportant, {}, "bg-midnight")}
       {withContainer(Faqs, { faqs: readerFaqs }, "bg-midnight")}
     </>

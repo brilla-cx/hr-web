@@ -3,14 +3,13 @@ import Marquee from "react-fast-marquee";
 
 import { cx } from "@/lib/utils";
 
-import { Lead } from "../ui";
 
 interface BrandItemProps {
   imageUrl: string;
   alt: string;
   bgColor: string;
 }
-
+// T-11885 Brands Marquee Component - Add all light logos and change styles
 const brandsData: BrandItemProps[] = [
   {
     imageUrl:

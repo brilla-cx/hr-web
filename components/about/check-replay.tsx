@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H3, Lead } from "../ui";
+import { H3 } from "../ui";
 
 interface AboutFact {
   factNumber: string;
@@ -11,7 +11,7 @@ interface AboutFact {
 function CheckReplayCard(props: AboutFact) {
   const { factDesc, factNumber, factTitle } = props;
   return (
-    <div className="flex flex-col p-6 border rounded border-gray-200/10 bg-slate-900">
+    <div className="flex flex-col p-8 border rounded border-gray-200/10 bg-slate-900">
       <dt className="flex items-center mb-4 text-5xl font-semibold leading-7 text-gray-200 gap-x-3">
         {factNumber}
       </dt>
@@ -27,9 +27,9 @@ function CheckReplayCard(props: AboutFact) {
 
 function CheckReplay() {
   return (
-    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20 lg:px-162">
+    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20">
       <div className="max-w-2xl mx-auto lg:text-center">
-        <H3 as="h2" className="mt-2 text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+        <H3 as="h2" className="mt-2 text-gray-200">
           Let's check the replay
         </H3>
         <p className="mt-6 text-lg leading-8 text-gray-400">

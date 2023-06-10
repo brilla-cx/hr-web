@@ -5,58 +5,56 @@ import { ReactNode } from "react";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import { H2, H6 } from "../ui";
+import { H3 } from "../ui";
+
+interface ImageProps {
+  src: string;
+  alt: string;
+}
 
 interface ListItem {
-  image: string;
+  image: ImageProps;
   title: string;
   desc: string | ReactNode;
 }
 
 function ListCard(props: ListItem) {
   return (
-    <div className="flex flex-col text-center transition-all duration-300 border rounded border-gray-200/10 bg-slate-800 hover:scale-105 hover:transform">
-      <div className="relative w-full max-h-60">
+    <div className="max-w-3xl flex flex-col border rounded border-gray-200/10 bg-slate-900 items-center justify-center p-4">
+      <div className="flex object-contain mb-4">
         <Image
-          src={props.image}
-          alt=""
-          className="aspect-[16/9] w-full rounded-2xl object-contain sm:aspect-[4/1] lg:aspect-[5/2]"
+          src={props.image.src}
+          alt={props.image.alt}
           width={100}
           height={100}
         />
-        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
       </div>
-      <div className="p-6">
-        <dt className="mb-4 text-4xl font-semibold leading-7 text-gray-200 gap-x-3">
-          {props.title}
-        </dt>
-        <dd className="flex flex-col flex-auto mt-4 text-base leading-7 text-gray-400">
-          {typeof props.desc === "string" ? (
-            <p
-              className="flex-auto"
-            // eslint-disable-next-line react/no-danger
-            >
-              {props.desc}
-            </p>
-          ) : (
-            props.desc
-          )}
-        </dd>
-      </div>
+      <dt className="mb-4 text-3xl font-semibold leading-7 text-gray-200 gap-x-3 text-center">
+        {props.title}
+      </dt>
+      <dd className="text-base leading-7 text-gray-300">
+        {typeof props.desc === "string" ? (
+          <p
+            className="flex-auto"
+          // eslint-disable-next-line react/no-danger
+          >
+            {props.desc}
+          </p>
+        ) : (
+          props.desc
+        )}
+      </dd>
     </div>
   );
 }
 
 function WhatIsImportant() {
   return (
-    <div className="pb-24 sm:pb-32">
+    <div className="sm:px-8 sm:py-20 lg:px-16 lg:py-26 flex flex-col justify-center items-center">
       <div className="max-w-2xl mx-auto lg:text-center">
-        <H6 className="text-base font-bold text-gray-200">
-          Be real, be intentional, stay hungry
-        </H6>
-        <H2 className="mt-2 font-bold tracking-tight text-gray-200 sm:text-6xl">
+        <H3 as="h2" className="mt-2 font-bold tracking-tight text-gray-200 sm:text-6xl">
           What's important to us
-        </H2>
+        </H3>
         <p className="mt-6 text-lg leading-8 text-gray-400">
           We imagine a world where all freelancers have fair opportunities. They
           can learn, grow, and thrive in their career. Plus, gain access to
@@ -84,24 +82,31 @@ export default WhatIsImportant;
 
 const listItems: ListItem[] = [
   {
-    image:
-      "https://cdn.sanity.io/images/smx99abf/production/6832188f7d96c7e760b678275891d3297c35e292-526x384.svg",
+    image: {
+      src: "https://cdn.sanity.io/images/smx99abf/production/9e109a85b9f35e5748ba8a7fa821d701ef1f6e01-300x300.png",
+      alt: "Logo of Women Owned Business",
+    },
     title: "We understand",
-    desc: "As a women-owned and minority woman-owned business, we understand the importance of diversity, equity, and inclusion.",
+    desc: "As a women- owned and minority woman - owned business, we understand the importance of diversity, equity, and inclusion.",
   },
   {
-    image:
-      "https://cdn.sanity.io/images/smx99abf/production/2d6620d0e72a0ff6bf46864b60c7a7950f589cc5-672x480.svg",
+    image: {
+      src: "https://cdn.sanity.io/images/smx99abf/production/6c291e7723bc0c54aeba881e2bc27e56032572eb-300x300.png",
+      alt: "Logo of Team Owned Business",
+    },
     title: "More than just us",
-    desc: "We're in the process of overhauling our corporate structure and by-laws to embed the principles of the change we seek into our corporate DNA.",
+    desc:
+      "We're in the process of overhauling our corporate structure and by-laws to embed the principles of the change we seek into our corporate DNA."
   },
   {
-    image:
-      "https://cdn.sanity.io/images/smx99abf/production/c77a0269d1bfcf7d1820a61d0cbf2bb26ee08bab-32x32.svg",
+    image: {
+      src: "https://cdn.sanity.io/images/smx99abf/production/8d837288ec9198cf4b21058e8d4fde3dea7c8e06-300x300.png",
+      alt: "Logo for Stripe Climate",
+    },
     title: "We love our planet",
     desc: (
       <p>
-        "1% of our{" "}
+        1% of our{" "}
         <Link
           href="https://climate.stripe.com/Dr0vIi"
           target="_blank"
@@ -111,7 +116,7 @@ const listItems: ListItem[] = [
           {" "}
           gross revenue
         </Link>
-        processed via Stripe is committed to carbon removal."
+        processed via Stripe is committed to carbon removal. We're a 100% carbon neutral company. We care about the environment.
       </p>
     ),
   },
