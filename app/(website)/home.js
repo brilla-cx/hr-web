@@ -11,18 +11,14 @@ export default function HomePage({ posts }) {
 
   return (
     <>
-      <div className="border-b border-t border-neutral-200 border-opacity-10 bg-midnight">
-        <Container
-          large
-          className="border-l border-r border-neutral-200 border-opacity-10">
+      <div className="border-b border-t border-neutral-200/10 bg-midnight">
+        <Container large className="border-l border-r border-neutral-200/10">
           <Hero />
         </Container>
       </div>
       <div className="bg-midnight text-gray-200">
         <Suspense fallback={<p>Herding cats...</p>}>
-          <Container
-            large
-            className="border-l border-r border-neutral-200 border-opacity-10">
+          <Container large className="border-l border-r border-neutral-200/10">
             {featuredPost.length > 4 && (
               <>
                 <div className="mt-10 flex items-center justify-center">

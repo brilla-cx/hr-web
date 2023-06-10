@@ -6,7 +6,7 @@ import { HeroH1 } from "./ui/typography";
 
 const Hero: React.FC = () => {
   return (
-    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20 lg:px-16">
+    <div className="sm:px-8 sm:py-20 lg:px-16 lg:py-26">
       <div className="max-w-4xl">
         <HeroH1 className="text-gray-200">
           AI enables the future

@@ -19,7 +19,7 @@ export default function Tool(props) {
     <div className="relative isolate bg-gradient-to-r from-midnight via-indigo-950 to-pink-950 py-10 ">
       <Container
         large
-        className="absolute inset-0 -z-10 border-l border-r border-neutral-200 border-opacity-10"
+        className="absolute inset-0 -z-10 border-l border-r border-neutral-200/10"
       />
 
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-14 lg:px-24">

@@ -14,7 +14,7 @@ function ContactLayout() {
     <div className="bg-midnight">
       <Container
         large
-        className="border-l border-r border-neutral-200 border-opacity-10">
+        className="border-l border-r border-neutral-200/10">
         <PageHeader
           title="Contact Hey Rebekah"
           leadText="Need to reach out to the Hey Rebekah team? No problem. We make it easy and are excited to hear from you. We usually respond within a few hours. While you're here, click the button to get our free daily newsletter delivered hot and fresh."

@@ -6,9 +6,7 @@ import PaginatedPosts from "./posts";
 export default function Books({ searchParams }) {
   return (
     <div className="bg-midnight">
-      <Container
-        large
-        className="border-l border-r border-neutral-200 border-opacity-10">
+      <Container large className="border-l border-r border-neutral-200/10">
         <PageHeader
           title="Hey Rebekah's Book Club"
           leadText="Must-reads for knowledge workers climbing the ladder or blazing a new trail. These books were chosen for ideas worth a fortune but costing only what's in your library. Recent discoveries include gems to spark creativity, dodge dunderheads, master communication, or pen that memoir—without quitting your day job. One new mind-bending, career-mending page-turner delivered weekly, gratis. Join us?"

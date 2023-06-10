@@ -18,7 +18,7 @@ export default async function Terms() {
       <div className="bg-midnight">
         <Container
           large
-          className="border-l border-r border-neutral-200 border-opacity-10">
+          className="border-l border-r border-neutral-200/10">
           <PageHeader
             title={title}
             leadText={leadText}

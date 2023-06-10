@@ -3,14 +3,13 @@ import Marquee from "react-fast-marquee";
 
 import { cx } from "@/lib/utils";
 
-import { H6 } from "../ui";
 
 interface BrandItemProps {
   imageUrl: string;
   alt: string;
   bgColor: string;
 }
-
+// T-11885 Brands Marquee Component - Add all light logos and change styles
 const brandsData: BrandItemProps[] = [
   {
     imageUrl:
@@ -64,7 +63,7 @@ const brandsData: BrandItemProps[] = [
 
 function BrandItem(props: BrandItemProps) {
   return (
-    <div className={cx(props.bgColor, "rounded border border-gray-200/10 p-4")}>
+    <div className={cx(props.bgColor, "rounded p-4  w-56")}>
       <Image
         className="object-contain w-full max-h-12"
         src={props.imageUrl}
@@ -87,8 +86,8 @@ interface Props {
 function BrandsMarquee(props: Props) {
   const { title } = props;
   return (
-    <div className="py-20 text-center md:py-20 lg:py-28">
-      <H6 className="pb-6 text-gray-200">{title}</H6>
+    <div className="py-20 text-center lg:py-26">
+      <div className="pb-6 text-gray-200 text-2xl">{title}</div>
       <Marquee className="mt-10">
         <div className="flex mx-4 gap-x-8">
           {brandsData.map((brand, i) => {

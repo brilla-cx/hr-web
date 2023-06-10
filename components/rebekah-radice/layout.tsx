@@ -11,13 +11,13 @@ import Container from "../container";
 function Navbar() {
   return (
     <div
-      className="sticky top-0 z-50 border-b border-neutral-200 border-opacity-10 bg-midnight"
+      className="sticky top-0 z-50 border-b border-neutral-200/10 bg-midnight"
       aria-label="Rebekah navigation">
       <div className="relative shadow">
         <Container
           alt
           large
-          className="h-20 py-5 border-l border-r border-neutral-200 border-opacity-10">
+          className="h-20 py-5 border-l border-r border-neutral-200/10">
           <div className="flex items-center justify-between gap-10">
             <Image
               src={LogoImage}
