@@ -12,7 +12,6 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-lexend)", ...fontFamily.sans],
-        display: ["var(--font-lexend-deca)", ...fontFamily.sans],
         stock: [fontFamily.sans],
       },
       colors: {

@@ -116,11 +116,6 @@ const lexend = localFont({
   variable: "--font-lexend",
 });
 
-const lexendDeca = localFont({
-  src: "./assets/fonts/lexend-deca.ttf",
-  variable: "--font-lexend-deca",
-});
-
 export default function RootLayout({
   children,
 }: {
@@ -132,7 +127,6 @@ export default function RootLayout({
       className={cx(
         "font-sans antialiased",
         lexend.variable,
-        lexendDeca.variable
       )}>
       <body>
         <MainLayout>{children}</MainLayout>

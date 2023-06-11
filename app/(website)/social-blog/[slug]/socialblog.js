@@ -58,7 +58,7 @@ export default function SocialBlog(props) {
           className="z-12 absolute inset-0 border-l border-r border-neutral-200/10"
         />
         <Container className="relative z-10 mt-6 flex flex-col items-center">
-          <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-400">
+          <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-300">
             Rebekah Radice's Blog
           </p>
 
@@ -71,11 +71,14 @@ export default function SocialBlog(props) {
           <div className="mt-4">
             <div className="flex items-start gap-3 text-center">
               <div>
-                <p className="inline text-gray-400">
+                <p className="inline font-semibold text-gray-300">
                   By{" "}
                   <Link
                     href={`/author/${socialBlog?.author?.slug?.current}`}
-                    className={cx("text-gray-400", lightHoverStyles)}>
+                    className={cx(
+                      "font-semibold text-gray-300",
+                      lightHoverStyles
+                    )}>
                     {socialBlog?.author?.name}
                   </Link>
                 </p>

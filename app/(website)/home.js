@@ -4,7 +4,7 @@ import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import PostAlt from "@/components/postalt";
-import { H2 } from "@/components/ui";
+import { H2, H4 } from "@/components/ui";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
@@ -22,9 +22,9 @@ export default function HomePage({ posts }) {
             {featuredPost.length > 4 && (
               <>
                 <div className="mt-10 flex items-center justify-center">
-                  <H2 className="text-gray-200">
+                  <H4 as="h2" className="text-gray-200">
                     <span className="text-pink">🔥 Most</span> Popular
-                  </H2>
+                  </H4>
                 </div>
                 <div className="mb-20 mt-10 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-10 lg:px-16 ">
                   {featuredPost.slice(1, 2).map((post) => (
@@ -56,9 +56,9 @@ export default function HomePage({ posts }) {
             )}
 
             <div className="mt-4 flex items-center justify-center">
-              <H2 className="text-gray-200">
+              <H4 as="h2" className="text-gray-200">
                 🫳🏼 Just <span className="text-pink">Dropped</span>
-              </H2>
+              </H4>
             </div>
             <div className="mb-10 mt-10 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
               {posts.slice(0, 12).map((post) => (
