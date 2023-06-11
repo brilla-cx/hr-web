@@ -34,11 +34,11 @@ export default function OgImage({ post }) {
           height={40}
         />
         <div tw="flex flex-col">
-          <span tw="text-white uppercase text-pink-500">
+          <span tw="uppercase tracking-wider text-gray-400">
             {sanitizedCategory}
           </span>
           <div
-            tw="flex mt-2 font-semibold tracking-tight leading-tight text-6xl text-white"
+            tw="flex mt-2 font-semibold tracking-tight leading-tight text-4xl text-gray-200"
             style={{
               fontFamily: "Lexend Deca",
               maxHeight: "230px",
@@ -46,14 +46,12 @@ export default function OgImage({ post }) {
             }}>
             {post?.name}
           </div>
-          <p tw="text-white/90 text-lg font-medium">
-            <span tw="border-b border-pink-500 text-white">
-              By {post?.author?.name || post?.bookAuthor}
-            </span>
+          <p tw="text-gray-400 text-md font-medium">
+            By {post?.author?.name || post?.bookAuthor}
           </p>
         </div>
 
-        <div tw="text-white opacity-70">{pubDate}</div>
+        <div tw="text-pink text-sm">{pubDate}</div>
       </div>
       {post.image && (
         <div tw="flex w-1/2 relative items-center">
