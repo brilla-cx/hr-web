@@ -19,7 +19,10 @@ export default function OgImage({ post }) {
   return (
     <div
       tw="flex w-full h-full"
-      style={{ fontFamily: "Lexend Deca", backgroundColor: "#040b29" }}>
+      style={{
+        fontFamily: "Lexend Deca",
+        backgroundColor: "hsl(224, 71%, 4%)",
+      }}>
       <div
         tw={`flex flex-col items-start justify-around px-10 ${
           post.image ? "w-1/2" : "w-full"
