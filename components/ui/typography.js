@@ -1,6 +1,6 @@
 import { cx } from "@/lib/utils";
 
-const commonClasses = "font-semibold font-display tracking-tight";
+const commonClasses = "font-semibold tracking-tight";
 
 export function H1({ children, className = "", as = "h1" }) {
   const Tag = as;
@@ -14,7 +14,12 @@ export function H1({ children, className = "", as = "h1" }) {
 export function HeroH1({ children, className = "", as = "h1" }) {
   const Tag = as;
   return (
-    <Tag className={cx(commonClasses, className, "text-3xl lg:text-7xl")}>
+    <Tag
+      className={cx(
+        commonClasses,
+        className,
+        "text-3xl md:text-5xl lg:text-7xl"
+      )}>
       {children}
     </Tag>
   );

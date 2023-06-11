@@ -19,8 +19,8 @@ export default function AuthorCard({ author }) {
                 src={imageProps.src}
                 alt={author.name}
                 className="rounded-full object-cover"
-                fill
-                sizes="96px"
+                width={96}
+                height={96}
               />
             </Link>
           )}

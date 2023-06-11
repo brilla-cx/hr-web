@@ -23,7 +23,7 @@ const commonHeaders = [
   },
   {
     key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+    value: "camera=(), microphone=(), geolocation=()",
   },
 ];
 
@@ -34,7 +34,7 @@ const fontHeaders = [
   },
 ];
 
-const fonts = ["lexend-deca", "lexend-semibold", "lexend"];
+const fonts = ["lexend-semibold", "lexend"];
 const fontRoutes = fonts.map((font) => ({
   source: `/assets/fonts/${font}.ttf`,
   headers: fontHeaders,

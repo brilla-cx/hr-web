@@ -12,9 +12,9 @@ import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 const ViewAllPosts = ({ href, buttonText, direction, variant = "light" }) => {
   // Define the styles for light and dark variants
   const lightStyles =
-    "uppercase text-med font-display text-gray-600 hover:text-gray-950 hover:bg-gray-100";
+    "uppercase text-med text-gray-600 hover:text-gray-950 hover:bg-gray-100";
   const darkStyles =
-    "uppercase text-med font-display text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-800";
+    "uppercase text-med text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-800";
   const caretStyles =
     variant === "dark"
       ? "text-gray-400 hover:text-gray-200"
