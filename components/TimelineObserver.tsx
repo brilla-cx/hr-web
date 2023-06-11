@@ -161,7 +161,11 @@ const TimelineObserver = ({
     };
   }, [animation]);
 
-  return <div>{handleObserve ? handleObserve(setObserver) : null}</div>;
+  return (
+    <div className="mb-40">
+      {handleObserve ? handleObserve(setObserver) : null}
+    </div>
+  );
 };
 
 export default TimelineObserver;

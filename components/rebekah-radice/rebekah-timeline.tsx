@@ -5,7 +5,7 @@ import React, { Fragment, useEffect, useRef } from "react";
 import { cx } from "@/lib/utils";
 
 import TimelineObserver from "../TimelineObserver";
-import { H5, Lead } from "../ui";
+import { H2, H5, Lead } from "../ui";
 
 interface TimelineProps {
   setObserver: (target: Element, callbackFn?: () => void) => void;
@@ -142,17 +142,28 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
 
 function RebekahTimeline() {
   return (
-    <Fragment>
-      <TimelineObserver
-        initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"
-        fillColor="rgb(219 39 119 / var(--tw-bg-opacity))"
-        // eslint-disable-next-line react/jsx-no-bind
-        handleObserve={(setObserver) => (
-          <Timeline className="timeline" setObserver={setObserver} />
-        )}
-        hasReverse
-      />
-    </Fragment>
+    <div className="lg:py-26 mx-auto px-4 py-12 !pb-10 sm:px-8 sm:py-20">
+      <div className="max-w-4xl mx-auto text-center">
+        <H2 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+          About Rebekah Radice's Career
+        </H2>
+        <Lead className="mt-6 text-lg leading-8 text-gray-400">
+          The interwebs crowned me a top digital marketing expert in the known
+          universe. (cue eye rolls from my hubby and colleagues) I'm all about
+          helping people get, keep, and grow their client base via digital
+          magic.
+        </Lead>
+        <TimelineObserver
+          initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"
+          fillColor="rgb(219 39 119 / var(--tw-bg-opacity))"
+          // eslint-disable-next-line react/jsx-no-bind
+          handleObserve={(setObserver) => (
+            <Timeline className="timeline" setObserver={setObserver} />
+          )}
+          hasReverse
+        />
+      </div>
+    </div>
   );
 }
 

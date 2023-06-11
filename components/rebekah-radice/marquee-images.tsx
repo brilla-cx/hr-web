@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { Fragment } from "react";
 import Marquee from "react-fast-marquee";
 
 function MarqueeItem({
@@ -12,15 +12,19 @@ function MarqueeItem({
   return (
     <Marquee direction={direction} pauseOnHover>
       {images.map((rrimg) => (
-        <div key={rrimg} className="p-4">
-          <div className="block w-full overflow-hidden bg-gray-100 rounded-lg aspect-h-7 aspect-w-10 group focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-            <Image
-              src={rrimg}
-              alt=""
-              className="object-cover pointer-events-none group-hover:opacity-75"
-              width={300}
-              height={300}
-            />
+        <div
+          key={rrimg}
+          className="relative m-5 overflow-hidden transition-all bg-gray-800 rounded-md group">
+          <div className="relative  block aspect-[5/4] h-72 w-72">
+            <div className="">
+              <Image
+                src={rrimg}
+                alt=""
+                fill
+                className="object-cover transition-all"
+                sizes="(max-width: 768px) 30vw, 33vw"
+              />
+            </div>
           </div>
         </div>
       ))}
@@ -29,29 +33,23 @@ function MarqueeItem({
 }
 
 function MarqueeImages() {
+  const firstRowImages = marqueeImageData.slice(
+    0,
+    Math.ceil(marqueeImageData.length / 2)
+  );
+  const secondRowImages = marqueeImageData.slice(
+    Math.ceil(marqueeImageData.length / 2)
+  );
+
   return (
-    <div className="flex flex-col">
-      <MarqueeItem
-        direction="left"
-        images={marqueeImageData.slice(
-          0,
-          Math.ceil(marqueeImageData.length / 3)
-        )}
-      />
-      <MarqueeItem
-        direction="right"
-        images={marqueeImageData.slice(
-          Math.ceil(marqueeImageData.length / 3),
-          Math.ceil((2 * marqueeImageData.length) / 3)
-        )}
-      />
-      <MarqueeItem
-        direction="left"
-        images={marqueeImageData.slice(
-          Math.ceil((2 * marqueeImageData.length) / 3)
-        )}
-      />
-    </div>
+    <Fragment>
+      <div className="flex">
+        <MarqueeItem direction="left" images={firstRowImages} />
+      </div>
+      <div className="flex">
+        <MarqueeItem direction="right" images={secondRowImages} />
+      </div>
+    </Fragment>
   );
 }
 
