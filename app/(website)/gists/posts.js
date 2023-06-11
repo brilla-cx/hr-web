@@ -69,7 +69,7 @@ export default async function PaginatedPosts() {
             type="button"
             disabled={isFirstPage}
             onClick={handlePrevPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-l-md px-3 py-2 pr-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-800 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
+            className={`text-med relative inline-flex items-center gap-1 rounded-l-md px-3 py-2 pr-4 text-sm font-bold uppercase text-gray-400 hover:bg-slate-800 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
             <FaCaretLeft
               className="mr-2 h-3 w-3 text-gray-400 hover:text-gray-200"
               aria-hidden="true"
@@ -80,7 +80,7 @@ export default async function PaginatedPosts() {
             type="button"
             onClick={handleNextPage}
             disabled={isLastPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-r-md px-3 py-2 pl-4 font-display text-sm font-bold uppercase text-gray-400 hover:bg-slate-800 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
+            className={`text-med relative inline-flex items-center gap-1 rounded-r-md px-3 py-2 pl-4 text-sm font-bold uppercase text-gray-400 hover:bg-slate-800 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
             <span>Next</span>
             <FaCaretRight
               className="ml-2 h-3 w-3 text-gray-400 hover:text-gray-200"

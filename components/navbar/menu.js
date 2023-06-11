@@ -72,7 +72,7 @@ export default function Menu({ recentPosts }) {
                             as={Link}
                             key={item.name}
                             href={item.href}
-                            className="mb-10 flex gap-x-4 font-display text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
+                            className="mb-10 flex gap-x-4 text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
                             <span className={cx("hover:pb-4", ...hoverStyles)}>
                               {item.name}
                             </span>
@@ -92,7 +92,7 @@ export default function Menu({ recentPosts }) {
                             as={Link}
                             key={item.name}
                             href={item.href}
-                            className="mb-10 flex gap-x-4 font-display text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
+                            className="mb-10 flex gap-x-4 text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
                             <span className={cx("hover:pb-4", ...hoverStyles)}>
                               {item.name}
                             </span>

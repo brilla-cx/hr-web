@@ -16,17 +16,17 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="px-6 py-16 mx-auto border-l border-r max-w-7xl border-neutral-200/10 sm:pt-24 lg:px-8 lg:pt-16">
+      <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 px-6 py-16 sm:pt-24 lg:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <Image
             src={LogoImage}
             alt="A logo for Hey Rebekah, the best damn freelance newsletter on the west side."
-            className="w-auto h-10"
+            className="h-10 w-auto"
           />
-          <div className="grid grid-cols-2 gap-8 mt-16 xl:col-span-2 xl:mt-0">
+          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-400 uppercase font-display">
+                <h3 className="text-sm font-semibold uppercase leading-6 text-gray-400">
                   Resources
                 </h3>
                 <ul
@@ -49,7 +49,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-400 uppercase font-display">
+                <h3 className="text-sm font-semibold uppercase leading-6 text-gray-400">
                   Company
                 </h3>
                 <ul role="list" aria-label="Company" className="mt-6 space-y-4">
@@ -71,7 +71,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-400 uppercase font-display">
+                <h3 className="text-sm font-semibold uppercase leading-6 text-gray-400">
                   Follow Us
                 </h3>
                 <ul
@@ -94,7 +94,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-400 uppercase font-display">
+                <h3 className="text-sm font-semibold uppercase leading-6 text-gray-400">
                   Legal
                 </h3>
                 <ul role="list" aria-label="Legal" className="mt-6 space-y-4">
@@ -117,15 +117,15 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="max-w-full pb-4 border-t border-neutral-200/10">
-        <div className="p-8 mx-auto border-l border-r max-w-7xl border-neutral-200/10">
+      <div className="max-w-full border-t border-neutral-200/10 pb-4">
+        <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 p-8">
           <div className="mx-auto mb-10 lg:flex lg:items-center lg:justify-between">
             <div>
               <H5 as="h2" className="text-gray-200">
                 {" "}
                 Subscribe to our newsletter
               </H5>
-              <p className="mt-1 mb-4 text-sm leading-6 text-gray-400">
+              <p className="mb-4 mt-1 text-sm leading-6 text-gray-400">
                 The latest news and resources sent to your inbox. Hot and fresh
                 everyday.
               </p>
@@ -134,7 +134,7 @@ export default function Footer() {
               Level Up
             </GlowingButton>
           </div>
-          <div className="pb-4 mx-auto md:flex md:items-center md:justify-between">
+          <div className="mx-auto pb-4 md:flex md:items-center md:justify-between">
             <p className="mt-8 text-xs leading-5 text-gray-400 md:order-2 md:mt-0">
               &copy; {new Date().getFullYear()} Hey Rebekah is a product of
               <Link

@@ -174,7 +174,7 @@ export function Radio({
 
 const BackButton = ({ onClick }) => {
   const darkStyles =
-    "uppercase text-med font-display text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-800";
+    "uppercase text-med text-gray-400 hover:text-gray-200 hover:font-bold hover:bg-slate-800";
   const caretStyles = "text-gray-400 hover:text-gray-200";
 
   return (
