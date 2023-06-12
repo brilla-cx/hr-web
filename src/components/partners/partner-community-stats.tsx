@@ -12,7 +12,7 @@ function PartnerCommunityData() {
         </H3>
         <p className="mt-6 text-xl leading-8 text-gray-400">
           Rebekah Radice is a well known digital marketing influencer. She's
-          been a successful solopreneur and freelancer since 1998, building her
+          been thriving as a knowledge worker since 1998, building her
           expertise through hands-on experience.
         </p>
       </div>
@@ -32,12 +32,12 @@ function PartnerCommunityData() {
           {[
             {
               id: 1,
-              statsNumber: "+320,000",
+              statsNumber: "+338,000",
               statsTitle: "Community members",
             },
             {
               id: 1,
-              statsNumber: "+31,646",
+              statsNumber: "+31,760",
               statsTitle: "Email subscribers",
             },
             {

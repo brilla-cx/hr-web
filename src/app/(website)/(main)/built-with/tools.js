@@ -20,7 +20,7 @@ export default function Tools({ tools, categories }) {
       <Container large className="border-l border-r border-neutral-200/10">
         <PageHeader
           title="Built With"
-          leadText="Wondering what tools Hey Rebekah uses to run our business? No problem. Our Built With directory shares every tool in our arsenal. Join our community of over 320,000 professionals and score some hot savings on the tools you use everyday."
+          leadText="Wondering what tools Hey Rebekah uses to run our business? No problem. Our Built With directory shares every tool in our arsenal. Join our community of over 338,000 professionals and score some hot savings on the tools you use everyday."
           id="built-with"
           includeForm
         />

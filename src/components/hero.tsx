@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
           We're more concerned about human ambition than AI. Together, let's make sure that Sam—armed with GPT and their YouTube tutorials—doesn't have all the fun.
         </Lead>
         <Lead className="mt-5 max-w-3xl text-gray-400">
-          Join over 320,000 professionals in our community.
+          Join over 338,000 professionals in our community.
         </Lead>
         <div className="mt-8 md:mt-10 md:max-w-xs">
           <GlowingButton variant="link" href="/signup" id="hero">

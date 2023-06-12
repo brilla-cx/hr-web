@@ -98,7 +98,7 @@ export default function Post({ post }) {
         <aside className="sticky top-24 mr-5 w-full self-start md:w-64">
           <Sidebar
             subscribeTitle="You belong here"
-            subscribeText="Join +320,000 professionals in our community. Subscribe to our free daily newsletter and upskill your work. Delivery and delight are on us."
+            subscribeText="Join +338,000 professionals in our community. Subscribe to our free daily newsletter and upskill your work. Delivery and delight are on us."
             buttonText="LEVEL UP"
           />
         </aside>

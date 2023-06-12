@@ -40,7 +40,7 @@ export default function Category(props) {
         {/* PageHeader component with title, lead text, includeForm, and formId */}
         <PageHeader
           title={`${category.name}`} // Dynamic title including category name
-          leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +320,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name.trim()} right to your inbox, gratis.`}
+          leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +338,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name.trim()} right to your inbox, gratis.`}
           id={`${category.name}`} // Dynamic form ID including category name
           includeForm
         />

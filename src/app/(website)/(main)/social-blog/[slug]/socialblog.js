@@ -121,7 +121,7 @@ export default function SocialBlog(props) {
         <aside className="sticky top-24 mr-5 w-full self-start md:w-64">
           <Sidebar
             subscribeTitle="Worried about AI?"
-            subscribeText="Hey Rebekah will help you level up with AI. Join +320,000 professionals. Delivery is free."
+            subscribeText="Hey Rebekah will help you level up with AI. Join +338,000 professionals. Delivery is free."
             buttonText="LEVEL UP"
           />
         </aside>
