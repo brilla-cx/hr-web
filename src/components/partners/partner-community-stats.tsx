@@ -8,7 +8,7 @@ function PartnerCommunityData() {
     <div className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
       <div className="max-w-3xl">
         <H3 as="h2" className="mt-2 text-gray-200">
-          The largest independent community of freelancers
+          The largest independent community of knowledge workers
         </H3>
         <p className="mt-6 text-xl leading-8 text-gray-400">
           Rebekah Radice is a well known digital marketing influencer. She's
@@ -32,17 +32,17 @@ function PartnerCommunityData() {
           {[
             {
               id: 1,
-              statsNumber: "310,000",
+              statsNumber: "+320,000",
               statsTitle: "Community members",
             },
             {
               id: 1,
-              statsNumber: "31,646",
+              statsNumber: "+31,646",
               statsTitle: "Email subscribers",
             },
             {
               id: 1,
-              statsNumber: "16%",
+              statsNumber: "+7%",
               statsTitle: "Monthly subscriber growth",
             },
             {
@@ -53,7 +53,7 @@ function PartnerCommunityData() {
             {
               id: 1,
               statsNumber: "100%",
-              statsTitle: "Free for freelancers",
+              statsTitle: "Free for knowledge workers",
             },
             {
               id: 1,
