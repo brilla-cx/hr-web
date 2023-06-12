@@ -28,9 +28,6 @@ export default function ExpectFromUs() {
     <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
       <div className="grid grid-cols-1 gap-16 mx-auto sm:gap-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
         <div className="col-span-5 md:col-span-2">
-          <H2 className="!text-base font-bold leading-7 text-gray-200">
-            What to expect from us
-          </H2>
           <H3 as="h2" className="mt-2 text-gray-200">
             Good karma, consistent channel, and a solid partner
           </H3>
@@ -45,9 +42,9 @@ export default function ExpectFromUs() {
             <div
               key={feature.name}
               className="relative col-span-2 pl-9 md:col-span-1">
-              <dt className="font-semibold text-gray-400">
+              <dt className="text-xl text-gray-400">
                 <CheckIcon
-                  className="absolute left-0 w-5 h-5 font-bold text-gray-200 top-1"
+                  className="absolute left-0 w-5 h-5 font-bold text-gray-400 top-1"
                   aria-hidden="true"
                 />
                 {feature.name}
@@ -57,7 +54,7 @@ export default function ExpectFromUs() {
           <div className="col-span-2 pt-16 mx-auto">
             <GlowingButton
               variant="link"
-              href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">
+              href="/partners/#emailForm">
               Become a partner
             </GlowingButton>
           </div>

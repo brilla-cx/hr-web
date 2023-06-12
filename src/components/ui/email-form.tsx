@@ -8,12 +8,12 @@ function EmailForm() {
   return (
     <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
       <form>
-        <div className="grid max-w-3xl grid-cols-2 gap-5 mx-auto md:grid-cols-4">
+        <div className="grid max-w-3xl grid-cols-2 gap-10 mx-auto md:grid-cols-4">
           <div className="col-span-4 text-center">
             <H3 as="h2" className="!text-center text-gray-200">
               Together with Hey Rebekah
             </H3>
-            <Lead className="max-w-lg pt-5 mx-auto text-center text-gray-200">
+            <Lead className="max-w-lg pt-5 mx-auto text-center text-gray-400">
               We're excited you're considering a partnership with us! Fill out
               the form below, and we'll get back to you pronto - faster than a
               chicken lays an egg.

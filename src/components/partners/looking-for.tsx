@@ -3,13 +3,16 @@ import { H3, Lead } from "../ui";
 const features = [
   {
     name: "Exclusive discount",
-    description:
-      "If you already have an affiliate program, no problem. We'll waive any and all payments unconditionally. You'll never pay us in exchange for an exclusive1 Hey Rebekah reader discount.",
+    description: (
+      <>
+        If you already have an affiliate program, no problem. We'll waive any and all commission/referral payments unconditionally. You'll never pay us in exchange for an <span>exclusive<sup>1</sup></span> Hey Rebekah reader discount.
+      </>
+    ),
   },
   {
     name: "Co-branded content",
     description:
-      "When it makes sense, let's join forces to create edutaining co-branded content for the freelance community. Together, we can help freelancers thrive through the adoption of your product.",
+      "When it makes sense, let's join forces to create edutaining co-branded content. Together, we can help knowledge workers thrive through the adoption of your product.",
   },
   {
     name: "Cross promotion",
@@ -23,11 +26,8 @@ export default function LookingFor() {
     <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20">
       <div className="mx-auto">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <Lead className="mb-3 font-bold text-gray-200">
-            What we're looking for
-          </Lead>
           <H3 as="h2" className="mt-2 text-gray-200">
-            Invest in the potential of freelancers
+            Invest in the potential of knowledge workers
           </H3>
           <p className="mt-6 text-lg leading-8 text-gray-400">
             Treat our readers to exclusive discounts, rather than lining our
@@ -39,22 +39,21 @@ export default function LookingFor() {
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
             {features.map((feature, i) => (
               <div key={feature.name} className="flex flex-col">
-                <dt className="text-base font-semibold leading-7 text-white">
+                <dt className="text-xl font-semibold leading-7 text-gray-200">
                   <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900">
                     {i + 1}
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-300">
+                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-400">
                   <p className="flex-auto">{feature.description}</p>
                 </dd>
               </div>
             ))}
           </dl>
         </div>
-        <Lead className="mt-16 text-center text-sm text-gray-200">
-          Discounts are not public. They're reserved for qualified and
-          subscribed readers upon request.
+        <Lead className="mt-16 text-center text-xs text-gray-400">
+          Discounts are not public. They're reserved for qualified subscribers upon request.
         </Lead>
       </div>
     </div>
