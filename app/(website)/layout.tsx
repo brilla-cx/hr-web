@@ -5,7 +5,6 @@ import "../globals.css";
 import localFont from "next/font/local";
 import React from "react";
 
-import MainLayout from "@/components/main-layout";
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
 
@@ -122,15 +121,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        "font-sans antialiased",
-        lexend.variable,
-      )}>
-      <body>
-        <MainLayout>{children}</MainLayout>
-      </body>
+    <html lang="en" className={cx("font-sans antialiased", lexend.variable)}>
+      <body>{children}</body>
     </html>
   );
 }

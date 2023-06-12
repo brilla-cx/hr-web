@@ -15,7 +15,7 @@ export default async function handler({ params }) {
     __createdAt: data._createdAt,
   };
   const lexendDeca = fetch(
-    new URL("../../assets/fonts/lexend-semibold.ttf", import.meta.url)
+    new URL("../../../assets/fonts/lexend-semibold.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   const fontData = await lexendDeca;

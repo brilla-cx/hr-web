@@ -4,7 +4,7 @@ import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import PostAlt from "@/components/postalt";
-import { H2, H4 } from "@/components/ui";
+import { H4 } from "@/components/ui";
 
 export default function HomePage({ posts }) {
   const featuredPost = posts.filter((item) => item.featured) || null;
