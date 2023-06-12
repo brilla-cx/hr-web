@@ -1,8 +1,6 @@
 import { defineCliConfig } from "sanity/cli";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 
-import { dataset, projectId } from "./sanity/config";
-
 export default defineCliConfig({
   api: {
     projectId: "smx99abf",

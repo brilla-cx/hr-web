@@ -8,15 +8,15 @@ import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { media } from "sanity-plugin-media";
 
-import hrLogo from "./components/studio/logo/logo";
-import { SITE_URL } from "./lib/constants";
-import { SendToIterable } from "./sanity/actions";
-import schemas from "./sanity/schemas";
+import hrLogo from "@/components/studio/logo/logo";
+
+import { SITE_URL } from "./src/lib/constants";
+import { SendToIterable } from "./src/sanity/actions";
+import schemas from "./src/sanity/schemas";
 import {
   defaultDocumentNode,
   structure,
-} from "./sanity/settings/deskStructure";
-
+} from "./src/sanity/settings/deskStructure";
 
 function getEnvVar(key: string): string {
   const value = import.meta.env[key];
@@ -26,9 +26,8 @@ function getEnvVar(key: string): string {
   return value;
 }
 
-const giphyApiKey = getEnvVar('SANITY_STUDIO_GIPHY_API_KEY');
-const openaiApiKey = getEnvVar('SANITY_STUDIO_OPENAI_API_KEY');
-
+const giphyApiKey = getEnvVar("SANITY_STUDIO_GIPHY_API_KEY");
+const openaiApiKey = getEnvVar("SANITY_STUDIO_OPENAI_API_KEY");
 
 const config = defineConfig({
   projectId: "smx99abf",
@@ -74,7 +73,6 @@ const config = defineConfig({
       const client = getClient({ apiVersion: "2023-05-19" });
 
       if (document._type === "post") {
-
         const slug = await client.fetch(
           `*[_type == 'post' && (_id == $postId || _id == $draftId)][0].slug.current`,
           { postId: document._id, draftId: `drafts.${document._id}` }
