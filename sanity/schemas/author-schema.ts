@@ -111,7 +111,7 @@ const author = {
             type: "reference",
             to: [{ type: "category" }],
             group: 'eeatInfo',
-            validation: Rule => Rule.required().max(1).error("Limit this to one category, por favor."),
+            validation: Rule => Rule.required().error("Limit this to one category, por favor."),
         },
         {
             name: "beat",
@@ -126,7 +126,7 @@ const author = {
                 },
             ],
             group: 'eeatInfo',
-            validation: Rule => Rule.required().max(3).error("Keep it to 3 secondary topics aside from the primary."),
+            validation: Rule => Rule.required().error("Keep it to 3 secondary topics aside from the primary."),
         },
         {
             name: "credentials",
