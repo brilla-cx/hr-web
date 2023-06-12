@@ -1,9 +1,13 @@
 import { createClient } from "next-sanity";
 
+import { GroupedSitemapData } from "@/types/types";
+
 import { apiVersion, dataset, projectId, useCdn } from "./config";
 import {
   authorMeta,
   authorsquery,
+  authorsSitemapQuery,
+  booksSitemapQuery,
   getAllFaqsquery,
   getcatoftoolsquery,
   getlegalpagebyslugquery,
@@ -16,12 +20,15 @@ import {
   postquery,
   postsbyauthorquery,
   postsbycatquery,
+  postsSitemapQuery,
   singlebookquery,
   singlepostquery,
   singlesocialblogquery,
   singletoolsquery,
   socialblogpathquery,
   socialblogquery,
+  socialBlogsSitemapQuery,
+  toolsSitemapQuery,
   topcatquery,
 } from "./groq";
 
@@ -217,4 +224,35 @@ export async function getAllFaqs() {
     return (await client.fetch(getAllFaqsquery)) || [];
   }
   return [];
+}
+
+// sitemap query
+export async function getAllSitemapData(): Promise<GroupedSitemapData> {
+  if (client) {
+    const [authors, books, posts, socialBlog, tools] = await Promise.all([
+      client.fetch(authorsSitemapQuery),
+      client.fetch(booksSitemapQuery),
+      client.fetch(postsSitemapQuery),
+      client.fetch(socialBlogsSitemapQuery),
+      client.fetch(toolsSitemapQuery),
+    ]);
+
+    const groupedData = {
+      authors: authors || [],
+      books: books || [],
+      posts: posts || [],
+      socialBlog: socialBlog || [],
+      tools: tools || [],
+    };
+
+    return groupedData;
+  }
+
+  return {
+    authors: [],
+    books: [],
+    posts: [],
+    socialBlog: [],
+    tools: [],
+  };
 }

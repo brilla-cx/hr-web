@@ -323,3 +323,34 @@ export const getAllFaqsquery = groq`
   ...,
 }
 `;
+
+/**
+ * sitemap query
+ */
+
+export const authorsSitemapQuery = groq`
+*[_type == "author" && defined(slug.current)] {
+  "slug": slug.current,
+  _updatedAt
+}
+`;
+export const booksSitemapQuery = groq`
+*[_type == "book" && defined(slug.current)] {
+  "slug": slug.current,
+  _updatedAt
+}`;
+export const postsSitemapQuery = groq`
+*[_type == "post" && defined(slug.current)] {
+  "slug": slug.current,
+  _updatedAt
+}`;
+export const socialBlogsSitemapQuery = groq`
+*[_type == "socialBlog" && defined(slug.current)] {
+  "slug": slug.current,
+  _updatedAt
+}`;
+export const toolsSitemapQuery = groq`
+*[_type == "tool" && defined(slug.current)] {
+  "slug": slug.current,
+  _updatedAt
+}`;
