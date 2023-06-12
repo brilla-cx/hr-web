@@ -25,7 +25,7 @@ function ContactRebekah(props: Props) {
   return (
     <div
       ref={contactSectionRef}
-      className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
+      className="lg:py-26 mx-auto px-4 py-12 sm:px-8 sm:py-20">
       <div className="grid grid-cols-2 gap-12">
         <div className="col-span-2 space-y-10 md:col-span-1">
           <div>
@@ -63,7 +63,8 @@ function ContactRebekah(props: Props) {
             <div className="flex items-center gap-2 text-white">
               <AiFillLinkedin />
               <Link
-                href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+                href="https://www.linkedin.com/in/rebekahradice/"
+                target="_blank"
                 className={cx(hoverStyles)}>
                 Connect on LinkedIn
               </Link>
@@ -71,7 +72,8 @@ function ContactRebekah(props: Props) {
             <div className="flex items-center gap-2 text-white">
               <AiFillInstagram />
               <Link
-                href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+                href="https://www.instagram.com/rebekahradice/"
+                target="_blank"
                 className={cx(hoverStyles)}>
                 Follow me on Instagram
               </Link>
@@ -79,7 +81,8 @@ function ContactRebekah(props: Props) {
             <div className="flex items-center gap-2 text-white">
               <AiFillFacebook />
               <Link
-                href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+                href="https://www.facebook.com/rebekahradicellc"
+                target="_blank"
                 className={cx(hoverStyles)}>
                 Join me on Facebook
               </Link>
@@ -87,7 +90,8 @@ function ContactRebekah(props: Props) {
             <div className="flex items-center gap-2 text-white">
               <AiFillTwitterCircle />
               <Link
-                href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+                href="https://twitter.com/rebekahradice"
+                target="_blank"
                 className={cx(hoverStyles)}>
                 Get my Tweets
               </Link>
@@ -95,7 +99,8 @@ function ContactRebekah(props: Props) {
             <div className="flex items-center gap-2 text-white">
               <BsPinterest />
               <Link
-                href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry"
+                href="https://www.pinterest.com/rebekahradice/"
+                target="_blank"
                 className={cx(hoverStyles)}>
                 See my ins
               </Link>
@@ -105,7 +110,7 @@ function ContactRebekah(props: Props) {
         <form id="#contact" className="col-span-2 md:col-span-1">
           <div className="grid grid-cols-2 gap-6 ">
             <Input
-              className="text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+              className="border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
               name="firstName"
               type="text"
               required
@@ -114,7 +119,7 @@ function ContactRebekah(props: Props) {
               autoComplete="firstName"
             />
             <Input
-              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+              className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
               name="lastName"
               type="text"
               required
@@ -123,7 +128,7 @@ function ContactRebekah(props: Props) {
               autoComplete="lastName"
             />
             <Input
-              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+              className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
               name="email"
               type="email"
               required
@@ -132,7 +137,7 @@ function ContactRebekah(props: Props) {
               autoComplete="email"
             />
             <Input
-              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+              className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
               name="phoneNumber"
               type="number"
               required
@@ -145,7 +150,7 @@ function ContactRebekah(props: Props) {
               required
               placeholder="Enter your message"
               aria-label="Enter your message"
-              className="w-full col-span-2 text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+              className="col-span-2 w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             />
             <div className="col-span-2 md:col-span-1">
               <GlowingButton

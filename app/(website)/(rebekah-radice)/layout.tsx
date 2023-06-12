@@ -2,11 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment } from "react";
 
+import Container from "@/components/container";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import LogoImage from "@/public/rebekah-radice-logo.svg";
-
-import Container from "../container";
 
 function Navbar() {
   return (
@@ -17,14 +16,16 @@ function Navbar() {
         <Container
           alt
           large
-          className="h-20 py-5 border-l border-r border-neutral-200/10">
+          className="h-20 border-l border-r border-neutral-200/10 py-5">
           <div className="flex items-center justify-between gap-10">
-            <Image
-              src={LogoImage}
-              alt="Hey Rebekah Logo"
-              className="w-auto h-8"
-              priority
-            />
+            <Link href="/">
+              <Image
+                src={LogoImage}
+                alt="Hey Rebekah Logo"
+                className="h-8 w-auto"
+                priority
+              />
+            </Link>
             <div className="space-x-4">
               <Link
                 href="/social-blog"
@@ -53,9 +54,9 @@ function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="px-6 py-16 mx-auto border-l border-r max-w-7xl border-neutral-200/10 sm:pt-24 lg:px-8 lg:pt-16">
+      <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 px-6 py-16 sm:pt-24 lg:px-8 lg:pt-16">
         footer
-        <div className="pb-4 mx-auto md:flex md:items-center md:justify-between">
+        <div className="mx-auto pb-4 md:flex md:items-center md:justify-between">
           <div className="order-2 space-x-4">
             <Link
               href="/privacy"

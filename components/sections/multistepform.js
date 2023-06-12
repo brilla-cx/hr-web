@@ -38,7 +38,7 @@ export default function MultiStepForm() {
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
 
   return (
-    <div>
+    <div className="">
       <FormProvider>
         <div className="mx-auto mb-48 mt-12 max-w-xl">
           <StepOne

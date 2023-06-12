@@ -1,15 +1,22 @@
-/* eslint-disable no-undef */
-// @ts-nocheck
 import React from "react";
 
-import MainLayout from "@/components/main-layout";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 
-export const revalidate = 86400;
+function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div>
+      <Navbar />
+      {children}
+      <Footer />
+    </div>
+  );
+}
 
-export default function RootLayout({
+export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <MainLayout>{children}</MainLayout>;
+  return <Layout>{children}</Layout>;
 }
