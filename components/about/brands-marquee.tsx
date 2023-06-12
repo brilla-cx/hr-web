@@ -3,7 +3,6 @@ import Marquee from "react-fast-marquee";
 
 import { cx } from "@/lib/utils";
 
-
 interface BrandItemProps {
   imageUrl: string;
   alt: string;
@@ -63,7 +62,7 @@ const brandsData: BrandItemProps[] = [
 
 function BrandItem(props: BrandItemProps) {
   return (
-    <div className={cx(props.bgColor, "rounded p-4  w-56")}>
+    <div className={cx(props.bgColor, "w-56 rounded  p-4")}>
       <Image
         className="object-contain w-full max-h-12"
         src={props.imageUrl}
@@ -87,7 +86,7 @@ function BrandsMarquee(props: Props) {
   const { title } = props;
   return (
     <div className="py-20 text-center lg:py-26">
-      <div className="pb-6 text-gray-200 text-2xl">{title}</div>
+      <div className="pb-6 text-2xl text-gray-200">{title}</div>
       <Marquee className="mt-10">
         <div className="flex mx-4 gap-x-8">
           {brandsData.map((brand, i) => {

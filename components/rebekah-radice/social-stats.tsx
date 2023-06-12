@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { H4, H6, Lead } from "../ui";
+import { H3, H4, H6, Lead } from "../ui";
 
 const socialData = [
   {
@@ -56,23 +56,33 @@ const socialData = [
 
 function SocialStats() {
   return (
-    <div className="grid grid-cols-3 gap-8 pt-20 md-gap-8">
-      {socialData.map((sd) => (
-        <div
-          key={sd.socialName}
-          className="col-span-3 p-4 py-4 space-y-6 text-center rounded bg-slate-900 md:col-span-1">
-          <H4 className="text-gray-200">{sd.socialData}</H4>
-          <H6 className="text-gray-200">{sd.socialName}</H6>
-          <Lead className="text-gray-400">{sd.socialDesc}</Lead>
-          <div>
-            <Link
-              href={sd.socialLink ?? "#"}
-              className="pt-6 font-bold text-white">
-              {sd.linkTitle}
-            </Link>
+    <div className="px-4 py-12 mx-auto text-center lg:py-26 sm:px-8 sm:py-20">
+      <H3 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+        My community of over 300,000
+      </H3>
+      <Lead className="max-w-4xl mx-auto mt-6 text-lg leading-8 text-gray-400">
+        I adore my community like peanut butter loves jelly. They've been with
+        me since the days when social media was only a baby. Remember when we
+        had to walk uphill both ways to post a tweet? Sigh... the good 'ol days.
+      </Lead>
+      <div className="grid grid-cols-3 gap-8 pt-20 md-gap-8">
+        {socialData.map((sd) => (
+          <div
+            key={sd.socialName}
+            className="col-span-3 p-8 text-left border rounded border-gray-200/10 bg-slate-900 md:col-span-1">
+            <H4 className="mb-4 text-gray-200">{sd.socialData}</H4>
+            <H6 className="mb-2 text-gray-200">{sd.socialName}</H6>
+            <Lead className="mb-4 text-gray-400">{sd.socialDesc}</Lead>
+            <div>
+              <Link
+                href={sd.socialLink ?? "#"}
+                className="pt-6 font-bold text-white">
+                {sd.linkTitle}
+              </Link>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
