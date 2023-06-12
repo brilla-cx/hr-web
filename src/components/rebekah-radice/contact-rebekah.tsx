@@ -102,13 +102,13 @@ function ContactRebekah(props: Props) {
                 href="https://www.pinterest.com/rebekahradice/"
                 target="_blank"
                 className={cx(hoverStyles)}>
-                See my ins
+                See my Pins
               </Link>
             </div>
           </div>
         </div>
         <form id="#contact" className="col-span-2 md:col-span-1">
-          <div className="grid grid-cols-2 gap-6 ">
+          <div className="grid grid-cols-2 gap-10 ">
             <Input
               className="border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
               name="firstName"

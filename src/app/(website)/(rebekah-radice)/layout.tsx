@@ -55,17 +55,21 @@ function Footer() {
         Footer
       </h2>
       <div className="mx-auto max-w-7xl border-l border-r border-neutral-200/10 px-6 py-16 sm:pt-24 lg:px-8 lg:pt-16">
-        footer
         <div className="mx-auto pb-4 md:flex md:items-center md:justify-between">
           <div className="order-2 space-x-4">
             <Link
+              href="/"
+              className={cx("text-sm leading-6 text-gray-200", hoverStyles)}>
+              HeyRebakah.com
+            </Link>
+            <Link
               href="/privacy"
-              className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
+              className={cx("text-sm leading-6 text-gray-200", hoverStyles)}>
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
+              className={cx("text-sm leading-6 text-gray-200", hoverStyles)}>
               Terms of Service
             </Link>
           </div>

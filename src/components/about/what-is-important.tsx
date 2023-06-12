@@ -36,7 +36,7 @@ function ListCard(props: ListItem) {
         {typeof props.desc === "string" ? (
           <p
             className="flex-auto"
-            // eslint-disable-next-line react/no-danger
+          // eslint-disable-next-line react/no-danger
           >
             {props.desc}
           </p>
@@ -58,9 +58,7 @@ function WhatIsImportant() {
           What's important to us
         </H3>
         <p className="mt-6 text-lg leading-8 text-gray-400">
-          We imagine a world where all freelancers have fair opportunities. They
-          can learn, grow, and thrive in their career. Plus, gain access to
-          tools that help them make more money and find their joy.
+          We imagine a world where all knowledge workers have fair opportunities. They can learn, grow, and thrive in their career. Plus, gain access to tools that help them make more money and find their joy.
         </p>
         <p className="mt-6 text-lg leading-8 text-gray-400">
           We're firm believers in the principles of people-first. When we put
