@@ -2,19 +2,7 @@ import { MetadataRoute } from "next";
 
 import { SITE_URL } from "@/lib/constants";
 import { getAllSitemapData } from "@/sanity/client";
-
-interface SitemapData {
-  slug: string;
-  _updatedAt: string;
-}
-
-interface GroupedSitemapData {
-  authors: SitemapData[];
-  books: SitemapData[];
-  posts: SitemapData[];
-  socialBlog: SitemapData[];
-  tools: SitemapData[];
-}
+import { GroupedSitemapData } from "@/types/types";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allSitemap: GroupedSitemapData = await getAllSitemapData();
