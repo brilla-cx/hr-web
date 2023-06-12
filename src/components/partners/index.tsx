@@ -56,9 +56,7 @@ function PartnerPage(props: Props) {
                   className="flex items-center justify-center mt-10 gap-x-6"
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={() => scrollToContact()}>
-                  <GlowingButton variant="link" href="partners/#emailForm">
-                    Become a Partner
-                  </GlowingButton>
+                  <GlowingButton>Become a Partner</GlowingButton>
                 </div>
               </div>
             </div>
