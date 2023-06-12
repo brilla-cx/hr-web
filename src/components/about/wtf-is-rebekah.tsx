@@ -19,8 +19,7 @@ const content: ReactNode[] = [
     colleague, Ambreen Dar. The newsletter offers simple tips to help readers
     adapt to new technology and build careers with purpose.
   </>,
-  "With Hey Rebekah, Rebekah and Ambreen aim to inspire that longing in knowledge professionals. They stoke dreams as bold as horizons. And fuel readers daily with wisdom and tools to turn visions into reality—and find success, joy, and lifelong purpose along the journey.",
-  "In a world of unknowns, Rebekah and Ambreen light the way. Their newsletter opens minds to new horizons of what's possible, achievable, and meaningful in our careers. For those with ambition, passion and an appetite for growth, the voyage awaits.",
+  "In a world of unknowns, they light the way. Their newsletter opens minds to new horizons of what's possible, achievable, and meaningful in our careers through the adoption of generative AI. For those with ambition, passion and an appetite for growth, the voyage awaits.",
   "Together, they help ambitious professionals thrive in today's world of work. After years empowering people with purpose, they believe this:",
 ];
 
@@ -37,10 +36,9 @@ const WtfIsHeyRebekah: FC = () => {
             {text}
           </Lead>
         ))}
-        <div className="mx-4 my-7 mt-8 border-l-2 border-pink p-6 pl-4 text-2xl leading-relaxed text-gray-300">
-          We all long to push past limits into uncharted territory. Technology
-          may change how we work, but it can't replace our thirst for
-          creativity, meaning, and impact.
+        <div className="mx-4 my-7 mt-8 border-l-2 border-pink p-6 pl-4 text-xl leading-relaxed text-gray-300">
+          <p>We all long to push past limits into uncharted territory. Technology may change how we work, but it can't replace our thirst for creativity, meaning, and impact.</p>
+          <p className="mt-6">— Ambreen & Rebekah</p>
         </div>
       </div>
     </div>
