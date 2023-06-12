@@ -5,7 +5,7 @@ import React, { Fragment, useEffect, useRef } from "react";
 import { cx } from "@/lib/utils";
 
 import TimelineObserver from "../TimelineObserver";
-import { H2, H5, Lead } from "../ui";
+import { H2, H3, H5, Lead } from "../ui";
 
 interface TimelineProps {
   setObserver: (target: Element, callbackFn?: () => void) => void;
@@ -144,14 +144,11 @@ function RebekahTimeline() {
   return (
     <div className="lg:py-26 mx-auto px-4 py-12 !pb-10 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-4xl text-center">
-        <H2 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+        <H3 as="h2" className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
           About Rebekah Radice's Career
-        </H2>
+        </H3>
         <Lead className="mt-6 text-lg leading-8 text-gray-400">
-          The interwebs crowned me a top digital marketing expert in the known
-          universe. (cue eye rolls from my hubby and colleagues) I'm all about
-          helping people get, keep, and grow their client base via digital
-          magic.
+          People often ask how I landed here. To save time answering the same question on repeat, my trusty tech genius whipped up this slick timeline. Now I can hit 'em with an auto-reply. <br /> Because, hey, time is money, right?.
         </Lead>
         <TimelineObserver
           initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"

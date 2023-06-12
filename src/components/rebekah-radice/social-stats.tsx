@@ -1,11 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
+import hoverStyles from "@/lib/hover";
+import { cx } from "@/lib/utils";
+
 import { H3, H4, H6, Lead } from "../ui";
 
 const socialData = [
   {
-    socialData: "35,000",
+    socialData: "+31,646",
     socialName: "Email Subscribers",
     socialDesc:
       "Early on, I made a rookie mistake in undervaluing email marketing. Thanks to my incredible subscribers, email is now my favorite digital secret weapon. They're the heroes of this story.",
@@ -50,15 +53,15 @@ const socialData = [
     socialDesc:
       "Pinterest is more than a mood board. It's a gathering place for a vibrant creative community. Together, we've pinned our way to success. Sharing ideas that are making the world more colorful.",
     socialLink: "https://www.pinterest.com/rebekahradice/",
-    linkTitle: "UM-PIN TO MY PINS",
+    linkTitle: "JUM-PIN TO MY PINS",
   },
 ];
 
 function SocialStats() {
   return (
     <div className="px-4 py-12 mx-auto text-center lg:py-26 sm:px-8 sm:py-20">
-      <H3 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
-        My community of over 300,000
+      <H3 as="h2" className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+        My community of over 320,000
       </H3>
       <Lead className="max-w-4xl mx-auto mt-6 text-lg leading-8 text-gray-400">
         I adore my community like peanut butter loves jelly. They've been with
@@ -70,13 +73,13 @@ function SocialStats() {
           <div
             key={sd.socialName}
             className="col-span-3 p-8 text-left border rounded border-gray-200/10 bg-slate-900 md:col-span-1">
-            <H4 className="mb-4 text-gray-200">{sd.socialData}</H4>
-            <H6 className="mb-2 text-gray-200">{sd.socialName}</H6>
-            <Lead className="mb-4 text-gray-400">{sd.socialDesc}</Lead>
+            <H4 as="h3" className="mb-1 text-gray-200">{sd.socialData}</H4>
+            <p className="mb-6 text-md uppercase tracking-wider text-gray-300">{sd.socialName}</p>
+            <Lead className="mb-8 text-gray-400">{sd.socialDesc}</Lead>
             <div>
               <Link
                 href={sd.socialLink ?? "#"}
-                className="pt-6 font-bold text-white">
+                className={cx("pt-6 font-bold text-white", hoverStyles)}>
                 {sd.linkTitle}
               </Link>
             </div>
