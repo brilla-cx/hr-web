@@ -7,9 +7,7 @@ import PageHeader from "@/components/sections/pageheader";
 export default function Page() {
   return (
     <Fragment>
-      <Container
-        large
-        className="max-h-[92vh] border-l border-r border-neutral-200/10">
+      <Container large className="border-l border-r border-neutral-200/10">
         <PageHeader
           title="Signup for Hey Rebekah"
           leadText="This is just the best thing I've ever read! ~ Nancy (Rebekah's mom) "

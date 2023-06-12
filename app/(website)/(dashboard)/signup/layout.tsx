@@ -7,7 +7,7 @@ import LogoImage from "@/public/hey-rebekah-logo.svg";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="max-h-screen bg-midnight">
+    <div className="min-h-screen bg-midnight">
       <div className="border-b border-neutral-200/10">
         <Container
           alt
