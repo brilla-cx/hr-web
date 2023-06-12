@@ -9,6 +9,14 @@ import { HeroWithImage } from "@/components/sections/herowithimage";
 import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
+export function generateMetadata() {
+  return {
+    title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+    description:
+      "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+  };
+}
+
 const withContainer = (Component, props, bgColor) => {
   return (
     <div className={bgColor}>

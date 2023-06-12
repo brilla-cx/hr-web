@@ -2,9 +2,7 @@ import { draftMode } from "next/headers";
 import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
-import {
-  getBookbySlug,
-} from "@/sanity/client";
+import { getBookbySlug } from "@/sanity/client";
 
 import Post from "./post";
 
@@ -22,8 +20,8 @@ export async function generateMetadata({ params }) {
     title: post?.name,
     description: post?.summary,
     openGraph: {
-     title: post?.name,
-    description: post?.summary,
+      title: post?.name,
+      description: post?.summary,
     },
   };
 }
@@ -36,17 +34,17 @@ export default async function PostPage({ params }) {
   if (preview) {
     return (
       <PreviewSuspense fallback={<Loading />}>
-        <PostPreview slug={params.slug}  />
+        <PostPreview slug={params.slug} />
       </PreviewSuspense>
     );
   }
 
-  return <Post post={post}  />;
+  return <Post post={post} />;
 }
 
 const Loading = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       Just a sec, getting Rebekah's attention...
     </div>
   );

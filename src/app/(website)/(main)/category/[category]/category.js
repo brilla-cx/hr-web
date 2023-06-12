@@ -1,4 +1,5 @@
 // Import the necessary dependencies
+import Head from "next/head";
 import { notFound } from "next/navigation"; // Navigation control from Next.js
 import { Suspense } from "react";
 
@@ -34,7 +35,11 @@ export default function Category(props) {
   // Return the main component JSX
   return (
     // Div with midnight background color
-    <div className="bg-midnight text-gray-200">
+    <div className="text-gray-200 bg-midnight">
+      <Head>
+        <meta key="robots" name="robots" content="noindex,follow" />
+        <meta key="googlebot" name="googlebot" content="noindex,follow" />
+      </Head>
       {/* Container component for holding the content */}
       <Container large className="border-l border-r border-neutral-200/10">
         {/* PageHeader component with title, lead text, includeForm, and formId */}
@@ -46,7 +51,7 @@ export default function Category(props) {
         />
         {/* Grid layout div for holding PostAlt components */}
         <Suspense fallback={<p>Stargazing with Raquel...</p>}>
-          <div className="mb-10 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
+          <div className="grid gap-10 px-4 mt-16 mb-10 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
             {/* Map through posts array, and for each post, render a PostAlt component */}
             {posts.map((post) => (
               <PostAlt

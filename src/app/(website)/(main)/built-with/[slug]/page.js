@@ -17,10 +17,10 @@ export async function generateMetadata({ params }) {
   const data = await getToolbySlug(params.slug);
   return {
     title: `Hey Rebekah x ${data.name}`,
-    description: data.shortDescription,
+    description: `We’ll show you how we use ${data.name} and hook you up with our discount. Not an affiliate`,
     openGraph: {
       title: `Hey Rebekah x ${data.name}`,
-      description: data.shortDescription,
+      description: `We’ll show you how we use ${data.name} and hook you up with our discount. Not an affiliate`,
     },
   };
 }
@@ -42,7 +42,7 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       Just a sec, getting Rebekah's attention...
     </div>
   );
