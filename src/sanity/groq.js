@@ -278,7 +278,7 @@ export const socialblogpathquery = groq`
  * The $pageIndex and $limit parameters define the slice of posts to be fetched.
  */
 export const paginatedsocialblogsquery = groq`
-*[_type == "socialBlog"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+*[_type == "socialBlog"] | order(featured desc, publishedAt desc) [$pageIndex...$limit] {
   ...,
   author->
 }
