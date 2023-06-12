@@ -2,6 +2,7 @@
 import { notFound } from "next/navigation"; // Navigation control from Next.js
 import { Suspense } from "react";
 
+import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container"; // Custom container component for page layout
 import PostAlt from "@/components/postalt"; // Component to display individual posts
 import PageHeader from "@/components/sections/pageheader"; // Component for page header section
@@ -45,7 +46,7 @@ export default function Category(props) {
         />
         {/* Grid layout div for holding PostAlt components */}
         <Suspense fallback={<p>Stargazing with Raquel...</p>}>
-          <div className="mb-8 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-4 ">
+          <div className="mb-10 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
             {/* Map through posts array, and for each post, render a PostAlt component */}
             {posts.map((post) => (
               <PostAlt
@@ -56,6 +57,12 @@ export default function Category(props) {
               />
             ))}
           </div>
+          <ViewAllPosts
+            href="/gists"
+            buttonText="View All Posts"
+            direction="left"
+            variant="dark"
+          />
         </Suspense>
       </Container>
     </div>

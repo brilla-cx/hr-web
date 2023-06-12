@@ -15,13 +15,13 @@ import { urlForImage } from "@/sanity/image";
 const resources = [
   { name: "Archives", href: "/gists" },
   { name: "Juno AI", href: "/juno" },
-  { name: "Community", href: "/community" },
-  { name: "Tools", href: "/built-with" },
+  { name: "Built With", href: "/built-with" },
   { name: "Book Club", href: "/books" },
+  { name: "Subscribe", href: "/signup" },
   { name: "Help", href: "/contact" },
 ];
 const company = [
-  { name: "Advertise", href: "/advertise" },
+  { name: "Advertise", href: "/contact" },
   { name: "Partner", href: "/partners" },
   { name: "About", href: "/about" },
   { name: "Rebekah Radice", href: "/rebekah-radice" },
