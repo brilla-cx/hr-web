@@ -96,3 +96,16 @@ export interface FaqType {
   faqType: string[];
   publishedAt: string;
 }
+
+export interface SitemapData {
+  slug: string;
+  _updatedAt: string;
+}
+
+export interface GroupedSitemapData {
+  authors: SitemapData[];
+  books: SitemapData[];
+  posts: SitemapData[];
+  socialBlog: SitemapData[];
+  tools: SitemapData[];
+}

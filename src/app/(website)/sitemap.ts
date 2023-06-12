@@ -1,29 +1,23 @@
 import { MetadataRoute } from "next";
 
 import { SITE_URL } from "@/lib/constants";
-import {
-  getAllAuthorsSlugs,
-  getAllPostsSlugs,
-  getAllSocialBlogSlugs,
-  getAllTools,
-  getPaginatedBooks,
-} from "@/sanity/client";
+import { getAllSitemapData } from "@/sanity/client";
 
-interface SitemapItem {
+interface SitemapData {
   slug: string;
-  name: string;
-  _updatedAt: Date;
+  _updatedAt: string;
+}
+
+interface GroupedSitemapData {
+  authors: SitemapData[];
+  books: SitemapData[];
+  posts: SitemapData[];
+  socialBlog: SitemapData[];
+  tools: SitemapData[];
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const authors: SitemapItem[] = await getAllAuthorsSlugs();
-  const books: SitemapItem[] = await getPaginatedBooks({
-    limit: 100,
-    pageIndex: 0,
-  });
-  const posts: SitemapItem[] = await getAllPostsSlugs();
-  const socialBlogs: SitemapItem[] = await getAllSocialBlogSlugs();
-  const tools: SitemapItem[] = await getAllTools();
+  const allSitemap: GroupedSitemapData = await getAllSitemapData();
 
   const staticRoutes = [
     `${SITE_URL}`,
@@ -46,23 +40,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ].map((url) => ({ url, lastModified: new Date() }));
 
   const dynamicRoutes = [
-    ...authors.map(({ slug, _updatedAt }) => ({
+    ...allSitemap.authors.map(({ slug, _updatedAt }) => ({
       url: `${SITE_URL}/author/${slug}`,
       lastModified: _updatedAt,
     })),
-    ...books.map(({ slug, _updatedAt }) => ({
+    ...allSitemap.books.map(({ slug, _updatedAt }) => ({
       url: `${SITE_URL}/books/${slug}`,
       lastModified: _updatedAt,
     })),
-    ...posts.map(({ slug, _updatedAt }) => ({
+    ...allSitemap.posts.map(({ slug, _updatedAt }) => ({
       url: `${SITE_URL}/gists/${slug}`,
       lastModified: _updatedAt,
     })),
-    ...socialBlogs.map(({ slug, _updatedAt }) => ({
+    ...allSitemap.socialBlog.map(({ slug, _updatedAt }) => ({
       url: `${SITE_URL}/social-blog/${slug}`,
       lastModified: _updatedAt,
     })),
-    ...tools.map(({ slug, _updatedAt }) => ({
+    ...allSitemap.tools.map(({ slug, _updatedAt }) => ({
       url: `${SITE_URL}/built-with/${slug}`,
       lastModified: _updatedAt,
     })),
