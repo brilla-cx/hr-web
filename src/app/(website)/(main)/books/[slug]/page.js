@@ -15,13 +15,13 @@ export function generateStaticParams() {
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
-  const post = await getBookbySlug(params.slug);
+  const book = await getBookbySlug(params.slug);
   return {
-    title: post?.name,
-    description: post?.summary,
+    title: book.seoTitle || book?.name,
+    description: book.seoMetaDescription || book?.summary,
     openGraph: {
-      title: post?.name,
-      description: post?.summary,
+      title: book.seoTitle || book?.name,
+      description: book.seoMetaDescription || book?.summary,
     },
   };
 }

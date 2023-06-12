@@ -16,11 +16,15 @@ export const dynamicParams = true;
 export async function generateMetadata({ params }) {
   const data = await getToolbySlug(params.slug);
   return {
-    title: `Hey Rebekah x ${data.name}`,
-    description: `We’ll show you how we use ${data.name} and hook you up with our discount. Not an affiliate`,
+    title: `Hey Rebekah x ${data.seoTitle || data.name}`,
+    description: `We’ll show you how we use ${
+      data.seoTitle || data.name
+    } and hook you up with our discount. Not an affiliate`,
     openGraph: {
-      title: `Hey Rebekah x ${data.name}`,
-      description: `We’ll show you how we use ${data.name} and hook you up with our discount. Not an affiliate`,
+      title: `Hey Rebekah x ${data.seoTitle || data.name}`,
+      description: `We’ll show you how we use ${
+        data.seoTitle || data.name
+      } and hook you up with our discount. Not an affiliate`,
     },
   };
 }
