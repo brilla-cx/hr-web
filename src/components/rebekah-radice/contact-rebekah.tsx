@@ -46,7 +46,7 @@ function ContactRebekah(props: Props) {
             </div>
             <div className="flex items-center gap-2 text-white">
               <AiFillPhone className="text-white" />
-              <Link href="" className={cx(hoverStyles)}>
+              <Link href="tel:+1415727455213" className={cx(hoverStyles)}>
                 (415) 727-4552 x13
               </Link>
             </div>
