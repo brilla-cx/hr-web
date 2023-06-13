@@ -13,6 +13,8 @@ import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
+import { addUserToList, updateUser } from "@/lib/server/actions";
+
 const TopicsArray = [
   "Accounting/Finance",
   "Artificial Intelligence",
@@ -74,16 +76,23 @@ export default function MultiStepForm() {
 // Enter Email
 function StepOne({ formStep, nextFormStep }) {
   const { setFormValues } = useFormData();
-  //   console.log(formStep);
+  const [loading, setLoading] = useState(false);
   const {
     handleSubmit,
     formState: { errors },
     register,
   } = useForm({ mode: "onTouched" });
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
+    setLoading(true);
     setFormValues(values);
+    const result = await addUserToList(values.email);
+    if (result.error) {
+      console.log("Error fetching data");
+      throw new Error("Fail to send to iterable");
+    }
     nextFormStep();
+    setLoading(false);
   };
 
   return (
@@ -119,8 +128,8 @@ function StepOne({ formStep, nextFormStep }) {
           />
 
           <div className="mt-10 flex justify-center">
-            <GlowingButton type="submit" autoWidth>
-              Next
+            <GlowingButton type="submit" autoWidth disabled={loading}>
+              {loading ? "Hold on..." : "Next"}
             </GlowingButton>
           </div>
           <p className="mt-6 text-center text-xs leading-6 text-gray-400">
@@ -343,25 +352,14 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
 
   const submitForm = async () => {
     setLoading(true);
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
 
-      if (!response.ok) {
-        throw new Error("Failed to submit the form");
-      }
-      const result = await response.json();
-      if (result.success) {
-        router.push("/signup/confirm");
-      }
-    } catch (error) {
-      console.error("Error:-", error);
+    const { email, ...rest } = data;
+    const result = await updateUser(email, rest);
+
+    if (!result.success) {
+      throw new Error("Failed to submit the form");
     }
+    router.push("/signup/confirm");
   };
 
   return (
