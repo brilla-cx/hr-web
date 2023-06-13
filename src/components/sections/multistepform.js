@@ -40,7 +40,7 @@ export default function MultiStepForm() {
   return (
     <div className="">
       <FormProvider>
-        <div className="mx-auto mb-48 max-w-xl">
+        <div className="mx-auto max-w-xl">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}

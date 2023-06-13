@@ -65,9 +65,16 @@ module.exports = {
           from: { backgroundPosition: "200% 0" },
           to: { backgroundPosition: "-200% 0" },
         },
+        fadein: {
+          "0%": { opacity: "0" },
+          "20%": { opacity: "1" },
+          "80%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
       },
       animation: {
         shimmer: "shimmer 8s ease-in-out infinite",
+        fade: "fadein 6s linear infinite",
       },
     },
   },
