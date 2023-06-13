@@ -1,3 +1,4 @@
+"use client";
 import React, { Fragment, useRef } from "react";
 
 import BrandsMarquee from "@/components/about/brands-marquee";

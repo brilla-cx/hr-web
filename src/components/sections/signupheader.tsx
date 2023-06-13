@@ -1,7 +1,7 @@
 import React from "react";
 
-import { H1, Lead } from "@/components/ui/typography";
 import RotatingText from "@/components/shared/rotatingtext";
+import { H1, Lead } from "@/components/ui/typography";
 
 interface PageHeaderProps {
   title: string;
@@ -18,7 +18,7 @@ const testimonialArray = [
 const SignupHeader: React.FC<PageHeaderProps> = ({ title, leadText }) => {
   return (
     <div className="py-3">
-      <div className="mx-auto max-w-3xl text-center">
+      <div className="max-w-3xl mx-auto text-center">
         <H1 className="text-gray-200">{title}</H1>
         {leadText && <Lead className="mt-6 text-gray-400">{leadText}</Lead>}
 
