@@ -21,7 +21,11 @@ export default function Gists() {
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
           <Suspense
-            fallback={<p>Susan went where?! Searching the premises...</p>}>
+            fallback={
+              <p className="text-center text-lg">
+                Susan went where?! Searching the premises...
+              </p>
+            }>
             <PaginatedPosts />
           </Suspense>
         </div>

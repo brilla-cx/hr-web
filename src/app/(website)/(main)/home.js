@@ -17,7 +17,8 @@ export default function HomePage({ posts }) {
         </Container>
       </div>
       <div className="bg-midnight text-gray-200">
-        <Suspense fallback={<p>Herding cats...</p>}>
+        <Suspense
+          fallback={<p className="text-center text-lg">Herding cats...</p>}>
           <Container large className="border-l border-r border-neutral-200/10">
             {featuredPost.length > 4 && (
               <>

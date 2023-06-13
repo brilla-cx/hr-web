@@ -35,7 +35,7 @@ export default function Category(props) {
   // Return the main component JSX
   return (
     // Div with midnight background color
-    <div className="text-gray-200 bg-midnight">
+    <div className="bg-midnight text-gray-200">
       <Head>
         <meta key="robots" name="robots" content="noindex,follow" />
         <meta key="googlebot" name="googlebot" content="noindex,follow" />
@@ -50,8 +50,11 @@ export default function Category(props) {
           includeForm
         />
         {/* Grid layout div for holding PostAlt components */}
-        <Suspense fallback={<p>Stargazing with Raquel...</p>}>
-          <div className="grid gap-10 px-4 mt-16 mb-10 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
+        <Suspense
+          fallback={
+            <p className="text-center text-lg">Stargazing with Raquel...</p>
+          }>
+          <div className="mb-10 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
             {/* Map through posts array, and for each post, render a PostAlt component */}
             {posts.map((post) => (
               <PostAlt

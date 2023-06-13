@@ -16,7 +16,10 @@ export default function SocialBlogs() {
           includeForm
         />
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <Suspense fallback={<p>Walking the dead...</p>}>
+          <Suspense
+            fallback={
+              <p className="text-center text-lg">Walking the dead...</p>
+            }>
             <PaginatedPosts />
           </Suspense>
         </div>

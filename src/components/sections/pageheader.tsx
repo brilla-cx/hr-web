@@ -13,7 +13,7 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({ title, leadText, id, includeForm = true }) => {
   return (
-    <div className="bg-midnight px-4 py-16 sm:py-24 lg:px-16 lg:py-26">
+    <div className="bg-midnight px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
       <div className="mx-auto max-w-3xl text-center">
         <H1 className="text-gray-200">{title}</H1>
         <Lead className="mt-6 text-gray-400">{leadText}</Lead>

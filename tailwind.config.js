@@ -40,8 +40,10 @@ module.exports = {
                 marginBottom: `calc(-0.4em - ${theme("spacing.2")})`,
               },
             ".prose :where(a):not(:where([class~='not-prose'] *))": {
-              fontWeight: "900",
-              textDecoration: "none",
+              fontWeight: "700",
+              textDecoration: "underline #d1d5db",
+              textUnderlineOffset: "4px",
+              textDecorationThickness: "2px",
               transitionProperty: "background-size",
               transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
               transitionDuration: "200ms",
@@ -52,6 +54,7 @@ module.exports = {
               backgroundRepeat: "no-repeat",
               "&:hover": {
                 backgroundSize: "100% 3px",
+                textDecoration: "none",
               },
             },
           },
