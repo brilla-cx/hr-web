@@ -29,7 +29,12 @@ export async function addUserToList(email) {
 
     const result = await response.json();
     if (!result.successCount) {
-      console.error(result);
+      console.error(
+        result,
+        process.env.NODE_ENV,
+        process.env.ITERABLE_PRODUCTION_TOKEN,
+        process.env.ITERABLE_TOKEN
+      );
       return { error: true, message: "Could not add user to the list" };
     }
     return {
