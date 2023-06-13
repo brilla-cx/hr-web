@@ -11,16 +11,12 @@ import { FaqType } from "@/types/types";
 
 export function generateMetadata() {
   return {
-    title: "About | Knowledge should be free. Experience, priceless.",
+    title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
     description:
-      "Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus.",
-    openGraph: {
-      title: "About | Knowledge should be free. Experience, priceless.",
-      description:
-        "Freelancers need better access to knowledge, skills, and tools to build thriving careers. That's our focus.",
-    },
+      "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
   };
 }
+
 const withContainer = (Component, props, bgColor) => {
   return (
     <div className={bgColor}>

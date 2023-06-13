@@ -5,6 +5,14 @@ import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
+export function generateMetadata() {
+  return {
+    title: "Accessibility Statement",
+    description:
+      "The Hey Rebekah website aims to meet accessibility standards and provide an inclusive experience for all users. Though more work remains, we are continuously improving to ensure content is accessible to people with disabilities. Contact us with any accessibility issues. Accessibility is an ongoing process, and we welcome input on how to improve.",
+  };
+}
+
 export default async function AccessibilityStatement() {
   const post = await getLegalPageBySlug("accessibility");
 
@@ -16,9 +24,7 @@ export default async function AccessibilityStatement() {
   return (
     <div className="bg-white">
       <div className="bg-midnight">
-        <Container
-          large
-          className="border-l border-r border-neutral-200/10">
+        <Container large className="border-l border-r border-neutral-200/10">
           <PageHeader
             title={title}
             leadText={leadText}
@@ -27,9 +33,9 @@ export default async function AccessibilityStatement() {
           />
         </Container>
       </div>
-      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
+      <div className="flex flex-col max-w-screen-xl gap-5 px-5 mx-auto mb-20 mt-14 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose mx-auto max-w-prose">
+          <Prose className="mx-auto prose max-w-prose">
             <PortableText value={content} />
           </Prose>
         </article>

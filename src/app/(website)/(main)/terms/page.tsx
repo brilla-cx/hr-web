@@ -5,6 +5,14 @@ import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
+export function generateMetadata() {
+  return {
+    title: "Terms of Service | Hey Rebekah",
+    description:
+      "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+  };
+}
+
 export default async function Terms() {
   const post = await getLegalPageBySlug("terms");
 
@@ -16,9 +24,7 @@ export default async function Terms() {
   return (
     <div className="bg-white">
       <div className="bg-midnight">
-        <Container
-          large
-          className="border-l border-r border-neutral-200/10">
+        <Container large className="border-l border-r border-neutral-200/10">
           <PageHeader
             title={title}
             leadText={leadText}
@@ -27,9 +33,9 @@ export default async function Terms() {
           />
         </Container>
       </div>
-      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
+      <div className="flex flex-col max-w-screen-xl gap-5 px-5 mx-auto mb-20 mt-14 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose mx-auto max-w-prose">
+          <Prose className="mx-auto prose max-w-prose">
             <PortableText value={content} />
           </Prose>
         </article>
