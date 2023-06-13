@@ -56,7 +56,7 @@ export const metadata = {
     title: "Hey Rebekah | Like Morning Brew for freelancers", // the title of the content
     description: "Hey Rebekah is a free daily newsletter for freelancers...", // a description of the content
     creator: "rebekahradice",
-    image: "public/og.png",
+    image: "public/og.webp",
   },
   icons: [
     {

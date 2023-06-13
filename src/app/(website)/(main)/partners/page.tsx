@@ -16,14 +16,9 @@ import { FaqType } from "@/types/types";
 
 export function generateMetadata() {
   return {
-    title: "Partner | Knowledge should be free. Experience, priceless.",
+    title: "Partner Program | Hey Rebekah",
     description:
-      "Improve your good karma and do a solid for the +1,000,000,000 knowledge workers around the world. Instead of paying us a fat affiliate commission, we ask that you provide an exclusive discount to our readers. No brainer, right?",
-    openGraph: {
-      title: "Partner | Knowledge should be free. Experience, priceless.",
-      description:
-        "Improve your good karma and do a solid for the +1,000,000,000 knowledge workers around the world. Instead of paying us a fat affiliate commission, we ask that you provide an exclusive discount to our readers. No brainer, right?",
-    },
+      "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
   };
 }
 
@@ -48,14 +43,13 @@ export default async function Partners() {
               <div className="max-w-3xl mx-auto text-center">
                 <H1 className="text-gray-200">Partner with Hey Rebekah</H1>
                 <Lead className="mt-6 text-lg leading-8 text-gray-300">
-                  Improve your good karma and do a solid for the +1,000,000,000 knowledge workers around the world. Instead of paying us a fat
+                  Improve your good karma and do a solid for the +1,000,000,000
+                  knowledge workers around the world. Instead of paying us a fat
                   affiliate commission, we ask that you provide an exclusive
                   discount to our readers. No brainer, right?
                 </Lead>
                 <div className="flex items-center justify-center mt-10 gap-x-6">
-                  <GlowingButton
-                    variant="link"
-                    href="partners/#emailForm">
+                  <GlowingButton variant="link" href="partners/#emailForm">
                     Become a Partner
                   </GlowingButton>
                 </div>
@@ -69,7 +63,7 @@ export default async function Partners() {
         componentProps: {
           title: "Knowledge should be free",
           leadText:
-            "We believe curiosity is the driving force of progress. While others scramble to capitalize on buzzwords like \"AI\" and \"automation\", we see the future through a wider lens. We know technology is simply a tool, and humans are the builders.",
+            'We believe curiosity is the driving force of progress. While others scramble to capitalize on buzzwords like "AI" and "automation", we see the future through a wider lens. We know technology is simply a tool, and humans are the builders.',
           id: "partners",
           includeForm: true,
         },

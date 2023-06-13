@@ -3,6 +3,14 @@ import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { Badge, Blockquote, Prose, Spacer } from "@/components/ui";
 
+export function generateMetadata() {
+  return {
+    title: "Web Design Style Guide | Hey Rebekah",
+    description:
+      "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+  };
+}
+
 export default function StyleGuide() {
   return (
     <div className="px-6 py-24 sm:py-32 lg:px-8">
