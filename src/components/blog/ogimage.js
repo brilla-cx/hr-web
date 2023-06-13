@@ -28,7 +28,7 @@ export default function OgImage({ post }) {
           post.image ? "w-1/2" : "w-full"
         }`}>
         <img
-          src={`${absoluteURL}/hey-rebekah-logo-web.png`}
+          src={`${absoluteURL}/hey-rebekah-logo.svg`}
           alt="Hey Rebekah Logo"
           width={150}
           height={40}
