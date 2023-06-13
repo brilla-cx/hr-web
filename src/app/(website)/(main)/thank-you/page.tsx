@@ -2,6 +2,29 @@ import Image from "next/image";
 
 import { H1, Lead } from "@/components/ui";
 
+export function generateMetadata() {
+  const title = "Thank You";
+  const description =
+    "Wow, look at you! You're on your way to becoming an AI superstar. We're thrilled you've subscribed to Hey Rebekah. We're here for you. Happy generating!";
+
+  const metadata = {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: "/og.png",
+    },
+    twitter: {
+      title,
+      description,
+      images: "/og.png",
+    },
+  };
+
+  return metadata;
+}
+
 export default function ThankYou() {
   return (
     <div className="py-14 sm:py-52">

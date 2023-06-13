@@ -4,24 +4,28 @@ import { Button, Input, Select, Textarea } from "@/components/ui";
 import { Badge, Blockquote, Prose, Spacer } from "@/components/ui";
 
 export function generateMetadata() {
-  return {
-    title: "Web Design Style Guide | Hey Rebekah",
-    description:
-      "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+  const title = "Web Design Style Guide | Hey Rebekah";
+  const description =
+    "Our website style guide is yours to steal like an artist. Be sure to grab the appropriate licenses for any paid services we may have used. Show us what you build!";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Web Design Style Guide | Hey Rebekah",
-      description:
-        "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Web Design Style Guide | Hey Rebekah",
-      description:
-        "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 export default function StyleGuide() {
   return (

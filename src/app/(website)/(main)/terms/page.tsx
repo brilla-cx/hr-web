@@ -6,24 +6,28 @@ import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export function generateMetadata() {
-  return {
-    title: "Terms of Service | Hey Rebekah",
-    description:
-      "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+  const title = "Terms of Service";
+  const description =
+    "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Terms of Service | Hey Rebekah",
-      description:
-        "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Terms of Service | Hey Rebekah",
-      description:
-        "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 export default async function Terms() {
   const post = await getLegalPageBySlug("terms");

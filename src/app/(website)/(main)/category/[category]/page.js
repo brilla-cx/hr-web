@@ -6,8 +6,16 @@ export function generateStaticParams() {
   return [];
 }
 
-export function generateMetadata() {
+export async function generateMetadata({ params }) {
+  const category = await getCategory(params.category);
+
+  const description = `Hey Rebekah writes about ${category.name} and a bunch of other AI-related stuff too. Not a reader? Join 338K+ community members today, it's free!`;
+
+  const trimmedDescription = description.replace(/\s+/g, " ").trim();
+
   return {
+    title: `Read about ${category.name}`,
+    description: trimmedDescription,
     robots: {
       index: "noindex",
       follow: "nofollow",
