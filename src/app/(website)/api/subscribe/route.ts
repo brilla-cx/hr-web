@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { ITERABLE_TOKEN } from "@/lib/constants";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Api-Key": process.env.ITERABLE_TOKEN,
+      "Api-Key": ITERABLE_TOKEN,
     },
     body: JSON.stringify(postdata),
   });

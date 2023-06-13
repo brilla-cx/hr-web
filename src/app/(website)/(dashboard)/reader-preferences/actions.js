@@ -1,5 +1,7 @@
 "use server";
 
+import { ITERABLE_TOKEN } from "@/lib/constants";
+
 export async function getUserInfo(email) {
   if (!email) return false;
 
@@ -8,7 +10,7 @@ export async function getUserInfo(email) {
 
     const response = await fetch(url, {
       headers: {
-        "Api-Key": process.env.ITERABLE_TOKEN,
+        "Api-Key": ITERABLE_TOKEN,
       },
     });
 
@@ -38,7 +40,7 @@ export async function updateUser(email, data) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Api-Key": process.env.ITERABLE_TOKEN,
+        "Api-Key": ITERABLE_TOKEN,
       },
       body: JSON.stringify(postdata),
     });
