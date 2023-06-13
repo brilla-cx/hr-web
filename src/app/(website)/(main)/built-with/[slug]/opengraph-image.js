@@ -8,9 +8,11 @@ export const runtime = "edge";
 export default async function handler({ params }) {
   const data = await getToolbySlug(params.slug);
   const post = {
-    name: `Hey Rebekah x ${data.name}`,
+    name: `Hey Rebekah ❤️ ${data.name}`,
     category: "Built With",
-    author: { name: "Team" },
+    author: {
+      name: `We use ${data.name} everyday.`,
+    },
     publishedAt: data.publishedAt,
     __createdAt: data._createdAt,
   };
