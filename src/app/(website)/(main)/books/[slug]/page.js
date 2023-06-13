@@ -44,8 +44,8 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      Just a sec, getting Rebekah's attention...
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      Quick sec, waiting for Samuel to push a commit...
     </div>
   );
 };
