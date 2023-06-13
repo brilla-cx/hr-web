@@ -166,7 +166,8 @@ export const authorMeta = groq`
   seoTitle,
   seoMetaDescription,
   name,
-  expertise
+  expertise,
+  "category": category->name
 }
 `;
 

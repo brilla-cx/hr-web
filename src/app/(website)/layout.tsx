@@ -19,18 +19,18 @@ export const metadata: Metadata = {
     // canonical: "https://heyrebekah.com",
   },
   title: {
-    default: "Hey Rebekah | Like Morning Brew for freelancers",
+    default: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
     template: "%s | Hey Rebekah",
   },
   description:
-    "Hey Rebekah is a free daily newsletter for freelancers. We'll help you upskill your work in 6 minutes or less. Build a thriving career, earn more, and find your joy. Our moms think it's awesome, you will too. 🔥",
+    "Hey Rebekah is a free daily newsletter for knowledge workers. We help you upskill your work with AI tools like ChatGPT. Our moms love it! You will too. 🔥",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://heyrebekah.com",
-    title: "Hey Rebekah | Like Morning Brew for freelancers",
+    title: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
     description:
-      "Hey Rebekah is a free daily newsletter for freelancers. We'll help you upskill your work in 6 minutes or less. Build a thriving career, earn more, and find your joy. Our moms think it's awesome, you will too. 🔥",
+      "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
     siteName: "Hey Rebekah",
     image: "/og.png",
   },
@@ -46,19 +46,20 @@ export const metadata: Metadata = {
     },
   ],
   keywords: [
-    "Like Morning Brew",
-    "freelance newsletter",
-    "freelancer training",
+    "ChatGPT newsletter",
+    "AI newsletter",
+    "artifical intelligence",
+
   ],
   creator: "Hey Rebekah Team",
   publisher: "BRIL.LA, LLC.",
   twitter: {
-    card: "summary_large_image", // type of card you want to use. It could be "summary", "summary_large_image", "app", or "player"
-    site: "rebekahradice", // your Twitter handle
-    title: "Hey Rebekah | Like Morning Brew for freelancers", // the title of the content
-    description: "Hey Rebekah is a free daily newsletter for freelancers...", // a description of the content
+    card: "summary_large_image",
+    site: "rebekahradice",
+    title: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
+    description: "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
     creator: "rebekahradice",
-    images: "public/og.png",
+    images: "/og.png",
   },
   icons: [
     {
@@ -98,11 +99,23 @@ export const metadata: Metadata = {
   ],
   manifest: "/site.webmanifest",
   categories: [
-    "Freelancing",
+    "ChatGPT",
+    "Artificial Intelligence",
+    "AI Tools",
+    "AI Newsletter",
+    "AI for Business",
+    "AI for Marketers",
+    "AI for Entrepreneurs",
+    "AI for Startups",
+    "AI for Knowledge Workers",
     "AI for Freelancers",
-    "Freelancer Training",
-    "Freelancer Newsletter",
-    "Self-Employed",
+    "AI for Consultants",
+    "AI for Sales",
+    "AI for Customer Service",
+    "AI for Customer Success",
+    "AI for Human Resources",
+    "AI for HR",
+    "AI Training",
     "Career",
     "Productivity",
   ],
