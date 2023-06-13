@@ -9,7 +9,7 @@ import FormProvider, { useFormData } from "@/components/providers/form-context";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
 
-import { getUserInfo, updateUser } from "./actions.js";
+import { getUserInfo, updateUser } from "@/lib/server/actions";
 
 const TopicsArray = [
   "Accounting/Finance",
