@@ -1,5 +1,5 @@
 import Container from "@/components/container";
-import MultiStepForm from "@/components/sections/multistepform";
+import MultiStepForm from "./signupform";
 import SignupHeader from "@/components/sections/signupheader";
 
 export default function Page() {
