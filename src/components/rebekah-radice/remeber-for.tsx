@@ -47,9 +47,7 @@ const RememberFor = (props: Props) => {
               className="max-w-sm mt-12"
               // eslint-disable-next-line react/jsx-no-bind
               onClick={() => props.scrollToContact()}>
-              <GlowingButton type="link" href="/">
-                Join hey Rebekah
-              </GlowingButton>
+              <GlowingButton>Join hey Rebekah</GlowingButton>
             </div>
           </div>
         </div>
@@ -64,7 +62,7 @@ const RememberFor = (props: Props) => {
             </Lead>
           </div>
           <div className="holder__head space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">
-            <Lead className="w-48 px-2 py-2 text-center rounded bg-midnight border-2 border-gray-200/10">
+            <Lead className="w-48 px-2 py-2 text-center border-2 rounded border-gray-200/10 bg-midnight">
               COMING SOON
             </Lead>
             <H4 as="h3">Generative AI for freelancers</H4>
@@ -75,7 +73,7 @@ const RememberFor = (props: Props) => {
             </Lead>
           </div>
           <div className="holder__head space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">
-            <Lead className="w-48 px-2 py-2 text-center rounded bg-midnight border-2 border-gray-200/10">
+            <Lead className="w-48 px-2 py-2 text-center border-2 rounded border-gray-200/10 bg-midnight">
               COMING SOON
             </Lead>
             <H4 as="h3">Free jobs with vetted clients</H4>
@@ -87,7 +85,7 @@ const RememberFor = (props: Props) => {
             </Lead>
           </div>
           <div className="holder__head space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">
-            <Lead className="w-48 px-2 py-2 text-center rounded bg-midnight border-2 border-gray-200/10">
+            <Lead className="w-48 px-2 py-2 text-center border-2 rounded border-gray-200/10 bg-midnight">
               COMING SOON
             </Lead>
             <H4 as="h3">Exclusive discounts</H4>
@@ -99,8 +97,8 @@ const RememberFor = (props: Props) => {
             </Lead>
           </div>
         </section>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 

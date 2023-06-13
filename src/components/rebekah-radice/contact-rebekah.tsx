@@ -25,7 +25,7 @@ function ContactRebekah(props: Props) {
   return (
     <div
       ref={contactSectionRef}
-      className="lg:py-26 mx-auto px-4 py-12 sm:px-8 sm:py-20">
+      className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
       <div className="grid grid-cols-2 gap-12">
         <div className="col-span-2 space-y-10 md:col-span-1">
           <div>
@@ -110,7 +110,7 @@ function ContactRebekah(props: Props) {
         <form id="#contact" className="col-span-2 md:col-span-1">
           <div className="grid grid-cols-2 gap-10 ">
             <Input
-              className="border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+              className="text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
               name="firstName"
               type="text"
               required
@@ -119,7 +119,7 @@ function ContactRebekah(props: Props) {
               autoComplete="firstName"
             />
             <Input
-              className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
               name="lastName"
               type="text"
               required
@@ -128,7 +128,7 @@ function ContactRebekah(props: Props) {
               autoComplete="lastName"
             />
             <Input
-              className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
               name="email"
               type="email"
               required
@@ -137,7 +137,7 @@ function ContactRebekah(props: Props) {
               autoComplete="email"
             />
             <Input
-              className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
               name="phoneNumber"
               type="number"
               required
@@ -150,7 +150,7 @@ function ContactRebekah(props: Props) {
               required
               placeholder="Enter your message"
               aria-label="Enter your message"
-              className="col-span-2 w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+              className="w-full col-span-2 text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
             />
             <div className="col-span-2 md:col-span-1">
               <GlowingButton

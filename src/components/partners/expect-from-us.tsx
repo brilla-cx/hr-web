@@ -23,7 +23,11 @@ const features = [
   },
 ];
 
-export default function ExpectFromUs() {
+interface Props {
+  scrollToContact: () => void;
+}
+
+export default function ExpectFromUs(props: Props) {
   return (
     <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
       <div className="grid grid-cols-1 gap-16 mx-auto sm:gap-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
@@ -51,12 +55,10 @@ export default function ExpectFromUs() {
               </dt>
             </div>
           ))}
-          <div className="col-span-2 pt-16 mx-auto">
-            <GlowingButton
-              variant="link"
-              href="/partners/#emailForm">
-              Become a partner
-            </GlowingButton>
+          <div
+            className="col-span-2 pt-16 mx-auto" // eslint-disable-next-line react/jsx-no-bind
+            onClick={() => props.scrollToContact()}>
+            <GlowingButton>Become a partner</GlowingButton>
           </div>
         </dl>
       </div>
