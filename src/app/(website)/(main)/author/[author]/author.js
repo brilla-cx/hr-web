@@ -74,7 +74,7 @@ export default function Author(props) {
         <div className="mt-16 text-center text-gray-200">
           <H6>{author.firstName} writes about</H6>
         </div>
-        <div className="mx-auto mt-2 flex max-w-2xl flex-wrap items-center justify-center gap-3">
+        <div className="mx-auto mt-2 flex max-w-3xl flex-wrap items-center justify-center gap-3">
           {categories.length &&
             categories.map((category) => (
               <Link
