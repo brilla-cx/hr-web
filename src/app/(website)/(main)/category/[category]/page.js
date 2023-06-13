@@ -6,6 +6,15 @@ export function generateStaticParams() {
   return [];
 }
 
+export function generateMetadata() {
+  return {
+    robots: {
+      index: "noindex",
+      follow: "nofollow",
+    },
+  };
+}
+
 export const dynamicParams = true;
 
 async function getCategory(slug) {

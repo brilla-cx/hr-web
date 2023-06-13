@@ -23,6 +23,10 @@ export async function generateMetadata({ params }) {
       title: book.seoTitle || book?.name,
       description: book.seoMetaDescription || book?.summary,
     },
+    twitter: {
+      title: book.seoTitle || book?.name,
+      description: book.seoMetaDescription || book?.summary,
+    },
   };
 }
 
@@ -44,7 +48,7 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       Quick sec, waiting for Samuel to push a commit...
     </div>
   );

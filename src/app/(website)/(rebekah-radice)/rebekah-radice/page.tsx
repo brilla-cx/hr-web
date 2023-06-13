@@ -1,5 +1,6 @@
 "use client";
 
+import { Metadata } from "next";
 import { Fragment, useRef } from "react";
 
 import BrandsMarquee from "@/components/about/brands-marquee";
@@ -10,6 +11,24 @@ import RebekahTimeline from "@/components/rebekah-radice/rebekah-timeline";
 import RememberFor from "@/components/rebekah-radice/remeber-for";
 import SocialStats from "@/components/rebekah-radice/social-stats";
 import { withContainer } from "@/components/shared/withContainer";
+
+// export function generateMetadata(): Metadata {
+//   return {
+//     title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+//     description:
+//       "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+//     openGraph: {
+//       title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+//       description:
+//         "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+//     },
+//     twitter: {
+//       title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+//       description:
+//         "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+//     },
+//   };
+// }
 
 export default function RebekahRadice() {
   const contactSectionRef = useRef<HTMLDivElement>(null);

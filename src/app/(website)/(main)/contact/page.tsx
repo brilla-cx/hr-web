@@ -14,6 +14,18 @@ export function generateMetadata() {
     title: "Contact | Hey Rebekah",
     description:
       "Want to contact our team? Email sales and support or call us anytime with questions (like how to start a business) or sponsorship requests! Buying us a pizza? We can’t say no.",
+    openGraph: {
+      title: "Contact | Hey Rebekah",
+      description:
+        "Want to contact our team? Email sales and support or call us anytime with questions (like how to start a business) or sponsorship requests! Buying us a pizza? We can’t say no.",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Contact | Hey Rebekah",
+      description:
+        "Want to contact our team? Email sales and support or call us anytime with questions (like how to start a business) or sponsorship requests! Buying us a pizza? We can’t say no.",
+      images: "/og.png",
+    },
   };
 }
 

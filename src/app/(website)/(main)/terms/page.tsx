@@ -10,6 +10,18 @@ export function generateMetadata() {
     title: "Terms of Service | Hey Rebekah",
     description:
       "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+    openGraph: {
+      title: "Terms of Service | Hey Rebekah",
+      description:
+        "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Terms of Service | Hey Rebekah",
+      description:
+        "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.",
+      images: "/og.png",
+    },
   };
 }
 

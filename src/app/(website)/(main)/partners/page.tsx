@@ -7,6 +7,18 @@ export function generateMetadata() {
     title: "Partner Program | Hey Rebekah",
     description:
       "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
+    openGraph: {
+      title: "Partner Program | Hey Rebekah",
+      description:
+        "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Partner Program | Hey Rebekah",
+      description:
+        "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
+      images: "/og.png",
+    },
   };
 }
 

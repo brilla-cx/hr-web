@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import BrandsMarquee from "@/components/about/brands-marquee";
 import CheckReplay from "@/components/about/check-replay";
 import EmailCta from "@/components/about/email-cta";
@@ -9,11 +11,23 @@ import { HeroWithImage } from "@/components/sections/herowithimage";
 import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   return {
     title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
     description:
       "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+    openGraph: {
+      title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+      description:
+        "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+      description:
+        "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+      images: "/og.png",
+    },
   };
 }
 
