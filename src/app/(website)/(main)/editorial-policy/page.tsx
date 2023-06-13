@@ -10,6 +10,18 @@ export function generateMetadata() {
     title: "Editorial Policy | Hey Rebekah",
     description:
       "The TL;DR? We're a free daily newsletter for freelancers that does not accept money for affiliate links and always marks sponsored content.",
+    openGraph: {
+      title: "Editorial Policy | Hey Rebekah",
+      description:
+        "The TL;DR? We're a free daily newsletter for freelancers that does not accept money for affiliate links and always marks sponsored content.",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Editorial Policy | Hey Rebekah",
+      description:
+        "The TL;DR? We're a free daily newsletter for freelancers that does not accept money for affiliate links and always marks sponsored content.",
+      images: "/og.png",
+    },
   };
 }
 

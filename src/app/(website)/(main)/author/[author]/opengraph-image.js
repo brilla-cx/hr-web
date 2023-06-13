@@ -1,12 +1,17 @@
 import { ImageResponse } from "next/server";
 
 import OgImage from "@/components/blog/ogimage";
-import { getBookbySlug } from "@/sanity/client";
+import { getAuthorPostsBySlug } from "@/sanity/client";
 
 export const runtime = "edge";
 
+async function getAuthor(slug) {
+  const posts = await getAuthorPostsBySlug(slug);
+  return posts?.[0]?.author || {};
+}
+
 export default async function handler({ params }) {
-  const post = await getBookbySlug(params.slug);
+  const author = await getAuthor(params.author);
 
   const lexendDeca = fetch(
     new URL("../../../assets/fonts/lexend-semibold.ttf", import.meta.url)
@@ -14,7 +19,7 @@ export default async function handler({ params }) {
 
   const fontData = await lexendDeca;
 
-  return new ImageResponse(<OgImage post={post} />, {
+  return new ImageResponse(<OgImage post={author} />, {
     width: 1200,
     height: 630,
     fonts: [

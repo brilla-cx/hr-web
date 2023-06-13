@@ -7,6 +7,18 @@ export function generateMetadata() {
     title: "Side Hustle Stack | Hey Rebekah",
     description:
       "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business! ",
+    openGraph: {
+      title: "Side Hustle Stack | Hey Rebekah",
+      description:
+        "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business! ",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Side Hustle Stack | Hey Rebekah",
+      description:
+        "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business! ",
+      images: "/og.png",
+    },
   };
 }
 

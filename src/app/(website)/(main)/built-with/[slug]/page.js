@@ -26,6 +26,12 @@ export async function generateMetadata({ params }) {
         data.seoTitle || data.name
       } and hook you up with our discount. Not an affiliate`,
     },
+    twitter: {
+      title: `Hey Rebekah x ${data.seoTitle || data.name}`,
+      description: `We’ll show you how we use ${
+        data.seoTitle || data.name
+      } and hook you up with our discount. Not an affiliate`,
+    },
   };
 }
 

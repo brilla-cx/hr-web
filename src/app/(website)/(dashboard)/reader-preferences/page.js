@@ -8,6 +8,18 @@ export function generateMetadata() {
     title: "Reader Prefrences | Hey Rebekah",
     description:
       "take a minute to tell us about your content preferences. The more details you give us, the more we customize your newsletter with stuff you really want to read.",
+    openGraph: {
+      title: "Reader Prefrences | Hey Rebekah",
+      description:
+        "take a minute to tell us about your content preferences. The more details you give us, the more we customize your newsletter with stuff you really want to read.",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Reader Prefrences | Hey Rebekah",
+      description:
+        "take a minute to tell us about your content preferences. The more details you give us, the more we customize your newsletter with stuff you really want to read.",
+      images: "/og.png",
+    },
   };
 }
 

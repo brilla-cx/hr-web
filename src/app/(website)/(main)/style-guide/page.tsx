@@ -8,6 +8,18 @@ export function generateMetadata() {
     title: "Web Design Style Guide | Hey Rebekah",
     description:
       "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+    openGraph: {
+      title: "Web Design Style Guide | Hey Rebekah",
+      description:
+        "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Web Design Style Guide | Hey Rebekah",
+      description:
+        "Our website style guide is by Client-First, and we used Relume Library for components. Feel free to use this for inspo on building your own web style guide!",
+      images: "/og.png",
+    },
   };
 }
 

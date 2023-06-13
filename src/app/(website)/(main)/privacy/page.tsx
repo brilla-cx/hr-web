@@ -10,6 +10,18 @@ export function generateMetadata() {
     title: "Privacy Policy | Hey Rebekah",
     description:
       "We don't sell your information for money and will always keep the protection and privacy of your data top of mind. Read more details on the whos and the whats.",
+    openGraph: {
+      title: "Privacy Policy | Hey Rebekah",
+      description:
+        "We don't sell your information for money and will always keep the protection and privacy of your data top of mind. Read more details on the whos and the whats.",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Privacy Policy | Hey Rebekah",
+      description:
+        "We don't sell your information for money and will always keep the protection and privacy of your data top of mind. Read more details on the whos and the whats.",
+      images: "/og.png",
+    },
   };
 }
 
@@ -33,9 +45,9 @@ export default async function Privacy() {
           />
         </Container>
       </div>
-      <div className="flex flex-col max-w-screen-xl gap-5 px-5 mx-auto mb-20 mt-14 md:flex-row">
+      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="mx-auto prose max-w-prose">
+          <Prose className="prose mx-auto max-w-prose">
             <PortableText value={content} />
           </Prose>
         </article>

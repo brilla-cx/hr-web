@@ -59,6 +59,10 @@ export async function generateMetadata({ params }) {
       title: post.seo?.title || seoTitle,
       description: post.seo?.description || seoMetaDescription,
     },
+    twitter: {
+      title: post.seo?.title || seoTitle,
+      description: post.seo?.description || seoMetaDescription,
+    },
   };
 }
 
@@ -90,7 +94,7 @@ export default async function SocialBlogPage({ params }) {
 }
 const Loading = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       Just a minute, convincing Ambreen....
     </div>
   );

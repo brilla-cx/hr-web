@@ -5,6 +5,16 @@ export function generateMetadata() {
   return {
     title: "Juno | Hey Rebekah",
     description: "Juno is the AI assistant for Hey Rebekah's tech stack.",
+    openGraph: {
+      title: "Juno | Hey Rebekah",
+      description: "Juno is the AI assistant for Hey Rebekah's tech stack.",
+      images: "/og.png",
+    },
+    twitter: {
+      title: "Juno | Hey Rebekah",
+      description: "Juno is the AI assistant for Hey Rebekah's tech stack.",
+      images: "/og.png",
+    },
   };
 }
 
