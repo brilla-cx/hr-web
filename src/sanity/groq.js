@@ -56,7 +56,7 @@ export const postById = groq`*[_id == $id][0] {
 }
 `;
 
-export const postquery = groq`*[_type == "post"]  | order(publishedAt desc, _createdAt desc) {
+export const postquery = groq`*[_type == "post"]  | order(featured desc, publishedAt desc) {
   _id,
   _createdAt,
   name,
@@ -113,7 +113,7 @@ export const singlepostquery = groq`
  * The slugs are used to generate the static paths for each post page during the static site generation process in Next.js.
  */
 export const postpathquery = groq`
-*[_type == "post" && defined(slug.current)]|order(publishedAt desc, _createdAt desc)[0...12].slug.current
+*[_type == "post" && defined(slug.current)]|order(featured desc, publishedAt desc)[0...12].slug.current
 `;
 
 /*
@@ -158,7 +158,7 @@ export const postsbyauthorquery = groq`
     category->,
   },
   category[]->,
-}
+} | order(featured desc, publishedAt desc)
 `;
 
 export const authorMeta = groq`
@@ -178,7 +178,7 @@ export const authorMeta = groq`
  * The $pageIndex and $limit parameters define the slice of posts to be fetched.
  */
 export const paginatedpostsquery = groq`
-*[_type == "post"] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+*[_type == "post"] | order(featured desc, publishedAt desc) [$pageIndex...$limit] {
   ...,
   author->,
   category[]->
@@ -192,14 +192,14 @@ export const paginatedpostsquery = groq`
  * For each post, we fetch the post details, author details, and categories.
  */
 export const postsbycatquery = groq`
-*[_type == "post" && $slug in category[]->slug.current ] {
+*[_type == "post" && $slug in category[]->slug.current ] | order(featured desc, publishedAt desc) {
   ...,
   author->,
   category[]->
 }
 `;
 
-export const gettoolsquery = groq`*[_type == "tool"]  | order(name asc) {
+export const gettoolsquery = groq`*[_type == "tool"]  | order(isPartner desc, name asc) {
   ...,
   category->,
 }`;
