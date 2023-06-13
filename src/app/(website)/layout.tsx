@@ -2,6 +2,7 @@
 // @ts-nocheck
 import "../globals.css";
 
+import { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
@@ -10,7 +11,7 @@ import { cx } from "@/lib/utils";
 
 // export const revalidate = 86400;
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
@@ -31,6 +32,7 @@ export const metadata = {
     description:
       "Hey Rebekah is a free daily newsletter for freelancers. We'll help you upskill your work in 6 minutes or less. Build a thriving career, earn more, and find your joy. Our moms think it's awesome, you will too. 🔥",
     siteName: "Hey Rebekah",
+    image: "/og.png",
   },
   robots: {
     index: "noindex",
@@ -56,7 +58,7 @@ export const metadata = {
     title: "Hey Rebekah | Like Morning Brew for freelancers", // the title of the content
     description: "Hey Rebekah is a free daily newsletter for freelancers...", // a description of the content
     creator: "rebekahradice",
-    image: "public/og.webp",
+    images: "public/og.png",
   },
   icons: [
     {

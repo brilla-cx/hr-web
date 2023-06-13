@@ -1,15 +1,28 @@
 import { PortableText } from "@portabletext/react";
+import { Metadata } from "next";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   return {
     title: "Accessibility Statement",
     description:
       "The Hey Rebekah website aims to meet accessibility standards and provide an inclusive experience for all users. Though more work remains, we are continuously improving to ensure content is accessible to people with disabilities. Contact us with any accessibility issues. Accessibility is an ongoing process, and we welcome input on how to improve.",
+    twitter: {
+      title: "Accessibility Statement",
+      description:
+        "The Hey Rebekah website aims to meet accessibility standards and provide an inclusive experience for all users. Though more work remains, we are continuously improving to ensure content is accessible to people with disabilities. Contact us with any accessibility issues. Accessibility is an ongoing process, and we welcome input on how to improve.",
+      images: "/og.png",
+    },
+    openGraph: {
+      title: "Accessibility Statement",
+      description:
+        "The Hey Rebekah website aims to meet accessibility standards and provide an inclusive experience for all users. Though more work remains, we are continuously improving to ensure content is accessible to people with disabilities. Contact us with any accessibility issues. Accessibility is an ongoing process, and we welcome input on how to improve.",
+      images: "/og.png",
+    },
   };
 }
 
