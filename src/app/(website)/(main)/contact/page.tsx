@@ -10,24 +10,28 @@ import PageHeader from "@/components/sections/pageheader";
 import ContactCard from "@/components/shared/contactCard";
 
 export function generateMetadata() {
-  return {
-    title: "Contact | Hey Rebekah",
-    description:
-      "Want to contact our team? Email sales and support or call us anytime with questions (like how to start a business) or sponsorship requests! Buying us a pizza? We can’t say no.",
+  const title = "Contact";
+  const description =
+    "Contact Hey Rebekah? Email sales and support or call us anytime with questions or sponsorship requests! Buying us a pizza? We can’t say no. We love tacos too. 🍕 🌮";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Contact | Hey Rebekah",
-      description:
-        "Want to contact our team? Email sales and support or call us anytime with questions (like how to start a business) or sponsorship requests! Buying us a pizza? We can’t say no.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Contact | Hey Rebekah",
-      description:
-        "Want to contact our team? Email sales and support or call us anytime with questions (like how to start a business) or sponsorship requests! Buying us a pizza? We can’t say no.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 export default function ContactPage() {
   return (

@@ -1,23 +1,26 @@
 import SocialBlogs from "./socialblogs";
 
 export function generateMetadata() {
-  return {
-    title: "Rebekah Radice's Blog",
-    description:
-      "Rebekah Radice is a social media speaker, consultant, and trainer in Los Angeles, CA. Rebekah helps growth-driven leaders build brand awareness and authority. Find the new home for her blog here.",
+  const title = "Rebekah Radice's Blog";
+  const description =
+    "Rebekah Radice is a social media speaker, consultant, and trainer in Los Angeles, CA. She's now focused on helping the world adopt AI to upskill their work.";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Rebekah Radice's Blog",
-      description:
-        "Rebekah Radice is a social media speaker, consultant, and trainer in Los Angeles, CA. Rebekah helps growth-driven leaders build brand awareness and authority. Find the new home for her blog here.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Rebekah Radice's Blog",
-      description:
-        "Rebekah Radice is a social media speaker, consultant, and trainer in Los Angeles, CA. Rebekah helps growth-driven leaders build brand awareness and authority. Find the new home for her blog here.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
 
 export default function SocialBlogsPage() {

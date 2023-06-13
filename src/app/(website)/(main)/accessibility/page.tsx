@@ -7,23 +7,26 @@ import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export function generateMetadata(): Metadata {
-  return {
-    title: "Accessibility | Hey Rebekah",
-    description:
-      "Hey Rebekah strives for inclusive design for our readers. We're continually improving but it's a process. Please reach out to us for accessibility issues.",
-    twitter: {
-      title: "Accessibility Statement",
-      description:
-        "Hey Rebekah strives for inclusive design for our readers. We're continually improving but it's a process. Please reach out to us for accessibility issues.",
+  const title = "Accessibility";
+  const description =
+    "Hey Rebekah strives for inclusive design for our readers. We're continually improving but it's a process. Please reach out to us for accessibility issues.";
+
+  const metadata = {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
       images: "/og.png",
     },
-    openGraph: {
+    twitter: {
       title: "Accessibility Statement",
-      description:
-        "Hey Rebekah strives for inclusive design for our readers. We're continually improving but it's a process. Please reach out to us for accessibility issues.",
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
 
 export default async function AccessibilityStatement() {

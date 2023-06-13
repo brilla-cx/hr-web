@@ -12,24 +12,28 @@ import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
 export function generateMetadata(): Metadata {
-  return {
-    title: "What is Hey Rebekah? | #1 AI Newsletter",
-    description:
-      "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽",
+  const title = "What is Hey Rebekah?";
+  const description =
+    "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "What is Hey Rebekah? | #1 AI Newsletter",
-      description:
-        "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "What is Hey Rebekah? | #1 AI Newsletter",
-      description:
-        "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 const withContainer = (Component, props, bgColor) => {
   return (
