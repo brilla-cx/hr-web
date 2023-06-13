@@ -13,19 +13,19 @@ import { FaqType } from "@/types/types";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+    title: "What is Hey Rebekah? | #1 AI Newsletter",
     description:
-      "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+      "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽",
     openGraph: {
-      title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+      title: "What is Hey Rebekah? | #1 AI Newsletter",
       description:
-        "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+        "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽",
       images: "/og.png",
     },
     twitter: {
-      title: "What is Hey Rebekah? | #1 Newsletter for Freelancing",
+      title: "What is Hey Rebekah? | #1 AI Newsletter",
       description:
-        "Wondering WTF is Hey Rebekah? LOL, no worries. It's a free daily newsletter produced by Rebekah Radice. It's like Morning Brew for freelancers. 💪🏽",
+        "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽",
       images: "/og.png",
     },
   };

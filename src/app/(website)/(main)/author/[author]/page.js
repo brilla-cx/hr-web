@@ -18,9 +18,13 @@ async function getAuthor(slug) {
 
 export async function generateMetadata({ params }) {
   const authorSeoMeta = await getAuthorMeta(params.author);
-  const seoTitle = authorSeoMeta?.seoTitle || authorSeoMeta?.name;
-  const seoMetaDescription =
-    authorSeoMeta?.seoMetaDescription || authorSeoMeta?.expertise;
+
+  const authorName = authorSeoMeta?.name;
+  const authorCategory =
+    authorSeoMeta?.category || "stuff that'll blow your mind";
+
+  const seoTitle = `Looking for ${authorName}'s latest writing?`;
+  const seoMetaDescription = `${authorName} writes about ${authorCategory} for Hey Rebekah. They'll help you bring AI into your work.`;
 
   return {
     title: seoTitle,
