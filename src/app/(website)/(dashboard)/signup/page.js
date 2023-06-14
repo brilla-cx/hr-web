@@ -1,11 +1,12 @@
 import Container from "@/components/container";
-import MultiStepForm from "./signupform";
 import SignupHeader from "@/components/sections/signupheader";
+
+import MultiStepForm from "./signupform";
 
 export default function Page() {
   return (
     <>
-      <Container large className="border-l border-r border-neutral-200/10">
+      <Container large className="">
         <div className="mt-16">
           <SignupHeader title="Signup for Hey Rebekah" />
           <MultiStepForm />
