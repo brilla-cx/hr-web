@@ -7,9 +7,6 @@ import { z } from "zod";
 import GlowingButton from "./glowingButton";
 import { H3, Lead } from "./typography";
 
-const WEBSITE_URL_DEV = "http://localhost:3000";
-const WEBSITE_URL_PROD = "https://hr-web-beta.vercel.app";
-
 export interface LeadData {
   firstName: string;
   lastName: string;
@@ -44,12 +41,8 @@ function EmailForm() {
   const onSubmit = async (data: LeadData) => {
     try {
       setIsLoading(true);
-      const SITE_URL =
-        process.env.NODE_ENV === "production"
-          ? WEBSITE_URL_PROD
-          : WEBSITE_URL_DEV;
 
-      await axios.post(`${SITE_URL}/api/close-com`, data);
+      await axios.post(`/api/close-com`, data);
       setIsSuccess(true);
     } catch (error) {
       return error;
