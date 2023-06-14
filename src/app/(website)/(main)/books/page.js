@@ -1,23 +1,26 @@
 import Books from "./books";
 
 export function generateMetadata() {
-  return {
-    title: "Freelancing Book Club | Hey Rebekah",
-    description:
-      "Looking for some books to help with your freelancing? Join Hey Rebekah's Freelancing Book Club. We'll send you personalized recommendations each week.",
+  const title = "Book Club";
+  const description =
+    "Looking for some books to help with your career? Join Hey Rebekah's Book Club. We'll send you personalized recommendations each week.";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Freelancing Book Club | Hey Rebekah",
-      description:
-        "Looking for some books to help with your freelancing? Join Hey Rebekah's Freelancing Book Club. We'll send you personalized recommendations each week.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Freelancing Book Club | Hey Rebekah",
-      description:
-        "Looking for some books to help with your freelancing? Join Hey Rebekah's Freelancing Book Club. We'll send you personalized recommendations each week.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
 
 export default function BooksPage({ searchParams }) {

@@ -7,7 +7,7 @@ import hoverStyles from "@/lib/hover";
 
 const NotFound: React.FC = () => {
   return (
-    <main className="grid min-h-[75vh] place-items-center bg-midnight px-6 py-24 sm:py-32 lg:px-8">
+    <main className="grid min-h-screen place-items-center bg-midnight px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
         <p className="text-base font-semibold text-pink">404</p>
         <H1 className="mt-4 text-3xl font-bold tracking-tight text-gray-200 sm:text-5xl">

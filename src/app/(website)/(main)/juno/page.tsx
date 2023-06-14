@@ -2,21 +2,27 @@ import Script from "next/script";
 import React, { ReactElement } from "react";
 
 export function generateMetadata() {
-  return {
-    title: "Juno | Hey Rebekah",
-    description: "Juno is the AI assistant for Hey Rebekah's tech stack.",
+  const title = "Juno AI";
+  const description = "Juno loves Sam the most. She's the inspiration for our free embedded AI. These treats are made by hand, just for you. Dive in, save your money, get results.";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Juno | Hey Rebekah",
-      description: "Juno is the AI assistant for Hey Rebekah's tech stack.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Juno | Hey Rebekah",
-      description: "Juno is the AI assistant for Hey Rebekah's tech stack.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 const Juno: React.FC = (): ReactElement => {
   return (

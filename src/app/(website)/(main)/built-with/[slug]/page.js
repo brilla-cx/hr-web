@@ -15,22 +15,22 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const data = await getToolbySlug(params.slug);
+
+  const title = `Hey Rebekah ❤️ ${data.seoTitle || data.name}`;
+  const description = `We’ll show you how we use ${
+    data.seoTitle || data.name
+  } and hook you up with our discount. Not an affiliate`;
+
   return {
-    title: `Hey Rebekah x ${data.seoTitle || data.name}`,
-    description: `We’ll show you how we use ${
-      data.seoTitle || data.name
-    } and hook you up with our discount. Not an affiliate`,
+    title,
+    description,
     openGraph: {
-      title: `Hey Rebekah x ${data.seoTitle || data.name}`,
-      description: `We’ll show you how we use ${
-        data.seoTitle || data.name
-      } and hook you up with our discount. Not an affiliate`,
+      title,
+      description,
     },
     twitter: {
-      title: `Hey Rebekah x ${data.seoTitle || data.name}`,
-      description: `We’ll show you how we use ${
-        data.seoTitle || data.name
-      } and hook you up with our discount. Not an affiliate`,
+      title,
+      description,
     },
   };
 }
@@ -52,7 +52,7 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       Just a sec, getting Rebekah's attention...
     </div>
   );

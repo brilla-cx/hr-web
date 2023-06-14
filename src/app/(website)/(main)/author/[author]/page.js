@@ -18,9 +18,13 @@ async function getAuthor(slug) {
 
 export async function generateMetadata({ params }) {
   const authorSeoMeta = await getAuthorMeta(params.author);
-  const seoTitle = authorSeoMeta?.seoTitle || authorSeoMeta?.name;
-  const seoMetaDescription =
-    authorSeoMeta?.seoMetaDescription || authorSeoMeta?.expertise;
+
+  const authorName = authorSeoMeta?.name;
+  const authorCategory =
+    authorSeoMeta?.category || "stuff that'll blow your mind";
+
+  const seoTitle = `Looking for ${authorName}'s latest writing?`;
+  const seoMetaDescription = `${authorName} writes about ${authorCategory} for Hey Rebekah. They'll help you bring AI into your work.`;
 
   return {
     title: seoTitle,
@@ -36,8 +40,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function AuthorPage({ params }) {
-  const posts = await getAuthorPostsBySlug(params.author);
+export default async function AuthorPage({ params, searchParams }) {
   const author = await getAuthor(params.author);
-  return <Author posts={posts} author={author} />;
+  return (
+    <Author
+      author={author}
+      searchParams={searchParams}
+      authorSlug={params.author}
+    />
+  );
 }
+
+export const dynamic = "force-dynamic";

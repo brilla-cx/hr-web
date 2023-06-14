@@ -13,7 +13,8 @@ const RotatingText = ({ items }: Props) => {
         data={items}
         effect="simple"
         duration={1000}
-        stopDuration={4000}
+        // @ts-ignore
+        stopDuration={5000}
       />
     </p>
   );

@@ -3,23 +3,26 @@ import { getAllTools, getToolsCategories } from "@/sanity/client";
 import Tools from "./tools";
 
 export function generateMetadata() {
-  return {
-    title: "Side Hustle Stack | Hey Rebekah",
-    description:
-      "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business! ",
+  const title = "Side Hustle Stack";
+  const description =
+    "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business!";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Side Hustle Stack | Hey Rebekah",
-      description:
-        "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business! ",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Side Hustle Stack | Hey Rebekah",
-      description:
-        "Our tech stack is your new side hustle stack. Browse our Built With directory to see what we use. Plus, grab exclusive discounts on these tools for your own business! ",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
 
 export default async function BuiltWith() {

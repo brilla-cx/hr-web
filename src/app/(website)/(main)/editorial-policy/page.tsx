@@ -6,23 +6,26 @@ import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export function generateMetadata() {
-  return {
-    title: "Editorial Policy | Hey Rebekah",
-    description:
-      "The TL;DR? We're a free daily newsletter for freelancers that does not accept money for affiliate links and always marks sponsored content.",
+  const title = "Editorial Policy";
+  const description =
+    "The TL;DR? We're a free daily newsletter for knowledge workers. We write about AI. We don't accept money for affiliate links and always mark paid content.";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Editorial Policy | Hey Rebekah",
-      description:
-        "The TL;DR? We're a free daily newsletter for freelancers that does not accept money for affiliate links and always marks sponsored content.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Editorial Policy | Hey Rebekah",
-      description:
-        "The TL;DR? We're a free daily newsletter for freelancers that does not accept money for affiliate links and always marks sponsored content.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
 
 export default async function EditorialPolicy() {

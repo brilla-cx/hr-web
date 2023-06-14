@@ -50,7 +50,7 @@ function ListCard(props: ListItem) {
 
 function WhatIsImportant() {
   return (
-    <div className="lg:py-26 flex flex-col items-center justify-center sm:px-8 sm:py-20 lg:px-16">
+    <div className="flex flex-col items-center justify-center px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
       <div className="mx-auto max-w-2xl lg:text-center">
         <H3
           as="h2"

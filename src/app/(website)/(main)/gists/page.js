@@ -1,23 +1,26 @@
 import Gists from "./gists";
 
 export function generateMetadata() {
-  return {
-    title: "Gist Archive | Hey Rebekah",
-    description:
-      "Looking for a Hey Rebekah gist? No problem! Search the archives for past issues of our daily newsletter, or read the latest gist from Hey Rebekah!",
+  const title = "Gist Archive";
+  const description =
+    "Looking for a Hey Rebekah gist? No problem! Search the archives for past issues of our daily newsletter, or read the latest on ChatGPT and AI from Hey Rebekah!";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Gist Archive | Hey Rebekah",
-      description:
-        "Looking for a Hey Rebekah gist? No problem! Search the archives for past issues of our daily newsletter, or read the latest gist from Hey Rebekah!",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Gist Archive | Hey Rebekah",
-      description:
-        "Looking for a Hey Rebekah gist? No problem! Search the archives for past issues of our daily newsletter, or read the latest gist from Hey Rebekah!",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
 
 export default function GistsPage() {

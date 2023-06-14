@@ -25,7 +25,7 @@ const content: ReactNode[] = [
 
 const WtfIsHeyRebekah: FC = () => {
   return (
-    <div className="lg:py-26 bg-midnight sm:px-8 sm:py-20 lg:px-16">
+    <div className="px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
       <H3 as="h2" className="pb-6 text-center text-gray-200">
         Who TF is Rebekah Radice?
       </H3>

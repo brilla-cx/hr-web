@@ -8,8 +8,7 @@ import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { media } from "sanity-plugin-media";
 
-import hrLogo from "@/components/studio/logo/logo";
-
+import hrLogo from "./src/components/studio/logo/logo";
 import { SITE_URL } from "./src/lib/constants";
 import { SendToIterable } from "./src/sanity/actions";
 import schemas from "./src/sanity/schemas";

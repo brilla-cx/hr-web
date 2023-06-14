@@ -8,6 +8,7 @@ import Container from "@/components/container"; // Custom container component fo
 import PostAlt from "@/components/postalt"; // Component to display individual posts
 import PageHeader from "@/components/sections/pageheader"; // Component for page header section
 
+import PaginatedPosts from "./posts";
 /**
  * Category Page Component
  * This component serves as the primary display for each individual category page.
@@ -22,7 +23,7 @@ import PageHeader from "@/components/sections/pageheader"; // Component for page
 // This component receives loading state, posts array, and category object as props
 export default function Category(props) {
   // Destructure props into individual variables
-  const { loading, posts, category } = props;
+  const { loading, searchParams, category } = props;
 
   // Extract the current category slug
   const slug = category?.slug?.current;
@@ -50,28 +51,9 @@ export default function Category(props) {
           includeForm
         />
         {/* Grid layout div for holding PostAlt components */}
-        <Suspense
-          fallback={
-            <p className="text-center text-lg">Stargazing with Raquel...</p>
-          }>
-          <div className="mb-10 mt-16 grid gap-10 px-4 sm:px-8 md:grid-cols-3 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
-            {/* Map through posts array, and for each post, render a PostAlt component */}
-            {posts.map((post) => (
-              <PostAlt
-                key={post._id} // Unique key prop for React list rendering
-                post={post} // Pass entire post object as a prop
-                aspect="landscape" // Aspect ratio prop
-                hideCategory // Prop to hide category
-              />
-            ))}
-          </div>
-          <ViewAllPosts
-            href="/gists"
-            buttonText="View All Posts"
-            direction="left"
-            variant="dark"
-          />
-        </Suspense>
+        <div className="mx-auto max-w-6xl px-4 text-gray-200">
+          <PaginatedPosts searchParams={searchParams} slug={slug} />
+        </div>
       </Container>
     </div>
   );

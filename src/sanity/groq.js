@@ -161,12 +161,33 @@ export const postsbyauthorquery = groq`
 } | order(featured desc, publishedAt desc)
 `;
 
+/*
+ * Paginated Author Query
+ *
+ */
+export const paginatedauthorpostquery = groq`
+*[_type == "post" && $slug match author->slug.current ] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+  ...,
+  image {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+  },
+  author-> {
+    ...,
+    beat[]->,
+    category->,
+  },
+  category[]->,
+}
+`;
+
 export const authorMeta = groq`
 *[_type == "author" && slug.current == $slug][0] {
   seoTitle,
   seoMetaDescription,
   name,
-  expertise
+  expertise,
+  "category": category->name
 }
 `;
 
@@ -198,6 +219,25 @@ export const postsbycatquery = groq`
   category[]->
 }
 `;
+
+// Paginated Posts by Category
+export const paginatedcatpostquery = groq`
+*[_type == "post" && $slug in category[]->slug.current ] | order(featured desc, publishedAt desc) [$pageIndex...$limit] {
+  ...,
+  author->,
+  category[]->
+}
+`;
+
+// Get Category by Slug
+
+export const categoryquery = groq`*[_type == "category"&& slug.current == $slug][0] {
+  _id,
+  _type,
+  name,
+  slug,
+  color
+}`;
 
 export const gettoolsquery = groq`*[_type == "tool"]  | order(isPartner desc, name asc) {
   ...,

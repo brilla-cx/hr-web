@@ -16,16 +16,22 @@ export const dynamicParams = true;
 
 export async function generateMetadata({ params }) {
   const book = await getBookbySlug(params.slug);
+
+  const bookName = book?.name;
+
+  const seoTitle = `Hey Rebekah ❤️ ${bookName}`;
+  const seoMetaDescription = `Thinking about a good book? ${bookName} is one of our favorites. Read our quick summary then pick up your copy.`;
+
   return {
-    title: book.seoTitle || book?.name,
-    description: book.seoMetaDescription || book?.summary,
+    title: seoTitle,
+    description: seoMetaDescription,
     openGraph: {
-      title: book.seoTitle || book?.name,
-      description: book.seoMetaDescription || book?.summary,
+      title: seoTitle,
+      description: seoMetaDescription,
     },
     twitter: {
-      title: book.seoTitle || book?.name,
-      description: book.seoMetaDescription || book?.summary,
+      title: seoTitle,
+      description: seoMetaDescription,
     },
   };
 }
@@ -48,7 +54,7 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       Quick sec, waiting for Samuel to push a commit...
     </div>
   );

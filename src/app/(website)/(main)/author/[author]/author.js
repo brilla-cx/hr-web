@@ -1,18 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { SiLinkedin, SiTwitter } from "react-icons/si";
 
 import { PortableText } from "@/components/blog/portabletext";
 import Container from "@/components/container";
-import PostAlt from "@/components/postalt";
 import { H2, H6, Lead } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { urlForImage } from "@/sanity/image";
 
+import PaginatedPosts from "./posts";
+
 export default function Author(props) {
-  const { loading, posts, author } = props;
+  const { loading, searchParams, author } = props;
 
   const slug = author?.slug?.current;
 
@@ -84,18 +84,10 @@ export default function Author(props) {
               </Link>
             ))}
         </div>
-        <Suspense
-          fallback={
-            <p className="text-center text-lg">
-              Revving up the flux capacitor....
-            </p>
-          }>
-          <div className="my-8 grid gap-10 px-4 sm:px-8 md:grid-cols-2 lg:gap-10 lg:px-16 xl:grid-cols-3 ">
-            {posts.map((post) => (
-              <PostAlt key={post._id} post={post} aspect="landscape" />
-            ))}
-          </div>
-        </Suspense>
+
+        <div className="mx-auto max-w-6xl px-4 text-gray-200">
+          <PaginatedPosts searchParams={searchParams} slug={props.authorSlug} />
+        </div>
       </Container>
     </div>
   );

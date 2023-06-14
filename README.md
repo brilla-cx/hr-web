@@ -1,57 +1,71 @@
 # Hey Rebekah Composable Content Cloud ☁️
 
-## Intro 📚
+## About Us 📚
 
-Hey Rebekah is a free daily newsletter for freelancers. It's like Morning Brew without all the readers. 
+Welcome to Hey Rebekah, your daily dose of knowledge delivered with wit and warmth. We're a free newsletter specifically designed for senior professionals who seek to leverage artificial intelligence in their work. Think of us as a twist on Morning Brew, but with a dash of ChatGPT, Claude, Hugging Face, and Stable Diffusion.
 
-## Purpose
-Our mission is to centralize our publishing workflow, empowering writers to focus on their craft while technology handles the distribution to various platforms where readers want to consume content.
+## Our Mission
 
-## Technologies Used 🛠️
+At Hey Rebekah, our objective is simple: to make your life easier. So, with this project, it starts with us. We're streamlining our publishing workflow, allowing us to focus on creating engaging, top-notch content while our technology takes care of distributing our masterpieces across various platforms where over 338,000 community members await.
+
+## Our Toolbox 🛠️
 
 ### Development Stack
 
-- [PNPM](https://pnpm.io/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Sanity.io v3](https://www.sanity.io/)
-- [Next JS 13](https://nextjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Tailwind UI](https://tailwindui.com/) as component library
+- [PNPM](https://pnpm.io/) - Efficient package management
+- [WunderGraph](https://wundergraph.com/) - Our Backend for Frontend framework, optimizing our developer workflows through API composition
+- [TypeScript](https://www.typescriptlang.org/) - Strong typing for JavaScript
+- [Sanity.io v3](https://www.sanity.io/) - Structured content done right
+- [Next JS 13](https://nextjs.org/) - The React Framework
+- [Clerk.com](https://clerk.dev/) - For seamless user management
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Tailwind UI](https://tailwindui.com/) - Our chosen component library
 
 ### Frameworks & Libraries
 
-- [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) required by TailwindUI
-- [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography) required by TailwindCSS
-- [Tailwind HeadlessUI](https://github.com/tailwindlabs/headlessui) required by TailwindUI
-- [Stablo Pro Blog by Web3Templates](https://web3templates.com/preview/stablo) as the Next JS 13 and Sanity Starter
-- [Web3 Forms](https://web3forms.com/) to handle the post submission processing of forms creating users in all systems
+- [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms), [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography), [Tailwind HeadlessUI](https://github.com/tailwindlabs/headlessui) - Enhancements for Tailwind UI
+- [Stablo Pro Blog by Web3Templates](https://web3templates.com/preview/stablo) - The robust Next JS 13 and Sanity Starter
 
-### Deployment
+### Deployment and Monitoring
 
-- [Vercel](https://vercel.com/)
-
-### Other Integrations & Tools
-
-- [Checkly](https://www.checklyhq.com/) - Monitoring and testing for web applications
+- [Vercel](https://vercel.com/) - Our deployment solution
+- [CodeClimate](https://codeclimate.com/) - To maintain code quality
+- [Checkly](https://www.checklyhq.com/) - For web application monitoring and testing
   - API Documentation: [Checkly API Docs](https://www.checklyhq.com/docs/api)
-- [Slack](https://slack.com/) integration
-  - API Documentation: [Slack API Docs](https://api.slack.com/)
-- [Height App](https://height.app/) is where we manage our work
-  - API Documentation: [Height API Docs](https://developer.height.app/docs)
-- [Iterable.com](https://iterable.com/) is the primary email platform we use
-  - API Documentation: [Iterable API Docs](https://developer.iterable.com/docs)
-- [Recombee](https://www.recombee.com/) for machine learning and content recommendations
-  - API Documentation: [Recombee API Docs](https://docs.recombee.com/)
-- [Ayrshare](https://www.ayrshare.com/) for social publishing
-  - API Documentation: [Ayrshare API Docs](https://docs.ayrshare.com/)
 
-## Getting Started 🚀
+### Additional Integrations & Tools
 
-These instructions will help you set up the project on your local machine for development and testing purposes.
+- [Slack](https://slack.com/) - Our communication hub
+- [Height App](https://height.app/) - Where we manage our work
+- [Iterable.com](https://iterable.com/) - Our go-to email platform
+- [Recombee](https://www.recombee.com/) - For machine learning and content recommendations
+- [Make.com](https://www.make.com/) - Low-code API connections in the cloud
+
+## Embracing TypeScript: Halfway Up the Mountain 🧗‍♀️
+
+We've caught the TypeScript bug, and it's taken over about 55% of our codebase. Imagine us as mountaineers, scaling the steep cliffs of static types. We're over the halfway mark, panting a bit, but excited for the view from the top. We're not quite there yet, but the journey has been worth it, and we're committed to going the distance!
+
+## Test Coverage: Our New Year's Resolution 🎉
+
+Ever made a New Year's resolution? You know, the ones you're absolutely, positively sure you're going to keep this time? That's us with test coverage right now. Truth be told, our current test coverage is like a desert - it's vast, it's empty, it's... zero. But we're determined to turn this desert into an oasis of well-tested code. Stay tuned for our transformation!
+
+## Accessibility: A Commitment, Not an Afterthought 🤦🏼‍♀️
+
+Inclusivity and accessibility aren't just buzzwords to us; they're fundamental principles that guide our work. We're continually improving our platform to ensure that it's not just user-friendly, but friendly to all users. Whether you navigate with a mouse, a keyboard, a screen reader, or any other assistive technology, we're committed to making our content accessible to you. Your experience matters to us, and we're devoted to making it a good one.
+
+## Into the Future: Charting New Waters 🚢
+
+We tip our hats to Web3Templates for getting us started - they've been the wind beneath our wings, the compass in our uncharted journey. But like a band of pirates weary of the same old sea shanties, we're craving some fresh tunes. That's why we're setting sail towards a bespoke component library, built with [RadixUI](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/), all spruced up with TailwindCSS. 
+
+And because we're gluttons for punishment (and innovation), we're also moving to a Vercel Turbo repository. Why, you ask? Well, we figured we'd add some spice to our lives by inviting our iOS and Android apps to the party. More the merrier, right? Sure, it's going to make things more complicated - but who doesn't enjoy a good challenge? Here's to future complications, chaos, and of course, tons of fun!
+
+## Join Us on the Journey ⁉️
+
+Ready to explore? The following instructions will help you set up the project on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-Before you get started with the project, make sure you have the following tools installed:
+Before you embark, ensure you have the following tools:
 
 - [Node.js](https://nodejs.org/)
 - [PNPM](https://pnpm.io/)
@@ -86,121 +100,6 @@ To run the tests:
 pnpm test
 ```
 
-## Linting & Committs 🙈
-We will be using the following tools to handle semantic versioning, conventional commits, linting, and changelogs:
-1. **Commitizen** - for conventional commits
-2. **Husky** with **@commitlint/cli** - to lint your commit messages
-3. **Standard Version** - to handle semantic versioning
-
-### 🎯 Getting Started with Commitizen
-Commitizen offers an easy-to-use interface to help you structure your conventional commits. No more writing by hand!
-
-1. Install Commitizen globally:
-   ```
-   npm install -g commitizen
-   ```
-2. Initialize your project with a Commitizen adapter:
-   ```
-   commitizen init cz-conventional-changelog --save-dev --save-exact
-   ```
-3. Start using the interface by running:
-   ```
-   git cz
-   ```
-4. (Optional) Install the [VS Code Commitizen extension](https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-commitizen) for an even smoother experience.
-
-### 🧹 Linting Your Commits with Husky and @commitlint/cli
-Linting helps catch mistakes before they throw off your semantic versioning. Set up Husky and @commitlint/cli to lint your messages before a commit is made:
-
-1. Install the necessary packages:
-   ```
-   npm install --save-dev husky @commitlint/{config-conventional,cli}
-   ```
-2. Initialize Husky's Git hooks:
-   ```
-   npx husky install
-   ```
-3. Add the Commitlint hook:
-   ```
-   npx husky add .husky/commit-msg 'npx --no --commitlint --edit "$1"'
-   ```
-4. Create a configuration file:
-   ```
-   echo "module.exports = {extends: ['@commitlint/config-conventional']};"
-   > commitlint.config.js
-   ```
-5. Add the following rules to your `commitlint.config.js` file:
-
-```
-module.exports = {
-  extends: ["@commitlint/config-conventional"],
-  plugins: [
-    {
-      rules: {
-        "height-task-number": (parsed) => {
-          const { header, body, footer } = parsed;
-          const regex = /(Close\s|Link\s)?T-\d{1,7}/;
-          const isValid =
-            regex.test(header) || regex.test(body) || regex.test(footer);
-
-          if (!isValid) {
-            return [
-              false,
-              "Message must include a Height Task number in the format 'T-#######', 'Close T-#######', or 'Link T-#######'",
-            ];
-          }
-          return [true, ""];
-        },
-      },
-    },
-  ],
-  rules: {
-    "header-max-length": [2, "always", 72],
-    "type-enum": [
-      2,
-      "always",
-      ["feat", "fix", "docs", "style", "refactor", "test", "chore", "revert"],
-    ],
-    "scope-enum": [
-      2,
-      "always",
-      ["app", "server", "client", "database", "docs", "tests", "lint"],
-    ],
-    "subject-case": [2, "always", "sentence-case"],
-    "body-max-line-length": [2, "always", Infinity],
-    "body-leading-blank": [2, "always"],
-    "height-task-number": [2, "always"],
-    "footer-leading-blank": [2, "always"],
-  },
-};
-```
-
-### 🚀 Versioning and Changelogs with Standard Version
-Standard Version ties everything together, making versioning and changelogs a breeze:
-
-1. Install the `standard-version` dependency:
-   ```
-   npm install --save-dev standard-version
-   ```
-2. Add a script to your `package.json`:
-   ```json
-   {
-     "scripts": {
-       "release": "standard-version"
-     }
-   }
-   ```
-3. Run the script to bump the version number and generate a changelog:
-   ```
-   npm run release
-   ```
-4. (Optional) Preview changes without committing by using the dry-run mode:
-   ```
-   npm run release -- --dry-run
-   ```
-
-That's it! You've now incorporated conventional commits, linting, versioning, and changelogs into your project in a fun and easy way. Enjoy your streamlined workflow! 🎉
-
 ## Deployment
 
 To deploy the application, follow these steps:
@@ -215,14 +114,6 @@ vercel
 
 4. Follow the prompts to deploy your application.
 
-## Built With 🏗️
-
-- [Sanity.io](https://www.sanity.io/) - Backend and content management
-- [Next.js](https://nextjs.org/) - Frontend framework
-- [TailwindCSS](https://tailwindcss.com/) - CSS framework
-- [Tailwind UI](https://tailwindui.com/) - UI component library
-- [Vercel](https://vercel.com/) - Deployment and hosting
-
 ## Contributing 🤝
 
 We're always looking for contributors to help improve the project! If you're interested in contributing, please follow the steps below:
@@ -235,24 +126,34 @@ We're always looking for contributors to help improve the project! If you're int
 
 ## Versioning 📊
 
-We use [SemVer](https://semver.org/) for versioning. For the available versions, see the [tags on this repository](https://github.com/brilla-cx/hr-web/tags).
+We use [SemVer](https://semver.org/) for versioning. For the available versions, see the [tags on this repository](https://github.com/brilla-cx/hr-web/tags), once they're available that is.
 
 ## Authors ✍️
 
 - **Surjith the Great** - *Web3 Template Creator* - [surjithctly](https://github.com/surjithctly)
-- **Sam the Reluctant** - *Cat herder* - [srizvi](https://github.com/srizi)
+- **Samuel the Ambitious** - *Protostar Developer* - [samuelwondimu](https://github.com/samuelwondimu)
+- **Sam the Reluctant** - *Cat herder* - [srizvi](https://github.com/srizvi)
 
-See also the list of [contributors](https://github.com/brilla-cx/hr-web/graphs/contributors) who participated in this project.
+Also, see the list of [contributors](https://github.com/brilla-cx/hr-web/graphs/contributors) who participated in this project.
 
 ## License 📄
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under a modified MIT like License **subject to the specified conditions** - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgements 🙏
+## Ode to our Inspirations 🙏
 
-- Hat tip to anyone whose code was used
-- Inspiration for the project
-- Any other acknowledgements
+When building a content cloud, do not merely gather code and assign tasks. Kindle a longing for the boundless potential of the digital realm.
+
+In this spirit, we have not simply built but dreamed. Our inspirations are as diverse as they are profound:
+
+- The principles of design have been our guiding light, illuminating our path through the vast creative expanse.
+- Accessibility has been our compass, ensuring we forge a destination all can reach, no matter the path.
+- The shadcn and RadixUI vessels have carried us through the swirling frontend seas.
+- Juno, the greatest mumma puppa around, has been our faithful companion, providing boundless joy and timely distraction. 
+- Our readers, our true guiding light, for whom we brave the digital deep, endlessly inspire us to voyage further and delve deeper. 
+- And finally, our faultless taste has been our map, charting a course through infinite possibility to an isle of innovation and excellence. 
+
+To all those who've journeyed with us, either by contributing code, sharing wisdom, or simply being there: We tip our sailor's cap to you. Thanks for joining us in longing for the endless immensity of the digital sea.
 
 ## Deploy on Vercel
 

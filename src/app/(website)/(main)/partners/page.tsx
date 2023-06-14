@@ -3,24 +3,28 @@ import { getAllFaqs, getAllTools } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
 export function generateMetadata() {
-  return {
-    title: "Partner Program | Hey Rebekah",
-    description:
-      "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
+  const title = "Partner Program";
+  const description =
+    "Join the Hey Rebekah Partner Program. Give our community of 338K+ an exclusive discount instead of paying us a commission. No brainer right?";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Partner Program | Hey Rebekah",
-      description:
-        "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Partner Program | Hey Rebekah",
-      description:
-        "Join the Hey Rebekah Partner Program. Give our community of 310K+ an exclusive discount instead of paying us a commission. No brainer right?",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 export default async function Partners() {
   const faqs = (await getAllFaqs()) as FaqType[];

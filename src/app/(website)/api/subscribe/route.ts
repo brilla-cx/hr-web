@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { ITERABLE_LIST_ID, ITERABLE_TOKEN } from "@/lib/constants";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -8,7 +9,7 @@ export async function POST(request: Request) {
   const url = "https://api.iterable.com/api/lists/subscribe";
 
   const postdata = {
-    listId: 2462911,
+    listId: ITERABLE_LIST_ID,
     subscribers: [
       {
         email: email,
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Api-Key": process.env.ITERABLE_TOKEN,
+      "Api-Key": ITERABLE_TOKEN,
     },
     body: JSON.stringify(postdata),
   });

@@ -6,24 +6,28 @@ import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export function generateMetadata() {
-  return {
-    title: "Privacy Policy | Hey Rebekah",
-    description:
-      "We don't sell your information for money and will always keep the protection and privacy of your data top of mind. Read more details on the whos and the whats.",
+  const title = "Privacy Policy";
+  const description =
+    "We're a privacy-first company. We'll never sell your information and will do everything we can to protect it. Read more details on the whos and the whats.";
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Privacy Policy | Hey Rebekah",
-      description:
-        "We don't sell your information for money and will always keep the protection and privacy of your data top of mind. Read more details on the whos and the whats.",
+      title,
+      description,
       images: "/og.png",
     },
     twitter: {
-      title: "Privacy Policy | Hey Rebekah",
-      description:
-        "We don't sell your information for money and will always keep the protection and privacy of your data top of mind. Read more details on the whos and the whats.",
+      title,
+      description,
       images: "/og.png",
     },
   };
+
+  return metadata;
 }
+
 
 export default async function Privacy() {
   const post = await getLegalPageBySlug("privacy");

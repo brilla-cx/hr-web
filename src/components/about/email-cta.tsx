@@ -11,7 +11,7 @@ interface Props {
 
 function EmailCta(props: Props) {
   return (
-    <div className="lg:py-26 mx-auto max-w-6xl rounded border border-gray-200/10 bg-slate-900 px-4 sm:px-8 sm:py-20 lg:my-24 lg:flex lg:justify-between lg:px-16">
+    <div className="px-2 py-16 sm:py-24 lg:px-16 lg:py-26 mx-auto max-w-6xl rounded border border-gray-200/10 bg-slate-900 lg:my-24 lg:flex lg:justify-between">
       <div className="max-w-3xl">
         <H4 as="h2" className="text-white ">
           {props.title}

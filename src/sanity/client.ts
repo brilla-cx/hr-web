@@ -8,11 +8,14 @@ import {
   authorsquery,
   authorsSitemapQuery,
   booksSitemapQuery,
+  categoryquery,
   getAllFaqsquery,
   getcatoftoolsquery,
   getlegalpagebyslugquery,
   gettoolsquery,
+  paginatedauthorpostquery,
   paginatedbooksquery,
+  paginatedcatpostquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
   postById,
@@ -45,10 +48,25 @@ const client = projectId
   ? createClient({ projectId, dataset, apiVersion, useCdn })
   : null;
 
+// used by useSWR fetch
 // eslint-disable-next-line require-await
 export const fetcher = async ([query, params]) => {
   return client ? client.fetch(query, params) : [];
 };
+
+async function SanityArrayClient(query, params = {}) {
+  if (client) {
+    return (await client.fetch(query, params)) || [];
+  }
+  return [];
+}
+
+async function SanityObjectClient(query, params = {}) {
+  if (client) {
+    return (await client.fetch(query, params)) || {};
+  }
+  return {};
+}
 
 export async function getAllPosts() {
   if (client) {
@@ -104,6 +122,20 @@ export async function getAuthorPostsBySlug(slug) {
   return {};
 }
 
+// Get Paginated Authors
+export async function getPaginatedAuthorsPosts({ slug, limit, pageIndex = 0 }) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedauthorpostquery, {
+        slug: slug,
+        pageIndex: pageIndex,
+        limit: limit,
+      })) || []
+    );
+  }
+  return [];
+}
+
 export async function getAuthorMeta(slug) {
   if (client) {
     return (await client.fetch(authorMeta, { slug })) || {};
@@ -128,6 +160,24 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
 export async function getPostsByCategory(slug) {
   if (client) {
     return (await client.fetch(postsbycatquery, { slug })) || {};
+  }
+  return {};
+}
+
+export function getPaginatedCategoryPosts({ slug, limit, pageIndex = 0 }) {
+  const params = {
+    slug: slug,
+    pageIndex: pageIndex,
+    limit: limit,
+  };
+  return SanityArrayClient(paginatedcatpostquery, params);
+}
+
+// Get category by Slug
+
+export async function getCategorybySlug(slug) {
+  if (client) {
+    return (await client.fetch(categoryquery, { slug })) || {};
   }
   return {};
 }
