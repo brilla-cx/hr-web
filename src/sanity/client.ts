@@ -8,6 +8,7 @@ import {
   authorsquery,
   authorsSitemapQuery,
   booksSitemapQuery,
+  categoryquery,
   getAllFaqsquery,
   getcatoftoolsquery,
   getlegalpagebyslugquery,
@@ -143,6 +144,15 @@ export async function getPaginatedPosts({ limit, pageIndex = 0 }) {
 export async function getPostsByCategory(slug) {
   if (client) {
     return (await client.fetch(postsbycatquery, { slug })) || {};
+  }
+  return {};
+}
+
+// Get category by Slug
+
+export async function getCategorybySlug(slug) {
+  if (client) {
+    return (await client.fetch(categoryquery, { slug })) || {};
   }
   return {};
 }

@@ -220,6 +220,16 @@ export const postsbycatquery = groq`
 }
 `;
 
+// Get Category by Slug
+
+export const categoryquery = groq`*[_type == "category"&& slug.current == $slug][0] {
+  _id,
+  _type,
+  name,
+  slug,
+  color
+}`;
+
 export const gettoolsquery = groq`*[_type == "tool"]  | order(isPartner desc, name asc) {
   ...,
   category->,
