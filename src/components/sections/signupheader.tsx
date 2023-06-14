@@ -12,7 +12,7 @@ const testimonialArray = [
   "  This is just the best thing I've ever read! ~ Nancy (Rebekah's mom)",
   "Hey Rebekah is hot as 🔥! ~ Cam (Rebekah's son)",
   "I have to read this newsletter everyday! ~ Chris (Rebekah's son)",
-  "Hey Rebekah, mind grabbing me some chips while you're there? ~ Dean (Rebekah's husband)",
+  "Hey Rebekah, grab me some chips while you're there? ~ Dean (Rebekah's husband)",
 ];
 
 const SignupHeader: React.FC<PageHeaderProps> = ({ title, leadText }) => {
