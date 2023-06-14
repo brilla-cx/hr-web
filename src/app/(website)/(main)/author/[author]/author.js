@@ -1,16 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { SiLinkedin, SiTwitter } from "react-icons/si";
 
-import PaginatedPosts from "./posts";
 import { PortableText } from "@/components/blog/portabletext";
 import Container from "@/components/container";
-import PostAlt from "@/components/postalt";
 import { H2, H6, Lead } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { urlForImage } from "@/sanity/image";
+
+import PaginatedPosts from "./posts";
 
 export default function Author(props) {
   const { loading, searchParams, author } = props;

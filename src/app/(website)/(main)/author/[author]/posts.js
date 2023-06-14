@@ -39,12 +39,7 @@ export default async function PaginatedPosts({ slug, searchParams }) {
       {/* This div serves as the container for the posts and utilizes CSS Grid layout through Tailwind CSS for varying column count depending on viewport size. */}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
         {posts.map((post) => (
-          <PostAlt
-            key={post._id}
-            post={post}
-            aspect="landscape"
-            pathPrefix="books"
-          />
+          <PostAlt key={post._id} post={post} aspect="landscape" />
         ))}
       </div>
 
