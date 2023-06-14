@@ -23,7 +23,7 @@ const seo = {
             type: 'string',
             description: 'Add an SEO Title that uses the keyword in it.',
             options: { spellCheck: true },
-            validation: Rule => Rule.required().max(58).error("Please add an SEO optimized Title."),
+            validation: Rule => Rule.required().max(58).error("Please add an SEO optimized Title that's max 58 characters."),
         },
         {
             name: 'seoDescription',
@@ -31,7 +31,7 @@ const seo = {
             type: 'string',
             description: 'Add an SEO optimized description using the keyword/phrase.',
             options: { spellCheck: true },
-            validation: Rule => Rule.required().max(158).error("Please add an SEO optimized description."),
+            validation: Rule => Rule.required().max(158).error("Please add an SEO optimized description that's max 158 characters."),
         },
         {
             name: 'seoImage',
