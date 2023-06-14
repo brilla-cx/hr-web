@@ -1,5 +1,8 @@
 /* eslint-disable require-await */
 /** @type {import('next').NextConfig} */
+
+const { withPlausibleProxy } = require("next-plausible");
+
 const commonHeaders = [
   {
     key: "Strict-Transport-Security",
@@ -89,4 +92,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPlausibleProxy()(nextConfig);
