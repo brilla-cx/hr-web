@@ -27,7 +27,7 @@ function CheckReplayCard(props: AboutFact) {
 
 function CheckReplay() {
   return (
-    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20">
+    <div className="px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
       <div className="max-w-2xl mx-auto lg:text-center">
         <H3 as="h2" className="mt-2 text-gray-200">
           Let's check the replay

@@ -13,7 +13,7 @@ import { H3, Lead } from "../ui";
 
 function Faqs({ faqs }: { faqs: any[] }) {
   return (
-    <div className="lg:py-26 mx-auto max-w-7xl px-6 pb-24 sm:px-8 sm:py-20 lg:px-16">
+    <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-16 lg:py-26">
       <div className="mx-auto max-w-5xl">
         <H3 as="h2" className="text-gray-200">
           Frequently asked questions
