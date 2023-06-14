@@ -4,6 +4,7 @@ import "../globals.css";
 
 import { Metadata } from "next";
 import localFont from "next/font/local";
+import PlausibleProvider from "next-plausible";
 import React from "react";
 
 import { SITE_URL } from "@/lib/constants";
@@ -137,6 +138,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cx("font-sans antialiased", lexend.variable)}>
+      <head>
+        <PlausibleProvider
+          domain="heyrebekah.com"
+          trackOutboundLinks
+          trackFileDownloads
+          taggedEvents
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
