@@ -161,6 +161,26 @@ export const postsbyauthorquery = groq`
 } | order(featured desc, publishedAt desc)
 `;
 
+/*
+ * Paginated Author Query
+ *
+ */
+export const paginatedauthorpostquery = groq`
+*[_type == "post" && $slug match author->slug.current ] | order(publishedAt desc, _createdAt desc) [$pageIndex...$limit] {
+  ...,
+  image {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+  },
+  author-> {
+    ...,
+    beat[]->,
+    category->,
+  },
+  category[]->,
+}
+`;
+
 export const authorMeta = groq`
 *[_type == "author" && slug.current == $slug][0] {
   seoTitle,

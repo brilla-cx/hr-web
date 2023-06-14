@@ -12,6 +12,7 @@ import {
   getcatoftoolsquery,
   getlegalpagebyslugquery,
   gettoolsquery,
+  paginatedauthorpostquery,
   paginatedbooksquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
@@ -102,6 +103,20 @@ export async function getAuthorPostsBySlug(slug) {
     return (await client.fetch(postsbyauthorquery, { slug })) || {};
   }
   return {};
+}
+
+// Get Paginated Authors
+export async function getPaginatedAuthorsPosts({ slug, limit, pageIndex = 0 }) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedauthorpostquery, {
+        slug: slug,
+        pageIndex: pageIndex,
+        limit: limit,
+      })) || []
+    );
+  }
+  return [];
 }
 
 export async function getAuthorMeta(slug) {
