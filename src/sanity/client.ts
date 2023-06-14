@@ -15,6 +15,7 @@ import {
   gettoolsquery,
   paginatedauthorpostquery,
   paginatedbooksquery,
+  paginatedcatpostquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
   postById,
@@ -47,10 +48,25 @@ const client = projectId
   ? createClient({ projectId, dataset, apiVersion, useCdn })
   : null;
 
+// used by useSWR fetch
 // eslint-disable-next-line require-await
 export const fetcher = async ([query, params]) => {
   return client ? client.fetch(query, params) : [];
 };
+
+async function SanityArrayClient(query, params = {}) {
+  if (client) {
+    return (await client.fetch(query, params)) || [];
+  }
+  return [];
+}
+
+async function SanityObjectClient(query, params = {}) {
+  if (client) {
+    return (await client.fetch(query, params)) || {};
+  }
+  return {};
+}
 
 export async function getAllPosts() {
   if (client) {
@@ -146,6 +162,15 @@ export async function getPostsByCategory(slug) {
     return (await client.fetch(postsbycatquery, { slug })) || {};
   }
   return {};
+}
+
+export function getPaginatedCategoryPosts({ slug, limit, pageIndex = 0 }) {
+  const params = {
+    slug: slug,
+    pageIndex: pageIndex,
+    limit: limit,
+  };
+  return SanityArrayClient(paginatedcatpostquery, params);
 }
 
 // Get category by Slug

@@ -220,6 +220,15 @@ export const postsbycatquery = groq`
 }
 `;
 
+// Paginated Posts by Category
+export const paginatedcatpostquery = groq`
+*[_type == "post" && $slug in category[]->slug.current ] | order(featured desc, publishedAt desc) [$pageIndex...$limit] {
+  ...,
+  author->,
+  category[]->
+}
+`;
+
 // Get Category by Slug
 
 export const categoryquery = groq`*[_type == "category"&& slug.current == $slug][0] {

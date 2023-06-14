@@ -2,7 +2,7 @@
 
 import Pagination from "@/components/blog/pagination";
 import PostAlt from "@/components/postalt";
-import { getPaginatedAuthorsPosts } from "@/sanity/client";
+import { getPaginatedCategoryPosts } from "@/sanity/client";
 
 export default async function PaginatedPosts({ slug, searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
@@ -20,7 +20,7 @@ export default async function PaginatedPosts({ slug, searchParams }) {
   };
 
   // Fetch the posts for the current page
-  const posts = await getPaginatedAuthorsPosts(params);
+  const posts = await getPaginatedCategoryPosts(params);
 
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
@@ -39,7 +39,7 @@ export default async function PaginatedPosts({ slug, searchParams }) {
       {/* This div serves as the container for the posts and utilizes CSS Grid layout through Tailwind CSS for varying column count depending on viewport size. */}
       <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3">
         {posts.map((post) => (
-          <PostAlt key={post._id} post={post} aspect="landscape" />
+          <PostAlt key={post._id} post={post} aspect="landscape" hideCategory />
         ))}
       </div>
 
@@ -47,7 +47,7 @@ export default async function PaginatedPosts({ slug, searchParams }) {
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
       <div className="my-16 flex items-center justify-center">
         <Pagination
-          path={`author/${slug}`}
+          path={`category/${slug}`}
           pageIndex={pageIndex}
           isFirstPage={isFirstPage}
           isLastPage={isLastPage}
