@@ -19,16 +19,24 @@ export default async function handler({ params }) {
 
   const fontData = await lexendDeca;
 
-  return new ImageResponse(<OgImage post={author} />, {
-    width: 1200,
-    height: 630,
-    fonts: [
-      {
-        name: "Lexend Deca",
-        data: fontData,
-        weight: "600",
-        style: "normal",
-      },
-    ],
-  });
+  const summary =
+    "Wow, I have my own dynamic OG image? That's cool. BTW, if you want to check out my latest posts, subscribe to updates from me. You could say I'm an expert on how not to use generative AI.";
+  const testimonial =
+    "I can't stop reading Hey Rebekah. Ambreen won't let me. ~ Mom";
+
+  return new ImageResponse(
+    <OgImage post={author} summary={summary} testimonial={testimonial} />,
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Lexend Deca",
+          data: fontData,
+          weight: "600",
+          style: "normal",
+        },
+      ],
+    }
+  );
 }
