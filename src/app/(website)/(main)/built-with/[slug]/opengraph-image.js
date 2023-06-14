@@ -8,13 +8,7 @@ export const runtime = "edge";
 export default async function handler({ params }) {
   const data = await getToolbySlug(params.slug);
   const post = {
-    name: `Hey Rebekah ❤️ ${data.name}`,
-    category: "Built With",
-    author: {
-      name: `We use ${data.name} everyday.`,
-    },
-    publishedAt: data.publishedAt,
-    __createdAt: data._createdAt,
+    name: `We ❤️ ${data.name}`,
   };
   const lexendDeca = fetch(
     new URL("../../../assets/fonts/lexend-semibold.ttf", import.meta.url)
@@ -22,16 +16,23 @@ export default async function handler({ params }) {
 
   const fontData = await lexendDeca;
 
-  return new ImageResponse(<OgImage post={post} />, {
-    width: 1200,
-    height: 630,
-    fonts: [
-      {
-        name: "Lexend Deca",
-        data: fontData,
-        weight: "600",
-        style: "normal",
-      },
-    ],
-  });
+  const summary = `We use ${data.name} everyday at Hey Rebekah to power our newsletter and community. Well, technically 4-days a week. Feel free to reach out to us with any questions.`;
+  const testimonial =
+    "Join our community of 338,000 people learning to crush it with AI.";
+
+  return new ImageResponse(
+    <OgImage post={post} summary={summary} testimonial={testimonial} />,
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Lexend Deca",
+          data: fontData,
+          weight: "600",
+          style: "normal",
+        },
+      ],
+    }
+  );
 }
