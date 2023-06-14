@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { GlowingButton, H1, Lead } from "@/components/ui";
+import { H1, Lead } from "@/components/ui";
 
 export default function ThankYou() {
   return (
@@ -12,7 +12,7 @@ export default function ThankYou() {
               <div className="relative px-6 pt-64 overflow-hidden bg-gray-900 rounded shadow-2xl pb-9 sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
                 <Image
                   src="https://cdn.sanity.io/images/smx99abf/production/98a2502e7f2adb9661c2742e269b9ae9011dc220-1600x1600.webp"
-                  alt=""
+                  alt="Ambreen and Rebekah, co-founders of Hey Rebekah"
                   className="absolute inset-0 object-cover w-full h-full"
                   fill
                   sizes="(max-width: 768px) 30vw, 33vw"
@@ -37,11 +37,6 @@ export default function ThankYou() {
                 </span>
               </Lead>
             </div>
-          </div>
-          <div className="mt-16">
-            <GlowingButton href="/" autoWidth>
-              Back to Home
-            </GlowingButton>
           </div>
         </div>
       </div>

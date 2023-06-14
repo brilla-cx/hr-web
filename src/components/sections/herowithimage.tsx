@@ -14,10 +14,10 @@ interface Props {
 export function HeroWithImage(props: Props) {
   const { image, subtitle, subtitle2, title } = props;
   return (
-    <div className="grid items-center grid-cols-2 gap-4 sm:px-8 sm:py-20 lg:px-16 lg:py-26">
+    <div className="grid items-center grid-cols-2 gap-6 px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
       <div className="hidden md:block lg:col-span-1">
         <Image
-          className="object-cover w-full h-full"
+          className="object-cover w-[85%] border border-gray-200/10"
           src={image}
           alt=""
           width={100}
