@@ -40,8 +40,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function AuthorPage({ params }) {
-  const posts = await getAuthorPostsBySlug(params.author);
+export default async function AuthorPage({ params, searchParams }) {
   const author = await getAuthor(params.author);
-  return <Author posts={posts} author={author} />;
+  return (
+    <Author
+      author={author}
+      searchParams={searchParams}
+      authorSlug={params.author}
+    />
+  );
 }
+
+export const dynamic = "force-dynamic";
