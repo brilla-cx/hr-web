@@ -15,6 +15,7 @@ import {
   gettoolsquery,
   paginatedauthorpostquery,
   paginatedbooksquery,
+  paginatedcatpostquery,
   paginatedpostsquery,
   paginatedsocialblogsquery,
   postById,
@@ -146,6 +147,23 @@ export async function getPostsByCategory(slug) {
     return (await client.fetch(postsbycatquery, { slug })) || {};
   }
   return {};
+}
+
+export async function getPaginatedCategoryPosts({
+  slug,
+  limit,
+  pageIndex = 0,
+}) {
+  if (client) {
+    return (
+      (await client.fetch(paginatedcatpostquery, {
+        slug: slug,
+        pageIndex: pageIndex,
+        limit: limit,
+      })) || []
+    );
+  }
+  return [];
 }
 
 // Get category by Slug
