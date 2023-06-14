@@ -49,17 +49,17 @@ We've caught the TypeScript bug, and it's taken over about 55% of our codebase. 
 
 Ever made a New Year's resolution? You know, the ones you're absolutely, positively sure you're going to keep this time? That's us with test coverage right now. Truth be told, our current test coverage is like a desert - it's vast, it's empty, it's... zero. But we're determined to turn this desert into an oasis of well-tested code. Stay tuned for our transformation!
 
-## Accessibility: A Commitment, Not an Afterthought ♿️
+## Accessibility: A Commitment, Not an Afterthought 🤦🏼‍♀️
 
 Inclusivity and accessibility aren't just buzzwords to us; they're fundamental principles that guide our work. We're continually improving our platform to ensure that it's not just user-friendly, but friendly to all users. Whether you navigate with a mouse, a keyboard, a screen reader, or any other assistive technology, we're committed to making our content accessible to you. Your experience matters to us, and we're devoted to making it a good one.
 
-## Into the Future: Charting New Waters 🚀
+## Into the Future: Charting New Waters 🚢
 
 We tip our hats to Web3Templates for getting us started - they've been the wind beneath our wings, the compass in our uncharted journey. But like a band of pirates weary of the same old sea shanties, we're craving some fresh tunes. That's why we're setting sail towards a bespoke component library, built with [RadixUI](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/), all spruced up with TailwindCSS. 
 
 And because we're gluttons for punishment (and innovation), we're also moving to a Vercel Turbo repository. Why, you ask? Well, we figured we'd add some spice to our lives by inviting our iOS and Android apps to the party. More the merrier, right? Sure, it's going to make things more complicated - but who doesn't enjoy a good challenge? Here's to future complications, chaos, and of course, tons of fun!
 
-## Join Us on the Journey 🚀
+## Join Us on the Journey ⁉️
 
 Ready to explore? The following instructions will help you set up the project on your local machine for development and testing purposes.
 
@@ -114,17 +114,6 @@ vercel
 
 4. Follow the prompts to deploy your application.
 
-## Built With 🏗️
-
-- [WunderGraph](https://wundergraph.com/) - Backend for Frontend framework, optimizing workflows through API composition
-- [Sanity.io](https://www.sanity.io/) - Backend and content management
-- [Next.js](https://nextjs.org/) - Frontend framework
-- [TypeScript](https://www.typescriptlang.org/) - Superset of JavaScript for static types
-- [Clerk](https://clerk.dev/) - User management and authentication
-- [TailwindCSS](https://tailwindcss.com/) - CSS framework
-- [Tailwind UI](https://tailwindui.com/) - UI component library
-- [Vercel](https://vercel.com/) - Deployment and hosting
-
 ## Contributing 🤝
 
 We're always looking for contributors to help improve the project! If you're interested in contributing, please follow the steps below:
@@ -149,23 +138,20 @@ Also, see the list of [contributors](https://github.com/brilla-cx/hr-web/graphs/
 
 ## License 📄
 
-This project is licensed under the MIT License **subject to the specified conditions** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under a modified MIT like License **subject to the specified conditions** - see the [LICENSE](LICENSE) file for details.
 
-
-
-## Acknowledgements 🙏
 ## Ode to our Inspirations 🙏
 
-To paraphrase Antoine de Saint-Exupéry: If you're building a content cloud, don't just gather code snippets and assign tasks. Instead, kindle a longing for the endless possibilities of the digital cosmos. 
+When building a content cloud, do not merely gather code and assign tasks. Kindle a longing for the boundless potential of the digital realm.
 
-In that spirit, we haven't just been building, but dreaming. Our inspirations are as diverse as they are profound:
+In this spirit, we have not simply built but dreamed. Our inspirations are as diverse as they are profound:
 
-- The principles of good design have been our North Star, guiding us through the vast expanse of the creative process.
-- Accessibility (a11y) has been our compass, reminding us to create a destination that everyone can reach, regardless of how they journey.
-- The shadcn and RadixUI libraries have been our trusty vessels, helping us navigate the swirling seas of frontend development.
-- Juno, the best dog on Earth, has been our loyal shipmate, providing boundless enthusiasm and the occasional much-needed distraction.
-- Our readers, our true north, for whom we brave these digital waters, continually inspire us to push further and delve deeper.
-- And finally, our impeccable taste has been our map, charting a course through the vast ocean of possibilities to an island of innovation and excellence. 
+- The principles of design have been our guiding light, illuminating our path through the vast creative expanse.
+- Accessibility has been our compass, ensuring we forge a destination all can reach, no matter the path.
+- The shadcn and RadixUI vessels have carried us through the swirling frontend seas.
+- Juno, the greatest mumma puppa around, has been our faithful companion, providing boundless joy and timely distraction. 
+- Our readers, our true guiding light, for whom we brave the digital deep, endlessly inspire us to voyage further and delve deeper. 
+- And finally, our faultless taste has been our map, charting a course through infinite possibility to an isle of innovation and excellence. 
 
 To all those who've journeyed with us, either by contributing code, sharing wisdom, or simply being there: We tip our sailor's cap to you. Thanks for joining us in longing for the endless immensity of the digital sea.
 
