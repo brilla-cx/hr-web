@@ -1,13 +1,60 @@
-import React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { Input, Textarea } from "./forms";
 import GlowingButton from "./glowingButton";
 import { H3, Lead } from "./typography";
 
+export interface LeadData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  jobTitle: string;
+  company: string;
+  message: string;
+  companyUrl: string;
+}
+
+const leadSchema = z.object({
+  firstName: z.string().nonempty("First name is required"),
+  lastName: z.string().nonempty("Last name is required"),
+  email: z.string().email("Invalid email address"),
+  phoneNumber: z.string().nonempty("Phone number is required"),
+  jobTitle: z.string().nonempty("Job title is required"),
+  message: z.string().nonempty("Message is required"),
+});
+
 function EmailForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LeadData>({
+    resolver: zodResolver(leadSchema),
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const onSubmit = async (data: LeadData) => {
+    try {
+      setIsLoading(true);
+
+      await axios.post(`/api/close-com`, data);
+      setIsSuccess(true);
+    } catch (error) {
+      return error;
+    } finally {
+      setIsLoading(false);
+    }
+
+    return null;
+  };
   return (
     <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="grid max-w-3xl grid-cols-2 gap-10 mx-auto md:grid-cols-4">
           <div className="col-span-4 text-center">
             <H3 as="h2" className="!text-center text-gray-200">
@@ -20,86 +67,107 @@ function EmailForm() {
             </Lead>
           </div>
           <div className="col-span-4 md:col-span-2">
-            <Input
-              name="firstName"
+            <input
               type="text"
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              required
-              placeholder="Rebekah"
-              aria-label="Enter your first name"
-              autoComplete="firstName"
+              placeholder="rebekah"
+              {...(register && register("firstName"))}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
+            {errors.firstName && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.firstName.message}</small>
+              </div>
+            )}
           </div>
           <div className="col-span-4 md:col-span-2">
-            <Input
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              name="lastName"
+            <input
               type="text"
-              required
               placeholder="Radice"
-              aria-label="Enter your last name"
-              autoComplete="lastName"
+              {...register("lastName")}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
+            {errors.lastName && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.lastName.message}</small>
+              </div>
+            )}
           </div>
           <div className="col-span-4 md:col-span-2">
-            <Input
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              name="email"
-              type="email"
-              required
-              placeholder="Enter your email"
-              aria-label="Enter your email address to subscribe"
-              autoComplete="email"
-            />
-          </div>
-          <div className="col-span-4 md:col-span-2">
-            <Input
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              name="phoneNumber"
-              type="number"
-              required
-              placeholder="555-555-1212"
-              aria-label="Enter your phone number"
-              autoComplete="email"
-            />
-          </div>
-          <div className="col-span-4 md:col-span-2">
-            <Input
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              name="jobTitle"
+            <input
               type="text"
-              required
-              placeholder="Job Title"
-              aria-label="Enter your job Title"
-              autoComplete="email"
+              placeholder="email"
+              {...register("email")}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
+            {errors.email && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.email.message}</small>
+              </div>
+            )}
           </div>
           <div className="col-span-4 md:col-span-2">
-            <Input
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              name="company"
+            <input
               type="text"
-              required
-              placeholder="My Great Company, Inc."
-              aria-label="Enter your company"
-              autoComplete="email"
+              placeholder="phoneNumber"
+              {...register("phoneNumber")}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+            />
+            {errors.phoneNumber && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.phoneNumber.message}</small>
+              </div>
+            )}
+          </div>
+          <div className="col-span-4 md:col-span-2">
+            <input
+              type="text"
+              placeholder="jobTitle"
+              {...register("jobTitle")}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+            />
+            {errors.jobTitle && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.jobTitle.message}</small>
+              </div>
+            )}
+          </div>
+          <div className="col-span-4 md:col-span-2">
+            <input
+              type="text"
+              placeholder="company"
+              {...register("company")}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
           </div>
           <div className="col-span-4">
-            <Textarea
-              className="text-gray-200 border-neutral-200/10 bg-slate-900"
-              name="message"
-              required
-              placeholder="Enter your message"
-              aria-label="Enter your message"
+            <input
+              type="text"
+              placeholder="companyUrl"
+              {...register("companyUrl")}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
           </div>
+          <div className="col-span-4">
+            <textarea
+              {...register("message")}
+              placeholder="Message"
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+            />
+            {errors.message && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.message.message}</small>
+              </div>
+            )}
+          </div>
           <div className="col-span-4 pt-6 mx-auto">
-            <GlowingButton
-              variant="link"
-              href="mailto:partners@heyrebekah.com?subject=I%20m20intersted%20in%20partnerschip%20with%20hey%20rebekah%20.%20please%20contact%20me.">
-              Let's make it happen
+            <GlowingButton type="submit" autoWidth>
+              {isLoading ? "Loading..." : "Let's make it happen"}
             </GlowingButton>
+            {isSuccess && (
+              <p className="mt-2 text-green-500">
+                Form submitted successfully!
+              </p>
+            )}
           </div>
         </div>
       </form>
