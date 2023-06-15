@@ -1,11 +1,8 @@
 // Import the necessary dependencies
 import Head from "next/head";
 import { notFound } from "next/navigation"; // Navigation control from Next.js
-import { Suspense } from "react";
 
-import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container"; // Custom container component for page layout
-import PostAlt from "@/components/postalt"; // Component to display individual posts
 import PageHeader from "@/components/sections/pageheader"; // Component for page header section
 
 import PaginatedPosts from "./posts";
@@ -41,16 +38,13 @@ export default function Category(props) {
         <meta key="robots" name="robots" content="noindex,follow" />
         <meta key="googlebot" name="googlebot" content="noindex,follow" />
       </Head>
-      {/* Container component for holding the content */}
       <Container large className="border-l border-r border-neutral-200/10">
-        {/* PageHeader component with title, lead text, includeForm, and formId */}
         <PageHeader
           title={`${category.name}`} // Dynamic title including category name
-          leadText={`${category.name.trim()}? We’ve got the inside scoop. Join +338,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name.trim()} right to your inbox, gratis.`}
+          leadText={`${category.name}? We’ve got the inside scoop. Join +338,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name} right to your inbox, gratis.`}
           id={`${category.name}`} // Dynamic form ID including category name
           includeForm
         />
-        {/* Grid layout div for holding PostAlt components */}
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
           <PaginatedPosts searchParams={searchParams} slug={slug} />
         </div>
