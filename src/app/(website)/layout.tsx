@@ -37,8 +37,6 @@ export const metadata: Metadata = {
   },
   referrer: "origin-when-cross-origin",
   viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#FFFFFF",
-  colorScheme: "light",
   authors: [
     {
       name: "Hey Rebekah Team",

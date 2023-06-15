@@ -40,9 +40,9 @@ export default function Category(props) {
       </Head>
       <Container large className="border-l border-r border-neutral-200/10">
         <PageHeader
-          title={`${category.name}`} // Dynamic title including category name
+          title={`${category.name}`}
           leadText={`${category.name}? We’ve got the inside scoop. Join +338,000 pros in our community for insights on the daily. Sign up to our newsletter. We'll deliver fresh truths on ${category.name} right to your inbox, gratis.`}
-          id={`${category.name}`} // Dynamic form ID including category name
+          id={`${category.name}`}
           includeForm
         />
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
