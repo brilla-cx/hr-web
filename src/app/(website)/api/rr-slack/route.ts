@@ -14,9 +14,6 @@ interface Message {
 
 async function sendToSlack(message: Message) {
   try {
-    const users = slackClient.users.list();
-    console.log((await users).members);
-    console.log(users);
     await slackClient.chat.postMessage({
       channel: websiteNotificationChannelID,
       text: "HEY @ambreen @rebekah",
@@ -29,14 +26,14 @@ async function sendToSlack(message: Message) {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: ":partying_face: *NEW MESSAGE FROM REBEKAH RADICE PAGE <!ambreen> <!rebekah>",
+            text: ":partying_face: *NEW MESSAGE FROM REBEKAH RADICE PAGE",
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `HEY <!channel> <@ambreen> <@rebekah> New message From ${message.fullName}.\n- Full Name: ${message.fullName}\n- Phone Number: ${message.phoneNumber}\n- Message: ${message.message}`,
+            text: `HEY <!channel> <@UT2K50031> <@UT2K50GQ7> New message From ${message.fullName}.\n- Full Name: ${message.fullName}\n- Phone Number: ${message.phoneNumber}\n- Message: ${message.message}`,
           },
         },
       ],
