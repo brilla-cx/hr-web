@@ -12,10 +12,10 @@ const commonHeaders = [
     key: "X-XSS-Protection",
     value: "1; mode=block",
   },
-  // {
-  //   key: "X-Frame-Options",
-  //   value: "SAMEORIGIN",
-  // },
+  {
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
+  },
   {
     key: "X-Content-Type-Options",
     value: "nosniff",
@@ -68,11 +68,11 @@ const nextConfig = {
   // eslint-disable-next-line require-await
   async redirects() {
     return [
-      {
-        source: "/studio",
-        destination: "https://heyrebekah.sanity.studio/",
-        permanent: false,
-      },
+      //{
+      //source: "/studio",
+      //destination: "https://heyrebekah.sanity.studio/",
+      //permanent: false,
+      //},
       {
         source: "/book-club",
         destination: "/books",
