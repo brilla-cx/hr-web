@@ -8,7 +8,7 @@ const STUDIO_URL_DEV = "http://localhost:3333";
 const STUDIO_URL_PROD = "https://heyrebekah.sanity.studio";
 
 const WEBSITE_URL_DEV = "http://localhost:3000";
-const WEBSITE_URL_PROD = "https://hr-web-beta.vercel.app";
+const WEBSITE_URL_PROD = "https://heyrebekah.com";
 
 export async function GET(request: Request) {
   // Parse query string parameters

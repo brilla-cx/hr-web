@@ -15,9 +15,7 @@ import { cx } from "@/lib/utils";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "/",
-    // T-10895 Update canonical URL before production go-live
-    // canonical: "https://heyrebekah.com",
+    canonical: "https://heyrebekah.com",
   },
   title: {
     default: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
