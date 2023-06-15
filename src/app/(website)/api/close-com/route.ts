@@ -24,7 +24,7 @@ async function sednToSlack(message: Message) {
   try {
     await web.chat.postMessage({
       channel: partnersChannelId,
-      text: "test",
+      text: "NEW PARTNER",
       // eslint-disable-next-line camelcase
       thread_ts: "1683912786.200129",
       blocks: [
@@ -55,7 +55,6 @@ export async function POST(req: Request) {
   const closeLeadEndpoint = "https://api.close.com/api/v1/lead";
   const closeContactEndpoint = "https://api.close.com/api/v1/contact";
 
-  // Create preview URL
   const baseOrigin = hostname.includes("localhost")
     ? WEBSITE_URL_DEV
     : WEBSITE_URL_PROD;
