@@ -69,11 +69,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/studio",
-        destination: "https://heyrebekah.sanity.studio/",
-        permanent: false,
-      },
-      {
         source: "/book-club",
         destination: "/books",
         permanent: true,
