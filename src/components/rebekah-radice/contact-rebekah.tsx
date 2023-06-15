@@ -162,7 +162,7 @@ function ContactRebekah(props: Props) {
           onSubmit={handleSubmit(onSubmit)}
           className="col-span-2 md:col-span-1">
           <div className="grid grid-cols-2 gap-10">
-            <>
+            <div>
               <input
                 type="text"
                 placeholder="rebekah"
@@ -174,8 +174,8 @@ function ContactRebekah(props: Props) {
                   <small>{errors.firstName.message}</small>
                 </div>
               )}
-            </>
-            <>
+            </div>
+            <div>
               <input
                 type="text"
                 placeholder="Radice"
@@ -187,8 +187,8 @@ function ContactRebekah(props: Props) {
                   <small>{errors.lastName.message}</small>
                 </div>
               )}
-            </>
-            <>
+            </div>
+            <div>
               <input
                 type="text"
                 placeholder="email"
@@ -200,8 +200,8 @@ function ContactRebekah(props: Props) {
                   <small>{errors.email.message}</small>
                 </div>
               )}
-            </>
-            <>
+            </div>
+            <div>
               <input
                 type="number"
                 placeholder="phoneNumber"
@@ -213,7 +213,7 @@ function ContactRebekah(props: Props) {
                   <small>{errors.phoneNumber.message}</small>
                 </div>
               )}
-            </>
+            </div>
             <div className="col-span-2">
               <textarea
                 {...register("message")}
