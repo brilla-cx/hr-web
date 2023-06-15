@@ -31,7 +31,7 @@ interface Message {
 const schema = z.object({
   firstName: z.string().nonempty("first name is required"),
   lastName: z.string().nonempty("last name is required"),
-  email: z.string().email("Invlaid email address"),
+  email: z.string().email("Invalid email address"),
   phoneNumber: z.string().nonempty("Phone number is required"),
   message: z.string().nonempty("Message is reuired"),
 });
