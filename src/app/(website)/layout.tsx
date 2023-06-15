@@ -2,6 +2,7 @@
 // @ts-nocheck
 import "../globals.css";
 
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import PlausibleProvider from "next-plausible";
@@ -9,6 +10,7 @@ import React from "react";
 
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
+
 
 // export const revalidate = 86400;
 
@@ -35,8 +37,6 @@ export const metadata: Metadata = {
   },
   referrer: "origin-when-cross-origin",
   viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#FFFFFF",
-  colorScheme: "light",
   authors: [
     {
       name: "Hey Rebekah Team",
@@ -128,7 +128,7 @@ export default function RootLayout({
           taggedEvents
         />
       </head>
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
