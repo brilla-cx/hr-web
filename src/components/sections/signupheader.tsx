@@ -10,7 +10,7 @@ interface PageHeaderProps {
 
 const testimonialArray = [
   "  This is just the best thing I've ever read! ~ Nancy (Rebekah's mom)",
-  "Hey Rebekah is hot as 🔥! ~ Cam (Rebekah's son)",
+  "Hey Rebekah is smart AF! ~ Cam (Rebekah's son)",
   "I have to read this newsletter everyday! ~ Chris (Rebekah's son)",
   "Hey Rebekah, grab me some chips while you're there? ~ Dean (Rebekah's husband)",
 ];
