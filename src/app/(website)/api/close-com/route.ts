@@ -6,7 +6,7 @@ const closeToken = process.env.CLOSE_API_KEY;
 import { cookies } from "next/headers";
 
 const WEBSITE_URL_DEV = "http://localhost:3000";
-const WEBSITE_URL_PROD = "https://hr-web-beta.vercel.app";
+const WEBSITE_URL_PROD = "https://heyrebekah.com";
 
 const web = new WebClient(slackToken);
 
