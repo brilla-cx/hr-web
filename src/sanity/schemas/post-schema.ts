@@ -190,7 +190,7 @@ const post = {
       description: "The SEO Title of the post from Webflow. This needs to be migrated to SEO Title.",
       type: "string",
       group: "seo",
-      readOnly: true,
+      //readOnly: true,
       options: { source: "name", spellcheck: true },
     },
     {
@@ -201,7 +201,7 @@ const post = {
       of: [{ type: "block" }],
       options: { spellcheck: true },
       group: "seo",
-      readOnly: true,
+      //readOnly: true,
     },
   ],
   preview: {
