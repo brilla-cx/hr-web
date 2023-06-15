@@ -16,25 +16,50 @@ async function sendToSlack(message: Message) {
   try {
     await slackClient.chat.postMessage({
       channel: websiteNotificationChannelID,
-      text: "HEY @ambreen @rebekah",
-      // eslint-disable-next-line camelcase
-      thread_ts: "",
+      text: "*HEY @ambreen @rebekah*",
       // eslint-disable-next-line camelcase
       link_names: true,
       blocks: [
         {
-          type: "section",
+          type: "divider",
+        },
+        {
+          type: "header",
           text: {
-            type: "mrkdwn",
-            text: ":partying_face: *NEW MESSAGE FROM REBEKAH RADICE PAGE",
+            type: "plain_text",
+            text: ":partying_face: *HEY NEW MESSAGE FROM REBEKAH RADICE PAGE*",
           },
         },
         {
           type: "section",
           text: {
             type: "mrkdwn",
-            text: `HEY <!channel> <@UT2K50031> <@UT2K50GQ7> New message From ${message.fullName}.\n- Full Name: ${message.fullName}\n- Phone Number: ${message.phoneNumber}\n- Message: ${message.message}`,
+            text: `HEY <@UT2K50031> <@UT2K50GQ7>`,
           },
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `* FullName: ${message.fullName}\n * Email: ${message.email}\n * Phone Number: ${message.phoneNumber}`,
+          },
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `*Message*:\n ${message.message}`,
+          },
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `\n\n\n\n${message.fullName} just submitted a form on rebekah-radice page. Please reach out to them.`,
+          },
+        },
+        {
+          type: "divider",
         },
       ],
     });
