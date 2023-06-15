@@ -1,11 +1,9 @@
-import { Suspense } from "react";
-
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 
 import PaginatedPosts from "./posts";
 
-export default function Gists() {
+export default function Gists({ searchParams }) {
   return (
     <div className="bg-midnight">
       <Container large className="border-l border-r border-neutral-200/10">
@@ -20,14 +18,7 @@ export default function Gists() {
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <Suspense
-            fallback={
-              <p className="text-center text-lg">
-                Susan went where?! Searching the premises...
-              </p>
-            }>
-            <PaginatedPosts />
-          </Suspense>
+          <PaginatedPosts searchParams={searchParams} />
         </div>
       </Container>
     </div>
