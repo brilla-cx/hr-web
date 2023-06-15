@@ -11,11 +11,9 @@ export async function generateMetadata({ params }) {
 
   const description = `Hey Rebekah writes about ${category.name} and a bunch of other AI-related stuff too. Not a reader? Join 338K+ community members today, it's free!`;
 
-  const trimmedDescription = description.replace(/\s+/g, " ").trim();
-
   return {
     title: `Read about ${category.name}`,
-    description: trimmedDescription,
+    description: description,
     robots: {
       index: "noindex",
       follow: "nofollow",

@@ -1,5 +1,8 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import Link from "next/link";
-import React, { RefObject } from "react";
+import React, { RefObject, useState } from "react";
+import { useForm } from "react-hook-form";
 import {
   AiFillFacebook,
   AiFillInstagram,
@@ -10,11 +13,28 @@ import {
 } from "react-icons/ai";
 import { BsPinterest } from "react-icons/bs";
 import { FaLocationArrow } from "react-icons/fa";
+import { z } from "zod";
 
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import { GlowingButton, H3, Input, Lead, Textarea } from "../ui";
+import { GlowingButton, H3, Lead } from "../ui";
+
+interface Message {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  message: string;
+}
+
+const schema = z.object({
+  firstName: z.string().nonempty("first name is required"),
+  lastName: z.string().nonempty("last name is required"),
+  email: z.string().email("Invalid email address"),
+  phoneNumber: z.string().nonempty("Phone number is required"),
+  message: z.string().nonempty("Message is reuired"),
+});
 
 interface Props {
   contactSectionRef: RefObject<HTMLDivElement>;
@@ -22,6 +42,36 @@ interface Props {
 
 function ContactRebekah(props: Props) {
   const { contactSectionRef } = props;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Message>({
+    resolver: zodResolver(schema),
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const onSubmit = async (data: Message) => {
+    try {
+      setIsLoading(true);
+      await axios.post("/api/rr-slack", {
+        fullName: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        message: data.message,
+      });
+      setIsSuccess(true);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+
+    return null;
+  };
+
   return (
     <div
       ref={contactSectionRef}
@@ -107,57 +157,84 @@ function ContactRebekah(props: Props) {
             </div>
           </div>
         </div>
-        <form id="#contact" className="col-span-2 md:col-span-1">
-          <div className="grid grid-cols-2 gap-10 ">
-            <Input
-              className="text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-              name="firstName"
-              type="text"
-              required
-              placeholder="Rebekah"
-              aria-label="Enter your first name"
-              autoComplete="firstName"
-            />
-            <Input
-              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-              name="lastName"
-              type="text"
-              required
-              placeholder="Radice"
-              aria-label="Enter your last name"
-              autoComplete="lastName"
-            />
-            <Input
-              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-              name="email"
-              type="email"
-              required
-              placeholder="Enter your email"
-              aria-label="Enter your email address to subscribe"
-              autoComplete="email"
-            />
-            <Input
-              className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-              name="phoneNumber"
-              type="number"
-              required
-              placeholder="555-555-1212"
-              aria-label="Enter your phone number"
-              autoComplete="email"
-            />
-            <Textarea
-              name="message"
-              required
-              placeholder="Enter your message"
-              aria-label="Enter your message"
-              className="w-full col-span-2 text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
-            />
-            <div className="col-span-2 md:col-span-1">
-              <GlowingButton
-                variant="link"
-                href="mailto:np@heyrebekah.com?subject=Rebekah%20Radice%20Contact%20Form%20Inquiry">
-                Contact Rebekah
+        <form
+          id="#contact"
+          onSubmit={handleSubmit(onSubmit)}
+          className="col-span-2 md:col-span-1">
+          <div className="grid grid-cols-2 gap-10">
+            <div>
+              <input
+                type="text"
+                placeholder="rebekah"
+                {...(register && register("firstName"))}
+                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              />
+              {errors.firstName && (
+                <div className="mt-1 text-red-600">
+                  <small>{errors.firstName.message}</small>
+                </div>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="Radice"
+                {...register("lastName")}
+                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              />
+              {errors.lastName && (
+                <div className="mt-1 text-red-600">
+                  <small>{errors.lastName.message}</small>
+                </div>
+              )}
+            </div>
+            <div>
+              <input
+                type="text"
+                placeholder="email"
+                {...register("email")}
+                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              />
+              {errors.email && (
+                <div className="mt-1 text-red-600">
+                  <small>{errors.email.message}</small>
+                </div>
+              )}
+            </div>
+            <div>
+              <input
+                type="number"
+                placeholder="phoneNumber"
+                {...register("phoneNumber")}
+                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              />
+              {errors.phoneNumber && (
+                <div className="mt-1 text-red-600">
+                  <small>{errors.phoneNumber.message}</small>
+                </div>
+              )}
+            </div>
+            <div className="col-span-2">
+              <textarea
+                {...register("message")}
+                placeholder="Message"
+                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              />
+              {errors.message && (
+                <div className="mt-1 text-red-600">
+                  <small>{errors.message.message}</small>
+                </div>
+              )}
+            </div>
+            <div className="col-span-2">
+              <GlowingButton type="submit">
+                {isLoading ? "Loading..." : "Let's make it happen"}
               </GlowingButton>
+              {isSuccess && (
+                <p className="mt-2 text-green-500">
+                  Form submitted successfully!
+                </p>
+              )}
             </div>
           </div>
         </form>

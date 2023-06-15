@@ -54,7 +54,7 @@ function EmailForm() {
   };
   return (
     <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form id="#partner-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="grid max-w-3xl grid-cols-2 gap-10 mx-auto md:grid-cols-4">
           <div className="col-span-4 text-center">
             <H3 as="h2" className="!text-center text-gray-200">

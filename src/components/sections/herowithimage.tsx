@@ -34,16 +34,14 @@ export function HeroWithImage(props: Props) {
         <Lead className="mt-6 text-gray-400 ">{subtitle2}</Lead>
 
         <div className="mt-8 md:max-w-xs">{props.button && props.button}
-          button={
-            <GlowingButton
-              variant="link"
-              href="/signup"
-              size="md"
-              id="about-hero"
-            >
-              Join the Curious
-            </GlowingButton>
-          }
+          <GlowingButton
+            variant="link"
+            href="/signup"
+            size="md"
+            id="about-hero"
+          >
+            Join the Curious
+          </GlowingButton>
         </div>
 
       </div>

@@ -26,7 +26,7 @@ const brandsData: BrandItemProps[] = [
   },
   {
     imageUrl:
-      "https://cdn.sanity.io/images/smx99abf/production/a7aa784a17b879588274662ed407a8b9e726689e-1648x381.svg",
+      "https://cdn.sanity.io/images/smx99abf/production/ff13f6852eee4c72b617c030a1776760e361af6f-1648x381.svg",
     alt: "Logomark of Rebekah Radice's client, Benchmark Mortgage",
   },
   {
@@ -51,7 +51,7 @@ const brandsData: BrandItemProps[] = [
   },
   {
     imageUrl:
-      "https://cdn.sanity.io/images/smx99abf/production/b7f7ef31b10b9613a0b7c501287430a8195e8b90-150x38.svg",
+      "https://cdn.sanity.io/images/smx99abf/production/6b6fba437ce6d837c7fa8f075d3b29d0d99192a3-150x38.svg",
     alt: "Logomark of a brand Rebekah's worked with, Hootsuite",
   },
   {
@@ -71,7 +71,7 @@ const brandsData: BrandItemProps[] = [
   },
   {
     imageUrl:
-      "https://cdn.sanity.io/images/smx99abf/production/af03f12f5c40309d3aa73146b6c30748c66b703d-150x33.svg",
+      "https://cdn.sanity.io/images/smx99abf/production/27ec2b8829f7742d7ba4c52b276095b15bfe3116-150x33.svg",
     alt: "Logomark of a brand Rebekah's worked with, Intuit Quickbooks",
   },
   {
