@@ -6,7 +6,7 @@ const closeToken = process.env.CLOSE_API_KEY;
 import { cookies } from "next/headers";
 
 const WEBSITE_URL_DEV = "http://localhost:3000";
-const WEBSITE_URL_PROD = "https://heyrebekah.com";
+const WEBSITE_URL_PROD = "https://hr-web-beta.vercel.app";
 
 const web = new WebClient(slackToken);
 
@@ -24,14 +24,17 @@ async function sednToSlack(message: Message) {
   try {
     await web.chat.postMessage({
       channel: partnersChannelId,
-      text: "test",
+      text: "NEW PARTNER",
       // eslint-disable-next-line camelcase
       thread_ts: "1683912786.200129",
       blocks: [
         {
-          type: "section",
+          type: "divider",
+        },
+        {
+          type: "header",
           text: {
-            type: "mrkdwn",
+            type: "plain_text",
             text: ":partying_face: *NEW PARTNER INQUIRY*",
           },
         },
@@ -41,6 +44,9 @@ async function sednToSlack(message: Message) {
             type: "mrkdwn",
             text: `Hey <!channel>! I just created a new contact for you in Close.com.\n- Company: ${message.companyName}\n- Name: ${message.name}\n- Message: ${message.message}\n- Close Lead: <${message.closeLead}/|View lead>\n\nThey just submitted the Partner Contact form on heyrebekah. Reach out to them soon and be sure to use an email attached to close.com.`,
           },
+        },
+        {
+          type: "divider",
         },
       ],
     });
@@ -55,7 +61,6 @@ export async function POST(req: Request) {
   const closeLeadEndpoint = "https://api.close.com/api/v1/lead";
   const closeContactEndpoint = "https://api.close.com/api/v1/contact";
 
-  // Create preview URL
   const baseOrigin = hostname.includes("localhost")
     ? WEBSITE_URL_DEV
     : WEBSITE_URL_PROD;
