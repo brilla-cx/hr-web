@@ -23,8 +23,9 @@ export function generateMetadata() {
   return metadata;
 }
 
-export default function GistsPage() {
-  return <Gists />;
+export default function GistsPage({ searchParams }) {
+  return <Gists searchParams={searchParams} />;
 }
 
+export const dynamic = "force-dynamic";
 export const revalidate = 3600;
