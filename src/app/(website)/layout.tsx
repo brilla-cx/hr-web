@@ -15,12 +15,10 @@ import { cx } from "@/lib/utils";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "/",
-    // T-10895 Update canonical URL before production go-live
-    // canonical: "https://heyrebekah.com",
+    canonical: "https://heyrebekah.com",
   },
   title: {
-    default: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
+    default: "Hey Rebekah | Like Morning Brew for AI",
     template: "%s | Hey Rebekah",
   },
   description:
@@ -29,17 +27,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://heyrebekah.com",
-    title: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
+    title: "Hey Rebekah | Like Morning Brew for AI",
     description:
       "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
     siteName: "Hey Rebekah",
     image: "/og.png",
   },
-  robots: {
-    index: "noindex",
-    follow: "nofollow",
-  },
   referrer: "origin-when-cross-origin",
+  viewport: "width=device-width, initial-scale=1.0",
+  themeColor: "#FFFFFF",
+  colorScheme: "light",
   authors: [
     {
       name: "Hey Rebekah Team",
@@ -50,14 +47,13 @@ export const metadata: Metadata = {
     "ChatGPT newsletter",
     "AI newsletter",
     "artifical intelligence",
-
   ],
   creator: "Hey Rebekah Team",
   publisher: "BRIL.LA, LLC.",
   twitter: {
     card: "summary_large_image",
     site: "rebekahradice",
-    title: "Hey Rebekah | Like Morning Brew for AI & ChatGPT",
+    title: "Hey Rebekah | Like Morning Brew for AI",
     description: "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
     creator: "rebekahradice",
     images: "/og.png",
@@ -100,25 +96,11 @@ export const metadata: Metadata = {
   ],
   manifest: "/site.webmanifest",
   categories: [
-    "ChatGPT",
-    "Artificial Intelligence",
-    "AI Tools",
-    "AI Newsletter",
-    "AI for Business",
-    "AI for Marketers",
-    "AI for Entrepreneurs",
-    "AI for Startups",
-    "AI for Knowledge Workers",
-    "AI for Freelancers",
-    "AI for Consultants",
-    "AI for Sales",
-    "AI for Customer Service",
-    "AI for Customer Success",
-    "AI for Human Resources",
-    "AI for HR",
-    "AI Training",
-    "Career",
-    "Productivity",
+    "Newsletter for ChatGPT",
+    "Artificial Intelligence Newsletter",
+    "Newsletter for AI Tools",
+    "Newsletter for AI",
+    "AI Newsletter for knowledge workers",
   ],
 };
 

@@ -1,4 +1,4 @@
-export const SITE_URL: string = "https://hr-web-beta.vercel.app";
+export const SITE_URL: string = "https://heyrebekah.com";
 
 export const ITERABLE_TOKEN: string =
   process.env.VERCEL_ENV === "production"

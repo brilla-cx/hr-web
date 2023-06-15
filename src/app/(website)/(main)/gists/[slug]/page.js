@@ -30,15 +30,15 @@ export async function generateMetadata({ params }) {
   const seoMetaDescription = post?.seoMetaDescription?.[0]?.children?.[0]?.text;
 
   return {
-    title: post.seo?.title || seoTitle,
-    description: post.seo?.description || seoMetaDescription,
+    title: post.seo?.seoTitle || seoTitle,
+    description: post.seo?.seoDescription || seoMetaDescription,
     openGraph: {
-      title: post.seo?.title || seoTitle,
-      description: post.seo?.description || seoMetaDescription,
+      title: post.seo?.seoTitle || seoTitle,
+      description: post.seo?.seoDescription || seoMetaDescription,
     },
     twitter: {
-      title: post.seo?.title || seoTitle,
-      description: post.seo?.description || seoMetaDescription,
+      title: post.seo?.seoTitle || seoTitle,
+      description: post.seo?.seoDescription || seoMetaDescription,
     },
   };
 }
@@ -62,7 +62,7 @@ export default async function PostPage({ params }) {
 
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       Just a sec, getting Rebekah's attention...
     </div>
   );

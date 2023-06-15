@@ -190,8 +190,8 @@ const post = {
       description: "The SEO Title of the post from Webflow. This needs to be migrated to SEO Title.",
       type: "string",
       group: "seo",
-      readOnly: true,
-      options: { source: "name", maxLength: 58, spellcheck: true },
+      //readOnly: true,
+      options: { source: "name", spellcheck: true },
     },
     {
       name: "seoMetaDescription",
@@ -199,9 +199,9 @@ const post = {
       description: "The SEO Meta Description of the post from Webflow. This needs to be migrated to SEO Description.",
       type: "array",
       of: [{ type: "block" }],
-      options: { maxLength: 158, spellcheck: true },
+      options: { spellcheck: true },
       group: "seo",
-      readOnly: true,
+      //readOnly: true,
     },
   ],
   preview: {
