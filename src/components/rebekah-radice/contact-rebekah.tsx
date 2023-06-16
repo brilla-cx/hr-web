@@ -16,6 +16,7 @@ import { BsPinterest } from "react-icons/bs";
 import { FaLocationArrow } from "react-icons/fa";
 import { z } from "zod";
 
+import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
@@ -41,8 +42,6 @@ interface Props {
   contactSectionRef: RefObject<HTMLDivElement>;
 }
 
-const sitekey = process.env.CLOUDFLARE_SITE_KEY!;
-
 function ContactRebekah(props: Props) {
   const { contactSectionRef } = props;
   const {
@@ -56,32 +55,32 @@ function ContactRebekah(props: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const formRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   async function onSubmit(data: Message) {
     try {
-      const formData = new FormData(formRef.current!);
-      const token = formData.get("cf-turnstile-response");
-
-      const res = await fetch("/api/verify", {
-        method: "POST",
-        body: JSON.stringify({ token }),
-        headers: {
-          "content-type": "application/json",
-        },
-      });
-
-      const tokenResponse = await res.json();
-
-      if (tokenResponse.success) {
-        setIsLoading(true);
-        await axios.post("/api/rr-slack", {
-          fullName: `${data.firstName} ${data.lastName}`,
-          email: data.email,
-          phoneNumber: data.phoneNumber,
-          message: data.message,
+      const ref = formRef.current;
+      if (ref) {
+        const formData = new FormData(formRef.current!);
+        const token = formData.get("cf-turnstile-response");
+        const res = await fetch("/api/turnstile-verify", {
+          method: "POST",
+          body: JSON.stringify({ token }),
+          headers: {
+            "content-type": "application/json",
+          },
         });
-        setIsSuccess(true);
+        const tokenResponse = await res.json();
+        if (tokenResponse.data.success) {
+          setIsLoading(true);
+          await axios.post("/api/rr-slack", {
+            fullName: `${data.firstName} ${data.lastName}`,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+            message: data.message,
+          });
+          setIsSuccess(true);
+        }
       }
     } catch (error) {
       console.error(error);
@@ -177,11 +176,12 @@ function ContactRebekah(props: Props) {
           </div>
         </div>
         <form
+          ref={formRef}
           id="#contact"
           onSubmit={handleSubmit(onSubmit)}
           className="col-span-2 md:col-span-1">
-          <div className="grid grid-cols-2 gap-10">
-            <div>
+          <div className="grid grid-cols-2 gap-7 md:gap-10">
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
                 placeholder="rebekah"
@@ -194,7 +194,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
                 placeholder="Radice"
@@ -207,7 +207,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
                 placeholder="email"
@@ -220,7 +220,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="number"
                 placeholder="phoneNumber"
@@ -245,9 +245,16 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div className="col-span-2 bg-white">
-              <Turnstile siteKey={sitekey} />
-            </div>
+            <Turnstile
+              siteKey={CLOUDFLARE_SITE_KEY}
+              options={{
+                action: "submit-form",
+                size: "invisible",
+              }}
+              scriptOptions={{
+                appendTo: "body",
+              }}
+            />
 
             <div className="col-span-2">
               <GlowingButton type="submit">

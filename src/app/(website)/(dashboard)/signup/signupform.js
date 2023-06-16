@@ -2,18 +2,20 @@
 /* eslint-disable react/jsx-no-bind */
 "use client";
 
+import { Turnstile } from "@marsidev/react-turnstile";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 
 import FormProvider, { useFormData } from "@/components/providers/form-context";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
+import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
-import { cx } from "@/lib/utils";
-
 import { addUserToList, updateUser } from "@/lib/server/actions";
+import { cx } from "@/lib/utils";
 
 const TopicsArray = [
   "Accounting/Finance",
@@ -42,7 +44,7 @@ export default function MultiStepForm() {
   return (
     <div className="">
       <FormProvider>
-        <div className="mx-auto max-w-xl">
+        <div className="max-w-xl mx-auto">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}
@@ -83,21 +85,41 @@ function StepOne({ formStep, nextFormStep }) {
     register,
   } = useForm({ mode: "onTouched" });
 
+  const formRef = useRef(null);
+
   const onSubmit = async (values) => {
-    setLoading(true);
-    setFormValues(values);
-    const result = await addUserToList(values.email);
-    if (result.error) {
-      console.log("Error fetching data");
-      throw new Error("Fail to send to iterable");
+    try {
+      const ref = await formRef.current;
+
+      if (ref) {
+        const formData = new FormData(formRef.current);
+        const token = formData.get("cf-turnstile-response");
+        const res = await fetch("/api/turnstile-verify", {
+          method: "POST",
+          body: JSON.stringify({ token }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+        const tokenResponse = await res.json();
+        if (tokenResponse.data.success) {
+          setLoading(true);
+          setFormValues(values);
+          const result = await addUserToList(values.email);
+          if (result.error) {
+            throw new Error("Fail to send to iterable");
+          }
+          nextFormStep();
+        }
+      }
+    } catch (error) {
+      setLoading(false);
     }
-    nextFormStep();
-    setLoading(false);
   };
 
   return (
     <div className={formStep === 1 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
         Step 1 of 4 | Required
       </p>
       <div className="">
@@ -106,10 +128,10 @@ function StepOne({ formStep, nextFormStep }) {
         </Lead>
       </div>
       <div className="mt-5">
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
             name="email"
             type="email"
             required
@@ -126,13 +148,23 @@ function StepOne({ formStep, nextFormStep }) {
               },
             }}
           />
+          <Turnstile
+            siteKey={CLOUDFLARE_SITE_KEY}
+            options={{
+              action: "submit-form",
+              size: "invisible",
+            }}
+            scriptOptions={{
+              appendTo: "body",
+            }}
+          />
 
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton type="submit" autoWidth disabled={loading}>
               {loading ? "Hold on..." : "Next"}
             </GlowingButton>
           </div>
-          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
+          <p className="mt-6 text-xs leading-6 text-center text-gray-400">
             We care about your{" "}
             <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
               privacy
@@ -161,7 +193,7 @@ function StepTwo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
         Step 2 of 4 | Required
       </p>
       <div className="">
@@ -173,7 +205,7 @@ function StepTwo({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
             name="firstName"
             type="text"
             required
@@ -188,7 +220,7 @@ function StepTwo({ formStep, nextFormStep }) {
             }}
           />
 
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton type="submit" autoWidth>
               Next
             </GlowingButton>
@@ -214,7 +246,7 @@ function StepThree({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 3 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
         Step 3 of 4 | Required
       </p>
       <div className="">
@@ -250,7 +282,7 @@ function StepThree({ formStep, nextFormStep }) {
             </div>
           )}
 
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton type="submit" autoWidth>
               Next
             </GlowingButton>
@@ -297,7 +329,7 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
 
   return (
     <div className={formStep === 4 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
+      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
         Step 4 of 4 | Optional
       </p>
       <div className="">
@@ -332,7 +364,7 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
               <small>{errors.topics.message}</small>
             </div>
           )}
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <BackButton onClick={prevFormStep} />
             <GlowingButton type="submit" autoWidth>
               {topicsSelected ? "Next" : "Skip"}
@@ -374,7 +406,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
         </p>
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="flex justify-center mt-10">
         <GlowingButton
           type="submit"
           autoWidth
