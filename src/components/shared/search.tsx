@@ -52,8 +52,7 @@ function Hit({ hit }) {
           </Link>
         </h1>
         <p>
-          {hit.publishedAt || hit._createdAt} by
-          {hit.author}
+          {hit.publishedAt || hit._createdAt} by {hit.author}
         </p>
       </div>
     </article>
