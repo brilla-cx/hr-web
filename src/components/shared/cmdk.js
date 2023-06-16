@@ -3,6 +3,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 import AlgoliaSearch from "@/components/shared/search";
 
@@ -36,8 +37,8 @@ const CommandMenu = () => {
         type="button"
         className="relative h-9 w-full justify-start rounded-[0.5rem] bg-gray-700 text-sm text-white sm:pr-12 md:w-40 lg:w-64"
         onClick={openModal}>
-        <span className="hidden lg:inline-flex">Search website...</span>
-        <span className="inline-flex lg:hidden">Search...</span>
+        <FaSearch />
+        <span>Search...</span>
         <kbd className="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
           <span className="text-xs">⌘</span>K
         </kbd>

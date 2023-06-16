@@ -54,6 +54,7 @@ function Hit({ hit }) {
         <p>
           {hit.publishedAt || hit._createdAt} by {hit.author}
         </p>
+        <Highlight attribute="tldr" hit={hit} />
       </div>
     </article>
   );
