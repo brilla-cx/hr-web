@@ -1,7 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Turnstile } from "@marsidev/react-turnstile";
 import axios from "axios";
 import Link from "next/link";
-import React, { RefObject, useState } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AiFillFacebook,
@@ -40,6 +41,8 @@ interface Props {
   contactSectionRef: RefObject<HTMLDivElement>;
 }
 
+const sitekey = process.env.CLOUDFLARE_SITE_KEY!;
+
 function ContactRebekah(props: Props) {
   const { contactSectionRef } = props;
   const {
@@ -53,24 +56,40 @@ function ContactRebekah(props: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const onSubmit = async (data: Message) => {
+  const formRef = useRef(null);
+
+  async function onSubmit(data: Message) {
     try {
-      setIsLoading(true);
-      await axios.post("/api/rr-slack", {
-        fullName: `${data.firstName} ${data.lastName}`,
-        email: data.email,
-        phoneNumber: data.phoneNumber,
-        message: data.message,
+      const formData = new FormData(formRef.current!);
+      const token = formData.get("cf-turnstile-response");
+
+      const res = await fetch("/api/verify", {
+        method: "POST",
+        body: JSON.stringify({ token }),
+        headers: {
+          "content-type": "application/json",
+        },
       });
-      setIsSuccess(true);
+
+      const tokenResponse = await res.json();
+
+      if (tokenResponse.success) {
+        setIsLoading(true);
+        await axios.post("/api/rr-slack", {
+          fullName: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phoneNumber: data.phoneNumber,
+          message: data.message,
+        });
+        setIsSuccess(true);
+      }
     } catch (error) {
       console.error(error);
     } finally {
       setIsLoading(false);
     }
-
     return null;
-  };
+  }
 
   return (
     <div
@@ -226,6 +245,10 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
+            <div className="col-span-2 bg-white">
+              <Turnstile siteKey={sitekey} />
+            </div>
+
             <div className="col-span-2">
               <GlowingButton type="submit">
                 {isLoading ? "Loading..." : "Let's make it happen"}
