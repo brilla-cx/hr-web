@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
-import React, { RefObject, useState } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AiFillFacebook,
@@ -18,6 +18,7 @@ import { z } from "zod";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
+import ReactTurnstile from "../turnstile";
 import { GlowingButton, H3, Lead } from "../ui";
 
 interface Message {
@@ -46,6 +47,7 @@ function ContactRebekah(props: Props) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Message>({
     resolver: zodResolver(schema),
   });
@@ -53,24 +55,41 @@ function ContactRebekah(props: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const onSubmit = async (data: Message) => {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  async function onSubmit(data: Message) {
     try {
-      setIsLoading(true);
-      await axios.post("/api/rr-slack", {
-        fullName: `${data.firstName} ${data.lastName}`,
-        email: data.email,
-        phoneNumber: data.phoneNumber,
-        message: data.message,
-      });
-      setIsSuccess(true);
+      const ref = formRef.current;
+      if (ref) {
+        const formData = new FormData(formRef.current!);
+        const token = formData.get("cf-turnstile-response");
+        const res = await fetch("/api/turnstile-verify", {
+          method: "POST",
+          body: JSON.stringify({ token }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+        const tokenResponse = await res.json();
+        if (tokenResponse.data.success) {
+          setIsLoading(true);
+          await axios.post("/api/rr-slack", {
+            fullName: `${data.firstName} ${data.lastName}`,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+            message: data.message,
+          });
+          setIsSuccess(true);
+          reset();
+        }
+      }
     } catch (error) {
       console.error(error);
     } finally {
       setIsLoading(false);
     }
-
     return null;
-  };
+  }
 
   return (
     <div
@@ -158,11 +177,12 @@ function ContactRebekah(props: Props) {
           </div>
         </div>
         <form
+          ref={formRef}
           id="#contact"
           onSubmit={handleSubmit(onSubmit)}
           className="col-span-2 md:col-span-1">
-          <div className="grid grid-cols-2 gap-10">
-            <div>
+          <div className="grid grid-cols-2 gap-7 md:gap-10">
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
                 placeholder="rebekah"
@@ -175,7 +195,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
                 placeholder="Radice"
@@ -188,7 +208,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
                 placeholder="email"
@@ -201,7 +221,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <input
                 type="number"
                 placeholder="phoneNumber"
@@ -226,6 +246,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
+            <ReactTurnstile />
             <div className="col-span-2">
               <GlowingButton type="submit">
                 {isLoading ? "Loading..." : "Let's make it happen"}
