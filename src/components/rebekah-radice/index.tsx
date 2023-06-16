@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 "use client";
 import React, { Fragment, useRef } from "react";
 
@@ -49,9 +50,6 @@ function RebekahRadicePage() {
       })}
       {withContainer({
         Component: RememberFor,
-        componentProps: {
-          scrollToContact: scrollToContact,
-        },
       })}
       {withContainer({
         Component: ContactRebekah,

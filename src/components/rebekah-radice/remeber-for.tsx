@@ -47,7 +47,9 @@ const RememberFor = (props: Props) => {
               className="max-w-sm mt-12"
               // eslint-disable-next-line react/jsx-no-bind
               onClick={() => props.scrollToContact()}>
-              <GlowingButton>Join hey Rebekah</GlowingButton>
+              <GlowingButton type="link" href="/signup">
+                Join hey Rebekah
+              </GlowingButton>
             </div>
           </div>
         </div>

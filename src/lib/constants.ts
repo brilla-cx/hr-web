@@ -13,3 +13,10 @@ export const ITERABLE_TOKEN: string =
 
 export const ITERABLE_LIST_ID: number =
   process.env.VERCEL_ENV === "production" ? 2559467 : 2462911;
+
+// CLOUDFLARE
+export const CF_TURNSTILE_RESPONSE = "cf-turnstile-reponse";
+export const CLOUDFLARE_SITE_KEY: string = process.env
+  .NEXT_PUBLIC_CLOUDFLARE_SITE_KEY as string;
+export const CLOUDFLARE_SECRET_KEY: string = process.env
+  .CLOUDFLARE_SECRET_KEY as string;
