@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-no-bind */
 "use client";
 
-import { Turnstile } from "@marsidev/react-turnstile";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -10,13 +9,12 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 
 import FormProvider, { useFormData } from "@/components/providers/form-context";
+import ReactTurnstile from "@/components/turnstile";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
-import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
 import { addUserToList, updateUser } from "@/lib/server/actions";
 import { cx } from "@/lib/utils";
-
 const TopicsArray = [
   "Accounting/Finance",
   "Artificial Intelligence",
@@ -148,17 +146,7 @@ function StepOne({ formStep, nextFormStep }) {
               },
             }}
           />
-          <Turnstile
-            siteKey={CLOUDFLARE_SITE_KEY}
-            options={{
-              action: "submit-form",
-              size: "invisible",
-            }}
-            scriptOptions={{
-              appendTo: "body",
-            }}
-          />
-
+          <ReactTurnstile />
           <div className="flex justify-center mt-10">
             <GlowingButton type="submit" autoWidth disabled={loading}>
               {loading ? "Hold on..." : "Next"}

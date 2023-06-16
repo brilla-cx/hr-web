@@ -1,5 +1,4 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Turnstile } from "@marsidev/react-turnstile";
 import axios from "axios";
 import Link from "next/link";
 import React, { RefObject, useRef, useState } from "react";
@@ -16,10 +15,10 @@ import { BsPinterest } from "react-icons/bs";
 import { FaLocationArrow } from "react-icons/fa";
 import { z } from "zod";
 
-import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
+import ReactTurnstile from "../turnstile";
 import { GlowingButton, H3, Lead } from "../ui";
 
 interface Message {
@@ -48,6 +47,7 @@ function ContactRebekah(props: Props) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Message>({
     resolver: zodResolver(schema),
   });
@@ -80,6 +80,7 @@ function ContactRebekah(props: Props) {
             message: data.message,
           });
           setIsSuccess(true);
+          reset();
         }
       }
     } catch (error) {
@@ -245,17 +246,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <Turnstile
-              siteKey={CLOUDFLARE_SITE_KEY}
-              options={{
-                action: "submit-form",
-                size: "invisible",
-              }}
-              scriptOptions={{
-                appendTo: "body",
-              }}
-            />
-
+            <ReactTurnstile />
             <div className="col-span-2">
               <GlowingButton type="submit">
                 {isLoading ? "Loading..." : "Let's make it happen"}

@@ -1,12 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Turnstile } from "@marsidev/react-turnstile";
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
-
+import ReactTurnstile from "../turnstile";
 import GlowingButton from "./glowingButton";
 import { H3, Lead } from "./typography";
 
@@ -177,16 +175,7 @@ function EmailForm() {
               </div>
             )}
           </div>
-          <Turnstile
-            siteKey={CLOUDFLARE_SITE_KEY}
-            options={{
-              action: "submit-form",
-              size: "invisible",
-            }}
-            scriptOptions={{
-              appendTo: "body",
-            }}
-          />
+          <ReactTurnstile />
           <div className="col-span-4 pt-6 mx-auto">
             <GlowingButton type="submit" autoWidth>
               {isLoading ? "Loading..." : "Let's make it happen"}
