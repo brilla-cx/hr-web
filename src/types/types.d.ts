@@ -109,3 +109,18 @@ export interface GroupedSitemapData {
   socialBlog: SitemapData[];
   tools: SitemapData[];
 }
+
+export interface Metadata {
+  title: string;
+  description: string;
+  openGraph: {
+    title: string;
+    description: string;
+    images: string;
+  };
+  twitter: {
+    title: string;
+    description: string;
+    images: string;
+  };
+}
