@@ -36,27 +36,27 @@ function PartnerCommunityData() {
               statsTitle: "Community members",
             },
             {
-              id: 1,
+              id: 2,
               statsNumber: "+31,760",
               statsTitle: "Email subscribers",
             },
             {
-              id: 1,
+              id: 3,
               statsNumber: "+7%",
               statsTitle: "Monthly subscriber growth",
             },
             {
-              id: 1,
+              id: 4,
               statsNumber: "63.3%",
               statsTitle: "Subscriber engagement",
             },
             {
-              id: 1,
+              id: 5,
               statsNumber: "100%",
               statsTitle: "Free for knowledge workers",
             },
             {
-              id: 1,
+              id: 6,
               statsNumber: "92",
               statsTitle: "Net Promoter Score",
             },

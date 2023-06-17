@@ -8,7 +8,7 @@ interface Props {
 
 const RotatingText = ({ items }: Props) => {
   return (
-    <p className={`min-h-[4rem] text-center text-lg text-white/50`}>
+    <p className={`min-h-[4rem] text-xs text-center md:text-lg text-white/50`}>
       <Textra
         data={items}
         effect="simple"

@@ -248,7 +248,7 @@ function ContactRebekah(props: Props) {
             </div>
             <ReactTurnstile />
             <div className="col-span-2">
-              <GlowingButton type="submit">
+              <GlowingButton aria-label="Submit Form" type="submit">
                 {isLoading ? "Loading..." : "Let's make it happen"}
               </GlowingButton>
               {isSuccess && (

@@ -4,13 +4,14 @@ import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
 import { getLegalPageBySlug } from "@/sanity/client";
+import { Metadata } from "@/types/types";
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   const title = "Editorial Policy";
   const description =
     "The TL;DR? We're a free daily newsletter for knowledge workers. We write about AI. We don't accept money for affiliate links and always mark paid content.";
 
-  const metadata = {
+  const metadata: Metadata = {
     title,
     description,
     openGraph: {
@@ -28,8 +29,14 @@ export function generateMetadata() {
   return metadata;
 }
 
+interface Post {
+  name?: string;
+  tldr?: string;
+  content?: any;
+}
+
 export default async function EditorialPolicy() {
-  const post = await getLegalPageBySlug("editorial-policy");
+  const post: Post = await getLegalPageBySlug("editorial-policy");
 
   // Fetch the post data and insert it into the component
   const title = post?.name ?? "Default Title";
@@ -58,3 +65,6 @@ export default async function EditorialPolicy() {
     </div>
   );
 }
+
+export const dynamic = "auto";
+export const revalidate = 2592000;

@@ -130,7 +130,11 @@ export default function Footer() {
                 everyday.
               </p>
             </div>
-            <GlowingButton variant="link" href="/signup" id="footer">
+            <GlowingButton
+              variant="link"
+              href="/signup"
+              id="footer"
+              aria-label="Go to sign-up form">
               Level Up
             </GlowingButton>
           </div>
@@ -146,7 +150,8 @@ export default function Footer() {
                 {" "}
                 BRIL.LA, LLC.
               </Link>
-              &nbsp;All rights reserved.
+              <br className="md:hidden" />
+              &nbsp;All Rights Reserved.
             </p>
 
             <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">

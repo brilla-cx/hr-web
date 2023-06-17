@@ -21,7 +21,7 @@ function RebekahHero(props: Props) {
         className="max-w-sm mx-auto mt-12"
         // eslint-disable-next-line react/jsx-no-bind
         onClick={() => props.scrollToContact()}>
-        <GlowingButton>Still Interested?</GlowingButton>
+        <GlowingButton ariaLabel="Scroll to next section">Still Interested?</GlowingButton>
       </div>
     </div>
   );

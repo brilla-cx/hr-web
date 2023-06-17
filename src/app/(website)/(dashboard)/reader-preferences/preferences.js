@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import FormProvider, { useFormData } from "@/components/providers/form-context";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
-
 import { getUserInfo, updateUser } from "@/lib/server/actions";
 
 const TopicsArray = [
@@ -132,7 +131,11 @@ function StepOne({ formStep, nextFormStep }) {
           />
 
           <div className="mt-10 flex justify-center">
-            <GlowingButton type="submit" autoWidth disabled={loading}>
+            <GlowingButton
+              type="submit"
+              autoWidth
+              disabled={loading}
+              ariaLabel={loading ? "Please wait..." : "Change my Preferences"}>
               {loading ? "Just a sec..." : "Change my Preferences"}
             </GlowingButton>
           </div>
@@ -193,7 +196,7 @@ function StepTwo({ formStep, nextFormStep }) {
           />
 
           <div className="mt-10 flex justify-center">
-            <GlowingButton type="submit" autoWidth>
+            <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
           </div>
@@ -348,7 +351,12 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
           )}
           <div className="mt-10 flex justify-center">
             <BackButton onClick={prevFormStep} />
-            <GlowingButton type="submit" autoWidth>
+            <GlowingButton
+              type="submit"
+              autoWidth
+              ariaLabel={
+                topicsSelected ? "Go to the next step" : "Skip this step"
+              }>
               {topicsSelected ? "Next" : "Skip"}
             </GlowingButton>
           </div>
@@ -392,7 +400,8 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
           type="submit"
           autoWidth
           onClick={submitForm}
-          disabled={loading}>
+          disabled={loading}
+          aria-label="Submit form">
           {(loading && "Just a sec...") || "Update my Preferences"}
         </GlowingButton>
       </div>

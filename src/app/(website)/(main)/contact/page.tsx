@@ -84,3 +84,6 @@ export default function ContactPage() {
     </div>
   );
 }
+
+export const dynamic = "auto";
+export const revalidate = 2592000;

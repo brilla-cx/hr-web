@@ -73,7 +73,10 @@ export default function Post({ post }) {
                 </div>
 
                 <div className="mt-6">
-                  <GlowingButton href={post.bookUrl || "#"} target="_blank">
+                  <GlowingButton
+                    href={post.bookUrl || "#"}
+                    target="_blank"
+                    aria-label="Go to sign-up form">
                     Get the Book
                   </GlowingButton>
                 </div>

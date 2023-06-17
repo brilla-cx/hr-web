@@ -56,7 +56,7 @@ function PartnerPage(props: Props) {
                   className="flex items-center justify-center mt-10 gap-x-6"
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={() => scrollToContact()}>
-                  <GlowingButton>Become a Partner</GlowingButton>
+                  <GlowingButton aria-label="Go to partner form">Become a Partner</GlowingButton>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@ function PartnerPage(props: Props) {
           leadText:
             'We believe curiosity is the driving force of progress. While others scramble to capitalize on buzzwords like "AI" and "automation", we see the future through a wider lens. We know technology is simply a tool, and humans are the builders.',
           id: "partners",
-          includeForm: true,
+          includeForm: false,
         },
       })}
       {withContainer({

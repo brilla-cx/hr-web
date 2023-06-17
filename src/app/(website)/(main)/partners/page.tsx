@@ -34,3 +34,6 @@ export default async function Partners() {
 
   return <PartnerPage faqs={partnersFaqs} tools={tools} />;
 }
+
+export const dynamic = "auto";
+export const revalidate = 2592000;
