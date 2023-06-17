@@ -66,3 +66,6 @@ export default async function AccessibilityStatement() {
     </div>
   );
 }
+
+export const dynamic = 'auto';
+export const revalidate = 604800;

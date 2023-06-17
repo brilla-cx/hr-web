@@ -94,10 +94,11 @@ export default async function SocialBlogPage({ params }) {
 }
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       Just a minute, convincing Ambreen....
     </div>
   );
 };
 
-export const revalidate = 3600;
+export const dynamic = "auto";
+export const revalidate = 2592000;

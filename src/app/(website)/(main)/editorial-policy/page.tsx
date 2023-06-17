@@ -65,3 +65,6 @@ export default async function EditorialPolicy() {
     </div>
   );
 }
+
+export const dynamic = "auto";
+export const revalidate = 2592000;

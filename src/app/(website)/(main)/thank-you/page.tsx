@@ -64,3 +64,6 @@ export default function ThankYou() {
     </div>
   );
 }
+
+export const dynamic = "auto";
+export const revalidate = 86400;

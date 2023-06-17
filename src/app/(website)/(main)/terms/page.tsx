@@ -66,3 +66,6 @@ export default async function Terms(): Promise<ReactElement> {
     </div>
   );
 }
+
+export const dynamic = "auto";
+export const revalidate = 2592000;
