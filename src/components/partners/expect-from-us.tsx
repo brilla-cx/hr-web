@@ -2,7 +2,7 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 import { GlowingButton, H3, Lead } from "../ui";
 
-const features = [
+const benefits = [
   {
     name: "Bespoke content developed just for your brand",
   },
@@ -42,16 +42,16 @@ export default function ExpectFromUs(props: Props) {
           </Lead>
         </div>
         <dl className="grid grid-cols-2 col-span-5 gap-8 md:col-span-3">
-          {features.map((feature) => (
+          {benefits.map((benefit) => (
             <div
-              key={feature.name}
+              key={benefit.name}
               className="relative col-span-2 pl-9 md:col-span-1">
               <dt className="text-xl text-gray-400">
                 <CheckIcon
                   className="absolute left-0 w-5 h-5 font-bold text-gray-400 top-1"
                   aria-hidden="true"
                 />
-                {feature.name}
+                {benefit.name}
               </dt>
             </div>
           ))}
