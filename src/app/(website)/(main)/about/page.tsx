@@ -34,7 +34,6 @@ export function generateMetadata(): Metadata {
   return metadata;
 }
 
-
 const withContainer = (Component, props, bgColor) => {
   return (
     <div className={bgColor}>
@@ -87,3 +86,6 @@ export default async function About() {
     </>
   );
 }
+
+export const dynamic = 'auto';
+export const revalidate = 604800;

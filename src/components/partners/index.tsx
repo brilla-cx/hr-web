@@ -70,7 +70,7 @@ function PartnerPage(props: Props) {
           leadText:
             'We believe curiosity is the driving force of progress. While others scramble to capitalize on buzzwords like "AI" and "automation", we see the future through a wider lens. We know technology is simply a tool, and humans are the builders.',
           id: "partners",
-          includeForm: true,
+          includeForm: false,
         },
       })}
       {withContainer({

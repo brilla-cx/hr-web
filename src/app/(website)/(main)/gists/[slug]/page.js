@@ -68,4 +68,5 @@ const Loading = () => {
   );
 };
 
-export const revalidate = 3600;
+export const dynamic = "auto";
+export const revalidate = 86400;

@@ -276,3 +276,6 @@ export default function StyleGuide() {
     </div>
   );
 }
+
+export const dynamic = "auto";
+export const revalidate = 2592000;
