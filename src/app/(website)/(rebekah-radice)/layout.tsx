@@ -29,12 +29,12 @@ function Navbar() {
             <div className="space-x-4">
               <Link
                 href="/social-blog"
-                className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
+                className={cx("text-md uppercase leading-6 text-gray-200", hoverStyles)}>
                 Blog
               </Link>
               <Link
                 href="/contact"
-                className={cx("text-lg leading-6 text-gray-200", hoverStyles)}>
+                className={cx("text-md uppercase leading-6 text-gray-200", hoverStyles)}>
                 Contact
               </Link>
             </div>
