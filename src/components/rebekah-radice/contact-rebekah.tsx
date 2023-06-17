@@ -30,11 +30,11 @@ interface Message {
 }
 
 const schema = z.object({
-  firstName: z.string().nonempty("first name is required"),
-  lastName: z.string().nonempty("last name is required"),
+  firstName: z.string().nonempty("First name is required"),
+  lastName: z.string().nonempty("Last name is required"),
   email: z.string().email("Invalid email address"),
   phoneNumber: z.string().nonempty("Phone number is required"),
-  message: z.string().nonempty("Message is reuired"),
+  message: z.string().nonempty("Message is required"),
 });
 
 interface Props {
@@ -185,7 +185,7 @@ function ContactRebekah(props: Props) {
             <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
-                placeholder="rebekah"
+                placeholder="First name"
                 {...(register && register("firstName"))}
                 className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
@@ -198,7 +198,7 @@ function ContactRebekah(props: Props) {
             <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
-                placeholder="Radice"
+                placeholder="Last name"
                 {...register("lastName")}
                 className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
@@ -211,7 +211,7 @@ function ContactRebekah(props: Props) {
             <div className="col-span-2 md:col-span-1">
               <input
                 type="text"
-                placeholder="email"
+                placeholder="Email"
                 {...register("email")}
                 className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
@@ -224,7 +224,7 @@ function ContactRebekah(props: Props) {
             <div className="col-span-2 md:col-span-1">
               <input
                 type="number"
-                placeholder="phoneNumber"
+                placeholder="Phone number"
                 {...register("phoneNumber")}
                 className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
@@ -237,7 +237,7 @@ function ContactRebekah(props: Props) {
             <div className="col-span-2">
               <textarea
                 {...register("message")}
-                placeholder="Message"
+                placeholder="Your message to Rebekah"
                 className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
               {errors.message && (
