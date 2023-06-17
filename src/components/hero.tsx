@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
           Join over 338,000 professionals in our community.
         </Lead>
         <div className="mt-8 md:mt-10 md:max-w-xs">
-          <GlowingButton variant="link" href="/signup" id="hero">
+          <GlowingButton variant="link" href="/signup" id="hero" aria-label="Go to signup form">
             Level Up
           </GlowingButton>
         </div>

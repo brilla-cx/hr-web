@@ -84,7 +84,7 @@ function RebekahServices() {
               <H4 className="font-bold text-gray-200">{srv.serviceMoto}</H4>
               <Lead className="text-gray-400">{srv.ServiceDesc}</Lead>
               <div className="max-w-sm mt-12">
-                <GlowingButton type="link" href="#contact" size="sm">
+                <GlowingButton type="link" href="#contact" size="sm" ariaLabel="Scroll to Contact Form">
                   {srv.serviceLink}
                 </GlowingButton>
               </div>

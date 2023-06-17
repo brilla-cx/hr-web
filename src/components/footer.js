@@ -130,7 +130,11 @@ export default function Footer() {
                 everyday.
               </p>
             </div>
-            <GlowingButton variant="link" href="/signup" id="footer">
+            <GlowingButton
+              variant="link"
+              href="/signup"
+              id="footer"
+              aria-label="Go to signup form">
               Level Up
             </GlowingButton>
           </div>

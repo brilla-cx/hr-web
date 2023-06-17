@@ -21,7 +21,7 @@ function EmailCta(props: Props) {
         </p>
       </div>
       <div className="mt-4 md:mt-5 md:max-w-xs">
-        <GlowingButton variant="link" href="/signup" id="about-cta2">
+        <GlowingButton variant="link" href="/signup" id="about-cta2" aria-label="Go to signup form">
           Level Up
         </GlowingButton>
         <p className="mt-4 text-left text-xs leading-6 text-gray-300">

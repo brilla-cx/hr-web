@@ -1,6 +1,6 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 
-import { GlowingButton, H2, H3, Lead } from "../ui";
+import { GlowingButton, H3, Lead } from "../ui";
 
 const features = [
   {
@@ -58,7 +58,7 @@ export default function ExpectFromUs(props: Props) {
           <div
             className="col-span-2 pt-16 mx-auto" // eslint-disable-next-line react/jsx-no-bind
             onClick={() => props.scrollToContact()}>
-            <GlowingButton>Become a partner</GlowingButton>
+            <GlowingButton aria-label="Go to partner form">Become a partner</GlowingButton>
           </div>
         </dl>
       </div>

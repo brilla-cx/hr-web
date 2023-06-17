@@ -42,7 +42,7 @@ export default function MultiStepForm() {
   return (
     <div className="">
       <FormProvider>
-        <div className="max-w-xl mx-auto">
+        <div className="mx-auto max-w-xl">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}
@@ -117,7 +117,7 @@ function StepOne({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 1 ? "block" : "hidden"}>
-      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
         Step 1 of 4 | Required
       </p>
       <div className="">
@@ -129,7 +129,7 @@ function StepOne({ formStep, nextFormStep }) {
         <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
-            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             name="email"
             type="email"
             required
@@ -147,12 +147,16 @@ function StepOne({ formStep, nextFormStep }) {
             }}
           />
           <ReactTurnstile />
-          <div className="flex justify-center mt-10">
-            <GlowingButton type="submit" autoWidth disabled={loading}>
+          <div className="mt-10 flex justify-center">
+            <GlowingButton
+              ariaLabel="Go to next step"
+              type="submit"
+              autoWidth
+              disabled={loading}>
               {loading ? "Hold on..." : "Next"}
             </GlowingButton>
           </div>
-          <p className="mt-6 text-xs leading-6 text-center text-gray-400">
+          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
             We care about your{" "}
             <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
               privacy
@@ -181,7 +185,7 @@ function StepTwo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? "block" : "hidden"}>
-      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
         Step 2 of 4 | Required
       </p>
       <div className="">
@@ -193,7 +197,7 @@ function StepTwo({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             name="firstName"
             type="text"
             required
@@ -208,8 +212,8 @@ function StepTwo({ formStep, nextFormStep }) {
             }}
           />
 
-          <div className="flex justify-center mt-10">
-            <GlowingButton type="submit" autoWidth>
+          <div className="mt-10 flex justify-center">
+            <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
           </div>
@@ -234,7 +238,7 @@ function StepThree({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 3 ? "block" : "hidden"}>
-      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
         Step 3 of 4 | Required
       </p>
       <div className="">
@@ -270,8 +274,8 @@ function StepThree({ formStep, nextFormStep }) {
             </div>
           )}
 
-          <div className="flex justify-center mt-10">
-            <GlowingButton type="submit" autoWidth>
+          <div className="mt-10 flex justify-center">
+            <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
           </div>
@@ -317,7 +321,7 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
 
   return (
     <div className={formStep === 4 ? "block" : "hidden"}>
-      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
         Step 4 of 4 | Optional
       </p>
       <div className="">
@@ -352,9 +356,14 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
               <small>{errors.topics.message}</small>
             </div>
           )}
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <BackButton onClick={prevFormStep} />
-            <GlowingButton type="submit" autoWidth>
+            <GlowingButton
+              ariaLabel={
+                topicsSelected ? "Go to the next step" : "Skip this step"
+              }
+              type="submit"
+              autoWidth>
               {topicsSelected ? "Next" : "Skip"}
             </GlowingButton>
           </div>
@@ -394,12 +403,13 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
         </p>
       </div>
 
-      <div className="flex justify-center mt-10">
+      <div className="mt-10 flex justify-center">
         <GlowingButton
           type="submit"
           autoWidth
           onClick={submitForm}
-          disabled={loading}>
+          disabled={loading}
+          ariaLabel="Submit Form">
           {(loading && "Just a sec...") || "Submit"}
         </GlowingButton>
       </div>

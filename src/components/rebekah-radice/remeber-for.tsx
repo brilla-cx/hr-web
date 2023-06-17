@@ -40,7 +40,7 @@ const RememberFor = () => {
               accessible.
             </Lead>
             <div className="max-w-sm mt-12">
-              <GlowingButton type="link" href="/signup">
+              <GlowingButton type="link" href="/signup" aria-label="Go to signup form">
                 Join hey Rebekah
               </GlowingButton>
             </div>

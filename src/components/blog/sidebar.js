@@ -35,7 +35,8 @@ function Subscribe({ title, text }) {
           href="/signup"
           size="md"
           autoWidth={false}
-          id="subscribe-button">
+          id="post-side"
+          aria-label="Go to signup form">
           Level Up
         </GlowingButton>
       </div>
