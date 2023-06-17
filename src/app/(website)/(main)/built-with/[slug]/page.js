@@ -58,5 +58,4 @@ const Loading = () => {
   );
 };
 
-export const dynamic = "auto";
 export const revalidate = 2592000;

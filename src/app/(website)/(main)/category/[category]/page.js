@@ -29,5 +29,4 @@ export default async function AuthorPage({ params, searchParams }) {
   return <Category category={category} searchParams={searchParams} />;
 }
 
-export const dynamic = "auto";
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
