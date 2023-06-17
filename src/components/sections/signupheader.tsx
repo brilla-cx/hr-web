@@ -9,10 +9,10 @@ interface PageHeaderProps {
 }
 
 const testimonialArray = [
-  "  This is just the best thing I've ever read! ~ Nancy (Rebekah's mom)",
+  "  This is the best thing ever! ~ Nancy (Rebekah's mom)",
   "Hey Rebekah is smart AF! ~ Cam (Rebekah's son)",
-  "I have to read this newsletter everyday! ~ Chris (Rebekah's son)",
-  "Hey Rebekah, grab me some chips while you're there? ~ Dean (Rebekah's husband)",
+  "I have to read it everyday! ~ Chris (Rebekah's son)",
+  "Grab me some chips? ~ Dean (Rebekah's husband)",
 ];
 
 const SignupHeader: React.FC<PageHeaderProps> = ({ title, leadText }) => {
@@ -22,7 +22,7 @@ const SignupHeader: React.FC<PageHeaderProps> = ({ title, leadText }) => {
         <H1 className="text-gray-200">{title}</H1>
         {leadText && <Lead className="mt-6 text-gray-400">{leadText}</Lead>}
 
-        <div className="mt-6">
+        <div className="mt-4">
           <RotatingText items={testimonialArray} />
         </div>
       </div>

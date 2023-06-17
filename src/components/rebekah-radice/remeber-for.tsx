@@ -32,15 +32,10 @@ const RememberFor = () => {
           <div className="sticky text-left text-gray-200 holder__head">
             <H3 as="h2">Hey Rebekah is what I'll be remembered for</H3>
             <Lead className="mt-5 text-gray-400">
-              I launched Hey Rebekah to help freelancers become better at what
-              they do. Everything we create will always be free for readers and
-              the community. Hey Rebekah is a free daily newsletter. It's about
-              to get a whole lot better thanks to machine learning. We're also
-              creating some pretty cool apps to make generative AI more
-              accessible.
+              Hey Rebekah is a free daily newsletter for knowledge workers. I launched it to help professionals bring AI in to their workflows. Everything we produce is free and always will be. It's about to get a whole lot better too thanks to machine learning. We're also creating some pretty cool apps to make generative AI more accessible.
             </Lead>
             <div className="max-w-sm mt-12">
-              <GlowingButton type="link" href="/signup">
+              <GlowingButton type="link" href="/signup" aria-label="Go to sign-up form">
                 Join hey Rebekah
               </GlowingButton>
             </div>
@@ -49,34 +44,31 @@ const RememberFor = () => {
 
         <section className="col-span-4 gap-20 text-left text-gray-200 holder md:col-span-2">
           <div className="holder__head sticky space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">
-            <H4 as="h3">Best newsletter for freelancers</H4>
-            <H6 as="h4">Like Morning Brew for freelancers</H6>
+            <H4 as="h3">Best newsletter for AI</H4>
+            <H6 as="h4">Like Morning Brew, but for ChatGPT</H6>
             <Lead className="pb-4 text-gray-400">
               A free daily newsletter. We write about things that help you
-              become better at what you do in 6 minutes or less.
+              become better at what you do with AI.
             </Lead>
           </div>
           <div className="holder__head space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">
             <Lead className="w-48 px-2 py-2 text-center border-2 rounded border-gray-200/10 bg-midnight">
               COMING SOON
             </Lead>
-            <H4 as="h3">Generative AI for freelancers</H4>
-            <H6 as="h4">OpenAI x Anthropic fine-tuned for freelancers</H6>
+            <H4 as="h3">Free Generative AI</H4>
+            <H6 as="h4">OpenAI x Anthropic fine-tuned for knowledge workers</H6>
             <Lead className="text-gray-400 ">
-              We've fine-tuned our generative AI for freelancers. Make work
-              easier, boost creativity, get more done, and improve your skills.
+              We created and curated embedded models in a bunch of different fields. It'll save you from fumbling around. You'll get accurate information to get your work done sooner, so you can enjoy more down time.
             </Lead>
           </div>
           <div className="holder__head space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">
             <Lead className="w-48 px-2 py-2 text-center border-2 rounded border-gray-200/10 bg-midnight">
               COMING SOON
             </Lead>
-            <H4 as="h3">Free jobs with vetted clients</H4>
-            <H6 as="h4">Like Upwork without the crazy fees</H6>
+            <H4 as="h3">Free Community</H4>
+            <H6 as="h4">Like your favorite social platform but better</H6>
             <Lead className="text-gray-400 ">
-              Get access to no-fee gigs and vetted clients for top-notch job
-              opportunities. But without the hefty fees. Think Upwork if it was
-              free forever.
+              You'll have exclusive access to over 338,000 knowledge workers. Our community will also be supported by top experts, AI influencers, and a few crazy smart people.
             </Lead>
           </div>
           <div className="holder__head space-y-5 rounded border border-gray-200/10 bg-slate-900 !p-10">

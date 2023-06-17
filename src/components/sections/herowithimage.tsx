@@ -39,6 +39,7 @@ export function HeroWithImage(props: Props) {
             href="/signup"
             size="md"
             id="about-hero"
+            aria-label="Go to sign-up form"
           >
             Join the Curious
           </GlowingButton>

@@ -8,7 +8,7 @@ export default function Page() {
     <>
       <Container large className="">
         <div className="mt-16">
-          <SignupHeader title="Signup for Hey Rebekah" />
+          <SignupHeader title="Sign-Up" />
           <MultiStepForm />
         </div>
       </Container>

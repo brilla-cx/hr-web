@@ -54,7 +54,10 @@ export default function Tool(props) {
           )}
           <div className="mt-12 lg:max-w-xs">
             <div className="mt-6">
-              <GlowingButton href={data.toolUrl || "#"} target="_blank">
+              <GlowingButton
+                href={data.toolUrl || "#"}
+                target="_blank"
+                aria-label="Go to sign-up form">
                 Visit {data.name}
               </GlowingButton>
             </div>{" "}

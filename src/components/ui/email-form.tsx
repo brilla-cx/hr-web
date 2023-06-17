@@ -85,7 +85,7 @@ function EmailForm() {
           <div className="col-span-4 md:col-span-2">
             <input
               type="text"
-              placeholder="rebekah"
+              placeholder="First name"
               {...(register && register("firstName"))}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -98,7 +98,7 @@ function EmailForm() {
           <div className="col-span-4 md:col-span-2">
             <input
               type="text"
-              placeholder="Radice"
+              placeholder="Last name"
               {...register("lastName")}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -111,7 +111,7 @@ function EmailForm() {
           <div className="col-span-4 md:col-span-2">
             <input
               type="text"
-              placeholder="email"
+              placeholder="Email"
               {...register("email")}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -124,7 +124,7 @@ function EmailForm() {
           <div className="col-span-4 md:col-span-2">
             <input
               type="text"
-              placeholder="phoneNumber"
+              placeholder="Phone number"
               {...register("phoneNumber")}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -137,7 +137,7 @@ function EmailForm() {
           <div className="col-span-4 md:col-span-2">
             <input
               type="text"
-              placeholder="jobTitle"
+              placeholder="Job title"
               {...register("jobTitle")}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -150,7 +150,7 @@ function EmailForm() {
           <div className="col-span-4 md:col-span-2">
             <input
               type="text"
-              placeholder="company"
+              placeholder="Company name"
               {...register("company")}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -158,7 +158,7 @@ function EmailForm() {
           <div className="col-span-4">
             <input
               type="text"
-              placeholder="companyUrl"
+              placeholder="Website"
               {...register("companyUrl")}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
@@ -166,7 +166,7 @@ function EmailForm() {
           <div className="col-span-4">
             <textarea
               {...register("message")}
-              placeholder="Message"
+              placeholder="Your message"
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.message && (

@@ -1,6 +1,6 @@
 import { H3, Lead } from "../ui";
 
-const features = [
+const expectations = [
   {
     name: "Exclusive discount",
     description: (
@@ -37,16 +37,16 @@ export default function LookingFor() {
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-            {features.map((feature, i) => (
-              <div key={feature.name} className="flex flex-col">
+            {expectations.map((expectation, i) => (
+              <div key={expectation.name} className="flex flex-col">
                 <dt className="text-xl font-semibold leading-7 text-gray-200">
                   <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900">
                     {i + 1}
                   </div>
-                  {feature.name}
+                  {expectation.name}
                 </dt>
                 <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-400">
-                  <p className="flex-auto">{feature.description}</p>
+                  <p className="flex-auto">{expectation.description}</p>
                 </dd>
               </div>
             ))}
