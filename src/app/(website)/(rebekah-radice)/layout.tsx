@@ -76,7 +76,7 @@ function Footer() {
 
           <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
             &copy; {new Date().getFullYear()} Hey Rebekah and Rebekah Radice are
-            registered trademakrs of
+            registered trademarks of
             <Link
               href="https://bril.la"
               target="_blank"
@@ -86,7 +86,8 @@ function Footer() {
               {" "}
               BRIL.LA, LLC.
             </Link>
-            &nbsp;All rights reserved.
+            <br className="md:hidden" />
+            &nbsp;All Rights Reserved.
           </p>
         </div>
       </div>
