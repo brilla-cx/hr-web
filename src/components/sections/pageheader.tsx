@@ -19,7 +19,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, leadText, id, includeFor
         <Lead className="mt-6 text-gray-400">{leadText}</Lead>
         {includeForm && (
           <div className="mx-auto mt-8 md:mt-10 md:max-w-xs">
-            <GlowingButton variant="link" href="/signup" id={id}>
+            <GlowingButton variant="link" href="/signup" aria-label="Go to signup form" id={id}>
               Level Up
             </GlowingButton>
           </div>
