@@ -51,5 +51,4 @@ export default async function AuthorPage({ params, searchParams }) {
   );
 }
 
-export const dynamic = "auto";
-export const revalidate = 2592000;
+export const dynamic = "force-dynamic";
