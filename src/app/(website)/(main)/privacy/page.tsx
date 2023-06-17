@@ -51,7 +51,7 @@ export default async function Privacy() {
       </div>
       <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose mx-auto max-w-prose">
+          <Prose className="prose mx-auto max-w-prose break-words ">
             <PortableText value={content} />
           </Prose>
         </article>

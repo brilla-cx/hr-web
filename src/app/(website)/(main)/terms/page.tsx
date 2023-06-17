@@ -51,7 +51,7 @@ export default async function Terms() {
       </div>
       <div className="flex flex-col max-w-screen-xl gap-5 px-5 mx-auto mb-20 mt-14 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="mx-auto prose max-w-prose">
+          <Prose className="mx-auto prose max-w-prose break-words">
             <PortableText value={content} />
           </Prose>
         </article>
