@@ -36,7 +36,7 @@ function Subscribe({ title, text }) {
           size="md"
           autoWidth={false}
           id="post-side"
-          aria-label="Go to signup form">
+          aria-label="Go to sign-up form">
           Level Up
         </GlowingButton>
       </div>

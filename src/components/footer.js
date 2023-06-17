@@ -134,7 +134,7 @@ export default function Footer() {
               variant="link"
               href="/signup"
               id="footer"
-              aria-label="Go to signup form">
+              aria-label="Go to sign-up form">
               Level Up
             </GlowingButton>
           </div>

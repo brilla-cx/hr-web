@@ -57,7 +57,7 @@ export default function Tool(props) {
               <GlowingButton
                 href={data.toolUrl || "#"}
                 target="_blank"
-                aria-label="Go to signup form">
+                aria-label="Go to sign-up form">
                 Visit {data.name}
               </GlowingButton>
             </div>{" "}
