@@ -4,7 +4,7 @@ import React from "react";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import { H3, H4, H6, Lead } from "../ui";
+import { H3, H4, Lead } from "../ui";
 
 const socialData = [
   {
@@ -12,7 +12,7 @@ const socialData = [
     socialName: "Email Subscribers",
     socialDesc:
       "Early on, I made a rookie mistake in undervaluing email marketing. Thanks to my incredible subscribers, email is now my favorite digital secret weapon. They're the heroes of this story.",
-    socialLink: "https://heyrebekah.com/",
+    socialLink: "/signup",
     linkTitle: "SUBSCRIBE TO HEY REBEKAH",
   },
   {
@@ -44,7 +44,7 @@ const socialData = [
     socialName: "Instagram Followers",
     socialDesc:
       "Instagram might have stunning snaps, but it's also where I've captured an incredible community of followers. Together, we've created a vibrant space for connection and visual magic.",
-    socialLink: "",
+    socialLink: "https://www.instagram.com/rebekahradice/",
     linkTitle: "GET ALL MY STORIES",
   },
   {

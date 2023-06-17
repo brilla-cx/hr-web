@@ -3,11 +3,7 @@ import React, { useEffect } from "react";
 
 import { GlowingButton, H3, H4, H6, Lead } from "../ui";
 
-interface Props {
-  scrollToContact: () => void;
-}
-
-const RememberFor = (props: Props) => {
+const RememberFor = () => {
   useEffect(() => {
     // Define a helper function to select elements
     const els = (sel: string, el?: HTMLElement | Document) =>
@@ -43,10 +39,7 @@ const RememberFor = (props: Props) => {
               creating some pretty cool apps to make generative AI more
               accessible.
             </Lead>
-            <div
-              className="max-w-sm mt-12"
-              // eslint-disable-next-line react/jsx-no-bind
-              onClick={() => props.scrollToContact()}>
+            <div className="max-w-sm mt-12">
               <GlowingButton type="link" href="/signup">
                 Join hey Rebekah
               </GlowingButton>
