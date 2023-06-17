@@ -117,12 +117,10 @@ function StepOne({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 1 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Step 1 of 4 | Required
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
           What{"\u2018"}s your email address?
+          <sup className="text-pink">&nbsp;*</sup>
         </Lead>
       </div>
       <div className="mt-5">
@@ -185,12 +183,9 @@ function StepTwo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Step 2 of 4 | Required
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
-          👋🏾 What should we call you?
+          👋🏾 What should we call you?<sup className="text-pink">&nbsp;*</sup>
         </Lead>
       </div>
       <div className="mt-5">
@@ -238,12 +233,10 @@ function StepThree({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 3 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Step 3 of 4 | Required
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
           Tell us your primay topic of inteest, we{"\u2018"}ll filter the rest.
+          <sup className="text-pink">&nbsp;*</sup>
         </Lead>
       </div>
       <div className="mt-5">
@@ -321,9 +314,6 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
 
   return (
     <div className={formStep === 4 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Step 4 of 4 | Optional
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
           Awesome. Select three more topics you{"\u2018"}d like to keep tabs on.
