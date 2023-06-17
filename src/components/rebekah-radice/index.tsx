@@ -42,7 +42,7 @@ function RebekahRadicePage() {
       {withContainer({
         Component: BrandsMarquee,
         componentProps: {
-          title: "G.O.A.T. brands i've worked with",
+          title: "G.O.A.T. brands I've worked with",
         },
       })}
       {withContainer({
