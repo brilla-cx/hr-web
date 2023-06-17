@@ -41,6 +41,9 @@ dependencies:
   '@sanity/vision':
     specifier: ^3.11.5
     version: 3.11.5(@babel/runtime@7.22.5)(@codemirror/lint@6.2.2)(@codemirror/state@6.2.1)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+  '@sanity/webhook':
+    specifier: ^2.0.0
+    version: 2.0.0
   '@slack/web-api':
     specifier: ^6.8.1
     version: 6.8.1
