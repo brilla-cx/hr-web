@@ -66,5 +66,5 @@ export default async function EditorialPolicy() {
   );
 }
 
-export const dynamic = "auto";
-export const revalidate = 2592000;
+export const dynamic = 'force-static'
+export const revalidate = false

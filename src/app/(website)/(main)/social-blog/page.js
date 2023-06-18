@@ -27,4 +27,4 @@ export default function SocialBlogsPage() {
   return <SocialBlogs />;
 }
 
-export const revalidate = 86400;
+export const dynamic = "force-dynamic";
