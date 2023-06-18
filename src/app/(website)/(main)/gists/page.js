@@ -27,4 +27,4 @@ export default function GistsPage({ searchParams }) {
   return <Gists searchParams={searchParams} />;
 }
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;

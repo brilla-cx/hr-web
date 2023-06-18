@@ -67,3 +67,5 @@ const Loading = () => {
     </div>
   );
 };
+
+export const revalidate = 3600;
