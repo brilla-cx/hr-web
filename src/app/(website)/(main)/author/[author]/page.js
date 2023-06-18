@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/lib/constants";
 import {
   getAllAuthorsSlugs,
   getAuthorMeta,
@@ -26,12 +27,15 @@ export async function generateMetadata({ params }) {
   const seoTitle = `Looking for ${authorName}'s latest writing?`;
   const seoMetaDescription = `${authorName} writes about ${authorCategory} for Hey Rebekah. They'll help you bring AI into your work.`;
 
+  const authorUrl = `${SITE_URL}/author/${params.author}`;
+
   return {
     title: seoTitle,
     description: seoMetaDescription,
     openGraph: {
       title: seoTitle,
       description: seoMetaDescription,
+      url: authorUrl,
     },
     twitter: {
       title: seoTitle,

@@ -1,10 +1,11 @@
 import { PortableText } from "@portabletext/react";
+import { Metadata } from "next";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
+import { SITE_URL } from '@/lib/constants';
 import { getLegalPageBySlug } from "@/sanity/client";
-import { Metadata } from "@/types/types";
 
 
 export function generateMetadata(): Metadata {
@@ -12,16 +13,19 @@ export function generateMetadata(): Metadata {
   const description =
     "Hey Rebekah strives for inclusive design for our readers. We're continually improving but it's a process. Please reach out to us for accessibility issues.";
 
-  const metadata: Metadata = {
+  const url = `${SITE_URL}/accessibility`;
+
+  const metadata = {
     title,
     description,
     openGraph: {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
-      title: "Accessibility Statement",
+      title,
       description,
       images: "/og.png",
     },

@@ -117,6 +117,7 @@ export interface Metadata {
     title: string;
     description: string;
     images: string;
+    url: string;
   };
   twitter: {
     title: string;

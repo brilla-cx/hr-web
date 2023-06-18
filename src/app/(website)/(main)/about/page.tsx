@@ -8,13 +8,17 @@ import WhatIsImportant from "@/components/about/what-is-important";
 import WtfIsHeyRebekah from "@/components/about/wtf-is-rebekah";
 import Container from "@/components/container";
 import { HeroWithImage } from "@/components/sections/herowithimage";
+import { SITE_URL } from '@/lib/constants';
 import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
+
 
 export function generateMetadata(): Metadata {
   const title = "What is Hey Rebekah?";
   const description =
     "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽";
+
+  const url = `${SITE_URL}/about`;
 
   const metadata = {
     title,
@@ -23,6 +27,7 @@ export function generateMetadata(): Metadata {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,

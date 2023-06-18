@@ -2,11 +2,14 @@ import Container from "@/components/container";
 import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { Badge, Blockquote, Prose, Spacer } from "@/components/ui";
+import { SITE_URL } from '@/lib/constants';
 
 export function generateMetadata() {
   const title = "Web Design Style Guide | Hey Rebekah";
   const description =
     "Our website style guide is yours to steal like an artist. Be sure to grab the appropriate licenses for any paid services we may have used. Show us what you build!";
+
+  const url = `${SITE_URL}/style-guide`;
 
   const metadata = {
     title,
@@ -15,6 +18,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
