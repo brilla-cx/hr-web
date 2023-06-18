@@ -60,5 +60,4 @@ const Juno: React.FC = (): ReactElement => {
 
 export default Juno;
 
-export const dynamic = "auto";
-export const revalidate = 86400;
+export const dynamic = "force-dynamic";

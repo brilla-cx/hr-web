@@ -65,5 +65,5 @@ export default function ThankYou() {
   );
 }
 
-export const dynamic = "auto";
-export const revalidate = 86400;
+export const dynamic = 'force-static'
+export const revalidate = false
