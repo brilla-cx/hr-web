@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
+import { H3, H4, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-
-import { H3, H4, Lead } from "../../../../../../components/ui";
 
 const socialData = [
   {

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 
-import { GlowingButton, H3, H4, H6, Lead } from "../../../../../../components/ui";
+import { GlowingButton, H3, H4, H6, Lead } from "@/components/ui";
 
 const RememberedFor = () => {
   useEffect(() => {
