@@ -394,3 +394,8 @@ export const toolsSitemapQuery = groq`
   "slug": slug.current,
   _updatedAt
 }`;
+
+export const redirectQuery = groq`
+*[_type == "redirect" && !(_id in path("drafts.**"))]{
+  source, destination, permanent
+}`;

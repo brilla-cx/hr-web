@@ -24,6 +24,7 @@ import {
   postsbyauthorquery,
   postsbycatquery,
   postsSitemapQuery,
+  redirectQuery,
   singlebookquery,
   singlepostquery,
   singlesocialblogquery,
@@ -305,4 +306,12 @@ export async function getAllSitemapData(): Promise<GroupedSitemapData> {
     socialBlog: [],
     tools: [],
   };
+}
+
+// resolved redirects
+export async function resolveRedirects() {
+  if (client) {
+    return (await client.fetch(redirectQuery)) || [];
+  }
+  return [];
 }
