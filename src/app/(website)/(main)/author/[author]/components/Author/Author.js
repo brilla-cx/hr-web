@@ -9,7 +9,7 @@ import { H2, H6, Lead } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { urlForImage } from "@/sanity/image";
 
-import PaginatedPosts from "./posts";
+import AuthorPaginatedPosts from "../AuthorPaginatedPosts/AuthorPaginatedPosts";
 
 export default function Author(props) {
   const { loading, searchParams, author } = props;
@@ -86,7 +86,10 @@ export default function Author(props) {
         </div>
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <PaginatedPosts searchParams={searchParams} slug={props.authorSlug} />
+          <AuthorPaginatedPosts
+            searchParams={searchParams}
+            slug={props.authorSlug}
+          />
         </div>
       </Container>
     </div>
