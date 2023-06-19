@@ -1,7 +1,8 @@
 import React from "react";
 
-import RotatingText from "@/components/shared/rotatingtext";
 import { H1, Lead } from "@/components/ui/typography";
+
+import RotatingText from "../RotatingText/RotatingText";
 
 interface PageHeaderProps {
   title: string;

@@ -1,34 +1,41 @@
 import Container from "@/components/container";
+import { SITE_URL } from "@/lib/constants";
 
-import Preferences from "./preferences";
-import SignupHeader from "@/components/sections/signupheader";
+import SignupHeader from "../components/SignupHeader/SignupHeader";
+import PreferencesForm from "./PreferencesForm/PreferencesForm";
 
 export function generateMetadata() {
-  return {
-    title: "Reader Prefrences | Hey Rebekah",
-    description:
-      "take a minute to tell us about your content preferences. The more details you give us, the more we customize your newsletter with stuff you really want to read.",
+  const title = "Reader Prefrences";
+  const description =
+    "Take a minute to tell us about your content preferences. We'll use machine learning to whip up a more personalized newsletter for you. It's like a custom feed to your inbox. Sweet!";
+  const images = "/og.png";
+  const url = `${SITE_URL}/reader-preferences`;
+
+  const metadata = {
+    title,
+    description,
     openGraph: {
-      title: "Reader Prefrences | Hey Rebekah",
-      description:
-        "take a minute to tell us about your content preferences. The more details you give us, the more we customize your newsletter with stuff you really want to read.",
-      images: "/og.png",
+      title,
+      description,
+      images,
+      url,
     },
     twitter: {
-      title: "Reader Prefrences | Hey Rebekah",
-      description:
-        "take a minute to tell us about your content preferences. The more details you give us, the more we customize your newsletter with stuff you really want to read.",
-      images: "/og.png",
+      title,
+      description,
+      images,
     },
   };
+
+  return metadata;
 }
 
 export default function Page() {
   return (
-    <Container large className="border-l border-r border-neutral-200/10">
+    <Container large className="">
       <div className="mt-16">
         <SignupHeader title="Personalization FTW!" />
-        <Preferences />
+        <PreferencesForm />
       </div>
     </Container>
   );
