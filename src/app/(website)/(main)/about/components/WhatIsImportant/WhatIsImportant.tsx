@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import { H3 } from "../ui";
+import { H3 } from "../../../../../../components/ui";
 
 interface ImageProps {
   src: string;

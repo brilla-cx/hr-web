@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H3 } from "../ui";
+import { H3 } from "../../../../../../components/ui";
 
 interface AboutFact {
   factNumber: string;

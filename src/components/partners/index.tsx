@@ -2,12 +2,12 @@
 
 import { Fragment, useRef } from "react";
 
-import BrandsMarquee from "@/components/about/brands-marquee";
-import Faqs from "@/components/about/faqs";
 import ExpectFromUs from "@/components/partners/expect-from-us";
 import LookingFor from "@/components/partners/looking-for";
 import OurPartners from "@/components/partners/our-partners";
 import PartnerCommunityData from "@/components/partners/partner-community-stats";
+import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
+import Faqs from "@/components/sections/Faqs/Faqs";
 import PageHeader from "@/components/sections/pageheader";
 import { withContainer } from "@/components/shared/withContainer";
 import { GlowingButton, H1, Lead } from "@/components/ui";
