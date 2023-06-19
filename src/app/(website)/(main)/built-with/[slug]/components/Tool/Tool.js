@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import Container from "@/components/container";
-import { PortableText } from "@/components/post/PortableText/PortableText";
+import Container from "@/components/layout/Container/Container";
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { GlowingButton, H3 } from "@/components/ui";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";

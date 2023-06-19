@@ -10,7 +10,7 @@
 import { draftMode } from "next/headers";
 import { lazy } from "react";
 
-import { PreviewSuspense } from "@/components/preview";
+import { PreviewSuspense } from "@/components/shared/preview";
 import { SITE_URL } from "@/lib/constants";
 import {
   getAllSocialBlogs,

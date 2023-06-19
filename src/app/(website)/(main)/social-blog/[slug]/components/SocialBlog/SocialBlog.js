@@ -1,43 +1,12 @@
-/**
- * SocialBlog Component
- *
- * This component represents an individual social blog post on the Hey Rebekah's Web App.
- * It is located at app/(website)/social-blog/[slug]/socialblog.js and is used to render the details of a specific social blog post.
- *
- * Description:
- * The SocialBlog component receives the socialBlog object as a prop and renders the content of the social blog post, including its title, author details, publication date, estimated reading time, and the actual blog content.
- * The component also includes a social sharing section for sharing the post on social media platforms.
- * The layout and style of the component are controlled using the Container, H1, Prose, and other components from "@/components" module, as well as Tailwind CSS classes.
- *
- * Components:
- * - Container: Provides a container for the entire social blog post content.
- * - H1: Renders the title of the social blog post.
- * - Prose: Renders the blog content in a responsive and readable format.
- * - DateTime: Displays the publication date of the social blog post.
- * - SocialShare: Allows users to share the social blog post on various social media platforms.
- * - AuthorCard: Displays details about the author of the social blog post.
- *
- * Props:
- * - socialBlog: The social blog object containing information about the post, including its title, content, author, publication date, and other metadata.
- *
- * Usage:
- * To use the SocialBlog component, import it and pass the socialBlog object as a prop when rendering it.
- * Example usage: <SocialBlog socialBlog={socialBlogData} />
- *
- * Note:
- * This component assumes the existence of the necessary data and does not handle error scenarios or loading states.
- * Make sure to provide the correct socialBlog object with all the required data when using this component.
- */
-
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import Container from "@/components/container";
-import AuthorCard from "@/components/post/AuthorCard/AuthorCard";
-import { PortableText } from "@/components/post/PortableText/PortableText";
-import Sidebar from "@/components/post/Sidebar/Sidebar";
-import SocialShare from "@/components/post/SocialShare/SocialShare";
-import ViewAllPosts from "@/components/post/ViewAllPosts/ViewAllPosts";
+import Container from "@/components/layout/Container/Container";
+import AuthorCard from "@/components/shared/post/AuthorCard/AuthorCard";
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
+import Sidebar from "@/components/shared/post/Sidebar/Sidebar";
+import SocialShare from "@/components/shared/post/SocialShare/SocialShare";
+import ViewAllPosts from "@/components/shared/post/ViewAllPosts/ViewAllPosts";
 import { H1, Prose } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import lightHoverStyles from "@/lib/hover";

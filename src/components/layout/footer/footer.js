@@ -86,6 +86,8 @@ export default function Footer() {
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
                         )}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label={item.ariaLabel}>
                         {item.name}
                       </Link>
@@ -194,50 +196,36 @@ const navigation = {
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/rebekahradice/",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "LinkedIn - this link opens in a new tab",
     },
     {
       name: "Instagram",
       href: "https://www.instagram.com/rebekahradice/",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "Instagram - this link opens in a new tab",
     },
     {
       name: "YouTube",
       href: "https://www.youtube.com/c/RebekahradiceLLC/videos",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "YouTube - this link opens in a new tab",
     },
     {
       name: "Facebook",
       href: "https://www.facebook.com/rebekahradicellc",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "Facebook - this link opens in a new tab",
     },
     {
       name: "Twitter",
       href: "https://twitter.com/rebekahradice",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "Twitter - this link opens in a new tab",
     },
     {
       name: "Pinterest",
       href: "https://www.pinterest.com/rebekahradice/",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "Pinterest - this link opens in a new tab",
     },
     {
       name: "TiKTok",
       href: "https://www.tiktok.com/@rebekahradice",
-      target: "_blank",
-      rel: "noopener noreferrer",
       ariaLabel: "TikTok - this link opens in a new tab",
     },
   ],

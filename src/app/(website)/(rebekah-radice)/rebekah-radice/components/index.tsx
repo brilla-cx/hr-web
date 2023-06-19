@@ -2,8 +2,8 @@
 "use client";
 import React, { Fragment, useRef } from "react";
 
+import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
-import { withContainer } from "@/components/shared/withContainer";
 
 import ContactRebekah from "./ContactRebekah/ContactRebekah";
 import MarqueeImages from "./MarqueeImages/MarqueeImages";
@@ -27,32 +27,32 @@ function RebekahRadicePage() {
 
   return (
     <Fragment>
-      {withContainer({
+      {WithContainer({
         Component: RebekahHero,
         componentProps: {
           scrollToContact: scrollToContact,
         },
       })}
-      {withContainer({
+      {WithContainer({
         Component: MarqueeImages,
         containerNoPadding: true,
       })}
-      {withContainer({
+      {WithContainer({
         Component: RebekahTimeline,
       })}
-      {withContainer({
+      {WithContainer({
         Component: BrandsMarquee,
         componentProps: {
           title: "G.O.A.T. brands I've worked with",
         },
       })}
-      {withContainer({
+      {WithContainer({
         Component: SocialStats,
       })}
-      {withContainer({
+      {WithContainer({
         Component: RememberedFor,
       })}
-      {withContainer({
+      {WithContainer({
         Component: ContactRebekah,
         componentProps: {
           contactSectionRef: contactSectionRef,

@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 
-import Container from "@/components/container";
-import PageHeader from "@/components/sections/pageheader";
+import Container from "@/components/layout/Container/Container";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import ToolBox from "@/components/shared/ToolBox/ToolBox";
 
 import Pill from "../Pill/Pill";

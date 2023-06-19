@@ -4,9 +4,9 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import ReactTurnstile from "../turnstile";
-import GlowingButton from "./glowingButton";
-import { H3, Lead } from "./typography";
+import GlowingButton from "../../../ui/glowingButton";
+import { H3, Lead } from "../../../ui/typography";
+import ReactTurnstile from "../ReactTurnstile/ReactTurnstile";
 
 export interface LeadData {
   firstName: string;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Container from "../container";
+import Container from "../Container/Container";
 
 interface WithContainerProps<T extends Record<string, any>> {
   Component: React.ComponentType<T>;
@@ -8,7 +8,7 @@ interface WithContainerProps<T extends Record<string, any>> {
   componentProps?: T;
 }
 
-export const withContainer = <T extends Record<string, any>>(
+export const WithContainer = <T extends Record<string, any>>(
   props: WithContainerProps<T>
 ) => {
   const { Component, componentProps = {} as T } = props;

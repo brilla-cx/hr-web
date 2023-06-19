@@ -6,7 +6,7 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import ReactTurnstile from "@/components/turnstile";
+import ReactTurnstile from "@/components/shared/forms/ReactTurnstile/ReactTurnstile";
 import { GlowingButton, H3, Lead } from "@/components/ui";
 
 interface Message {
@@ -77,8 +77,7 @@ function ContactForm() {
       <div className="mb-10 text-center">
         <H3 className="text-gray-200">Together with Hey Rebekah</H3>
         <Lead className="max-w-lg pt-5 mx-auto text-center text-gray-400">
-          Fill out the form below, and we'll get back to you pronto - faster
-          than a chicken lays an egg.
+          Fill out the form below, and we'll get back to you reasonably quickly. Seriously though, we will.
         </Lead>
       </div>
       <form
