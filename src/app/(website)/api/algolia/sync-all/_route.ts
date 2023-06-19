@@ -14,43 +14,28 @@ const algolia = algoliasearch(
 
 const sanityClient = createClient({ projectId, dataset, apiVersion, useCdn });
 
-export async function POST(req: NextRequest) {
-  // First, let's verify the signature
+// This document is used to sync documents with Algolia First Time
+// Enable this route by removing _ and calling this GET function.
+// For safety disable this once ran successfully.
 
-  const headersList = headers();
-  const signature = headersList.get(SIGNATURE_HEADER_NAME) || null;
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const password = searchParams.get("password");
 
   const secret = process.env.SANITY_REVALIDATE_SECRET;
 
-  if (!secret || !signature) {
+  if (password !== secret) {
     return NextResponse.json(
       {
         success: false,
-        message: "secret or signature not found",
+        message: "Password does not match!",
       },
       { status: 401 }
     );
   }
 
-  const body = await req.json();
-  console.log(body);
-
-  // Check the signature valid or not
-  const validSignature = isValidSignature(
-    JSON.stringify(body),
-    signature,
-    secret
-  );
-  // If not, throw error
-  if (!validSignature) {
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Invalid signature",
-      },
-      { status: 401 }
-    );
-  }
+  const types = ["post", "book", "tool", "socialBlog"];
+  const query = `*[_type in $types && !(_id in path("drafts.**"))][]._id`;
 
   // Second, let's process the webhook with Sanity-Algolia Plugin
   const algoliaIndex = algolia.initIndex("hey_rebekah");
@@ -109,9 +94,15 @@ export async function POST(req: NextRequest) {
   );
 
   try {
-    // eslint-disable-next-line no-sync
-    await sanityAlgolia.webhookSync(sanityClient, body);
+    await sanityClient.fetch(query, { types }).then((ids) =>
+      // eslint-disable-next-line no-sync
+      sanityAlgolia.webhookSync(sanityClient, {
+        ids: { created: ids, updated: [], deleted: [] },
+      })
+    );
+
     console.log("algolia sync success");
+
     return NextResponse.json(
       { success: true, message: "Success" },
       {
