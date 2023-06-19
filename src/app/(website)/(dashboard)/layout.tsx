@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import LogoImage from "@/public/hey-rebekah-logo.svg";

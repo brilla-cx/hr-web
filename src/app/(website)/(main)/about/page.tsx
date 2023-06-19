@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import WtfIsHeyRebekah from "@/app/(website)/(main)/about/components/WtfIsHeyRebekah/WtfIsHeyRebekah";
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
 import Faqs from "@/components/sections/Faqs/Faqs";
 import { HeroWithImage } from "@/components/sections/HeroWithImage/HeroWithImage";

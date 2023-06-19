@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { GlowingButton, Input, Lead } from "@/components/ui";
-import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
+import BackButton, { Checkbox, Radio } from "@/components/ui/FormComponents";
 import { getUserInfo, updateUser } from "@/lib/server/actions";
 
 import FormProvider, {

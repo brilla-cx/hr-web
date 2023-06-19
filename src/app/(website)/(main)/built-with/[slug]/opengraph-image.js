@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/server";
 
-import OgImage from "@/components/post/OgImage/OgImage";
+import OgImage from "@/components/shared/post/OgImage/OgImage";
 import { getToolbySlug } from "@/sanity/client";
 
 export const runtime = "edge";

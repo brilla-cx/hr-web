@@ -2,7 +2,7 @@ import { PhotoIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
-import CategoryLabel from "@/components/post/CategoryLabel/CategoryLabel";
+import CategoryLabel from "@/components/shared/post/CategoryLabel/CategoryLabel";
 import { H3, H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx, timeAgo } from "@/lib/utils";

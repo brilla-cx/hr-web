@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { use } from "react";
 
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import CommandMenu from "@/components/shared/cmdk";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 import { getPaginatedPosts } from "@/sanity/client";

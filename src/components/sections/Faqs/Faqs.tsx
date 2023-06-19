@@ -2,10 +2,10 @@
 
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
-import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import React from "react";
 
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 

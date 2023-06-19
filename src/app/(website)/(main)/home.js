@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 
-import PostAlt from "@/components/blogs/PostAlt/PostAlt";
-import Container from "@/components/container";
-import Hero from "@/components/hero";
-import ViewAllPosts from "@/components/post/ViewAllPosts/ViewAllPosts";
+import Container from "@/components/layout/Container/Container";
+import HomeHero from "@/components/sections/HomeHero/HomeHero";
+import PostAlt from "@/components/shared/blogs/PostAlt/PostAlt";
+import ViewAllPosts from "@/components/shared/post/ViewAllPosts/ViewAllPosts";
 import { H4 } from "@/components/ui";
 
 export default function HomePage({ posts }) {
@@ -13,7 +13,7 @@ export default function HomePage({ posts }) {
     <>
       <div className="border-b border-t border-neutral-200/10 bg-midnight">
         <Container large className="border-l border-r border-neutral-200/10">
-          <Hero />
+          <HomeHero />
         </Container>
       </div>
       <div className="bg-midnight text-gray-200">
