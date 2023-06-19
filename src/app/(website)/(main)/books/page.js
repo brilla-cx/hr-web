@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/constants";
 
-import Books from "./books";
+import Books from "./components/Books/Books";
 
 export function generateMetadata() {
   const title = "Book Club";

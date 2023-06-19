@@ -5,9 +5,9 @@ import { PreviewSuspense } from "@/components/preview";
 import { SITE_URL } from "@/lib/constants";
 import { getToolbySlug } from "@/sanity/client";
 
-import Tool from "./tool";
+import Tool from "./components/Tool/Tool";
 
-const PostPreview = lazy(() => import("./preview"));
+const PostPreview = lazy(() => import("./components/Preview/Preview"));
 
 export function generateStaticParams() {
   return [];

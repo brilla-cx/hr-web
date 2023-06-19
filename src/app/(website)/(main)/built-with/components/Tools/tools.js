@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 
+import ToolBox from "@/components/shared/ToolBox/ToolBox";
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
-import ToolBox from "@/components/shared/toolbox";
-import { Pill } from "@/components/ui";
+
+import Pill from "../Pill/Pill";
 
 export default function Tools({ tools, categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);

@@ -3,12 +3,12 @@
 import { singlebookquery } from "@/sanity/groq";
 import { usePreview } from "@/sanity/preview";
 
-import Post from "./post";
+import Book from "../Book/Book";
 
 export default function PostPreview({ slug }) {
   const post = usePreview(null, singlebookquery, {
     slug: slug,
   });
 
-  return <Post post={post}/>;
+  return <Book post={post} />;
 }

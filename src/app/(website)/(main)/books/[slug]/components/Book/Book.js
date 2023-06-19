@@ -11,7 +11,7 @@ import { GlowingButton, H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { urlForImage } from "@/sanity/image";
 
-export default function Post({ post }) {
+export default function Book({ post }) {
   if (!post?.slug) {
     notFound();
   }
