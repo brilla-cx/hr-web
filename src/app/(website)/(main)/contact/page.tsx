@@ -7,6 +7,7 @@ import { FaPizzaSlice } from "react-icons/fa";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
+import { withContainer } from "@/components/shared/withContainer";
 import { SITE_URL } from "@/lib/constants";
 
 import ContactCard from "./components/ContactCard/ContactCard";
@@ -86,7 +87,9 @@ export default function ContactPage() {
           </div>
         </div>
       </Container>
-      <ContactForm />
+      {withContainer({
+        Component: ContactForm,
+      })}
     </div>
   );
 }

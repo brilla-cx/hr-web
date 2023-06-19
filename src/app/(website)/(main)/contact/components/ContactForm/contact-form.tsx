@@ -1,4 +1,5 @@
 "use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useRef, useState } from "react";
@@ -6,16 +7,18 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import ReactTurnstile from "@/components/turnstile";
-import { GlowingButton } from "@/components/ui";
+import { GlowingButton, H3 } from "@/components/ui";
 
 interface Message {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   message: string;
 }
 
 const schema = z.object({
-  fullName: z.string().nonempty("Full name is required"),
+  firstName: z.string().nonempty("First name is required"),
+  lastName: z.string().nonempty("Last name is required"),
   email: z.string().email("Invalid email address"),
   message: z.string().nonempty("Message is required"),
 });
@@ -52,7 +55,7 @@ function ContactForm() {
         if (tokenResponse.data.success) {
           setIsLoading(true);
           await axios.post("/api/contact-slack", {
-            fullName: data.fullName,
+            fullName: `${data.firstName} ${data.lastName}`,
             email: data.email,
             message: data.message,
           });
@@ -68,27 +71,41 @@ function ContactForm() {
     return null;
   }
   return (
-    <div>
+    <div className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
+      <H3 className="text-center text-gray-200 mb-14">Send a message</H3>
       <form
         ref={formRef}
         id="#contact"
         onSubmit={handleSubmit(onSubmit)}
-        className="col-span-2 md:col-span-1">
+        className="max-w-xl col-span-2 mx-auto md:col-span-1">
         <div className="grid grid-cols-2 gap-7 md:gap-10">
           <div className="col-span-2 md:col-span-1">
             <input
               type="text"
               placeholder="First name"
-              {...(register && register("fullName"))}
+              {...(register && register("firstName"))}
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
-            {errors.fullName && (
+            {errors.firstName && (
               <div className="mt-1 text-red-600">
-                <small>{errors.fullName.message}</small>
+                <small>{errors.firstName.message}</small>
               </div>
             )}
           </div>
           <div className="col-span-2 md:col-span-1">
+            <input
+              type="text"
+              placeholder="Last name"
+              {...(register && register("lastName"))}
+              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+            />
+            {errors.lastName && (
+              <div className="mt-1 text-red-600">
+                <small>{errors.lastName.message}</small>
+              </div>
+            )}
+          </div>
+          <div className="col-span-2">
             <input
               type="text"
               placeholder="Email"
@@ -114,9 +131,9 @@ function ContactForm() {
             )}
           </div>
           <ReactTurnstile />
-          <div className="col-span-2">
+          <div className="max-w-xl col-span-2 mx-auto">
             <GlowingButton aria-label="Submit Form" type="submit">
-              {isLoading ? "Loading..." : "Let's make it happen"}
+              {isLoading ? "Loading..." : "Send"}
             </GlowingButton>
             {isSuccess && (
               <p className="mt-2 text-green-500">
