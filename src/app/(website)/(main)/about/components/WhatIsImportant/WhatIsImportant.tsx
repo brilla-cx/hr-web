@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ReactNode } from "react";
 
+import { H3 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-
-import { H3 } from "../../../../../../components/ui";
 
 interface ImageProps {
   src: string;
