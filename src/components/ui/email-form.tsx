@@ -1,3 +1,4 @@
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useRef, useState } from "react";
