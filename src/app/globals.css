@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
 .holder__head {
   position: sticky;
   z-index: 1;

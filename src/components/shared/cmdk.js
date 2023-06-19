@@ -4,6 +4,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { FiCommand } from "react-icons/fi";
 
 import AlgoliaSearch from "@/components/shared/search";
 
@@ -35,12 +36,16 @@ const CommandMenu = () => {
     <>
       <button
         type="button"
-        className="relative h-9 w-full justify-start rounded-[0.5rem] bg-gray-700 text-sm text-white sm:pr-12 md:w-40 lg:w-64"
+        className="relative flex items-center justify-between gap-2 rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-sm text-gray-500 sm:w-44"
         onClick={openModal}>
-        <FaSearch />
-        <span>Search...</span>
-        <kbd className="bg-muted pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-          <span className="text-xs">⌘</span>K
+        <div className="flex  items-center gap-2">
+          <FaSearch />
+          <span className="hidden sm:block  ">Search...</span>
+        </div>
+        <kbd className=" hidden items-center gap-1 rounded-sm border border-gray-800 bg-midnight px-1 font-mono font-medium sm:flex">
+          <FiCommand className="h-3 w-3" />
+
+          <span className="text-xs">K</span>
         </kbd>
       </button>
       <Transition appear show={isOpen} as={Fragment}>
@@ -66,7 +71,7 @@ const CommandMenu = () => {
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95">
-                <Dialog.Panel className="h-[25rem] w-full max-w-2xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="h-[25rem] w-full max-w-2xl transform overflow-hidden rounded-md bg-white text-start align-middle shadow-xl transition-all">
                   <div className="h-full">
                     <AlgoliaSearch />
                   </div>

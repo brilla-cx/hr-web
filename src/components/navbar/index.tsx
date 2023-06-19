@@ -39,8 +39,13 @@ export default function Navbar(): JSX.Element {
                 </div>
               </Link>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="hidden sm:block">
               <CommandMenu />
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="sm:hidden">
+                <CommandMenu />
+              </div>
               <div style={{ zIndex: 1 }}>
                 <Menu recentPosts={recentPosts} aria-label="Menu" />
               </div>
