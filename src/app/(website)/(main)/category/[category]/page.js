@@ -1,7 +1,7 @@
 import { SITE_URL } from "@/lib/constants";
 import { getCategorybySlug } from "@/sanity/client";
 
-import Category from "./category";
+import Category from "./components/Category/Category";
 
 export function generateStaticParams() {
   return [];

@@ -4,7 +4,7 @@ import Pagination from "@/components/blog/pagination";
 import PostAlt from "@/components/postalt";
 import { getPaginatedCategoryPosts } from "@/sanity/client";
 
-export default async function PaginatedPosts({ slug, searchParams }) {
+export default async function PaginatedPostsByCategory({ slug, searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
   const page = searchParams?.page;
   const pageIndex = parseInt(page, 10) || 1;
