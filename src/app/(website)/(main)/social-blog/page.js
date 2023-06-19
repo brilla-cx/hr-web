@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/constants";
 
-import SocialBlogs from "./socialblogs";
+import SocialBlogs from "./components/SocialBlogs/SocialBlogs";
 
 export function generateMetadata() {
   const title = "Rebekah Radice's Blog";

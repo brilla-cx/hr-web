@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
 
-import { GlowingButton, H3, H4, H6, Lead } from "../ui";
+import { GlowingButton, H3, H4, H6, Lead } from "@/components/ui";
 
-const RememberFor = () => {
+const RememberedFor = () => {
   useEffect(() => {
     // Define a helper function to select elements
     const els = (sel: string, el?: HTMLElement | Document) =>
@@ -89,4 +89,4 @@ const RememberFor = () => {
   );
 };
 
-export default RememberFor;
+export default RememberedFor;

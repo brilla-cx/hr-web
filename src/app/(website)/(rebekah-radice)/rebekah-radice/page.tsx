@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import RebekahRadicePage from "@/components/rebekah-radice";
+import RebekahRadicePage from "@/app/(website)/(rebekah-radice)/rebekah-radice/components";
 import { SITE_URL } from "@/lib/constants";
 
 export function generateMetadata(): Metadata {

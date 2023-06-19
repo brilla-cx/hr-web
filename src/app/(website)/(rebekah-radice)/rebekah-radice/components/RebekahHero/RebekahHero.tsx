@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GlowingButton, H1, Lead } from "../ui";
+import { GlowingButton, H1, Lead } from "@/components/ui";
 
 interface Props {
   scrollToContact: () => void;

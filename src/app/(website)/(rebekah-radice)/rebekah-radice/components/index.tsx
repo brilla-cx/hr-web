@@ -3,13 +3,14 @@
 import React, { Fragment, useRef } from "react";
 
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
-import ContactRebekah from "@/components/rebekah-radice/contact-rebekah";
-import MarqueeImages from "@/components/rebekah-radice/marquee-images";
-import RebekahHero from "@/components/rebekah-radice/rebekah-hero";
-import RebekahTimeline from "@/components/rebekah-radice/rebekah-timeline";
-import RememberFor from "@/components/rebekah-radice/remeber-for";
-import SocialStats from "@/components/rebekah-radice/social-stats";
 import { withContainer } from "@/components/shared/withContainer";
+
+import ContactRebekah from "./ContactRebekah/ContactRebekah";
+import MarqueeImages from "./MarqueeImages/MarqueeImages";
+import RebekahHero from "./RebekahHero/RebekahHero";
+import RebekahTimeline from "./RebekahTimeline/rebekah-timeline";
+import RememberedFor from "./RememberedFor/RememberedFor";
+import SocialStats from "./SocialStats/SocialStats";
 
 function RebekahRadicePage() {
   const contactSectionRef = useRef<HTMLDivElement>(null);
@@ -49,7 +50,7 @@ function RebekahRadicePage() {
         Component: SocialStats,
       })}
       {withContainer({
-        Component: RememberFor,
+        Component: RememberedFor,
       })}
       {withContainer({
         Component: ContactRebekah,
