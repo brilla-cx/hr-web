@@ -1,7 +1,6 @@
 import ToolBox from "@/components/shared/ToolBox/ToolBox";
+import { H3 } from "@/components/ui";
 import { Tools } from "@/types/types";
-
-import { H3 } from "../ui";
 
 export default function OurPartners({ tools }: { tools: Tools[] }) {
   const renderTools = tools.filter((tool) => tool.isPartner == true);

@@ -1,8 +1,11 @@
 import Container from "@/components/container";
 import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
 import { Button, Input, Select, Textarea } from "@/components/ui";
-import { Badge, Blockquote, Prose, Spacer } from "@/components/ui";
+import { Blockquote, Prose } from "@/components/ui";
 import { SITE_URL } from '@/lib/constants';
+
+import Badge from "./components/Badge/Badge";
+import Spacer from "./components/Spacer/Spacer";
 
 export function generateMetadata() {
   const title = "Web Design Style Guide | Hey Rebekah";

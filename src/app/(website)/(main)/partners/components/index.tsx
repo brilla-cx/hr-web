@@ -2,10 +2,6 @@
 
 import { Fragment, useRef } from "react";
 
-import ExpectFromUs from "@/components/partners/expect-from-us";
-import LookingFor from "@/components/partners/looking-for";
-import OurPartners from "@/components/partners/our-partners";
-import PartnerCommunityData from "@/components/partners/partner-community-stats";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
 import Faqs from "@/components/sections/Faqs/Faqs";
 import PageHeader from "@/components/sections/pageheader";
@@ -14,6 +10,11 @@ import { GlowingButton, H1, Lead } from "@/components/ui";
 import EmailForm from "@/components/ui/email-form";
 import RebekahHeroImage from "@/public/rebekah-hero-image.jpg";
 import { FaqType, Tools } from "@/types/types";
+
+import ExpectFromUs from "./ExpectFromUs/ExpectFromUs";
+import LookingFor from "./LookingFor/LookingFor";
+import OurPartners from "./OurPartners/our-partners";
+import PartnerCommunityData from "./PartnerCommunityStats/PartnerCommunityStats";
 
 interface Props {
   faqs: FaqType[];

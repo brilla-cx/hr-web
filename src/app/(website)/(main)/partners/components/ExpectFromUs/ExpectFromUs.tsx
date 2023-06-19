@@ -1,6 +1,6 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 
-import { GlowingButton, H3, Lead } from "../ui";
+import { GlowingButton, H3, Lead } from "@/components/ui";
 
 const benefits = [
   {

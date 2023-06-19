@@ -1,4 +1,4 @@
-import { H3, Lead } from "../ui";
+import { H3, Lead } from "@/components/ui";
 
 const expectations = [
   {

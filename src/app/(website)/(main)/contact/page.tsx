@@ -7,8 +7,9 @@ import { FaPizzaSlice } from "react-icons/fa";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
-import ContactCard from "@/components/shared/contactCard";
 import { SITE_URL } from '@/lib/constants';
+
+import ContactCard from "./components/ContactCard/ContactCard";
 
 export function generateMetadata() {
   const title = "Contact";
