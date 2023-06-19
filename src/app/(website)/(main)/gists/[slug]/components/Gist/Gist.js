@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import AuthorCard from "@/components/blog/authorCard";
-import { PortableText } from "@/components/blog/portabletext";
-import SocialShare from "@/components/blog/share";
-import Sidebar from "@/components/blog/sidebar";
-import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
+import AuthorCard from "@/components/post/AuthorCard/AuthorCard";
+import { PortableText } from "@/components/post/PortableText/PortableText";
+import Sidebar from "@/components/post/Sidebar/Sidebar";
+import SocialShare from "@/components/post/SocialShare/SocialShare";
+import ViewAllPosts from "@/components/post/ViewAllPosts/ViewAllPosts";
 import { H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
@@ -15,7 +15,7 @@ import lightHoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
-export default function Post(props) {
+export default function Gist(props) {
   const { post } = props;
 
   if (!post?.slug) {

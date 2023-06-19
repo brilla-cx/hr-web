@@ -11,13 +11,13 @@ import {
 
 export default function SocialShare({ title, url }) {
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex items-center gap-2">
       <WhatsappShareButton
         title="This is cool.&nbsp;"
         separator="|&nbsp;"
         url={url}>
         <svg
-          className="transition-all duration-200 ease-in-out hover:scale-125 fill-current text-gray-200 hover:text-pink"
+          className="fill-current text-gray-200 transition-all duration-200 ease-in-out hover:scale-125 hover:text-pink"
           viewBox="0 0 64 64"
           width="28"
           height="28"
@@ -35,7 +35,7 @@ export default function SocialShare({ title, url }) {
         summary="I found this on Hey Rebekah.&nbsp;"
         url={url}>
         <svg
-          className="transition-all duration-200 ease-in-out hover:scale-125 fill-current text-gray-200 hover:text-pink"
+          className="fill-current text-gray-200 transition-all duration-200 ease-in-out hover:scale-125 hover:text-pink"
           viewBox="0 0 64 64"
           width="32"
           height="32"
@@ -54,7 +54,7 @@ export default function SocialShare({ title, url }) {
         hashtags={["heyrebekah", "freelancers", "knowledgeshouldbefree"]}
         via="rebekahradice">
         <svg
-          className="transition-all duration-200 ease-in-out hover:scale-125 fill-current text-gray-200 hover:text-pink"
+          className="fill-current text-gray-200 transition-all duration-200 ease-in-out hover:scale-125 hover:text-pink"
           viewBox="0 0 64 64"
           width="32"
           height="32"
@@ -69,7 +69,7 @@ export default function SocialShare({ title, url }) {
       </TwitterShareButton>
       <FacebookShareButton quote={title} hashtag="#heyrebekah" url={url}>
         <svg
-          className="transition-all duration-200 ease-in-out hover:scale-125 fill-current text-gray-200 hover:text-pink"
+          className="fill-current text-gray-200 transition-all duration-200 ease-in-out hover:scale-125 hover:text-pink"
           viewBox="0 0 64 64"
           width="32"
           height="32"
@@ -84,7 +84,7 @@ export default function SocialShare({ title, url }) {
       </FacebookShareButton>
       <RedditShareButton title={title} url={url}>
         <svg
-          className="transition-all duration-200 ease-in-out hover:scale-125 fill-current text-gray-200 hover:text-pink"
+          className="fill-current text-gray-200 transition-all duration-200 ease-in-out hover:scale-125 hover:text-pink"
           viewBox="0 0 64 64"
           width="32"
           height="32"
@@ -102,7 +102,7 @@ export default function SocialShare({ title, url }) {
         body="I found this on heyrebekah.com and wanted to share it with you."
         url={url}>
         <svg
-          className="transition-all duration-200 ease-in-out hover:scale-125 fill-current text-gray-200 hover:text-pink"
+          className="fill-current text-gray-200 transition-all duration-200 ease-in-out hover:scale-125 hover:text-pink"
           viewBox="0 0 64 64"
           width="32"
           height="32"

@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 
-import PaginatedPosts from "./posts";
+import PaginatedGists from "../PaginatedGists/PaginatedGists";
 
 export default function Gists({ searchParams }) {
   return (
@@ -18,7 +18,7 @@ export default function Gists({ searchParams }) {
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <PaginatedPosts searchParams={searchParams} />
+          <PaginatedGists searchParams={searchParams} />
         </div>
       </Container>
     </div>

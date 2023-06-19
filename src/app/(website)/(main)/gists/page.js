@@ -1,6 +1,6 @@
 import { SITE_URL } from "@/lib/constants";
 
-import Gists from "./gists";
+import Gists from "./components/Gists/Gists";
 
 export function generateMetadata() {
   const title = "Gist Archive";

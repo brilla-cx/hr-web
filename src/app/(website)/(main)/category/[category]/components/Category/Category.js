@@ -5,7 +5,7 @@ import { notFound } from "next/navigation"; // Navigation control from Next.js
 import Container from "@/components/container"; // Custom container component for page layout
 import PageHeader from "@/components/sections/pageheader"; // Component for page header section
 
-import PaginatedPosts from "./posts";
+import PaginatedPostsByCategory from "../PaginatedPostsByCategory/PaginatedPostsByCategory";
 /**
  * Category Page Component
  * This component serves as the primary display for each individual category page.
@@ -46,7 +46,7 @@ export default function Category(props) {
           includeForm
         />
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <PaginatedPosts searchParams={searchParams} slug={slug} />
+          <PaginatedPostsByCategory searchParams={searchParams} slug={slug} />
         </div>
       </Container>
     </div>

@@ -10,9 +10,9 @@ import {
   getTopCategories,
 } from "@/sanity/client";
 
-import Post from "./post";
+import Gist from "./components/Gist/Gist";
 
-const PostPreview = lazy(() => import("./preview"));
+const PostPreview = lazy(() => import("./components/Preview/preview"));
 
 export async function generateStaticParams() {
   const slugs = await getAllPostsSlugs();
@@ -61,7 +61,7 @@ export default async function PostPage({ params }) {
     );
   }
 
-  return <Post post={post} categories={categories} />;
+  return <Gist post={post} categories={categories} />;
 }
 
 const Loading = () => {
