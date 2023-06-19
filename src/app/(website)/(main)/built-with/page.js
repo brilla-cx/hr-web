@@ -1,7 +1,7 @@
 import { SITE_URL } from "@/lib/constants";
 import { getAllTools, getToolsCategories } from "@/sanity/client";
 
-import Tools from "./tools";
+import Tools from "./components/Tools/tools";
 
 export function generateMetadata() {
   const title = "Side Hustle Stack";

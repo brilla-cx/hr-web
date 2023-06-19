@@ -1,4 +1,4 @@
-import ToolBox from "@/components/shared/toolbox";
+import ToolBox from "@/components/shared/ToolBox/ToolBox";
 import { Tools } from "@/types/types";
 
 import { H3 } from "../ui";

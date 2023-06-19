@@ -29,11 +29,11 @@ const ToolBox: FC<ToolBoxProps> = ({ tool }) => {
   const imageProps = tool?.image
     ? urlForImage(tool.image)
     : {
-        src: "/hey-rebekah-logo.svg",
-        alt: `${tool.name ? tool.name : "Hey Rebekah Built With Tool"} Logo`,
-        fill: true,
-        className: "object-contain",
-      };
+      src: "/hey-rebekah-logo.svg",
+      alt: `${tool.name ? tool.name : "Hey Rebekah Built With Tool"} Logo`,
+      fill: true,
+      className: "object-contain",
+    };
 
   const color = {
     cyan: "bg-cyan-100",
@@ -61,9 +61,8 @@ const ToolBox: FC<ToolBoxProps> = ({ tool }) => {
           {imageProps && (
             <Image
               {...imageProps}
-              alt={`${
-                tool.name ? tool.name : "Hey Rebekah Built With Tool"
-              } Logo`}
+              alt={`${tool.name ? tool.name : "Hey Rebekah Built With Tool"
+                } Logo`}
               className="object-contain p-2"
             />
           )}

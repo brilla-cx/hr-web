@@ -3,7 +3,7 @@
 import { singletoolsquery } from "@/sanity/groq";
 import { usePreview } from "@/sanity/preview";
 
-import Tool from "./tool";
+import Tool from "../Tool/Tool";
 
 export default function PostPreview({ slug }) {
   const data = usePreview(null, singletoolsquery, {
