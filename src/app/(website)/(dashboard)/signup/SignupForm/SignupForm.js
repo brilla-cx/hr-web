@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { GlowingButton, Input, Lead } from "@/components/ui";
-import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
+import BackButton, { Checkbox, Radio } from "@/components/ui/FormComponents";
 import hoverStyles from "@/lib/hover";
 import { addUserToList, updateUser } from "@/lib/server/actions";
 import { cx } from "@/lib/utils";
@@ -43,7 +43,7 @@ export default function SignupForm() {
   return (
     <div className="">
       <FormProvider>
-        <div className="max-w-xl mx-auto">
+        <div className="mx-auto max-w-xl">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}
@@ -110,7 +110,7 @@ function StepOne({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
-            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             name="email"
             type="email"
             required
@@ -127,7 +127,7 @@ function StepOne({ formStep, nextFormStep }) {
               },
             }}
           />
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <GlowingButton
               ariaLabel="Go to next step"
               type="submit"
@@ -136,7 +136,7 @@ function StepOne({ formStep, nextFormStep }) {
               {loading ? "Hold on..." : "Next"}
             </GlowingButton>
           </div>
-          <p className="mt-6 text-xs leading-6 text-center text-gray-400">
+          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
             We care about your{" "}
             <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
               privacy
@@ -174,7 +174,7 @@ function StepTwo({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             name="firstName"
             type="text"
             required
@@ -189,7 +189,7 @@ function StepTwo({ formStep, nextFormStep }) {
             }}
           />
 
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
@@ -249,7 +249,7 @@ function StepThree({ formStep, nextFormStep }) {
             </div>
           )}
 
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
@@ -328,7 +328,7 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
               <small>{errors.topics.message}</small>
             </div>
           )}
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <BackButton onClick={prevFormStep} />
             <GlowingButton
               ariaLabel={
@@ -375,7 +375,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
         </p>
       </div>
 
-      <div className="flex justify-center mt-10">
+      <div className="mt-10 flex justify-center">
         <GlowingButton
           type="submit"
           autoWidth

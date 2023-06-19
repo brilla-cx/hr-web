@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 
 function ThankYouLayout({ children }) {
   return (

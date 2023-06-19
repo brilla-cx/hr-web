@@ -2,9 +2,9 @@ import React from "react";
 
 import { GlowingButton, Lead } from "@/components/ui";
 
-import { HeroH1 } from "./ui/typography";
+import { HeroH1 } from "../../ui/typography";
 
-const Hero: React.FC = () => {
+const HomeHero: React.FC = () => {
   return (
     <div className="px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
       <div className="max-w-4xl">
@@ -31,4 +31,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default HomeHero;

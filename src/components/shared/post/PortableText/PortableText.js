@@ -2,7 +2,7 @@ import { PortableText as PortableTextComponent } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import SocialEmbed from "@/components/post/Embed/Embed";
+import SocialEmbed from "@/components/shared/post/SocialEmbed/SocialEmbed";
 import { urlForImage } from "@/sanity/image";
 
 // Barebones lazy-loaded image component

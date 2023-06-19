@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { PortableText } from "@/components/post/PortableText/PortableText";
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";

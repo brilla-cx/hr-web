@@ -2,12 +2,12 @@
 
 import { Fragment, useRef } from "react";
 
+import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
 import Faqs from "@/components/sections/Faqs/Faqs";
-import PageHeader from "@/components/sections/pageheader";
-import { withContainer } from "@/components/shared/withContainer";
+import EmailForm from "@/components/shared/forms/EmailForm/EmailForm";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { GlowingButton, H1, Lead } from "@/components/ui";
-import EmailForm from "@/components/ui/email-form";
 import RebekahHeroImage from "@/public/rebekah-hero-image.jpg";
 import { FaqType, Tools } from "@/types/types";
 
@@ -64,7 +64,7 @@ function PartnerPage(props: Props) {
           </div>
         </div>
       </div>
-      {withContainer({
+      {WithContainer({
         Component: PageHeader,
         componentProps: {
           title: "Knowledge should be free",
@@ -74,32 +74,32 @@ function PartnerPage(props: Props) {
           includeForm: false,
         },
       })}
-      {withContainer({
+      {WithContainer({
         Component: PartnerCommunityData,
       })}
-      {withContainer({
+      {WithContainer({
         Component: BrandsMarquee,
         componentProps: { title: "G.O.A.T. brands we've worked with" },
       })}
-      {withContainer({
+      {WithContainer({
         Component: LookingFor,
       })}
-      {withContainer({
+      {WithContainer({
         Component: ExpectFromUs,
         componentProps: { scrollToContact: scrollToContact },
       })}
-      {withContainer({
+      {WithContainer({
         Component: OurPartners,
         componentProps: { tools: props.tools },
       })}
-      {withContainer({
+      {WithContainer({
         Component: () => (
           <div id="emailForm" ref={contactSectionRef}>
             <EmailForm />
           </div>
         ),
       })}
-      {withContainer({
+      {WithContainer({
         Component: Faqs,
         componentProps: { faqs: props.faqs },
       })}

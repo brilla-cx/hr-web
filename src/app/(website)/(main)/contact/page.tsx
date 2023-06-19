@@ -5,8 +5,8 @@ import {
 } from "@heroicons/react/20/solid";
 import { FaPizzaSlice } from "react-icons/fa";
 
-import Container from "@/components/container";
-import PageHeader from "@/components/sections/pageheader";
+import Container from "@/components/layout/Container/Container";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { SITE_URL } from '@/lib/constants';
 
 import ContactCard from "./components/ContactCard/ContactCard";

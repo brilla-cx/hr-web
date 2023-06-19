@@ -3,8 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiLinkedin, SiTwitter } from "react-icons/si";
 
-import Container from "@/components/container";
-import { PortableText } from "@/components/post/PortableText/PortableText";
+import Container from "@/components/layout/Container/Container";
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { H2, H6, Lead } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { urlForImage } from "@/sanity/image";

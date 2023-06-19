@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 
-import PostAlt from "@/components/blogs/PostAlt/PostAlt";
-import Pagination from "@/components/post/Pagination/Pagination";
+import PostAlt from "@/components/shared/blogs/PostAlt/PostAlt";
+import Pagination from "@/components/shared/post/Pagination/Pagination";
 import { getPaginatedBooks } from "@/sanity/client";
 
 export default async function PaginatedBooks({ searchParams }) {
