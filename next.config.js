@@ -2,7 +2,7 @@
 /** @type {import('next').NextConfig} */
 
 const { withPlausibleProxy } = require("next-plausible");
-const { resolveRedirects } = require("./sanity/client");
+const { resolveRedirects } = require("./src/sanity/resolveRedirects");
 
 const commonHeaders = [
   {
