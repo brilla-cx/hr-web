@@ -1,15 +1,23 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-no-bind */
 "use client";
+
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 
-import FormProvider, { useFormData } from "@/components/providers/form-context";
+import ReactTurnstile from "@/components/turnstile";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
-import { getUserInfo, updateUser } from "@/lib/server/actions";
+import hoverStyles from "@/lib/hover";
+import { addUserToList, updateUser } from "@/lib/server/actions";
+import { cx } from "@/lib/utils";
 
+import FormProvider, {
+  useFormData,
+} from "../../components/FormContext/FormContext";
 const TopicsArray = [
   "Accounting/Finance",
   "Artificial Intelligence",
@@ -27,7 +35,7 @@ const TopicsArray = [
   "Other",
 ];
 
-export default function Preferences() {
+export default function SignupForm() {
   const [formStep, setFormStep] = useState(1);
 
   const nextFormStep = () => setFormStep((currentStep) => currentStep + 1);
@@ -35,9 +43,9 @@ export default function Preferences() {
   const prevFormStep = () => setFormStep((currentStep) => currentStep - 1);
 
   return (
-    <div>
+    <div className="">
       <FormProvider>
-        <div className="mx-auto mb-48 mt-12 max-w-xl">
+        <div className="mx-auto max-w-xl">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}
@@ -78,38 +86,48 @@ function StepOne({ formStep, nextFormStep }) {
     register,
   } = useForm({ mode: "onTouched" });
 
+  const formRef = useRef(null);
+
   const onSubmit = async (values) => {
-    setLoading(true);
-    const result = await getUserInfo(values.email);
+    try {
+      const ref = await formRef.current;
 
-    if (result.error) {
-      console.log("Error fetching data");
+      if (ref) {
+        const formData = new FormData(formRef.current);
+        const token = formData.get("cf-turnstile-response");
+        const res = await fetch("/api/turnstile-verify", {
+          method: "POST",
+          body: JSON.stringify({ token }),
+          headers: {
+            "content-type": "application/json",
+          },
+        });
+        const tokenResponse = await res.json();
+        if (tokenResponse.data.success) {
+          setLoading(true);
+          setFormValues(values);
+          const result = await addUserToList(values.email);
+          if (result.error) {
+            throw new Error("Fail to send to iterable");
+          }
+          nextFormStep();
+        }
+      }
+    } catch (error) {
+      setLoading(false);
     }
-
-    const { email, dataFields } = result || {};
-
-    const data = {
-      email,
-      firstName: dataFields.firstName,
-      topic1: dataFields.topic1,
-      topic2: dataFields.topic2,
-      topic3: dataFields.topic3,
-      topic4: dataFields.topic4,
-    };
-    setFormValues(data);
-    nextFormStep();
-    setLoading(false);
   };
 
   return (
     <div className={formStep === 1 ? "block" : "hidden"}>
       <div className="">
         <Lead className="text-center text-gray-200">
-          Enter your email address
+          What{"\u2018"}s your email address?
+          <sup className="text-pink">&nbsp;*</sup>
         </Lead>
       </div>
       <div className="mt-5">
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
             className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
@@ -129,16 +147,23 @@ function StepOne({ formStep, nextFormStep }) {
               },
             }}
           />
-
+          <ReactTurnstile />
           <div className="mt-10 flex justify-center">
             <GlowingButton
+              ariaLabel="Go to next step"
               type="submit"
               autoWidth
-              disabled={loading}
-              ariaLabel={loading ? "Please wait..." : "Change my Preferences"}>
-              {loading ? "Just a sec..." : "Change my Preferences"}
+              disabled={loading}>
+              {loading ? "Hold on..." : "Next"}
             </GlowingButton>
           </div>
+          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
+            We care about your{" "}
+            <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
+              privacy
+            </Link>
+            .
+          </p>
         </form>
       </div>
     </div>
@@ -146,18 +171,13 @@ function StepOne({ formStep, nextFormStep }) {
 }
 // Enter Name
 function StepTwo({ formStep, nextFormStep }) {
-  const { setFormValues, data } = useFormData();
-  console.log(data);
+  const { setFormValues } = useFormData();
+  //   console.log(formStep);
   const {
     handleSubmit,
     formState: { errors },
     register,
-    setValue,
   } = useForm({ mode: "all" });
-
-  useEffect(() => {
-    setValue("firstName", data.firstName);
-  }, [data, setValue]);
 
   const onSubmit = (values) => {
     setFormValues(values);
@@ -166,12 +186,9 @@ function StepTwo({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 2 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Change name | Click next to skip
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
-          👋🏾 What should we call you?
+          👋🏾 What should we call you?<sup className="text-pink">&nbsp;*</sup>
         </Lead>
       </div>
       <div className="mt-5">
@@ -182,10 +199,8 @@ function StepTwo({ formStep, nextFormStep }) {
             name="firstName"
             type="text"
             required
-            // defaultValue={data.firstName}
             placeholder="Enter your first name"
             aria-label="What's your first name?."
-            // onChange={handleChange}
             register={register}
             errors={errors}
             validations={{
@@ -207,17 +222,12 @@ function StepTwo({ formStep, nextFormStep }) {
 }
 // Primary Topic
 function StepThree({ formStep, nextFormStep }) {
-  const { setFormValues, data } = useFormData();
+  const { setFormValues } = useFormData();
   const {
     handleSubmit,
     formState: { errors },
     register,
-    setValue,
   } = useForm({ mode: "all" });
-
-  useEffect(() => {
-    setValue("topic1", data.topic1);
-  }, [data, setValue]);
 
   const onSubmit = (values) => {
     setFormValues(values);
@@ -226,12 +236,10 @@ function StepThree({ formStep, nextFormStep }) {
 
   return (
     <div className={formStep === 3 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Change your Primary Topic
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
           Tell us your primay topic of inteest, we{"\u2018"}ll filter the rest.
+          <sup className="text-pink">&nbsp;*</sup>
         </Lead>
       </div>
       <div className="mt-5">
@@ -263,7 +271,7 @@ function StepThree({ formStep, nextFormStep }) {
           )}
 
           <div className="mt-10 flex justify-center">
-            <GlowingButton type="submit" autoWidth>
+            <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
           </div>
@@ -281,14 +289,9 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
     formState: { errors },
     register,
     watch,
-    setValue,
   } = useForm({ mode: "all" });
 
   const topicsSelected = watch("topics");
-
-  useEffect(() => {
-    setValue("topics", [data.topic2, data.topic3, data.topic4]);
-  }, [data, setValue]);
 
   const onSubmit = (values) => {
     if (Array.isArray(values.topics)) {
@@ -314,9 +317,6 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
 
   return (
     <div className={formStep === 4 ? "block" : "hidden"}>
-      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
-        Change secondary topics
-      </p>
       <div className="">
         <Lead className="text-center text-gray-200">
           Awesome. Select three more topics you{"\u2018"}d like to keep tabs on.
@@ -352,11 +352,11 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
           <div className="mt-10 flex justify-center">
             <BackButton onClick={prevFormStep} />
             <GlowingButton
-              type="submit"
-              autoWidth
               ariaLabel={
                 topicsSelected ? "Go to the next step" : "Skip this step"
-              }>
+              }
+              type="submit"
+              autoWidth>
               {topicsSelected ? "Next" : "Skip"}
             </GlowingButton>
           </div>
@@ -374,11 +374,12 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
 
   const submitForm = async () => {
     setLoading(true);
+
     const { email, ...rest } = data;
     const result = await updateUser(email, rest);
 
     if (!result.success) {
-      console.error("Error fetching data");
+      throw new Error("Failed to submit the form");
     }
     router.push("/signup/confirm");
   };
@@ -387,11 +388,11 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
     <div className={formStep === 5 ? "block" : "hidden"}>
       <div className="">
         <Lead className="text-center text-gray-200">
-          Ready to change your preferences,{" "}
-          {data.firstName ? data.firstName : "w00t"}!
+          19 seconds, a new record {data.firstName ? data.firstName : ", w00t"}!
         </Lead>
         <p className="mt-3 text-center text-gray-400">
-          Click submit, and we will update your preferences.
+          Click submit, then please check your inbox to verify your email
+          address.
         </p>
       </div>
 
@@ -401,8 +402,8 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
           autoWidth
           onClick={submitForm}
           disabled={loading}
-          aria-label="Submit form">
-          {(loading && "Just a sec...") || "Update my Preferences"}
+          ariaLabel="Submit Form">
+          {(loading && "Just a sec...") || "Submit"}
         </GlowingButton>
       </div>
     </div>
