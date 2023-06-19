@@ -5,13 +5,13 @@ import {
 } from "@heroicons/react/20/solid";
 import { FaPizzaSlice } from "react-icons/fa";
 
-import Container from "@/components/container";
-import PageHeader from "@/components/sections/pageheader";
-import { withContainer } from "@/components/shared/withContainer";
-import { SITE_URL } from "@/lib/constants";
+import Container from "@/components/layout/Container/Container";
+import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+import { SITE_URL } from '@/lib/constants';
 
 import ContactCard from "./components/ContactCard/ContactCard";
-import ContactForm from "./components/ContactForm/contact-form";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 export function generateMetadata() {
   const title = "Contact";
@@ -87,7 +87,7 @@ export default function ContactPage() {
           </div>
         </div>
       </Container>
-      {withContainer({
+      {WithContainer({
         Component: ContactForm,
       })}
     </div>

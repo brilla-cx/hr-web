@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment } from "react";
 
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 import LogoImage from "@/public/rebekah-radice-logo.svg";

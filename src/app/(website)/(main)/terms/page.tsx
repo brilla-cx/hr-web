@@ -1,9 +1,9 @@
-import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
 import { ReactElement } from "react";
 
-import Container from "@/components/container";
-import PageHeader from "@/components/sections/pageheader";
+import Container from "@/components/layout/Container/Container";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { Prose } from "@/components/ui";
 import { SITE_URL } from '@/lib/constants';
 import { getLegalPageBySlug } from "@/sanity/client";

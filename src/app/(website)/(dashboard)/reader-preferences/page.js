@@ -1,4 +1,4 @@
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import { SITE_URL } from "@/lib/constants";
 
 import SignupHeader from "../components/SignupHeader/SignupHeader";

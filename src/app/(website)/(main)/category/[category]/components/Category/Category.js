@@ -2,8 +2,9 @@
 import Head from "next/head";
 import { notFound } from "next/navigation"; // Navigation control from Next.js
 
-import Container from "@/components/container"; // Custom container component for page layout
-import PageHeader from "@/components/sections/pageheader"; // Component for page header section
+import Container from "@/components/layout/Container/Container";
+// Custom container component for page layout
+import PageHeader from "@/components/shared/PageHeader/PageHeader"; // Component for page header section
 
 import PaginatedPostsByCategory from "../PaginatedPostsByCategory/PaginatedPostsByCategory";
 /**

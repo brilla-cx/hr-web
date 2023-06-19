@@ -2,12 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import Container from "@/components/container";
-import AuthorCard from "@/components/post/AuthorCard/AuthorCard";
-import { PortableText } from "@/components/post/PortableText/PortableText";
-import Sidebar from "@/components/post/Sidebar/Sidebar";
-import SocialShare from "@/components/post/SocialShare/SocialShare";
-import ViewAllPosts from "@/components/post/ViewAllPosts/ViewAllPosts";
+import Container from "@/components/layout/Container/Container";
+import AuthorCard from "@/components/shared/post/AuthorCard/AuthorCard";
+import { PortableText } from "@/components/shared/post/PortableText/PortableText";
+import Sidebar from "@/components/shared/post/Sidebar/Sidebar";
+import SocialShare from "@/components/shared/post/SocialShare/SocialShare";
+import ViewAllPosts from "@/components/shared/post/ViewAllPosts/ViewAllPosts";
 import { H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";

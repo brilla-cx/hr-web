@@ -2,7 +2,7 @@ import React from "react";
 
 import { H1, Lead } from "@/components/ui/typography";
 
-import { GlowingButton } from "../ui";
+import { GlowingButton } from "../../ui";
 
 interface PageHeaderProps {
   title: string;

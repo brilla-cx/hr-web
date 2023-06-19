@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { use } from "react";
 
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import CommandMenu from "@/components/shared/cmdk";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 import { getPaginatedPosts } from "@/sanity/client";
@@ -25,7 +25,7 @@ export default function Navbar(): JSX.Element {
         <Container
           alt
           large
-          className="h-20 border-l border-r border-neutral-200/10 py-5">
+          className="h-20 py-5 border-l border-r border-neutral-200/10">
           <div className="flex items-center justify-between gap-10">
             <div className="isolate" style={{ zIndex: 2 }}>
               <Link href="/" aria-label="Go to home page">
@@ -33,7 +33,7 @@ export default function Navbar(): JSX.Element {
                   <Image
                     src={LogoImage}
                     alt="Hey Rebekah Logo"
-                    className="h-8 w-auto"
+                    className="w-auto h-8"
                     priority
                   />
                 </div>

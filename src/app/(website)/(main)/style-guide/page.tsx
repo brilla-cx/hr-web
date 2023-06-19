@@ -1,4 +1,4 @@
-import Container from "@/components/container";
+import Container from "@/components/layout/Container/Container";
 import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { Blockquote, Prose } from "@/components/ui";
