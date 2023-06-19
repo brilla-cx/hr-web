@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
+import { SITE_URL } from "@/lib/constants";
 import {
   getAllPosts,
   getAllPostsSlugs,
@@ -9,9 +10,9 @@ import {
   getTopCategories,
 } from "@/sanity/client";
 
-import Post from "./post";
+import Gist from "./components/Gist/Gist";
 
-const PostPreview = lazy(() => import("./preview"));
+const PostPreview = lazy(() => import("./components/Preview/preview"));
 
 export async function generateStaticParams() {
   const slugs = await getAllPostsSlugs();
@@ -29,12 +30,15 @@ export async function generateMetadata({ params }) {
   const seoTitle = post?.name;
   const seoMetaDescription = post?.seoMetaDescription?.[0]?.children?.[0]?.text;
 
+  const postUrl = `${SITE_URL}/gists/${params.slug}`;
+
   return {
     title: post.seo?.seoTitle || seoTitle,
     description: post.seo?.seoDescription || seoMetaDescription,
     openGraph: {
       title: post.seo?.seoTitle || seoTitle,
       description: post.seo?.seoDescription || seoMetaDescription,
+      url: postUrl,
     },
     twitter: {
       title: post.seo?.seoTitle || seoTitle,
@@ -57,7 +61,7 @@ export default async function PostPage({ params }) {
     );
   }
 
-  return <Post post={post} categories={categories} />;
+  return <Gist post={post} categories={categories} />;
 }
 
 const Loading = () => {

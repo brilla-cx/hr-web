@@ -2,11 +2,12 @@ import { draftMode } from "next/headers";
 import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
+import { SITE_URL } from "@/lib/constants";
 import { getToolbySlug } from "@/sanity/client";
 
-import Tool from "./tool";
+import Tool from "./components/Tool/Tool";
 
-const PostPreview = lazy(() => import("./preview"));
+const PostPreview = lazy(() => import("./components/Preview/Preview"));
 
 export function generateStaticParams() {
   return [];
@@ -21,12 +22,15 @@ export async function generateMetadata({ params }) {
     data.seoTitle || data.name
   } and hook you up with our discount. Not an affiliate`;
 
+  const dataUrl = `${SITE_URL}/built-with/${params.slug}`;
+
   return {
     title,
     description,
     openGraph: {
       title,
       description,
+      url: dataUrl,
     },
     twitter: {
       title,

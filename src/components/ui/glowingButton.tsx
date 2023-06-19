@@ -48,6 +48,7 @@ interface GlowingButtonProps {
   children: React.ReactNode;
   autoWidth?: boolean;
   id?: string;
+  ariaLabel?: string;
 }
 
 // Main component for the glowing button
@@ -57,6 +58,7 @@ const GlowingButton: React.FC<GlowingButtonProps> = ({
   size = "md",
   children,
   autoWidth,
+  ariaLabel,
   ...props
 }) => {
   // Wrapper is a button or a link based on the variant prop
@@ -71,6 +73,7 @@ const GlowingButton: React.FC<GlowingButtonProps> = ({
         <GradientBackground />
         <Wrapper
           className={cx(!autoWidth && "w-full")}
+          aria-label={ariaLabel}
           {...wrapperProps}
           {...props}>
           <ButtonContent size={size}>{children}</ButtonContent>

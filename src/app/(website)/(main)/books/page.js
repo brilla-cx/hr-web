@@ -1,9 +1,13 @@
-import Books from "./books";
+import { SITE_URL } from "@/lib/constants";
+
+import Books from "./components/Books/Books";
 
 export function generateMetadata() {
   const title = "Book Club";
   const description =
     "Looking for some books to help with your career? Join Hey Rebekah's Book Club. We'll send you personalized recommendations each week.";
+
+  const url = `${SITE_URL}/books`;
 
   const metadata = {
     title,
@@ -12,6 +16,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -28,5 +33,3 @@ export default function BooksPage({ searchParams }) {
 }
 
 export const dynamic = "force-dynamic";
-
-export const revalidate = 86400;

@@ -1,14 +1,19 @@
 import { PortableText } from "@portabletext/react";
+import { Metadata } from "next";
+import { ReactElement } from "react";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
+import { SITE_URL } from "@/lib/constants";
 import { getLegalPageBySlug } from "@/sanity/client";
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   const title = "Privacy Policy";
   const description =
     "We're a privacy-first company. We'll never sell your information and will do everything we can to protect it. Read more details on the whos and the whats.";
+
+  const url = `${SITE_URL}/privacy`;
 
   const metadata = {
     title,
@@ -17,6 +22,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -28,9 +34,14 @@ export function generateMetadata() {
   return metadata;
 }
 
+interface Post {
+  name?: string;
+  tldr?: string;
+  content?: any;
+}
 
-export default async function Privacy() {
-  const post = await getLegalPageBySlug("privacy");
+export default async function Privacy(): Promise<ReactElement> {
+  const post: Post = await getLegalPageBySlug("privacy");
 
   // Fetch the post data and insert it into the component
   const title = post?.name ?? "Default Title";
@@ -51,7 +62,7 @@ export default async function Privacy() {
       </div>
       <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
         <article className="flex-1 ">
-          <Prose className="prose mx-auto max-w-prose">
+          <Prose className="prose mx-auto max-w-prose break-words ">
             <PortableText value={content} />
           </Prose>
         </article>
@@ -59,3 +70,6 @@ export default async function Privacy() {
     </div>
   );
 }
+
+export const dynamic = 'force-static'
+export const revalidate = false

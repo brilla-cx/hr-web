@@ -1,20 +1,24 @@
 import { Metadata } from "next";
 
-import BrandsMarquee from "@/components/about/brands-marquee";
-import CheckReplay from "@/components/about/check-replay";
-import EmailCta from "@/components/about/email-cta";
-import Faqs from "@/components/about/faqs";
-import WhatIsImportant from "@/components/about/what-is-important";
-import WtfIsHeyRebekah from "@/components/about/wtf-is-rebekah";
+import WtfIsHeyRebekah from "@/app/(website)/(main)/about/components/WtfIsHeyRebekah/WtfIsHeyRebekah";
 import Container from "@/components/container";
-import { HeroWithImage } from "@/components/sections/herowithimage";
+import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
+import Faqs from "@/components/sections/Faqs/Faqs";
+import { HeroWithImage } from "@/components/sections/HeroWithImage/HeroWithImage";
+import { SITE_URL } from '@/lib/constants';
 import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
+
+import CheckReplay from "./components/CheckReplay/CheckReplay";
+import EmailCta from "./components/EmailCta/EmailCta";
+import WhatIsImportant from "./components/WhatIsImportant/WhatIsImportant";
 
 export function generateMetadata(): Metadata {
   const title = "What is Hey Rebekah?";
   const description =
     "WTF is Hey Rebekah? Co-founded by Rebekah Radice, it's a free daily AI newsletter. We help you make the best of AI before it gets the best of you. 💪🏽";
+
+  const url = `${SITE_URL}/about`;
 
   const metadata = {
     title,
@@ -23,6 +27,7 @@ export function generateMetadata(): Metadata {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -33,7 +38,6 @@ export function generateMetadata(): Metadata {
 
   return metadata;
 }
-
 
 const withContainer = (Component, props, bgColor) => {
   return (
@@ -87,3 +91,6 @@ export default async function About() {
     </>
   );
 }
+
+export const dynamic = 'force-static'
+export const revalidate = false

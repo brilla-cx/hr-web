@@ -3,12 +3,16 @@ import { PortableText } from "@portabletext/react";
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
+import { SITE_URL } from '@/lib/constants';
 import { getLegalPageBySlug } from "@/sanity/client";
+import { Metadata } from "@/types/types";
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   const title = "Editorial Policy";
   const description =
     "The TL;DR? We're a free daily newsletter for knowledge workers. We write about AI. We don't accept money for affiliate links and always mark paid content.";
+
+  const url = `${SITE_URL}/editorial-policy`;
 
   const metadata = {
     title,
@@ -17,6 +21,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -28,8 +33,14 @@ export function generateMetadata() {
   return metadata;
 }
 
+interface Post {
+  name?: string;
+  tldr?: string;
+  content?: any;
+}
+
 export default async function EditorialPolicy() {
-  const post = await getLegalPageBySlug("editorial-policy");
+  const post: Post = await getLegalPageBySlug("editorial-policy");
 
   // Fetch the post data and insert it into the component
   const title = post?.name ?? "Default Title";
@@ -58,3 +69,6 @@ export default async function EditorialPolicy() {
     </div>
   );
 }
+
+export const dynamic = 'force-static'
+export const revalidate = false

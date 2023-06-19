@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: 
+Disallow: /categories/
+Disallow: /thank-you/
+Disallow: /welcome-back/
+Disallow: /reader-preferences/
+Allow: /api/og/*
+Sitemap: https://heyrebekah.com/sitemap.xml

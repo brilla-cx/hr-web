@@ -3,9 +3,9 @@ import Link from "next/link";
 import React from "react";
 
 import Container from "@/components/container";
-import LogoImage from "@/public/hey-rebekah-logo.svg";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
+import LogoImage from "@/public/hey-rebekah-logo.svg";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -72,7 +72,8 @@ function Footer() {
               {" "}
               BRIL.LA, LLC.
             </Link>
-            &nbsp;All rights reserved.
+            <br className="md:hidden" />
+            &nbsp;All Rights Reserved.
           </p>
         </div>
       </div>

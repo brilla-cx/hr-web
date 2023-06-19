@@ -1,9 +1,14 @@
+import { Metadata } from "next";
 import Script from "next/script";
 import React, { ReactElement } from "react";
 
-export function generateMetadata() {
+import { SITE_URL } from '@/lib/constants';
+
+export function generateMetadata(): Metadata {
   const title = "Juno AI";
   const description = "Juno loves Sam the most. She's the inspiration for our free embedded AI. These treats are made by hand, just for you. Dive in, save your money, get results.";
+
+  const url = `${SITE_URL}/juno`;
 
   const metadata = {
     title,
@@ -12,6 +17,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -59,3 +65,5 @@ const Juno: React.FC = (): ReactElement => {
 };
 
 export default Juno;
+
+export const dynamic = "force-dynamic";

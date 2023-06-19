@@ -4,12 +4,16 @@ import { Metadata } from "next";
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
+import { SITE_URL } from '@/lib/constants';
 import { getLegalPageBySlug } from "@/sanity/client";
+
 
 export function generateMetadata(): Metadata {
   const title = "Accessibility";
   const description =
     "Hey Rebekah strives for inclusive design for our readers. We're continually improving but it's a process. Please reach out to us for accessibility issues.";
+
+  const url = `${SITE_URL}/accessibility`;
 
   const metadata = {
     title,
@@ -18,9 +22,10 @@ export function generateMetadata(): Metadata {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
-      title: "Accessibility Statement",
+      title,
       description,
       images: "/og.png",
     },
@@ -29,8 +34,14 @@ export function generateMetadata(): Metadata {
   return metadata;
 }
 
+interface Post {
+  name?: string;
+  tldr?: string;
+  content?: any;
+}
+
 export default async function AccessibilityStatement() {
-  const post = await getLegalPageBySlug("accessibility");
+  const post: Post = await getLegalPageBySlug("accessibility");
 
   // Fetch the post data and insert it into the component
   const title = post?.name ?? "Default Title";
@@ -59,3 +70,6 @@ export default async function AccessibilityStatement() {
     </div>
   );
 }
+
+export const dynamic = 'force-static'
+export const revalidate = false

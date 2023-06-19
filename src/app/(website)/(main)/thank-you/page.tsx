@@ -1,11 +1,15 @@
 import Image from "next/image";
 
 import { H1, Lead } from "@/components/ui";
+import { SITE_URL } from "@/lib/constants";
+
 
 export function generateMetadata() {
   const title = "Thank You";
   const description =
     "Wow, look at you! You're on your way to becoming an AI superstar. We're thrilled you've subscribed to Hey Rebekah. We're here for you. Happy generating!";
+
+  const url = `${SITE_URL}/thank-you`;
 
   const metadata = {
     title,
@@ -14,6 +18,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -64,3 +69,6 @@ export default function ThankYou() {
     </div>
   );
 }
+
+export const dynamic = 'force-static'
+export const revalidate = false

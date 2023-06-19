@@ -7,6 +7,8 @@ import { DocumentActionComponent, useDocumentOperation } from "sanity";
 
 import { ValueType } from "@/types/types";
 
+// Custom function that resolves the path from your document.
+// import { resolveProductionPath } from "../resolveProductionUrl";
 import { postByIdQuery } from "./client";
 
 function getEnvVar(key: string): string {
@@ -19,6 +21,9 @@ function getEnvVar(key: string): string {
 
 const iterableKey = getEnvVar("SANITY_STUDIO_ITERABLE_TOKEN");
 
+/**
+ * iterable action
+ */
 export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
   const toast = useToast();
   // eslint-disable-next-line no-unused-vars

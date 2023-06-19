@@ -11,16 +11,17 @@ import { draftMode } from "next/headers";
 import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
+import { SITE_URL } from "@/lib/constants";
 import {
   getAllSocialBlogs,
   getAllSocialBlogSlugs,
   getSocialBlogBySlug,
 } from "@/sanity/client";
 
-import SocialBlog from "./socialblog";
+import SocialBlog from "./components/SocialBlog/SocialBlog";
 
 // Lazy load the SocialBlogPreview component
-const SocialBlogPreview = lazy(() => import("./preview"));
+const SocialBlogPreview = lazy(() => import("./components/Preview/preview"));
 
 export async function generateStaticParams() {
   const slugs = await getAllSocialBlogSlugs();
@@ -52,12 +53,15 @@ export async function generateMetadata({ params }) {
   const seoTitle = post?.yoastTitle;
   const seoMetaDescription = post?.yoastDescription;
 
+  const postUrl = `${SITE_URL}/social-blog/${params.slug}`;
+
   return {
     title: post.seo?.title || seoTitle,
     description: post.seo?.description || seoMetaDescription,
     openGraph: {
       title: post.seo?.title || seoTitle,
       description: post.seo?.description || seoMetaDescription,
+      url: postUrl,
     },
     twitter: {
       title: post.seo?.title || seoTitle,
@@ -94,10 +98,8 @@ export default async function SocialBlogPage({ params }) {
 }
 const Loading = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       Just a minute, convincing Ambreen....
     </div>
   );
 };
-
-export const revalidate = 3600;

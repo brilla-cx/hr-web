@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/server";
 
-import OgImage from "@/components/blog/ogimage";
+import OgImage from "@/components/post/OgImage/OgImage";
 import { getBookbySlug } from "@/sanity/client";
 
 export const runtime = "edge";
