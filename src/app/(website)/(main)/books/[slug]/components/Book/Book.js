@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { PortableText } from "@/components/blog/portabletext";
-import SocialShare from "@/components/blog/share";
-import Sidebar from "@/components/blog/sidebar";
-import ViewAllPosts from "@/components/blog/viewallposts";
 import Container from "@/components/container";
+import { PortableText } from "@/components/post/PortableText/PortableText";
+import Sidebar from "@/components/post/Sidebar/Sidebar";
+import SocialShare from "@/components/post/SocialShare/SocialShare";
+import ViewAllPosts from "@/components/post/ViewAllPosts/ViewAllPosts";
 import { GlowingButton, H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
 import { urlForImage } from "@/sanity/image";

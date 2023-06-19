@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-no-bind */
 
-import Pagination from "@/components/blog/pagination";
-import PostAlt from "@/components/postalt";
+import PostAlt from "@/components/blogs/PostAlt/PostAlt";
+import Pagination from "@/components/post/Pagination/Pagination";
 import { getPaginatedPosts } from "@/sanity/client";
 
-export default async function PaginatedPosts({ searchParams }) {
+export default async function PaginatedGists({ searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
   const page = searchParams?.page;
   const pageIndex = parseInt(page, 10) || 1;

@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 
-import ViewAllPosts from "@/components/blog/viewallposts";
+import PostAlt from "@/components/blogs/PostAlt/PostAlt";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
-import PostAlt from "@/components/postalt";
+import ViewAllPosts from "@/components/post/ViewAllPosts/ViewAllPosts";
 import { H4 } from "@/components/ui";
 
 export default function HomePage({ posts }) {

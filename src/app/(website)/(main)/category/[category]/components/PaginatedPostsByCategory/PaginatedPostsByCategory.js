@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 
-import Pagination from "@/components/blog/pagination";
-import PostAlt from "@/components/postalt";
+import PostAlt from "@/components/blogs/PostAlt/PostAlt";
+import Pagination from "@/components/post/Pagination/Pagination";
 import { getPaginatedCategoryPosts } from "@/sanity/client";
 
 export default async function PaginatedPostsByCategory({ slug, searchParams }) {
