@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
+import { H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-
-import { H6 } from "../ui";
 
 interface Props {
   icon: React.ReactNode;
@@ -21,7 +20,7 @@ function ContactCard(props: Props) {
   const { icon, title, desc, link, address } = props;
 
   return (
-    <div className="flex gap-x-6 rounded border border-gray-200/10 bg-slate-900 px-4 py-4 transition-all duration-300 hover:scale-105 hover:transform hover:bg-gray-800">
+    <div className="flex gap-x-6 rounded border border-gray-200/10 bg-slate-900 px-4 py-4">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-pink text-midnight">
         {icon}
       </div>
@@ -29,7 +28,7 @@ function ContactCard(props: Props) {
         <H6 as="h3" className="-mt-1 line-clamp-2 text-gray-200">
           {title}
         </H6>
-        <p className="mt-1 line-clamp-3 text-gray-400 dark:text-gray-400">
+        <p className="mt-1 text-gray-400 dark:text-gray-400">
           {desc}
         </p>
         {link && (
@@ -38,7 +37,7 @@ function ContactCard(props: Props) {
               href={link.href}
               aria-label="link for email"
               className={cx(
-                "text-sm font-bold leading-6 text-gray-200",
+                "font-bold leading-6 text-gray-200",
                 hoverStyles
               )}>
               {link?.title} <span aria-hidden="true">&rarr;</span>
