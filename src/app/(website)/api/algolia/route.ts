@@ -1,3 +1,10 @@
+/**
+ *
+ * Step 1: Create Webhook in Sanity with the following Projections
+ * https://github.com/sanity-io/sanity-algolia/issues/38#issuecomment-1503509206
+ *
+ */
+
 import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import algoliasearch from "algoliasearch";
 import { headers } from "next/headers";
