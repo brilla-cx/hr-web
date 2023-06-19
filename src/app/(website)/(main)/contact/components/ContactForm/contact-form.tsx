@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import ReactTurnstile from "@/components/turnstile";
-import { GlowingButton, H3 } from "@/components/ui";
+import { GlowingButton, H3, Lead } from "@/components/ui";
 
 interface Message {
   firstName: string;
@@ -65,14 +65,22 @@ function ContactForm() {
       }
     } catch (error) {
       console.error(error);
+      reset();
     } finally {
       setIsLoading(false);
+      reset();
     }
     return null;
   }
   return (
     <div className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
-      <H3 className="text-center text-gray-200 mb-14">Send a message</H3>
+      <div className="mb-10 text-center">
+        <H3 className="text-gray-200">Together with Hey Rebekah</H3>
+        <Lead className="max-w-lg pt-5 mx-auto text-center text-gray-400">
+          Fill out the form below, and we'll get back to you pronto - faster
+          than a chicken lays an egg.
+        </Lead>
+      </div>
       <form
         ref={formRef}
         id="#contact"
@@ -121,7 +129,7 @@ function ContactForm() {
           <div className="col-span-2">
             <textarea
               {...register("message")}
-              placeholder="Your message to Rebekah"
+              placeholder="Your message to HeyRebekah"
               className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.message && (
