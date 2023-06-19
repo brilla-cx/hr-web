@@ -73,6 +73,13 @@ function getTypeLabel(type) {
   }
 }
 
+const TYPE_LOOKUP = {
+  post: "gists",
+  socialBlog: "social-blog",
+  tool: "built-with",
+  book: "books",
+};
+
 function Hit({ hit }) {
   const typeLabel = getTypeLabel(hit._type);
 
@@ -95,7 +102,8 @@ function Hit({ hit }) {
         </span>
 
         <h1 className="text-lg font-bold">
-          <Link href={`/gists/${hit?.slug?.current}` || "#"}>
+          <Link
+            href={`/${TYPE_LOOKUP[hit._type]}/${hit?.slug?.current}` || "#"}>
             <span className="absolute inset-0" />
             <Highlight attribute="name" hit={hit} />
           </Link>
