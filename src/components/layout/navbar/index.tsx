@@ -4,6 +4,7 @@ import React from "react";
 import { use } from "react";
 
 import Container from "@/components/layout/Container/Container";
+import CommandMenu from "@/components/shared/cmdk";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 import { getPaginatedPosts } from "@/sanity/client";
 
@@ -38,8 +39,16 @@ export default function Navbar(): JSX.Element {
                 </div>
               </Link>
             </div>
-            <div style={{ zIndex: 1 }}>
-              <Menu recentPosts={recentPosts} aria-label="Menu" />
+            <div className="hidden sm:block">
+              <CommandMenu />
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="sm:hidden">
+                <CommandMenu />
+              </div>
+              <div style={{ zIndex: 1 }}>
+                <Menu recentPosts={recentPosts} aria-label="Menu" />
+              </div>
             </div>
           </div>
         </Container>
