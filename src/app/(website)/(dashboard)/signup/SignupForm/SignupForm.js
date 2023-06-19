@@ -5,10 +5,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useRef } from "react";
 import { useForm } from "react-hook-form";
 
-import ReactTurnstile from "@/components/turnstile";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import BackButton, { Checkbox, Radio } from "@/components/ui/forms";
 import hoverStyles from "@/lib/hover";
@@ -45,7 +43,7 @@ export default function SignupForm() {
   return (
     <div className="">
       <FormProvider>
-        <div className="mx-auto max-w-xl">
+        <div className="max-w-xl mx-auto">
           <StepOne
             formStep={formStep}
             prevFormStep={prevFormStep}
@@ -86,33 +84,15 @@ function StepOne({ formStep, nextFormStep }) {
     register,
   } = useForm({ mode: "onTouched" });
 
-  const formRef = useRef(null);
-
   const onSubmit = async (values) => {
     try {
-      const ref = await formRef.current;
-
-      if (ref) {
-        const formData = new FormData(formRef.current);
-        const token = formData.get("cf-turnstile-response");
-        const res = await fetch("/api/turnstile-verify", {
-          method: "POST",
-          body: JSON.stringify({ token }),
-          headers: {
-            "content-type": "application/json",
-          },
-        });
-        const tokenResponse = await res.json();
-        if (tokenResponse.data.success) {
-          setLoading(true);
-          setFormValues(values);
-          const result = await addUserToList(values.email);
-          if (result.error) {
-            throw new Error("Fail to send to iterable");
-          }
-          nextFormStep();
-        }
+      setLoading(true);
+      setFormValues(values);
+      const result = await addUserToList(values.email);
+      if (result.error) {
+        throw new Error("Fail to send to iterable");
       }
+      nextFormStep();
     } catch (error) {
       setLoading(false);
     }
@@ -127,10 +107,10 @@ function StepOne({ formStep, nextFormStep }) {
         </Lead>
       </div>
       <div className="mt-5">
-        <form ref={formRef} noValidate onSubmit={handleSubmit(onSubmit)}>
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">Email Address</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
             name="email"
             type="email"
             required
@@ -147,8 +127,7 @@ function StepOne({ formStep, nextFormStep }) {
               },
             }}
           />
-          <ReactTurnstile />
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton
               ariaLabel="Go to next step"
               type="submit"
@@ -157,7 +136,7 @@ function StepOne({ formStep, nextFormStep }) {
               {loading ? "Hold on..." : "Next"}
             </GlowingButton>
           </div>
-          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
+          <p className="mt-6 text-xs leading-6 text-center text-gray-400">
             We care about your{" "}
             <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
               privacy
@@ -195,7 +174,7 @@ function StepTwo({ formStep, nextFormStep }) {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
             name="firstName"
             type="text"
             required
@@ -210,7 +189,7 @@ function StepTwo({ formStep, nextFormStep }) {
             }}
           />
 
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
@@ -270,7 +249,7 @@ function StepThree({ formStep, nextFormStep }) {
             </div>
           )}
 
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>
@@ -349,7 +328,7 @@ function StepFour({ formStep, prevFormStep, nextFormStep }) {
               <small>{errors.topics.message}</small>
             </div>
           )}
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <BackButton onClick={prevFormStep} />
             <GlowingButton
               ariaLabel={
@@ -396,7 +375,7 @@ function FormSubmit({ formStep, nextFormStep, prevFormStep }) {
         </p>
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="flex justify-center mt-10">
         <GlowingButton
           type="submit"
           autoWidth
