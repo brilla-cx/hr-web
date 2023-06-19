@@ -29,7 +29,7 @@ export function resolveProductionPath(
 }
 
 export default function PublishAndRedirect(props: DocumentActionProps) {
-  const client = useClient();
+  const client = useClient({ apiVersion: "2021-06-07" });
   const toast = useToast();
   const { publish } = useDocumentOperation(props.id, props.type);
   const validation = useValidationStatus(props.id, props.type);
