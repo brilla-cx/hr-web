@@ -2,7 +2,7 @@
 "use client";
 import React, { Fragment, useRef } from "react";
 
-import BrandsMarquee from "@/components/about/brands-marquee";
+import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
 import ContactRebekah from "@/components/rebekah-radice/contact-rebekah";
 import MarqueeImages from "@/components/rebekah-radice/marquee-images";
 import RebekahHero from "@/components/rebekah-radice/rebekah-hero";

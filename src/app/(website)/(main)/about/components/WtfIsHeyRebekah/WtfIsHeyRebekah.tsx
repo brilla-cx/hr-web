@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React, { FC, ReactNode } from "react";
 
+import { H3, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-
-import { H3, Lead } from "../ui";
 
 const content: ReactNode[] = [
   "Rebekah Radice helps ambitious professionals thrive in today's world of work. For 45+ years, she's shown career-driven visionaries how to navigate constant change.",
