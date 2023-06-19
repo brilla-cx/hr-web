@@ -29,6 +29,7 @@ export default function AlgoliaSearch({ closeModal }) {
         indexName="hey_rebekah"
         insights>
         <SearchBox
+          autoFocus
           placeholder="Enter Keywords..."
           classNames={{
             form: "relative",
