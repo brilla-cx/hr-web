@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 
-import PaginatedPosts from "./posts";
+import PaginatedBooks from "../PaginatedBooks/PaginatedBooks";
 
 export default function Books({ searchParams }) {
   return (
@@ -15,7 +15,7 @@ export default function Books({ searchParams }) {
         />
 
         <div className="mx-auto max-w-6xl px-4 text-gray-200">
-          <PaginatedPosts searchParams={searchParams} />
+          <PaginatedBooks searchParams={searchParams} />
         </div>
       </Container>
     </div>

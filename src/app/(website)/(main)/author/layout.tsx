@@ -1,9 +1,11 @@
-import React from "react";
+import React, { ReactNode } from 'react';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <main>{children}</main>;
+interface RootLayoutProps {
+  children: ReactNode;
 }
+
+const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+  return <main>{children}</main>;
+};
+
+export default RootLayout;

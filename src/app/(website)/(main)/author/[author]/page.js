@@ -5,7 +5,7 @@ import {
   getAuthorPostsBySlug,
 } from "@/sanity/client";
 
-import Author from "./author";
+import Author from "./components/Author/Author";
 
 export async function generateStaticParams() {
   // eslint-disable-next-line no-return-await

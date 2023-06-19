@@ -5,9 +5,9 @@ import { PreviewSuspense } from "@/components/preview";
 import { SITE_URL } from "@/lib/constants";
 import { getBookbySlug } from "@/sanity/client";
 
-import Post from "./post";
+import Post from "./components/Book/Book";
 
-const PostPreview = lazy(() => import("./preview"));
+const PostPreview = lazy(() => import("./components/Preview/preview"));
 
 export function generateStaticParams() {
   return [];
