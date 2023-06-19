@@ -1,16 +1,19 @@
 import { PortableText } from "@portabletext/react";
+import { Metadata } from "next";
 import { ReactElement } from "react";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
+import { SITE_URL } from '@/lib/constants';
 import { getLegalPageBySlug } from "@/sanity/client";
-import { Metadata } from "@/types/types";
 
 export function generateMetadata(): Metadata {
   const title = "Terms of Service";
   const description =
     "Wondering about the fine print? No worries, read Hey Rebekah's Terms of Service for peace of mind. TL;DR version, if you're not happy, we're not happy.";
+
+  const url = `${SITE_URL}/terms`;
 
   const metadata: Metadata = {
     title,
@@ -19,6 +22,7 @@ export function generateMetadata(): Metadata {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -67,5 +71,5 @@ export default async function Terms(): Promise<ReactElement> {
   );
 }
 
-export const dynamic = "auto";
-export const revalidate = 2592000;
+export const dynamic = 'force-static'
+export const revalidate = false

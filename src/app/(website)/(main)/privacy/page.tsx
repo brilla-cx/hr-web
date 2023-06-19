@@ -1,24 +1,28 @@
 import { PortableText } from "@portabletext/react";
+import { Metadata } from "next";
 import { ReactElement } from "react";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import { Prose } from "@/components/ui";
+import { SITE_URL } from "@/lib/constants";
 import { getLegalPageBySlug } from "@/sanity/client";
-import { Metadata } from "@/types/types";
 
 export function generateMetadata(): Metadata {
   const title = "Privacy Policy";
   const description =
     "We're a privacy-first company. We'll never sell your information and will do everything we can to protect it. Read more details on the whos and the whats.";
 
-  const metadata: Metadata = {
+  const url = `${SITE_URL}/privacy`;
+
+  const metadata = {
     title,
     description,
     openGraph: {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -67,5 +71,5 @@ export default async function Privacy(): Promise<ReactElement> {
   );
 }
 
-export const dynamic = "auto";
-export const revalidate = 2592000;
+export const dynamic = 'force-static'
+export const revalidate = false

@@ -2,6 +2,7 @@ import { draftMode } from "next/headers";
 import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
+import { SITE_URL } from "@/lib/constants";
 import { getBookbySlug } from "@/sanity/client";
 
 import Post from "./post";
@@ -22,12 +23,15 @@ export async function generateMetadata({ params }) {
   const seoTitle = `Hey Rebekah ❤️ ${bookName}`;
   const seoMetaDescription = `Thinking about a good book? ${bookName} is one of our favorites. Read our quick summary then pick up your copy.`;
 
+  const bookUrl = `${SITE_URL}/books/${params.slug}`;
+
   return {
     title: seoTitle,
     description: seoMetaDescription,
     openGraph: {
       title: seoTitle,
       description: seoMetaDescription,
+      url: bookUrl,
     },
     twitter: {
       title: seoTitle,
@@ -59,6 +63,3 @@ const Loading = () => {
     </div>
   );
 };
-
-export const dynamic = "auto";
-export const revalidate = 2592000;

@@ -1,7 +1,8 @@
 import Container from "@/components/container";
-import SignupHeader from "@/components/sections/signupheader";
+import { SITE_URL } from "@/lib/constants";
 
-import MultiStepForm from "./signupform";
+import SignupHeader from "../components/SignupHeader/SignupHeader";
+import SignupForm from "./SignupForm/SignupForm";
 
 export default function Page() {
   return (
@@ -9,9 +10,34 @@ export default function Page() {
       <Container large className="">
         <div className="mt-16">
           <SignupHeader title="Sign-Up" />
-          <MultiStepForm />
+          <SignupForm />
         </div>
       </Container>
     </>
   );
+}
+export function generateMetadata() {
+  const title = "Sign-Up";
+  const description =
+    "Want to get get the jump on AI at work? Sign-up for our newsletter. We'll deliver the best tips, tricks, and insights to your inbox. Free, hot, and fresh everyday.";
+  const images = "/og.png";
+  const url = `${SITE_URL}/signup`;
+
+  const metadata = {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images,
+      url,
+    },
+    twitter: {
+      title,
+      description,
+      images,
+    },
+  };
+
+  return metadata;
 }

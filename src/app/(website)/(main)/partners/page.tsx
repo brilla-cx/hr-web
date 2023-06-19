@@ -1,11 +1,16 @@
+import { Metadata } from "next";
+
 import PartnerPage from "@/components/partners";
+import { SITE_URL } from '@/lib/constants';
 import { getAllFaqs, getAllTools } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   const title = "Partner Program";
   const description =
     "Join the Hey Rebekah Partner Program. Give our community of 338K+ an exclusive discount instead of paying us a commission. No brainer right?";
+
+  const url = `${SITE_URL}/partners`;
 
   const metadata = {
     title,
@@ -14,6 +19,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -35,5 +41,5 @@ export default async function Partners() {
   return <PartnerPage faqs={partnersFaqs} tools={tools} />;
 }
 
-export const dynamic = "auto";
-export const revalidate = 2592000;
+export const dynamic = 'force-static'
+export const revalidate = false

@@ -11,6 +11,7 @@ import { draftMode } from "next/headers";
 import { lazy } from "react";
 
 import { PreviewSuspense } from "@/components/preview";
+import { SITE_URL } from "@/lib/constants";
 import {
   getAllSocialBlogs,
   getAllSocialBlogSlugs,
@@ -52,12 +53,15 @@ export async function generateMetadata({ params }) {
   const seoTitle = post?.yoastTitle;
   const seoMetaDescription = post?.yoastDescription;
 
+  const postUrl = `${SITE_URL}/social-blog/${params.slug}`;
+
   return {
     title: post.seo?.title || seoTitle,
     description: post.seo?.description || seoMetaDescription,
     openGraph: {
       title: post.seo?.title || seoTitle,
       description: post.seo?.description || seoMetaDescription,
+      url: postUrl,
     },
     twitter: {
       title: post.seo?.title || seoTitle,
@@ -99,6 +103,3 @@ const Loading = () => {
     </div>
   );
 };
-
-export const dynamic = "auto";
-export const revalidate = 2592000;

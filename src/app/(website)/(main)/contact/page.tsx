@@ -8,11 +8,14 @@ import { FaPizzaSlice } from "react-icons/fa";
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 import ContactCard from "@/components/shared/contactCard";
+import { SITE_URL } from '@/lib/constants';
 
 export function generateMetadata() {
   const title = "Contact";
   const description =
     "Contact Hey Rebekah? Email sales and support or call us anytime with questions or sponsorship requests! Buying us a pizza? We can’t say no. We love tacos too. 🍕 🌮";
+
+  const url = `${SITE_URL}/contact`;
 
   const metadata = {
     title,
@@ -21,6 +24,7 @@ export function generateMetadata() {
       title,
       description,
       images: "/og.png",
+      url,
     },
     twitter: {
       title,
@@ -85,5 +89,5 @@ export default function ContactPage() {
   );
 }
 
-export const dynamic = "auto";
-export const revalidate = 2592000;
+export const dynamic = 'force-static'
+export const revalidate = false

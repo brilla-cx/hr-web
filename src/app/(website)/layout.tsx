@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Hey Rebekah | Like Morning Brew for AI",
     description: "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
     creator: "rebekahradice",
-    images: "/og.png",
+    image: "/og.png",
   },
   icons: [
     {
