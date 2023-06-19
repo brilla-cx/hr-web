@@ -2,10 +2,10 @@
 
 import React, { Fragment, useEffect, useRef } from "react";
 
+import { H3, H5, Lead } from "@/components/ui";
 import { cx } from "@/lib/utils";
 
-import TimelineObserver from "../TimelineObserver";
-import { H2, H3, H5, Lead } from "../ui";
+import TimelineObserver from "../TimelineObserver/TimelineObserver";
 
 interface TimelineProps {
   setObserver: (target: Element, callbackFn?: () => void) => void;

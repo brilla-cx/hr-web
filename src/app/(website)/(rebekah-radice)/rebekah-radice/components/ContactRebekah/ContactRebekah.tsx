@@ -15,11 +15,11 @@ import { BsPinterest } from "react-icons/bs";
 import { FaLocationArrow } from "react-icons/fa";
 import { z } from "zod";
 
+import ReactTurnstile from "@/components/turnstile";
+import { GlowingButton, H3, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import ReactTurnstile from "../turnstile";
-import { GlowingButton, H3, Lead } from "../ui";
 
 interface Message {
   firstName: string;

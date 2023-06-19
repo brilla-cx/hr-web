@@ -4,7 +4,7 @@ import React from "react";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
 
-import { H3, H4, Lead } from "../ui";
+import { H3, H4, Lead } from "../../../../../../components/ui";
 
 const socialData = [
   {

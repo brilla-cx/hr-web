@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
 
-import { GlowingButton, H3, H4, Lead } from "../ui";
+import { GlowingButton, H3, H4, Lead } from "@/components/ui";
 
 const services = [
   {
