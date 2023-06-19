@@ -12,7 +12,7 @@ export default defineField({
       title: "from",
       name: "source",
       type: "string",
-      description: "The path to redircet from",
+      description: "The path to redirect from",
       validation: (Rule) =>
         Rule.required().custom((value) => {
           if (typeof value !== "string") {
