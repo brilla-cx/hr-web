@@ -7,9 +7,11 @@ import { FaPizzaSlice } from "react-icons/fa";
 
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
-import { SITE_URL } from '@/lib/constants';
+import { withContainer } from "@/components/shared/withContainer";
+import { SITE_URL } from "@/lib/constants";
 
 import ContactCard from "./components/ContactCard/ContactCard";
+import ContactForm from "./components/ContactForm/contact-form";
 
 export function generateMetadata() {
   const title = "Contact";
@@ -36,7 +38,6 @@ export function generateMetadata() {
 
   return metadata;
 }
-
 
 export default function ContactPage() {
   return (
@@ -86,9 +87,12 @@ export default function ContactPage() {
           </div>
         </div>
       </Container>
+      {withContainer({
+        Component: ContactForm,
+      })}
     </div>
   );
 }
 
-export const dynamic = 'force-static'
-export const revalidate = false
+export const dynamic = "force-static";
+export const revalidate = false;
