@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-import { H3 } from "../ui";
+import { H3 } from "@/components/ui";
 
 function PartnerCommunityData() {
   return (

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 
-import PartnerPage from "@/components/partners";
 import { SITE_URL } from '@/lib/constants';
 import { getAllFaqs, getAllTools } from "@/sanity/client";
 import { FaqType } from "@/types/types";
+
+import PartnerPage from "./components";
 
 export function generateMetadata(): Metadata {
   const title = "Partner Program";
