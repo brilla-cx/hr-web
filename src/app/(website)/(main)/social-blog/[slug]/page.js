@@ -18,10 +18,10 @@ import {
   getSocialBlogBySlug,
 } from "@/sanity/client";
 
-import SocialBlog from "./socialblog";
+import SocialBlog from "./components/SocialBlog/SocialBlog";
 
 // Lazy load the SocialBlogPreview component
-const SocialBlogPreview = lazy(() => import("./preview"));
+const SocialBlogPreview = lazy(() => import("./components/Preview/preview"));
 
 export async function generateStaticParams() {
   const slugs = await getAllSocialBlogSlugs();

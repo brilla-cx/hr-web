@@ -4,8 +4,9 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
-import SocialBlogAlt from "@/components/socialblogalt";
 import { getPaginatedSocialBlogs } from "@/sanity/client";
+
+import SocialBlogAlt from "../SocialBlogAlt/SocialBlogAlt";
 
 export default async function PaginatedSocialBlogs() {
   const router = useRouter();

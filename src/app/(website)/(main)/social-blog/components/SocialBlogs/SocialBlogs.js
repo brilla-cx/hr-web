@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Container from "@/components/container";
 import PageHeader from "@/components/sections/pageheader";
 
-import PaginatedPosts from "./posts";
+import PaginatedSocialBlogs from "../PaginatedSocialBlogs/PaginatedSocialBlogs";
 
 export default function SocialBlogs() {
   return (
@@ -20,7 +20,7 @@ export default function SocialBlogs() {
             fallback={
               <p className="text-center text-lg">Walking the dead...</p>
             }>
-            <PaginatedPosts />
+            <PaginatedSocialBlogs />
           </Suspense>
         </div>
       </Container>
