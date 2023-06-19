@@ -2,6 +2,7 @@
 /** @type {import('next').NextConfig} */
 
 const { withPlausibleProxy } = require("next-plausible");
+const { resolveRedirects } = require("./src/sanity/resolveRedirects");
 
 const commonHeaders = [
   {
@@ -67,7 +68,9 @@ const nextConfig = {
   },
   // eslint-disable-next-line require-await
   async redirects() {
+    const redirects = await resolveRedirects();
     return [
+      ...redirects,
       {
         source: "/book-club",
         destination: "/books",

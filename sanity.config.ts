@@ -11,6 +11,7 @@ import { media } from "sanity-plugin-media";
 import hrLogo from "./src/components/studio/logo/logo";
 import { SITE_URL } from "./src/lib/constants";
 import { SendToIterable } from "./src/sanity/actions";
+import PublishAndRedirect from "./src/sanity/PublishAndRedirect";
 import schemas from "./src/sanity/schemas";
 import {
   defaultDocumentNode,
@@ -60,7 +61,9 @@ const config = defineConfig({
   schema: { types: schemas },
   document: {
     actions: (prev, context) => {
-      return context.schemaType === "post" ? [...prev, SendToIterable] : prev;
+      return context.schemaType === "post"
+        ? [PublishAndRedirect, ...prev, SendToIterable]
+        : [PublishAndRedirect, ...prev];
     },
     // prev is the result from previous plugins and can be composed
     productionUrl: async (prev, context) => {
