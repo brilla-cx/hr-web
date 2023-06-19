@@ -73,7 +73,7 @@ const CommandMenu = () => {
                 leaveTo="opacity-0 scale-95">
                 <Dialog.Panel className="h-[25rem] w-full max-w-2xl transform overflow-hidden rounded-md bg-white text-start align-middle shadow-xl transition-all">
                   <div className="h-full">
-                    <AlgoliaSearch />
+                    <AlgoliaSearch closeModal={closeModal} />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

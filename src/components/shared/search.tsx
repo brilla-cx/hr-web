@@ -13,7 +13,6 @@ import {
   useInstantSearch,
 } from "react-instantsearch-hooks-web";
 
-import Label from "@/components/ui/label";
 import { timeAgo } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
@@ -22,7 +21,7 @@ const searchClient = algoliasearch(
   "5086892b29c9c6a9408401d4dc5313fd"
 );
 
-export default function AlgoliaSearch() {
+export default function AlgoliaSearch({ closeModal }) {
   return (
     <div className="flex h-full flex-col">
       <InstantSearch
@@ -45,7 +44,7 @@ export default function AlgoliaSearch() {
         <div className="h-full overflow-auto">
           {/* <RefinementList attribute="brand" /> */}
           <EmptyQueryBoundary fallback={<EmptyFallback />}>
-            <Hits hitComponent={Hit} />
+            <Hits hitComponent={Hit} onClick={closeModal} />
           </EmptyQueryBoundary>
         </div>
       </InstantSearch>
