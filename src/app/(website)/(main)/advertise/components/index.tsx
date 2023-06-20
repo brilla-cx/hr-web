@@ -1,11 +1,11 @@
 "use client";
 import React, { Fragment } from "react";
 
+import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
 import Faqs from "@/components/sections/Faqs/Faqs";
-import PageHeader from "@/components/sections/pageheader";
-import { withContainer } from "@/components/shared/withContainer";
-import EmailForm from "@/components/ui/email-form";
+import EmailForm from "@/components/shared/forms/EmailForm/EmailForm";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { FaqType } from "@/types/types";
 
 import AdvertisePricing from "./AdvertisePricing/AdvertisePricing";
@@ -20,7 +20,7 @@ function AdvertisePage(props: Props) {
   return (
     <Fragment>
       {/* hero */}
-      {withContainer({
+      {WithContainer({
         Component: PageHeader,
         componentProps: {
           title: "Transparent and real-time reporting",
@@ -32,33 +32,33 @@ function AdvertisePage(props: Props) {
       })}
 
       {/* social stats */}
-      {withContainer({
+      {WithContainer({
         Component: SocialStats,
       })}
 
       {/* brands marquee */}
-      {withContainer({
+      {WithContainer({
         Component: BrandsMarquee,
         componentProps: { title: "G.O.A.T. brands we've worked with" },
       })}
 
       {/* pricing */}
-      {withContainer({
+      {WithContainer({
         Component: AdvertisePricing,
       })}
 
       {/* love cta section */}
-      {withContainer({
+      {WithContainer({
         Component: LoveCtaSection,
       })}
 
       {/* contact form */}
-      {withContainer({
+      {WithContainer({
         Component: EmailForm,
       })}
 
       {/* faq */}
-      {withContainer({
+      {WithContainer({
         Component: Faqs,
         componentProps: { faqs: props.faqs },
       })}

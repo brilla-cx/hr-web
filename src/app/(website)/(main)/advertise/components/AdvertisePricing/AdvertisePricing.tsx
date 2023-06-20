@@ -1,6 +1,6 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 
-import PageHeader from "@/components/sections/pageheader";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { GlowingButton, H3, H6 } from "@/components/ui";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatNumberWithDollar } from "@/lib/helper";

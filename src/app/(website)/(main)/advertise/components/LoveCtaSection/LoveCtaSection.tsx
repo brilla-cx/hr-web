@@ -1,6 +1,6 @@
 import React from "react";
 
-import PageHeader from "@/components/sections/pageheader";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { GlowingButton } from "@/components/ui";
 
 function LoveCtaSection() {
