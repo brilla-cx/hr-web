@@ -1,6 +1,6 @@
 import React from "react";
 
-import { H3, H4, Lead } from "@/components/ui";
+import { H4, Lead } from "@/components/ui";
 
 interface Data {
   id: number;
@@ -21,54 +21,54 @@ const socialData: SocialDataType = {
       name: "Active Subscriptions",
     },
     {
-      id: 1,
+      id: 2,
       count: "8,073",
       name: "Total Emails Sent",
     },
     {
-      id: 1,
+      id: 3,
       count: "5,696",
       name: "Total Unique Opens",
     },
     {
-      id: 1,
+      id: 4,
       count: "2,673",
       name: "Total Unique Clicks",
     },
     {
-      id: 1,
+      id: 5,
       count: "70.6%",
       name: "Avg. Unique Opens",
     },
     {
-      id: 1,
+      id: 6,
       count: "46.9%",
       name: "Avg. Unique Clicks",
     },
   ],
   socialAudience: [
     {
-      id: 1,
+      id: 7,
       count: "22,418",
       name: "Instagram",
     },
     {
-      id: 1,
+      id: 8,
       count: "13,816",
       name: "Linkedin",
     },
     {
-      id: 1,
+      id: 9,
       count: "42,353",
       name: "Facebook",
     },
     {
-      id: 1,
+      id: 10,
       count: "125,259",
       name: "Twitter",
     },
     {
-      id: 1,
+      id: 11,
       count: "40,700",
       name: "Pinterest",
     },
@@ -89,7 +89,7 @@ function SocialStatsCard(props: Data) {
   );
 }
 
-function SocialStats() {
+function AdvertisingMetrics() {
   return (
     <div className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
       <H4 className="mb-1 text-gray-200">Email performance</H4>
@@ -108,4 +108,4 @@ function SocialStats() {
   );
 }
 
-export default SocialStats;
+export default AdvertisingMetrics;

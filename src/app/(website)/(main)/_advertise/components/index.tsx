@@ -9,8 +9,8 @@ import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { FaqType } from "@/types/types";
 
 import AdvertisePricing from "./AdvertisePricing/AdvertisePricing";
+import SocialStats from "./AdvertisingMetrics/AdvertisingMetrics";
 import LoveCtaSection from "./LoveCtaSection/LoveCtaSection";
-import SocialStats from "./SocialStats/SocialStats";
 
 interface Props {
   faqs: FaqType[];
