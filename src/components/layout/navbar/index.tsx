@@ -15,7 +15,7 @@ async function getPosts() {
   return response;
 }
 
-export default function Navbar(): JSX.Element {
+export default function Navbar() {
   const recentPosts = use(getPosts());
   return (
     <div
