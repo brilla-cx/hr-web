@@ -9,7 +9,7 @@ import { pricing, PricingDataType } from "./pricingData";
 
 function PricingCard(props: PricingDataType) {
   return (
-    <div className="flex max-w-full gap-8 p-8 mx-0 border rounded border-gray-200/10 bg-slate-900 md:mx-20">
+    <div className="mx-0 flex max-w-full gap-8 rounded border border-gray-200/10 bg-slate-900 p-8 md:mx-20">
       <div className="hidden w-2/3 space-y-4 md:block">
         <H3 className="text-xl font-semibold text-gray-200">{props.title}</H3>
         <p className="text-gray-400">{props.description}</p>
@@ -29,7 +29,7 @@ function PricingCard(props: PricingDataType) {
           </div>
         ))}
       </div>
-      <div className="w-full p-4 h-max rounded-2xl ring-1 ring-slate-800 md:w-1/3">
+      <div className="h-max w-full rounded-2xl p-4 ring-1 ring-slate-800 md:w-1/3">
         <div className="flex justify-between">
           <div>
             <h2 className="text-lg font-semibold text-gray-200">
@@ -46,7 +46,7 @@ function PricingCard(props: PricingDataType) {
         <ul className="mt-8 space-y-4 text-sm leading-6 text-gray-400">
           {props.pricingPlanfeatures.map((feature) => (
             <li key={feature} className="flex items-center gap-x-3">
-              <CheckIcon className="w-4 h-4 text-gray-200" aria-hidden="true" />
+              <CheckIcon className="h-4 w-4 text-gray-200" aria-hidden="true" />
               <span>{feature}</span>
             </li>
           ))}
@@ -80,7 +80,7 @@ function PricingTabs() {
 
 function AdvertisePricing() {
   return (
-    <div className="px-4 pb-12 mx-auto lg:pb-26 sm:px-8 sm:pb-20">
+    <div className="lg:pb-26 mx-auto px-4 pb-12 sm:px-8 sm:pb-20">
       <PageHeader
         title="Easy flat fees"
         leadText="No more opaque pricing, no more surprise bills. All sponsorships include bespoke ads, tailor-made just for your brand, a dedicated partner success manager, and access to our anonymized data portal. Backed by our 100% Delight Guarantee."

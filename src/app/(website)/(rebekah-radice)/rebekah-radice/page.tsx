@@ -27,7 +27,6 @@ export function generateMetadata(): Metadata {
   };
 }
 
-
 export default function RebekahRadice() {
   return <RebekahRadicePage />;
 }
