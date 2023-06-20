@@ -22,17 +22,17 @@ const socialData: SocialDataType = {
     },
     {
       id: 1,
-      count: "8073",
+      count: "8,073",
       name: "Total Emails Sent",
     },
     {
       id: 1,
-      count: "5696",
+      count: "5,696",
       name: "Total Unique Opens",
     },
     {
       id: 1,
-      count: "2673",
+      count: "2,673",
       name: "Total Unique Clicks",
     },
     {
@@ -49,27 +49,27 @@ const socialData: SocialDataType = {
   socialAudience: [
     {
       id: 1,
-      count: "22418",
+      count: "22,418",
       name: "Instagram",
     },
     {
       id: 1,
-      count: "13816",
+      count: "13,816",
       name: "Linkedin",
     },
     {
       id: 1,
-      count: "42353",
+      count: "42,353",
       name: "Facebook",
     },
     {
       id: 1,
-      count: "125259",
+      count: "125,259",
       name: "Twitter",
     },
     {
       id: 1,
-      count: "40700",
+      count: "40,700",
       name: "Pinterest",
     },
   ],

@@ -8,9 +8,9 @@ import { withContainer } from "@/components/shared/withContainer";
 import EmailForm from "@/components/ui/email-form";
 import { FaqType } from "@/types/types";
 
-import AdvertisePricing from "./AdvertisePricing/advertise-pricing";
-import LoveCtaSection from "./LoveCtaSection/love-cta-section";
-import SocialStats from "./SocialStats/social-stats";
+import AdvertisePricing from "./AdvertisePricing/AdvertisePricing";
+import LoveCtaSection from "./LoveCtaSection/LoveCtaSection";
+import SocialStats from "./SocialStats/SocialStats";
 
 interface Props {
   faqs: FaqType[];

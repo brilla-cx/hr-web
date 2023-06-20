@@ -3,30 +3,29 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 import PageHeader from "@/components/sections/pageheader";
 import { GlowingButton, H3, H6 } from "@/components/ui";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { formatNumberWithDollar } from "@/lib/helper";
 
-import { pricing, PricingDataType } from "./pricing-data";
+import { pricing, PricingDataType } from "./pricingData";
 
 function PricingCard(props: PricingDataType) {
   return (
     <div className="flex max-w-full gap-8 p-8 mx-0 border rounded border-gray-200/10 bg-slate-900 md:mx-20">
       <div className="hidden w-2/3 space-y-4 md:block">
-        <H3 className="text-xl font-semibold text-gray-200">
-          {props.mainTitle}
-        </H3>
-        <p className="text-gray-400">{props.mainDescription}</p>
+        <H3 className="text-xl font-semibold text-gray-200">{props.title}</H3>
+        <p className="text-gray-400">{props.description}</p>
         <div className="border-b-2 border-slate-800" />
-        {props.featuresMain.map((fm, index) => (
+        {props.pricingPlanBenefits.map((fm, index) => (
           <div
-            key={fm.name}
+            key={fm.pricingPlanBenefitName}
             className={`${
-              index === props.featuresMain.length - 1
+              index === props.pricingPlanBenefits.length - 1
                 ? ""
-                : "border-b border-slate-800"
+                : "border-b border-slate-800 pt-4"
             } pb-4`}>
-            <H6 className="pb-2 text-sm font-semibold text-gray-200">
-              {fm.name}
+            <H6 className="pb-2 text-base font-semibold text-gray-200">
+              {fm.pricingPlanBenefitName}
             </H6>
-            <p className="text-gray-400">{fm.description}</p>
+            <p className="text-gray-400">{fm.pricingPlanBenefitDescription}</p>
           </div>
         ))}
       </div>
@@ -34,28 +33,29 @@ function PricingCard(props: PricingDataType) {
         <div className="flex justify-between">
           <div>
             <h2 className="text-lg font-semibold text-gray-200">
-              {props.name}
+              {props.planName}
             </h2>
-            <span className="text-xs text-gray-400">{props.description}</span>
+            <span className="text-xs text-gray-400">
+              {props.planDescription}
+            </span>
           </div>
           <p className="text-4xl font-bold tracking-tight text-gray-200">
-            {props.price}
+            {formatNumberWithDollar(props.price)}
           </p>
         </div>
-
-        <div className="my-4">
-          <GlowingButton href="" aria-describedby="">
-            Buy plan
-          </GlowingButton>
-        </div>
-        <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-400">
-          {props.features.map((feature) => (
+        <ul className="mt-8 space-y-4 text-sm leading-6 text-gray-400">
+          {props.pricingPlanfeatures.map((feature) => (
             <li key={feature} className="flex items-center gap-x-3">
               <CheckIcon className="w-4 h-4 text-gray-200" aria-hidden="true" />
               <span>{feature}</span>
             </li>
           ))}
         </ul>
+        <div className="my-6">
+          <GlowingButton href="" aria-describedby="">
+            Buy plan
+          </GlowingButton>
+        </div>
       </div>
     </div>
   );
@@ -70,7 +70,7 @@ function PricingTabs() {
         <TabsTrigger value="getIn">Get In</TabsTrigger>
       </TabsList>
       {pricing.map((price) => (
-        <TabsContent value={price.tabValue} key={price.id}>
+        <TabsContent value={price.tabValue} key={price.planId}>
           <PricingCard {...price} />
         </TabsContent>
       ))}

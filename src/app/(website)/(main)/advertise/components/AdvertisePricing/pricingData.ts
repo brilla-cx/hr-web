@@ -1,52 +1,53 @@
 export interface PricingDataType {
+  planId: string;
   tabValue: "allIn" | "leanIn" | "getIn";
-  mainTitle: string;
-  mainDescription: string;
-  name: string;
-  id: string;
-  price: string;
+  title: string;
   description: string;
-  featuresMain: {
-    name: string;
-    description: string;
+  planName: string;
+  planDescription: string;
+  price: number;
+  pricingPlanBenefits: {
+    pricingPlanBenefitName: string;
+    pricingPlanBenefitDescription: string;
   }[];
-  features: string[];
+  pricingPlanfeatures: string[];
 }
 
 export const pricing: PricingDataType[] = [
   {
     // don't change this Tab Value
+    planId: "tier-all-in",
     tabValue: "allIn",
-    mainTitle: "Go all in like a boss",
-    mainDescription:
+    title: "Go all in like a boss",
+    description:
       "The chance to be the exclusive sponsor of Hey Rebekah!? It's a literal takeover for your brand.",
-    name: "All In",
-    id: "tier-all-in",
-    price: "5000$",
-    description: "Exclusive sponsorship",
-    featuresMain: [
+    planName: "All In",
+    price: 5000,
+    planDescription: "Exclusive sponsorship",
+    pricingPlanBenefits: [
       {
-        name: "🏆 Exclusive takeover of the Hey Rebekah newsletter",
-        description:
+        pricingPlanBenefitName:
+          "🏆 Exclusive takeover of the Hey Rebekah newsletter",
+        pricingPlanBenefitDescription:
           "How could anyone pass up an opportunity to throw their hard-earned money at a bunch of unread emails gathering digital dust in someone's inbox?",
       },
       {
-        name: "🚀 Unique pre-launch pricing",
-        description:
+        pricingPlanBenefitName: "🚀 Unique pre-launch pricing",
+        pricingPlanBenefitDescription:
           "Get in on the ground floor of the highly anticipated Hey Rebekah newsletter. Because who wouldn't want to pay more for something in the future when they could pay less for it now?",
       },
       {
-        name: "🎧 Co-branded podcast",
-        description:
+        pricingPlanBenefitName: "🎧 Co-branded podcast",
+        pricingPlanBenefitDescription:
           "After all, nothing says 'cutting-edge' like aligning your company with a decades-old medium that everyone stopped listening to in the late 2000s.",
       },
       {
-        name: "🖥️ Co-branded webinar ",
-        description:
+        pricingPlanBenefitName: "🖥️ Co-branded webinar ",
+        pricingPlanBenefitDescription:
           "Your brand will share the spotlight with us on a co-branded webinar that few will watch live. But don't worry, the replays will get way more views than we ever expected.",
       },
     ],
-    features: [
+    pricingPlanfeatures: [
       "Exclusive, no other sponsors",
       "5 placements in 30 days",
       "All placements above the fold",
@@ -64,31 +65,32 @@ export const pricing: PricingDataType[] = [
   {
     // don't change this Tab Value
     tabValue: "leanIn",
-    mainTitle: "Just lean in to it",
-    mainDescription:
+    title: "Just lean in to it",
+    description:
       "A prime opportunity for your brand to lean in to our community of readers.",
-    name: "Lean In",
-    id: "tier-lean-in",
-    price: "3500$",
-    description: "Primary sponsorship",
-    featuresMain: [
+    planName: "Lean In",
+    planId: "tier-lean-in",
+    price: 3500,
+    planDescription: "Primary sponsorship",
+    pricingPlanBenefits: [
       {
-        name: "🔦 Primary placement on the Hey Rebekah newsletter",
-        description:
+        pricingPlanBenefitName:
+          "🔦 Primary placement on the Hey Rebekah newsletter",
+        pricingPlanBenefitDescription:
           "Be the envy of all your competitors and join the club of primary sponsors for a newsletter no one has read yet.",
       },
       {
-        name: "🚀 Unique pre-launch pricing",
-        description:
+        pricingPlanBenefitName: "🚀 Unique pre-launch pricing",
+        pricingPlanBenefitDescription:
           "Get in on the ground floor of the highly anticipated Hey Rebekah newsletter. Because who wouldn't want to pay more for something in the future when they could pay less for it now?",
       },
       {
-        name: "🎧 Co-branded podcast",
-        description:
+        pricingPlanBenefitName: "🎧 Co-branded podcast",
+        pricingPlanBenefitDescription:
           "After all, nothing says 'cutting-edge' like aligning your company with a decades-old medium that everyone stopped listening to in the late 2000s.",
       },
     ],
-    features: [
+    pricingPlanfeatures: [
       "3 placements in 30 days",
       "Primary placement above the fold",
       "3 social media posts",
@@ -104,31 +106,31 @@ export const pricing: PricingDataType[] = [
   {
     // don't change this Tab Value
     tabValue: "getIn",
-    mainTitle: "Get in on the action",
-    mainDescription:
+    planId: "tier-all-in",
+    title: "Get in on the action",
+    description:
       "Get In now on a growing community of self-employed professionals to showcase your brand.",
-    name: "All In",
-    id: "tier-all-in",
-    price: "2000$",
-    description: "Exclusive sponsorship",
-    featuresMain: [
+    planName: "All In",
+    price: 2000,
+    planDescription: "Exclusive sponsorship",
+    pricingPlanBenefits: [
       {
-        name: "🚀 Unique pre-launch pricing",
-        description:
+        pricingPlanBenefitName: "🚀 Unique pre-launch pricing",
+        pricingPlanBenefitDescription:
           "Get in on the ground floor of the highly anticipated Hey Rebekah newsletter. Because who wouldn't want to pay more for something in the future when they could pay less for it now?",
       },
       {
-        name: "🎧 Co-branded podcast",
-        description:
+        pricingPlanBenefitName: "🎧 Co-branded podcast",
+        pricingPlanBenefitDescription:
           "After all, nothing says 'cutting-edge' like aligning your company with a decades-old medium that everyone stopped listening to in the late 2000s.",
       },
       {
-        name: "👍🏾 Social media distrubution",
-        description:
+        pricingPlanBenefitName: "👍🏾 Social media distrubution",
+        pricingPlanBenefitDescription:
           "A great way to get in on the momentum of our social posts where a huge audience will have no idea what we're talking about yet.",
       },
     ],
-    features: [
+    pricingPlanfeatures: [
       "2 placements in 30 days",
       "2 social media posts",
       "Bespoke creative",
