@@ -4,10 +4,8 @@ import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { GlowingButton, H3, H6 } from "@/components/ui";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatNumberWithDollar } from "@/lib/helper";
-import {
-  PricingDataType,
-  pricing,
-} from "../../../_advertise/components/AdvertisePricing/pricingData";
+
+import { pricing, PricingDataType } from "./pricingData";
 
 function PricingCard(props: PricingDataType) {
   return (

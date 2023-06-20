@@ -55,6 +55,9 @@ function AdvertisePage(props: Props) {
       {/* contact form */}
       {WithContainer({
         Component: EmailForm,
+        componentProps: {
+          formId: "#advertise-form",
+        },
       })}
 
       {/* faq */}
