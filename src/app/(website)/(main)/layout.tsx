@@ -1,7 +1,7 @@
 import React from "react";
 
 import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/navbar";
+import Navbar from "@/components/layout/Navbar";
 
 
 function Layout({ children }: { children: React.ReactNode }) {

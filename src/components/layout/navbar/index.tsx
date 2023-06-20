@@ -8,7 +8,7 @@ import CommandMenu from "@/components/shared/cmdk";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 import { getPaginatedPosts } from "@/sanity/client";
 
-import Menu from "./Menu";
+import Menu from "./Menu/Menu";
 
 async function getPosts() {
   const response = await getPaginatedPosts({ limit: 3 });

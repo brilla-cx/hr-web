@@ -72,6 +72,7 @@ export default function Menu({ recentPosts }) {
                             as={Link}
                             key={item.name}
                             href={item.href}
+                            aria-label={`Go to ${item.name} page`}
                             className="mb-10 flex gap-x-4 text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
                             <span className={cx("hover:pb-4", ...hoverStyles)}>
                               {item.name}
@@ -92,6 +93,7 @@ export default function Menu({ recentPosts }) {
                             as={Link}
                             key={item.name}
                             href={item.href}
+                            aria-label={`Go to ${item.name} page`}
                             className="mb-10 flex gap-x-4 text-4xl font-semibold leading-6 tracking-tight text-gray-200 md:mb-16 md:text-5xl">
                             <span className={cx("hover:pb-4", ...hoverStyles)}>
                               {item.name}
@@ -110,7 +112,8 @@ export default function Menu({ recentPosts }) {
                       className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch">
                       <Popover.Button
                         as={Link}
-                        href={`/gists/${post.slug.current}`}>
+                        href={`/gists/${post.slug.current}`}
+                        aria-label={`Read post ${post.name}`}>
                         {post.image && (
                           <div className="relative flex-none">
                             <Image
