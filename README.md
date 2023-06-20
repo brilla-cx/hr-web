@@ -1,71 +1,81 @@
-# Hey Rebekah Composable Content Cloud ☁️
+# Welcome to Hey Rebekah's Composable Content Cloud ☁️
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/f902a89c109fbadd6d6b/maintainability)](https://codeclimate.com/github/brilla-cx/hr-web/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/f902a89c109fbadd6d6b/test_coverage)](https://codeclimate.com/github/brilla-cx/hr-web/test_coverage)  ![](https://api.checklyhq.com/v1/badges/checks/04d12b2e-c17c-4b49-86fb-c1e91ff93c84?style=flat&theme=default&responseTime=true)  ![](https://api.checklyhq.com/v1/badges/checks/04d12b2e-c17c-4b49-86fb-c1e91ff93c84?style=flat&theme=default)
 
 ## About Us 📚
 
-Welcome to Hey Rebekah, your daily dose of knowledge delivered with wit and warmth. We're a free newsletter specifically designed for senior professionals who seek to leverage artificial intelligence in their work. Think of us as a twist on Morning Brew, but with a dash of ChatGPT, Claude, Hugging Face, and Stable Diffusion.
+Welcome to [Hey Rebekah](https://heyrebekah.com)! Picture us as your daily shot of espresso — sharp, exhilarating, and potentially lifesaving, especially for those Monday mornings. 
 
-## Our Mission
+We're a free daily newsletter for those professionals who've reluctantly acknowledged the new tech-whiz on the block — AI. Think of AI as the charismatic, perpetually present relative who's just moved in next door. You can't ignore them, so you might as well learn how to get along.
 
-At Hey Rebekah, our objective is simple: to make your life easier. So, with this project, it starts with us. We're streamlining our publishing workflow, allowing us to focus on creating engaging, top-notch content while our technology takes care of distributing our masterpieces across various platforms where over 338,000 community members await.
+## Project Objectives ⚙️
+
+In true Hey Rebekah style, we've decided to tackle the chaos of our own backyard before preaching order to the world. This project is about streamlining our publishing workflow. 
+
+Picture a clean, efficient conveyor belt that zips our freshly minted content straight to your digital doorstep. 
+
+Our main job? Cracking our knuckles and diving into crafting thought-provoking content that stands out in your daily news avalanche. 
+
+Our tech team's job? Smoothly delivering these pieces to our bustling community of over 338,000 members across various platforms. This way, we stay true to our mission — to make knowledge free.
 
 ## Our Toolbox 🛠️
 
 ### Development Stack
 
-- [PNPM](https://pnpm.io/) - Efficient package management
-- [WunderGraph](https://wundergraph.com/) - Our Backend for Frontend framework, optimizing our developer workflows through API composition
-- [TypeScript](https://www.typescriptlang.org/) - Strong typing for JavaScript
-- [Sanity.io v3](https://www.sanity.io/) - Structured content done right
-- [Next JS 13](https://nextjs.org/) - The React Framework
-- [Clerk.com](https://clerk.dev/) - For seamless user management
-- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Tailwind UI](https://tailwindui.com/) - Our chosen component library
+- [PNPM](https://pnpm.io/) - The swift package management we rely on.
+- [WunderGraph](https://wundergraph.com/) - The Backend for Frontend framework that keeps our developer workflows neat and tidy.
+- [TypeScript](https://www.typescriptlang.org/) - Adds the necessary discipline to our JavaScript.
+- [Sanity.io v3](https://www.sanity.io/) - Organizes our content just right.
+- [Next JS 13](https://nextjs.org/) - The heart of our React Framework.
+- [Clerk.com](https://clerk.dev/) - Manages our user interactions without breaking a sweat.
+- [TailwindCSS](https://tailwindcss.com/) - Our CSS framework that doesn't skimp on utility.
+- [Tailwind UI](https://tailwindui.com/) - Our library of choice for components.
 
 ### Frameworks & Libraries
 
-- [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms), [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography), [Tailwind HeadlessUI](https://github.com/tailwindlabs/headlessui) - Enhancements for Tailwind UI
-- [Stablo Pro Blog by Web3Templates](https://web3templates.com/preview/stablo) - The robust Next JS 13 and Sanity Starter
+- [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms), [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography), [Tailwind HeadlessUI](https://github.com/tailwindlabs/headlessui) - The enhancements to our preferred Tailwind UI.
+- [Stablo Pro Blog by Web3Templates](https://web3templates.com/preview/stablo) - Our robust starting point using Next JS 13 and Sanity.
 
 ### Deployment and Monitoring
 
-- [Vercel](https://vercel.com/) - Our deployment solution
-- [CodeClimate](https://codeclimate.com/) - To maintain code quality
-- [Checkly](https://www.checklyhq.com/) - For web application monitoring and testing
+- [Vercel](https://vercel.com/) - The silent hero of our deployment saga.
+- [CodeClimate](https://codeclimate.com/) - Our go-to for keeping our code clean and polished.
+- [Checkly](https://www.checklyhq.com/) - Keeps a watchful eye on our web application monitoring and testing.
   - API Documentation: [Checkly API Docs](https://www.checklyhq.com/docs/api)
 
 ### Additional Integrations & Tools
 
-- [Slack](https://slack.com/) - Our communication hub
-- [Height App](https://height.app/) - Where we manage our work
-- [Iterable.com](https://iterable.com/) - Our go-to email platform
-- [Recombee](https://www.recombee.com/) - For machine learning and content recommendations
-- [Make.com](https://www.make.com/) - Low-code API connections in the cloud
+- [Slack](https://slack.com/) - The bustling hub where our team chatter resides.
+- [Height App](https://height.app/) - Our reliable work management system.
+- [Iterable.com](https://iterable.com/) - Our choice of platform for all things email.
+- [Recombee](https://www.recombee.com/) - Our tool for machine learning and content recommendations.
+- [Make.com](https://www.make.com/) - For creating low-code API connections in the cloud.
 
-## Embracing TypeScript: Halfway Up the Mountain 🧗‍♀️
+## Embracing TypeScript: The New Neighbor We Can't Ignore 🏘️
 
-We've caught the TypeScript bug, and it's taken over about 55% of our codebase. Imagine us as mountaineers, scaling the steep cliffs of static types. We're over the halfway mark, panting a bit, but excited for the view from the top. We're not quite there yet, but the journey has been worth it, and we're committed to going the distance!
+Just like in any community, new members show up and shake things up a bit. In our digital cul-de-sac, TypeScript has been that quirky, precise new neighbor who's not just passing through. With a love for strict rules and meticulous organization, TypeScript has moved into about 55% of our homes in the codebase neighborhood. It's been a rollercoaster, a block party of growth and adaptation. We're not yet the fully-disciplined, TypeScript-dominated community, but we're getting there, and boy, isn't it an adventure!
 
-## Test Coverage: Our New Year's Resolution 🎉
+## Test Coverage: The Big Bash We've Always Promised 🎪
 
-Ever made a New Year's resolution? You know, the ones you're absolutely, positively sure you're going to keep this time? That's us with test coverage right now. Truth be told, our current test coverage is like a desert - it's vast, it's empty, it's... zero. But we're determined to turn this desert into an oasis of well-tested code. Stay tuned for our transformation!
+Remember that grandiose neighborhood block party we've always promised but never actually threw? That's our current test coverage. Think of it as the vast open space we've earmarked for the party — brimming with potential, but for now, glaringly empty. But, as with any big promise, we're set on making it happen. We're looking to transform this barren plot into a bustling carnival of extensively-tested code. Watch this space, because our "Block Party Coming Soon" banner is going up soon!
 
-## Accessibility: A Commitment, Not an Afterthought 🤦🏼‍♀️
+## Accessibility: Our Neighborhood's Code of Conduct 👀
 
-Inclusivity and accessibility aren't just buzzwords to us; they're fundamental principles that guide our work. We're continually improving our platform to ensure that it's not just user-friendly, but friendly to all users. Whether you navigate with a mouse, a keyboard, a screen reader, or any other assistive technology, we're committed to making our content accessible to you. Your experience matters to us, and we're devoted to making it a good one.
+In our little content town, inclusivity and accessibility aren't just polite suggestions, they're part of our community code of conduct. It's our commitment to make sure our digital streets are not only user-friendly, but welcoming to all, no matter their preferred mode of transport. Be it mouse, keyboard, screen reader, or another assistive tech, we're dedicated to consistently improving our town planning to offer an inviting experience to all. It's not perfect, but it's getting better. After all, what's a community if not welcoming to everyone?
 
-## Into the Future: Charting New Waters 🚢
+## Into the Future: The Town Planning Committee 🏗️
 
-We tip our hats to Web3Templates for getting us started - they've been the wind beneath our wings, the compass in our uncharted journey. But like a band of pirates weary of the same old sea shanties, we're craving some fresh tunes. That's why we're setting sail towards a bespoke component library, built with [RadixUI](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/), all spruced up with TailwindCSS. 
+Here's a big round of applause for Web3Templates. They've been the supportive town council in this urban development journey. But like town folks hankering for a new dog park or a cozy café, we're itching for some fresh scenery. That's why we're sketching out blueprints for a custom component library, architectured with [RadixUI](https://www.radix-ui.com/) and [shadcn/ui](https://ui.shadcn.com/), all stylishly landscaped with TailwindCSS.
 
-And because we're gluttons for punishment (and innovation), we're also moving to a Vercel Turbo repository. Why, you ask? Well, we figured we'd add some spice to our lives by inviting our iOS and Android apps to the party. More the merrier, right? Sure, it's going to make things more complicated - but who doesn't enjoy a good challenge? Here's to future complications, chaos, and of course, tons of fun!
+And because we firmly believe that growth is the name of the game (and we love a good challenge), we're also transiting to a Vercel Turbo repository. The grand occasion? We thought it's about time to extend our community borders by welcoming our iOS and Android apps into the mix. A little more chatter and liveliness, right? Sure, it's going to add some complexity to the mix - but isn't that the spice of communal life? Here's to future renovations, animated town hall meetings, and of course, lots of shared laughter and learning!
 
-## Join Us on the Journey ⁉️
+## Be a Part of Our Civic Project ⁉️
 
-Ready to explore? The following instructions will help you set up the project on your local machine for development and testing purposes.
+Ready to get your hands dirty with some civic duty? The following instructions will get you set up for development and testing purposes. Get ready to roll up your sleeves and become part of our vibrant community's evolution!
 
 ### Prerequisites
 
-Before you embark, ensure you have the following tools:
+Before you roll up your sleeves, ensure you have the following tools in your toolbox:
 
 - [Node.js](https://nodejs.org/)
 - [PNPM](https://pnpm.io/)
@@ -140,20 +150,20 @@ Also, see the list of [contributors](https://github.com/brilla-cx/hr-web/graphs/
 
 This project is licensed under a modified MIT like License **subject to the specified conditions** - see the [LICENSE](LICENSE) file for details.
 
-## Ode to our Inspirations 🙏
+## Toast to our Influences 🙏
 
-When building a content cloud, do not merely gather code and assign tasks. Kindle a longing for the boundless potential of the digital realm.
+Cultivating a content neighborhood isn't about merely zoning out blocks and delegating tasks. It's about kindling a collective dream for the limitless potential of the digital metropolis.
 
-In this spirit, we have not simply built but dreamed. Our inspirations are as diverse as they are profound:
+In this spirit, our neighborhood isn't just a construction - it's a labor of love. Our inspirations are as varied as they are meaningful:
 
-- The principles of design have been our guiding light, illuminating our path through the vast creative expanse.
-- Accessibility has been our compass, ensuring we forge a destination all can reach, no matter the path.
-- The shadcn and RadixUI vessels have carried us through the swirling frontend seas.
-- Juno, the greatest mumma puppa around, has been our faithful companion, providing boundless joy and timely distraction. 
-- Our readers, our true guiding light, for whom we brave the digital deep, endlessly inspire us to voyage further and delve deeper. 
-- And finally, our faultless taste has been our map, charting a course through infinite possibility to an isle of innovation and excellence. 
+- The principles of architecture have served as our masterplan, illuminating our path through the boundless expanse of the digital cityscape.
+- Accessibility has been our town charter, ensuring our roads and alleys are accessible to all, regardless of their mode of transportation.
+- The shadcn and RadixUI blueprints have been our architectural playbook, guiding us through the ever-evolving cityscape of frontend development.
+- Juno, the neighborhood's favorite furry mascot, has been a loyal companion, offering joyful romps and welcome distractions.
+- Our readers, our true community stakeholders, for whom we build and develop our digital township, continuously inspire us to push the city limits and delve deeper.
+- And finally, our impeccable taste has been our urban planner, charting a path through infinite possibilities towards a district of novelty and excellence.
 
-To all those who've journeyed with us, either by contributing code, sharing wisdom, or simply being there: We tip our sailor's cap to you. Thanks for joining us in longing for the endless immensity of the digital sea.
+To everyone who's taken part in this communal growth, either by contributing code, sharing insights, or just cheering from the sidelines: We raise our construction helmets to you. Thanks for joining us in our wonderment at the boundless landscape of the digital metropolis.
 
 ## Deploy on Vercel
 
