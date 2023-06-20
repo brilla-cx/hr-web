@@ -1,3 +1,4 @@
+"use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useRef, useState } from "react";
@@ -28,7 +29,11 @@ const leadSchema = z.object({
   message: z.string().nonempty("Message is required"),
 });
 
-function EmailForm() {
+interface Props {
+  formId: string;
+}
+
+function EmailForm(props: Props) {
   const {
     register,
     handleSubmit,
@@ -70,7 +75,7 @@ function EmailForm() {
   };
   return (
     <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
-      <form ref={formRef} id="#partner-form" onSubmit={handleSubmit(onSubmit)}>
+      <form ref={formRef} id={props.formId} onSubmit={handleSubmit(onSubmit)}>
         <div className="grid max-w-3xl grid-cols-2 gap-10 mx-auto md:grid-cols-4">
           <div className="col-span-4 text-center">
             <H3 as="h2" className="!text-center text-gray-200">

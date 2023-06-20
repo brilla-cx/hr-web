@@ -8,14 +8,14 @@ import CommandMenu from "@/components/shared/cmdk";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 import { getPaginatedPosts } from "@/sanity/client";
 
-import Menu from "./menu";
+import Menu from "./Menu/Menu";
 
 async function getPosts() {
   const response = await getPaginatedPosts({ limit: 3 });
   return response;
 }
 
-export default function Navbar(): JSX.Element {
+export default function Navbar() {
   const recentPosts = use(getPosts());
   return (
     <div

@@ -7,8 +7,6 @@ import {
   Highlight,
   Hits,
   InstantSearch,
-  Pagination,
-  RefinementList,
   SearchBox,
   useInstantSearch,
 } from "react-instantsearch-hooks-web";
@@ -23,7 +21,7 @@ const searchClient = algoliasearch(
 
 export default function AlgoliaSearch({ closeModal }) {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex flex-col h-full">
       <InstantSearch
         searchClient={searchClient}
         indexName="hey_rebekah"
@@ -54,7 +52,7 @@ export default function AlgoliaSearch({ closeModal }) {
 }
 function EmptyFallback() {
   return (
-    <div className="flex h-full items-center justify-center text-gray-400">
+    <div className="flex items-center justify-center h-full text-gray-400">
       Start typing something...
     </div>
   );
@@ -84,20 +82,20 @@ function Hit({ hit }) {
   const typeLabel = getTypeLabel(hit._type);
 
   return (
-    <article className="relative flex items-start gap-5 border-b border-gray-200 p-5 hover:bg-gray-50">
+    <article className="relative flex items-start gap-5 p-5 border-b border-gray-200 hover:bg-gray-50">
       {hit?.image && (
-        <div className="mt-2 h-16 w-16 shrink-0 bg-gray-100">
+        <div className="w-16 h-16 mt-2 bg-gray-100 shrink-0">
           <Image
             src={urlForImage(hit.image)?.src}
             width="64"
             height="64"
             alt={hit.image.imageAltText || "thumbnail"}
-            className="h-16 w-16 object-cover"
+            className="object-cover w-16 h-16"
           />
         </div>
       )}
       <div>
-        <span className="inline-block text-xs font-semibold uppercase tracking-wider text-pink-500">
+        <span className="inline-block text-xs font-semibold tracking-wider text-pink-500 uppercase">
           {typeLabel}
         </span>
 

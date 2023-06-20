@@ -62,6 +62,7 @@ async function SanityArrayClient(query, params = {}) {
   return [];
 }
 
+// eslint-disable-next-line no-unused-vars
 async function SanityObjectClient(query, params = {}) {
   if (client) {
     return (await client.fetch(query, params)) || {};

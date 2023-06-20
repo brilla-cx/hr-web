@@ -37,11 +37,11 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        aria-label={`Go to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}
-                        aria-label={item.ariaLabel}>
+                        )}>
                         {item.name}
                       </Link>
                     </li>
@@ -57,11 +57,11 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        aria-label={`Go to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}
-                        aria-label={item.ariaLabel}>
+                        )}>
                         {item.name}
                       </Link>
                     </li>
@@ -82,13 +82,13 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        aria-label={`Navigate to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
                         )}
                         target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={item.ariaLabel}>
+                        rel="noopener noreferrer">
                         {item.name}
                       </Link>
                     </li>
@@ -104,11 +104,11 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        aria-label={`Go to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
                           hoverStyles
-                        )}
-                        aria-label={item.ariaLabel}>
+                        )}>
                         {item.name}
                       </Link>
                     </li>

@@ -1,7 +1,8 @@
 // @ts-nocheck
 
-import { ITERABLE_LIST_ID, ITERABLE_TOKEN } from "@/lib/constants";
 import { NextResponse } from "next/server";
+
+import { ITERABLE_LIST_ID, ITERABLE_TOKEN } from "@/lib/constants";
 
 export async function POST(request: Request) {
   const { email, ...rest } = await request.json();
