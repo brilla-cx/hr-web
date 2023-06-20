@@ -2,7 +2,7 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { GlowingButton, H3, H6 } from "@/components/ui";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { formatNumberWithDollar } from "@/lib/helper";
 
 import { pricing, PricingDataType } from "./pricingData";
