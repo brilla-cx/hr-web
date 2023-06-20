@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import Container from "@/components/layout/Container/Container";
@@ -37,11 +36,7 @@ export default function Book({ post }) {
             <div className="order-1 self-center px-5 md:order-none">
               <div>
                 {post.category && (
-                  <Link
-                    href={`/category/${post.category?.slug?.current}`}
-                    className="transition hover:opacity-75">
-                    <Label color="gray">{post.category?.name}</Label>
-                  </Link>
+                  <Label color="gray">{post.category?.name}</Label>
                 )}
 
                 <H1
