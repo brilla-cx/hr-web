@@ -177,20 +177,20 @@ export default function Footer() {
 
 const navigation = {
   resources: [
-    { name: "Archives", href: "/gists" },
-    { name: "Juno AI", href: "/juno" },
-    { name: "Built With", href: "/built-with" },
-    { name: "Book Club", href: "/books" },
-    { name: "Subscribe", href: "/signup" },
-    { name: "Help", href: "/contact" },
+    { ariaLabel: "", name: "Archives", href: "/gists" },
+    { ariaLabel: "", name: "Juno AI", href: "/juno" },
+    { ariaLabel: "", name: "Built With", href: "/built-with" },
+    { ariaLabel: "", name: "Book Club", href: "/books" },
+    { ariaLabel: "", name: "Subscribe", href: "/signup" },
+    { ariaLabel: "", name: "Help", href: "/contact" },
   ],
   company: [
-    { name: "Advertise", href: "/contact" },
-    { name: "Partner", href: "/partners" },
-    { name: "About", href: "/about" },
-    { name: "Rebekah Radice", href: "/rebekah-radice" },
-    { name: "Social Blog", href: "/social-blog" },
-    { name: "Contact", href: "/contact" },
+    { ariaLabel: "", name: "Advertise", href: "/contact" },
+    { ariaLabel: "", name: "Partner", href: "/partners" },
+    { ariaLabel: "", name: "About", href: "/about" },
+    { ariaLabel: "", name: "Rebekah Radice", href: "/rebekah-radice" },
+    { ariaLabel: "", name: "Social Blog", href: "/social-blog" },
+    { ariaLabel: "", name: "Contact", href: "/contact" },
   ],
   follow: [
     {
@@ -230,9 +230,9 @@ const navigation = {
     },
   ],
   legal: [
-    { name: "Accessibility", href: "/accessibility" },
-    { name: "Editorial Policy", href: "/editorial-policy" },
-    { name: "Privacy", href: "/privacy" },
-    { name: "Terms", href: "/terms" },
+    { ariaLabel: "", name: "Accessibility", href: "/accessibility" },
+    { ariaLabel: "", name: "Editorial Policy", href: "/editorial-policy" },
+    { ariaLabel: "", name: "Privacy", href: "/privacy" },
+    { ariaLabel: "", name: "Terms", href: "/terms" },
   ],
 };
