@@ -51,13 +51,13 @@ function CornerstoneCoolThings() {
     <div className="py-24 sm:py-32">
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-400">
+          <h2 className="text-base font-semibold leading-7 text-gray-400">
             Everything you need
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">
             No server? No problem.
           </p>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
+          <p className="mt-6 text-lg leading-8 text-gray-400">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
             impedit perferendis suscipit eaque, iste dolor cupiditate
             blanditiis.
@@ -84,7 +84,7 @@ function CornerstoneCoolThings() {
             <div key={feature.name} className="relative pl-9">
               <dt className="inline font-semibold text-white">
                 <feature.icon
-                  className="absolute w-5 h-5 text-indigo-500 left-1 top-1"
+                  className="absolute w-5 h-5 text-gray-200 left-1 top-1"
                   aria-hidden="true"
                 />
                 {feature.name}
