@@ -11,13 +11,17 @@ import { CornerstoneResources } from "@/components/Cornerstone";
 import { CornerstoneCta2 } from "@/components/Cornerstone";
 import { CornerstoneAboutUs } from "@/components/Cornerstone";
 import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
+import { getPaginatedPosts } from "@/sanity/client";
 
-function AI() {
+async function AI() {
+  const params = {
+    pageIndex: 1,
+    limit: 7,
+  };
+  const posts = await getPaginatedPosts(params);
   return (
     <Fragment>
-      {WithContainer({
-        Component: CornerstoneHero,
-      })}
+      <CornerstoneHero />
       {WithContainer({
         Component: CornerstoneIntro,
       })}
@@ -38,6 +42,9 @@ function AI() {
       })}
       {WithContainer({
         Component: CornerstoneResources,
+        componentProps: {
+          posts: posts,
+        },
       })}
       {WithContainer({
         Component: CornerstoneCta2,
