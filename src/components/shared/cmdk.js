@@ -2,6 +2,7 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 import { Fragment, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FiCommand } from "react-icons/fi";
@@ -62,7 +63,7 @@ const CommandMenu = () => {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex min-h-full items-center justify-center overflow-auto text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -71,9 +72,25 @@ const CommandMenu = () => {
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95">
-                <Dialog.Panel className="h-[25rem] w-full max-w-2xl transform overflow-hidden rounded-md bg-white text-start align-middle shadow-xl transition-all">
-                  <div className="h-full">
-                    <AlgoliaSearch closeModal={closeModal} />
+                <Dialog.Panel className="h-screen w-screen transform rounded bg-midnight text-start align-middle transition-all">
+                  <div className="relative h-full py-12 sm:px-12 md:px-24 lg:px-48">
+                    <div className="flex h-full flex-col">
+                      <div className="flex justify-end">
+                        <button
+                          type="button"
+                          onClick={closeModal}
+                          className="text-med inline-flex items-center justify-center gap-1 rounded px-3 py-3 font-semibold uppercase leading-none text-gray-200 focus:outline-none focus:ring-0">
+                          <span>Close</span>
+                          <XMarkIcon
+                            className="h-5 w-5 transition-all"
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </div>
+                      <div className="mt-6 h-full">
+                        <AlgoliaSearch closeModal={closeModal} />
+                      </div>
+                    </div>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
