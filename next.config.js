@@ -1,7 +1,6 @@
 /* eslint-disable require-await */
 /** @type {import('next').NextConfig} */
 
-const { withPlausibleProxy } = require("next-plausible");
 const { resolveRedirects } = require("./src/sanity/resolveRedirects");
 
 const commonHeaders = [
@@ -90,4 +89,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlausibleProxy()(nextConfig);
+module.exports = nextConfig;
