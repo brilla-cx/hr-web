@@ -2,7 +2,7 @@ import React from "react";
 
 function CornerstoneHero() {
   return (
-    <div>
+    <div className="bg-midnight">
       <div className="relative px-6 isolate pt-14 lg:px-8">
         <div className="max-w-2xl py-32 mx-auto sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
