@@ -6,6 +6,7 @@ import { deskTool } from "sanity/desk";
 import { giphyAssetSourcePlugin } from "sanity-plugin-asset-source-giphy";
 import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
+import { iconPicker } from "sanity-plugin-icon-picker";
 import { media } from "sanity-plugin-media";
 
 import hrLogo from "./src/components/studio/logo/logo";
@@ -52,6 +53,7 @@ const config = defineConfig({
     openaiImageAsset({
       API_KEY: openaiApiKey,
     }),
+    iconPicker(),
   ],
   studio: {
     components: {

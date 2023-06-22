@@ -60,6 +60,14 @@ export const structure = (S, context) => {
         FaArchive,
         "socialBlog"
       ),
+      S.divider(),
+      createListItem(
+        S,
+        documentStore,
+        "CornerStone Pages",
+        FaArchive,
+        "cornerstonePage"
+      ),
     ]);
 };
 
