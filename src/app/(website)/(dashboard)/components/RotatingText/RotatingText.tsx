@@ -19,7 +19,7 @@ const RotatingText = ({ items, ariaLive = "polite", ariaRelevant = "additions te
         effect="simple"
         duration={1000}
         // @ts-ignore
-        stopduration={6000}
+        stopDuration={6000}
       />
     </p>
   );

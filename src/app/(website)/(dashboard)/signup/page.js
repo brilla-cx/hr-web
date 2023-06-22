@@ -9,7 +9,7 @@ export default function Page() {
     <>
       <Container large className="">
         <div className="mt-16">
-          <SignupHeader title="Sign-Up" />
+          <SignupHeader title="Sign Up" />
           <SignupForm />
         </div>
       </Container>
@@ -17,9 +17,9 @@ export default function Page() {
   );
 }
 export function generateMetadata() {
-  const title = "Sign-Up";
+  const title = "Sign Up";
   const description =
-    "Want to get get the jump on AI at work? Sign-up for our newsletter. We'll deliver the best tips, tricks, and insights to your inbox. Free, hot, and fresh everyday.";
+    "Want to get get the jump on AI at work? Sign up for our newsletter. We'll deliver the best tips, tricks, and insights to your inbox. Free, hot, and fresh everyday.";
   const images = "/og.png";
   const url = `${SITE_URL}/signup`;
 
