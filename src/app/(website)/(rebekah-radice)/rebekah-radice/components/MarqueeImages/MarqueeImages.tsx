@@ -15,8 +15,8 @@ function MarqueeItem({
         <div
           key={rrimg}
           className="relative m-5 overflow-hidden transition-all bg-gray-800 rounded group">
-          <div className="relative  block aspect-[5/4] h-72 w-72">
-            <div className="">
+          <div className="relative block aspect-[5/4]">
+            <div className="relative h-72 w-72">
               <Image
                 src={rrimg}
                 alt=""

@@ -25,7 +25,7 @@ function ContactCard(props: Props) {
         {icon}
       </div>
       <div>
-        <H6 as="h3" className="-mt-1 line-clamp-2 text-gray-200">
+        <H6 as="h2" className="-mt-1 line-clamp-2 text-gray-200">
           {title}
         </H6>
         <p className="mt-1 text-gray-400 dark:text-gray-400">
