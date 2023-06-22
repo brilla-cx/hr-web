@@ -40,8 +40,8 @@ export default function SocialShare({ title, url }) {
           width="32"
           height="32"
           aria-label="Share on LinkedIn"
-          aria-describedby="twitterDesc">
-          <desc id="twitterDesc">
+          aria-describedby="linkedInDesc">
+          <desc id="linkedInDesc">
             A LinkedIn icon that is a button to share the Hey Rebekah post via
             LinkedIn.
           </desc>

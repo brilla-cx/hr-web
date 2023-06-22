@@ -41,26 +41,26 @@ export default function ExpectFromUs(props: Props) {
             social, email, and live events.
           </Lead>
         </div>
-        <dl className="grid grid-cols-2 col-span-5 gap-8 md:col-span-3">
+        <ul className="grid grid-cols-2 col-span-5 gap-8 md:col-span-3">
           {benefits.map((benefit) => (
-            <div
+            <li
               key={benefit.name}
               className="relative col-span-2 pl-9 md:col-span-1">
-              <dt className="text-xl text-gray-400">
+              <p className="text-xl text-gray-400">
                 <CheckIcon
                   className="absolute left-0 w-5 h-5 font-bold text-gray-400 top-1"
                   aria-hidden="true"
                 />
                 {benefit.name}
-              </dt>
-            </div>
+              </p>
+            </li>
           ))}
-          <div
+          <li
             className="col-span-2 pt-16 mx-auto" // eslint-disable-next-line react/jsx-no-bind
             onClick={() => props.scrollToContact()}>
             <GlowingButton aria-label="Go to partner form">Become a partner</GlowingButton>
-          </div>
-        </dl>
+          </li>
+        </ul>
       </div>
     </div>
   );

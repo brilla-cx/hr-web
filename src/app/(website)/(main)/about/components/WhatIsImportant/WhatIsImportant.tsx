@@ -19,7 +19,7 @@ interface ListItem {
 
 function ListCard(props: ListItem) {
   return (
-    <div className="flex max-w-3xl flex-col items-center justify-center rounded border border-gray-200/10 bg-slate-900 p-4">
+    <li className="flex max-w-3xl flex-col items-center justify-center rounded border border-gray-200/10 bg-slate-900 p-4">
       <div className="mb-4 flex object-contain">
         <Image
           src={props.image.src}
@@ -28,10 +28,10 @@ function ListCard(props: ListItem) {
           height={100}
         />
       </div>
-      <dt className="mb-4 gap-x-3 text-center text-3xl font-semibold leading-7 text-gray-200">
+      <div className="mb-4 gap-x-3 text-center text-3xl font-semibold leading-7 text-gray-200">
         {props.title}
-      </dt>
-      <dd className="text-base leading-7 text-gray-300">
+      </div>
+      <div className="text-base leading-7 text-gray-300">
         {typeof props.desc === "string" ? (
           <p
             className="flex-auto"
@@ -42,8 +42,8 @@ function ListCard(props: ListItem) {
         ) : (
           props.desc
         )}
-      </dd>
-    </div>
+      </div>
+    </li>
   );
 }
 
@@ -67,15 +67,16 @@ function WhatIsImportant() {
         </p>
       </div>
       <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">
-        <dl className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+        <ul className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
           {listItems.map((item) => (
             <ListCard {...item} key={item.title} />
           ))}
-        </dl>
+        </ul>
       </div>
     </div>
   );
 }
+
 
 export default WhatIsImportant;
 

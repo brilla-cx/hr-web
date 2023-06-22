@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import Container from "@/components/layout/Container/Container";
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
-import { GlowingButton, H3 } from "@/components/ui";
+import { GlowingButton, H3, H6, Lead } from "@/components/ui";
 import { cx } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
@@ -35,18 +35,20 @@ export default function Tool(props) {
           </p>
 
           <div className="mt-6">
-            <H3 as="h1" className="text-white">
+            <H3 as="h1" className="text-gray-200">
               {" "}
               Hey Rebekah ❤️ <br /> {data.name}
             </H3>
-            <p className="mt-3 text-white">{data.shortDescription}</p>
+            <Lead className="mt-3 text-gray-300">{data.shortDescription}</Lead>
           </div>
 
           {data?.hrUse && (
             <div className="mt-10">
-              <h6 className="text-xl font-bold tracking-tight text-white ">
+              <H6
+                as="h2"
+                className="text-xl font-bold tracking-tight text-gray-200 ">
                 What we use it for:
-              </h6>
+              </H6>
               <div className="no-effects prose prose-invert mt-4 leading-snug text-gray-300">
                 <PortableText value={data.hrUse} />
               </div>

@@ -128,7 +128,7 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
                       ? "left-auto -mt-10 ml-10  text-left md:right-[50%] md:mr-10 md:text-right"
                       : "left-auto top-[20%] -mt-5 ml-10 text-left"
                   )}>
-                  <H5 className="text-2xl text-gray-200">{title}</H5>
+                  <H5 as="h2" className="text-2xl text-gray-200">{title}</H5>
                   <Lead className="text-gray-400">{description}</Lead>
                 </div>
               </div>
