@@ -37,13 +37,13 @@ const CommandMenu = () => {
     <>
       <button
         type="button"
-        className="relative flex items-center justify-between gap-2 rounded-md border border-gray-700 bg-gray-900 px-3 py-2 text-sm text-gray-500 sm:w-44"
+        className="relative flex items-center justify-between gap-2 rounded-md border-2 border-neutral-200/10 bg-slate-900 px-3 py-2 text-sm text-gray-400 sm:w-44"
         onClick={openModal}>
         <div className="flex  items-center gap-2">
           <FaSearch />
           <span className="hidden sm:block  ">Search...</span>
         </div>
-        <kbd className=" hidden items-center gap-1 rounded-sm border border-gray-800 bg-midnight px-1 font-mono font-medium sm:flex">
+        <kbd className=" hidden items-center gap-1 rounded-sm border border-neutral-200/10 bg-midnight px-1 font-mono font-medium sm:flex">
           <FiCommand className="h-3 w-3" />
 
           <span className="text-xs">K</span>

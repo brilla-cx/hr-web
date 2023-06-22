@@ -38,9 +38,9 @@ export default function AlgoliaSearch({ closeModal }) {
           classNames={{
             form: "relative",
             input:
-              "text-gray-200 bg-slate-900 w-full py-3 border-b border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-200 [&:-webkit-search-cancel-button]:hidden placeholder-gray-200",
+              "text-gray-200 bg-slate-900 w-full py-3 border-b border-gray-200 focus:outline-none focus:ring-0 focus:border-pink [&:-webkit-search-cancel-button]:hidden placeholder-gray-400",
             submit: "absolute right-5 top-3.5",
-            submitIcon: "w-4 h-4 fill-white",
+            submitIcon: "w-4 h-4 fill-gray-200",
             reset: "absolute right-12 top-4 opacity-50",
             loadingIcon: "hidden",
           }}
@@ -103,15 +103,15 @@ function Hit({ hit }) {
   const typeLabel = getTypeLabel(hit._type);
 
   return (
-    <article className="relative flex items-start gap-5 p-5 border-b border-neutral-200/10 hover:bg-slate-800">
+    <article className="relative flex items-center gap-5 px-5 py-2 border-b border-neutral-200/10 hover:bg-slate-800">
       {hit?.image && (
-        <div className="w-16 h-16 lg:w-36 lg:h-36 mt-2 shrink-0">
+        <div className="w-12 h-12 lg:w-24 lg:h-24 shrink-0 flex items-center">
           <Image
             src={urlForImage(hit.image)?.src}
             width="100"
             height="100"
             alt={hit.image.imageAltText || "thumbnail"}
-            className="object-cover w-16 h-16 lg:w-36 lg:h-36 bg-gray-200"
+            className="object-cover w-12 h-12 lg:w-24 lg:h-24 bg-gray-200 item"
           />
         </div>
       )}
@@ -120,17 +120,17 @@ function Hit({ hit }) {
           {typeLabel}
         </span>
 
-        <h1 className="text-lg lg:text-3xl max-w-2xl font-semibold text-gray-200">
+        <h1 className="text-lg max-w-xl font-semibold text-gray-200">
           <Link
             href={`/${TYPE_LOOKUP[hit._type]}/${hit?.slug?.current}` || "#"}>
             <span className="absolute inset-0" />
             <Highlight attribute="name" hit={hit} />
           </Link>
         </h1>
-        <p className="text-xs lg:text-sm text-gray-400">
+        <p className="text-xs text-gray-400">
           {timeAgo(hit.publishedAt || hit._createdAt)} by {hit.author}
         </p>
-        <div className="mt-2 text-sm lg:text-lg text-gray-300 max-w-xl line-clamp-2">
+        <div className="mt-1 text-sm text-gray-400 max-w-xl line-clamp-2">
           <Highlight attribute="tldr" hit={hit} />
         </div>
       </div>
