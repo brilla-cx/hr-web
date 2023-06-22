@@ -37,7 +37,7 @@ const CommandMenu = () => {
     <>
       <button
         type="button"
-        className="relative flex items-center justify-between gap-2 rounded-md border-2 border-neutral-200/10 bg-slate-900 px-3 py-2 text-sm text-gray-400 sm:w-44"
+        className="relative flex items-center justify-between gap-2 rounded-md border-2 border-neutral-200/10 bg-slate-900 px-3 py-2 text-sm text-gray-300 sm:w-44"
         onClick={openModal}>
         <div className="flex  items-center gap-2">
           <FaSearch />
