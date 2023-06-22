@@ -52,7 +52,7 @@ const ToolBox: FC<ToolBoxProps> = ({ tool }) => {
 
   return (
     <>
-      <div className="group relative">
+      <div className="group relative" role="listitem">
         <div
           className={cx(
             "flex aspect-video items-center justify-center rounded",
@@ -67,7 +67,7 @@ const ToolBox: FC<ToolBoxProps> = ({ tool }) => {
             />
           )}
         </div>
-        <Link href={`/built-with/${tool.slug.current}`}>
+        <Link href={`/built-with/${tool.slug.current}`} aria-label={tool.name}>
           <span className="absolute inset-0" />
           <H6 as="h2" className={cx("mt-3 line-clamp-2 text-gray-100 ")}>
             <span className={cx(hoverStyles)}>{tool.name}</span>
