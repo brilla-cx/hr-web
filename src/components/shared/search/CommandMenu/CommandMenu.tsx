@@ -3,34 +3,33 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/20/solid";
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FiCommand } from "react-icons/fi";
 
-import AlgoliaSearch from "@/components/shared/search";
+import AlgoliaSearch from "@/components/shared/search/AlgoliaSearch/AlgoliaSearch";
 
-const CommandMenu = () => {
+const CommandMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
-  // Toggle the menu when ⌘K is pressed
   useEffect(() => {
-    const down = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setIsOpen((prevOpen) => !prevOpen);
       }
     };
 
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
@@ -38,14 +37,15 @@ const CommandMenu = () => {
       <button
         type="button"
         className="relative flex items-center justify-between gap-2 rounded-md border-2 border-neutral-200/10 bg-slate-900 px-3 py-2 text-sm text-gray-300 sm:w-44"
-        onClick={openModal}>
+        onClick={openModal}
+        aria-label="Open Search Menu"
+      >
         <div className="flex  items-center gap-2">
           <FaSearch />
-          <span className="hidden sm:block  ">Search...</span>
+          <span className="hidden sm:block">Search...</span>
         </div>
-        <kbd className=" hidden items-center gap-1 rounded-sm border border-neutral-200/10 bg-midnight px-1 font-mono font-medium sm:flex">
+        <kbd className="hidden items-center gap-1 rounded-sm border border-neutral-200/10 bg-midnight px-1 font-mono font-medium sm:flex">
           <FiCommand className="h-3 w-3" />
-
           <span className="text-xs">K</span>
         </kbd>
       </button>
@@ -58,7 +58,8 @@ const CommandMenu = () => {
             enterTo="opacity-100"
             leave="ease-in duration-200"
             leaveFrom="opacity-100"
-            leaveTo="opacity-0">
+            leaveTo="opacity-0"
+          >
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
@@ -71,7 +72,8 @@ const CommandMenu = () => {
                 enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95">
+                leaveTo="opacity-0 scale-95"
+              >
                 <Dialog.Panel className="h-screen w-screen transform rounded bg-midnight text-start align-middle transition-all">
                   <div className="relative h-full py-12 sm:px-12 md:px-24 lg:px-48">
                     <div className="flex h-full flex-col">
@@ -79,7 +81,9 @@ const CommandMenu = () => {
                         <button
                           type="button"
                           onClick={closeModal}
-                          className="text-med inline-flex items-center justify-center gap-1 rounded px-3 py-3 font-semibold uppercase leading-none text-gray-200 focus:outline-none focus:ring-0">
+                          className="text-med inline-flex items-center justify-center gap-1 rounded px-3 py-3 font-semibold uppercase leading-none text-gray-200 focus:outline-none focus:ring-0"
+                          aria-label="Close Command Menu"
+                        >
                           <span>Close</span>
                           <XMarkIcon
                             className="h-5 w-5 transition-all"
