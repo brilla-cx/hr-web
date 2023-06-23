@@ -5,6 +5,9 @@ import { ReactNode } from "react";
 import { H3 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
+import { ProductsSection } from "@/types/types";
+
+import { PortableText } from "../shared/post/PortableText/PortableText";
 
 interface ImageProps {
   src: string;
@@ -88,33 +91,35 @@ function ListCard(props: ListItem) {
     </div>
   );
 }
-function CornerstoneProducts() {
+function CornerstoneProducts(props: ProductsSection) {
   return (
     <div className="flex flex-col items-center justify-center px-2 py-16 lg:py-26 sm:py-24 lg:px-16">
       <div className="max-w-2xl mx-auto lg:text-center">
         <H3
           as="h2"
           className="mt-2 font-bold tracking-tight text-gray-200 sm:text-6xl">
-          What's important to us
+          {props?.customHeading ?? `Static Heading ${props.customHeading}`}
         </H3>
-        <p className="mt-6 text-lg leading-8 text-gray-400">
-          We imagine a world where all knowledge workers have fair
-          opportunities. They can learn, grow, and thrive in their career. Plus,
-          gain access to tools that help them make more money and find their
-          joy.
-        </p>
-        <p className="mt-6 text-lg leading-8 text-gray-400">
-          We're firm believers in the principles of people-first. When we put
-          our team first, they put our customers first, and eventually our
-          customers put us first. Even though we're not perfect, we always try
-          to do the right thing.
-        </p>
+        <article className="mt-6 text-lg leading-8 text-gray-400">
+          {props.customContent ? (
+            <PortableText value={props.customContent} />
+          ) : (
+            <>
+              <p className="mt-6 text-lg leading-8 text-gray-400">
+                `Static Content ${props.customHeading}`
+              </p>
+              <p className="mt-6 text-lg leading-8 text-gray-400">
+                `Static Content ${props.customHeading}`
+              </p>
+            </>
+          )}
+        </article>
       </div>
       <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">
         <dl className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-          {listItems.map((item) => (
-            <ListCard {...item} key={item.title} />
-          ))}
+          {/* {props.products.map((item) => (
+            // <ListCard {...item} key={item.title} />
+          ))} */}
         </dl>
       </div>
     </div>

@@ -86,6 +86,7 @@ function getPreviewUrl(doc) {
     tool: "built-with",
     book: "books",
     legal: "",
+    cornerstonePage: "ai",
   };
 
   const type = TYPE_LOOKUP[doc._type] || doc._type;
@@ -100,7 +101,14 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
   { schemaType }
 ) => {
-  const previewTypes = ["post", "socialBlog", "book", "tool", "legal"];
+  const previewTypes = [
+    "post",
+    "socialBlog",
+    "book",
+    "tool",
+    "legal",
+    "cornerstonePage",
+  ];
 
   if (previewTypes.includes(schemaType)) {
     return S.document().views([

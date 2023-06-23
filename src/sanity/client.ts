@@ -9,6 +9,7 @@ import {
   authorsSitemapQuery,
   booksSitemapQuery,
   categoryquery,
+  cornerstoneQuery,
   getAllFaqsquery,
   getcatoftoolsquery,
   getlegalpagebyslugquery,
@@ -315,4 +316,12 @@ export async function resolveRedirects() {
     return (await client.fetch(redirectQuery)) || [];
   }
   return [];
+}
+
+// cornerstone query
+export async function getCornerStonePageBySlug(slug) {
+  if (client) {
+    return (await client.fetch(cornerstoneQuery, { slug })) || {};
+  }
+  return {};
 }

@@ -1,6 +1,10 @@
 import React from "react";
 
-function CornerstoneHero() {
+import { HeroSection } from "@/types/types";
+
+import { PortableText } from "../shared/post/PortableText/PortableText";
+
+function CornerstoneHero(props: HeroSection) {
   return (
     <div className="bg-midnight">
       <div className="relative px-6 isolate pt-14 lg:px-8">
@@ -16,12 +20,10 @@ function CornerstoneHero() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
-              Data to enrich your online business
+              {props.customHeading ?? `WTF is ${props.keyword.keyword}`}
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-400">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+              <PortableText value={props.customContent} />
             </p>
             <div className="flex items-center justify-center mt-10 gap-x-6">
               <a

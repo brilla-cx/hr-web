@@ -1,4 +1,4 @@
-import { FaAccusoft, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const products = defineType({

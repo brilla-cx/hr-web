@@ -125,3 +125,96 @@ export interface Metadata {
     images: string;
   };
 }
+
+export type HeroSection = {
+  customLinkHref?: string;
+  _type: "hero";
+  customHeading?: string;
+  _key: string;
+  customizeContent?: boolean;
+  keyword: {
+    _createdAt: string;
+    _rev: string;
+    _type: "keyword";
+    _id: string;
+    keyword: string;
+    _updatedAt: string;
+  };
+  customLinkText?: string;
+  customContent?: Array<any>;
+  content?: Array<any>;
+  customizeHeading?: boolean;
+};
+
+export type IntroSection = {
+  _key: string;
+  keyword: {
+    _id: string;
+    keyword: string;
+    _updatedAt: string;
+    _createdAt: string;
+    _rev: string;
+    _type: "keyword";
+  };
+  content: Array<any>;
+  customizeHeading?: boolean;
+  customHeading: string;
+  _type: "intro";
+};
+
+export type ProductsSection = {
+  customContent: Array<any>;
+  _type: "products";
+  customHeading: string;
+  _key: string;
+  customizeContent: boolean;
+  keyword: null;
+  products: Array<{
+    _ref?: string;
+    _type: "product";
+    _key: string;
+  }>;
+};
+
+export type WhyShouldCare = {
+  customHeading: string;
+  _key: string;
+  customizeContent: boolean;
+  keyword: {
+    _rev: string;
+    _type: "keyword";
+    _id: string;
+    keyword: string;
+    _updatedAt: string;
+    _createdAt: string;
+  };
+  whyCareCardItems: Array<{
+    _type: "whyCareCardItem";
+    Icon: {
+      provider: string;
+      _type: "iconPicker";
+      name: string;
+    };
+    _key: string;
+    content: Array<any>;
+    heading: string;
+  }>;
+  _type: "whyShouldCare";
+};
+
+export type CornerStonePage = {
+  keyword: {
+    _createdAt: string;
+    _rev: string;
+    _type: string;
+    _id: string;
+    keyword: string;
+    _updatedAt: string;
+  };
+  _createdAt: string;
+  _rev: string;
+  _id: string;
+  cornerstonePageSection: Array<
+    HeroSection | IntroSection | ProductsSection | WhyShouldCare
+  >;
+};

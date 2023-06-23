@@ -399,3 +399,16 @@ export const redirectQuery = groq`
 *[_type == "redirect" && !(_id in path("drafts.**"))]{
   source, destination, permanent
 }`;
+
+export const cornerstoneQuery = groq`
+*[
+  _type == "cornerstonePage"
+  && slug.current == $slug
+][0] {
+  ...,
+  keyword->,
+  cornerstonePageSection[]{
+    ...,
+    keyword->
+  }
+}`;

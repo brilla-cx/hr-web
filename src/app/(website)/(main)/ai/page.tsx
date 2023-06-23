@@ -21,7 +21,6 @@ async function AI() {
   const posts = await getPaginatedPosts(params);
   return (
     <Fragment>
-      <CornerstoneHero />
       {WithContainer({
         Component: CornerstoneIntro,
       })}
