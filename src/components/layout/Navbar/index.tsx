@@ -4,7 +4,7 @@ import React from "react";
 import { use } from "react";
 
 import Container from "@/components/layout/Container/Container";
-import CommandMenu from "@/components/shared/cmdk";
+import CommandMenu from "@/components/shared/search/CommandMenu/CommandMenu";
 import LogoImage from "@/public/hey-rebekah-logo.svg";
 import { getPaginatedPosts } from "@/sanity/client";
 

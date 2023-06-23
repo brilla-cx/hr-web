@@ -1,6 +1,5 @@
 "use client";
 
-import algoliasearch from "algoliasearch/lite";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,10 +15,7 @@ import {
 import { timeAgo } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
-const searchClient = algoliasearch(
-  "U5XNUAICIA",
-  "5086892b29c9c6a9408401d4dc5313fd"
-);
+import { searchClient } from '../searchClient';
 
 export default function AlgoliaSearch({ closeModal }) {
   return (
@@ -60,8 +56,8 @@ export default function AlgoliaSearch({ closeModal }) {
                   root: "flex justify-center py-8",
                   list: "inline-flex space-x-2",
                   item:
-                    "px-3 py-1 rounded text-gray-200 bg-gray-700 hover:bg-gray-800",
-                  selectedItem: "px-3 py-1 rounded text-white bg-gray-900",
+                    "px-3 py-1 rounded text-gray-200 bg-gray-700 hover:bg-gray-800 ",
+                  selectedItem: "px-3 py-1 rounded text-white bg-gray-900 border border-pink",
                 }}
               />
             )}
