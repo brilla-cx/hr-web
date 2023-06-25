@@ -38,7 +38,7 @@ const whyShouldCare = defineType({
               name: "Icon",
               type: "iconPicker",
               options: {
-                outputFormat: "react",
+                storeSvg: true,
               },
             }),
             defineField({
@@ -52,14 +52,31 @@ const whyShouldCare = defineType({
               type: "blockContent",
             }),
           ],
+          preview: {
+            select: {
+              heading: "Heading",
+              icon: "icon",
+            },
+            prepare: ({ heading, icon }) => {
+              return {
+                title: heading || "Item",
+                subtitle: "why care Item",
+                media: icon,
+              };
+            },
+          },
         }),
       ],
     }),
   ],
   preview: {
-    prepare: () => {
+    select: {
+      customHeading: "customHeading",
+    },
+    prepare: ({ customHeading }) => {
       return {
-        title: "Why Care Section",
+        title: customHeading || "Why Care Section",
+        subtitle: "Why Care Section",
         media: FaAccusoft,
       };
     },

@@ -1,6 +1,6 @@
 import { defineField } from "sanity";
 
-export default defineField({
+const redirect = defineField({
   title: "Redirect",
   name: "redirect",
   type: "document",
@@ -52,3 +52,5 @@ export default defineField({
     },
   ],
 });
+
+export default redirect;

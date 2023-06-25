@@ -126,20 +126,22 @@ export interface Metadata {
   };
 }
 
+export type Keyword = {
+  _createdAt: string;
+  _rev: string;
+  _type: "keyword";
+  _id: string;
+  keyword: string;
+  _updatedAt: string;
+};
+
 export type HeroSection = {
   customLinkHref?: string;
   _type: "hero";
   customHeading?: string;
   _key: string;
   customizeContent?: boolean;
-  keyword: {
-    _createdAt: string;
-    _rev: string;
-    _type: "keyword";
-    _id: string;
-    keyword: string;
-    _updatedAt: string;
-  };
+  keyword: Keyword;
   customLinkText?: string;
   customContent?: Array<any>;
   content?: Array<any>;
@@ -148,18 +150,29 @@ export type HeroSection = {
 
 export type IntroSection = {
   _key: string;
-  keyword: {
-    _id: string;
-    keyword: string;
-    _updatedAt: string;
-    _createdAt: string;
-    _rev: string;
-    _type: "keyword";
-  };
+  keyword: Keyword;
   content: Array<any>;
   customizeHeading?: boolean;
   customHeading: string;
   _type: "intro";
+};
+
+export type ProductItem = {
+  heading: string;
+  _createdAt: string;
+  _rev: string;
+  _type: string;
+  _id: string;
+  _updatedAt: string;
+  content: any[];
+  image: {
+    imageAltText: string;
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
 };
 
 export type ProductsSection = {
@@ -169,37 +182,90 @@ export type ProductsSection = {
   _key: string;
   customizeContent: boolean;
   keyword: null;
-  products: Array<{
-    _ref?: string;
-    _type: "product";
-    _key: string;
-  }>;
+  products: Array<ProductItem>;
 };
 
 export type WhyShouldCare = {
   customHeading: string;
   _key: string;
   customizeContent: boolean;
-  keyword: {
-    _rev: string;
-    _type: "keyword";
-    _id: string;
-    keyword: string;
-    _updatedAt: string;
-    _createdAt: string;
-  };
+  keyword: Keyword;
   whyCareCardItems: Array<{
     _type: "whyCareCardItem";
     Icon: {
       provider: string;
       _type: "iconPicker";
       name: string;
+      svg: string;
     };
     _key: string;
     content: Array<any>;
     heading: string;
   }>;
   _type: "whyShouldCare";
+};
+
+export type WhoForCardItems = {
+  content: any[];
+  heading: string;
+  _type: string;
+  _key: string;
+};
+
+export type WhoFor = {
+  _type: "whoFor";
+  customHeading: string;
+  customContent: any[];
+  _key: string;
+  customizeContent: boolean;
+  keyword: Keyword;
+  whoForCardItems: WhoForCardItems[];
+};
+
+export type CoolThingItem = {
+  itemContent: any[];
+  itemTitle: string;
+  _type: string;
+  _key: string;
+  itemImage: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+    _type: string;
+  };
+};
+
+export type CoolThings = {
+  _type: "coolThings";
+  _key: string;
+  image: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+    _type: string;
+  };
+  topHeading: string;
+  customizeContent: boolean;
+  content: any[];
+  _type: string;
+  coolThingsItems: CoolThingItem[];
+  heading: string;
+  keyword: Keyword;
+};
+
+export type CtaOne = {
+  _type: "";
+};
+export type Resources = {
+  _type: "";
+};
+export type CtaTwo = {
+  _type: "";
+};
+export type AboutUs = {
+  _type: "";
 };
 
 export type CornerStonePage = {
@@ -215,6 +281,15 @@ export type CornerStonePage = {
   _rev: string;
   _id: string;
   cornerstonePageSection: Array<
-    HeroSection | IntroSection | ProductsSection | WhyShouldCare
+    | HeroSection
+    | IntroSection
+    | ProductsSection
+    | WhyShouldCare
+    | WhoFor
+    | CoolThings
+    | CtaOne
+    | Resources
+    | CtaTwo
+    | AboutUs
   >;
 };

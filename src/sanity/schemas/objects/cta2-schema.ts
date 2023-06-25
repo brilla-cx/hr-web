@@ -1,4 +1,4 @@
-import { FaAccusoft } from "react-icons/fa";
+import { FaHandPointRight } from "react-icons/fa";
 import { defineField, defineType } from "sanity";
 
 const ctaTwo = defineType({
@@ -11,42 +11,54 @@ const ctaTwo = defineType({
       title: "Keyword",
       type: "reference",
       to: [{ type: "keyword" }],
+      description:
+        "The special keyword associated with this CTA. It's like a secret code!",
     }),
     defineField({
       name: "customizeContent",
       title: "Customize Content?",
       type: "boolean",
+      description:
+        "Toggle to customize the CTA content. It's like having a magic wand!",
     }),
     defineField({
       name: "customCtaTitle",
       type: "string",
-      description: "Custom cta title",
+      description:
+        "Custom CTA title. Make it catchy and captivating like a rockstar!",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
     defineField({
       name: "customCtaContent",
       type: "blockContent",
-      description: "Custom cta content",
+      description:
+        "Custom CTA content. Pour your words of magic and inspiration!",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
     defineField({
       name: "custpmCtaLinkText",
       type: "string",
-      description: "Custom cta link text",
+      description:
+        "Custom CTA link text. Choose words that make hearts skip a beat!",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
     defineField({
       name: "custpmCtaLinkHref",
       type: "string",
-      description: "Custom cta link href",
+      description:
+        "Custom CTA link href. The magical gateway to exciting adventures!",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
   ],
   preview: {
-    prepare: () => {
+    select: {
+      customHeading: "customHeading",
+    },
+    prepare: ({ customHeading }) => {
       return {
-        title: "CTA two section",
-        media: FaAccusoft,
+        title: customHeading || "CTA ONE",
+        subtitle: "CTA ONE Section",
+        media: FaHandPointRight,
       };
     },
   },

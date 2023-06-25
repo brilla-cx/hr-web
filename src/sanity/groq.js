@@ -409,6 +409,7 @@ export const cornerstoneQuery = groq`
   keyword->,
   cornerstonePageSection[]{
     ...,
-    keyword->
+    keyword->,
+    products[]->
   }
 }`;

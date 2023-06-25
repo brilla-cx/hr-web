@@ -8,15 +8,12 @@ import legal from "./legal-schema";
 import { aboutUs } from "./objects/aboutus-schema";
 import blockContent from "./objects/blockContent";
 import { coolThings } from "./objects/coolthings-schema";
-import { coolThingItem } from "./objects/coolThingsItem";
 import ctaOne from "./objects/cta1-schema";
 import ctaTwo from "./objects/cta2-schema";
 import { hero } from "./objects/hero-schema";
 import { intro } from "./objects/intro-schema";
 import { keyword } from "./objects/keyword-schema";
-import { product } from "./objects/product-schema";
-import { products } from "./objects/products-schema";
-import resource from "./objects/resource-schema";
+import products from "./objects/products-schema";
 import resources from "./objects/resources-schema";
 import seo from "./objects/seo-schema";
 import whoFor from "./objects/whofor-schema";
@@ -24,6 +21,7 @@ import whyShouldCare from "./objects/whyshouldcare-schema";
 import post from "./post-schema";
 import quiz from "./quiz-schema";
 import quote from "./quote-schema";
+import redirect from "./redirect";
 import socialBlog from "./socialBlog-schema";
 import tool from "./tool-schema";
 
@@ -35,7 +33,6 @@ const schemas = [
   category,
   cornerstonePage,
   coolThings,
-  coolThingItem,
   ctaOne,
   ctaTwo,
   faq,
@@ -44,14 +41,13 @@ const schemas = [
   keyword,
   hero,
   post,
-  product,
   products,
-  resource,
   resources,
   quiz,
   quote,
   seo,
   socialBlog,
+  redirect,
   tool,
   whoFor,
   whyShouldCare,

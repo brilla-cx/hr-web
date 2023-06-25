@@ -1,4 +1,4 @@
-import { FaAccusoft } from "react-icons/fa";
+import { FaAccusoft, FaArrowRight } from "react-icons/fa";
 import { defineField, defineType } from "sanity";
 
 const ctaOne = defineType({
@@ -34,7 +34,7 @@ const ctaOne = defineType({
     prepare: () => {
       return {
         title: "Cta one section",
-        media: FaAccusoft,
+        media: FaArrowRight,
       };
     },
   },

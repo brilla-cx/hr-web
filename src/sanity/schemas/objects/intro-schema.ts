@@ -31,11 +31,12 @@ export const intro = defineType({
   ],
   preview: {
     select: {
-      customizeHeading: "customizeHeading",
+      customHeading: "customHeading",
     },
-    prepare: ({ customizeHeading }) => {
+    prepare: ({ customHeading }) => {
       return {
-        title: "Intro Section",
+        title: customHeading || "Intro",
+        subtitle: "Intro section",
         media: FiFilm,
       };
     },
