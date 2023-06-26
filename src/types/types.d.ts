@@ -159,14 +159,12 @@ export type IntroSection = {
 
 export type ProductItem = {
   heading: string;
-  _createdAt: string;
-  _rev: string;
   _type: string;
-  _id: string;
-  _updatedAt: string;
+  _key: string;
   content: any[];
   image: {
     imageAltText: string;
+    caption: string;
     _type: string;
     asset: {
       _ref: string;
@@ -227,12 +225,11 @@ export type CoolThingItem = {
   itemTitle: string;
   _type: string;
   _key: string;
-  itemImage: {
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-    _type: string;
+  Icon: {
+    provider: string;
+    _type: "iconPicker";
+    name: string;
+    svg: string;
   };
 };
 
@@ -240,11 +237,13 @@ export type CoolThings = {
   _type: "coolThings";
   _key: string;
   image: {
+    imageAltText: string;
+    caption: string;
+    _type: string;
     asset: {
       _ref: string;
       _type: string;
     };
-    _type: string;
   };
   topHeading: string;
   customizeContent: boolean;
@@ -256,16 +255,53 @@ export type CoolThings = {
 };
 
 export type CtaOne = {
-  _type: "";
+  _type: "ctaOne";
+  custpmCtaLinkHref: string;
+  customCtaContent: any[];
+  keyword: Keyword;
+  customCtaLinkText: string;
+  customCtaTitle: string;
+  _key: string;
+  customizeContent: boolean;
 };
-export type Resources = {
-  _type: "";
-};
+
 export type CtaTwo = {
-  _type: "";
+  _type: "ctaTwo";
+  custpmCtaLinkHref: string;
+  customCtaContent: any[];
+  keyword: Keyword;
+  customCtaLinkText: string;
+  customCtaTitle: string;
+  _key: string;
+  customizeContent: boolean;
 };
+
 export type AboutUs = {
-  _type: "";
+  _type: "aboutUs";
+  topHeading: string;
+  _key: string;
+  customizeContent: boolean;
+  keyword: string;
+  secondContent: any[];
+  content: any[];
+  heading: string;
+};
+
+export type Resources = {
+  keyword: Keyword;
+  customContent: any[];
+  customHeadingResources: string;
+  _type: "resources";
+  resources: {
+    resourceLinkHref: string;
+    resourceLinkText: string;
+    _key: string;
+    _type: string;
+    resourceTitle: string;
+  }[];
+  products: null;
+  _key: string;
+  customizeContent: boolean;
 };
 
 export type CornerStonePage = {
@@ -280,6 +316,7 @@ export type CornerStonePage = {
   _createdAt: string;
   _rev: string;
   _id: string;
+  isCornerstone: boolean;
   cornerstonePageSection: Array<
     | HeroSection
     | IntroSection

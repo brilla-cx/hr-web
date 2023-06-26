@@ -50,7 +50,31 @@ export const coolThings = defineType({
       type: "image",
       hidden: ({ parent }) => !parent?.customizeContent,
       description:
-        "An enticing image to accompany the cool thing. Make their eyes scream, 'Yum!'",
+        "Upload a 400px x 400px web-optimized image for the product.",
+      validation: (Rule) =>
+        Rule.required().error("Please upload an image for the product."),
+      fields: [
+        {
+          name: "imageAltText",
+          title: "Image Alt Text",
+          description:
+            "Enter the alternative text for the product's image per A11y.",
+          type: "string",
+          validation: (Rule) =>
+            Rule.required().error(
+              "Please provide alternative text for the product image."
+            ),
+        },
+        {
+          name: "caption",
+          title: "Image Caption",
+          description: "Use this to add your AI prompt or attribute a source.",
+          type: "string",
+        },
+      ],
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
       name: "coolThingsItems",

@@ -53,9 +53,10 @@ function CornerstoneProducts(props: ProductsSection) {
       </div>
       <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">
         <dl className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-          {props?.products?.map((item) => (
-            <ProductCard {...item} key={item._id} />
-          ))}
+          {props?.products &&
+            props?.products?.map((item) => (
+              <ProductCard {...item} key={item._key} />
+            ))}
         </dl>
       </div>
     </div>

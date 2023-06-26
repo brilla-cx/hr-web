@@ -6,14 +6,19 @@ import {
   CornerstoneHero,
   CornerstoneIntro,
   CornerstoneProducts,
+  CornerstoneResources,
   CornerstoneWhoFor,
   CornerstoneWhyShouldCare,
 } from "@/components/Cornerstone";
 import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
-import { getCornerStonePageBySlug } from "@/sanity/client";
+import { getCornerStonePageBySlug, getPaginatedPosts } from "@/sanity/client";
 import { CornerStonePage as CornerStonePageType } from "@/types/types";
 
 async function CornerStonePage({ params }: { params: { slug: string } }) {
+  const posts = await getPaginatedPosts({
+    pageIndex: 1,
+    limit: 4,
+  });
   const pageData = (await getCornerStonePageBySlug(
     params.slug
   )) as unknown as CornerStonePageType;
@@ -67,34 +72,35 @@ async function CornerStonePage({ params }: { params: { slug: string } }) {
               ...cps,
             },
           });
-        // case "whoFor":
-        //   return WithContainer({
-        //     Component: CornerstoneCta1,
-        //     componentProps: {
-        //       ...cps,
-        //     },
-        //   });
-        // case "whoFor":
-        //   return WithContainer({
-        //     Component: CornerstoneResources,
-        //     componentProps: {
-        //       ...cps,
-        //     },
-        //   });
-        // case "whoFor":
-        //   return WithContainer({
-        //     Component: CornerstoneCta2,
-        //     componentProps: {
-        //       ...cps,
-        //     },
-        //   });
-        // case "whoFor":
-        //   return WithContainer({
-        //     Component: CornerstoneAboutUs,
-        //     componentProps: {
-        //       ...cps,
-        //     },
-        //   });
+        case "ctaOne":
+          return WithContainer({
+            Component: CornerstoneCta1,
+            componentProps: {
+              ...cps,
+            },
+          });
+        case "ctaTwo":
+          return WithContainer({
+            Component: CornerstoneCta2,
+            componentProps: {
+              ...cps,
+            },
+          });
+        case "resources":
+          return WithContainer({
+            Component: CornerstoneResources,
+            componentProps: {
+              posts: posts,
+              pageContent: { ...cps },
+            },
+          });
+        case "aboutUs":
+          return WithContainer({
+            Component: CornerstoneAboutUs,
+            componentProps: {
+              ...cps,
+            },
+          });
         default:
           return null;
       }

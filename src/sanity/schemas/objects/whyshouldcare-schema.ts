@@ -54,7 +54,7 @@ const whyShouldCare = defineType({
           ],
           preview: {
             select: {
-              heading: "Heading",
+              heading: "heading",
               icon: "icon",
             },
             prepare: ({ heading, icon }) => {

@@ -1,4 +1,4 @@
-import { FaAccusoft } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import { defineField, defineType } from "sanity";
 
 export const aboutUs = defineType({
@@ -41,24 +41,16 @@ export const aboutUs = defineType({
       type: "blockContent",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
-    defineField({
-      name: "customLinkText",
-      title: "Custom Link Text",
-      type: "string",
-      hidden: ({ parent }) => !parent?.customizeContent,
-    }),
-    defineField({
-      name: "customLinkTextHref",
-      title: "Custom Link Text Href",
-      type: "string",
-      hidden: ({ parent }) => !parent?.customizeContent,
-    }),
   ],
   preview: {
-    prepare: () => {
+    select: {
+      heading: "heading",
+    },
+    prepare: ({ heading }) => {
       return {
-        title: "About Us",
-        media: FaAccusoft,
+        title: heading || "AboutUs",
+        subtitle: "Aboutus Section",
+        media: FaInfoCircle,
       };
     },
   },

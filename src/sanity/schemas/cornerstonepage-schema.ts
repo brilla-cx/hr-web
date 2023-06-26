@@ -24,6 +24,11 @@ export const cornerstonePage = defineType({
   ],
   fields: [
     defineField({
+      name: "isCornerstone",
+      type: "boolean",
+      description: "is this a Cornerstone page",
+    }),
+    defineField({
       name: "title",
       type: "string",
       description: "Cornerstone Page Title",

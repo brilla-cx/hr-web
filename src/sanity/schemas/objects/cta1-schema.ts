@@ -1,4 +1,4 @@
-import { FaAccusoft, FaArrowRight } from "react-icons/fa";
+import { FaHandPointRight } from "react-icons/fa";
 import { defineField, defineType } from "sanity";
 
 const ctaOne = defineType({
@@ -24,17 +24,35 @@ const ctaOne = defineType({
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
     defineField({
-      name: "custpmCtaContent",
+      name: "customCtaContent",
       type: "blockContent",
       description: "Custom cta content",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
+    defineField({
+      name: "customCtaLinkText",
+      type: "string",
+      description:
+        "Custom CTA link text. Choose words that make hearts skip a beat!",
+      hidden: ({ parent }) => !parent?.customizeContent,
+    }),
+    defineField({
+      name: "customCtaLinkHref",
+      type: "string",
+      description:
+        "Custom CTA link href. The magical gateway to exciting adventures!",
+      hidden: ({ parent }) => !parent?.customizeContent,
+    }),
   ],
   preview: {
-    prepare: () => {
+    select: {
+      customHeading: "customHeading",
+    },
+    prepare: ({ customHeading }) => {
       return {
-        title: "Cta one section",
-        media: FaArrowRight,
+        title: customHeading || "CTA One",
+        subtitle: "CTA One Section",
+        media: FaHandPointRight,
       };
     },
   },

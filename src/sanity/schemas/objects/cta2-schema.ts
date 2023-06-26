@@ -36,14 +36,14 @@ const ctaTwo = defineType({
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
     defineField({
-      name: "custpmCtaLinkText",
+      name: "customCtaLinkText",
       type: "string",
       description:
         "Custom CTA link text. Choose words that make hearts skip a beat!",
       hidden: ({ parent }) => !parent?.customizeContent,
     }),
     defineField({
-      name: "custpmCtaLinkHref",
+      name: "customCtaLinkHref",
       type: "string",
       description:
         "Custom CTA link href. The magical gateway to exciting adventures!",
@@ -56,8 +56,8 @@ const ctaTwo = defineType({
     },
     prepare: ({ customHeading }) => {
       return {
-        title: customHeading || "CTA ONE",
-        subtitle: "CTA ONE Section",
+        title: customHeading || "CTA Two",
+        subtitle: "CTA TWO Section",
         media: FaHandPointRight,
       };
     },
