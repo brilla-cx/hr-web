@@ -16,7 +16,7 @@ import {
 import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
 import { CornerStonePage as CornerStonePageType } from "@/types/types";
 
-function CornerStonePage(pageData: CornerStonePageType) {
+function DynamicPage(pageData: CornerStonePageType) {
   const nextSectionRef = useRef<HTMLDivElement>(null);
 
   const renderPageSections = () => {
@@ -107,4 +107,4 @@ function CornerStonePage(pageData: CornerStonePageType) {
   return <div>{renderPageSections()}</div>;
 }
 
-export default CornerStonePage;
+export default DynamicPage;

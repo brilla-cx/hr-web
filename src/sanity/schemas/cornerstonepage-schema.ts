@@ -48,7 +48,6 @@ export const cornerstonePage = defineType({
       type: "reference",
       to: [{ type: "keyword" }],
     }),
-
     defineField({
       name: "cornerstonePageSection",
       type: "array",
@@ -102,6 +101,17 @@ export const cornerstonePage = defineType({
       title: "SEO",
       type: "seo",
       group: "seo",
+    }),
+    defineField({
+      name: "associatedPage",
+      title: "Associated Page",
+      type: "reference",
+      to: [{ type: "cornerstonePage" }],
+      options: {
+        filter: ({ document }) => ({
+          filter: "isCornerstone == true",
+        }),
+      },
     }),
   ],
 });
