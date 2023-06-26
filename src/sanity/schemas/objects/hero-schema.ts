@@ -31,7 +31,7 @@ export const hero = defineType({
       type: "blockContent",
       description:
         "The body of knowledge that fills the hero section. Craft your tale, spin your yarn, and enchant all who dare to gaze upon it.",
-      hidden: ({ parent }) => !parent?.customizeContent,
+      validation: (Rule) => Rule.required().error("Content is required"),
     }),
     defineField({
       name: "customLinkText",
