@@ -39,7 +39,7 @@ export default function PublishAndRedirect(props: DocumentActionProps) {
     validation.validation.filter((v) => v.level === "error").length === 0;
 
   const [isPublishing, setIsPublishing] = useState(false);
-  const draftPath = resolveProductionPath(props.draft);
+  const draftPath = props.published && resolveProductionPath(props.draft);
   const publishedPath = resolveProductionPath(props.published);
 
   useEffect(() => {
