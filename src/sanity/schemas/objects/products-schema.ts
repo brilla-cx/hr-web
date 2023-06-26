@@ -32,7 +32,6 @@ export const products = defineType({
       name: "customContent",
       title: "Custom Content",
       type: "blockContent",
-      hidden: ({ parent }) => !parent?.customizeContent,
       description:
         "Customize the content for this section. Tell a compelling story about your products!",
     }),

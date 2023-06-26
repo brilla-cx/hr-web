@@ -179,7 +179,7 @@ export type ProductsSection = {
   customHeading: string;
   _key: string;
   customizeContent: boolean;
-  keyword: null;
+  keyword: Keyword;
   products: Array<ProductItem>;
 };
 
