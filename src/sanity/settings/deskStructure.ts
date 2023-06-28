@@ -1,5 +1,6 @@
 import {
   FaArchive,
+  FaBolt,
   FaBook,
   FaFeatherAlt,
   FaFileAlt,
@@ -51,6 +52,14 @@ export const structure = (S, context) => {
       createListItem(S, documentStore, "Quizesseses", FaListUl, "quiz"),
       createListItem(S, documentStore, "Quotes", FaQuoteLeft, "quote"),
       S.divider(),
+      createListItem(
+        S,
+        documentStore,
+        "Static Pages",
+        FaBolt,
+        "cornerstonePage",
+      ),
+      S.divider(),
       createListItem(S, documentStore, "Legal Pages", FaFileAlt, "legal"),
       S.divider(),
       createListItem(
@@ -59,14 +68,6 @@ export const structure = (S, context) => {
         "Rebekah's Old Blogs",
         FaArchive,
         "socialBlog"
-      ),
-      S.divider(),
-      createListItem(
-        S,
-        documentStore,
-        "CornerStone Pages",
-        FaArchive,
-        "cornerstonePage"
       ),
     ]);
 };
@@ -77,8 +78,8 @@ function getPreviewUrl(doc) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : process.env.NODE_ENV === "production"
-      ? SITE_URL
-      : `https://${process.env.VERCEL_URL}`;
+        ? SITE_URL
+        : `https://${process.env.VERCEL_URL}`;
 
   const TYPE_LOOKUP = {
     post: "gists",
@@ -86,7 +87,7 @@ function getPreviewUrl(doc) {
     tool: "built-with",
     book: "books",
     legal: "",
-    cornerstonePage: "ai",
+    cornerstonePage: "",
   };
 
   const type = TYPE_LOOKUP[doc._type] || doc._type;

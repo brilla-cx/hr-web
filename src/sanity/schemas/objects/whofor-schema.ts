@@ -4,7 +4,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 const whoFor = defineType({
   name: "whoFor",
   title: "Who for",
-  type: "document",
+  type: "object",
   fields: [
     defineField({
       name: "keyword",

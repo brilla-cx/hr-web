@@ -329,4 +329,8 @@ export type CornerStonePage = {
     | CtaTwo
     | AboutUs
   >;
+  preview?: {
+    title: string;
+    subtitle: string;
+  },
 };

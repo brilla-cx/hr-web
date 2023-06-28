@@ -4,7 +4,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 const resources = defineType({
   name: "resources",
   title: "Resources",
-  type: "document",
+  type: "object",
   fields: [
     defineField({
       name: "keyword",

@@ -1,18 +1,12 @@
+import { FaBolt } from "react-icons/fa";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const cornerstonePage = defineType({
   name: "cornerstonePage",
   type: "document",
   title: "CornerStone Pages",
+  icon: FaBolt,
   groups: [
-    {
-      name: "seo",
-      title: "SEO",
-    },
-    {
-      name: "hero",
-      title: "Hero",
-    },
     {
       name: "compose",
       title: "Compose",
@@ -21,18 +15,25 @@ export const cornerstonePage = defineType({
       name: "section",
       title: "Sections",
     },
+    {
+      name: "seo",
+      title: "SEO",
+    },
   ],
   fields: [
     defineField({
       name: "isCornerstone",
       type: "boolean",
-      description: "is this a Cornerstone page",
+      description: "Is this a cornerstone page?",
+      group: "compose",
     }),
     defineField({
       name: "title",
       type: "string",
-      description: "Cornerstone Page Title",
-      group: "seo",
+      description: "Enter an SEO optimized page title.",
+      validation: (Rule) =>
+        Rule.max(58).error("Title should be 58 characters or less."),
+      group: ["compose", "seo",]
     }),
     defineField({
       name: "slug",
@@ -51,7 +52,7 @@ export const cornerstonePage = defineType({
     defineField({
       name: "cornerstonePageSection",
       type: "array",
-      title: "Cornerstone page sections",
+      title: "Page Sections",
       group: "section",
       of: [
         defineArrayMember({
@@ -104,14 +105,27 @@ export const cornerstonePage = defineType({
     }),
     defineField({
       name: "associatedPage",
-      title: "Associated Page",
+      title: "Associated Cornerstone",
       type: "reference",
+      description: "Since this isn't a cornerstone, you need to associate it to one.",
       to: [{ type: "cornerstonePage" }],
-      options: {
-        filter: ({ document }) => ({
-          filter: "isCornerstone == true",
-        }),
-      },
+      hidden: ({ document }) => document?.isCornerstone == true,
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      isCornerstone: 'isCornerstone',
+      keyword: 'keyword.keyword',
+    },
+    prepare({ title, isCornerstone, keyword }) {
+      const subtitle = isCornerstone ? 'Cornerstone' : 'Pillar';
+      const keywordTitle = keyword || '';
+
+      return {
+        title,
+        subtitle: `${subtitle} page with keyword: ${keywordTitle}`,
+      };
+    },
+  },
 });

@@ -4,7 +4,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 const whyShouldCare = defineType({
   name: "whyShouldCare",
   title: "Why should care",
-  type: "document",
+  type: "object",
   fields: [
     defineField({
       name: "keyword",

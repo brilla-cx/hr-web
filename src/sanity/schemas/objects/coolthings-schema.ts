@@ -4,7 +4,7 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 export const coolThings = defineType({
   name: "coolThing",
   title: "Cool Things",
-  type: "document",
+  type: "object",
   fields: [
     defineField({
       name: "keyword",
