@@ -22,6 +22,13 @@ export const cornerstonePage = defineType({
   ],
   fields: [
     defineField({
+      name: "keyword",
+      title: "Keyword",
+      group: ["compose", "seo",],
+      type: "reference",
+      to: [{ type: "keyword" }],
+    }),
+    defineField({
       name: "isCornerstone",
       type: "boolean",
       description: "Is this a cornerstone page?",
@@ -40,14 +47,8 @@ export const cornerstonePage = defineType({
       title: "Slug",
       description: "The slug of the page.",
       type: "slug",
-      group: "compose",
+      group: ["compose", "seo",],
       options: { source: "title", maxLength: 96 },
-    }),
-    defineField({
-      name: "keyword",
-      title: "Keyword",
-      type: "reference",
-      to: [{ type: "keyword" }],
     }),
     defineField({
       name: "cornerstonePageSection",
