@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-bind */
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useCallback, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 import Turnstile from "react-turnstile";
 
@@ -13,7 +13,6 @@ import { cx } from "@/lib/utils";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/signupStepperForm";
 
 function EmailForm({
-  step,
   nextStep,
 }: {
   step: number;
@@ -31,30 +30,26 @@ function EmailForm({
 
   const { setEmail } = useSignupContext();
 
-  const onSubmit = useCallback(
-    async (data: EmailInfo) => {
-      setLoading(true);
-      if (!verified) {
-        return;
-      }
-      try {
-        setLoading(false);
-        setEmail(data);
-        await addUserToList(data.email)
-          .then(() => {
-            nextStep((prev) => prev + 1);
-          })
-          .catch(() => {
-            throw new Error("Fail to send to iterable");
-          });
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [verified]
-  );
+  async function onSubmit(data: EmailInfo) {
+    setLoading(true);
+    if (!verified) {
+      return;
+    }
+    try {
+      setEmail(data);
+      await addUserToList(data.email)
+        .then(() => {
+          nextStep((prev) => prev + 1);
+        })
+        .catch(() => {
+          throw new Error("Fail to send to iterable");
+        });
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  }
 
   return (
     <>
@@ -70,7 +65,7 @@ function EmailForm({
             <>
               <label htmlFor="email">Email</label>
               <input
-                className="w-full px-2 py-2 text-white border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-gray-600 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
                 placeholder="Enter your email"
                 aria-label="Enter your email address to subscribe"
                 {...register("email")}
@@ -81,7 +76,7 @@ function EmailForm({
                 </div>
               )}
 
-              <div className="flex justify-center mt-10">
+              <div className="mt-10 flex justify-center">
                 <GlowingButton
                   ariaLabel="Go to next step"
                   type="submit"
@@ -91,9 +86,14 @@ function EmailForm({
               </div>
             </>
           ) : (
-            <p className="text-center text-gray-200">loading...</p>
+            <div className="space-y-3 text-center text-gray-400">
+              <p>
+                We're diligently verifying the legitimacy of your awesomeness.
+              </p>
+              <p>Hold on tight!</p>
+            </div>
           )}
-          <p className="mt-6 text-xs leading-6 text-center text-gray-400">
+          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
             We care about your{" "}
             <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
               privacy

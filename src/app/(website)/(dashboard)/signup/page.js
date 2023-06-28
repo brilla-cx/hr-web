@@ -3,7 +3,6 @@ import { SITE_URL } from "@/lib/constants";
 
 import SignupHeader from "../components/SignupHeader/SignupHeader";
 import SignupStepperForm from "../components/SignupStepForm/SignupStepperForm";
-import SignupForm from "./SignupForm/SignupForm";
 
 export default function Page() {
   return (
@@ -11,13 +10,13 @@ export default function Page() {
       <Container large className="">
         <div className="mt-16">
           <SignupHeader title="Sign Up" />
-          {/* <SignupForm /> */}
           <SignupStepperForm />
         </div>
       </Container>
     </>
   );
 }
+
 export function generateMetadata() {
   const title = "Sign Up";
   const description =

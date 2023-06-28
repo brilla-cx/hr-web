@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useState } from "react";
 
 import { updateUser } from "@/lib/server/actions";
@@ -16,7 +17,9 @@ type SignupContextType = {
 };
 
 const SignupContext = createContext<SignupContextType>({
+  // eslint-disable-next-line no-empty-function
   setEmail: () => {},
+  // eslint-disable-next-line no-empty-function
   setFirstName: () => {},
   onSubmitAll: () => Promise.resolve(),
   firstName: {
@@ -28,6 +31,7 @@ const SignupContext = createContext<SignupContextType>({
 });
 
 export default function SignupContextProvider({ children }) {
+  const router = useRouter();
   const [email, setEmail] = useState<EmailInfo>({
     email: "",
   });
@@ -44,6 +48,7 @@ export default function SignupContextProvider({ children }) {
       await updateUser(signUpData).catch(() => {
         throw new Error("Fail to send to iterable");
       });
+      router.push("/signup/confirm");
     } catch (error) {
       console.error(error);
     }
