@@ -4,7 +4,7 @@ import Turnstile from "react-turnstile";
 
 import { GlowingButton, Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
-
+import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 function ConfirmForm() {
   const [loading, setLoading] = useState<boolean>(false);
   const { onSubmitAll, firstName } = useSignupContext();
@@ -68,7 +68,7 @@ function ConfirmForm() {
     <Fragment>
       {renderFormContent()}
       <Turnstile
-        sitekey="0x4AAAAAAAGJ7_kuqkyXcbDb"
+        sitekey={CLOUDFLARE_SITE_KEY}
         onVerify={async (token) => {
           // Simulating verification process delay
           await new Promise((resolve) => setTimeout(resolve, 3000));

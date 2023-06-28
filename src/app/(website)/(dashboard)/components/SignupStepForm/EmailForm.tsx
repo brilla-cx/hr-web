@@ -7,6 +7,7 @@ import Turnstile from "react-turnstile";
 
 import { GlowingButton, Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
+import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
 import { addUserToList } from "@/lib/server/actions";
 import { cx } from "@/lib/utils";
@@ -101,7 +102,7 @@ function EmailForm({
             .
           </p>
           <Turnstile
-            sitekey="0x4AAAAAAAGJ7_kuqkyXcbDb"
+            sitekey={CLOUDFLARE_SITE_KEY}
             onVerify={async (token) => {
               await fetch("/api/turnstile-verify", {
                 method: "POST",
