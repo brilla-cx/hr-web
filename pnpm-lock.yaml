@@ -122,6 +122,9 @@ dependencies:
   react-textra:
     specifier: ^0.2.0
     version: 0.2.0
+  react-turnstile:
+    specifier: ^1.1.1
+    version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
   react-wrap-balancer:
     specifier: ^0.5.0
     version: 0.5.0(react@18.2.0)
@@ -12706,6 +12709,16 @@ packages:
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-turnstile@1.1.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-oUxMFUKmYm655yqbGDreqshyMtzgNdpmeKprRGpEzsTfhE1lXO0MmSBpiRS+6TxXYxLEipwnS7vR9Q88dbeHWg==}
+    peerDependencies:
+      react: '>= 17.0.0'
+      react-dom: '>= 17.0.0'
+    dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
