@@ -12,7 +12,6 @@ function ConfirmForm() {
 
   async function onSubmit() {
     if (!verified) {
-      // If verification is not completed yet, prevent form submission
       return;
     }
     setLoading(true);
@@ -70,9 +69,14 @@ function ConfirmForm() {
       <Turnstile
         sitekey={CLOUDFLARE_SITE_KEY}
         onVerify={async (token) => {
-          // Simulating verification process delay
-          await new Promise((resolve) => setTimeout(resolve, 3000));
           if (token) {
+            await fetch("/api/turnstile-verify", {
+              method: "POST",
+              body: JSON.stringify({ token }),
+              headers: {
+                "content-type": "application/json",
+              },
+            });
             setVerified(true);
           }
         }}

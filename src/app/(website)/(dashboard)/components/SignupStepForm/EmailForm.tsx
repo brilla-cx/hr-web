@@ -104,14 +104,14 @@ function EmailForm({
           <Turnstile
             sitekey={CLOUDFLARE_SITE_KEY}
             onVerify={async (token) => {
-              await fetch("/api/turnstile-verify", {
-                method: "POST",
-                body: JSON.stringify({ token }),
-                headers: {
-                  "content-type": "application/json",
-                },
-              });
               if (token) {
+                await fetch("/api/turnstile-verify", {
+                  method: "POST",
+                  body: JSON.stringify({ token }),
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                });
                 setVerified(true);
               }
             }}

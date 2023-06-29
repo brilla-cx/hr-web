@@ -15,6 +15,25 @@ export const FirstNameStepSchema = z.object({
 
 export type EmailInfo = z.infer<typeof EmailStepSchema>;
 export type FirstNameInfo = z.infer<typeof FirstNameStepSchema>;
+export const TopicsSchema = z.array(
+  z.enum([
+    "Accounting/Finance",
+    "Artificial Intelligence",
+    "Business Consulting",
+    "Copywriting",
+    "Creative",
+    "Design",
+    "Customer Service",
+    "Digital Marketing",
+    "Project Management",
+    "Running Your Business",
+    "SEO",
+    "Social Media Management",
+    "Web/Mobile/Software",
+    "Other",
+  ])
+);
 
 export const SignupInfoSchema = EmailStepSchema.merge(FirstNameStepSchema);
 export type SignupData = z.infer<typeof SignupInfoSchema>;
+
