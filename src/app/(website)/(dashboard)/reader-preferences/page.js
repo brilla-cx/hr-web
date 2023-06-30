@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container/Container";
 import { SITE_URL } from "@/lib/constants";
 
 import SignupHeader from "../components/SignupHeader/SignupHeader";
-import PreferencesForm from "./PreferencesForm/PreferencesForm";
+import PrefrencesForm2 from "./PreferencesForm/PrefrencesForm2";
 
 export function generateMetadata() {
   const title = "Reader Prefrences";
@@ -35,7 +35,8 @@ export default function Page() {
     <Container large className="">
       <div className="mt-16">
         <SignupHeader title="Personalization FTW!" />
-        <PreferencesForm />
+        {/* <PreferencesForm /> */}
+        <PrefrencesForm2 />
       </div>
     </Container>
   );

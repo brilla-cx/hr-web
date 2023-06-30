@@ -24,12 +24,7 @@ export enum TopicEnum {
 type PreferenceContextType = {
   email: EmailInfo;
   firstName: FirstNameInfo;
-  topics:
-    | {
-        primary: boolean;
-        topic: TopicEnum;
-      }[]
-    | null;
+  topic1: TopicEnum | null;
 };
 
 const PreferenceContext = createContext<PreferenceContextType>({
@@ -39,26 +34,32 @@ const PreferenceContext = createContext<PreferenceContextType>({
   email: {
     email: "",
   },
-  topics: null,
+  topic1: null,
 });
 
 function PerferencesContextProvider({ children }) {
-  const [email, setEmail] = useState<EmailInfo>({
-    email: "",
+  const [formData, setFormData] = useState<{
+    email: EmailInfo;
+    firstName: FirstNameInfo;
+    topic1: TopicEnum | null;
+  }>({
+    email: {
+      email: "",
+    },
+    firstName: {
+      firstName: "",
+    },
+    topic1: null,
   });
-  const [firstName, setFirstName] = useState<FirstNameInfo>({
-    firstName: "",
-  });
-  const [topics, setTopics] = useState<
-    { primary: boolean; topic: TopicEnum }[] | null
-  >(null);
+
+  const { email, firstName, topic1 } = formData;
 
   return (
     <PreferenceContext.Provider
       value={{
         email,
         firstName,
-        topics,
+        topic1,
       }}>
       {children}
     </PreferenceContext.Provider>

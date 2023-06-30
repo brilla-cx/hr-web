@@ -1,6 +1,4 @@
-/* eslint-disable no-console */
 "use client";
-
 import { useState } from "react";
 
 import SignupContextProvider from "@/context/SignupContext";
@@ -15,9 +13,9 @@ const SignupStepperForm = () => {
   function renderFormSteps() {
     switch (step) {
       case 1:
-        return <EmailForm step={step} nextStep={setStep} />;
+        return <EmailForm nextStep={setStep} />;
       case 2:
-        return <FirstNameForm step={step} nextStep={setStep} />;
+        return <FirstNameForm nextStep={setStep} />;
       // todo add topics
       case 3:
         return <ConfirmForm />;

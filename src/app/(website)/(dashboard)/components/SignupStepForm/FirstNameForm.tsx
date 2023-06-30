@@ -12,7 +12,6 @@ import {
 function FirstNameForm({
   nextStep,
 }: {
-  step: number;
   nextStep: Dispatch<SetStateAction<number>>;
 }) {
   const [loading, setLoading] = useState<boolean>(false);
@@ -47,7 +46,7 @@ function FirstNameForm({
           <input
             placeholder="Enter your first name"
             aria-label="What's your first name?."
-            className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
+            className="w-full px-2 py-2 text-white border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-gray-600 focus:border-pink focus:ring-pink"
             {...register("firstName")}
           />
           {errors.firstName && (
@@ -55,7 +54,7 @@ function FirstNameForm({
               <small>{errors.firstName.message}</small>
             </div>
           )}
-          <div className="mt-10 flex justify-center">
+          <div className="flex justify-center mt-10">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               {loading ? "hold on ...." : "Next"}
             </GlowingButton>
