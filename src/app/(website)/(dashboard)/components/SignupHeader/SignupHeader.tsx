@@ -6,7 +6,7 @@ import RotatingText from "../RotatingText/RotatingText";
 
 interface PageHeaderProps {
   title: string;
-  leadText: string;
+  leadText?: string;
 }
 
 const testimonialArray = [

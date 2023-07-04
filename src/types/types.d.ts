@@ -1,3 +1,13 @@
+/* eslint-disable no-unused-vars */
+import { Dispatch, SetStateAction } from "react";
+
+import {
+  FirstNameInfo,
+  OtherTopicInfo,
+  PrimaryTopicInfo,
+} from "@/lib/validation/validations";
+import { EmailInfo } from "@/lib/validation/validations";
+
 export interface Tools {
   image: {
     imageAltText: string;
@@ -125,3 +135,20 @@ export interface Metadata {
     images: string;
   };
 }
+
+export type PreferenceContextType = {
+  data: {
+    email: EmailInfo;
+    dataFields: {
+      firstName: FirstNameInfo;
+      topic1: Pick<PrimaryTopicInfo, "topic1">;
+      topic2: string;
+      topic3: string;
+      topic4: string;
+    };
+  };
+  setPreferencesData: (newFormData: PreferenceContextState) => void;
+  setFormData: Dispatch<SetStateAction<PreferenceContextState>>;
+};
+
+export type PreferenceContextState = Pick<PreferenceContextType, "data">;

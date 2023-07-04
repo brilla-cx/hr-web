@@ -2,8 +2,6 @@
 
 import { ITERABLE_LIST_ID, ITERABLE_TOKEN } from "@/lib/constants";
 
-import { SignupData } from "../validation/signupStepperForm";
-
 export async function addUserToList(email: string) {
   if (!email) return false;
 
@@ -49,7 +47,7 @@ export async function getUserInfo(email: string) {
   if (!email) return false;
 
   try {
-    const url = `https://api.iterable.com/api/users/getByEmail?email=${email}`;
+    const url = `https://api.iterable.com/api/users/${email}`;
 
     const response = await fetch(url, {
       headers: {
@@ -68,16 +66,23 @@ export async function getUserInfo(email: string) {
   }
 }
 
-export async function updateUser(data: SignupData) {
-  if (!data.email) return false;
+export async function updateUser(
+  email: string,
+  data: {
+    firstName: string;
+    topic1: string;
+    topic2: string;
+    topic3: string;
+    topic4: string;
+  }
+) {
+  const postdata = {
+    email: email,
+    dataFields: data,
+  };
 
   try {
     const url = "https://api.iterable.com/api/users/update";
-
-    const postdata = {
-      email: data.email,
-      dataFields: data,
-    };
 
     const response = await fetch(url, {
       method: "POST",

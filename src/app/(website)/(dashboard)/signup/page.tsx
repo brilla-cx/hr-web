@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container/Container";
 import { SITE_URL } from "@/lib/constants";
 
 import SignupHeader from "../components/SignupHeader/SignupHeader";
-import SignupStepperForm from "../components/SignupStepForm/SignupStepperForm";
+import SignupStepperForm from "./components/SignupStepperForm";
 
 export default function Page() {
   return (

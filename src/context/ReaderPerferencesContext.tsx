@@ -1,65 +1,43 @@
-/* eslint-disable no-unused-vars */
 import { createContext, useContext, useState } from "react";
 
-import { EmailInfo, FirstNameInfo } from "@/lib/validation/signupStepperForm";
+import { PreferenceContextState, PreferenceContextType } from "@/types/types";
 
-// eslint-disable-next-line no-shadow
-export enum TopicEnum {
-  AccountingFinance = "Accounting/Finance",
-  ArtificialIntelligence = "Artificial Intelligence",
-  BusinessConsulting = "Business Consulting",
-  Copywriting = "Copywriting",
-  Creative = "Creative",
-  Design = "Design",
-  CustomerService = "Customer Service",
-  DigitalMarketing = "Digital Marketing",
-  ProjectManagement = "Project Management",
-  RunningYourBusiness = "Running Your Business",
-  SEO = "SEO",
-  SocialMediaManagement = "Social Media Management",
-  WebMobileSoftware = "Web/Mobile/Software",
-  Other = "Other",
-}
-
-type PreferenceContextType = {
-  email: EmailInfo;
-  firstName: FirstNameInfo;
-  topic1: TopicEnum | null;
+const initalData = {
+  email: { email: "" },
+  dataFields: {
+    firstName: { firstName: "" },
+    topic1: { topic1: "" },
+    topic2: "",
+    topic3: "",
+    topic4: "",
+  },
 };
 
 const PreferenceContext = createContext<PreferenceContextType>({
-  firstName: {
-    firstName: "",
-  },
-  email: {
-    email: "",
-  },
-  topic1: null,
+  data: initalData,
+  setPreferencesData: () => {},
+  setFormData: () => {},
 });
 
 function PerferencesContextProvider({ children }) {
-  const [formData, setFormData] = useState<{
-    email: EmailInfo;
-    firstName: FirstNameInfo;
-    topic1: TopicEnum | null;
-  }>({
-    email: {
-      email: "",
-    },
-    firstName: {
-      firstName: "",
-    },
-    topic1: null,
+  const [formData, setFormData] = useState<PreferenceContextState>({
+    data: initalData,
   });
 
-  const { email, firstName, topic1 } = formData;
+  const { data } = formData;
+
+  const setPreferencesData = (newFormData: PreferenceContextState) => {
+    setFormData((prevFormData) => ({ ...prevFormData, ...newFormData }));
+  };
+
+  console.log(data);
 
   return (
     <PreferenceContext.Provider
       value={{
-        email,
-        firstName,
-        topic1,
+        data,
+        setPreferencesData,
+        setFormData,
       }}>
       {children}
     </PreferenceContext.Provider>

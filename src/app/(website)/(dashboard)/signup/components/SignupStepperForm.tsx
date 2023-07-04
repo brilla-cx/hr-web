@@ -16,7 +16,6 @@ const SignupStepperForm = () => {
         return <EmailForm nextStep={setStep} />;
       case 2:
         return <FirstNameForm nextStep={setStep} />;
-      // todo add topics
       case 3:
         return <ConfirmForm />;
       default:

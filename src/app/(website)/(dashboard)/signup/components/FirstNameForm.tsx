@@ -7,7 +7,7 @@ import { useSignupContext } from "@/context/SignupContext";
 import {
   FirstNameInfo,
   FirstNameStepSchema,
-} from "@/lib/validation/signupStepperForm";
+} from "@/lib/validation/validations";
 
 function FirstNameForm({
   nextStep,

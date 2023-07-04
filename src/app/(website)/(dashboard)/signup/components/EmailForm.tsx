@@ -11,7 +11,7 @@ import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
 import { addUserToList } from "@/lib/server/actions";
 import { cx } from "@/lib/utils";
-import { EmailInfo, EmailStepSchema } from "@/lib/validation/signupStepperForm";
+import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
 
 function EmailForm({
   nextStep,

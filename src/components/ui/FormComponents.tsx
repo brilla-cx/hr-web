@@ -64,7 +64,7 @@ interface SelectProps {
 export function Select({ children, size = "md", ...rest }: SelectProps) {
   return (
     <div className="relative">
-      <FaChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 " />
+      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2 " />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
@@ -118,7 +118,7 @@ export function Checkbox({
   ...rest
 }: CheckboxProps) {
   return (
-    <label className="inline-flex w-full items-center gap-4 rounded border border-gray-600 bg-slate-900 px-4 py-2 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
+    <label className="inline-flex items-center w-full gap-4 px-4 py-2 border border-gray-600 rounded bg-slate-900 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
       <input
         type="checkbox"
         name={name}
@@ -156,10 +156,9 @@ export function Radio({
   ...rest
 }: RadioProps) {
   return (
-    <label className="inline-flex w-full items-center gap-4 rounded border border-gray-600 bg-slate-900 px-4 py-2 focus-within:border-2 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
+    <label className="inline-flex items-center w-full gap-4 px-4 py-2 border border-gray-600 rounded bg-slate-900 focus-within:border-2 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
       <input
         type="radio"
-        name={name}
         {...(register && register(name, validations))}
         className={cx(
           "h-4 w-4 appearance-none rounded border-2 text-pink focus:border-pink focus:ring-pink",
@@ -185,7 +184,7 @@ const BackButton = ({ onClick }) => {
         darkStyles,
         "mr-4 flex items-center justify-center focus:outline-none"
       )}
-      onClick={onClick}>
+      onClick={() => onClick()}>
       <FaCaretLeft className={`mr-2 ${caretStyles}`} />
       Back
     </button>

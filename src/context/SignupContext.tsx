@@ -6,7 +6,7 @@ import {
   EmailInfo,
   FirstNameInfo,
   SignupData,
-} from "@/lib/validation/signupStepperForm";
+} from "@/lib/validation/validations";
 
 type SignupContextType = {
   email: EmailInfo;
