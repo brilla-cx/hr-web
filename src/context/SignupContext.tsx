@@ -2,11 +2,7 @@ import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useState } from "react";
 
 import { updateUser } from "@/lib/server/actions";
-import {
-  EmailInfo,
-  FirstNameInfo,
-  SignupData,
-} from "@/lib/validation/validations";
+import { EmailInfo, FirstNameInfo } from "@/lib/validation/validations";
 
 type SignupContextType = {
   email: EmailInfo;
@@ -41,11 +37,13 @@ export default function SignupContextProvider({ children }) {
 
   const onSubmitAll = async () => {
     try {
-      const signUpData: SignupData = {
-        ...email,
-        ...firstName,
-      };
-      await updateUser(signUpData).catch(() => {
+      await updateUser(email.email, {
+        firstName: firstName.firstName,
+        topic1: "",
+        topic2: "",
+        topic3: "",
+        topic4: "",
+      }).catch(() => {
         throw new Error("Fail to send to iterable");
       });
       router.push("/signup/confirm");

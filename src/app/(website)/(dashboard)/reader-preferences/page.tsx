@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container/Container";
 import { SITE_URL } from "@/lib/constants";
 
 import SignupHeader from "../components/SignupHeader/SignupHeader";
-import PrefrencesForm from "./components/PrefrencesForm";
+import PrefrencesForm from "./components/PreferencesForm/PreferencesForm";
 
 export function generateMetadata() {
   const title = "Reader Prefrences";

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Turnstile from "react-turnstile";
 
 import { GlowingButton, Lead } from "@/components/ui";
+import { Skeleton } from "@/components/ui/skeleton";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import { getUserInfo } from "@/lib/server/actions";
@@ -52,9 +53,6 @@ export default function EmailForm({
               },
             },
           };
-
-          console.log(res);
-
           setPreferencesData(userInfo);
           setLoading(false);
           nextStep((prev) => prev + 1);
@@ -66,16 +64,16 @@ export default function EmailForm({
   }
 
   return (
-    <>
-      <div className="">
-        <Lead className="text-center text-gray-200">
-          Enter your email address
-        </Lead>
-      </div>
-      <div className="mt-5">
+     
+      <div >
         <form id="email" onSubmit={handleSubmit(onSubmit)}>
           {verified ? (
             <>
+             <div className="mb-5">
+        <Lead className="text-center text-gray-200">
+          Enter your email address
+        </Lead>
+          </div>
               <label className="sr-only">Email Address</label>
               <input
                 type="text"
@@ -88,7 +86,6 @@ export default function EmailForm({
                   <small>{errors.email.message}</small>
                 </div>
               )}
-
               <div className="flex justify-center mt-10">
                 <GlowingButton
                   type="submit"
@@ -104,13 +101,13 @@ export default function EmailForm({
             </>
           ) : (
             <div className="space-y-3 text-center text-gray-400">
-              <p>
-                We're diligently verifying the legitimacy of your awesomeness.
-              </p>
-              <p>Hold on tight!</p>
+              <div className="flex flex-col items-center gap-5">
+                <Skeleton className="w-1/2 h-5" />
+                <Skeleton className="w-full h-10" />
+                <Skeleton className="w-1/2 h-10" />
+              </div>
             </div>
           )}
-
           <Turnstile
             sitekey={CLOUDFLARE_SITE_KEY}
             // eslint-disable-next-line react/jsx-no-bind
@@ -130,6 +127,5 @@ export default function EmailForm({
           />
         </form>
       </div>
-    </>
   );
 }
