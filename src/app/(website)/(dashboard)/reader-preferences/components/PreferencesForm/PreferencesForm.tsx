@@ -1,9 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, Fragment, SetStateAction, useState } from "react";
 import Turnstile from "react-turnstile";
 
 import { GlowingButton, Lead } from "@/components/ui";
+import { Skeleton } from "@/components/ui/skeleton";
 import PerferencesContextProvider, {
   usePreferenceContext,
 } from "@/context/ReaderPerferencesContext";
@@ -40,6 +41,34 @@ function FormSubmit({
     router.push("/signup/confirm");
   };
 
+  const renderFormContent = () => {
+    if (!verified) {
+      return (
+        <Fragment>
+          <div className="mt-5 space-y-3 text-center text-gray-400">
+            <div className="flex flex-col items-center gap-5">
+              <Skeleton className="h-10 w-1/2" />
+            </div>
+          </div>
+        </Fragment>
+      );
+    }
+
+    return (
+      <div className="mt-10 flex justify-center">
+        <GlowingButton
+          type="submit"
+          autoWidth
+          // @ts-ignore
+          onClick={submitForm}
+          disabled={loading}
+          aria-label="Submit form">
+          {(loading && "Just a sec...") || "Update my Preferences"}
+        </GlowingButton>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className="">
@@ -52,17 +81,7 @@ function FormSubmit({
         </p>
       </div>
 
-      <div className="flex justify-center mt-10">
-        <GlowingButton
-          type="submit"
-          autoWidth
-          // @ts-ignore
-          onClick={submitForm}
-          disabled={loading}
-          aria-label="Submit form">
-          {(loading && "Just a sec...") || "Update my Preferences"}
-        </GlowingButton>
-      </div>
+      {renderFormContent()}
 
       <Turnstile
         sitekey={CLOUDFLARE_SITE_KEY}
@@ -85,7 +104,7 @@ function FormSubmit({
 }
 
 const PreferencesForm = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(5);
 
   function renderFormStep() {
     switch (step) {
@@ -108,7 +127,7 @@ const PreferencesForm = () => {
 
   return (
     <PerferencesContextProvider>
-      <div className="max-w-xl mx-auto mt-12 mb-48">{renderFormStep()}</div>
+      <div className="mx-auto mb-48 mt-12 max-w-xl">{renderFormStep()}</div>
     </PerferencesContextProvider>
   );
 };

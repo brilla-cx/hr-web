@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import Turnstile from "react-turnstile";
 
 import { GlowingButton, Lead } from "@/components/ui";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSignupContext } from "@/context/SignupContext";
 import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 
@@ -29,15 +30,12 @@ function ConfirmForm() {
     if (!verified) {
       return (
         <Fragment>
-          <div className="mb-4 text-center text-gray-400">
-            <p>
-              We are diligently collecting your data while our hamsters spin the
-              verification wheel.
-            </p>
-            <p>Hang tight, we're almost there!</p>
-          </div>
-          <div className="flex justify-center">
-            <div className="lds-dual-ring" />
+          <div className="space-y-3 text-center text-gray-400">
+            <div className="flex flex-col items-center gap-5">
+              <Skeleton className="h-5 w-1/2" />
+              <Skeleton className="h-5 w-full" />
+              <Skeleton className="h-10 w-1/2" />
+            </div>
           </div>
         </Fragment>
       );

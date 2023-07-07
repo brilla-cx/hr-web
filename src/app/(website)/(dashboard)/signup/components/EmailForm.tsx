@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Turnstile from "react-turnstile";
 
 import { GlowingButton, Lead } from "@/components/ui";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useSignupContext } from "@/context/SignupContext";
 import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 import hoverStyles from "@/lib/hover";
@@ -65,7 +66,7 @@ function EmailForm({
             <>
               <label htmlFor="email">Email</label>
               <input
-                className="w-full px-2 py-2 text-white border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-gray-600 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
                 placeholder="Enter your email"
                 aria-label="Enter your email address to subscribe"
                 {...register("email")}
@@ -76,7 +77,7 @@ function EmailForm({
                 </div>
               )}
 
-              <div className="flex justify-center mt-10">
+              <div className="mt-10 flex justify-center">
                 <GlowingButton
                   ariaLabel="Go to next step"
                   type="submit"
@@ -87,13 +88,14 @@ function EmailForm({
             </>
           ) : (
             <div className="space-y-3 text-center text-gray-400">
-              <p>
-                We're diligently verifying the legitimacy of your awesomeness.
-              </p>
-              <p>Hold on tight!</p>
+              <div className="flex flex-col items-center gap-5">
+                <Skeleton className="h-5 w-1/2" />
+                <Skeleton className="h-10 w-full" />
+                <Skeleton className="h-10 w-1/2" />
+              </div>
             </div>
           )}
-          <p className="mt-6 text-xs leading-6 text-center text-gray-400">
+          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
             We care about your{" "}
             <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
               privacy
