@@ -9,7 +9,7 @@ import {
   FirstNameStepSchema,
 } from "@/lib/validation/validations";
 
-export default function FirstNameForm({
+export default function PreferencesFirstNameForm({
   nextStep,
 }: {
   nextStep: Dispatch<SetStateAction<number>>;
