@@ -49,10 +49,10 @@ function Loading() {
   );
 }
 
-function SubmitForm() {
+function SubmitFormButton() {
   const router = useRouter();
   const { loading, setLoading, data, verified } = usePreferenceContext();
-  const handleSubmit = async () => {
+  async function handleSubmit() {
     await submitForm(
       {
         data: data,
@@ -61,7 +61,7 @@ function SubmitForm() {
       router,
       verified
     );
-  };
+  }
 
   return (
     <div className="mt-10">
@@ -91,7 +91,7 @@ export default function PreferencesFormSubmit() {
           Click submit, and we will update your preferences.
         </p>
       </div>
-      {verified ? <SubmitForm /> : <Loading />}
+      {verified ? <SubmitFormButton /> : <Loading />}
     </Fragment>
   );
 }
