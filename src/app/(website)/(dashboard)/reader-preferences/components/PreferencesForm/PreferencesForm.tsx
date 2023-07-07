@@ -22,7 +22,7 @@ const PreferencesForm = () => {
       case 4:
         return <OtheTopicsForm nextStep={setStep} />;
       case 5:
-        return <PreferencesFormSubmit nextStep={setStep} />;
+        return <PreferencesFormSubmit />;
       default:
         break;
     }

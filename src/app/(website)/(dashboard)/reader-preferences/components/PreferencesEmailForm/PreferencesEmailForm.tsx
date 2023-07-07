@@ -10,6 +10,42 @@ import { getUserInfo } from "@/lib/server/actions";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
 import { PreferenceContextState } from "@/types/types";
 
+async function submitForm(
+  data: EmailInfo,
+  setPreferencesData: (newFormData: PreferenceContextState) => void,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  nextStep: Dispatch<SetStateAction<number>>
+) {
+  try {
+    await getUserInfo(data.email)
+      .catch(() => {
+        throw new Error("Fail to send to iterable");
+      })
+      .then((res) => {
+        const { email, dataFields } = res || {};
+
+        const userInfo: PreferenceContextState = {
+          data: {
+            email: { email },
+            dataFields: {
+              firstName: { firstName: dataFields.firstName },
+              topic1: { topic1: dataFields.topic1 },
+              topic2: dataFields.topic2,
+              topic3: dataFields.topic3,
+              topic4: dataFields.topic4,
+            },
+          },
+        };
+        setPreferencesData(userInfo);
+        setLoading(false);
+        nextStep((prev) => prev + 1);
+      });
+  } catch (error) {
+    console.error(error);
+    setLoading(false);
+  }
+}
+
 export default function PreferencesEmailForm({
   nextStep,
 }: {
@@ -32,34 +68,7 @@ export default function PreferencesEmailForm({
     if (!verified) {
       return;
     }
-    try {
-      await getUserInfo(data.email)
-        .catch(() => {
-          throw new Error("Fail to send to iterable");
-        })
-        .then((res) => {
-          const { email, dataFields } = res || {};
-
-          const userInfo: PreferenceContextState = {
-            data: {
-              email: { email },
-              dataFields: {
-                firstName: { firstName: dataFields.firstName },
-                topic1: { topic1: dataFields.topic1 },
-                topic2: dataFields.topic2,
-                topic3: dataFields.topic3,
-                topic4: dataFields.topic4,
-              },
-            },
-          };
-          setPreferencesData(userInfo);
-          setLoading(false);
-          nextStep((prev) => prev + 1);
-        });
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
-    }
+    await submitForm(data, setPreferencesData, setLoading, nextStep);
   }
 
   return (
@@ -77,14 +86,14 @@ export default function PreferencesEmailForm({
               type="text"
               placeholder="Email"
               {...register("email")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.email && (
               <div className="mt-1 text-red-600">
                 <small>{errors.email.message}</small>
               </div>
             )}
-            <div className="flex justify-center mt-10">
+            <div className="mt-10 flex justify-center">
               <GlowingButton
                 type="submit"
                 autoWidth
@@ -100,9 +109,9 @@ export default function PreferencesEmailForm({
         ) : (
           <div className="space-y-3 text-center text-gray-400">
             <div className="flex flex-col items-center gap-5">
-              <Skeleton className="w-1/2 h-5" />
-              <Skeleton className="w-full h-10" />
-              <Skeleton className="w-1/2 h-10" />
+              <Skeleton className="h-5 w-1/2" />
+              <Skeleton className="h-10 w-full" />
+              <Skeleton className="h-10 w-1/2" />
             </div>
             <ReactTurnstile setVerified={setVerified} />
           </div>

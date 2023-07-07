@@ -7,28 +7,33 @@ interface Props {
   setVerified: Dispatch<SetStateAction<boolean>>;
 }
 
-function ReactTurnstile(props: Props) {
-  const { setVerified } = props;
+async function verifyToken(
+  token: string,
+  setVerified: Dispatch<SetStateAction<boolean>>
+) {
+  try {
+    const response = await fetch("/api/turnstile-verify", {
+      method: "POST",
+      body: JSON.stringify({ token }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    if (response.ok) {
+      setVerified(true);
+    }
+  } catch (error) {
+    console.error("Error verifying token:", error);
+  }
+}
+
+function ReactTurnstile({ setVerified }: Props) {
   const handleVerify = async (token: string) => {
     if (token) {
-      try {
-        const response = await fetch("/api/turnstile-verify", {
-          method: "POST",
-          body: JSON.stringify({ token }),
-          headers: {
-            "content-type": "application/json",
-          },
-        });
-        if (response.ok) {
-          setVerified(true);
-        } else {
-          console.error("Failed to verify token:", response.statusText);
-        }
-      } catch (error) {
-        console.error("Error verifying token:", error);
-      }
+      await verifyToken(token, setVerified);
     }
   };
+
   return (
     <Turnstile
       sitekey={CLOUDFLARE_SITE_KEY}

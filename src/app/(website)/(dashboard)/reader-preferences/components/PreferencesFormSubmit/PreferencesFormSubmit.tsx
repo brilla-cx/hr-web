@@ -1,47 +1,61 @@
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, Fragment, SetStateAction, useState } from "react";
 
 import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import { updateUser } from "@/lib/server/actions";
+import { PreferenceContextState } from "@/types/types";
 
-function PreferencesFormSubmit({
-  nextStep,
-}: {
-  nextStep: Dispatch<SetStateAction<number>>;
-}) {
+async function submitForm(
+  data: Pick<PreferenceContextState, "data">,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  router: AppRouterInstance
+) {
+  const {
+    data: { email, dataFields },
+  } = data;
+  try {
+    await updateUser(email.email, {
+      firstName: dataFields.firstName.firstName,
+      topic1: dataFields.topic1.topic1 ?? "",
+      topic2: dataFields.topic2,
+      topic3: dataFields.topic3,
+      topic4: dataFields.topic4,
+    });
+    setLoading(false);
+    router.push("/signup/confirm");
+  } catch (error) {
+    setLoading(false);
+    console.error("Error updating preferences:", error);
+  }
+}
+
+function PreferencesFormSubmit() {
   const { data } = usePreferenceContext();
   const [loading, setLoading] = useState(false);
   const [verified, setVerified] = useState<boolean>(false);
   const router = useRouter();
 
-  const submitForm = async () => {
+  const handleSubmit = async () => {
     if (!verified) {
       return;
     }
     setLoading(true);
-    const { email, ...rest } = data;
-    try {
-      await updateUser(email.email, {
-        firstName: rest.dataFields.firstName.firstName,
-        topic1: rest.dataFields.topic1.topic1 ?? "",
-        topic2: rest.dataFields.topic2,
-        topic3: rest.dataFields.topic3,
-        topic4: rest.dataFields.topic4,
-      });
-      setLoading(false);
-      router.push("/signup/confirm");
-    } catch (error) {
-      setLoading(false);
-      console.error("Error updating preferences:", error);
-    }
+    await submitForm(
+      {
+        data: data,
+      },
+      setLoading,
+      router
+    );
   };
 
   return (
-    <div>
-      <div className="">
+    <Fragment>
+      <div className="flex justify-center ">
         <Lead className="text-center text-gray-200">
           Ready to change your preferences,{" "}
         </Lead>
@@ -53,25 +67,25 @@ function PreferencesFormSubmit({
         <>
           <div className="mt-5 space-y-3 text-center text-gray-400">
             <div className="flex flex-col items-center gap-5">
-              <Skeleton className="w-1/2 h-10" />
+              <Skeleton className="h-10 w-1/2" />
             </div>
           </div>
           <ReactTurnstile setVerified={setVerified} />
         </>
       ) : (
-        <div className="flex justify-center mt-10">
+        <div className="mt-10">
           <GlowingButton
             type="submit"
             autoWidth
             // @ts-ignore
-            onClick={submitForm}
+            onClick={handleSubmit}
             disabled={loading}
             aria-label="Submit form">
             {loading ? "Just a sec..." : "Update my Preferences"}
           </GlowingButton>
         </div>
       )}
-    </div>
+    </Fragment>
   );
 }
 
