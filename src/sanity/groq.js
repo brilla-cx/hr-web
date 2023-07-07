@@ -65,6 +65,7 @@ export const postquery = groq`*[_type == "post"]  | order(featured desc, publish
     ...,
     "blurDataURL":asset->metadata.lqip,
   },
+  tldr,
   publishedAt,
   featured,
   isShort,
