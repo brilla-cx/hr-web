@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+import { FeedOptions } from "rss";
+
 export const SITE_URL: string = "https://heyrebekah.com";
 
 export const ITERABLE_TOKEN: string =
@@ -20,3 +23,12 @@ export const CLOUDFLARE_SITE_KEY: string = process.env
   .NEXT_PUBLIC_CLOUDFLARE_SITE_KEY as string;
 export const CLOUDFLARE_SECRET_KEY: string = process.env
   .CLOUDFLARE_SECRET_KEY as string;
+
+export const FEED_OPTIONS: FeedOptions = {
+  title: "Hey Rebekah | Like Morning Brew for AI",
+  site_url: SITE_URL,
+  feed_url: `${SITE_URL}/rss.xml`,
+  image_url: `${SITE_URL}/logo.png`,
+  pubDate: new Date(),
+  copyright: `&copy; ${new Date().getFullYear()} Hey Rebekah is a product of BRIL.LA, LLC. &nbsp;All Rights Reserved.`,
+};

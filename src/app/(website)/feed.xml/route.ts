@@ -1,22 +1,13 @@
-/* eslint-disable camelcase */
 import RSS, { FeedOptions } from "rss";
 
-import { SITE_URL } from "@/lib/constants";
+import { FEED_OPTIONS, SITE_URL } from "@/lib/constants";
 import { getTextFromBlocks } from "@/lib/getTextFromBlock";
 import { getAllPosts } from "@/sanity/client";
 import { Post } from "@/types/types";
 
-
 export async function GET() {
   const posts = (await getAllPosts()) ?? [];
-  const feedOptions: FeedOptions = {
-    title: "Hey Rebekah | Like Morning Brew for AI",
-    site_url: SITE_URL,
-    feed_url: `${SITE_URL}/rss.xml`,
-    image_url: `${SITE_URL}/logo.png`,
-    pubDate: new Date(),
-    copyright: `&copy; ${new Date().getFullYear()} Hey Rebekah is a product of BRIL.LA, LLC. &nbsp;All Rights Reserved.`,
-  };
+  const feedOptions: FeedOptions = FEED_OPTIONS;
   const feed = new RSS(feedOptions);
 
   await posts?.map((post: Post) => {
