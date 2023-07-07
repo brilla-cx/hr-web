@@ -125,3 +125,13 @@ export interface Metadata {
     images: string;
   };
 }
+
+export interface Post {
+  name: any;
+  tldr: any[];
+  slug: { current: any };
+  publishedAt: any;
+  _createdAt: any;
+  author: { name: any };
+  categories: { name: any }[];
+}

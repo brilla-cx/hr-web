@@ -2,18 +2,10 @@
 import RSS, { FeedOptions } from "rss";
 
 import { SITE_URL } from "@/lib/constants";
+import { getTextFromBlocks } from "@/lib/getTextFromBlock";
 import { getAllPosts } from "@/sanity/client";
+import { Post } from "@/types/types";
 
-const getTextFromBlocks = (blocks: { children: any[] }[]) => {
-  if (!blocks || blocks.length === 0) {
-    return "";
-  }
-  return blocks
-    .map((item: { children: any[] }) =>
-      item.children.map((child) => child.text).join("")
-    )
-    .join("");
-};
 
 export async function GET() {
   const posts = (await getAllPosts()) ?? [];
@@ -27,27 +19,17 @@ export async function GET() {
   };
   const feed = new RSS(feedOptions);
 
-  await posts?.map(
-    (post: {
-      name: any;
-      tldr: any[];
-      slug: { current: any };
-      publishedAt: any;
-      _createdAt: any;
-      author: { name: any };
-      categories: { name: any }[];
-    }) => {
-      const description = getTextFromBlocks(post.tldr);
-      return feed.item({
-        title: post.name ?? "",
-        description: description ?? "",
-        url: `${SITE_URL}/gists/${post.slug.current}` ?? "",
-        date: post?.publishedAt || post._createdAt,
-        author: post.author?.name ?? "",
-        categories: post.categories?.map(({ name }) => name) || [],
-      });
-    }
-  );
+  await posts?.map((post: Post) => {
+    const description = getTextFromBlocks(post.tldr);
+    return feed.item({
+      title: post.name ?? "",
+      description: description ?? "",
+      url: `${SITE_URL}/gists/${post.slug.current}` ?? "",
+      date: post?.publishedAt || post._createdAt,
+      author: post.author?.name ?? "",
+      categories: post.categories?.map(({ name }) => name) || [],
+    });
+  });
 
   return new Response(feed.xml({ indent: true }), {
     headers: {
