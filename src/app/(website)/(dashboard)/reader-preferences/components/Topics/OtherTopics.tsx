@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { GlowingButton } from "@/components/ui";
@@ -14,8 +14,12 @@ import {
 const filteredTopics = (topic1: string) =>
   TopicsArray.filter((topic) => topic !== topic1);
 
-export default function OtheTopicsForm() {
-  const { setFormData, data, setStep } = usePreferenceContext();
+export default function OtheTopicsForm({
+  setStep,
+}: {
+  setStep: Dispatch<SetStateAction<number>>;
+}) {
+  const { setFormData, data } = usePreferenceContext();
 
   const {
     register,

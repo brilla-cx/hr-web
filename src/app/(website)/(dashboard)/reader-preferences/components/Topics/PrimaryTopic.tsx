@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { GlowingButton, Lead } from "@/components/ui";
@@ -10,8 +10,12 @@ import {
   TopicsArray,
 } from "@/lib/validation/validations";
 
-export default function PrimaryTopicForm() {
-  const { setFormData, data, setStep } = usePreferenceContext();
+export default function PrimaryTopicForm({
+  setStep,
+}: {
+  setStep: Dispatch<SetStateAction<number>>;
+}) {
+  const { setFormData, data } = usePreferenceContext();
   const {
     handleSubmit,
     formState: { errors },

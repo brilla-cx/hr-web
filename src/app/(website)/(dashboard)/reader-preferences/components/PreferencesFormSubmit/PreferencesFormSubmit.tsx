@@ -12,13 +12,11 @@ import { PreferenceContextState } from "@/types/types";
 async function submitForm(
   data: Pick<PreferenceContextState, "data">,
   setLoading: Dispatch<SetStateAction<boolean>>,
-  router: AppRouterInstance,
-  verified: boolean
+  router: AppRouterInstance
 ) {
   const {
     data: { email, dataFields },
   } = data;
-  if (!verified) return;
   try {
     await updateUser(email.email, {
       firstName: dataFields.firstName.firstName,
@@ -35,7 +33,7 @@ async function submitForm(
   }
 }
 
-function Loading() {
+function FormSubmitVerfication() {
   const { setVerified } = usePreferenceContext();
   return (
     <>
@@ -51,15 +49,14 @@ function Loading() {
 
 function SubmitFormButton() {
   const router = useRouter();
-  const { loading, setLoading, data, verified } = usePreferenceContext();
+  const { loading, setLoading, data } = usePreferenceContext();
   async function handleSubmit() {
     await submitForm(
       {
         data: data,
       },
       setLoading,
-      router,
-      verified
+      router
     );
   }
 
@@ -78,7 +75,11 @@ function SubmitFormButton() {
   );
 }
 
-export default function PreferencesFormSubmit() {
+export default function PreferencesFormSubmit({
+  setStep,
+}: {
+  setStep: Dispatch<SetStateAction<number>>;
+}) {
   const { verified } = usePreferenceContext();
 
   return (
@@ -91,7 +92,7 @@ export default function PreferencesFormSubmit() {
           Click submit, and we will update your preferences.
         </p>
       </div>
-      {verified ? <SubmitFormButton /> : <Loading />}
+      {verified ? <SubmitFormButton /> : <FormSubmitVerfication />}
     </Fragment>
   );
 }

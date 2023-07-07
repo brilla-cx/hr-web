@@ -75,11 +75,15 @@ function NameInputForm({
   );
 }
 
-export default function PreferencesFirstNameForm() {
+export default function PreferencesFirstNameForm({
+  setStep,
+}: {
+  setStep: Dispatch<SetStateAction<number>>;
+}) {
   const firsNameForm = useForm<FirstNameInfo>({
     resolver: zodResolver(FirstNameStepSchema),
   });
-  const { setFormData, data, setStep } = usePreferenceContext();
+  const { setFormData, data } = usePreferenceContext();
 
   function onSubmit(firstName: FirstNameInfo) {
     submitForm(firstName.firstName, setFormData, setStep);

@@ -1,7 +1,7 @@
 "use client";
-import PerferencesContextProvider, {
-  usePreferenceContext,
-} from "@/context/ReaderPerferencesContext";
+import { useState } from "react";
+
+import PerferencesContextProvider from "@/context/ReaderPerferencesContext";
 
 import EmailForm from "../PreferencesEmailForm/PreferencesEmailForm";
 import FirstNameForm from "../PreferencesFirstNameForm/PreferencesFirstNameForm";
@@ -10,20 +10,20 @@ import OtheTopicsForm from "../Topics/OtherTopics";
 import PrimaryTopicForm from "../Topics/PrimaryTopic";
 
 const PreferencesForm = () => {
-  const { step } = usePreferenceContext();
+  const [step, setStep] = useState(1);
 
   function renderFormStep() {
     switch (step) {
       case 1:
-        return <EmailForm />;
+        return <EmailForm setStep={setStep} />;
       case 2:
-        return <FirstNameForm />;
+        return <FirstNameForm setStep={setStep} />;
       case 3:
-        return <PrimaryTopicForm />;
+        return <PrimaryTopicForm setStep={setStep} />;
       case 4:
-        return <OtheTopicsForm />;
+        return <OtheTopicsForm setStep={setStep} />;
       case 5:
-        return <PreferencesFormSubmit />;
+        return <PreferencesFormSubmit setStep={setStep} />;
       default:
         break;
     }
