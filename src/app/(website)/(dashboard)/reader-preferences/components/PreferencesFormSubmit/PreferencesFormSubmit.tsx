@@ -1,6 +1,6 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { useRouter } from "next/navigation";
-import { Dispatch, Fragment, SetStateAction } from "react";
+import { Dispatch, Fragment, SetStateAction, useEffect } from "react";
 
 import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
@@ -14,6 +14,7 @@ async function submitForm(
   setLoading: Dispatch<SetStateAction<boolean>>,
   router: AppRouterInstance
 ) {
+  setLoading(true);
   const {
     data: { email, dataFields },
   } = data;
@@ -75,12 +76,13 @@ function SubmitFormButton() {
   );
 }
 
-export default function PreferencesFormSubmit({
-  setStep,
-}: {
-  setStep: Dispatch<SetStateAction<number>>;
-}) {
-  const { verified } = usePreferenceContext();
+export default function PreferencesFormSubmit() {
+  const { verified, setVerified } = usePreferenceContext();
+
+  // set verfied false so we can run verfrication again in the form context
+  useEffect(() => {
+    setVerified(false);
+  }, [setVerified]);
 
   return (
     <Fragment>

@@ -8,7 +8,7 @@ import EmailForm from "./EmailForm";
 import FirstNameForm from "./FirstNameForm";
 
 const SignupStepperForm = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
 
   function renderFormSteps() {
     switch (step) {

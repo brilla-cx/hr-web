@@ -1,5 +1,11 @@
 import { useRouter } from "next/navigation";
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 
 import { updateUser } from "@/lib/server/actions";
 import { EmailInfo, FirstNameInfo } from "@/lib/validation/validations";
@@ -7,6 +13,8 @@ import { EmailInfo, FirstNameInfo } from "@/lib/validation/validations";
 type SignupContextType = {
   email: EmailInfo;
   firstName: FirstNameInfo;
+  verified: boolean;
+  setVerified: Dispatch<SetStateAction<boolean>>;
   setEmail: React.Dispatch<React.SetStateAction<EmailInfo>>;
   setFirstName: React.Dispatch<React.SetStateAction<FirstNameInfo>>;
   onSubmitAll: () => Promise<void>;
@@ -24,9 +32,12 @@ const SignupContext = createContext<SignupContextType>({
   email: {
     email: "",
   },
+  verified: false,
+  setVerified: () => {},
 });
 
 export default function SignupContextProvider({ children }) {
+  const [verified, setVerified] = useState<boolean>(false);
   const router = useRouter();
   const [email, setEmail] = useState<EmailInfo>({
     email: "",
@@ -57,6 +68,8 @@ export default function SignupContextProvider({ children }) {
       value={{
         email,
         firstName,
+        verified,
+        setVerified,
         setEmail,
         setFirstName,
         onSubmitAll,
