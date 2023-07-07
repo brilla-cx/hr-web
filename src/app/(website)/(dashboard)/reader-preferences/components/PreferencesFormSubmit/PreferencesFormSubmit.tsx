@@ -12,11 +12,13 @@ import { PreferenceContextState } from "@/types/types";
 async function submitForm(
   data: Pick<PreferenceContextState, "data">,
   setLoading: Dispatch<SetStateAction<boolean>>,
-  router: AppRouterInstance
+  router: AppRouterInstance,
+  verified: boolean
 ) {
   const {
     data: { email, dataFields },
   } = data;
+  if (!verified) return;
   try {
     await updateUser(email.email, {
       firstName: dataFields.firstName.firstName,
@@ -33,24 +35,51 @@ async function submitForm(
   }
 }
 
-function PreferencesFormSubmit() {
-  const { data, loading, setLoading, verified, setVerified } =
-    usePreferenceContext();
-  const router = useRouter();
+function Loading() {
+  const { setVerified } = usePreferenceContext();
+  return (
+    <>
+      <div className="mt-5 space-y-3 text-center text-gray-400">
+        <div className="flex flex-col items-center gap-5">
+          <Skeleton className="h-10 w-1/2" />
+        </div>
+      </div>
+      <ReactTurnstile setVerified={setVerified} />
+    </>
+  );
+}
 
+function SubmitForm() {
+  const router = useRouter();
+  const { loading, setLoading, data, verified } = usePreferenceContext();
   const handleSubmit = async () => {
-    if (!verified) {
-      return;
-    }
-    setLoading(true);
     await submitForm(
       {
         data: data,
       },
       setLoading,
-      router
+      router,
+      verified
     );
   };
+
+  return (
+    <div className="mt-10">
+      <GlowingButton
+        type="submit"
+        autoWidth
+        // @ts-ignore
+        onClick={handleSubmit}
+        disabled={loading}
+        aria-label="Submit form">
+        {loading ? "Just a sec..." : "Update my Preferences"}
+      </GlowingButton>
+    </div>
+  );
+}
+
+export default function PreferencesFormSubmit() {
+  const { verified } = usePreferenceContext();
 
   return (
     <Fragment>
@@ -62,30 +91,7 @@ function PreferencesFormSubmit() {
           Click submit, and we will update your preferences.
         </p>
       </div>
-      {verified ? (
-        <>
-          <div className="mt-5 space-y-3 text-center text-gray-400">
-            <div className="flex flex-col items-center gap-5">
-              <Skeleton className="h-10 w-1/2" />
-            </div>
-          </div>
-          <ReactTurnstile setVerified={setVerified} />
-        </>
-      ) : (
-        <div className="mt-10">
-          <GlowingButton
-            type="submit"
-            autoWidth
-            // @ts-ignore
-            onClick={handleSubmit}
-            disabled={loading}
-            aria-label="Submit form">
-            {loading ? "Just a sec..." : "Update my Preferences"}
-          </GlowingButton>
-        </div>
-      )}
+      {verified ? <SubmitForm /> : <Loading />}
     </Fragment>
   );
 }
-
-export default PreferencesFormSubmit;
