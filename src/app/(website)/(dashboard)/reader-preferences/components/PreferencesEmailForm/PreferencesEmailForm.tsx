@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 
 import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
@@ -14,7 +14,7 @@ async function submitForm(
   data: EmailInfo,
   setPreferencesData: (newFormData: PreferenceContextState) => void,
   setLoading: Dispatch<SetStateAction<boolean>>,
-  nextStep: Dispatch<SetStateAction<number>>
+  setStep: Dispatch<SetStateAction<number>>
 ) {
   try {
     await getUserInfo(data.email)
@@ -38,7 +38,7 @@ async function submitForm(
         };
         setPreferencesData(userInfo);
         setLoading(false);
-        nextStep((prev) => prev + 1);
+        setStep((prev) => prev + 1);
       });
   } catch (error) {
     console.error(error);
@@ -46,13 +46,7 @@ async function submitForm(
   }
 }
 
-export default function PreferencesEmailForm({
-  nextStep,
-}: {
-  nextStep: Dispatch<SetStateAction<number>>;
-}) {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [verified, setVerified] = useState<boolean>(false);
+export default function PreferencesEmailForm() {
   const {
     register,
     handleSubmit,
@@ -60,15 +54,21 @@ export default function PreferencesEmailForm({
   } = useForm<EmailInfo>({
     resolver: zodResolver(EmailStepSchema),
   });
-
-  const { setPreferencesData } = usePreferenceContext();
+  const {
+    setPreferencesData,
+    loading,
+    setLoading,
+    verified,
+    setVerified,
+    setStep,
+  } = usePreferenceContext();
 
   async function onSubmit(data: EmailInfo) {
     setLoading(true);
     if (!verified) {
       return;
     }
-    await submitForm(data, setPreferencesData, setLoading, nextStep);
+    await submitForm(data, setPreferencesData, setLoading, setStep);
   }
 
   return (

@@ -17,9 +17,18 @@ const PreferenceContext = createContext<PreferenceContextType>({
   data: initalData,
   setPreferencesData: () => {},
   setFormData: () => {},
+  loading: false,
+  verified: false,
+  step: 1,
+  setStep: () => {},
+  setLoading: () => {},
+  setVerified: () => {},
 });
 
 function PerferencesContextProvider({ children }) {
+  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [verified, setVerified] = useState<boolean>(false);
   const [formData, setFormData] = useState<PreferenceContextState>({
     data: initalData,
   });
@@ -30,14 +39,18 @@ function PerferencesContextProvider({ children }) {
     setFormData((prevFormData) => ({ ...prevFormData, ...newFormData }));
   };
 
-  console.log(data);
-
   return (
     <PreferenceContext.Provider
       value={{
         data,
+        step,
+        loading,
+        verified,
         setPreferencesData,
         setFormData,
+        setStep,
+        setLoading,
+        setVerified,
       }}>
       {children}
     </PreferenceContext.Provider>

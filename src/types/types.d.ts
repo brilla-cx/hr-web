@@ -147,6 +147,12 @@ export type PreferenceContextType = {
       topic4: string;
     };
   };
+  loading: boolean;
+  verified: boolean;
+  step: number;
+  setStep: Dispatch<SetStateAction<number>>;
+  setVerified: Dispatch<SetStateAction<boolean>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
   setPreferencesData: (newFormData: PreferenceContextState) => void;
   setFormData: Dispatch<SetStateAction<PreferenceContextState>>;
 };

@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { GlowingButton, Input, Lead } from "@/components/ui";
@@ -9,11 +9,7 @@ import {
   FirstNameStepSchema,
 } from "@/lib/validation/validations";
 
-export default function PreferencesFirstNameForm({
-  nextStep,
-}: {
-  nextStep: Dispatch<SetStateAction<number>>;
-}) {
+export default function PreferencesFirstNameForm() {
   const {
     register,
     handleSubmit,
@@ -22,8 +18,7 @@ export default function PreferencesFirstNameForm({
   } = useForm<FirstNameInfo>({
     resolver: zodResolver(FirstNameStepSchema),
   });
-
-  const { setFormData, data } = usePreferenceContext();
+  const { setFormData, data, setStep } = usePreferenceContext();
 
   function onSubmit(firstName: FirstNameInfo) {
     setFormData((prev) => ({
@@ -35,7 +30,7 @@ export default function PreferencesFirstNameForm({
         },
       },
     }));
-    nextStep((prev) => prev + 1);
+    setStep((prev) => prev + 1);
   }
 
   useEffect(() => {
@@ -44,7 +39,7 @@ export default function PreferencesFirstNameForm({
 
   return (
     <div>
-      <p className="mb-10 text-xs leading-6 tracking-wider text-center text-gray-400 uppercase">
+      <p className="mb-10 text-center text-xs uppercase leading-6 tracking-wider text-gray-400">
         Change name | Click next to skip
       </p>
       <div className="">
@@ -56,7 +51,7 @@ export default function PreferencesFirstNameForm({
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
           <Input
-            className="w-full text-white border-neutral-200/10 bg-slate-900 placeholder:text-gray-600"
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
             defaultValue={data.dataFields.firstName.firstName}
             placeholder="Enter your first name"
             aria-label="What's your first name?."
@@ -64,7 +59,7 @@ export default function PreferencesFirstNameForm({
             {...register("firstName")}
             errors={errors}
           />
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next
             </GlowingButton>

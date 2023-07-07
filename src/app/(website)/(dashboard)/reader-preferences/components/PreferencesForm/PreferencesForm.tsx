@@ -1,26 +1,27 @@
 "use client";
-import { useState } from "react";
-
-import PerferencesContextProvider from "@/context/ReaderPerferencesContext";
+import PerferencesContextProvider, {
+  usePreferenceContext,
+} from "@/context/ReaderPerferencesContext";
 
 import EmailForm from "../PreferencesEmailForm/PreferencesEmailForm";
 import FirstNameForm from "../PreferencesFirstNameForm/PreferencesFirstNameForm";
 import PreferencesFormSubmit from "../PreferencesFormSubmit/PreferencesFormSubmit";
-import { OtheTopicsForm, PrimaryTopicForm } from "../Topics/Topics";
+import OtheTopicsForm from "../Topics/OtherTopics";
+import PrimaryTopicForm from "../Topics/PrimaryTopic";
 
 const PreferencesForm = () => {
-  const [step, setStep] = useState(1);
+  const { step } = usePreferenceContext();
 
   function renderFormStep() {
     switch (step) {
       case 1:
-        return <EmailForm nextStep={setStep} />;
+        return <EmailForm />;
       case 2:
-        return <FirstNameForm nextStep={setStep} />;
+        return <FirstNameForm />;
       case 3:
-        return <PrimaryTopicForm nextStep={setStep} />;
+        return <PrimaryTopicForm />;
       case 4:
-        return <OtheTopicsForm nextStep={setStep} />;
+        return <OtheTopicsForm />;
       case 5:
         return <PreferencesFormSubmit />;
       default:
@@ -32,7 +33,7 @@ const PreferencesForm = () => {
 
   return (
     <PerferencesContextProvider>
-      <div className="max-w-xl mx-auto mt-12 mb-48">{renderFormStep()}</div>
+      <div className="mx-auto mb-48 mt-12 max-w-xl">{renderFormStep()}</div>
     </PerferencesContextProvider>
   );
 };

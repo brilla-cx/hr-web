@@ -1,6 +1,6 @@
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { useRouter } from "next/navigation";
-import { Dispatch, Fragment, SetStateAction, useState } from "react";
+import { Dispatch, Fragment, SetStateAction } from "react";
 
 import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
@@ -34,9 +34,8 @@ async function submitForm(
 }
 
 function PreferencesFormSubmit() {
-  const { data } = usePreferenceContext();
-  const [loading, setLoading] = useState(false);
-  const [verified, setVerified] = useState<boolean>(false);
+  const { data, loading, setLoading, verified, setVerified } =
+    usePreferenceContext();
   const router = useRouter();
 
   const handleSubmit = async () => {
