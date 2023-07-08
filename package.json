@@ -18,7 +18,7 @@
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.1.1",
     "@marsidev/react-turnstile": "^0.2.1",
-    "@portabletext/react": "^3.0.2",
+    "@portabletext/react": "^3.0.4",
     "@radix-ui/react-tabs": "^1.0.4",
     "@sanity/cli": "^3.11.5",
     "@sanity/code-input": "^4.1.1",
