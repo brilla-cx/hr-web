@@ -19,11 +19,9 @@ export function generateMetadata(): Metadata {
 export default function Page() {
   return (
     <>
-      <Container large className="">
-        <div className="mt-16">
-          <SignupHeader title="Sign Up" />
-          <SignupStepperForm />
-        </div>
+      <Container large className="mt-16">
+        <SignupHeader title="Sign Up" />
+        <SignupStepperForm />
       </Container>
     </>
   );
