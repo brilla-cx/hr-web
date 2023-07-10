@@ -134,4 +134,5 @@ export interface Post {
   _createdAt: any;
   author: { name: any };
   categories: { name: any }[];
+  content: any[];
 }

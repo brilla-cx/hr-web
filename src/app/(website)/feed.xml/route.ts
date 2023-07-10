@@ -1,7 +1,8 @@
+/* eslint-disable camelcase */
 import RSS, { FeedOptions } from "rss";
 
+import { blocksToHtmlString } from "@/lib/blocksToHtml";
 import { FEED_OPTIONS, SITE_URL } from "@/lib/constants";
-import { getTextFromBlocks } from "@/lib/getTextFromBlock";
 import { getAllPosts } from "@/sanity/client";
 import { Post } from "@/types/types";
 
@@ -11,7 +12,8 @@ export async function GET() {
   const feed = new RSS(feedOptions);
 
   await posts?.map((post: Post) => {
-    const description = getTextFromBlocks(post.tldr);
+    const description = post.tldr ? `${blocksToHtmlString(post.tldr)}` : "";
+    const content = post.content ? `${blocksToHtmlString(post.content)}` : "";
     return feed.item({
       title: post.name ?? "",
       description: description ?? "",
@@ -19,6 +21,13 @@ export async function GET() {
       date: post?.publishedAt || post._createdAt,
       author: post.author?.name ?? "",
       categories: post.categories?.map(({ name }) => name) || [],
+      custom_elements: [
+        {
+          "content:encoded": {
+            _cdata: content,
+          },
+        },
+      ],
     });
   });
 

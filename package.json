@@ -20,6 +20,7 @@
     "@marsidev/react-turnstile": "^0.2.1",
     "@portabletext/react": "^3.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/cli": "^3.11.5",
     "@sanity/code-input": "^4.1.1",
     "@sanity/scheduled-publishing": "^1.1.1",
