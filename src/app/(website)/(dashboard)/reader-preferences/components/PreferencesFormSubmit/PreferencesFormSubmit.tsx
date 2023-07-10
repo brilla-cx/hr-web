@@ -62,7 +62,7 @@ function SubmitFormButton() {
   }
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 flex justify-center">
       <GlowingButton
         type="submit"
         autoWidth
@@ -86,14 +86,12 @@ export default function PreferencesFormSubmit() {
 
   return (
     <Fragment>
-      <div className="flex justify-center ">
-        <Lead className="text-center text-gray-200">
-          Ready to change your preferences,{" "}
-        </Lead>
-        <p className="mt-3 text-center text-gray-400">
-          Click submit, and we will update your preferences.
-        </p>
-      </div>
+      <Lead className="text-center text-gray-200">
+        Ready to change your preferences,{" "}
+      </Lead>
+      <p className="mt-3 text-center text-gray-400">
+        Click submit, and we will update your preferences.
+      </p>
       {verified ? <SubmitFormButton /> : <FormSubmitVerfication />}
     </Fragment>
   );

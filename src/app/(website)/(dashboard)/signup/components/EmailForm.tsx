@@ -50,6 +50,7 @@ function EmailInputForm({ register, errors, loading }: EmailFormProps) {
     <>
       <label htmlFor="email">Email</label>
       <input
+        id="emailSignup"
         className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
         placeholder="Enter your email"
         aria-label="Enter your email address to subscribe"

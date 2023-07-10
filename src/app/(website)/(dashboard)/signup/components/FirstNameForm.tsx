@@ -41,12 +41,16 @@ function FirstNameForm({
         </Lead>
       </div>
       <div className="mt-5">
-        <form noValidate onSubmit={handleSubmit(nextForm)}>
+        <form
+          id="#firstnamesignupform"
+          noValidate
+          onSubmit={handleSubmit(nextForm)}>
           <label className="sr-only">First Name</label>
           <input
+            id="firstnamesignup"
             placeholder="Enter your first name"
             aria-label="What's your first name?."
-            className="w-full px-2 py-2 text-white border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-gray-600 focus:border-pink focus:ring-pink"
+            className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
             {...register("firstName")}
           />
           {errors.firstName && (
@@ -54,7 +58,7 @@ function FirstNameForm({
               <small>{errors.firstName.message}</small>
             </div>
           )}
-          <div className="flex justify-center mt-10">
+          <div className="mt-10 flex justify-center">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               {loading ? "hold on ...." : "Next"}
             </GlowingButton>

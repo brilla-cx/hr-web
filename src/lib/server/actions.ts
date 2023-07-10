@@ -4,10 +4,8 @@ import { ITERABLE_LIST_ID, ITERABLE_TOKEN } from "@/lib/constants";
 
 export async function addUserToList(email: string) {
   if (!email) return false;
-
   try {
     const url = "https://api.iterable.com/api/lists/subscribe";
-
     const postdata = {
       listId: ITERABLE_LIST_ID,
       subscribers: [
@@ -17,7 +15,6 @@ export async function addUserToList(email: string) {
         },
       ],
     };
-
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -26,10 +23,8 @@ export async function addUserToList(email: string) {
       },
       body: JSON.stringify(postdata),
     });
-
     const result = await response.json();
     if (!result.successCount) {
-      console.error(result);
       return { error: true, message: "Could not add user to the list" };
     }
     return {
