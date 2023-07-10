@@ -52,7 +52,7 @@
     "react-share": "^4.4.1",
     "react-social-media-embed": "^2.3.5",
     "react-textra": "^0.2.0",
-    "react-wrap-balancer": "^0.5.0",
+    "react-wrap-balancer": "^1.0.0",
     "rxjs": "^7.8.1",
     "sanity": "^3.11.5",
     "sanity-algolia": "^1.1.0",
