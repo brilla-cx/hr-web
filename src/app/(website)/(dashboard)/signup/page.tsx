@@ -1,3 +1,5 @@
+import { Metadata } from "next";
+
 import Container from "@/components/layout/Container/Container";
 import { SITE_URL } from "@/lib/constants";
 
@@ -17,7 +19,7 @@ export default function Page() {
   );
 }
 
-export function generateMetadata() {
+export function generateMetadata(): Metadata {
   const title = "Sign Up";
   const description =
     "Want to get get the jump on AI at work? Sign up for our newsletter. We'll deliver the best tips, tricks, and insights to your inbox. Free, hot, and fresh everyday.";
