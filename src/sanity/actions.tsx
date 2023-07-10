@@ -5,6 +5,7 @@ import React from "react";
 import { BsSend } from "react-icons/bs";
 import { DocumentActionComponent, useDocumentOperation } from "sanity";
 
+import { getTextFromBlocks } from "@/lib/getTextFromBlock";
 import { ValueType } from "@/types/types";
 
 // Custom function that resolves the path from your document.
@@ -41,19 +42,6 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
       });
       const sanityRes = await postByIdQuery(id);
       const value = sanityRes as ValueType;
-
-      // todo right better typing for blocksContent
-      const getTextFromBlocks = (blocks: { children: any[] }[]) => {
-        if (!blocks || blocks.length === 0) {
-          return "";
-        }
-
-        return blocks
-          .map((item: { children: any[] }) =>
-            item.children.map((child) => child.text).join("")
-          )
-          .join("");
-      };
 
       const contentText = getTextFromBlocks(value.content);
       const tldrText = getTextFromBlocks(value.tldr);
