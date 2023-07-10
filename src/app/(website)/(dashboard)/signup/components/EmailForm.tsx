@@ -25,13 +25,9 @@ async function submitForm(
   try {
     setLoading(true);
     setEmail(data);
-    await addUserToList(data.email)
-      .then(() => {
-        nextStep((prev) => prev + 1);
-      })
-      .catch(() => {
-        throw new Error("Fail to send to iterable");
-      });
+    await addUserToList(data.email).then(() => {
+      nextStep((prev) => prev + 1);
+    });
     setLoading(false);
   } catch (error) {
     console.error(error);
