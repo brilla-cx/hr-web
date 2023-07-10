@@ -2,9 +2,19 @@ import { Metadata } from "next";
 
 import Container from "@/components/layout/Container/Container";
 import { SITE_URL } from "@/lib/constants";
+import { generateMetadataHelper } from "@/lib/generateMetadata";
 
 import SignupHeader from "../components/SignupHeader/SignupHeader";
 import SignupStepperForm from "./components/SignupStepperForm";
+
+const signUpTitle = "Sign Up";
+const signUpDescription =
+  "Want to get the jump on AI at work? Sign up for our newsletter. We'll deliver the best tips, tricks, and insights to your inbox. Free, hot, and fresh everyday.";
+const signUpUrl = `${SITE_URL}/signup`;
+
+export function generateMetadata(): Metadata {
+  return generateMetadataHelper(signUpTitle, signUpDescription, signUpUrl);
+}
 
 export default function Page() {
   return (
@@ -17,30 +27,4 @@ export default function Page() {
       </Container>
     </>
   );
-}
-
-export function generateMetadata(): Metadata {
-  const title = "Sign Up";
-  const description =
-    "Want to get get the jump on AI at work? Sign up for our newsletter. We'll deliver the best tips, tricks, and insights to your inbox. Free, hot, and fresh everyday.";
-  const images = "/og.png";
-  const url = `${SITE_URL}/signup`;
-
-  const metadata = {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images,
-      url,
-    },
-    twitter: {
-      title,
-      description,
-      images,
-    },
-  };
-
-  return metadata;
 }
