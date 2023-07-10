@@ -27,7 +27,7 @@ export const CLOUDFLARE_SECRET_KEY: string = process.env
 export const FEED_OPTIONS: FeedOptions = {
   title: "Hey Rebekah | Like Morning Brew for AI",
   site_url: SITE_URL,
-  feed_url: `${SITE_URL}/rss.xml`,
+  feed_url: `${SITE_URL}/gists`,
   image_url: `${SITE_URL}/logo.png`,
   pubDate: new Date(),
   copyright: `&copy; ${new Date().getFullYear()} Hey Rebekah is a product of BRIL.LA, LLC. &nbsp;All Rights Reserved.`,
