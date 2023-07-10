@@ -1,14 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 import { FieldErrors, useForm, UseFormRegister } from "react-hook-form";
 
+import PrivacyCopy from "@/components/shared/PrivacyCopy/PrivacyCopy";
 import { EmailVerificationForm } from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Input, Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
-import hoverStyles from "@/lib/hover";
 import { addUserToList } from "@/lib/server/actions";
-import { cx } from "@/lib/utils";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
 
 async function submitForm(
@@ -105,13 +103,7 @@ export default function EmailForm({
           ) : (
             <EmailVerificationForm setVerified={setVerified} />
           )}
-          <p className="mt-6 text-center text-xs leading-6 text-gray-400">
-            We care about your{" "}
-            <Link href="/privacy" className={cx("font-bold", hoverStyles)}>
-              privacy
-            </Link>
-            .
-          </p>
+          <PrivacyCopy className="mt-8 !text-center" />
         </div>
       </form>
     </>
