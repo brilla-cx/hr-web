@@ -1,8 +1,7 @@
 import React, { Dispatch, Fragment, SetStateAction, useState } from "react";
 
-import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
+import { FormSubmitVerfication } from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useSignupContext } from "@/context/SignupContext";
 
 async function submitFormSignUp(
@@ -17,20 +16,6 @@ async function submitFormSignUp(
   } finally {
     setLoading(false);
   }
-}
-
-function FormSubmitVerfication() {
-  const { setVerified } = useSignupContext();
-  return (
-    <>
-      <div className="mt-5 space-y-3 text-center text-gray-400">
-        <div className="flex flex-col items-center gap-5">
-          <Skeleton className="h-10 w-1/2" />
-        </div>
-      </div>
-      <ReactTurnstile setVerified={setVerified} />
-    </>
-  );
 }
 
 function ConfirmFormButton() {
@@ -60,10 +45,14 @@ function ConfirmFormButton() {
 }
 
 function ConfirmForm() {
-  const { verified } = useSignupContext();
+  const { verified, setVerified } = useSignupContext();
   return (
     <Fragment>
-      {verified ? <ConfirmFormButton /> : <FormSubmitVerfication />}
+      {verified ? (
+        <ConfirmFormButton />
+      ) : (
+        <FormSubmitVerfication setVerified={setVerified} />
+      )}
     </Fragment>
   );
 }

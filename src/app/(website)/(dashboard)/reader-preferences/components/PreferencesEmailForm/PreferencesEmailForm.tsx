@@ -2,9 +2,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 
-import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
+import { EmailVerificationForm } from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
-import { Skeleton } from "@/components/ui/skeleton";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import { getUserInfo } from "@/lib/server/actions";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
@@ -82,33 +81,15 @@ function EmailForm({ register, errors, loading }: EmailFormProps) {
   );
 }
 
-function EmailVerificationForm() {
-  const { setVerified } = usePreferenceContext();
-  return (
-    <div className="space-y-3 text-center text-gray-400">
-      <div className="flex flex-col items-center gap-5">
-        <Skeleton className="h-5 w-1/2" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-10 w-1/2" />
-      </div>
-      <ReactTurnstile setVerified={setVerified} />
-    </div>
-  );
-}
-
 export default function PreferencesEmailForm({
   setStep,
 }: {
   setStep: Dispatch<SetStateAction<number>>;
 }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<EmailInfo>({
+  const prefEmailForm = useForm<EmailInfo>({
     resolver: zodResolver(EmailStepSchema),
   });
-  const { setPreferencesData, loading, setLoading, verified } =
+  const { setPreferencesData, loading, setLoading, verified, setVerified } =
     usePreferenceContext();
 
   async function onSubmit(data: EmailInfo) {
@@ -118,11 +99,15 @@ export default function PreferencesEmailForm({
 
   return (
     <div>
-      <form id="email" onSubmit={handleSubmit(onSubmit)}>
+      <form id="email" onSubmit={prefEmailForm.handleSubmit(onSubmit)}>
         {verified ? (
-          <EmailForm register={register} errors={errors} loading={loading} />
+          <EmailForm
+            register={prefEmailForm.register}
+            errors={prefEmailForm.formState.errors}
+            loading={loading}
+          />
         ) : (
-          <EmailVerificationForm />
+          <EmailVerificationForm setVerified={setVerified} />
         )}
       </form>
     </div>

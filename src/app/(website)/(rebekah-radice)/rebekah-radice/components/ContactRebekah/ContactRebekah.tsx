@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
-import React, { RefObject, useRef, useState } from "react";
+import React, { RefObject, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AiFillFacebook,
@@ -15,11 +15,10 @@ import { BsPinterest } from "react-icons/bs";
 import { FaLocationArrow } from "react-icons/fa";
 import { z } from "zod";
 
-import ReactTurnstile from "@/components/shared/forms/ReactTurnstile/ReactTurnstile";
+import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, H3, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-
 
 interface Message {
   firstName: string;
@@ -54,34 +53,20 @@ function ContactRebekah(props: Props) {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const formRef = useRef<HTMLFormElement>(null);
+  const [verified, setVerified] = useState(false);
 
   async function onSubmit(data: Message) {
     try {
-      const ref = formRef.current;
-      if (ref) {
-        const formData = new FormData(formRef.current!);
-        const token = formData.get("cf-turnstile-response");
-        const res = await fetch("/api/turnstile-verify", {
-          method: "POST",
-          body: JSON.stringify({ token }),
-          headers: {
-            "content-type": "application/json",
-          },
+      if (verified) {
+        setIsLoading(true);
+        await axios.post("/api/rr-slack", {
+          fullName: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phoneNumber: data.phoneNumber,
+          message: data.message,
         });
-        const tokenResponse = await res.json();
-        if (tokenResponse.data.success) {
-          setIsLoading(true);
-          await axios.post("/api/rr-slack", {
-            fullName: `${data.firstName} ${data.lastName}`,
-            email: data.email,
-            phoneNumber: data.phoneNumber,
-            message: data.message,
-          });
-          setIsSuccess(true);
-          reset();
-        }
+        setIsSuccess(true);
+        reset();
       }
     } catch (error) {
       console.error(error);
@@ -94,7 +79,7 @@ function ContactRebekah(props: Props) {
   return (
     <div
       ref={contactSectionRef}
-      className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
+      className="lg:py-26 mx-auto px-4 py-12 sm:px-8 sm:py-20">
       <div className="grid grid-cols-2 gap-12">
         <div className="col-span-2 space-y-10 md:col-span-1">
           <div>
@@ -177,7 +162,6 @@ function ContactRebekah(props: Props) {
           </div>
         </div>
         <form
-          ref={formRef}
           id="#contact"
           onSubmit={handleSubmit(onSubmit)}
           className="col-span-2 md:col-span-1">
@@ -187,7 +171,7 @@ function ContactRebekah(props: Props) {
                 type="text"
                 placeholder="First name"
                 {...(register && register("firstName"))}
-                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
               {errors.firstName && (
                 <div className="mt-1 text-red-600">
@@ -200,7 +184,7 @@ function ContactRebekah(props: Props) {
                 type="text"
                 placeholder="Last name"
                 {...register("lastName")}
-                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
               {errors.lastName && (
                 <div className="mt-1 text-red-600">
@@ -213,7 +197,7 @@ function ContactRebekah(props: Props) {
                 type="text"
                 placeholder="Email"
                 {...register("email")}
-                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
               {errors.email && (
                 <div className="mt-1 text-red-600">
@@ -226,7 +210,7 @@ function ContactRebekah(props: Props) {
                 type="number"
                 placeholder="Phone number"
                 {...register("phoneNumber")}
-                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
               {errors.phoneNumber && (
                 <div className="mt-1 text-red-600">
@@ -238,7 +222,7 @@ function ContactRebekah(props: Props) {
               <textarea
                 {...register("message")}
                 placeholder="Your message to Rebekah"
-                className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
               />
               {errors.message && (
                 <div className="mt-1 text-red-600">
@@ -246,7 +230,7 @@ function ContactRebekah(props: Props) {
                 </div>
               )}
             </div>
-            <ReactTurnstile />
+            <ReactTurnstile setVerified={setVerified} />
             <div className="col-span-2">
               <GlowingButton aria-label="Submit Form" type="submit">
                 {isLoading ? "Loading..." : "Let's make it happen"}

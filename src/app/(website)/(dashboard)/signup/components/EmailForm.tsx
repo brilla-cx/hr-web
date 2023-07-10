@@ -3,9 +3,8 @@ import Link from "next/link";
 import { Dispatch, SetStateAction, useState } from "react";
 import { FieldErrors, useForm, UseFormRegister } from "react-hook-form";
 
-import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
-import { GlowingButton, Lead } from "@/components/ui";
-import { Skeleton } from "@/components/ui/skeleton";
+import { EmailVerificationForm } from "@/components/shared/reactTurnstile/ReactTurnstile";
+import { GlowingButton, Input, Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
 import hoverStyles from "@/lib/hover";
 import { addUserToList } from "@/lib/server/actions";
@@ -49,9 +48,9 @@ function EmailInputForm({ register, errors, loading }: EmailFormProps) {
   return (
     <>
       <label htmlFor="email">Email</label>
-      <input
+      <Input
         id="emailSignup"
-        className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
+        className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
         placeholder="Enter your email"
         aria-label="Enter your email address to subscribe"
         {...register("email")}
@@ -71,20 +70,6 @@ function EmailInputForm({ register, errors, loading }: EmailFormProps) {
   );
 }
 
-function EmailSignupVerificationForm() {
-  const { setVerified } = useSignupContext();
-  return (
-    <div className="space-y-3 text-center text-gray-400">
-      <div className="flex flex-col items-center gap-5">
-        <Skeleton className="h-5 w-1/2" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-10 w-1/2" />
-      </div>
-      <ReactTurnstile setVerified={setVerified} />
-    </div>
-  );
-}
-
 export default function EmailForm({
   nextStep,
 }: {
@@ -95,7 +80,7 @@ export default function EmailForm({
     resolver: zodResolver(EmailStepSchema),
   });
 
-  const { setEmail, verified } = useSignupContext();
+  const { setEmail, verified, setVerified } = useSignupContext();
 
   async function onSubmit(data: EmailInfo) {
     await submitForm(data, setLoading, nextStep, setEmail);
@@ -118,7 +103,7 @@ export default function EmailForm({
               loading={loading}
             />
           ) : (
-            <EmailSignupVerificationForm />
+            <EmailVerificationForm setVerified={setVerified} />
           )}
           <p className="mt-6 text-center text-xs leading-6 text-gray-400">
             We care about your{" "}

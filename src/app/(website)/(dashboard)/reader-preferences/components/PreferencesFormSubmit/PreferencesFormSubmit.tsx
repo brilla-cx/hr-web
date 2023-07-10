@@ -2,9 +2,8 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { useRouter } from "next/navigation";
 import { Dispatch, Fragment, SetStateAction, useEffect } from "react";
 
-import ReactTurnstile from "@/components/shared/reactTurnstile/ReactTurnstile";
+import { FormSubmitVerfication } from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
-import { Skeleton } from "@/components/ui/skeleton";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import { updateUser } from "@/lib/server/actions";
 import { PreferenceContextState } from "@/types/types";
@@ -32,20 +31,6 @@ async function submitForm(
     setLoading(false);
     console.error("Error updating preferences:", error);
   }
-}
-
-function FormSubmitVerfication() {
-  const { setVerified } = usePreferenceContext();
-  return (
-    <>
-      <div className="mt-5 space-y-3 text-center text-gray-400">
-        <div className="flex flex-col items-center gap-5">
-          <Skeleton className="h-10 w-1/2" />
-        </div>
-      </div>
-      <ReactTurnstile setVerified={setVerified} />
-    </>
-  );
 }
 
 function SubmitFormButton() {
@@ -92,7 +77,11 @@ export default function PreferencesFormSubmit() {
       <p className="mt-3 text-center text-gray-400">
         Click submit, and we will update your preferences.
       </p>
-      {verified ? <SubmitFormButton /> : <FormSubmitVerfication />}
+      {verified ? (
+        <SubmitFormButton />
+      ) : (
+        <FormSubmitVerfication setVerified={setVerified} />
+      )}
     </Fragment>
   );
 }

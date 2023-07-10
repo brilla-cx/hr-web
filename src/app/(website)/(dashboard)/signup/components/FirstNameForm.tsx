@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { GlowingButton, Lead } from "@/components/ui";
+import { GlowingButton, Input, Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
 import {
   FirstNameInfo,
@@ -16,11 +16,7 @@ function FirstNameForm({
 }) {
   const [loading, setLoading] = useState<boolean>(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FirstNameInfo>({
+  const firstNameFormhook = useForm<FirstNameInfo>({
     resolver: zodResolver(FirstNameStepSchema),
   });
 
@@ -44,18 +40,20 @@ function FirstNameForm({
         <form
           id="#firstnamesignupform"
           noValidate
-          onSubmit={handleSubmit(nextForm)}>
+          onSubmit={firstNameFormhook.handleSubmit(nextForm)}>
           <label className="sr-only">First Name</label>
-          <input
+          <Input
             id="firstnamesignup"
             placeholder="Enter your first name"
             aria-label="What's your first name?."
-            className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-white placeholder:text-gray-600 focus:border-pink focus:ring-pink"
-            {...register("firstName")}
+            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+            {...firstNameFormhook.register("firstName")}
           />
-          {errors.firstName && (
+          {firstNameFormhook.formState.errors.firstName && (
             <div className="mt-1 text-red-600">
-              <small>{errors.firstName.message}</small>
+              <small>
+                {firstNameFormhook.formState.errors.firstName.message}
+              </small>
             </div>
           )}
           <div className="mt-10 flex justify-center">
