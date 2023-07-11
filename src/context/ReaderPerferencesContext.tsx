@@ -36,17 +36,18 @@ function PerferencesContextProvider({ children }) {
     setFormData((prevFormData) => ({ ...prevFormData, ...newFormData }));
   };
 
+  const contextValue = {
+    data,
+    loading,
+    verified,
+    setPreferencesData,
+    setFormData,
+    setLoading,
+    setVerified,
+  };
+
   return (
-    <PreferenceContext.Provider
-      value={{
-        data,
-        loading,
-        verified,
-        setPreferencesData,
-        setFormData,
-        setLoading,
-        setVerified,
-      }}>
+    <PreferenceContext.Provider value={contextValue}>
       {children}
     </PreferenceContext.Provider>
   );
