@@ -2,6 +2,33 @@
 
 import { ITERABLE_LIST_ID, ITERABLE_TOKEN } from "@/lib/constants";
 
+async function fetchIterableAPI(url: string, method: string, body?: object) {
+  try {
+    const headers = {
+      "Content-Type": "application/json",
+      "Api-Key": ITERABLE_TOKEN,
+    };
+
+    // eslint-disable-next-line no-undef
+    const options: RequestInit = {
+      method,
+      headers,
+    };
+
+    if (body) {
+      options.body = JSON.stringify(body);
+    }
+
+    const response = await fetch(url, options);
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Something went wrong!");
+  }
+}
+
 export async function addUserToList(email: string) {
   if (!email) return false;
   try {
@@ -10,15 +37,7 @@ export async function addUserToList(email: string) {
       listId: ITERABLE_LIST_ID,
       subscribers: [{ email, userId: email }],
     };
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Api-Key": ITERABLE_TOKEN,
-      },
-      body: JSON.stringify(postdata),
-    });
-    const result = await response.json();
+    const result = await fetchIterableAPI(url, "POST", postdata);
     if (!result.successCount)
       return { error: true, message: "Could not add user to the list" };
     return { success: true, message: "User subscribed successfully!", result };
@@ -33,14 +52,8 @@ export async function getUserInfo(email: string) {
 
   try {
     const url = `https://api.iterable.com/api/users/${email}`;
+    const result = await fetchIterableAPI(url, "GET");
 
-    const response = await fetch(url, {
-      headers: {
-        "Api-Key": ITERABLE_TOKEN,
-      },
-    });
-
-    const result = await response.json();
     if (!result.user) {
       return { error: true, message: "No user found" };
     }
@@ -68,17 +81,7 @@ export async function updateUser(
 
   try {
     const url = "https://api.iterable.com/api/users/update";
-
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Api-Key": ITERABLE_TOKEN,
-      },
-      body: JSON.stringify(postdata),
-    });
-
-    const result = await response.json();
+    const result = await fetchIterableAPI(url, "POST", postdata);
 
     if (result.code === "Success") {
       return { success: true, message: "User updated successfully" };
