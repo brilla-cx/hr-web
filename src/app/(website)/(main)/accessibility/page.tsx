@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
 
 import Legal from "@/components/shared/legal/Legal";
 import PreviewLegal from "@/components/shared/legal/PreviewLegal";
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
-import { isInPreview } from "@/lib/isInPreview";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export function generateMetadata(): Metadata {
@@ -41,6 +41,10 @@ interface Post {
 
 export default async function AccessibilityStatement() {
   const post: Post = await getLegalPageBySlug("accessibility");
+
+  const isInPreview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
 
   if (isInPreview) {
     return (

@@ -1,6 +1,7 @@
+import { draftMode } from "next/headers";
+
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
-import { isInPreview } from "@/lib/isInPreview";
 import { getToolbySlug } from "@/sanity/client";
 
 import PostPreview from "./components/Preview/Preview";
@@ -38,7 +39,9 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const data = await getToolbySlug(params.slug);
-
+  const isInPreview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
   if (isInPreview) {
     return (
       <PreviewProvider token={isInPreview.token}>

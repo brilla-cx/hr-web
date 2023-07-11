@@ -1,8 +1,9 @@
+import { draftMode } from "next/headers";
+
 import Legal from "@/components/shared/legal/Legal";
 import PreviewLegal from "@/components/shared/legal/PreviewLegal";
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
-import { isInPreview } from "@/lib/isInPreview";
 import { getLegalPageBySlug } from "@/sanity/client";
 import { Metadata } from "@/types/types";
 
@@ -40,7 +41,9 @@ interface Post {
 
 export default async function EditorialPolicy() {
   const post: Post = await getLegalPageBySlug("editorial-policy");
-
+  const isInPreview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
   if (isInPreview) {
     return (
       <PreviewProvider token={isInPreview.token!}>
