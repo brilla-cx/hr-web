@@ -2,14 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 
-import { EmailVerificationForm } from "@/components/shared/reactTurnstile/ReactTurnstile";
-import { Lead } from "@/components/ui";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import { getUserInfo } from "@/lib/server/actions";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
 import { PreferenceContextState } from "@/types/types";
 
-import EmailInputForm from "../../../components/EmailForm/EmailForm";
+import EmailFormSubmit from "../../../components/EmailForm/EmailForm";
 
 async function submitForm(
   data: EmailInfo,
@@ -60,25 +58,15 @@ export default function PreferencesEmailForm({
   }
 
   return (
-    <div>
-      <form id="email" onSubmit={prefEmailForm.handleSubmit(onSubmit)}>
-        <div className="mb-5">
-          <Lead className="text-center text-gray-200">
-            Enter your email address
-          </Lead>
-        </div>
-        {verified ? (
-          <EmailInputForm
-            register={prefEmailForm.register}
-            errors={prefEmailForm.formState.errors}
-            loading={loading}
-            loadingText="Just a sec.."
-            buttonText="Change my Preferences"
-          />
-        ) : (
-          <EmailVerificationForm setVerified={setVerified} />
-        )}
-      </form>
-    </div>
+    <EmailFormSubmit
+      emailForm={prefEmailForm}
+      leadText="Enter your email address"
+      loadingText="Just a sec.."
+      buttonText="Change my Preferences"
+      loading={loading}
+      setVerified={setVerified}
+      verified={verified}
+      onSubmit={onSubmit}
+    />
   );
 }
