@@ -182,27 +182,18 @@ interface RadioProps {
   [key: string]: any;
 }
 
-export function Radio({
-  name,
-  errors = {},
-  validations,
-  register,
-  size = "lg",
-  className = "",
-  label,
-  ...rest
-}: RadioProps) {
+export function Radio(props: RadioProps) {
   return (
     <CustomInput
       type="radio"
       name={name}
-      errors={errors}
-      validations={validations}
-      register={register}
-      size={size}
-      className={className}
-      label={label}
-      {...rest}
+      errors={props.errors}
+      validations={props.validations}
+      register={props.register}
+      size={props.size}
+      className={props.className}
+      label={props.label}
+      {...props.rest}
     />
   );
 }
