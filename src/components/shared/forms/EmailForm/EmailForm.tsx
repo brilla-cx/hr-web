@@ -1,13 +1,13 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import GlowingButton from "../../../ui/glowingButton";
 import { H3, Lead } from "../../../ui/typography";
-import ReactTurnstile from "../ReactTurnstile/ReactTurnstile";
+import ReactTurnstile from "../../reactTurnstile/ReactTurnstile";
 
 export interface LeadData {
   firstName: string;
@@ -34,37 +34,19 @@ interface Props {
 }
 
 function EmailForm(props: Props) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LeadData>({
+  const emailFormHook = useForm<LeadData>({
     resolver: zodResolver(leadSchema),
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const formRef = useRef<HTMLFormElement>(null);
+  const [verified, setVerified] = useState(false);
 
   const onSubmit = async (data: LeadData) => {
     try {
-      const ref = formRef.current;
-      if (ref) {
-        const formData = new FormData(formRef.current!);
-        const token = formData.get("cf-turnstile-response");
-        const res = await fetch("/api/turnstile-verify", {
-          method: "POST",
-          body: JSON.stringify({ token }),
-          headers: {
-            "content-type": "application/json",
-          },
-        });
-        const tokenResponse = await res.json();
-        if (tokenResponse.data.success) {
-          setIsLoading(true);
-          await axios.post(`/api/close-com`, data);
-          setIsSuccess(true);
-        }
+      if (verified) {
+        setIsLoading(true);
+        await axios.post(`/api/close-com`, data);
+        setIsSuccess(true);
       }
     } catch (error) {
       return error;
@@ -73,15 +55,19 @@ function EmailForm(props: Props) {
     }
     return null;
   };
+
+  const errors = emailFormHook.formState.errors;
+  const register = emailFormHook.register;
+
   return (
-    <div className="px-4 py-12 lg:py-26 sm:px-8 sm:py-20">
-      <form ref={formRef} id={props.formId} onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid max-w-3xl grid-cols-2 gap-10 mx-auto md:grid-cols-4">
+    <div className="lg:py-26 px-4 py-12 sm:px-8 sm:py-20">
+      <form id={props.formId} onSubmit={emailFormHook.handleSubmit(onSubmit)}>
+        <div className="mx-auto grid max-w-3xl grid-cols-2 gap-10 md:grid-cols-4">
           <div className="col-span-4 text-center">
             <H3 as="h2" className="!text-center text-gray-200">
               Together with Hey Rebekah
             </H3>
-            <Lead className="max-w-lg pt-5 mx-auto text-center text-gray-400">
+            <Lead className="mx-auto max-w-lg pt-5 text-center text-gray-400">
               We're excited you're considering a partnership with us! Fill out
               the form below, and we'll get back to you pronto - faster than a
               chicken lays an egg.
@@ -92,7 +78,7 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="First name"
               {...(register && register("firstName"))}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.firstName && (
               <div className="mt-1 text-red-600">
@@ -105,7 +91,7 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="Last name"
               {...register("lastName")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.lastName && (
               <div className="mt-1 text-red-600">
@@ -118,7 +104,7 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="Email"
               {...register("email")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.email && (
               <div className="mt-1 text-red-600">
@@ -131,7 +117,7 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="Phone number"
               {...register("phoneNumber")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.phoneNumber && (
               <div className="mt-1 text-red-600">
@@ -144,7 +130,7 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="Job title"
               {...register("jobTitle")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.jobTitle && (
               <div className="mt-1 text-red-600">
@@ -157,7 +143,7 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="Company name"
               {...register("company")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
           </div>
           <div className="col-span-4">
@@ -165,14 +151,14 @@ function EmailForm(props: Props) {
               type="text"
               placeholder="Website"
               {...register("companyUrl")}
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
           </div>
           <div className="col-span-4">
             <textarea
               {...register("message")}
               placeholder="Your message"
-              className="w-full text-gray-200 border-2 border-black rounded border-neutral-200/10 bg-slate-900 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             />
             {errors.message && (
               <div className="mt-1 text-red-600">
@@ -180,8 +166,8 @@ function EmailForm(props: Props) {
               </div>
             )}
           </div>
-          <ReactTurnstile />
-          <div className="col-span-4 pt-6 mx-auto">
+          <ReactTurnstile setVerified={setVerified} />
+          <div className="col-span-4 mx-auto pt-6">
             <GlowingButton type="submit" autoWidth>
               {isLoading ? "Loading..." : "Let's make it happen"}
             </GlowingButton>

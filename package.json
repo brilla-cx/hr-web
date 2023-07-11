@@ -54,6 +54,7 @@
     "react-share": "^4.4.1",
     "react-social-media-embed": "^2.3.5",
     "react-textra": "^0.2.0",
+    "react-turnstile": "^1.1.1",
     "react-wrap-balancer": "^1.0.0",
     "rss": "^1.2.2",
     "rxjs": "^7.8.1",

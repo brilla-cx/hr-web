@@ -64,7 +64,7 @@ interface SelectProps {
 export function Select({ children, size = "md", ...rest }: SelectProps) {
   return (
     <div className="relative">
-      <FaChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 " />
+      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2 " />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
@@ -107,6 +107,45 @@ interface CheckboxProps {
   [key: string]: any;
 }
 
+interface CustomInputProps {
+  type: "checkbox" | "radio";
+  name: string;
+  errors?: Record<string, any>;
+  validations?: any;
+  register?: any;
+  size?: "sm" | "md" | "lg" | "xl";
+  className?: string;
+  label: string;
+  [key: string]: any;
+}
+
+export function CustomInput({
+  type,
+  name,
+  errors = {},
+  validations,
+  register,
+  size = "md",
+  className = "",
+  label,
+  ...rest
+}: CustomInputProps) {
+  return (
+    <label className="inline-flex w-full items-center gap-4 rounded border border-gray-600 bg-slate-900 px-4 py-2 focus-within:border-2 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
+      <input
+        type={type}
+        {...(register && register(name, validations))}
+        className={cx(
+          "h-4 w-4 appearance-none rounded border-2 text-pink focus:border-pink focus:ring-pink",
+          className
+        )}
+        {...rest}
+      />
+      <span className="text-white"> {label}</span>
+    </label>
+  );
+}
+
 export function Checkbox({
   name,
   errors = {},
@@ -118,19 +157,17 @@ export function Checkbox({
   ...rest
 }: CheckboxProps) {
   return (
-    <label className="inline-flex w-full items-center gap-4 rounded border border-gray-600 bg-slate-900 px-4 py-2 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
-      <input
-        type="checkbox"
-        name={name}
-        {...(register && register(name, validations))}
-        className={cx(
-          "h-4 w-4 text-pink focus-within:border-2 focus:border-pink focus:ring-pink",
-          className
-        )}
-        {...rest}
-      />
-      <span className="text-white"> {label}</span>
-    </label>
+    <CustomInput
+      type="checkbox"
+      name={name}
+      errors={errors}
+      validations={validations}
+      register={register}
+      size={size}
+      className={className}
+      label={label}
+      {...rest}
+    />
   );
 }
 
@@ -145,30 +182,19 @@ interface RadioProps {
   [key: string]: any;
 }
 
-export function Radio({
-  name,
-  errors = {},
-  validations,
-  register,
-  size = "lg",
-  className = "",
-  label,
-  ...rest
-}: RadioProps) {
+export function Radio(props: RadioProps) {
   return (
-    <label className="inline-flex w-full items-center gap-4 rounded border border-gray-600 bg-slate-900 px-4 py-2 focus-within:border-2 focus-within:border-pink focus-within:ring-pink hover:bg-gray-800">
-      <input
-        type="radio"
-        name={name}
-        {...(register && register(name, validations))}
-        className={cx(
-          "h-4 w-4 appearance-none rounded border-2 text-pink focus:border-pink focus:ring-pink",
-          className
-        )}
-        {...rest}
-      />
-      <span className="text-white"> {label}</span>
-    </label>
+    <CustomInput
+      type="radio"
+      name={name}
+      errors={props.errors}
+      validations={props.validations}
+      register={props.register}
+      size={props.size}
+      className={props.className}
+      label={props.label}
+      {...props.rest}
+    />
   );
 }
 
@@ -185,7 +211,7 @@ const BackButton = ({ onClick }) => {
         darkStyles,
         "mr-4 flex items-center justify-center focus:outline-none"
       )}
-      onClick={onClick}>
+      onClick={() => onClick()}>
       <FaCaretLeft className={`mr-2 ${caretStyles}`} />
       Back
     </button>

@@ -16,7 +16,10 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-unused-vars": "warn",
-    "no-console": "warn"
+    "no-console": "warn",
+    "no-shadow": "off",
+    "no-empty-function": "off",
+    "react/jsx-no-bind": "off"
   },
   "globals": {
     "JSX": true
