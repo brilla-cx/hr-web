@@ -3,11 +3,13 @@ import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 
 import { EmailVerificationForm } from "@/components/shared/reactTurnstile/ReactTurnstile";
-import { GlowingButton, Lead } from "@/components/ui";
+import { Lead } from "@/components/ui";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import { getUserInfo } from "@/lib/server/actions";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
 import { PreferenceContextState } from "@/types/types";
+
+import EmailInputForm from "../../../components/EmailForm/EmailForm";
 
 async function submitForm(
   data: EmailInfo,
@@ -41,46 +43,6 @@ async function submitForm(
   }
 }
 
-interface EmailFormProps {
-  register: any;
-  errors: any;
-  loading: boolean;
-}
-
-function EmailForm({ register, errors, loading }: EmailFormProps) {
-  return (
-    <>
-      <div className="mb-5">
-        <Lead className="text-center text-gray-200">
-          Enter your email address
-        </Lead>
-      </div>
-      <label className="sr-only">Email Address</label>
-      <input
-        type="text"
-        placeholder="Email"
-        {...register("email")}
-        className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
-      />
-      {errors.email && (
-        <div className="mt-1 text-red-600">
-          <small>{errors.email.message}</small>
-        </div>
-      )}
-      <div className="mt-10 flex justify-center">
-        <GlowingButton
-          type="submit"
-          autoWidth
-          // @ts-ignore
-          disabled={loading}
-          ariaLabel={loading ? "Please wait..." : "Change my Preferences"}>
-          {loading ? "Just a sec..." : "Change my Preferences"}
-        </GlowingButton>
-      </div>
-    </>
-  );
-}
-
 export default function PreferencesEmailForm({
   setStep,
 }: {
@@ -100,11 +62,18 @@ export default function PreferencesEmailForm({
   return (
     <div>
       <form id="email" onSubmit={prefEmailForm.handleSubmit(onSubmit)}>
+        <div className="mb-5">
+          <Lead className="text-center text-gray-200">
+            Enter your email address
+          </Lead>
+        </div>
         {verified ? (
-          <EmailForm
+          <EmailInputForm
             register={prefEmailForm.register}
             errors={prefEmailForm.formState.errors}
             loading={loading}
+            loadingText="Just a sec.."
+            buttonText="Change my Preferences"
           />
         ) : (
           <EmailVerificationForm setVerified={setVerified} />

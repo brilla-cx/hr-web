@@ -15,9 +15,10 @@ function submitForm(
   setFormData: Dispatch<SetStateAction<PreferenceContextState>>,
   setStep: Dispatch<SetStateAction<number>>
 ) {
+
   setFormData((prev) => ({
     data: {
-      ...prev.data,
+      email: prev.data.email,
       dataFields: {
         ...prev.data.dataFields,
         firstName: {

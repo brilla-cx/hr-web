@@ -1,13 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction, useState } from "react";
-import { FieldErrors, useForm, UseFormRegister } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import PrivacyCopy from "@/components/shared/PrivacyCopy/PrivacyCopy";
 import { EmailVerificationForm } from "@/components/shared/reactTurnstile/ReactTurnstile";
-import { GlowingButton, Input, Lead } from "@/components/ui";
+import { Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
 import { addUserToList } from "@/lib/server/actions";
 import { EmailInfo, EmailStepSchema } from "@/lib/validation/validations";
+
+import EmailInputForm from "../../components/EmailForm/EmailForm";
 
 async function submitForm(
   data: EmailInfo,
@@ -30,42 +32,6 @@ async function submitForm(
     console.error(error);
     setLoading(false);
   }
-}
-
-interface EmailFormProps {
-  register: UseFormRegister<{
-    email: string;
-  }>;
-  errors: FieldErrors<{
-    email: string;
-  }>;
-  loading: boolean;
-}
-
-function EmailInputForm({ register, errors, loading }: EmailFormProps) {
-  return (
-    <>
-      <label htmlFor="email">Email</label>
-      <Input
-        id="emailSignup"
-        className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
-        placeholder="Enter your email"
-        aria-label="Enter your email address to subscribe"
-        {...register("email")}
-      />
-      {errors.email && (
-        <div className="mt-1 text-red-600">
-          <small>{errors.email.message}</small>
-        </div>
-      )}
-
-      <div className="mt-10 flex justify-center">
-        <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
-          {loading ? "hold on ...." : "Next"}
-        </GlowingButton>
-      </div>
-    </>
-  );
 }
 
 export default function EmailForm({
@@ -99,6 +65,8 @@ export default function EmailForm({
               register={emailForm.register}
               errors={emailForm.formState.errors}
               loading={loading}
+              loadingText="hold on ...."
+              buttonText="Next"
             />
           ) : (
             <EmailVerificationForm setVerified={setVerified} />
