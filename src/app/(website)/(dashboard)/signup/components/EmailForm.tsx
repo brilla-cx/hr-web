@@ -49,6 +49,7 @@ export default function EmailForm({
 
   return (
     <EmailFormSubmit
+      id="#signupformemail"
       emailForm={emailForm}
       leadText="What's your email address?"
       loadingText="hold on ...."

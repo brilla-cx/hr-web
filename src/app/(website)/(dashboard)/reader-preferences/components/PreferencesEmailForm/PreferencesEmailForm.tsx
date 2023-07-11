@@ -59,13 +59,14 @@ export default function PreferencesEmailForm({
 
   return (
     <EmailFormSubmit
-      emailForm={prefEmailForm}
-      leadText="Enter your email address"
+      id="#prefrenceformemail"
       loadingText="Just a sec.."
       buttonText="Change my Preferences"
       loading={loading}
       setVerified={setVerified}
       verified={verified}
+      emailForm={prefEmailForm}
+      leadText="Enter your email address"
       onSubmit={onSubmit}
     />
   );

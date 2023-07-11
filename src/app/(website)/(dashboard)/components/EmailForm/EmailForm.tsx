@@ -7,6 +7,7 @@ import { GlowingButton, Lead } from "@/components/ui";
 import { EmailInfo } from "@/lib/validation/validations";
 
 interface EmailFormType {
+  id?: string;
   emailForm: UseFormReturn<
     {
       email: string;
@@ -32,9 +33,10 @@ function EmailFormSubmit({
   loading,
   verified,
   onSubmit,
+  id,
 }: EmailFormType) {
   return (
-    <form id="#emailformsignup" onSubmit={emailForm.handleSubmit(onSubmit)}>
+    <form id={id} onSubmit={emailForm.handleSubmit(onSubmit)}>
       <Lead className="text-center text-gray-200">
         {leadText}
         <sup className="text-pink">&nbsp;*</sup>
