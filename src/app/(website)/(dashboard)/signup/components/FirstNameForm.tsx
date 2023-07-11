@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { GlowingButton, Input, Lead } from "@/components/ui";
+import { GlowingButton, Lead } from "@/components/ui";
 import { useSignupContext } from "@/context/SignupContext";
 import {
   FirstNameInfo,
@@ -42,11 +42,11 @@ function FirstNameForm({
           noValidate
           onSubmit={firstNameFormhook.handleSubmit(nextForm)}>
           <label className="sr-only">First Name</label>
-          <Input
+          <input
             id="firstnamesignup"
             placeholder="Enter your first name"
             aria-label="What's your first name?."
-            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
+            className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-3 py-3 text-white placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
             {...firstNameFormhook.register("firstName")}
           />
           {firstNameFormhook.formState.errors.firstName && (
