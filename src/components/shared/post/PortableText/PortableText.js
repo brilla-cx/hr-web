@@ -43,7 +43,7 @@ const components = {
       );
     },
     internalLink: ({ children, value }) => {
-      return <Link href={`/docs/${value.slug.current}`}>{children}</Link>;
+      return <Link href={`/docs/${value?.slug?.current}`}>{children}</Link>;
     },
   },
 };
