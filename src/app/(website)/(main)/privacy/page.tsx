@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
 import { ReactElement } from "react";
 
-import Container from "@/components/layout/Container/Container";
-import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import { PortableText } from "@/components/shared/post/PortableText/PortableText";
-import { Prose } from "@/components/ui";
+import Legal from "@/components/shared/legal/Legal";
+import PreviewLegal from "@/components/shared/legal/PreviewLegal";
+import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
 import { getLegalPageBySlug } from "@/sanity/client";
 
@@ -43,33 +43,20 @@ interface Post {
 export default async function Privacy(): Promise<ReactElement> {
   const post: Post = await getLegalPageBySlug("privacy");
 
-  // Fetch the post data and insert it into the component
-  const title = post?.name ?? "Default Title";
-  const leadText = post?.tldr ?? "Default Lead Text";
-  const content = post?.content ?? "Default Content";
+  const isInPreview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
 
-  return (
-    <div className="bg-white">
-      <div className="bg-midnight">
-        <Container large className="border-l border-r border-neutral-200/10">
-          <PageHeader
-            title={title}
-            leadText={leadText}
-            id="privacy"
-            includeForm
-          />
-        </Container>
-      </div>
-      <div className="mx-auto mb-20 mt-14 flex max-w-screen-xl flex-col gap-5 px-5 md:flex-row">
-        <article className="flex-1 ">
-          <Prose className="prose mx-auto max-w-prose break-words ">
-            <PortableText value={content} />
-          </Prose>
-        </article>
-      </div>
-    </div>
-  );
+  if (isInPreview) {
+    return (
+      <PreviewProvider token={isInPreview.token!}>
+        <PreviewLegal data={post} slug="privacy" />
+      </PreviewProvider>
+    );
+  }
+
+  return <Legal data={post} />;
 }
 
-export const dynamic = 'force-static'
-export const revalidate = false
+export const dynamic = "force-static";
+export const revalidate = false;

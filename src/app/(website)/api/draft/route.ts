@@ -69,7 +69,7 @@ export async function GET(request: Request) {
     status: 307,
     headers: {
       ...Object.fromEntries(headers),
-      Location: `/${type}/${slug}`,
+      Location: type == "legal" ? `/${slug}` : `/${type}/${slug}`,
     },
   });
 }

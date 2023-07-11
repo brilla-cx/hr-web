@@ -6,11 +6,9 @@
  * mode, it renders the lazy-loaded SocialBlogPreview component; otherwise, it renders
  * the SocialBlog component.
  */
-
 import { draftMode } from "next/headers";
-import { lazy } from "react";
 
-import { PreviewSuspense } from "@/components/shared/preview";
+import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
 import {
   getAllSocialBlogs,
@@ -18,10 +16,8 @@ import {
   getSocialBlogBySlug,
 } from "@/sanity/client";
 
+import SocialBlogPreview from "./components/Preview/SocialBlogPreview";
 import SocialBlog from "./components/SocialBlog/SocialBlog";
-
-// Lazy load the SocialBlogPreview component
-const SocialBlogPreview = lazy(() => import("./components/Preview/preview"));
 
 export async function generateStaticParams() {
   const slugs = await getAllSocialBlogSlugs();
@@ -83,23 +79,17 @@ export async function generateMetadata({ params }) {
 export default async function SocialBlogPage({ params }) {
   const socialBlog = await getSocialBlogBySlug(params.slug);
 
-  const { isEnabled: preview } = draftMode();
+  const isInPreview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
 
-  if (preview) {
+  if (isInPreview) {
     return (
-      // eslint-disable-next-line react/jsx-no-undef, no-undef
-      <PreviewSuspense fallback={<Loading />}>
-        <SocialBlogPreview slug={params.slug} />
-      </PreviewSuspense>
+      <PreviewProvider token={isInPreview.token}>
+        <SocialBlogPreview data={socialBlog} slug={params.slug} />
+      </PreviewProvider>
     );
   }
 
   return <SocialBlog socialBlog={socialBlog} />;
 }
-const Loading = () => {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      Just a minute, convincing Ambreen....
-    </div>
-  );
-};

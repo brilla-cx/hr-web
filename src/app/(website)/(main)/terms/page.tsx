@@ -1,11 +1,11 @@
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
 import { ReactElement } from "react";
 
-import Container from "@/components/layout/Container/Container";
-import PageHeader from "@/components/shared/PageHeader/PageHeader";
-import { PortableText } from "@/components/shared/post/PortableText/PortableText";
-import { Prose } from "@/components/ui";
-import { SITE_URL } from '@/lib/constants';
+import Legal from "@/components/shared/legal/Legal";
+import PreviewLegal from "@/components/shared/legal/PreviewLegal";
+import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
+import { SITE_URL } from "@/lib/constants";
 import { getLegalPageBySlug } from "@/sanity/client";
 
 export function generateMetadata(): Metadata {
@@ -41,34 +41,21 @@ interface Post {
 }
 
 export default async function Terms(): Promise<ReactElement> {
+  const preview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_READ_TOKEN }
+    : undefined;
+
   const post: Post = await getLegalPageBySlug("terms");
 
-  // Fetch the post data and insert it into the component
-  const title = post?.name ?? "Default Title";
-  const leadText = post?.tldr ?? "Default Lead Text";
-  const content = post?.content ?? "Default Content";
+  if (preview) {
+    return (
+      <PreviewProvider token={preview.token!}>
+        <PreviewLegal data={post} slug="privacy" />
+      </PreviewProvider>
+    );
+  }
 
-  return (
-    <div className="bg-white">
-      <div className="bg-midnight">
-        <Container large className="border-l border-r border-neutral-200/10">
-          <PageHeader
-            title={title}
-            leadText={leadText}
-            id="terms"
-            includeForm
-          />
-        </Container>
-      </div>
-      <div className="flex flex-col max-w-screen-xl gap-5 px-5 mx-auto mb-20 mt-14 md:flex-row">
-        <article className="flex-1 ">
-          <Prose className="mx-auto prose max-w-prose break-words">
-            <PortableText value={content} />
-          </Prose>
-        </article>
-      </div>
-    </div>
-  );
+  return <Legal data={post} />;
 }
 
 export const dynamic = 'force-static'

@@ -1,13 +1,11 @@
 import { draftMode } from "next/headers";
-import { lazy } from "react";
 
-import { PreviewSuspense } from "@/components/shared/preview";
+import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
 import { getBookbySlug } from "@/sanity/client";
 
 import Post from "./components/Book/Book";
-
-const PostPreview = lazy(() => import("./components/Preview/preview"));
+import PreviewBook from "./components/PreviewBook/PreviewBook";
 
 export function generateStaticParams() {
   return [];
@@ -42,24 +40,16 @@ export async function generateMetadata({ params }) {
 
 export default async function PostPage({ params }) {
   const post = await getBookbySlug(params.slug);
-
-  const { isEnabled: preview } = draftMode();
-
-  if (preview) {
+  const isInPreview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
+  if (isInPreview) {
     return (
-      <PreviewSuspense fallback={<Loading />}>
-        <PostPreview slug={params.slug} />
-      </PreviewSuspense>
+      <PreviewProvider token={isInPreview.token!}>
+        <PreviewBook data={post} slug={params.slug} />
+      </PreviewProvider>
     );
   }
 
   return <Post post={post} />;
 }
-
-const Loading = () => {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      Quick sec, waiting for Samuel to push a commit...
-    </div>
-  );
-};
