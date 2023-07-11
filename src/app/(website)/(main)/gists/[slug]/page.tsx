@@ -1,7 +1,6 @@
-import { draftMode } from "next/headers";
-
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
+import { isInPreview } from "@/lib/isInPreview";
 import {
   getAllPosts,
   getAllPostsSlugs,
@@ -49,13 +48,9 @@ export default async function PostPage({ params }) {
   const post = await getPostBySlug(params.slug);
   const categories = await getTopCategories();
 
-  const preview = draftMode().isEnabled
-    ? { token: process.env.SANITY_API_READ_TOKEN }
-    : undefined;
-
-  if (preview) {
+  if (isInPreview) {
     return (
-      <PreviewProvider token={preview.token!}>
+      <PreviewProvider token={isInPreview.token!}>
         <GistPreview data={post} slug={params.slug} categories={categories} />
       </PreviewProvider>
     );

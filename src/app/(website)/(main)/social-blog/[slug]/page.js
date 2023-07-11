@@ -6,11 +6,9 @@
  * mode, it renders the lazy-loaded SocialBlogPreview component; otherwise, it renders
  * the SocialBlog component.
  */
-
-import { draftMode } from "next/headers";
-
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
+import { isInPreview } from "@/lib/isInPreview";
 import {
   getAllSocialBlogs,
   getAllSocialBlogSlugs,
@@ -80,13 +78,9 @@ export async function generateMetadata({ params }) {
 export default async function SocialBlogPage({ params }) {
   const socialBlog = await getSocialBlogBySlug(params.slug);
 
-  const preview = draftMode().isEnabled
-    ? { token: process.env.SANITY_API_READ_TOKEN }
-    : undefined;
-
-  if (preview) {
+  if (isInPreview) {
     return (
-      <PreviewProvider token={preview.token}>
+      <PreviewProvider token={isInPreview.token}>
         <SocialBlogPreview data={socialBlog} slug={params.slug} />
       </PreviewProvider>
     );

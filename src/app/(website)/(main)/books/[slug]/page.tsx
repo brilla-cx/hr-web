@@ -1,7 +1,6 @@
-import { draftMode } from "next/headers";
-
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
+import { isInPreview } from "@/lib/isInPreview";
 import { getBookbySlug } from "@/sanity/client";
 
 import Post from "./components/Book/Book";
@@ -39,15 +38,11 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function PostPage({ params }) {
-  const preview = draftMode().isEnabled
-    ? { token: process.env.SANITY_API_READ_TOKEN }
-    : undefined;
-
   const post = await getBookbySlug(params.slug);
 
-  if (preview) {
+  if (isInPreview) {
     return (
-      <PreviewProvider token={preview.token!}>
+      <PreviewProvider token={isInPreview.token!}>
         <PreviewBook data={post} slug={params.slug} />
       </PreviewProvider>
     );
