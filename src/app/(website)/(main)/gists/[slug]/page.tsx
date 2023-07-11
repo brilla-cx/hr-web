@@ -1,7 +1,6 @@
 import { draftMode } from "next/headers";
-import { lazy } from "react";
 
-import { PreviewSuspense } from "@/components/shared/preview";
+import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
 import {
   getAllPosts,
@@ -11,8 +10,7 @@ import {
 } from "@/sanity/client";
 
 import Gist from "./components/Gist/Gist";
-
-const PostPreview = lazy(() => import("./components/Preview/preview"));
+import GistPreview from "./components/Preview/GistPreview";
 
 export async function generateStaticParams() {
   const slugs = await getAllPostsSlugs();
@@ -51,25 +49,19 @@ export default async function PostPage({ params }) {
   const post = await getPostBySlug(params.slug);
   const categories = await getTopCategories();
 
-  const { isEnabled: preview } = draftMode();
+  const preview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_READ_TOKEN }
+    : undefined;
 
   if (preview) {
     return (
-      <PreviewSuspense fallback={<Loading />}>
-        <PostPreview slug={params.slug} categories={categories} />
-      </PreviewSuspense>
+      <PreviewProvider token={preview.token!}>
+        <GistPreview data={post} slug={params.slug} categories={categories} />
+      </PreviewProvider>
     );
   }
 
   return <Gist post={post} categories={categories} />;
 }
-
-const Loading = () => {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      Just a sec, getting Rebekah's attention...
-    </div>
-  );
-};
 
 export const revalidate = 3600;

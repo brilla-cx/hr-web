@@ -5,9 +5,9 @@ import React from "react";
 import { BsSend } from "react-icons/bs";
 import { DocumentActionComponent, useDocumentOperation } from "sanity";
 
-import { getTextFromBlocks } from "@/lib/getTextFromBlock";
 import { ValueType } from "@/types/types";
 
+import { getTextFromBlocks } from "../../src/lib/getTextFromBlock";
 // Custom function that resolves the path from your document.
 // import { resolveProductionPath } from "../resolveProductionUrl";
 import { postByIdQuery } from "./client";

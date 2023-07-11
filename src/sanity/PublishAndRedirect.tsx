@@ -11,17 +11,17 @@ export function resolveProductionPath(
   const doc = document;
   switch (doc?._type) {
     case "post":
-      return `/gists/${(doc.slug as { current: string }).current}`;
+      return `/gists/${(doc.slug as { current: string })?.current}`;
     case "book":
-      return `/books/${(doc.slug as { current: string }).current}`;
+      return `/books/${(doc.slug as { current: string })?.current}`;
     case "tool":
-      return `/built-with/${(doc.slug as { current: string }).current}`;
+      return `/built-with/${(doc.slug as { current: string })?.current}`;
     case "author":
-      return `/author/${(doc.slug as { current: string }).current}`;
+      return `/author/${(doc.slug as { current: string })?.current}`;
     case "category":
-      return `/category/${(doc.slug as { current: string }).current}`;
+      return `/category/${(doc.slug as { current: string })?.current}`;
     case "legal":
-      return `/${(doc.slug as { current: string }).current}`;
+      return `/${(doc.slug as { current: string })?.current}`;
     default:
       break;
   }
@@ -39,7 +39,8 @@ export default function PublishAndRedirect(props: DocumentActionProps) {
     validation.validation.filter((v) => v.level === "error").length === 0;
 
   const [isPublishing, setIsPublishing] = useState(false);
-  const draftPath = props.published && resolveProductionPath(props.draft);
+  const draftPath =
+    (props.published || props.draft) && resolveProductionPath(props.draft);
   const publishedPath = resolveProductionPath(props.published);
 
   useEffect(() => {

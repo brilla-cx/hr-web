@@ -1,9 +1,12 @@
 import { Metadata } from "next";
+import { draftMode } from "next/headers";
 import { ReactElement } from "react";
 
 import Container from "@/components/layout/Container/Container";
+import PreviewLegal from "@/components/shared/legal/PreviewLegal";
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
+import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { Prose } from "@/components/ui";
 import { SITE_URL } from "@/lib/constants";
 import { getLegalPageBySlug } from "@/sanity/client";
@@ -41,7 +44,19 @@ interface Post {
 }
 
 export default async function Privacy(): Promise<ReactElement> {
+  const preview = draftMode().isEnabled
+    ? { token: process.env.SANITY_API_WRITE_TOKEN }
+    : undefined;
+
   const post: Post = await getLegalPageBySlug("privacy");
+
+  if (preview) {
+    return (
+      <PreviewProvider token={preview.token!}>
+        <PreviewLegal data={post} slug="privacy" />
+      </PreviewProvider>
+    );
+  }
 
   // Fetch the post data and insert it into the component
   const title = post?.name ?? "Default Title";
@@ -71,5 +86,5 @@ export default async function Privacy(): Promise<ReactElement> {
   );
 }
 
-export const dynamic = 'force-static'
-export const revalidate = false
+export const dynamic = "force-static";
+export const revalidate = false;
