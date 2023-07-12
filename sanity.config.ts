@@ -3,14 +3,14 @@ import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
-import { giphyAssetSourcePlugin } from "sanity-plugin-asset-source-giphy";
-import { openaiImageAsset } from "sanity-plugin-asset-source-openai";
+// import { giphyAssetSourcePlugin } from "sanity-plugin-asset-source-giphy";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { media } from "sanity-plugin-media";
 
 import hrLogo from "./src/components/studio/logo/logo";
 import { SITE_URL } from "./src/lib/constants";
 import { SendToIterable } from "./src/sanity/actions";
+import { openaiImageAsset } from "./src/sanity/OpenAiPlugin";
 import PublishAndRedirect from "./src/sanity/PublishAndRedirect";
 import schemas from "./src/sanity/schemas";
 import {
@@ -18,40 +18,27 @@ import {
   structure,
 } from "./src/sanity/settings/deskStructure";
 
-function getEnvVar(key: string): string {
-  const value = import.meta.env[key];
-  if (!value) {
-    throw new Error(`Environment variable ${key} missing!`);
-  }
-  return value;
-}
-
-const giphyApiKey = getEnvVar("SANITY_STUDIO_GIPHY_API_KEY");
-const openaiApiKey = getEnvVar("SANITY_STUDIO_OPENAI_API_KEY");
-
 const config = defineConfig({
   projectId: "smx99abf",
   dataset: "production",
   title: "Hey Rebekah",
   apiVersion: "2023-04-17",
   basePath: "/studio",
+
   plugins: [
     deskTool({
       structure,
       defaultDocumentNode,
     }),
-
     scheduledPublishing(),
     media(),
     visionTool(),
     unsplashImageAsset(),
     codeInput(),
-    giphyAssetSourcePlugin({
-      apiKey: giphyApiKey,
-    }),
-    openaiImageAsset({
-      API_KEY: openaiApiKey,
-    }),
+    // giphyAssetSourcePlugin({
+    //   apiKey: '',
+    // }),
+    openaiImageAsset(),
   ],
   studio: {
     components: {
@@ -71,7 +58,6 @@ const config = defineConfig({
       const { getClient, document } = context;
       const doctype = document._type === "post" ? "gists" : document._type;
 
-      // console.log(getClient);
       const client = getClient({ apiVersion: "2023-05-19" });
 
       if (document._type === "post") {

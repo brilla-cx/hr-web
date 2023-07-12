@@ -9,6 +9,7 @@ import seo from "./objects/seo-schema";
 import post from "./post-schema";
 import quiz from "./quiz-schema";
 import quote from "./quote-schema";
+import secrectsKeys from "./secrects-schema";
 import socialBlog from "./socialBlog-schema";
 import tool from "./tool-schema";
 
@@ -25,6 +26,7 @@ const schemas = [
   seo,
   socialBlog,
   tool,
+  secrectsKeys,
 ];
 
 export default schemas;
