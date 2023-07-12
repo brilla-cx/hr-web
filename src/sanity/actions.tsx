@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-negated-condition */
+import { useSecrets } from "@sanity/studio-secrets";
 import { useToast } from "@sanity/ui";
 import React from "react";
 import { BsSend } from "react-icons/bs";
@@ -12,22 +13,12 @@ import { getTextFromBlocks } from "../../src/lib/getTextFromBlock";
 // import { resolveProductionPath } from "../resolveProductionUrl";
 import { postByIdQuery } from "./client";
 
-function getEnvVar(key: string): string {
-  const value = import.meta.env[key];
-  if (!value) {
-    throw new Error(`Environment variable ${key} missing!`);
-  }
-  return value;
-}
-
-const iterableKey = getEnvVar("SANITY_STUDIO_ITERABLE_TOKEN");
-
 /**
  * iterable action
  */
 export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
   const toast = useToast();
-  // eslint-disable-next-line no-unused-vars
+  const { secrets } = useSecrets("heyrebekah");
   const [isLoading, setIsLoading] = React.useState(false);
 
   const { publish } = useDocumentOperation(id, type);
@@ -80,7 +71,7 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            "api-key": iterableKey,
+            "api-key": (secrets as { ITERABLE_TOKEN: string }).ITERABLE_TOKEN,
           },
           body: JSON.stringify(payload),
         }
@@ -102,7 +93,7 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
     } finally {
       setIsLoading(false);
     }
-  }, [id, toast]);
+  }, [id, secrets, toast]);
 
   const isDocumentPublished = publish.disabled === false;
 

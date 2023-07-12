@@ -3,7 +3,6 @@ import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
-// import { giphyAssetSourcePlugin } from "sanity-plugin-asset-source-giphy";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { media } from "sanity-plugin-media";
 
@@ -35,9 +34,6 @@ const config = defineConfig({
     visionTool(),
     unsplashImageAsset(),
     codeInput(),
-    // giphyAssetSourcePlugin({
-    //   apiKey: '',
-    // }),
     openaiImageAsset(),
   ],
   studio: {

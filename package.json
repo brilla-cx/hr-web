@@ -61,7 +61,6 @@
     "rxjs": "^7.8.1",
     "sanity": "^3.11.5",
     "sanity-algolia": "^1.1.0",
-    "sanity-plugin-asset-source-giphy": "^4.0.3",
     "sanity-plugin-asset-source-openai": "^1.1.2",
     "sanity-plugin-asset-source-unsplash": "^1.1.0",
     "sanity-plugin-iframe-pane": "^2.3.1",
