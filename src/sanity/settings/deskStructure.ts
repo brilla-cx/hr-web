@@ -3,6 +3,7 @@ import {
   FaBook,
   FaFeatherAlt,
   FaFileAlt,
+  FaKey,
   FaListUl,
   FaQuestion,
   FaQuoteLeft,
@@ -11,7 +12,11 @@ import {
   FaUserAstronaut,
 } from "react-icons/fa";
 import { map } from "rxjs/operators";
-import { DefaultDocumentNodeResolver } from "sanity/desk";
+import {
+  DefaultDocumentNodeResolver,
+  StructureBuilder,
+  StructureResolverContext,
+} from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
 
 import { SITE_URL } from "../../lib/constants";
@@ -34,8 +39,11 @@ const createListItem = (S, documentStore, title, icon, type) => {
     );
 };
 
-export const structure = (S, context) => {
-  const { documentStore } = context;
+export const structure = (
+  S: StructureBuilder,
+  context: StructureResolverContext
+) => {
+  const { documentStore, currentUser } = context;
 
   return S.list()
     .title("Let's make some magic")
@@ -60,6 +68,17 @@ export const structure = (S, context) => {
         FaArchive,
         "socialBlog"
       ),
+      ...(currentUser?.roles.some((role) => role.name === "developer")
+        ? [
+            createListItem(
+              S,
+              documentStore,
+              "Secret Keys",
+              FaKey,
+              "secretsKeys"
+            ),
+          ]
+        : []),
     ]);
 };
 
