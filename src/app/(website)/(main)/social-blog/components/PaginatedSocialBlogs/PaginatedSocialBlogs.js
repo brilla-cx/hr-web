@@ -7,8 +7,7 @@ import { getPaginatedSocialBlogs } from "@/sanity/client";
 import SocialBlogAlt from "../SocialBlogAlt/SocialBlogAlt";
 
 export default async function PaginatedSocialBlogs({ searchParams }) {
-
-  const page = searchParams.get("page");
+  const page = searchParams?.page;
   const pageIndex = parseInt(page, 10) || 1;
 
   const POSTS_PER_PAGE = 12;
@@ -42,7 +41,7 @@ export default async function PaginatedSocialBlogs({ searchParams }) {
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
       <div className="my-16 flex items-center justify-center">
         <Pagination
-          path="gists"
+          path="social-blog"
           pageIndex={pageIndex}
           isFirstPage={isFirstPage}
           isLastPage={isLastPage}
