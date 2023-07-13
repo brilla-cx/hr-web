@@ -37,10 +37,10 @@ function EmailFormSubmit({
 }: EmailFormType) {
   return (
     <form id={id} onSubmit={emailForm.handleSubmit(onSubmit)}>
-      <div className="mt-5">
+      <div>
         {verified ? (
           <>
-            <Lead className="text-center text-gray-200">
+            <Lead className="mb-5 text-center text-gray-200">
               {leadText}
               <sup className="text-pink">&nbsp;*</sup>
             </Lead>
