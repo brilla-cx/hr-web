@@ -15,8 +15,8 @@ interface InputProps {
   [key: string]: any;
 }
 
-const commonClasses =
-  "border-2 border-black rounded w-full placeholder:text-zinc-400 focus:border-pink focus:ring-pink";
+export const commonClasses =
+  "border-2 border-black focus:outline-none rounded w-full placeholder:text-zinc-400 focus:border-pink focus:ring-pink";
 
 const sizeClasses = {
   sm: "px-2 py-2",
@@ -64,7 +64,7 @@ interface SelectProps {
 export function Select({ children, size = "md", ...rest }: SelectProps) {
   return (
     <div className="relative">
-      <FaChevronDown className="absolute w-4 h-4 -translate-y-1/2 pointer-events-none right-4 top-1/2 " />
+      <FaChevronDown className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 " />
       <select className={cx(commonClasses, sizeClasses[size], "")} {...rest}>
         {children}
       </select>
@@ -137,7 +137,7 @@ export function CustomInput({
         {...(register && register(name, validations))}
         className={cx(
           "h-4 w-4 appearance-none rounded border-2 text-pink focus:border-pink focus:ring-pink",
-          className
+          className,
         )}
         {...rest}
       />
@@ -209,7 +209,7 @@ const BackButton = ({ onClick }) => {
       className={cx(
         "text-med rounded-lg px-5 py-2 font-bold uppercase",
         darkStyles,
-        "mr-4 flex items-center justify-center focus:outline-none"
+        "mr-4 flex items-center justify-center focus:outline-none",
       )}
       onClick={() => onClick()}>
       <FaCaretLeft className={`mr-2 ${caretStyles}`} />
