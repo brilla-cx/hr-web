@@ -37,13 +37,13 @@ function EmailFormSubmit({
 }: EmailFormType) {
   return (
     <form id={id} onSubmit={emailForm.handleSubmit(onSubmit)}>
-      <Lead className="text-center text-gray-200">
-        {leadText}
-        <sup className="text-pink">&nbsp;*</sup>
-      </Lead>
       <div className="mt-5">
         {verified ? (
           <>
+            <Lead className="text-center text-gray-200">
+              {leadText}
+              <sup className="text-pink">&nbsp;*</sup>
+            </Lead>
             <input
               id="emailSignup"
               className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
