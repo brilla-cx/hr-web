@@ -5,7 +5,7 @@ import PageHeader from "@/components/shared/PageHeader/PageHeader";
 
 import PaginatedSocialBlogs from "../PaginatedSocialBlogs/PaginatedSocialBlogs";
 
-export default function SocialBlogs() {
+export default function SocialBlogs({searchParams}) {
   return (
     <div className="bg-midnight">
       <Container large className="border-l border-r border-neutral-200/10">
@@ -20,7 +20,7 @@ export default function SocialBlogs() {
             fallback={
               <p className="text-center text-lg">Walking the dead...</p>
             }>
-            <PaginatedSocialBlogs />
+            <PaginatedSocialBlogs searchParams={searchParams}/>
           </Suspense>
         </div>
       </Container>
