@@ -37,24 +37,27 @@ function EmailFormSubmit({
 }: EmailFormType) {
   return (
     <form id={id} onSubmit={emailForm.handleSubmit(onSubmit)}>
-      <Lead className="text-center text-gray-200">
-        {leadText}
-        <sup className="text-pink">&nbsp;*</sup>
-      </Lead>
-      <div className="mt-5">
+      <div>
         {verified ? (
-          <>
-            <input
-              id="emailSignup"
-              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:ring-pink"
-              placeholder="Enter your email"
-              {...emailForm.register("email")}
-            />
-            {emailForm.formState.errors.email && (
-              <div className="mt-1 text-red-600">
-                <small>{emailForm.formState.errors.email.message}</small>
-              </div>
-            )}
+          <div>
+            <Lead className="mb-5 text-center text-gray-200">
+              {leadText}
+              <sup className="text-pink">&nbsp;*</sup>
+            </Lead>
+            <div className="mx-auto max-w-md">
+              <input
+                id="emailSignup"
+                className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:outline-none focus:ring-pink"
+                placeholder="Enter your email"
+                {...emailForm.register("email")}
+              />
+              {emailForm.formState.errors.email && (
+                <div className="mt-1 text-red-600">
+                  <small>{emailForm.formState.errors.email.message}</small>
+                </div>
+              )}
+            </div>
+
             <div className="mt-10 flex justify-center">
               <GlowingButton
                 ariaLabel="Go to next step"
@@ -63,7 +66,7 @@ function EmailFormSubmit({
                 {loading ? loadingText : buttonText}
               </GlowingButton>
             </div>
-          </>
+          </div>
         ) : (
           <EmailVerificationForm setVerified={setVerified} />
         )}

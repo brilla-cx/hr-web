@@ -2,7 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useForm, UseFormReturn } from "react-hook-form";
 
-import { GlowingButton, Input, Lead } from "@/components/ui";
+import { GlowingButton, Lead } from "@/components/ui";
 import { usePreferenceContext } from "@/context/ReaderPerferencesContext";
 import {
   FirstNameInfo,
@@ -13,9 +13,8 @@ import { PreferenceContextState } from "@/types/types";
 function submitForm(
   firstName: string,
   setFormData: Dispatch<SetStateAction<PreferenceContextState>>,
-  setStep: Dispatch<SetStateAction<number>>
+  setStep: Dispatch<SetStateAction<number>>,
 ) {
-
   setFormData((prev) => ({
     data: {
       email: prev.data.email,
@@ -57,14 +56,21 @@ function NameInputForm({
       <div className="mt-5">
         <form noValidate onSubmit={firsNameForm.handleSubmit(onSubmit)}>
           <label className="sr-only">First Name</label>
-          <Input
-            className="w-full border-neutral-200/10 bg-slate-900 text-white placeholder:text-gray-600"
-            defaultValue={defaultValue}
-            placeholder="Enter your first name"
-            aria-label="What's your first name?."
-            {...firsNameForm.register("firstName")}
-            errors={firsNameForm.formState.errors}
-          />
+          <div className="mx-auto max-w-md">
+            <input
+              className="w-full rounded border-2 border-black border-neutral-200/10 bg-slate-900 px-2 py-2 text-gray-200 placeholder:text-zinc-400 focus:border-pink focus:outline-none focus:ring-pink"
+              defaultValue={defaultValue}
+              placeholder="Enter your first name"
+              aria-label="What's your first name?."
+              {...firsNameForm.register("firstName")}
+            />
+            {firsNameForm.formState.errors.firstName && (
+              <div className="mt-1 text-red-600">
+                <small>{firsNameForm.formState.errors.firstName.message}</small>
+              </div>
+            )}
+          </div>
+
           <div className="mt-10 flex justify-center">
             <GlowingButton ariaLabel="Go to next step" type="submit" autoWidth>
               Next

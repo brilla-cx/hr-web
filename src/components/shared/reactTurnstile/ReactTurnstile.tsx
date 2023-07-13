@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Turnstile from "react-turnstile";
 
-import { Skeleton } from "@/components/ui/skeleton";
 import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 
 async function verifyToken(
   token: string,
-  setVerified: Dispatch<SetStateAction<boolean>>
+  setVerified: Dispatch<SetStateAction<boolean>>,
 ) {
   try {
     const response = await fetch("/api/turnstile-verify", {
@@ -51,11 +50,7 @@ export function EmailVerificationForm({
 }) {
   return (
     <div className="space-y-3 text-center text-gray-400">
-      <div className="flex flex-col items-center gap-5">
-        <Skeleton className="h-5 w-1/2" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-10 w-1/2" />
-      </div>
+      <span>BRB, dusting off your welcome mat...</span>
       <ReactTurnstile setVerified={setVerified} />
     </div>
   );
@@ -69,9 +64,7 @@ export function FormSubmitVerfication({
   return (
     <>
       <div className="mt-5 space-y-3 text-center text-gray-400">
-        <div className="flex flex-col items-center gap-5">
-          <Skeleton className="h-10 w-1/2" />
-        </div>
+        <span>Just a sec, we're blowing up your party balloons</span>
       </div>
       <ReactTurnstile setVerified={setVerified} />
     </>
