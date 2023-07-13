@@ -15,6 +15,7 @@ import { map } from "rxjs/operators";
 import {
   DefaultDocumentNodeResolver,
   StructureBuilder,
+  StructureResolver,
   StructureResolverContext,
 } from "sanity/desk";
 import Iframe from "sanity-plugin-iframe-pane";
@@ -39,7 +40,7 @@ const createListItem = (S, documentStore, title, icon, type) => {
     );
 };
 
-export const structure = (
+export const structure: StructureResolver = (
   S: StructureBuilder,
   context: StructureResolverContext
 ) => {
