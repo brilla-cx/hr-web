@@ -28,8 +28,8 @@ export function generateMetadata() {
   return metadata;
 }
 
-export default function SocialBlogsPage() {
-  return <SocialBlogs />;
+export default function SocialBlogsPage({searchParams}) {
+  return <SocialBlogs searchParams={searchParams}/>;
 }
 
 export const dynamic = "force-dynamic";

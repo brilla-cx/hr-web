@@ -1,18 +1,13 @@
 /* eslint-disable react/jsx-no-bind */
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
-
+import Pagination from "@/components/shared/post/Pagination/Pagination";
 import { getPaginatedSocialBlogs } from "@/sanity/client";
 
 import SocialBlogAlt from "../SocialBlogAlt/SocialBlogAlt";
 
-export default async function PaginatedSocialBlogs() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const page = searchParams.get("page");
+export default async function PaginatedSocialBlogs({ searchParams }) {
+  const page = searchParams?.page;
   const pageIndex = parseInt(page, 10) || 1;
 
   const POSTS_PER_PAGE = 12;
@@ -26,14 +21,6 @@ export default async function PaginatedSocialBlogs() {
 
   const isFirstPage = pageIndex < 2;
   const isLastPage = posts.length < POSTS_PER_PAGE;
-
-  const handleNextPage = () => {
-    router.push(`/social-blog?page=${pageIndex + 1}`);
-  };
-
-  const handlePrevPage = () => {
-    router.push(`/social-blog?page=${pageIndex - 1}`);
-  };
 
   return (
     <div>
@@ -50,32 +37,16 @@ export default async function PaginatedSocialBlogs() {
       </div>
 
       <div className="my-16 flex items-center justify-center md:my-24">
-        <nav
-          className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-          aria-label="Pagination">
-          <button
-            type="button"
-            disabled={isFirstPage}
-            onClick={handlePrevPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-l-md px-3 py-2 pr-4 text-sm font-bold uppercase text-gray-400 hover:bg-slate-800 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
-            <FaCaretLeft
-              className="mr-2 h-3 w-3 text-gray-400 hover:text-gray-200"
-              aria-hidden="true"
-            />
-            <span>Previous</span>
-          </button>
-          <button
-            type="button"
-            onClick={handleNextPage}
-            disabled={isLastPage}
-            className={`text-med relative inline-flex items-center gap-1 rounded-r-md px-3 py-2 pl-4 text-sm font-bold uppercase text-gray-400 hover:bg-slate-800 hover:font-bold hover:text-gray-200 focus:z-20 disabled:pointer-events-none disabled:opacity-40`}>
-            <span>Next</span>
-            <FaCaretRight
-              className="ml-2 h-3 w-3 text-gray-400 hover:text-gray-200"
-              aria-hidden="true"
-            />
-          </button>
-        </nav>
+         {/* The pagination buttons are contained in a navigation component.
+      The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
+      <div className="my-16 flex items-center justify-center">
+        <Pagination
+          path="social-blog"
+          pageIndex={pageIndex}
+          isFirstPage={isFirstPage}
+          isLastPage={isLastPage}
+        />
+      </div>
       </div>
     </div>
   );
