@@ -50,7 +50,7 @@ export function EmailVerificationForm({
 }) {
   return (
     <div className="space-y-3 text-center text-gray-400">
-      <span>Dusting off your welcome mat...</span>
+      <span>BRB, dusting off your welcome mat...</span>
       <ReactTurnstile setVerified={setVerified} />
     </div>
   );
