@@ -1,3 +1,4 @@
+import { PluginOptions } from "sanity";
 import { defineCliConfig } from "sanity/cli";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 
@@ -8,7 +9,7 @@ export default defineCliConfig({
   },
   vite: (prev) => ({
     ...prev,
-    plugins: [...(prev.plugins || []), nodePolyfills()],
+    plugins: [...(prev.plugins || []), nodePolyfills() as PluginOptions],
     define: {
       ...prev.define,
       "process.env": {},
