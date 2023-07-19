@@ -2,14 +2,13 @@
 // @ts-nocheck
 import "../globals.css";
 
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
-
 
 // export const revalidate = 86400;
 
@@ -42,55 +41,51 @@ export const metadata: Metadata = {
       url: "https://heyrebekah.com",
     },
   ],
-  keywords: [
-    "ChatGPT newsletter",
-    "AI newsletter",
-    "artifical intelligence",
-  ],
+  keywords: ["ChatGPT newsletter", "AI newsletter", "artifical intelligence"],
   creator: "Hey Rebekah Team",
   publisher: "BRIL.LA, LLC.",
   twitter: {
     card: "summary_large_image",
     site: "rebekahradice",
     title: "Hey Rebekah | Like Morning Brew for AI",
-    description: "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
+    description:
+      "Hey Rebekah is a free daily newsletter for knowledge workers. We'll help you upskill your work using AI tools like ChatGPT. Our moms think we're the best AI newsletter around, you will too. 🔥",
     creator: "rebekahradice",
     image: "/og.png",
   },
   icons: [
     {
-      src: "/apple-touch-icon.png",
-      sizes: "180x180",
-      type: "image/png",
+      rel: "icon",
+      url: "/favicon.ico",
     },
     {
-      src: "/favicon-32x32.png",
-      sizes: "32x32",
-      type: "image/png",
+      rel: "apple",
+      url: "/apple-touch-icon.png",
     },
     {
-      src: "/favicon-194x194.png",
-      sizes: "194x194",
-      type: "image/png",
-    },
-    {
-      src: "/android-chrome-192x192.png",
-      sizes: "192x192",
-      type: "image/png",
-    },
-    {
-      src: "/favicon-16x16.png",
+      rel: "icon",
+      url: "/favicon-16x16.png",
       sizes: "16x16",
-      type: "image/png",
     },
     {
-      src: "/safari-pinned-tab.svg",
-      type: "image/svg+xml",
+      rel: "icon",
+      url: "/favicon-32x32.png",
+      sizes: "32x32",
+    },
+    {
+      rel: "icon",
+      url: "/favicon-194x194.png",
+      sizes: "194x194",
+    },
+    {
+      rel: "icon",
+      url: "/android-chrome-192x192.png",
+      sizes: "194x194",
+    },
+    {
+      rel: "mask-icon",
+      url: "/safari-pinned-tab.svg",
       color: "#ff00fe",
-    },
-    {
-      src: "/favicon.ico",
-      type: "image/x-icon",
     },
   ],
   manifest: "/site.webmanifest",
@@ -120,7 +115,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={cx("font-sans antialiased", lexend.variable)}>
       <head />
-      <body>{children}<Analytics /></body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
