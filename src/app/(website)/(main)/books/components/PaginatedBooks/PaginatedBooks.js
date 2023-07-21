@@ -1,8 +1,15 @@
 /* eslint-disable react/jsx-no-bind */
+import { cache } from "react";
 
 import PostAlt from "@/components/shared/blogs/PostAlt/PostAlt";
 import Pagination from "@/components/shared/post/Pagination/Pagination";
 import { getPaginatedBooks } from "@/sanity/client";
+
+const getBooksData = cache(async (params) => {
+  const posts = await getPaginatedBooks(params);
+
+  return posts;
+});
 
 export default async function PaginatedBooks({ searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
@@ -19,7 +26,7 @@ export default async function PaginatedBooks({ searchParams }) {
   };
 
   // Fetch the posts for the current page
-  const posts = await getPaginatedBooks(params);
+  const posts = await getBooksData(params);
 
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
