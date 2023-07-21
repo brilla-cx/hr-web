@@ -204,14 +204,7 @@ export const paginatedpostsquery = groq`
 *[_type == "post"] | order(featured desc, publishedAt desc) [$pageIndex...$limit] {
   ...,
   author->,
-  category[]->,
-  image {
-		asset->{
-      "_ref": _id,
-			...,
-			metadata
-		}
-	}
+  category[]->
 }
 `;
 

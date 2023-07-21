@@ -38,14 +38,16 @@ import {
 
 if (!projectId) {
   console.error(
-    "The Sanity Project ID is not set. Check your environment variables.",
+    "The Sanity Project ID is not set. Check your environment variables."
   );
 }
 
 /**
  * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
  */
-export const client = createClient({ projectId, dataset, apiVersion, useCdn });
+export const client = projectId
+  ? createClient({ projectId, dataset, apiVersion, useCdn })
+  : null;
 
 // used by useSWR fetch
 // eslint-disable-next-line require-await
