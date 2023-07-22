@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 import { SITE_URL } from "@/lib/constants";
 import { getAllTools, getToolsCategories } from "@/sanity/client";
 
@@ -29,9 +31,18 @@ export function generateMetadata() {
   return metadata;
 }
 
-export default async function BuiltWith() {
+const getToolsData = cache(async (params) => {
   const tools = await getAllTools();
+  return tools;
+});
+const getCategorieData = cache(async () => {
   const categories = await getToolsCategories();
+  return categories;
+});
+
+export default async function BuiltWith() {
+  const tools = await getToolsData();
+  const categories = await getCategorieData();
   return <Tools tools={tools} categories={categories} />;
 }
 

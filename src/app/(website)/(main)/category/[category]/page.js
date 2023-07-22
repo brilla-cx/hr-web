@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 import { SITE_URL } from "@/lib/constants";
 import { getCategorybySlug } from "@/sanity/client";
 
@@ -35,8 +37,14 @@ export async function generateMetadata({ params }) {
 
 export const dynamicParams = true;
 
+const getCategoryData = cache(async (slug) => {
+  const category = await getCategorybySlug(category);
+
+  return category;
+});
+
 export default async function AuthorPage({ params, searchParams }) {
-  const category = await getCategorybySlug(params.category);
+  const category = await getCategoryData(params.category);
 
   return <Category category={category} searchParams={searchParams} />;
 }

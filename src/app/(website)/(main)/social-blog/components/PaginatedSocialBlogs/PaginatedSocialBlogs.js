@@ -1,10 +1,16 @@
 /* eslint-disable react/jsx-no-bind */
-"use client";
+import { cache } from "react";
 
 import Pagination from "@/components/shared/post/Pagination/Pagination";
 import { getPaginatedSocialBlogs } from "@/sanity/client";
 
 import SocialBlogAlt from "../SocialBlogAlt/SocialBlogAlt";
+
+export const getSocialPostData = cache(async (params) => {
+  const posts = await getPaginatedSocialBlogs(params);
+
+  return posts;
+});
 
 export default async function PaginatedSocialBlogs({ searchParams }) {
   const page = searchParams?.page;
@@ -17,7 +23,7 @@ export default async function PaginatedSocialBlogs({ searchParams }) {
     limit: pageIndex * POSTS_PER_PAGE,
   };
 
-  const posts = await getPaginatedSocialBlogs(params);
+  const posts = await getSocialPostData(params);
 
   const isFirstPage = pageIndex < 2;
   const isLastPage = posts.length < POSTS_PER_PAGE;
@@ -37,16 +43,16 @@ export default async function PaginatedSocialBlogs({ searchParams }) {
       </div>
 
       <div className="my-16 flex items-center justify-center md:my-24">
-         {/* The pagination buttons are contained in a navigation component.
+        {/* The pagination buttons are contained in a navigation component.
       The buttons have a disabled state when at the first or last page, and use Tailwind CSS for styling, including padding, colors, and interaction states. */}
-      <div className="my-16 flex items-center justify-center">
-        <Pagination
-          path="social-blog"
-          pageIndex={pageIndex}
-          isFirstPage={isFirstPage}
-          isLastPage={isLastPage}
-        />
-      </div>
+        <div className="my-16 flex items-center justify-center">
+          <Pagination
+            path="social-blog"
+            pageIndex={pageIndex}
+            isFirstPage={isFirstPage}
+            isLastPage={isLastPage}
+          />
+        </div>
       </div>
     </div>
   );
