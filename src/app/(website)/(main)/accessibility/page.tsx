@@ -5,7 +5,7 @@ import Legal from "@/components/shared/legal/Legal";
 import PreviewLegal from "@/components/shared/legal/PreviewLegal";
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
-import { getLegalPageBySlug } from "@/sanity/client";
+import { getLegalBySlug } from "@/lib/server/getLegalPage";
 
 export function generateMetadata(): Metadata {
   const title = "Accessibility";
@@ -40,7 +40,7 @@ interface Post {
 }
 
 export default async function AccessibilityStatement() {
-  const post: Post = await getLegalPageBySlug("accessibility");
+  const post: Post = await getLegalBySlug("accessibility");
 
   const isInPreview = draftMode().isEnabled
     ? { token: process.env.SANITY_API_WRITE_TOKEN }

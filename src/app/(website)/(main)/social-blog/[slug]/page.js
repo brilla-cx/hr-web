@@ -7,6 +7,7 @@
  * the SocialBlog component.
  */
 import { draftMode } from "next/headers";
+import { cache } from "react";
 
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
@@ -45,7 +46,7 @@ export const dynamicParams = true;
  * @returns {Object} Generated metadata
  */
 export async function generateMetadata({ params }) {
-  const post = await getSocialBlogBySlug(params.slug);
+  const post = await cache(getSocialBlogBySlug(params.slug));
   const seoTitle = post?.yoastTitle;
   const seoMetaDescription = post?.yoastDescription;
 
@@ -66,6 +67,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
+const getSoicalBLog = cache(async (slug) => {
+  const socialBlog = await getSocialBlogBySlug(slug);
+  return socialBlog;
+});
+
 /**
  * Social Blog Page Component
  *
@@ -77,7 +83,7 @@ export async function generateMetadata({ params }) {
  * @returns {JSX.Element} Social Blog page component
  */
 export default async function SocialBlogPage({ params }) {
-  const socialBlog = await getSocialBlogBySlug(params.slug);
+  const socialBlog = await getSoicalBLog(params.slug);
 
   const isInPreview = draftMode().isEnabled
     ? { token: process.env.SANITY_API_WRITE_TOKEN }

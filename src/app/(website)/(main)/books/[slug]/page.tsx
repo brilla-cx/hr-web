@@ -1,4 +1,5 @@
 import { draftMode } from "next/headers";
+import { cache } from "react";
 
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
@@ -13,8 +14,13 @@ export function generateStaticParams() {
 
 export const dynamicParams = true;
 
+const getBookData = cache(async (slug: string) => {
+  const book = await getBookbySlug(slug);
+  return book;
+});
+
 export async function generateMetadata({ params }) {
-  const book = await getBookbySlug(params.slug);
+  const book = await getBookData(params.slug);
 
   const bookName = book?.name;
 
