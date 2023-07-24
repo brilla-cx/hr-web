@@ -64,7 +64,7 @@
     "sanity-plugin-asset-source-unsplash": "^1.1.0",
     "sanity-plugin-iframe-pane": "^2.3.1",
     "sanity-plugin-media": "^2.2.1",
-    "styled-components": "^6.0.4",
+    "styled-components": "^6.0.5",
     "tailwindcss": "3.3.3",
     "vercel": "^31.0.3",
     "zod": "^3.21.4"
