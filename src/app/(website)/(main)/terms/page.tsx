@@ -6,7 +6,7 @@ import Legal from "@/components/shared/legal/Legal";
 import PreviewLegal from "@/components/shared/legal/PreviewLegal";
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
-import { getLegalPageBySlug } from "@/sanity/client";
+import { getLegalBySlug } from "@/lib/server/getLegalPage";
 
 export function generateMetadata(): Metadata {
   const title = "Terms of Service";
@@ -45,7 +45,7 @@ export default async function Terms(): Promise<ReactElement> {
     ? { token: process.env.SANITY_API_READ_TOKEN }
     : undefined;
 
-  const post: Post = await getLegalPageBySlug("terms");
+  const post: Post = await getLegalBySlug("terms");
 
   if (preview) {
     return (

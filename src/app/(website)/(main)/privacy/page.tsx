@@ -6,7 +6,7 @@ import Legal from "@/components/shared/legal/Legal";
 import PreviewLegal from "@/components/shared/legal/PreviewLegal";
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
-import { getLegalPageBySlug } from "@/sanity/client";
+import { getLegalBySlug } from "@/lib/server/getLegalPage";
 
 export function generateMetadata(): Metadata {
   const title = "Privacy Policy";
@@ -41,7 +41,7 @@ interface Post {
 }
 
 export default async function Privacy(): Promise<ReactElement> {
-  const post: Post = await getLegalPageBySlug("privacy");
+  const post: Post = await getLegalBySlug("privacy");
 
   const isInPreview = draftMode().isEnabled
     ? { token: process.env.SANITY_API_WRITE_TOKEN }

@@ -1,4 +1,5 @@
 import { draftMode } from "next/headers";
+import { cache } from "react";
 
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
@@ -45,9 +46,19 @@ export async function generateMetadata({ params }) {
   };
 }
 
+const getCategories = cache(async () => {
+  const cat = await getTopCategories();
+  return cat;
+});
+
+const getPost = cache(async (slug: string) => {
+  const post = await getPostBySlug(slug);
+  return post;
+});
+
 export default async function PostPage({ params }) {
-  const post = await getPostBySlug(params.slug);
-  const categories = await getTopCategories();
+  const post = await getPost(params.slug);
+  const categories = await getCategories();
   const isInPreview = draftMode().isEnabled
     ? { token: process.env.SANITY_API_WRITE_TOKEN }
     : undefined;

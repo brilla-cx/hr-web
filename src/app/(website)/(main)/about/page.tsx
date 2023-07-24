@@ -1,11 +1,12 @@
 import { Metadata } from "next";
+import { cache } from "react";
 
 import WtfIsHeyRebekah from "@/app/(website)/(main)/about/components/WtfIsHeyRebekah/WtfIsHeyRebekah";
 import Container from "@/components/layout/Container/Container";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";
 import Faqs from "@/components/sections/Faqs/Faqs";
 import { HeroWithImage } from "@/components/sections/HeroWithImage/HeroWithImage";
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL } from "@/lib/constants";
 import { getAllFaqs } from "@/sanity/client";
 import { FaqType } from "@/types/types";
 
@@ -51,8 +52,13 @@ const withContainer = (Component, props, bgColor) => {
   );
 };
 
+const getFaqData = cache(async () => {
+  const faq = await getAllFaqs();
+  return faq;
+});
+
 export default async function About() {
-  const faqs = (await getAllFaqs()) as FaqType[];
+  const faqs = (await getFaqData()) as FaqType[];
   const readerFaqs = faqs.filter((faq) => faq.faqType.includes("reader"));
 
   return (
@@ -68,13 +74,13 @@ export default async function About() {
           image:
             "https://cdn.sanity.io/images/smx99abf/production/8bc88423bf816a59253fefe69e8c59973b51b23a-1080x1080.webp",
         },
-        "bg-midnight"
+        "bg-midnight",
       )}
       {withContainer(WtfIsHeyRebekah, {}, "bg-midnight")}
       {withContainer(
         BrandsMarquee,
         { title: "Some our fave clients" },
-        "bg-midnight"
+        "bg-midnight",
       )}
       {withContainer(CheckReplay, {}, "bg-midnight")}
       {withContainer(
@@ -84,7 +90,7 @@ export default async function About() {
           subtitle:
             "What's the worst that will happen? You'll get better at what you do, enjoy a few laughs? It ain't hard...click the button below and give us a shot.",
         },
-        "bg-midnight"
+        "bg-midnight",
       )}
       {withContainer(WhatIsImportant, {}, "bg-midnight")}
       {withContainer(Faqs, { faqs: readerFaqs }, "bg-midnight")}
@@ -92,5 +98,5 @@ export default async function About() {
   );
 }
 
-export const dynamic = 'force-static'
-export const revalidate = false
+export const dynamic = "force-static";
+export const revalidate = false;

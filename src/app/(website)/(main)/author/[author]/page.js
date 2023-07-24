@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 import { SITE_URL } from "@/lib/constants";
 import {
   getAllAuthorsSlugs,
@@ -17,8 +19,13 @@ async function getAuthor(slug) {
   return posts?.[0]?.author || {};
 }
 
+const getAuthorMetaData = cache(async (slug) => {
+  const authorMeta = await getAuthorMeta(slug);
+  return authorMeta;
+});
+
 export async function generateMetadata({ params }) {
-  const authorSeoMeta = await getAuthorMeta(params.author);
+  const authorSeoMeta = await getAuthorMetaData(params.author);
 
   const authorName = authorSeoMeta?.name;
   const authorCategory =
@@ -44,8 +51,13 @@ export async function generateMetadata({ params }) {
   };
 }
 
+const getAuthorData = cache(async (slug) => {
+  const author = await getAuthor(slug);
+  return author;
+});
+
 export default async function AuthorPage({ params, searchParams }) {
-  const author = await getAuthor(params.author);
+  const author = await getAuthorData(params.author);
   return (
     <Author
       author={author}

@@ -1,4 +1,5 @@
 import { draftMode } from "next/headers";
+import { cache } from "react";
 
 import PreviewProvider from "@/components/shared/PreviewProvider/PreviewProvider";
 import { SITE_URL } from "@/lib/constants";
@@ -12,8 +13,13 @@ export function generateStaticParams() {
 }
 export const dynamicParams = true;
 
+const getToolsData = cache(async (slug) => {
+  const data = await getToolbySlug(slug);
+  return data;
+});
+
 export async function generateMetadata({ params }) {
-  const data = await getToolbySlug(params.slug);
+  const data = await getToolsData(params.slug);
 
   const title = `Hey Rebekah ❤️ ${data.seoTitle || data.name}`;
   const description = `We’ll show you how we use ${

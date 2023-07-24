@@ -1,8 +1,15 @@
 /* eslint-disable react/jsx-no-bind */
 
+import { cache } from "react";
+
 import PostAlt from "@/components/shared/blogs/PostAlt/PostAlt";
 import Pagination from "@/components/shared/post/Pagination/Pagination";
 import { getPaginatedAuthorsPosts } from "@/sanity/client";
+
+const getAuthorPost = cache(async (slug) => {
+  const posts = await getPaginatedAuthorsPosts(slug);
+  return posts;
+});
 
 export default async function AuthorPaginatedPosts({ slug, searchParams }) {
   // Fetch the current page from the query parameters, defaulting to 1 if it doesn't exist
@@ -20,7 +27,7 @@ export default async function AuthorPaginatedPosts({ slug, searchParams }) {
   };
 
   // Fetch the posts for the current page
-  const posts = await getPaginatedAuthorsPosts(params);
+  const posts = await getAuthorPost(params);
 
   // Check if the current page is the first or the last
   const isFirstPage = pageIndex < 2;
