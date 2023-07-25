@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useNextSanityImage } from "next-sanity-image";
 
 import Container from "@/components/layout/Container/Container";
 import AuthorCard from "@/components/shared/post/AuthorCard/AuthorCard";
@@ -13,7 +14,7 @@ import Label from "@/components/ui/label";
 import DateTime from "@/components/ui/time";
 import lightHoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 export default function Gist(props) {
   const { post } = props;
@@ -70,7 +71,7 @@ export default function Gist(props) {
                           href={`/author/${post?.author?.slug?.current}`}
                           className={cx(
                             "text-xs font-semibold text-gray-200",
-                            lightHoverStyles
+                            lightHoverStyles,
                           )}>
                           {post?.author?.name}
                         </Link>
@@ -121,7 +122,7 @@ export default function Gist(props) {
             subscribeText="Join +338,000 professionals in our community. Subscribe to our free daily newsletter and upskill your work. Delivery and delight are on us."
             buttonText="LEVEL UP"
             related={post.related.filter(
-              (item) => item.slug.current !== post.slug.current
+              (item) => item.slug.current !== post.slug.current,
             )}
           />
         </aside>
@@ -131,25 +132,30 @@ export default function Gist(props) {
 }
 
 const MainImage = ({ image }) => {
+  const imageProps = useNextSanityImage(client, image);
   if (!image) return null;
 
   return (
     <div
       className="relative overflow-hidden rounded"
       style={{ paddingBottom: "100%" }}>
-      <Image
-        {...urlForImage(image)}
-        {...(image.blurDataURL && {
-          placeholder: "blur",
-          blurDataURL: image.blurDataURL,
-        })}
-        alt={
-          image?.alt ||
-          "Default thumbnail for blog post because it's missing. We're sorry about that."
-        }
-        aria-describedby={image.caption ? "figcaptionID" : undefined}
-        className="absolute left-0 top-0 h-full w-full object-cover"
-      />
+      {imageProps && (
+        <Image
+          src={imageProps.src}
+          {...(image.blurDataURL && {
+            placeholder: "blur",
+            blurDataURL: image.blurDataURL,
+          })}
+          width={100}
+          height={100}
+          alt={
+            image?.alt ||
+            "Default thumbnail for blog post because it's missing. We're sorry about that."
+          }
+          aria-describedby={image.caption ? "figcaptionID" : undefined}
+          className="absolute left-0 top-0 h-full w-full object-cover"
+        />
+      )}
       {image.caption && (
         <figcaption id="figcaptionID" className="mt-2 text-center">
           <p className="text-xs italic leading-tight text-white/60">

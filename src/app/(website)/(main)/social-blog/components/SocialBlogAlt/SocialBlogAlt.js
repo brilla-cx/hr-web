@@ -25,22 +25,22 @@
  * Simply pass the necessary data and desired configurations as props to the component
  * to render the card.
  */
-
 import Image from "next/image";
 import Link from "next/link";
+import { useNextSanityImage } from "next-sanity-image";
 import React from "react";
 
 import { H3, H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 function PostLink({ slug, children }) {
   return <Link href={`/social-blog/${slug}`}>{children}</Link>;
 }
 
 function AuthorDetails({ author }) {
-  const authorImageProps = author?.image ? urlForImage(author.image) : null;
+  const authorImageProps = useNextSanityImage(client, author?.image);
 
   return (
     <Link href={`/author/${author?.slug?.current}`}>

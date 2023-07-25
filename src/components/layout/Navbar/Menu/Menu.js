@@ -4,13 +4,14 @@ import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
+import { useNextSanityImage } from "next-sanity-image";
 import { Fragment } from "react";
 
 import { H5 } from "@/components/ui";
 import DateTime from "@/components/ui/time";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 const resources = [
   { name: "Archives", href: "/gists" },
@@ -107,44 +108,7 @@ export default function Menu({ recentPosts }) {
                 <div className="hidden gap-8 lg:grid lg:grid-cols-1 xl:grid-cols-1 xl:grid-rows-3">
                   <h3 className="sr-only">Recent posts</h3>
                   {recentPosts.slice(0, 3).map((post) => (
-                    <article
-                      key={post._id}
-                      className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch">
-                      <Popover.Button
-                        as={Link}
-                        href={`/gists/${post.slug.current}`}
-                        aria-label={`Read post ${post.name}`}>
-                        {post.image && (
-                          <div className="relative flex-none">
-                            <Image
-                              className="aspect-[2/1] w-full rounded bg-gray-100 object-cover sm:aspect-[16/9] sm:h-32 lg:h-auto"
-                              src={urlForImage(post.image)}
-                              alt={post.image.alt || "cover"}
-                              width={300}
-                              height={200}
-                            />
-                            <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-gray-900/10" />
-                          </div>
-                        )}
-                        <div>
-                          <div className="flex items-center gap-x-4">
-                            <DateTime
-                              className="text-sm text-gray-500"
-                              date={post?.publishedAt || post._createdAt}
-                            />
-                          </div>
-                          <H5
-                            as="h2"
-                            className={cx(
-                              "mt-2 line-clamp-2 inline text-gray-200",
-                              hoverStyles
-                            )}>
-                            <span className="absolute inset-0" />
-                            {post.name}
-                          </H5>
-                        </div>
-                      </Popover.Button>
-                    </article>
+                    <NavArticles key={post._id} post={post} />
                   ))}
                 </div>
               </div>
@@ -153,5 +117,49 @@ export default function Menu({ recentPosts }) {
         </>
       )}
     </Popover>
+  );
+}
+
+function NavArticles({ post }) {
+  const imageProps = useNextSanityImage(client, post.image);
+  return (
+    <article
+      key={post._id}
+      className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch">
+      <Popover.Button
+        as={Link}
+        href={`/gists/${post.slug.current}`}
+        aria-label={`Read post ${post.name}`}>
+        {post.image && (
+          <div className="relative flex-none">
+            <Image
+              className="aspect-[2/1] w-full rounded bg-gray-100 object-cover sm:aspect-[16/9] sm:h-32 lg:h-auto"
+              src={imageProps.src}
+              alt={post.image.alt || "cover"}
+              width={300}
+              height={200}
+            />
+            <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-gray-900/10" />
+          </div>
+        )}
+        <div>
+          <div className="flex items-center gap-x-4">
+            <DateTime
+              className="text-sm text-gray-500"
+              date={post?.publishedAt || post._createdAt}
+            />
+          </div>
+          <H5
+            as="h2"
+            className={cx(
+              "mt-2 line-clamp-2 inline text-gray-200",
+              hoverStyles,
+            )}>
+            <span className="absolute inset-0" />
+            {post.name}
+          </H5>
+        </div>
+      </Popover.Button>
+    </article>
   );
 }

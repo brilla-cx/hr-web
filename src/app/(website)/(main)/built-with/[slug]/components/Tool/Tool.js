@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useNextSanityImage } from "next-sanity-image";
 
 import Container from "@/components/layout/Container/Container";
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { GlowingButton, H3, H6, Lead } from "@/components/ui";
 import { cx } from "@/lib/utils";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 export default function Tool(props) {
   const { data } = props;
@@ -76,6 +77,7 @@ export default function Tool(props) {
 }
 
 const MainImage = ({ image, color }) => {
+  const imageProps = useNextSanityImage(client, image);
   if (!image) return null;
 
   // const bgColor = colors[color] || "bg-white";
@@ -85,14 +87,16 @@ const MainImage = ({ image, color }) => {
     <div
       className={cx(
         "flex  aspect-video items-center justify-center rounded p-5",
-        bgColor
+        bgColor,
       )}>
       <Image
-        {...urlForImage(image)}
+        src={imageProps.src}
         {...(image.blurDataURL && {
           placeholder: "blur",
           blurDataURL: image.blurDataURL,
         })}
+        width={100}
+        height={100}
         alt={
           image?.imageAltText ||
           "Default thumbnail for tool because it's missing. We're sorry about that."

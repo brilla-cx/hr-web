@@ -1,18 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useNextSanityImage } from "next-sanity-image";
 import { SiLinkedin, SiTwitter } from "react-icons/si";
 
 import Container from "@/components/layout/Container/Container";
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { H2, H6, Lead } from "@/components/ui";
 import Label from "@/components/ui/label";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 import AuthorPaginatedPosts from "../AuthorPaginatedPosts/AuthorPaginatedPosts";
 
 export default function Author(props) {
   const { loading, searchParams, author } = props;
+  const imageProps = useNextSanityImage(client, author?.image);
 
   const slug = author?.slug?.current;
 
@@ -31,7 +33,7 @@ export default function Author(props) {
           <div className="relative h-20 w-20 overflow-hidden rounded-full">
             {author?.image && (
               <Image
-                src={urlForImage(author.image).src}
+                src={imageProps.src}
                 alt={author?.imageAltText || author?.name || " "}
                 fill
                 sizes="(max-width: 320px) 100vw, 320px"

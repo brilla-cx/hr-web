@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { useNextSanityImage } from "next-sanity-image";
 
 import Container from "@/components/layout/Container/Container";
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
@@ -8,7 +9,7 @@ import SocialShare from "@/components/shared/post/SocialShare/SocialShare";
 import ViewAllPosts from "@/components/shared/post/ViewAllPosts/ViewAllPosts";
 import { GlowingButton, H1, Prose } from "@/components/ui";
 import Label from "@/components/ui/label";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 export default function Book({ post }) {
   if (!post?.slug) {
@@ -106,6 +107,8 @@ export default function Book({ post }) {
 }
 
 const MainImage = ({ image }) => {
+  const imageProps = useNextSanityImage(client, image);
+
   if (!image) return null;
 
   return (
@@ -113,7 +116,7 @@ const MainImage = ({ image }) => {
       className="relative overflow-hidden rounded"
       style={{ paddingBottom: "100%" }}>
       <Image
-        {...urlForImage(image)}
+        {...imageProps}
         {...(image.blurDataURL && {
           placeholder: "blur",
           blurDataURL: image.blurDataURL,
