@@ -1,12 +1,13 @@
 import { PhotoIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { useNextSanityImage } from "next-sanity-image";
 
 import CategoryLabel from "@/components/shared/post/CategoryLabel/CategoryLabel";
 import { H3, H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx, timeAgo } from "@/lib/utils";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 export default function PostAlt({
   post,
@@ -18,21 +19,19 @@ export default function PostAlt({
   noDate,
   hideCategory,
 }) {
-  const imageProps = post?.image ? urlForImage(post.image) : null;
-  const AuthorimageProps = post?.author?.image
-    ? urlForImage(post.author.image)
-    : null;
+  const imageProps = useNextSanityImage(client, post?.image);
+  const authorImageProps = useNextSanityImage(client, post?.author?.image);
 
   return (
     <>
       <div
         className={cx(
           "group cursor-pointer",
-          minimal && "grid gap-10 md:grid-cols-2"
+          minimal && "grid gap-10 md:grid-cols-2",
         )}>
         <div
           className={cx(
-            "group relative overflow-hidden rounded-md bg-gray-800 transition-all"
+            "group relative overflow-hidden rounded-md bg-gray-800 transition-all",
           )}>
           <Link
             className={cx("relative block", {
@@ -78,7 +77,7 @@ export default function PostAlt({
                   as="h2"
                   className={cx(
                     "mt-2 line-clamp-2 text-gray-200",
-                    hoverStyles
+                    hoverStyles,
                   )}>
                   <span className="inline">{post.name}</span>
                 </H3>
@@ -109,7 +108,7 @@ export default function PostAlt({
                     <div className="relative h-5 w-5 flex-shrink-0">
                       {post.author?.image && (
                         <Image
-                          src={AuthorimageProps.src}
+                          src={authorImageProps.src}
                           alt={post?.author?.name}
                           className="rounded-full object-cover"
                           fill

@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useNextSanityImage } from "next-sanity-image";
 
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import { H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
 import { cx } from "@/lib/utils";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 export default function AuthorCard({ author }) {
-  const imageProps = author?.image ? urlForImage(author.image) : null;
+  const imageProps = useNextSanityImage(client, author?.image);
   return (
     <div className="mx-auto mt-3 max-w-2xl rounded bg-gray-100 px-8 py-8 text-gray-600">
       <div className="flex flex-wrap items-start sm:flex-nowrap sm:space-x-6">
@@ -39,7 +40,7 @@ export default function AuthorCard({ author }) {
               href={`/author/${author.slug.current}`}
               className={cx(
                 "decoration-none text-sm font-bold text-gray-900",
-                hoverStyles
+                hoverStyles,
               )}
               aria-label="View author profile">
               View Profile

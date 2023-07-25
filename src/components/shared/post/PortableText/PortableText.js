@@ -1,20 +1,25 @@
 import { PortableText as PortableTextComponent } from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useNextSanityImage } from "next-sanity-image";
 
 import SocialEmbed from "@/components/shared/post/SocialEmbed/SocialEmbed";
-import { urlForImage } from "@/sanity/image";
+import { client } from "@/sanity/client";
 
 // Barebones lazy-loaded image component
 const ImageComponent = ({ value }) => {
+  const imageProps = useNextSanityImage(client, value);
   // const {width, height} = getImageDimensions(value)
   return (
     <Image
-      src={urlForImage(value)}
+      src={imageProps.src}
       alt={value.alt || "Image"}
       loading="lazy"
       className="object-cover"
       sizes="(max-width: 800px) 100vw, 800px"
+      width={100}
+      height={100}
+      style={{ width: "100%", height: "auto" }} // layout="responsive" prior to Next 13.0.0
     />
   );
 };
