@@ -30,8 +30,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   '@sanity/cli':
-    specifier: ^3.14.3
-    version: 3.14.3
+    specifier: ^3.14.4
+    version: 3.14.4
   '@sanity/code-input':
     specifier: ^4.1.1
     version: 4.1.1(@babel/runtime@7.22.6)(@codemirror/lint@6.4.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.0.3)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.14.2)(styled-components@6.0.5)
@@ -3745,8 +3745,8 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/cli@3.14.3:
-    resolution: {integrity: sha512-ReuSOD0SSMVOd8aBCscJys577LgPDZicNOIgzahLUUu3i2+8r9Vmwr5Ue5WhzqmhtMNSjLJmUSLELfxv/SS4lQ==}
+  /@sanity/cli@3.14.4:
+    resolution: {integrity: sha512-nLJKuChIgxUhjq9iKTOya7dkFYdKc3+/yU0S6pnFi2sJGOo6P1uBGX0vJ6a9t59tGFhXcTF4RyBvNAJAfc5WZw==}
     engines: {node: '>=14.18.0'}
     hasBin: true
     dependencies:
