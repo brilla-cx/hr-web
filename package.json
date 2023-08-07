@@ -60,7 +60,7 @@
     "react-wrap-balancer": "^1.0.0",
     "rss": "^1.2.2",
     "rxjs": "^7.8.1",
-    "sanity": "^3.14.2",
+    "sanity": "^3.14.5",
     "sanity-algolia": "^1.1.0",
     "sanity-plugin-asset-source-unsplash": "^1.1.0",
     "sanity-plugin-iframe-pane": "^2.3.1",
