@@ -74,7 +74,7 @@
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@types/node": "20.4.9",
-    "@types/react": "18.2.19",
+    "@types/react": "18.2.20",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "commitizen": "^4.3.0",
