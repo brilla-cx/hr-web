@@ -10,24 +10,21 @@ import {
   Pagination,
   SearchBox,
   useInstantSearch,
-} from "react-instantsearch-hooks-web";
+} from "react-instantsearch";
 
 import { timeAgo } from "@/lib/utils";
 import { urlForImage } from "@/sanity/image";
 
-import { searchClient } from '../searchClient';
+import { searchClient } from "../searchClient";
 
 export default function AlgoliaSearch({ closeModal }) {
   return (
-    <div className="flex flex-col h-full bg-midnight border-neutral-200/10 border-2 mx-auto">
+    <div className="mx-auto flex h-full flex-col border-2 border-neutral-200/10 bg-midnight">
       <InstantSearch
         searchClient={searchClient}
         indexName="hey_rebekah"
         insights>
-        <Configure
-          analytics
-          hitsPerPage={5}
-        />
+        <Configure analytics hitsPerPage={5} />
         <SearchBox
           autoFocus
           placeholder="Search for something..."
@@ -55,9 +52,9 @@ export default function AlgoliaSearch({ closeModal }) {
                 classNames={{
                   root: "flex justify-center py-8",
                   list: "inline-flex space-x-2",
-                  item:
-                    "px-3 py-1 rounded text-gray-200 bg-gray-700 hover:bg-gray-800 ",
-                  selectedItem: "px-3 py-1 rounded text-white bg-gray-900 border border-pink",
+                  item: "px-3 py-1 rounded text-gray-200 bg-gray-700 hover:bg-gray-800 ",
+                  selectedItem:
+                    "px-3 py-1 rounded text-white bg-gray-900 border border-pink",
                 }}
               />
             )}
@@ -67,9 +64,10 @@ export default function AlgoliaSearch({ closeModal }) {
     </div>
   );
 }
+
 function EmptyFallback() {
   return (
-    <div className="flex items-center justify-center text-gray-400 mt-6">
+    <div className="mt-6 flex items-center justify-center text-gray-400">
       Feeling lucky today?
     </div>
   );
@@ -99,24 +97,24 @@ function Hit({ hit }) {
   const typeLabel = getTypeLabel(hit._type);
 
   return (
-    <article className="relative flex items-center gap-5 px-5 py-2 border-b border-neutral-200/10 hover:bg-slate-800">
+    <article className="relative flex items-center gap-5 border-b border-neutral-200/10 px-5 py-2 hover:bg-slate-800">
       {hit?.image && (
-        <div className="w-12 h-12 lg:w-24 lg:h-24 shrink-0 flex items-center">
+        <div className="flex h-12 w-12 shrink-0 items-center lg:h-24 lg:w-24">
           <Image
             src={urlForImage(hit.image)?.src}
             width="100"
             height="100"
             alt={hit.image.imageAltText || "thumbnail"}
-            className="object-cover w-12 h-12 lg:w-24 lg:h-24 bg-gray-200 item"
+            className="item h-12 w-12 bg-gray-200 object-cover lg:h-24 lg:w-24"
           />
         </div>
       )}
       <div>
-        <span className="inline-block text-xs font-semibold tracking-wider text-pink-500 uppercase">
+        <span className="inline-block text-xs font-semibold uppercase tracking-wider text-pink-500">
           {typeLabel}
         </span>
 
-        <h1 className="text-lg max-w-xl font-semibold text-gray-200">
+        <h1 className="max-w-xl text-lg font-semibold text-gray-200">
           <Link
             href={`/${TYPE_LOOKUP[hit._type]}/${hit?.slug?.current}` || "#"}>
             <span className="absolute inset-0" />
@@ -126,7 +124,7 @@ function Hit({ hit }) {
         <p className="text-xs text-gray-400">
           {timeAgo(hit.publishedAt || hit._createdAt)} by {hit.author}
         </p>
-        <div className="mt-1 text-sm text-gray-400 max-w-xl line-clamp-2">
+        <div className="mt-1 line-clamp-2 max-w-xl text-sm text-gray-400">
           <Highlight attribute="tldr" hit={hit} />
         </div>
       </div>

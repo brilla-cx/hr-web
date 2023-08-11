@@ -52,7 +52,7 @@
     "react-hook-form": "^7.45.4",
     "react-icons": "^4.10.1",
     "react-iframe": "^1.8.5",
-    "react-instantsearch-hooks-web": "^6.47.3",
+    "react-instantsearch": "^7.0.1",
     "react-share": "^4.4.1",
     "react-social-media-embed": "^2.3.5",
     "react-textra": "^0.2.0",
