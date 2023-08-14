@@ -23,7 +23,7 @@
     "@sanity/block-content-to-html": "^2.0.0",
     "@sanity/cli": "^3.15.0",
     "@sanity/code-input": "^4.1.1",
-    "@sanity/scheduled-publishing": "^1.2.0",
+    "@sanity/scheduled-publishing": "^1.2.1",
     "@sanity/studio-secrets": "^2.0.2",
     "@sanity/ui": "^1.7.4",
     "@sanity/vision": "^3.15.0",
