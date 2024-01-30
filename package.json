@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
     "lint:next": "next lint -- --ignore-path .gitignore",
-    "release": "standard-version"
+    "release": "standard-version",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
