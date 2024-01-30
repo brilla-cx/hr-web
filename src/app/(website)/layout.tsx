@@ -7,6 +7,8 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
 
+import type { Viewport } from 'next';
+
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
 
@@ -34,7 +36,6 @@ export const metadata: Metadata = {
     image: "/og.png",
   },
   referrer: "origin-when-cross-origin",
-  viewport: "width=device-width, initial-scale=1.0",
   authors: [
     {
       name: "Hey Rebekah Team",
@@ -96,6 +97,16 @@ export const metadata: Metadata = {
     "Newsletter for AI",
     "AI Newsletter for knowledge workers",
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f8f9fb' },
+    { media: '(prefers-color-scheme: dark)', color: '#020617' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+  colorScheme: 'dark light',
 };
 
 const lexend = localFont({
