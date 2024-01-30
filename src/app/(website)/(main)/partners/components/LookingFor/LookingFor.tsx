@@ -5,7 +5,13 @@ const expectations = [
     name: "Exclusive discount",
     description: (
       <>
-        If you already have an affiliate program, no problem. We'll waive any and all commission/referral payments unconditionally. You'll never pay us in exchange for an <span>exclusive<sup>1</sup></span> Hey Rebekah reader discount.
+        If you already have an affiliate program, no problem. We&apos;ll waive
+        any and all commission/referral payments unconditionally. You&apos;ll
+        never pay us in exchange for an{" "}
+        <span>
+          exclusive<sup>1</sup>
+        </span>{" "}
+        Hey Rebekah reader discount.
       </>
     ),
   },
@@ -31,8 +37,8 @@ export default function LookingFor() {
           </H3>
           <p className="mt-6 text-lg leading-8 text-gray-400">
             Treat our readers to exclusive discounts, rather than lining our
-            pockets with fat affiliate commissions. It's a win-win that's sure
-            to bring smiles all around.
+            pockets with fat affiliate commissions. It&apos;s a win-win
+            that&apos;s sure to bring smiles all around.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -53,7 +59,8 @@ export default function LookingFor() {
           </dl>
         </div>
         <Lead className="mt-16 text-center text-xs text-gray-400">
-          Discounts are not public. They're reserved for qualified subscribers upon request.
+          Discounts are not public. They&apos;re reserved for qualified
+          subscribers upon request.
         </Lead>
       </div>
     </div>

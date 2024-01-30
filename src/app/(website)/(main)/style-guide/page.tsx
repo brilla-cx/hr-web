@@ -2,7 +2,7 @@ import Container from "@/components/layout/Container/Container";
 import { H1, H2, H3, H4, H5, H6, Lead } from "@/components/ui";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { Blockquote, Prose } from "@/components/ui";
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL } from "@/lib/constants";
 
 import Badge from "./components/Badge/Badge";
 import Spacer from "./components/Spacer/Spacer";
@@ -33,40 +33,42 @@ export function generateMetadata() {
   return metadata;
 }
 
-
 export default function StyleGuide() {
   return (
     <div className="px-6 py-24 sm:py-32 lg:px-8">
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
           Style Guide
         </h2>
         <p className="mt-6 text-lg leading-8 text-gray-600">
-          Our website style guide is yours to steal like an artist. But don't forget to grab the appropriate licenses for any paid services we may have used. Show us what you build.
+          Our website style guide is yours to steal like an artist. But
+          don&apos;t forget to grab the appropriate licenses for any paid
+          services we may have used. Show us what you build.
         </p>
         <p className="mt-6 text-lg leading-8 text-gray-600">
-          Built with: Sanity.io, Next JS, Tailwind UI, Tailwind CSS, Stablo Pro Blog Template, and a whole lotta grief from Ambreen and Rebekah.
+          Built with: Sanity.io, Next JS, Tailwind UI, Tailwind CSS, Stablo Pro
+          Blog Template, and a whole lotta grief from Ambreen and Rebekah.
         </p>
       </div>
       <Container>
         <div className="mt-10">
           <H4>Colors</H4>
-          <div className="flex flex-wrap gap-10 pt-6 mt-6 border-t">
-            <div className="w-16 h-16 bg-black rounded" />
-            <div className="w-16 h-16 bg-white rounded shadow" />
-            <div className="w-16 h-16 rounded bg-neutral-200" />
-            <div className="w-16 h-16 rounded bg-indigo-950" />
-            <div className="w-16 h-16 rounded bg-slate-950" />
-            <div className="w-16 h-16 rounded bg-pink" />
-            <div className="w-16 h-16 rounded bg-amber-400" />
-            <div className="w-16 h-16 rounded bg-green" />
-            <div className="w-16 h-16 rounded bg-sky-500" />
+          <div className="mt-6 flex flex-wrap gap-10 border-t pt-6">
+            <div className="h-16 w-16 rounded bg-black" />
+            <div className="h-16 w-16 rounded bg-white shadow" />
+            <div className="h-16 w-16 rounded bg-neutral-200" />
+            <div className="h-16 w-16 rounded bg-indigo-950" />
+            <div className="h-16 w-16 rounded bg-slate-950" />
+            <div className="h-16 w-16 rounded bg-pink" />
+            <div className="h-16 w-16 rounded bg-amber-400" />
+            <div className="bg-green h-16 w-16 rounded" />
+            <div className="h-16 w-16 rounded bg-sky-500" />
           </div>
         </div>
 
         <div className="mt-16">
           <H4>Typography</H4>
-          <div className="pt-6 mt-6 border-t">
+          <div className="mt-6 border-t pt-6">
             <Badge>h1</Badge>
             <H1>This is a Heading</H1>
             <Spacer />
@@ -99,7 +101,7 @@ export default function StyleGuide() {
         </div>
         <div className="mt-10">
           <H4>Badges</H4>
-          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
+          <div className="mt-4 flex flex-col flex-wrap items-start gap-5 border-t pt-6">
             <Badge>Default Badge</Badge>
             <Badge variant="primary">Primary</Badge>
             <Badge variant="secondary">Secondary</Badge>
@@ -126,7 +128,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Blockquote</H4>
-          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
+          <div className="mt-4 flex flex-col flex-wrap items-start gap-5 border-t pt-6">
             <Blockquote author="Blockquote">
               This stylesheet is going to help so freaking much.
             </Blockquote>
@@ -135,7 +137,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Prose</H4>
-          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
+          <div className="mt-4 flex flex-col flex-wrap items-start gap-5 border-t pt-6">
             <Prose>
               <p>
                 Lorem ipsum dolor sit amet,{" "}
@@ -219,8 +221,8 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Buttons</H4>
-          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
-            <div className="grid gap-10 place-items-center lg:grid-cols-4">
+          <div className="mt-4 flex flex-col flex-wrap items-start gap-5 border-t pt-6">
+            <div className="grid place-items-center gap-10 lg:grid-cols-4">
               <div>
                 <Button>Button</Button>
                 <Spacer />
@@ -254,7 +256,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Button Links</H4>
-          <div className="flex flex-col flex-wrap items-start gap-5 pt-6 mt-4 border-t">
+          <div className="mt-4 flex flex-col flex-wrap items-start gap-5 border-t pt-6">
             <Button href="#">Link</Button>
             <Button href="#" variant="secondary">
               Link
@@ -264,7 +266,7 @@ export default function StyleGuide() {
 
         <div className="mt-10">
           <H4>Forms</H4>
-          <div className="flex-wrap items-start gap-5 pt-6 mt-4 border-t">
+          <div className="mt-4 flex-wrap items-start gap-5 border-t pt-6">
             <form action="">
               <div className="grid max-w-lg gap-5">
                 <Input name="name" placeholder="First Name" />
@@ -284,5 +286,5 @@ export default function StyleGuide() {
   );
 }
 
-export const dynamic = 'force-static'
-export const revalidate = false
+export const dynamic = "force-static";
+export const revalidate = false;

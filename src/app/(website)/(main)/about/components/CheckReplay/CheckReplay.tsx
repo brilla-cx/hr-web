@@ -1,5 +1,3 @@
-import React from "react";
-
 import { H3 } from "@/components/ui";
 
 interface AboutFact {
@@ -11,14 +9,14 @@ interface AboutFact {
 function CheckReplayCard(props: AboutFact) {
   const { factDesc, factNumber, factTitle } = props;
   return (
-    <div className="flex flex-col p-8 border rounded border-gray-200/10 bg-slate-900">
-      <dt className="flex items-center mb-4 text-5xl font-semibold leading-7 text-gray-200 gap-x-3">
+    <div className="flex flex-col rounded border border-gray-200/10 bg-slate-900 p-8">
+      <dt className="mb-4 flex items-center gap-x-3 text-5xl font-semibold leading-7 text-gray-200">
         {factNumber}
       </dt>
-      <dt className="flex items-center text-base font-semibold leading-7 text-gray-200 gap-x-3">
+      <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-200">
         {factTitle}
       </dt>
-      <dd className="flex flex-col flex-auto mt-4 text-base leading-7 text-gray-300">
+      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-300">
         <p className="flex-auto">{factDesc}</p>
       </dd>
     </div>
@@ -27,21 +25,21 @@ function CheckReplayCard(props: AboutFact) {
 
 function CheckReplay() {
   return (
-    <div className="px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
-      <div className="max-w-2xl mx-auto lg:text-center">
+    <div className="lg:py-26 px-2 py-16 sm:py-24 lg:px-16">
+      <div className="mx-auto max-w-2xl lg:text-center">
         <H3 as="h2" className="mt-2 text-gray-200">
-          Let's check the replay
+          Let&apos;s check the replay
         </H3>
         <p className="mt-6 text-lg leading-8 text-gray-400">
           The Hey Rebekah fam has been hustling together since 2013. Our
           combined experience is off the charts high, reaching almost
-          rude-to-ask levels. But seriously, we're lucky to have worked with
-          wicked smart people.
+          rude-to-ask levels. But seriously, we&apos;re lucky to have worked
+          with wicked smart people.
         </p>
         <p className="mt-6 text-lg leading-8 text-gray-400">
-          Realizing we still got a lot of game left, we're committed to passing
-          on our Legos and open-sourcing our playbooks. Some milestones we've
-          achieved:
+          Realizing we still got a lot of game left, we&apos;re committed to
+          passing on our Legos and open-sourcing our playbooks. Some milestones
+          we&apos;ve achieved:
         </p>
       </div>
       <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">

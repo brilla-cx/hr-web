@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Turnstile from "react-turnstile";
 
 import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
@@ -64,7 +64,7 @@ export function FormSubmitVerfication({
   return (
     <>
       <div className="mt-5 space-y-3 text-center text-gray-400">
-        <span>Just a sec, we're blowing up your party balloons</span>
+        <span>Just a sec, we&apos;re blowing up your party balloons</span>
       </div>
       <ReactTurnstile setVerified={setVerified} />
     </>

@@ -16,7 +16,7 @@ import { apiVersion, dataset, projectId, useCdn } from "@/sanity/config";
 
 const algolia = algoliasearch(
   "U5XNUAICIA",
-  process.env.ALGOLIA_WRITE_AI_KEY as string
+  process.env.ALGOLIA_WRITE_AI_KEY as string,
 );
 
 const sanityClient = createClient({ projectId, dataset, apiVersion, useCdn });
@@ -35,18 +35,19 @@ export async function POST(req: NextRequest) {
         success: false,
         message: "secret or signature not found",
       },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
   const body = await req.json();
+  // eslint-disable-next-line no-console
   console.log(body);
 
   // Check the signature valid or not
   const validSignature = isValidSignature(
     JSON.stringify(body),
     signature,
-    secret
+    secret,
   );
   // If not, throw error
   if (!validSignature) {
@@ -55,7 +56,7 @@ export async function POST(req: NextRequest) {
         success: false,
         message: "Invalid signature",
       },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -112,18 +113,19 @@ export async function POST(req: NextRequest) {
     },
     (document) => {
       return document;
-    }
+    },
   );
 
   try {
     // eslint-disable-next-line no-sync
     await sanityAlgolia.webhookSync(sanityClient, body);
+    // eslint-disable-next-line no-console
     console.log("algolia sync success");
     return NextResponse.json(
       { success: true, message: "Success" },
       {
         status: 200,
-      }
+      },
     );
   } catch (err) {
     console.error(err);
@@ -131,7 +133,7 @@ export async function POST(req: NextRequest) {
       { message: "Something went wrong", error: err },
       {
         status: 500,
-      }
+      },
     );
   }
 }

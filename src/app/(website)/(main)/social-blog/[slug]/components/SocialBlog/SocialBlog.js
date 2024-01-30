@@ -28,7 +28,7 @@ export default function SocialBlog(props) {
         />
         <Container className="relative z-10 mt-6 flex flex-col items-center">
           <p className="inline-block text-xs font-semibold uppercase tracking-wider text-gray-300">
-            Rebekah Radice's Blog
+            Rebekah Radice&apos;s Blog
           </p>
 
           <H1
@@ -46,7 +46,7 @@ export default function SocialBlog(props) {
                     href={`/author/${socialBlog?.author?.slug?.current}`}
                     className={cx(
                       "font-semibold text-gray-300",
-                      lightHoverStyles
+                      lightHoverStyles,
                     )}>
                     {socialBlog?.author?.name}
                   </Link>

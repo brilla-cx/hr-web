@@ -126,9 +126,11 @@ const Timeline: React.FC<TimelineProps> = ({ setObserver, className }) => {
                     "absolute min-w-[300px] flex-wrap",
                     isEven
                       ? "left-auto -mt-10 ml-10  text-left md:right-[50%] md:mr-10 md:text-right"
-                      : "left-auto top-[20%] -mt-5 ml-10 text-left"
+                      : "left-auto top-[20%] -mt-5 ml-10 text-left",
                   )}>
-                  <H5 as="h2" className="text-2xl text-gray-200">{title}</H5>
+                  <H5 as="h2" className="text-2xl text-gray-200">
+                    {title}
+                  </H5>
                   <Lead className="text-gray-400">{description}</Lead>
                 </div>
               </div>
@@ -144,11 +146,16 @@ function RebekahTimeline() {
   return (
     <div className="lg:py-26 mx-auto px-4 py-12 !pb-10 sm:px-8 sm:py-20">
       <div className="mx-auto max-w-4xl text-center">
-        <H3 as="h2" className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
-          About Rebekah Radice's Career
+        <H3
+          as="h2"
+          className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+          About Rebekah Radice&apos;s Career
         </H3>
         <Lead className="mt-6 text-lg leading-8 text-gray-400">
-          People often ask how I landed here. To save time answering the same question on repeat, my trusty tech genius whipped up this slick timeline. Now I can hit 'em with an auto-reply. <br /> Because, hey, time is money, right?.
+          People often ask how I landed here. To save time answering the same
+          question on repeat, my trusty tech genius whipped up this slick
+          timeline. Now I can hit &apos;em with an auto-reply. <br /> Because,
+          hey, time is money, right?.
         </Lead>
         <TimelineObserver
           initialColor="rgb(71 85 105 / var(--tw-bg-opacity))"

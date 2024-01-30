@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 
 import { H3, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
@@ -24,7 +24,7 @@ const content: ReactNode[] = [
 
 const WtfIsHeyRebekah: FC = () => {
   return (
-    <div className="px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
+    <div className="lg:py-26 px-2 py-16 sm:py-24 lg:px-16">
       <H3 as="h2" className="pb-6 text-center text-gray-200">
         Who TF is Rebekah Radice?
       </H3>
@@ -36,7 +36,11 @@ const WtfIsHeyRebekah: FC = () => {
           </Lead>
         ))}
         <div className="mx-4 my-7 mt-8 border-l-2 border-pink p-6 pl-4 text-xl leading-relaxed text-gray-300">
-          <p>We all long to push past limits into uncharted territory. Technology may change how we work, but it can't replace our thirst for creativity, meaning, and impact.</p>
+          <p>
+            We all long to push past limits into uncharted territory. Technology
+            may change how we work, but it can&apos;t replace our thirst for
+            creativity, meaning, and impact.
+          </p>
           <p className="mt-6">— Ambreen & Rebekah</p>
         </div>
       </div>

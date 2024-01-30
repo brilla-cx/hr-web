@@ -3,11 +3,10 @@
 import "../globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
+import type { Viewport } from "next";
 import { Metadata } from "next";
 import localFont from "next/font/local";
 import React from "react";
-
-import type { Viewport } from 'next';
 
 import { SITE_URL } from "@/lib/constants";
 import { cx } from "@/lib/utils";
@@ -101,12 +100,12 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f9fb' },
-    { media: '(prefers-color-scheme: dark)', color: '#020617' },
+    { media: "(prefers-color-scheme: light)", color: "#f8f9fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#020617" },
   ],
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  colorScheme: 'dark light',
+  colorScheme: "dark light",
 };
 
 const lexend = localFont({

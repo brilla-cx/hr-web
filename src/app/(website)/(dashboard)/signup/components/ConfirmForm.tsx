@@ -1,4 +1,4 @@
-import React, { Dispatch, Fragment, SetStateAction, useState } from "react";
+import { Dispatch, Fragment, SetStateAction, useState } from "react";
 
 import { FormSubmitVerfication } from "@/components/shared/reactTurnstile/ReactTurnstile";
 import { GlowingButton, Lead } from "@/components/ui";
@@ -6,7 +6,7 @@ import { useSignupContext } from "@/context/SignupContext";
 
 async function submitFormSignUp(
   setLoading: Dispatch<SetStateAction<boolean>>,
-  onSubmitAll: () => Promise<void>
+  onSubmitAll: () => Promise<void>,
 ) {
   setLoading(true);
   try {

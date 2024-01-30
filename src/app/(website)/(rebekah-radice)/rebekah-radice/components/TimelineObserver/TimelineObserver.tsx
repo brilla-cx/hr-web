@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 interface TimelineObserverProps {
   handleObserve?: (
-    observer: (target: Element, callbackFn?: () => void) => void
+    observer: (target: Element, callbackFn?: () => void) => void,
   ) => JSX.Element;
 
   initialColor?: string;
@@ -147,7 +147,7 @@ const TimelineObserver = ({
         callbacks.current[elemId] = callbackFn;
       }
     },
-    [initialColor, callback]
+    [initialColor, callback],
   );
 
   useEffect(() => {

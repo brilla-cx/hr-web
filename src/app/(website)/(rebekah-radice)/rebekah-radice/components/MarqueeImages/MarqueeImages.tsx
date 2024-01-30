@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import Marquee from "react-fast-marquee";
 
 function MarqueeItem({
@@ -14,7 +14,7 @@ function MarqueeItem({
       {images.map((rrimg) => (
         <div
           key={rrimg}
-          className="relative m-5 overflow-hidden transition-all bg-gray-800 rounded group">
+          className="group relative m-5 overflow-hidden rounded bg-gray-800 transition-all">
           <div className="relative block aspect-[5/4]">
             <div className="relative h-72 w-72">
               <Image
@@ -35,10 +35,10 @@ function MarqueeItem({
 function MarqueeImages() {
   const firstRowImages = marqueeImageData.slice(
     0,
-    Math.ceil(marqueeImageData.length / 2)
+    Math.ceil(marqueeImageData.length / 2),
   );
   const secondRowImages = marqueeImageData.slice(
-    Math.ceil(marqueeImageData.length / 2)
+    Math.ceil(marqueeImageData.length / 2),
   );
 
   return (

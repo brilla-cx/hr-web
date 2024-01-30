@@ -15,7 +15,6 @@ import { client } from "@/sanity/client";
 
 const resources = [
   { name: "Archives", href: "/gists" },
-  { name: "Juno AI", href: "/juno" },
   { name: "Built With", href: "/built-with" },
   { name: "Book Club", href: "/books" },
   { name: "Subscribe", href: "/signup" },

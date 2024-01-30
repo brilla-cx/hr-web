@@ -1,5 +1,4 @@
 import { PortableText } from "@portabletext/react";
-import React from "react";
 
 import Container from "@/components/layout/Container/Container";
 import { Prose } from "@/components/ui";

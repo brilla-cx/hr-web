@@ -1,5 +1,4 @@
 import { Turnstile } from "@marsidev/react-turnstile";
-import React from "react";
 
 import { CLOUDFLARE_SITE_KEY } from "@/lib/constants";
 function ReactTurnstile() {

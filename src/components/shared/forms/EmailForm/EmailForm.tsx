@@ -1,12 +1,13 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import GlowingButton from "../../../ui/glowingButton";
-import { H3, Lead } from "../../../ui/typography";
+import GlowingButton from "@/components/ui/glowingButton";
+import { H3, Lead } from "@/components/ui/typography";
+
 import ReactTurnstile from "../../reactTurnstile/ReactTurnstile";
 
 export interface LeadData {
@@ -21,12 +22,12 @@ export interface LeadData {
 }
 
 const leadSchema = z.object({
-  firstName: z.string().nonempty("First name is required"),
-  lastName: z.string().nonempty("Last name is required"),
+  firstName: z.string().min(2, "First name is required"),
+  lastName: z.string().min(2, "Last name is required"),
   email: z.string().email("Invalid email address"),
-  phoneNumber: z.string().nonempty("Phone number is required"),
-  jobTitle: z.string().nonempty("Job title is required"),
-  message: z.string().nonempty("Message is required"),
+  phoneNumber: z.string().min(10, "Phone number is required"),
+  jobTitle: z.string().min(3, "Job title is required"),
+  message: z.string().min(10, "Message is required"),
 });
 
 interface Props {
@@ -68,9 +69,9 @@ function EmailForm(props: Props) {
               Together with Hey Rebekah
             </H3>
             <Lead className="mx-auto max-w-lg pt-5 text-center text-gray-400">
-              We're excited you're considering a partnership with us! Fill out
-              the form below, and we'll get back to you pronto - faster than a
-              chicken lays an egg.
+              We&apos;re excited you&apos;re considering a partnership with us!
+              Fill out the form below, and we&apos;ll get back to you pronto -
+              faster than a chicken lays an egg.
             </Lead>
           </div>
           <div className="col-span-4 md:col-span-2">

@@ -19,6 +19,7 @@ import { postByIdQuery } from "./client";
 export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
   const toast = useToast();
   const { secrets } = useSecrets("heyrebekah");
+  // eslint-disable-next-line no-unused-vars
   const [isLoading, setIsLoading] = React.useState(false);
 
   const { publish } = useDocumentOperation(id, type);
@@ -74,7 +75,7 @@ export const SendToIterable: DocumentActionComponent = ({ id, type }) => {
             "api-key": (secrets as { ITERABLE_TOKEN: string }).ITERABLE_TOKEN,
           },
           body: JSON.stringify(payload),
-        }
+        },
       );
 
       if (!response.ok) {

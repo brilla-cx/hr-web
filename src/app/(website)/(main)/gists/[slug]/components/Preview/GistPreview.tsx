@@ -9,7 +9,7 @@ import Gist from "../Gist/Gist";
 const Loading = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      Just a sec, getting Rebekah's attention...
+      Just a sec, getting Rebekah&apos;s attention...
     </div>
   );
 };

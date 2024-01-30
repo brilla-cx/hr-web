@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 import Container from "@/components/layout/Container/Container";
 import PageHeader from "@/components/shared/PageHeader/PageHeader";
@@ -13,7 +13,7 @@ export default function Tools({ tools, categories }) {
 
   const renderTools = tools.filter(
     (tool) =>
-      selectedCategory === null || tool?.category?._id === selectedCategory
+      selectedCategory === null || tool?.category?._id === selectedCategory,
   );
 
   return (
