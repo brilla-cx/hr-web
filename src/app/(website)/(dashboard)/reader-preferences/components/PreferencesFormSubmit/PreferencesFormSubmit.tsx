@@ -1,4 +1,4 @@
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 import { Dispatch, Fragment, SetStateAction, useEffect } from "react";
 
@@ -11,7 +11,7 @@ import { PreferenceContextState } from "@/types/types";
 async function submitForm(
   data: Pick<PreferenceContextState, "data">,
   setLoading: Dispatch<SetStateAction<boolean>>,
-  router: AppRouterInstance
+  router: AppRouterInstance,
 ) {
   setLoading(true);
   const {
@@ -42,7 +42,7 @@ function SubmitFormButton() {
         data: data,
       },
       setLoading,
-      router
+      router,
     );
   }
 

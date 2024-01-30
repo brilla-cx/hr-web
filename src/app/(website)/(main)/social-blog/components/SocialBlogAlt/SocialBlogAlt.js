@@ -28,7 +28,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useNextSanityImage } from "next-sanity-image";
-import React from "react";
 
 import { H3, H6 } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
@@ -70,7 +69,7 @@ export default function SocialBlogAlt({ post, minimal, fontSize, noDate }) {
       "text-gray-200",
       fontSize === "large" && "mt-3 line-clamp-2",
       !fontSize && "mt-1 line-clamp-2",
-      hoverStyles
+      hoverStyles,
     );
 
     return (
@@ -117,7 +116,7 @@ export default function SocialBlogAlt({ post, minimal, fontSize, noDate }) {
       className={cx(
         "group cursor-pointer",
         minimal && "grid gap-10 md:grid-cols-2",
-        "rounded border border-neutral-200/10 bg-slate-900 px-6 py-6 transition-all duration-300 hover:scale-105 hover:transform hover:bg-slate-800"
+        "rounded border border-neutral-200/10 bg-slate-900 px-6 py-6 transition-all duration-300 hover:scale-105 hover:transform hover:bg-slate-800",
       )}>
       <div className={cx(minimal && "flex items-center")}>
         {renderPostTitle()}

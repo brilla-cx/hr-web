@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Blockquote({ children, author }) {
   return (
     <blockquote className="border-l-4 border-pink px-5 py-2">

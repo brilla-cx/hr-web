@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 "use client";
-import React, { Fragment, useRef } from "react";
+import { Fragment, useRef } from "react";
 
 import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";

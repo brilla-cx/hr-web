@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import { GlowingButton, H3, H4, Lead } from "@/components/ui";
 
@@ -57,34 +57,38 @@ function RebekahServices() {
     });
   }, []);
   return (
-    <div className="grid items-center grid-cols-2 gap-12">
-      <div className="hidden holder md:block">
+    <div className="grid grid-cols-2 items-center gap-12">
+      <div className="holder hidden md:block">
         {services.map((srv) => (
           <div
             key={srv.image}
-            className="sticky w-full rounded holder__head h-96 bg-slate-900">
+            className="holder__head sticky h-96 w-full rounded bg-slate-900">
             <Image
               src={srv.image}
               alt=""
-              className="object-cover w-full h-full rounded"
+              className="h-full w-full rounded object-cover"
               fill
             />
           </div>
         ))}
       </div>
-      <div className="col-span-2 holder md:col-span-1">
+      <div className="holder col-span-2 md:col-span-1">
         {services.map((srv) => (
           <div
             key={srv.serviceName}
-            className="sticky rounded holder__head bg-slate-900">
+            className="holder__head sticky rounded bg-slate-900">
             <div className="flex flex-col justify-center space-y-4 !p-10 py-5 align-middle">
               <H3 className="!text-sm font-bold text-gray-200">
                 {srv.serviceName}
               </H3>
               <H4 className="font-bold text-gray-200">{srv.serviceMoto}</H4>
               <Lead className="text-gray-400">{srv.ServiceDesc}</Lead>
-              <div className="max-w-sm mt-12">
-                <GlowingButton type="link" href="#contact" size="sm" ariaLabel="Scroll to Contact Form">
+              <div className="mt-12 max-w-sm">
+                <GlowingButton
+                  type="link"
+                  href="#contact"
+                  size="sm"
+                  ariaLabel="Scroll to Contact Form">
                   {srv.serviceLink}
                 </GlowingButton>
               </div>

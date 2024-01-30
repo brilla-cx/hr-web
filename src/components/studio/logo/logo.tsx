@@ -1,6 +1,6 @@
 // components/studio/logo.tsx
 import Image from "next/image";
-import React, { FC } from "react";
+import { FC } from "react";
 
 import LogoImage from "./hey-rebekah-logo.svg";
 

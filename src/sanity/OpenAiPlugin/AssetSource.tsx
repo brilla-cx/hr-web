@@ -8,7 +8,7 @@ import {
   Stack,
   TextInput,
 } from "@sanity/ui";
-import React, { useState } from "react";
+import { useState } from "react";
 import { SiOpenai } from "react-icons/si";
 import { AssetFromSource, AssetSourceComponentProps } from "sanity";
 
@@ -47,7 +47,7 @@ function ImagePlugin(props: AssetSourceComponentProps) {
     setLoading(true);
     const image = await fetchImage(
       prompt,
-      (secrets as { OPENAI_API_KEY: string }).OPENAI_API_KEY
+      (secrets as { OPENAI_API_KEY: string }).OPENAI_API_KEY,
     );
     const newImageValue = `data:image/png;base64,${image[0].b64_json}`;
     setImg(newImageValue);

@@ -35,7 +35,7 @@ function ListCard(props: ListItem) {
         {typeof props.desc === "string" ? (
           <p
             className="flex-auto"
-          // eslint-disable-next-line react/no-danger
+            // eslint-disable-next-line react/no-danger
           >
             {props.desc}
           </p>
@@ -49,21 +49,24 @@ function ListCard(props: ListItem) {
 
 function WhatIsImportant() {
   return (
-    <div className="flex flex-col items-center justify-center px-2 py-16 sm:py-24 lg:px-16 lg:py-26">
+    <div className="lg:py-26 flex flex-col items-center justify-center px-2 py-16 sm:py-24 lg:px-16">
       <div className="mx-auto max-w-2xl lg:text-center">
         <H3
           as="h2"
           className="mt-2 font-bold tracking-tight text-gray-200 sm:text-6xl">
-          What's important to us
+          What&apos;s important to us
         </H3>
         <p className="mt-6 text-lg leading-8 text-gray-400">
-          We imagine a world where all knowledge workers have fair opportunities. They can learn, grow, and thrive in their career. Plus, gain access to tools that help them make more money and find their joy.
+          We imagine a world where all knowledge workers have fair
+          opportunities. They can learn, grow, and thrive in their career. Plus,
+          gain access to tools that help them make more money and find their
+          joy.
         </p>
         <p className="mt-6 text-lg leading-8 text-gray-400">
-          We're firm believers in the principles of people-first. When we put
-          our team first, they put our customers first, and eventually our
-          customers put us first. Even though we're not perfect, we always try
-          to do the right thing.
+          We&apos;re firm believers in the principles of people-first. When we
+          put our team first, they put our customers first, and eventually our
+          customers put us first. Even though we&apos;re not perfect, we always
+          try to do the right thing.
         </p>
       </div>
       <div className="mx-auto mt-16 sm:mt-20 lg:mt-24">
@@ -76,7 +79,6 @@ function WhatIsImportant() {
     </div>
   );
 }
-
 
 export default WhatIsImportant;
 
@@ -115,8 +117,8 @@ const listItems: ListItem[] = [
           {" "}
           gross revenue
         </Link>
-        processed via Stripe is committed to carbon removal. We're a 100% carbon
-        neutral company. We care about the environment.
+        processed via Stripe is committed to carbon removal. We&apos;re a 100%
+        carbon neutral company. We care about the environment.
       </p>
     ),
   },

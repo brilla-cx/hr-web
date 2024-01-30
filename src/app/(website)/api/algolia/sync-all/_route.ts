@@ -1,7 +1,5 @@
-import { isValidSignature, SIGNATURE_HEADER_NAME } from "@sanity/webhook";
 import algoliasearch from "algoliasearch";
-import { headers } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { createClient } from "next-sanity";
 import indexer from "sanity-algolia";
 
@@ -9,7 +7,7 @@ import { apiVersion, dataset, projectId, useCdn } from "@/sanity/config";
 
 const algolia = algoliasearch(
   "U5XNUAICIA",
-  process.env.ALGOLIA_WRITE_AI_KEY as string
+  process.env.ALGOLIA_WRITE_AI_KEY as string,
 );
 
 const sanityClient = createClient({ projectId, dataset, apiVersion, useCdn });
@@ -30,7 +28,7 @@ export async function GET(request: Request) {
         success: false,
         message: "Password does not match!",
       },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -90,7 +88,7 @@ export async function GET(request: Request) {
     },
     (document) => {
       return document;
-    }
+    },
   );
 
   try {
@@ -98,16 +96,17 @@ export async function GET(request: Request) {
       // eslint-disable-next-line no-sync
       sanityAlgolia.webhookSync(sanityClient, {
         ids: { created: ids, updated: [], deleted: [] },
-      })
+      }),
     );
 
+    // eslint-disable-next-line no-console
     console.log("algolia sync success");
 
     return NextResponse.json(
       { success: true, message: "Success" },
       {
         status: 200,
-      }
+      },
     );
   } catch (err) {
     console.error(err);
@@ -115,7 +114,7 @@ export async function GET(request: Request) {
       { message: "Something went wrong", error: err },
       {
         status: 500,
-      }
+      },
     );
   }
 }

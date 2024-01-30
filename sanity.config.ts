@@ -2,7 +2,7 @@ import { codeInput } from "@sanity/code-input";
 import { scheduledPublishing } from "@sanity/scheduled-publishing";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
+import { structureTool } from "sanity/structure";
 import { unsplashImageAsset } from "sanity-plugin-asset-source-unsplash";
 import { media } from "sanity-plugin-media";
 
@@ -25,7 +25,7 @@ const config = defineConfig({
   basePath: "/studio",
 
   plugins: [
-    deskTool({
+    structureTool({
       structure,
       defaultDocumentNode,
     }),
@@ -59,7 +59,7 @@ const config = defineConfig({
       if (document._type === "post") {
         const slug = await client.fetch(
           `*[_type == 'post' && (_id == $postId || _id == $draftId)][0].slug.current`,
-          { postId: document._id, draftId: `drafts.${document._id}` }
+          { postId: document._id, draftId: `drafts.${document._id}` },
         );
 
         const params = new URLSearchParams();

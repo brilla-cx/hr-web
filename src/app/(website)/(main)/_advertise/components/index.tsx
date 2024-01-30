@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
 import { WithContainer } from "@/components/layout/WithContainer/WithContainer";
 import BrandsMarquee from "@/components/sections/BrandsMarquee/BrandsMarquee";

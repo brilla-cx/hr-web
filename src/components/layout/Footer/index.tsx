@@ -40,7 +40,7 @@ export default function Footer() {
                         aria-label={`Go to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
-                          hoverStyles
+                          hoverStyles,
                         )}>
                         {item.name}
                       </Link>
@@ -60,7 +60,7 @@ export default function Footer() {
                         aria-label={`Go to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
-                          hoverStyles
+                          hoverStyles,
                         )}>
                         {item.name}
                       </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
                         aria-label={`Navigate to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
-                          hoverStyles
+                          hoverStyles,
                         )}
                         target="_blank"
                         rel="noopener noreferrer">
@@ -107,7 +107,7 @@ export default function Footer() {
                         aria-label={`Go to ${item.name} page`}
                         className={cx(
                           "text-lg leading-6 text-gray-200",
-                          hoverStyles
+                          hoverStyles,
                         )}>
                         {item.name}
                       </Link>
@@ -178,7 +178,6 @@ export default function Footer() {
 const navigation = {
   resources: [
     { name: "Archives", href: "/gists" },
-    { name: "Juno AI", href: "/juno" },
     { name: "Built With", href: "/built-with" },
     { name: "Book Club", href: "/books" },
     { name: "Subscribe", href: "/signup" },

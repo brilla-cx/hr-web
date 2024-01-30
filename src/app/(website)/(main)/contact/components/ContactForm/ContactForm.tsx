@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -63,8 +63,8 @@ function ContactForm() {
       <div className="mb-10 text-center">
         <H3 className="text-gray-200">Together with Hey Rebekah</H3>
         <Lead className="mx-auto max-w-lg pt-5 text-center text-gray-400">
-          Fill out the form below, and we'll get back to you reasonably quickly.
-          Seriously though, we will.
+          Fill out the form below, and we&apos;ll get back to you reasonably
+          quickly. Seriously though, we will.
         </Lead>
       </div>
       <form

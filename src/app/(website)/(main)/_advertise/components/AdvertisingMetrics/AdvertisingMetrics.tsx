@@ -1,5 +1,3 @@
-import React from "react";
-
 import { H4, Lead } from "@/components/ui";
 
 interface Data {
@@ -80,7 +78,7 @@ function SocialStatsCard(props: Data) {
   return (
     <div
       key={id}
-      className="col-span-3 p-8 text-left border rounded border-gray-200/10 bg-slate-900 md:col-span-1">
+      className="col-span-3 rounded border border-gray-200/10 bg-slate-900 p-8 text-left md:col-span-1">
       <H4 as="h3" className="mb-1 text-gray-200">
         {count}
       </H4>
@@ -91,15 +89,15 @@ function SocialStatsCard(props: Data) {
 
 function AdvertisingMetrics() {
   return (
-    <div className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
+    <div className="lg:py-26 mx-auto px-4 py-12 sm:px-8 sm:py-20">
       <H4 className="mb-1 text-gray-200">Email performance</H4>
-      <div className="grid grid-cols-3 gap-8 pt-20 md-gap-8">
+      <div className="md-gap-8 grid grid-cols-3 gap-8 pt-20">
         {socialData.emailPerformance.map((ep) => (
           <SocialStatsCard key={ep.id} {...ep} />
         ))}
       </div>
-      <H4 className="pt-20 mb-1 text-gray-200">Social audience</H4>
-      <div className="grid grid-cols-3 gap-8 pt-20 md-gap-8">
+      <H4 className="mb-1 pt-20 text-gray-200">Social audience</H4>
+      <div className="md-gap-8 grid grid-cols-3 gap-8 pt-20">
         {socialData.socialAudience.map((ep) => (
           <SocialStatsCard key={ep.id} {...ep} />
         ))}

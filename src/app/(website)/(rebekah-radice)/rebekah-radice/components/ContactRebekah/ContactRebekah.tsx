@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
-import React, { RefObject, useState } from "react";
+import { RefObject, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   AiFillFacebook,

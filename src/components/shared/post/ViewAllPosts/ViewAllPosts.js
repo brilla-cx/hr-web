@@ -1,6 +1,5 @@
 import cx from "classnames";
 import Link from "next/link";
-import React from "react";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
 // ViewAllPosts component
@@ -27,7 +26,7 @@ const ViewAllPosts = ({ href, buttonText, direction, variant = "light" }) => {
         className={cx(
           "text-med rounded-lg px-5 py-2 font-bold uppercase",
           variant === "dark" ? darkStyles : lightStyles,
-          "flex items-center justify-center"
+          "flex items-center justify-center",
         )}
         aria-label={`View ${buttonText}`}>
         {direction === "left" && (

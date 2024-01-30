@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { use } from "react";
 
 import Container from "@/components/layout/Container/Container";

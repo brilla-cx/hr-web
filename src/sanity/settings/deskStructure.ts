@@ -17,8 +17,8 @@ import {
   StructureBuilder,
   StructureResolver,
   StructureResolverContext,
-} from "sanity/desk";
-import Iframe from "sanity-plugin-iframe-pane";
+} from "sanity/structure";
+import { Iframe } from "sanity-plugin-iframe-pane";
 
 import { SITE_URL } from "../../lib/constants";
 // import { SEOPane } from "sanity-plugin-seo-pane";
@@ -34,15 +34,15 @@ const createListItem = (S, documentStore, title, icon, type) => {
           map((count) =>
             S.documentTypeList(type)
               .title(`${title} (${count})`)
-              .filter(`_type == "${type}"`)
-          )
-        )
+              .filter(`_type == "${type}"`),
+          ),
+        ),
     );
 };
 
 export const structure: StructureResolver = (
   S: StructureBuilder,
-  context: StructureResolverContext
+  context: StructureResolverContext,
 ) => {
   const { documentStore, currentUser } = context;
 
@@ -67,7 +67,7 @@ export const structure: StructureResolver = (
         documentStore,
         "Rebekah's Old Blogs",
         FaArchive,
-        "socialBlog"
+        "socialBlog",
       ),
       ...(currentUser?.roles.some((role) => role.name === "developer")
         ? [
@@ -76,7 +76,7 @@ export const structure: StructureResolver = (
               documentStore,
               "Secret Keys",
               FaKey,
-              "secretsKeys"
+              "secretsKeys",
             ),
           ]
         : []),
@@ -89,8 +89,8 @@ function getPreviewUrl(doc) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : process.env.NODE_ENV === "production"
-      ? SITE_URL
-      : `https://${process.env.VERCEL_URL}`;
+        ? SITE_URL
+        : `https://${process.env.VERCEL_URL}`;
 
   const TYPE_LOOKUP = {
     post: "gists",
@@ -110,7 +110,7 @@ function getPreviewUrl(doc) {
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
-  { schemaType }
+  { schemaType },
 ) => {
   const previewTypes = ["post", "socialBlog", "book", "tool", "legal"];
 

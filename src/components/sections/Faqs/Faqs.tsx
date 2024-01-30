@@ -1,9 +1,8 @@
 "use client";
 
 import { Disclosure } from "@headlessui/react";
-import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/20/solid";
+import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import React from "react";
 
 import { PortableText } from "@/components/shared/post/PortableText/PortableText";
 import hoverStyles from "@/lib/hover";
@@ -13,14 +12,14 @@ import { H3, Lead } from "../../ui";
 
 function Faqs({ faqs }: { faqs: any[] }) {
   return (
-    <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-16 lg:py-26">
+    <div className="lg:py-26 mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-16">
       <div className="mx-auto max-w-5xl">
         <H3 as="h2" className="text-gray-200">
           Frequently asked questions
         </H3>
         <Lead className="mt-6 text-gray-400">
-          Have a question? We've got answers. If the FAQ below don't do the
-          trick,{" "}
+          Have a question? We&apos;ve got answers. If the FAQ below don&apos;t
+          do the trick,{" "}
           <Link
             className={cx("font-bold text-gray-200", hoverStyles)}
             href="/contact">
@@ -41,15 +40,9 @@ function Faqs({ faqs }: { faqs: any[] }) {
                       </span>
                       <span className="ml-6 flex h-7 items-center">
                         {open ? (
-                          <MinusSmallIcon
-                            className="h-6 w-6"
-                            aria-hidden="true"
-                          />
+                          <MinusIcon className="h-6 w-6" aria-hidden="true" />
                         ) : (
-                          <PlusSmallIcon
-                            className="h-6 w-6"
-                            aria-hidden="true"
-                          />
+                          <PlusIcon className="h-6 w-6" aria-hidden="true" />
                         )}
                       </span>
                     </Disclosure.Button>

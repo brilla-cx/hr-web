@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 
 import OgImage from "@/components/shared/post/OgImage/OgImage";
 import { getCategorybySlug } from "@/sanity/client";

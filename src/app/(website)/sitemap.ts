@@ -18,7 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     `${SITE_URL}/contact`,
     `${SITE_URL}/editorial-policy`,
     `${SITE_URL}/gists`,
-    `${SITE_URL}/juno`,
     `${SITE_URL}/partners`,
     `${SITE_URL}/privacy`,
     `${SITE_URL}/rebekah-radice`,

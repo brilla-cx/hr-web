@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 import { H3, H4, Lead } from "@/components/ui";
 import hoverStyles from "@/lib/hover";
@@ -58,22 +57,29 @@ const socialData = [
 
 function SocialStats() {
   return (
-    <div className="px-4 py-12 mx-auto text-center lg:py-26 sm:px-8 sm:py-20">
-      <H3 as="h2" className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
+    <div className="lg:py-26 mx-auto px-4 py-12 text-center sm:px-8 sm:py-20">
+      <H3
+        as="h2"
+        className="text-4xl font-bold tracking-tight text-gray-200 sm:text-6xl">
         My community of over 338,000
       </H3>
-      <Lead className="max-w-4xl mx-auto mt-6 text-lg leading-8 text-gray-400">
-        I adore my community like peanut butter loves jelly. They've been with
-        me since the days when social media was only a baby. Remember when we
-        had to walk uphill both ways to post a tweet? Sigh... the good 'ol days.
+      <Lead className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-gray-400">
+        I adore my community like peanut butter loves jelly. They&apos;ve been
+        with me since the days when social media was only a baby. Remember when
+        we had to walk uphill both ways to post a tweet? Sigh... the good
+        &apos;ol days.
       </Lead>
-      <div className="grid grid-cols-3 gap-8 pt-20 md-gap-8">
+      <div className="md-gap-8 grid grid-cols-3 gap-8 pt-20">
         {socialData.map((sd) => (
           <div
             key={sd.socialName}
-            className="col-span-3 p-8 text-left border rounded border-gray-200/10 bg-slate-900 md:col-span-1">
-            <H4 as="h3" className="mb-1 text-gray-200">{sd.socialData}</H4>
-            <p className="mb-6 text-md uppercase tracking-wider text-gray-300">{sd.socialName}</p>
+            className="col-span-3 rounded border border-gray-200/10 bg-slate-900 p-8 text-left md:col-span-1">
+            <H4 as="h3" className="mb-1 text-gray-200">
+              {sd.socialData}
+            </H4>
+            <p className="text-md mb-6 uppercase tracking-wider text-gray-300">
+              {sd.socialName}
+            </p>
             <Lead className="mb-8 text-gray-400">{sd.socialDesc}</Lead>
             <div>
               <Link

@@ -1,22 +1,21 @@
 import Image from "next/image";
-import React from "react";
 
 import { H3 } from "@/components/ui";
 
 function PartnerCommunityData() {
   return (
-    <div className="px-4 py-12 mx-auto lg:py-26 sm:px-8 sm:py-20">
+    <div className="lg:py-26 mx-auto px-4 py-12 sm:px-8 sm:py-20">
       <div className="max-w-3xl">
         <H3 as="h2" className="mt-2 text-gray-200">
           The largest independent community of knowledge workers
         </H3>
         <p className="mt-6 text-xl leading-8 text-gray-400">
-          Rebekah Radice is a well known digital marketing influencer. She's
-          been thriving as a knowledge worker since 1998, building her
-          expertise through hands-on experience.
+          Rebekah Radice is a well known digital marketing influencer.
+          She&apos;s been thriving as a knowledge worker since 1998, building
+          her expertise through hands-on experience.
         </p>
       </div>
-      <div className="flex flex-col items-end justify-between max-w-2xl gap-8 mx-auto lg:mx-0 lg:max-w-none lg:flex-row">
+      <div className="mx-auto flex max-w-2xl flex-col items-end justify-between gap-8 lg:mx-0 lg:max-w-none lg:flex-row">
         <div className="w-full lg:max-w-lg lg:flex-auto">
           <Image
             src="https://cdn.sanity.io/images/smx99abf/production/ad6f0d5f399d24f4d7201b63ce36b0801e5f1ef5-1028x1028.webp"
@@ -63,7 +62,7 @@ function PartnerCommunityData() {
           ].map((opening) => (
             <li
               key={opening.id}
-              className="w-full col-span-2 p-8 border rounded border-gray-200/10 bg-slate-900 md:col-span-1">
+              className="col-span-2 w-full rounded border border-gray-200/10 bg-slate-900 p-8 md:col-span-1">
               <div className="flex flex-col gap-x-3">
                 <H3 as="h2" className="!text-4xl text-gray-200">
                   {opening.statsNumber}
