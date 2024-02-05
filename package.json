@@ -61,7 +61,7 @@
     "react-turnstile": "^1.1.2",
     "rss": "^1.2.2",
     "rxjs": "^7.8.1",
-    "sanity": "^3.26.1",
+    "sanity": "^3.27.1",
     "sanity-algolia": "^1.1.0",
     "sanity-plugin-asset-source-unsplash": "^1.1.2",
     "sanity-plugin-iframe-pane": "^3.1.3",
