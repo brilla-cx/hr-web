@@ -22,7 +22,7 @@
     "@portabletext/react": "^3.0.11",
     "@radix-ui/react-tabs": "^1.0.4",
     "@sanity/block-content-to-html": "^2.0.0",
-    "@sanity/cli": "^3.26.1",
+    "@sanity/cli": "^3.30.0",
     "@sanity/code-input": "^4.1.2",
     "@sanity/scheduled-publishing": "^1.2.4",
     "@sanity/studio-secrets": "^2.0.2",
